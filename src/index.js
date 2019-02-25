@@ -7,11 +7,19 @@ const env = process.env.NODE_ENV || 'development';
 const config = Object.assign({}, configs.development, configs[env]);
 
 export function map(opts) {
-    const style = opts.style || 'mapbox://styles/mapbox/streets-v9';
     mapboxgl.accessToken = opts.accessToken || config.accessToken;
-    
+
     let map = new mapboxgl.Map({
         container: opts.container,
-        style: style
+        style: opts.style || 'mapbox://styles/mapbox/streets-v9'
     });
+
+    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    }));
+    map.addControl(new mapboxgl.FullscreenControl());
 }
