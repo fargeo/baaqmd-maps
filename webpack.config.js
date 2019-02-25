@@ -1,0 +1,26 @@
+module.exports = {
+    output: {
+        path: __dirname + '/dist',
+        filename: 'baaqmd-maps.js',
+        library: 'baaqmdMaps',
+        libraryTarget: 'umd'
+    },
+    devServer: {
+        port: 3000,
+        contentBase: __dirname + '/dist',
+        inline: true
+    },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            loader: 'babel-loader'
+        }, {
+            test: /\.css$/,
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader'
+            }]
+        }]
+    }
+};
