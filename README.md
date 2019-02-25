@@ -18,7 +18,7 @@ yarn install
 ## Development
 To run the app locally, run the following from the root directory of your cloned repository:
 ```
-yarn run serve
+yarn dev
 ```
 
 The application should now be running at http://localhost:3000/
@@ -28,7 +28,7 @@ Changes that you make to javascript and CSS files will be automatically refreshe
 ## Building
 Before deploying, you must first build the website by running the following command from the root directory: 
 ```
-yarn run build
+yarn build
 ```
 
 ## Deployment
