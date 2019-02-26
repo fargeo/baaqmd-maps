@@ -21,6 +21,10 @@ module.exports = {
             }, {
                 loader: 'css-loader'
             }]
+        },{
+            test: /\.html$/,
+            exclude: /node_modules/,
+            loader: 'html-loader'
         }]
     }
 };
