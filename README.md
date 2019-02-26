@@ -1,7 +1,7 @@
 # BAAQMD Public Maps Library
 
 ## Examples
-View examples [here](https://fargeo.github.io/baaqmd-maps/).
+View examples [here](https://fargeo.github.io/baaqmd-maps/dist/).
 
 ## Getting Started
 Install the following dependencies:
