@@ -1,0 +1,8 @@
+.baaqmd-maps-main {
+    // put all style rules inside here to ensure they are scoped to library
+    height: 100%;
+    
+    .baaqmd-maps-map-wrapper, .baaqmd-maps-map {
+        height: 100%;
+    }
+}

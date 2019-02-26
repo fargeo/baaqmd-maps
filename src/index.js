@@ -1,4 +1,4 @@
-import './styles.css';
+import './styles.scss';
 import * as content from './index.html';
 import * as config from './config.json';
 import * as ko from 'knockout';
