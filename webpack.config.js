@@ -13,27 +13,17 @@ module.exports = {
     module: {
         rules: [{
             test: /\.js$/,
-            loader: 'babel-loader'
+            use: 'babel-loader'
         }, {
             test: /\.scss$/,
-            use: [{
-                loader: 'style-loader'
-            }, {
-                loader: 'css-loader'
-            }, {
-                loader: 'sass-loader'
-            }]
+            use: ['style-loader', 'css-loader', 'sass-loader']
         }, {
             test: /\.css$/,
-            use: [{
-                loader: 'style-loader'
-            }, {
-                loader: 'css-loader'
-            }]
+            use: ['style-loader', 'css-loader']
         }, {
             test: /\.html$/,
             exclude: /node_modules/,
-            loader: 'html-loader'
+            use: 'html-loader'
         }]
     }
 };

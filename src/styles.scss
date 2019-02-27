@@ -1,19 +1,14 @@
 .baaqmd-maps-main {
     // put all style rules inside here to ensure they are scoped to library
     height: 100%;
-    display: flex;
-    box-orient: horizontal;
     background: #fff;
     
     .baaqmd-maps-map-wrapper, .baaqmd-maps-map, .baaqmd-maps-details-panel {
         height: 100%;
     }
     
-    .baaqmd-maps-map-wrapper {
-        flex: 1;
-    }
-    
     .baaqmd-maps-details-panel {
         width: 300px;
+        float: left;
     }
 }
