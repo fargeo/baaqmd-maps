@@ -1,8 +1,8 @@
+import * as ko from 'knockout';
 import './styles.scss';
 import * as content from './index.html';
-import * as config from './config.json';
-import * as ko from 'knockout';
 import './components/map/';
+import './components/details-panel/';
 
 export function map(opts) {
     if (typeof opts.container === 'string') {
