@@ -4,6 +4,8 @@
 
 ## Basic Example Usage
 
+<iframe src="https://fargeo.github.io/baaqmd-maps/dist/" width="100%" height="500px;"></iframe>
+
 ```html
 <script src="https://fargeo.github.io/baaqmd-maps/dist/baaqmd-maps.js" type="text/javascript"></script>
 
@@ -34,8 +36,6 @@
     </script>
 </body>
 ```
-
-<iframe src="https://fargeo.github.io/baaqmd-maps/dist/" width="100%" height="300px;"></iframe>
 
 # API
 
