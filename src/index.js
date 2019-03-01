@@ -4,7 +4,7 @@ import * as content from './index.html';
 import './components/map/';
 import './components/details-panel/';
 
-export function map(opts) {
+export function Map(opts) {
     if (typeof opts.container === 'string') {
         opts.container = document.querySelector(`#${opts.container}`);
     }
