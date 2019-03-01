@@ -12,13 +12,11 @@
         padding: 0px;
         width: 0px;
         float: left;
-        border-right: 1px solid grey;
         position: relative;
         transition-property: all;
         transition-duration: 300ms;
         
         .baaqmd-maps-details-panel-expander {
-            border-right: 0px;
             position: absolute;
             transition-property: all;
             transition-duration: 300ms;
@@ -34,6 +32,7 @@
     }
     
     .baaqmd-maps-details-panel.expanded {
+        border-right: 1px solid grey;
         width: 300px;
         
         .baaqmd-maps-details-panel-expander {
