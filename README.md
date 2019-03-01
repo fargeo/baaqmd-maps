@@ -28,13 +28,14 @@
     </main>
     
     <script type="text/javascript">
-        // Create a map in <div id="map"></div>
         new baaqmdMaps.Map({
             container: "map"
         });
     </script>
 </body>
 ```
+
+<iframe src="https://fargeo.github.io/baaqmd-maps/dist/" width="100%" height="300px;"></iframe>
 
 # API
 
