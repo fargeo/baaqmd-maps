@@ -53,7 +53,7 @@ new Map(options: Object)
 
 - `el`: the HTMLElement into which the `Map` was rendered
 
-# Development
+# For Developers...
 
 ## Getting Started
 
@@ -80,10 +80,10 @@ Changes that you make to javascript and CSS files will be automatically refreshe
 
 ## Build
 
-Before deploying, you must first build the website by running the following command from the root directory: 
+Before deploying, you must first build the library by running the following command from the root directory: 
 
     yarn build
 
 ## Deploy
 
-To deploy the latest to the web, simply build (as per above) then commit and push your local changes, and merge them into to the `master` branch in Github.
+To deploy the latest to library and examples to the web, simply build (as per above) then commit and push your local changes, and merge them into to the `master` branch in Github.
