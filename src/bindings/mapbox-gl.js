@@ -5,12 +5,12 @@ import * as mapboxgl from 'mapbox-gl';
 
 ko.bindingHandlers.mapboxgl = {
     init: function(element, valueAccessor) {
-        const options = Object.assign({
-            zoom: 7,
-            center: [-122.172,37.822]
-        }, ko.unwrap(valueAccessor()) || {}, {
-            container: element
-        });
+        const options = Object.assign(
+            {},
+            config.default,
+            ko.unwrap(valueAccessor()) || {},
+            { container: element }
+        );
         mapboxgl.accessToken = options.accessToken || config.accessToken;
         let map = new mapboxgl.Map(options);
         map.on('load', function() {

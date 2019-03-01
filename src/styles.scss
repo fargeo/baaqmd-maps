@@ -9,9 +9,34 @@
     }
     
     .baaqmd-maps-details-panel {
-        padding: 15px;
-        width: 300px;
+        padding: 0px;
+        width: 0px;
         float: left;
         border-right: 1px solid grey;
+        position: relative;
+        transition-property: all;
+        transition-duration: 300ms;
+        
+        .baaqmd-maps-details-panel-expander {
+            position: absolute;
+            transition-property: all;
+            transition-duration: 300ms;
+            right: -38px;
+            width: 20px;
+            height: 20px;
+            top: 10px;
+            z-index: 100;
+            border-radius: 3px;
+            padding: 4px;
+            cursor: pointer;
+        }
+    }
+    
+    .baaqmd-maps-details-panel.expanded {
+        width: 300px;
+        
+        .baaqmd-maps-details-panel-expander {
+            right: 10px;
+        }
     }
 }

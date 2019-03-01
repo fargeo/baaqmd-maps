@@ -5,25 +5,21 @@
 ```html
 <script src="https://fargeo.github.io/baaqmd-maps/dist/baaqmd-maps.js" type="text/javascript"></script>
 
-<style media="screen">
-    main {
-        display: block;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+<style>
+    body {
+        margin: 0;
     }
 
     #map {
+        position: absolute;
         height: 100%;
+        right: 0;
+        left: 0;
     }
 </style>
 
 <body>
-    <main>
-        <div id="map"></div>
-    </main>
+    <div id="map"></div>
     
     <script type="text/javascript">
         new baaqmdMaps.Map({
@@ -31,6 +27,7 @@
         });
     </script>
 </body>
+
 ```
 
 # API

@@ -1,3 +1,6 @@
-<div class="baaqmd-maps-details-panel">
-    BAAQMD Public Maps
+<div class="baaqmd-maps-details-panel" data-bind="css: {'expanded': expanded }">
+    <div class="baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group" data-bind="
+        text: expanderText,
+        click: toggleExpanded
+     "></div>
 </div>
