@@ -4,7 +4,7 @@ import * as template from './template.html';
 export default ko.components.register('details-panel', {
     viewModel: function() {
         this.expanded = ko.observable(false);
-        this.expanderText = ko.computed(() => {
+        this.expanderText = ko.pureComputed(() => {
             return this.expanded() ? '<<' : '>>';
         });
         this.toggleExpanded = () => {
