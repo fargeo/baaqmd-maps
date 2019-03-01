@@ -1,8 +1,4 @@
-# Examples
-
-[View examples here](https://fargeo.github.io/baaqmd-maps/dist/).
-
-## Basic Example Usage
+# Example Usage
 
 <iframe src="https://fargeo.github.io/baaqmd-maps/dist/" width="100%" height="500px;"></iframe>
 
