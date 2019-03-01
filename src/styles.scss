@@ -2,13 +2,16 @@
     // put all style rules inside here to ensure they are scoped to library
     height: 100%;
     background: #fff;
+    font-family: sans-serif;
     
     .baaqmd-maps-map, .baaqmd-maps-details-panel {
         height: 100%;
     }
     
     .baaqmd-maps-details-panel {
+        padding: 15px;
         width: 300px;
         float: left;
+        border-right: 1px solid grey;
     }
 }

@@ -5,7 +5,10 @@ import * as mapboxgl from 'mapbox-gl';
 
 ko.bindingHandlers.mapboxgl = {
     init: function(element, valueAccessor) {
-        const options = Object.assign(ko.unwrap(valueAccessor()) || {}, {
+        const options = Object.assign({
+            zoom: 7,
+            center: [-122.172,37.822]
+        }, ko.unwrap(valueAccessor()) || {}, {
             container: element
         });
         mapboxgl.accessToken = options.accessToken || config.accessToken;
