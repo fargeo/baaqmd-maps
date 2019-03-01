@@ -5,21 +5,9 @@
 ## Basic Example Usage
 
 ```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>BAAQMD Maps Example</title>
-</head>
-
-<script src="baaqmd-maps.js" type="text/javascript"></script>
+<script src="https://fargeo.github.io/baaqmd-maps/dist/baaqmd-maps.js" type="text/javascript"></script>
 
 <style media="screen">
-    body {
-        margin: 0;
-    }
-
     main {
         display: block;
         position: fixed;
@@ -40,14 +28,12 @@
     </main>
     
     <script type="text/javascript">
-        // Create a new map in <div id="map"></div>
+        // Create a map in <div id="map"></div>
         new baaqmdMaps.Map({
             container: "map"
         });
     </script>
 </body>
-
-</html>
 ```
 
 # API
@@ -64,7 +50,7 @@ new Map(options: Object)
 
 #### `options` (Object)
 
--   `options.container` (HTMLElement | string): The HTML element, or the element's string `id`, into which the map will render. This element must have no children.
+-   `options.container` (HTMLElement OR string): The HTML element, or the element's string `id`, into which the map will render. This element must have no children.
 
 ### Instance Members
 
