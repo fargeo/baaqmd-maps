@@ -1,8 +1,9 @@
-export default function MapDetailsPanel(options) {
+export default function MapDetailsPanel(params) {
+    this.map = params.map;
     if (this.setupMap) {
-        if (options.map()) {
-            this.setUpMap(option.map());
+        if (this.map()){
+            this.setupMap(this.map());
         }
-        options.map.subscribe(setUpMap);
+        this.map.subscribe(this.setupMap);
     }
 };

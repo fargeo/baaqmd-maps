@@ -4,9 +4,6 @@ import * as MapDetailsPanel from '../map-details-panel';
 
 export default ko.components.register('Monitoring', {
     viewModel: function(params) {
-        this.setUpMap = (map) => {
-            // map specific logic can go here
-        };
         MapDetailsPanel.default.apply(this, [params]);
     },
     template: template

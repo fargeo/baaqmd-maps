@@ -4,10 +4,9 @@ import * as MapDetailsPanel from '../map-details-panel';
 
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
-        this.setUpMap = (map) => {
-            // map specific logic can go here
-        };
         MapDetailsPanel.default.apply(this, [params]);
+
+        console.log(this.map());
     },
     template: template
 });

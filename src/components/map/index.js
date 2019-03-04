@@ -5,10 +5,28 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import * as template from './template.html';
 import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
+
     
 export default ko.components.register('map', {
     viewModel: function(params) {
         let duration;
+        const mapSetup = {
+            "AQIForecast": (map) => {
+                return;
+            },
+            "Facilities": (map) => {
+                return;
+            },
+            "ImpactedCommunities": (map) => {
+                return;
+            },
+            "Monitoring": (map) => {
+                return;
+            },
+            "OpenBurning": (map) => {
+                return;
+            }
+        }
         this.detailsExpanded = params.detailsExpanded || ko.observable(false);
         
         this.style = config.mapTypes[params.mapType()] || 'mapbox://styles/mapbox/streets-v9';
@@ -31,10 +49,15 @@ export default ko.components.register('map', {
             }));
             params.map(map);
             
-            params.mapType.subscribe(() => {
+            params.mapType.subscribe((mapType) => {
                 this.style = config.mapTypes[params.mapType()] || 'mapbox://styles/mapbox/streets-v9';
                 map.setStyle(this.style);
+                map.on('load', function() {
+                    mapSetup[params.mapType()](map);
+                });
             });
+            
+            mapSetup[params.mapType()](map);
         };
         
         const resize = () => {
