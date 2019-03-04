@@ -6,7 +6,7 @@ import * as template from './template.html';
 import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
 
-    
+
 export default ko.components.register('map', {
     viewModel: function(params) {
         let duration;
@@ -28,9 +28,9 @@ export default ko.components.register('map', {
             }
         }
         this.detailsExpanded = params.detailsExpanded || ko.observable(false);
-        
+
         this.style = config.mapTypes[params.mapType()] || 'mapbox://styles/mapbox/streets-v9';
-        
+
         this.setupMap = (map) => {
             this.map = map;
             map.addControl(new MapboxGeocoder({
@@ -48,7 +48,7 @@ export default ko.components.register('map', {
                 container: params.container
             }));
             params.map(map);
-            
+
             params.mapType.subscribe((mapType) => {
                 this.style = config.mapTypes[params.mapType()] || 'mapbox://styles/mapbox/streets-v9';
                 map.setStyle(this.style);
@@ -56,10 +56,10 @@ export default ko.components.register('map', {
                     mapSetup[params.mapType()](map);
                 });
             });
-            
+
             mapSetup[params.mapType()](map);
         };
-        
+
         const resize = () => {
             this.map.resize();
             duration -= 1;
