@@ -1,16 +1,22 @@
 <div class="baaqmd-maps-main">
-    <!-- ko component: {
-        name: "details-panel",
-        params: {
-            expanded: detailsExpanded
-        }
-    } -->
+    <!-- ko if: detailsActive -->
+        <!-- ko component: {
+            name: "details-panel",
+            params: {
+                expanded: detailsExpanded,
+                mapType: mapType,
+                map: map
+            }
+        } -->
+        <!-- /ko -->
     <!-- /ko -->
     <!-- ko component: {
         name: "map",
         params: {
             container: el,
-            detailsExpanded: detailsExpanded
+            detailsExpanded: detailsExpanded,
+            mapType: mapType,
+            map: map
         }
     } -->
     <!-- /ko -->

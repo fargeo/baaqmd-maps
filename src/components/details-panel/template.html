@@ -3,4 +3,10 @@
         text: expanderText,
         click: toggleExpanded
      "></div>
+    <!-- ko if: map -->
+         <div class="baaqmd-maps-details-panel-content" data-bind="component: {
+             name: mapType,
+             params: $data
+         }"></div>
+     <!-- /ko -->
 </div>

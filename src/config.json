@@ -1,5 +1,12 @@
 {
     "accessToken": "pk.eyJ1Ijoicmdhc3RvbiIsImEiOiJJYTdoRWNJIn0.MN6DrT07IEKXadCU8xpUMg",
     "zoom": 7,
-    "center": [-122.172,37.822]
+    "center": [-122.172,37.822],
+    "mapTypes": {
+        "AQIForecast": "mapbox://styles/mapbox/streets-v9",
+        "Facilities": "mapbox://styles/mapbox/streets-v9",
+        "ImpactedCommunities": "mapbox://styles/mapbox/streets-v9",
+        "Monitoring": "mapbox://styles/mapbox/streets-v9",
+        "OpenBurning": "mapbox://styles/mapbox/streets-v9"
+    }
 }

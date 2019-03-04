@@ -27,7 +27,6 @@
         });
     </script>
 </body>
-
 ```
 
 # API
@@ -44,11 +43,17 @@ new Map(options: Object)
 
 #### `options` (Object)
 
--   `options.container` (HTMLElement OR string): The HTML element, or the element's string `id`, into which the map will render. This element must have no children.
+-   `options.container` ([`HTMLElement`](https://developer.mozilla.org/docs/Web/HTML/Element) OR [`string`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)): The HTML element, or the element's string `id`, into which the map will render. This element must have no children.
+-   `options.sidePanel`([`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), default `true`): If `true`, the side panel with layer controls and details will be included with the map.
+-   `options.mapType`([`string`](), default `'AQIForecast'`): the name of the map type that should be rendered.  Should be one of the following: `'AQIForecast'`, `'Facilities'`, `'ImpactedCommunities'`, `'Monitoring'`, `'OpenBurning'`
 
 ### Instance Members
 
-- `el`: the HTMLElement into which the `Map` was rendered
+-   `el`: the HTMLElement into which the `Map` was rendered
+-   `expandSidePanel()`: Expands the side panel (if it is being shown). Returns [`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), expanded state of side panel;
+-   `collapseSidePanel()`: Collapses the side panel (if it is being shown). Returns [`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), expanded state of side panel;
+-   `showSidePanel()`:  Shows the side panel and related controls. Returns [`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), shown state of side panel;
+-   `hideSidePanel()`: Hides the side panel and related controls. Returns [`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), shown state of side panel;
 
 # For Developers...
 
@@ -63,13 +68,17 @@ Now you can fork & clone this repository to start developing.
 
 After cloning the repo, you'll need to install your package dependencies locally by running the following from the root directory of your cloned repository:
 
-    yarn install
+```sh
+yarn install
+```
 
 ## Development Server
 
 To run the app locally, run the following from the root directory of your cloned repository:
 
-    yarn dev
+```sh
+yarn dev
+```
 
 The application should now be running at <http://localhost:3000/>
 
@@ -79,7 +88,9 @@ Changes that you make to javascript and CSS files will be automatically refreshe
 
 Before deploying, you must first build the library by running the following command from the root directory: 
 
-    yarn build
+```sh
+yarn build
+```
 
 ## Deploy
 

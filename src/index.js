@@ -5,13 +5,46 @@ import './components/map/';
 import './components/details-panel/';
 
 export function Map(opts) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(content, "text/html");
     if (typeof opts.container === 'string') {
         opts.container = document.querySelector(`#${opts.container}`);
     }
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(content, "text/html");
-    this.el = doc.body.removeChild(doc.body.firstChild);
+    if (typeof opts.sidePanel !== 'boolean') opts.sidePanel = true;
+    
+    // private members
     this.detailsExpanded = ko.observable(false);
+    this.detailsActive = ko.observable(opts.sidePanel);
+    this.mapTypes = [
+        'AQIForecast',
+        'Facilities',
+        'ImpactedCommunities',
+        'Monitoring',
+        'OpenBurning'
+    ];
+    if (this.mapTypes.indexOf(opts.mapType) < 0) opts.mapType = this.mapTypes[0];
+    this.mapType = ko.observable(opts.mapType);
+    this.map = ko.observable();
+    
+    // public members
+    this.el = doc.body.removeChild(doc.body.firstChild);
+    this.expandSidePanel = () => {
+        this.detailsExpanded(true);
+        return true;
+    };
+    this.collapseSidePanel = () => {
+        this.detailsExpanded(false);
+        return false;
+    };
+    this.showSidePanel = () => {
+        this.detailsActive(true);
+        return true;
+    };
+    this.hideSidePanel = () => {
+        this.detailsActive(false);
+        return false;
+    };
+    
     opts.container.appendChild(this.el);
     ko.applyBindings(this, this.el);
 };
