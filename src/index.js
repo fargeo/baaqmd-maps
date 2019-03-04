@@ -11,6 +11,7 @@ export function Map(opts) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(content, "text/html");
     this.el = doc.body.removeChild(doc.body.firstChild);
+    this.detailsExpanded = ko.observable(false);
     opts.container.appendChild(this.el);
     ko.applyBindings(this, this.el);
 };
