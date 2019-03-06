@@ -3,22 +3,22 @@
     height: 100%;
     background: #fff;
     font-family: sans-serif;
-    
+
     .baaqmd-maps-map, .baaqmd-maps-details-panel {
         height: 100%;
     }
-    
+
     .baaqmd-maps-details-panel, .baaqmd-maps-details-panel-expander {
         transition-property: all;
         transition-duration: 300ms;
     }
-    
+
     .baaqmd-maps-details-panel {
         padding: 0px;
         width: 0px;
         float: left;
         position: relative;
-        
+
         .baaqmd-maps-details-panel-expander {
             position: absolute;
             right: -38px;
@@ -29,14 +29,44 @@
             padding: 4px;
             cursor: pointer;
         }
+        .baaqmd-maps-type-selector {
+            .choices {
+                width: 300px;
+            }
+            .choices.no-select {
+                cursor: default;
+
+                .choices__inner {
+                    padding-bottom: 8px;
+                }
+
+                div  {
+                    cursor: default;
+                }
+            }
+            .choices.no-select::after {
+                border-color: transparent;
+            }
+            .choices[data-type*=select-one]:after {
+                right: 50px;
+            }
+            .choices__inner {
+                display: block;
+                width: auto;
+                min-height: 28px;
+                padding-top: 10px;
+                padding-right: 64px;
+            }
+        }
     }
-    
+
     .baaqmd-maps-details-panel.expanded {
         border-right: 1px solid grey;
         width: 300px;
-        
+
         .baaqmd-maps-details-panel-expander {
             right: 10px;
         }
     }
+
 }

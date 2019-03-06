@@ -29,7 +29,7 @@ export default ko.components.register('map', {
         }
         this.detailsExpanded = params.detailsExpanded || ko.observable(false);
 
-        this.style = config.mapTypes[params.mapType()] || 'mapbox://styles/mapbox/streets-v9';
+        this.style = config.mapTypes[params.mapType()].style || 'mapbox://styles/mapbox/streets-v9';
 
         this.setupMap = (map) => {
             this.map = map;
@@ -50,7 +50,7 @@ export default ko.components.register('map', {
             params.map(map);
 
             params.mapType.subscribe((mapType) => {
-                this.style = config.mapTypes[params.mapType()] || 'mapbox://styles/mapbox/streets-v9';
+                this.style = config.mapTypes[params.mapType()].style || 'mapbox://styles/mapbox/streets-v9';
                 map.setStyle(this.style);
                 map.on('load', function() {
                     mapSetup[params.mapType()](map);

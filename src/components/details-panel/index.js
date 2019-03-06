@@ -1,20 +1,32 @@
 import * as ko from 'knockout';
+import * as config from '../../config.json';
 import * as template from './template.html';
 import './aqi-forecast/';
 import './facilities/';
 import './impacted-communities/';
 import './monitoring/';
 import './open-burning/';
+import '../../bindings/choices';
 
 export default ko.components.register('details-panel', {
     viewModel: function(params) {
         this.expanded = params.expanded || ko.observable(false);
+        this.enableMapTypeSelector = typeof params.enableMapTypeSelector === 'boolean' ? params.enableMapTypeSelector : true;
+        console.log(this.enableMapTypeSelector)
         this.expanderText = ko.pureComputed(() => {
             return this.expanded() ? '<<' : '>>';
         });
         this.toggleExpanded = () => {
             this.expanded(!this.expanded());
         };
+        this.mapTypesObj = config.default.mapTypes;
+        this.mapTypes = [];
+        for (let key in this.mapTypesObj) {
+            this.mapTypes.push({
+                id: key,
+                text: this.mapTypesObj[key].label
+            });
+        }
         this.mapType = params.mapType;
         this.map = params.map;
     },

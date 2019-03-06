@@ -1,5 +1,6 @@
 import * as ko from 'knockout';
 import './styles.scss';
+import * as config from './config.json';
 import * as content from './index.html';
 import './components/map/';
 import './components/details-panel/';
@@ -11,21 +12,16 @@ export function Map(opts) {
         opts.container = document.querySelector(`#${opts.container}`);
     }
     if (typeof opts.sidePanel !== 'boolean') opts.sidePanel = true;
-    
+
     // private members
     this.detailsExpanded = ko.observable(false);
     this.detailsActive = ko.observable(opts.sidePanel);
-    this.mapTypes = [
-        'AQIForecast',
-        'Facilities',
-        'ImpactedCommunities',
-        'Monitoring',
-        'OpenBurning'
-    ];
+    this.enableMapTypeSelector = opts.enableMapTypeSelector;
+    this.mapTypes = Object.keys(config.mapTypes);
     if (this.mapTypes.indexOf(opts.mapType) < 0) opts.mapType = this.mapTypes[0];
     this.mapType = ko.observable(opts.mapType);
     this.map = ko.observable();
-    
+
     // public members
     this.el = doc.body.removeChild(doc.body.firstChild);
     this.expandSidePanel = () => {
@@ -44,7 +40,7 @@ export function Map(opts) {
         this.detailsActive(false);
         return false;
     };
-    
+
     opts.container.appendChild(this.el);
     ko.applyBindings(this, this.el);
 };

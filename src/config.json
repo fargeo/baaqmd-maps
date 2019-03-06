@@ -3,10 +3,25 @@
     "zoom": 7,
     "center": [-122.172,37.822],
     "mapTypes": {
-        "AQIForecast": "mapbox://styles/mapbox/streets-v9",
-        "Facilities": "mapbox://styles/mapbox/streets-v9",
-        "ImpactedCommunities": "mapbox://styles/mapbox/streets-v9",
-        "Monitoring": "mapbox://styles/mapbox/streets-v9",
-        "OpenBurning": "mapbox://styles/mapbox/streets-v9"
+        "AQIForecast": {
+            "style": "mapbox://styles/mapbox/streets-v9",
+            "label": "Air Quality Forecast"
+        },
+        "Facilities": {
+            "style": "mapbox://styles/mapbox/streets-v9",
+            "label": "Facilities"
+        },
+        "ImpactedCommunities": {
+            "style": "mapbox://styles/mapbox/streets-v9",
+            "label": "Impacted Communities"
+        },
+        "Monitoring": {
+            "style": "mapbox://styles/mapbox/streets-v9",
+            "label": "Air Quality Monitoring"
+        },
+        "OpenBurning": {
+            "style": "mapbox://styles/mapbox/streets-v9",
+            "label": "Open Burning"
+        }
     }
 }

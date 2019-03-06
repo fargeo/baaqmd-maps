@@ -1,9 +1,31 @@
 <div class="baaqmd-maps-details-panel" data-bind="css: {'expanded': expanded }">
-    <div class="baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group" data-bind="
-        text: expanderText,
-        click: toggleExpanded
-     "></div>
     <!-- ko if: map -->
+        <div class="baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group" data-bind="
+            text: expanderText,
+            click: toggleExpanded
+            "></div>
+            <div class="baaqmd-maps-type-selector">
+                <!-- ko if: enableMapTypeSelector -->
+                <select data-bind="
+                    optionsText: 'text',
+                    optionsValue: 'id',
+                    options: mapTypes,
+                    value: mapType,
+                    choices: true
+                "></select>
+                <!-- /ko -->
+                <!-- ko ifnot: enableMapTypeSelector -->
+                <div class="choices no-select">
+                    <div class="choices__inner">
+                        <div class="choices__list choices__list--single">
+                            <div class="choices__item choices__item--selectable" data-bind="text: mapTypesObj[mapType()].label"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+            <div class="baaqmd-maps-type-selector">
+            </div>
          <div class="baaqmd-maps-details-panel-content" data-bind="component: {
              name: mapType,
              params: $data

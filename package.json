@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^3.1.4",
+    "choices.js": "^6.0.3",
     "knockout": "^3.5.0",
     "mapbox-gl": "^0.53.0"
   }

@@ -5,8 +5,6 @@ import * as MapDetailsPanel from '../map-details-panel';
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
         MapDetailsPanel.default.apply(this, [params]);
-
-        console.log(this.map());
     },
     template: template
 });
