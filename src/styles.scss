@@ -1,3 +1,5 @@
+@import '~font-awesome/css/font-awesome.css';
+
 .baaqmd-maps-main {
     // put all style rules inside here to ensure they are scoped to library
     height: 100%;
@@ -31,6 +33,16 @@
             padding: 4px;
             cursor: pointer;
         }
+        .baaqmd-maps-details-panel-expander::before {
+            font-family: FontAwesome;
+            display: block;
+            padding: 2px 0 0 5px;
+            content: "\f054";
+        }
+        .baaqmd-maps-details-panel-expander.baaqmd-maps-expanded::before {
+            padding: 2px;
+            content: "\f053";
+        }
         .baaqmd-maps-type-selector {
             .choices {
                 width: 300px;
@@ -63,7 +75,7 @@
         }
     }
 
-    .baaqmd-maps-details-panel.expanded {
+    .baaqmd-maps-details-panel.baaqmd-maps-expanded {
         border-right: 1px solid grey;
         width: 300px;
 
