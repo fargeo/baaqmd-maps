@@ -1,27 +1,44 @@
-@import '~font-awesome/css/font-awesome.css';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700");
+
+$dark-color: #004c83;
+$light-color: rgb(239, 246, 247);
+$mid-color: rgb(0, 142, 184);
 
 .baaqmd-maps-main {
     // put all style rules inside here to ensure they are scoped to library
     height: 100%;
     background: #fff;
-    font-family: sans-serif;
-
-    .baaqmd-maps-map, .baaqmd-maps-details-panel {
+    font-family: "Roboto", arial, sans-serif;
+    .baaqmd-maps-details-panel-wrapper {
+        width: 300px;
+    }
+    .baaqmd-maps-map, .baaqmd-maps-details-panel, .baaqmd-maps-details-panel-wrapper {
         height: 100%;
     }
-
     .baaqmd-maps-details-panel, .baaqmd-maps-details-panel-expander {
         transition-property: all;
         transition-duration: 300ms;
     }
-
     .baaqmd-maps-details-panel {
         padding: 0px;
         width: 0px;
         float: left;
         position: relative;
+        h3 {
+            margin: 0;
+            padding: 15px 20px;
+            color: white;
+            font-weight: 300;
+            font-size: 14px;
+            background-color: $mid-color;
+            i {
+                padding-right: 6px;
+            }
+        }
         .baaqmd-maps-details-panel-content{
-
+            height: 100%;
+            background-color: $light-color;
         }
         .baaqmd-maps-details-panel-expander {
             position: absolute;
@@ -33,27 +50,21 @@
             padding: 4px;
             cursor: pointer;
         }
-        .baaqmd-maps-details-panel-expander::before {
-            font-family: FontAwesome;
-            display: block;
-            padding: 2px 0 0 5px;
-            content: "\f054";
+        .baaqmd-maps-details-panel-expander i {
+            padding: 2px 5px;
         }
-        .baaqmd-maps-details-panel-expander.baaqmd-maps-expanded::before {
-            padding: 2px;
-            content: "\f053";
+        .baaqmd-maps-details-panel-expander.baaqmd-maps-expanded i {
+            // padding: 2px 4px;
         }
         .baaqmd-maps-type-selector {
             .choices {
-                width: 300px;
+                // width: 300px;
             }
             .choices.no-select {
                 cursor: default;
-
                 .choices__inner {
                     padding-bottom: 8px;
                 }
-
                 div  {
                     cursor: default;
                 }
@@ -62,6 +73,11 @@
                 border-color: transparent;
             }
             .choices[data-type*=select-one]:after {
+                border-color: white transparent transparent transparent;
+                right: 50px;
+            }
+            .choices[data-type*=select-one].is-open:after {
+                border-color: transparent transparent white transparent;
                 right: 50px;
             }
             .choices__inner {
@@ -70,18 +86,20 @@
                 min-height: 28px;
                 padding-top: 10px;
                 padding-right: 64px;
-                font-weight: bold;
+                font-weight: 300;
+                font-size: 16px;
+                background-color: $dark-color;
+                color: white;
+                border-color: darken($dark-color, 10%);
+                border-radius: 0;
             }
         }
     }
-
     .baaqmd-maps-details-panel.baaqmd-maps-expanded {
-        border-right: 1px solid grey;
+        border-right: 1px solid $mid-color;
         width: 300px;
-
         .baaqmd-maps-details-panel-expander {
             right: 10px;
         }
     }
-
 }

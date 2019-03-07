@@ -24,9 +24,9 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
     "@mapbox/mapbox-gl-geocoder": "^3.1.4",
     "choices.js": "^6.0.3",
-    "font-awesome": "^4.7.0",
     "knockout": "^3.5.0",
     "mapbox-gl": "^0.53.0"
   }

@@ -1,10 +1,10 @@
 {
-    "accessToken": "pk.eyJ1Ijoicmdhc3RvbiIsImEiOiJJYTdoRWNJIn0.MN6DrT07IEKXadCU8xpUMg",
+    "accessToken": "pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA",
     "zoom": 7,
     "center": [-122.172,37.822],
     "mapTypes": {
         "AQIForecast": {
-            "style": "mapbox://styles/mapbox/streets-v9",
+            "style": "mapbox://styles/baaqmd-publicmaps/cjsz4y1yo08k31fnpss4i5h5a",
             "label": "Air Quality Forecast Map"
         },
         "Facilities": {
