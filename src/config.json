@@ -5,23 +5,23 @@
     "mapTypes": {
         "AQIForecast": {
             "style": "mapbox://styles/mapbox/streets-v9",
-            "label": "Air Quality Forecast"
+            "label": "Air Quality Forecast Map"
         },
         "Facilities": {
             "style": "mapbox://styles/mapbox/streets-v9",
-            "label": "Facilities"
+            "label": "Facilities Map"
         },
         "ImpactedCommunities": {
             "style": "mapbox://styles/mapbox/streets-v9",
-            "label": "Impacted Communities"
+            "label": "Impacted Communities Map"
         },
         "Monitoring": {
             "style": "mapbox://styles/mapbox/streets-v9",
-            "label": "Air Quality Monitoring"
+            "label": "Air Quality Monitoring Map"
         },
         "OpenBurning": {
             "style": "mapbox://styles/mapbox/streets-v9",
-            "label": "Open Burning"
+            "label": "Open Burning Map"
         }
     }
 }

@@ -4,7 +4,7 @@ import 'choices.js/public/assets/styles/choices.min.css';
 
 ko.bindingHandlers.choices = {
     init: function(element, valueAccessor) {
-        new Choices(element);
+        new Choices(element, valueAccessor());
     }
 };
 

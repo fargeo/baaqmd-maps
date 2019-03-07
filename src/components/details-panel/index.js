@@ -11,8 +11,10 @@ import '../../bindings/choices';
 export default ko.components.register('details-panel', {
     viewModel: function(params) {
         this.expanded = params.expanded || ko.observable(false);
-        this.enableMapTypeSelector = typeof params.enableMapTypeSelector === 'boolean' ? params.enableMapTypeSelector : true;
-        console.log(this.enableMapTypeSelector)
+        this.enableMapTypeSelector = params.enableMapTypeSelector;
+        if (typeof params.enableMapTypeSelector !== 'boolean') {
+            this.enableMapTypeSelector = true;
+        }
         this.expanderText = ko.pureComputed(() => {
             return this.expanded() ? '<<' : '>>';
         });
