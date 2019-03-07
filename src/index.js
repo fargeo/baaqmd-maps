@@ -2,6 +2,11 @@ import * as ko from 'knockout';
 import './styles.scss';
 import * as config from './config.json';
 import * as content from './index.html';
+import './components/aqi-forecast/';
+import './components/facilities/';
+import './components/impacted-communities/';
+import './components/monitoring/';
+import './components/open-burning/';
 import './components/map/';
 import './components/details-panel/';
 

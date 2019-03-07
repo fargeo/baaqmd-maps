@@ -1,11 +1,6 @@
 import * as ko from 'knockout';
 import * as config from '../../config.json';
 import * as template from './template.html';
-import './aqi-forecast/';
-import './facilities/';
-import './impacted-communities/';
-import './monitoring/';
-import './open-burning/';
 import '../../bindings/choices';
 
 export default ko.components.register('details-panel', {
