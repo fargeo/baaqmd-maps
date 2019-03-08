@@ -35,7 +35,7 @@ $side-panel-width: 300px;
         h3 {
             margin: 0;
             padding: 15px 20px;
-            color: white;
+            color: $light-color;
             font-weight: 300;
             font-size: 14px;
             background-color: $mid-color;
@@ -81,11 +81,11 @@ $side-panel-width: 300px;
                 border-color: transparent;
             }
             .choices[data-type*=select-one]:after {
-                border-color: white transparent transparent transparent;
+                border-color: $light-color transparent transparent transparent;
                 right: 50px;
             }
             .choices[data-type*=select-one].is-open:after {
-                border-color: transparent transparent white transparent;
+                border-color: transparent transparent $light-color transparent;
                 right: 50px;
             }
             .choices__inner {
@@ -97,7 +97,7 @@ $side-panel-width: 300px;
                 font-weight: 300;
                 font-size: 16px;
                 background-color: $dark-color;
-                color: white;
+                color: $light-color;
                 border-color: darken($dark-color, 10%);
                 border-radius: 0;
             }
