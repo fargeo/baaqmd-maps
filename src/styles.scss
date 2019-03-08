@@ -1,17 +1,24 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700");
 
-$dark-color: #004c83;
-$light-color: rgb(239, 246, 247);
-$mid-color: rgb(0, 142, 184);
+$dark-color: rgb(0,76,131);
+$light-color: rgb(239,246,247);
+$mid-color: rgb(0,142,184);
+$side-panel-width: 300px;
 
 .baaqmd-maps-main {
     // put all style rules inside here to ensure they are scoped to library
     height: 100%;
-    background: #fff;
+    background-color: $light-color;
     font-family: "Roboto", arial, sans-serif;
+    .mapboxgl-ctrl-group, .mapboxgl-ctrl-geocoder {
+        background-color: $light-color;
+    }
+    .mapboxgl-ctrl {
+        border-radius: 0;
+    }
     .baaqmd-maps-details-panel-wrapper {
-        width: 300px;
+        width: $side-panel-width;
     }
     .baaqmd-maps-map, .baaqmd-maps-details-panel, .baaqmd-maps-details-panel-wrapper {
         height: 100%;
@@ -32,13 +39,17 @@ $mid-color: rgb(0, 142, 184);
             font-weight: 300;
             font-size: 14px;
             background-color: $mid-color;
+            border: 1px solid darken($mid-color, 10%);
             i {
                 padding-right: 6px;
             }
         }
         .baaqmd-maps-details-panel-content{
-            height: 100%;
-            background-color: $light-color;
+            position: absolute;
+            width: $side-panel-width;
+            top: 48px;
+            bottom: 0;
+            overflow-y: auto;
         }
         .baaqmd-maps-details-panel-expander {
             position: absolute;
@@ -54,12 +65,9 @@ $mid-color: rgb(0, 142, 184);
             padding: 2px 5px;
         }
         .baaqmd-maps-details-panel-expander.baaqmd-maps-expanded i {
-            // padding: 2px 4px;
+            padding: 2px 4px;
         }
         .baaqmd-maps-type-selector {
-            .choices {
-                // width: 300px;
-            }
             .choices.no-select {
                 cursor: default;
                 .choices__inner {
@@ -97,7 +105,7 @@ $mid-color: rgb(0, 142, 184);
     }
     .baaqmd-maps-details-panel.baaqmd-maps-expanded {
         border-right: 1px solid $mid-color;
-        width: 300px;
+        width: $side-panel-width;
         .baaqmd-maps-details-panel-expander {
             right: 10px;
         }

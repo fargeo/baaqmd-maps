@@ -35,7 +35,8 @@ export default ko.components.register('map', {
             this.map = map;
             map.addControl(new MapboxGeocoder({
                 // bbox: [139.965, -38.030, 155.258, -27.839],
-                accessToken: mapboxgl.accessToken
+                accessToken: mapboxgl.accessToken,
+                placeholder: "Enter address..."
             }))
             map.addControl(new mapboxgl.NavigationControl());
             map.addControl(new mapboxgl.GeolocateControl({
