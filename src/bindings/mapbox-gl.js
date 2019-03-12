@@ -9,7 +9,10 @@ ko.bindingHandlers.mapboxgl = {
             {},
             config.default,
             ko.unwrap(valueAccessor()) || {},
-            { container: element }
+            {
+                container: element,
+                preserveDrawingBuffer: true
+            }
         );
         mapboxgl.accessToken = options.accessToken || config.accessToken;
         let map = new mapboxgl.Map(options);

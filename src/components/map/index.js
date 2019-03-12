@@ -5,7 +5,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import * as template from './template.html';
 import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
-
+import PrintControl from '../print-control';
 
 export default ko.components.register('map', {
     viewModel: function(params) {
@@ -48,6 +48,10 @@ export default ko.components.register('map', {
             map.addControl(new mapboxgl.FullscreenControl({
                 container: params.container
             }));
+            map.addControl(new mapboxgl.ScaleControl({
+                unit: 'imperial'
+            }));
+            map.addControl(new PrintControl());
             params.map(map);
 
             params.mapType.subscribe((mapType) => {
@@ -59,6 +63,7 @@ export default ko.components.register('map', {
             });
 
             mapSetup[params.mapType()](map);
+            window.map = map;
         };
 
         const resize = () => {

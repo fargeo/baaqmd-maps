@@ -1,3 +1,6 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
     output: {
         path: __dirname + '/dist',
@@ -16,7 +19,7 @@ module.exports = {
             use: 'babel-loader'
         }, {
             test: /\.scss$/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
+            use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
         }, {
             test: /\.css$/,
             use: ['style-loader', 'css-loader']
@@ -34,5 +37,10 @@ module.exports = {
                 }
             }]
         }]
-    }
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'baaqmd-maps.css'
+        })
+    ]
 };

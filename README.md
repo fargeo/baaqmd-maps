@@ -3,6 +3,7 @@
 <iframe src="https://fargeo.github.io/baaqmd-maps/dist/" width="100%" height="500px;" style="border: 1px solid grey;"></iframe>
 
 ```html
+<link rel="stylesheet" href="https://fargeo.github.io/baaqmd-maps/dist/baaqmd-maps.css">
 <script src="https://fargeo.github.io/baaqmd-maps/dist/baaqmd-maps.js" type="text/javascript"></script>
 
 <style>
