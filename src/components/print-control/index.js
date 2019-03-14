@@ -1,8 +1,6 @@
 import * as template from './template.html';
 import * as computedStyleToInlineStyle from 'computed-style-to-inline-style';
 
-console.log(computedStyleToInlineStyle)
-
 export default class PrintControl {
     onAdd(map){
         const parser = new DOMParser();
@@ -19,14 +17,13 @@ export default class PrintControl {
 
         let printData;
         this.container.onclick = function() {
-            const mywindow = window.open('', 'BAAQMD Maps', 'height=600,width=800');
+            const printWindow = window.open('', 'BAAQMD Maps', 'height=600,width=800');
             const img = new Image();
             const logo = new Image();
             logo.src = mapboxLogo.style.backgroundImage.slice(
                 5,
                 mapboxLogo.style.backgroundImage.length - 2
-            )
-            console.log(logo.src);
+            );
             if (!printData) {
                 printData = map.getCanvas().toDataURL("image/jpeg");
             }
@@ -34,25 +31,28 @@ export default class PrintControl {
             img.style.width = '100%';
             logo.style.width = '100px';
 
-            mywindow.document.write('<html><head><title>BAAQMD Maps</title>');
-            mywindow.document.write('</head><body>');
-            mywindow.document.write(img.outerHTML);
-            mywindow.document.write(
-                '<div style="position:absolute;bottom:20px;left:20px;z-index:200">' + logo.outerHTML + '</div>' +
-                '<div style="float:right;font-family:sans-serif;position:absolute;bottom:20px;right:20px;z-index:200">' +
+            printWindow.document.write('<html><head><title>BAAQMD Maps</title>');
+            printWindow.document.write('</head><body>');
+            printWindow.document.write(img.outerHTML);
+            printWindow.document.write(
+                '<div style="position:absolute;bottom:10px;left:15px;z-index:200">' + logo.outerHTML + '</div>' +
+                '<div style="float:right;font-family:sans-serif;position:absolute;bottom:0;right:0;z-index:200;background-color:white;padding:10px;">' +
                     '<span>© Mapbox</span>&nbsp;<span>© OpenStreetMap</span>' +
                 '</div>'
             );
-            mywindow.document.write('</body></html>');
+            printWindow.document.write('</body></html>');
 
-            mywindow.document.close();
-            mywindow.focus();
+            printWindow.document.close();
+            printWindow.focus();
             setTimeout(() => {
-                mywindow.print();
-                mywindow.close();
+                printWindow.print();
+                printWindow.close();
             }, 150);
         }
         map.on('moveend', () => {
+            printData = map.getCanvas().toDataURL("image/jpeg");
+        });
+        map.on('resize', () => {
             printData = map.getCanvas().toDataURL("image/jpeg");
         });
         return this.container;

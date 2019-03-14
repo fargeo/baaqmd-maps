@@ -6,6 +6,7 @@ import * as template from './template.html';
 import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
 import PrintControl from '../print-control';
+const forceFresh = process.env.NODE_ENV === 'production' ? '' : '?fresh=true';
 
 export default ko.components.register('map', {
     viewModel: function(params) {
@@ -30,6 +31,7 @@ export default ko.components.register('map', {
         this.detailsExpanded = params.detailsExpanded || ko.observable(false);
 
         this.style = config.mapTypes[params.mapType()].style || 'mapbox://styles/mapbox/streets-v9';
+        this.style += forceFresh;
 
         this.setupMap = (map) => {
             this.map = map;
@@ -56,6 +58,7 @@ export default ko.components.register('map', {
 
             params.mapType.subscribe((mapType) => {
                 this.style = config.mapTypes[params.mapType()].style || 'mapbox://styles/mapbox/streets-v9';
+                this.style += forceFresh;
                 map.setStyle(this.style);
                 map.on('load', function() {
                     mapSetup[params.mapType()](map);

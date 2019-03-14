@@ -57,7 +57,7 @@ new Map(options: Object)
 -   `showSidePanel()`:  Shows the side panel and related controls. Returns [`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), shown state of side panel
 -   `hideSidePanel()`: Hides the side panel and related controls. Returns [`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), shown state of side panel
 
-# For Developers...
+# Development
 
 ## Getting Started
 
@@ -86,7 +86,7 @@ The application should now be running at <http://localhost:3000/>
 
 Changes that you make to javascript and CSS files will be automatically refreshed!
 
-## Build
+## Building
 
 Before deploying, you must first build the library by running the following command from the root directory: 
 
@@ -94,6 +94,6 @@ Before deploying, you must first build the library by running the following comm
 yarn build
 ```
 
-## Deploy
+## Deployment
 
 To deploy the latest to library and examples to the web, simply build (as per above) then commit and push your local changes, and merge them into to the `master` branch in Github.
