@@ -1,26 +1,28 @@
 {
     "accessToken": "pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA",
+    "apiURI": "https://api.mapbox.com/styles/v1/",
+    "aqiRSSFeed": "http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml",
     "zoom": 7,
     "center": [-122.172,37.822],
     "mapTypes": {
         "AQIForecast": {
-            "style": "mapbox://styles/baaqmd-publicmaps/cjsz4y1yo08k31fnpss4i5h5a",
+            "style": "baaqmd-publicmaps/cjsz4y1yo08k31fnpss4i5h5a",
             "label": "Air Quality Forecast Map"
         },
         "Facilities": {
-            "style": "mapbox://styles/mapbox/streets-v9",
+            "style": "mapbox/streets-v9",
             "label": "Facilities Map"
         },
         "ImpactedCommunities": {
-            "style": "mapbox://styles/mapbox/streets-v9",
+            "style": "mapbox/streets-v9",
             "label": "Impacted Communities Map"
         },
         "Monitoring": {
-            "style": "mapbox://styles/mapbox/streets-v9",
+            "style": "mapbox/streets-v9",
             "label": "Air Quality Monitoring Map"
         },
         "OpenBurning": {
-            "style": "mapbox://styles/mapbox/streets-v9",
+            "style": "mapbox/streets-v9",
             "label": "Open Burning Map"
         }
     }

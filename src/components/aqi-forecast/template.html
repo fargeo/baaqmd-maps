@@ -1,4 +1,37 @@
 <h3>
     <i class="fas fa-wind"></i>
-    Air Quality
+    Air Quality Forecast
 </h3>
+<!-- ko if: aqiData -->
+<ul class="baaqmd-maps-aqi-forecast-dates">
+    <!-- ko foreach: aqiData -->
+    <li data-bind="css: {
+        active: $index() === $parent.day()
+    }">
+        <a href="#" data-bind="click: function() {
+            $parent.day($index());
+        }, text: date"></a>
+    </li>
+    <!-- /ko -->
+</ul>
+<ul class="baaqmd-maps-legend aqi-forecast-legend">
+    <li class="good">
+        Good (0-50)
+    </li>
+    <li class="moderate">
+        Moderate (51-100)
+    </li>
+    <li class="unhealthy-for-sensitive-groups">
+        Unhealthy for Sensitive Groups (101-150)
+    </li>
+    <li class="unhealthy">
+        Unhealthy (151-200)
+    </li>
+    <li class="very-unhealthy">
+        Very Unhealthy (201-300)
+    </li>
+    <li class="hazardous">
+        Hazardous (301-500)
+    </li>
+</ul>
+<!-- /ko -->

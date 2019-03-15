@@ -1,7 +1,54 @@
 import * as ko from 'knockout';
 import * as template from './template.html';
+import * as config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
-const parser = new DOMParser();
+
+const aqiData = ko.observable();
+fetch(config.aqiRSSFeed)
+    .then((response) => { return response.text(); })
+    .then((text) => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(text, "application/xml");
+        const data = [];
+        xmlDoc.querySelectorAll("item").forEach((item) => {
+            let itemData = {
+                date: item.querySelector('date').innerHTML.slice(0, -3),
+                zones: []
+            };
+            item.querySelectorAll('zone').forEach((zone) => {
+                let measurement = zone.querySelector('measurement').innerHTML;
+                let forecast;
+                if (!isNaN(parseFloat(measurement))) {
+                    measurement = parseFloat(measurement);
+                    if (measurement <= 50){
+                        forecast = 'Good';
+                    } else if (measurement >= 51 && measurement <= 100) {
+                        forecast = 'Moderate';
+                    } else if (measurement >= 101 && measurement <= 150) {
+                        forecast = 'Unhealthy for Sensitive Groups';
+                    } else if (measurement >= 151 && measurement <= 200) {
+                        forecast = 'Unhealthy';
+                    } else if (measurement >= 201 && measurement <= 300) {
+                        forecast = 'Very Unhealthy';
+                    } else if (measurement >= 301 && measurement <= 500){
+                        forcast = 'Hazardous'
+                    }
+                } else {
+                    forecast = measurement;
+                    measurement = null;
+                }
+
+                itemData.zones.push({
+                    title: zone.querySelector('title').innerHTML,
+                    measurement: measurement,
+                    pollutant: zone.querySelector('pollutant').innerHTML,
+                    forecast: forecast
+                })
+            });
+            data.push(itemData);
+        });
+        aqiData(data);
+    });
 
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
@@ -12,10 +59,13 @@ export default ko.components.register('AQIForecast', {
             "Northern Zone",
             "Santa Clara Valley"
         ];
-        this.setDate = (day) => {
-            const dayData = this.aqiData[day-1];
+        this.aqiData = aqiData;
+        this.day = ko.observable(0);
+
+        this.updateDay = () => {
+            const day = this.aqiData()[this.day()];
             zones.forEach((zone, i) => {
-                const forecastData = dayData.zones.find((zoneData) => {
+                const forecastData = day.zones.find((zoneData) => {
                     return zoneData.title === zone;
                 });
                 this.map().setFeatureState({
@@ -26,62 +76,19 @@ export default ko.components.register('AQIForecast', {
                     forecast: forecastData.forecast
                 });
             })
-        }
+        };
 
         this.setupMap = (map) => {
-            fetch('http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml')
-                .then((response) => { return response.text(); })
-                .then((text) => {
-                    const xmlDoc = parser.parseFromString(text, "application/xml");
-                    const data = [];
-                    xmlDoc.querySelectorAll("item").forEach((item) => {
-                        let itemData = {
-                            date: item.querySelector('date').innerHTML,
-                            zones: []
-                        };
-                        item.querySelectorAll('zone').forEach((zone) => {
-                            let measurement = zone.querySelector('measurement').innerHTML;
-                            let forecast;
-                            if (!isNaN(parseFloat(measurement))) {
-                                measurement = parseFloat(measurement);
-                                switch (measurement) {
-                                    case measurement <= 50:
-                                        forecast = 'Good';
-                                        break;
-                                    case measurement >= 51 && measurement <= 100:
-                                        forecast = 'Moderate';
-                                        break;
-                                    case measurement >= 101 && measurement <= 150:
-                                        forecast = 'Unhealthy_Sensitive';
-                                        break;
-                                    case measurement >= 151 && measurement <= 200:
-                                        forecast = 'Unhealthy';
-                                        break;
-                                    case measurement >= 201 && measurement <= 300:
-                                        forecast = 'Very_Unhealthy';
-                                        break;
-                                    default:
-
-                                }
-                                forecast = 'Good';
-                            } else {
-                                forecast = measurement;
-                                measurement = null;
-                            }
-
-                            itemData.zones.push({
-                                title: zone.querySelector('title').innerHTML,
-                                measurement: measurement,
-                                pollutant: zone.querySelector('pollutant').innerHTML,
-                                forecast: forecast
-                            })
-                        });
-                        data.push(itemData);
-                    });
-                    this.aqiData = data;
-                    this.setDate(1);
+            if (this.aqiData()) {
+                this.updateDay();
+            } else {
+                this.aqiData.subscribe(() => {
+                    this.updateDay();
                 });
+            }
         };
+
+        this.day.subscribe(this.updateDay, this);
 
         MapDetailsPanel.default.apply(this, [params]);
     },

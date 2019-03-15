@@ -4,7 +4,7 @@
 $dark-color: rgb(0,76,131);
 $light-color: rgb(239,246,247);
 $mid-color: rgb(0,142,184);
-$side-panel-width: 300px;
+$side-panel-width: 335px;
 
 .baaqmd-maps-main {
     // put all style rules inside here to ensure they are scoped to library
@@ -112,5 +112,61 @@ $side-panel-width: 300px;
     }
     .baaqmd-maps-print-button {
         font-size: 18px;
+    }
+    .baaqmd-maps-aqi-forecast-dates{
+        li {
+            display: inline-block;
+            a {
+                text-decoration: none;
+                color: $mid-color;
+                margin: 0 2px;
+            }
+            border-bottom: solid transparent 2px;
+        }
+        li.active {
+            border-bottom: solid $dark-color 2px;
+        }
+    }
+    .baaqmd-maps-legend {
+        margin: 0;
+        padding: 0;
+        li {
+            display: block;
+            // font-size: 0.8em;
+            padding-left: 28px;
+            min-height: 20px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+    .aqi-forecast-legend {
+        li::before {
+            border-radius: 3px;
+            content: '';
+            display: block;
+            position:absolute;
+            left: 10px;
+            height: 20px;
+            width: 10px;
+        }
+        .good::before {
+            background-color: #096;
+        }
+        .moderate::before {
+            background-color: #ffde33;
+        }
+        .unhealthy-for-sensitive-groups::before {
+            background-color: #ff9933;
+        }
+        .unhealthy::before {
+            background-color: #cc0033;
+        }
+        .very-unhealthy::before {
+            background-color: #660099;
+        }
+        .hazardous::before {
+            background-color: #7E0023;
+        }
     }
 }

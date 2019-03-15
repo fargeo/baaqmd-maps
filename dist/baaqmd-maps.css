@@ -9,7 +9,7 @@
   .baaqmd-maps-main .mapboxgl-ctrl {
     border-radius: 0; }
   .baaqmd-maps-main .baaqmd-maps-details-panel-wrapper {
-    width: 300px; }
+    width: 335px; }
   .baaqmd-maps-main .baaqmd-maps-map, .baaqmd-maps-main .baaqmd-maps-details-panel, .baaqmd-maps-main .baaqmd-maps-details-panel-wrapper {
     height: 100%; }
   .baaqmd-maps-main .baaqmd-maps-details-panel, .baaqmd-maps-main .baaqmd-maps-details-panel-expander {
@@ -32,7 +32,7 @@
         padding-right: 6px; }
     .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-content {
       position: absolute;
-      width: 300px;
+      width: 335px;
       top: 48px;
       bottom: 0;
       overflow-y: auto; }
@@ -77,9 +77,48 @@
       border-radius: 0; }
   .baaqmd-maps-main .baaqmd-maps-details-panel.baaqmd-maps-expanded {
     border-right: 1px solid #008eb8;
-    width: 300px; }
+    width: 335px; }
     .baaqmd-maps-main .baaqmd-maps-details-panel.baaqmd-maps-expanded .baaqmd-maps-details-panel-expander {
       right: 10px; }
   .baaqmd-maps-main .baaqmd-maps-print-button {
     font-size: 18px; }
+  .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li {
+    display: inline-block;
+    border-bottom: solid transparent 2px; }
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li a {
+      text-decoration: none;
+      color: #008eb8;
+      margin: 0 2px; }
+  .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.active {
+    border-bottom: solid #004c83 2px; }
+  .baaqmd-maps-main .baaqmd-maps-legend {
+    margin: 0;
+    padding: 0; }
+    .baaqmd-maps-main .baaqmd-maps-legend li {
+      display: block;
+      padding-left: 28px;
+      min-height: 20px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 20px; }
+  .baaqmd-maps-main .aqi-forecast-legend li::before {
+    border-radius: 3px;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 10px;
+    height: 20px;
+    width: 10px; }
+  .baaqmd-maps-main .aqi-forecast-legend .good::before {
+    background-color: #096; }
+  .baaqmd-maps-main .aqi-forecast-legend .moderate::before {
+    background-color: #ffde33; }
+  .baaqmd-maps-main .aqi-forecast-legend .unhealthy-for-sensitive-groups::before {
+    background-color: #ff9933; }
+  .baaqmd-maps-main .aqi-forecast-legend .unhealthy::before {
+    background-color: #cc0033; }
+  .baaqmd-maps-main .aqi-forecast-legend .very-unhealthy::before {
+    background-color: #660099; }
+  .baaqmd-maps-main .aqi-forecast-legend .hazardous::before {
+    background-color: #7E0023; }
 
