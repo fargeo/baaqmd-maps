@@ -102,6 +102,9 @@ $side-panel-width: 335px;
                 border-radius: 0;
             }
         }
+        .baaqmd-maps-popup {
+            display: none;
+        }
     }
     .baaqmd-maps-details-panel.baaqmd-maps-expanded {
         border-right: 1px solid $mid-color;
@@ -127,28 +130,38 @@ $side-panel-width: 335px;
             border-bottom: solid $dark-color 2px;
         }
     }
+    .baaqmd-maps-popup {
+        overflow-y: auto;
+        height: 100%;
+    }
+    .mapboxgl-popup-content {
+        max-width: 250px;
+        height: 275px;
+    }
     .baaqmd-maps-legend {
+        color: darken($dark-color, 10%);
         margin: 0;
         padding: 0;
         li {
             display: block;
             // font-size: 0.8em;
-            padding-left: 28px;
+            padding-left: 32px;
             min-height: 20px;
             margin-bottom: 8px;
             font-size: 14px;
-            line-height: 20px;
+            line-height: 18px;
         }
     }
     .aqi-forecast-legend {
         li::before {
             border-radius: 3px;
+            border: solid 1px darken($dark-color, 10%);
             content: '';
             display: block;
             position:absolute;
             left: 10px;
-            height: 20px;
-            width: 10px;
+            height: 16px;
+            width: 16px;
         }
         .good::before {
             background-color: #096;

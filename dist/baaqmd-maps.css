@@ -75,6 +75,8 @@
       color: #eff6f7;
       border-color: #002e50;
       border-radius: 0; }
+    .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-popup {
+      display: none; }
   .baaqmd-maps-main .baaqmd-maps-details-panel.baaqmd-maps-expanded {
     border-right: 1px solid #008eb8;
     width: 335px; }
@@ -91,24 +93,32 @@
       margin: 0 2px; }
   .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.active {
     border-bottom: solid #004c83 2px; }
+  .baaqmd-maps-main .baaqmd-maps-popup {
+    overflow-y: auto;
+    height: 100%; }
+  .baaqmd-maps-main .mapboxgl-popup-content {
+    max-width: 250px;
+    height: 275px; }
   .baaqmd-maps-main .baaqmd-maps-legend {
+    color: #002e50;
     margin: 0;
     padding: 0; }
     .baaqmd-maps-main .baaqmd-maps-legend li {
       display: block;
-      padding-left: 28px;
+      padding-left: 32px;
       min-height: 20px;
       margin-bottom: 8px;
       font-size: 14px;
-      line-height: 20px; }
+      line-height: 18px; }
   .baaqmd-maps-main .aqi-forecast-legend li::before {
     border-radius: 3px;
+    border: solid 1px #002e50;
     content: '';
     display: block;
     position: absolute;
     left: 10px;
-    height: 20px;
-    width: 10px; }
+    height: 16px;
+    width: 16px; }
   .baaqmd-maps-main .aqi-forecast-legend .good::before {
     background-color: #096; }
   .baaqmd-maps-main .aqi-forecast-legend .moderate::before {
