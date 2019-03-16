@@ -36,7 +36,7 @@ fetch(config.aqiRSSFeed)
                     } else if (measurement >= 201 && measurement <= 300) {
                         forecast = 'Very Unhealthy';
                     } else if (measurement >= 301 && measurement <= 500) {
-                        forcast = 'Hazardous'
+                        forecast = 'Hazardous'
                     }
                 } else {
                     forecast = measurement;
@@ -79,13 +79,9 @@ export default ko.components.register('AQIForecast', {
         this.aqiData = aqiData;
         this.day = ko.observable(0);
         this.zone = ko.observable();
-        this.dayData = ko.computed(() => {
-            return this.aqiData().dates[this.day()];
-        }, this);
-        this.popup = ko.observable();
 
         this.updateDay = () => {
-            const day = this.dayData();
+            const day = this.aqiData().dates[this.day()];
             zones.forEach((zone, i) => {
                 const forecastData = day.zones.find((zoneData) => {
                     return zoneData.title === zone;

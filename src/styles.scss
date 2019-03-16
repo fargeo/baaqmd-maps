@@ -130,13 +130,60 @@ $side-panel-width: 335px;
             border-bottom: solid $dark-color 2px;
         }
     }
-    .baaqmd-maps-popup {
-        overflow-y: auto;
-        height: 100%;
-    }
     .mapboxgl-popup-content {
         max-width: 250px;
         height: 275px;
+        .baaqmd-maps-popup {
+            overflow-y: auto;
+            height: 100%;
+            h3 {
+                margin: 0 0 2px;
+            }
+            h4 {
+                margin: 7px 0 0;
+            }
+            table {
+                margin-top: 5px;
+                width: 100%;
+                td {
+                    text-align: center;
+                    .baaqmd-maps-zone-forecast-zone-item {
+                        margin-bottom: 4px;
+                        border-style: solid;
+                        border-width: 0 0 4px;
+                    }
+                    .good {
+                        border-color: #096;
+                    }
+                    .moderate {
+                        border-color: #ffde33;
+                    }
+                    .unhealthy-for-sensitive-groups {
+                        border-color: #ff9933;
+                    }
+                    .unhealthy {
+                        border-color: #cc0033;
+                    }
+                    .very-unhealthy {
+                        border-color: #660099;
+                    }
+                    .hazardous {
+                        border-color: #7E0023;
+                    }
+                }
+                .baaqmd-maps-zone-forecast-date {
+                    a {
+                        color: darken($light-color, 30%);
+                        text-decoration: none;
+                    }
+                }
+                .baaqmd-maps-zone-forecast-date.active {
+                    a {
+                        color: $dark-color;
+                    }
+                }
+            }
+        }
     }
     .baaqmd-maps-legend {
         color: darken($dark-color, 10%);
@@ -181,5 +228,10 @@ $side-panel-width: 335px;
         .hazardous::before {
             background-color: #7E0023;
         }
+    }
+    .baaqmd-maps-last-updated {
+        color: darken($light-color, 60%);
+        font-size: 12px;
+        margin: 12px;
     }
 }

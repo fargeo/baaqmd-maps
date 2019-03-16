@@ -23,13 +23,23 @@
             <tr>
                 <th data-bind="css: {
                     active: $index() === $parent.day()
-                }">
+                }" class="baaqmd-maps-zone-forecast-date">
                     <a href="#" data-bind="click: function() {
                         $parent.day($index());
                     }, text: date"></a>
                 </th>
                 <td>
-                    <span data-bind="text: measurement || forecast"></span>
+                    <span class="baaqmd-maps-zone-forecast-zone-item" data-bind="
+                        text: measurement || forecast,
+                        css: {
+                            'good': forecast === 'Good',
+                            'moderate': forecast === 'Moderate',
+                            'unhealthy-for-sensitive-groups': forecast === 'Unhealthy for Sensitive Groups',
+                            'unhealthy': forecast === 'Unhealthy',
+                            'very-unhealthy': forecast === 'Very Unhealthy',
+                            'hazardous': forecast === 'Hazardous'
+                        }
+                        "></span>
                 </td>
                 <td data-bind="text: pollutant">OZONE</td>
             </tr>
