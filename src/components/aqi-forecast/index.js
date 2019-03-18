@@ -59,7 +59,7 @@ fetch(config.aqiRSSFeed)
             });
             dates.push(itemData);
         });
-        console.log(dates);
+
         aqiData({
             dates: dates,
             zones: zones,
@@ -70,11 +70,11 @@ fetch(config.aqiRSSFeed)
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
         const zones = [
-            "Eastern Zone",
+            "Santa Clara Valley",
+            "Northern Zone",
             "Coastal and Central Bay",
             "South Central Bay",
-            "Northern Zone",
-            "Santa Clara Valley"
+            "Eastern Zone"
         ];
         this.aqiData = aqiData;
         this.day = ko.observable(0);
