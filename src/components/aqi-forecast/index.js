@@ -12,11 +12,11 @@ fetch(config.aqiRSSFeed)
     })
     .then((text) => {
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(text, "application/xml");
+        const xmlDoc = parser.parseFromString(text, 'application/xml');
         const dates = [];
         const zones = {};
-        xmlDoc.querySelectorAll("item").forEach((item) => {
-            let itemData = {
+        xmlDoc.querySelectorAll('item').forEach((item) => {
+            let day = {
                 date: item.querySelector('date').innerHTML.slice(0, -3),
                 zones: []
             };
@@ -48,16 +48,14 @@ fetch(config.aqiRSSFeed)
                     pollutant: zone.querySelector('pollutant').innerHTML,
                     forecast: forecast
                 };
+                day.zones.push(zoneData);
 
-                itemData.zones.push(zoneData);
-                if (!zones[zoneData.title]) {
-                    zones[zoneData.title] = [];
-                }
+                zones[zoneData.title] = zones[zoneData.title] || [];
                 zones[zoneData.title].push(Object.assign({
-                    date: itemData.date
+                    date: day.date
                 }, zoneData));
             });
-            dates.push(itemData);
+            dates.push(day);
         });
 
         aqiData({
@@ -70,42 +68,36 @@ fetch(config.aqiRSSFeed)
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
         const zones = [
-            "Santa Clara Valley",
-            "Northern Zone",
-            "Coastal and Central Bay",
-            "South Central Bay",
-            "Eastern Zone"
+            'Santa Clara Valley',
+            'Northern Zone',
+            'Coastal and Central Bay',
+            'South Central Bay',
+            'Eastern Zone'
         ];
         this.aqiData = aqiData;
-        this.day = ko.observable(0);
+        this.day = ko.observable();
         this.zone = ko.observable();
 
-        this.updateDay = () => {
-            const day = this.aqiData().dates[this.day()];
-            zones.forEach((zone, i) => {
-                const forecastData = day.zones.find((zoneData) => {
-                    return zoneData.title === zone;
-                });
-                this.map().setFeatureState({
-                    id: i + 1,
-                    source: "composite",
-                    sourceLayer: "aqi-forecast-zones"
-                }, {
-                    forecast: forecastData.forecast
-                });
-            })
-        };
+        this.day.subscribe((day) => {
+            if (typeof day === 'number') {
+                zones.forEach((zone, i) => {
+                    const aqi = this.aqiData().dates[day].zones.find((z) => {
+                        return z.title === zone;
+                    });
+                    this.map().setFeatureState({
+                        id: i + 1,
+                        source: 'composite',
+                        sourceLayer: 'aqi-forecast-zones'
+                    }, {
+                        forecast: aqi.forecast
+                    });
+                })
+            }
+        }, this);
 
         this.setupMap = (map) => {
-            if (this.aqiData()) {
-                this.updateDay();
-            } else {
-                this.aqiData.subscribe(() => {
-                    this.updateDay();
-                });
-            }
-
-            map.on('click', 'aqi-forecast-zones-fill', (e) => {
+            let layerName = 'aqi-forecast-zones-fill';
+            let click = (e) => {
                 const feature = e.features[0];
                 const p = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
@@ -119,18 +111,34 @@ export default ko.components.register('AQIForecast', {
                     lastUpdated: this.aqiData().lastUpdated,
                     day: this.day
                 }, p._content);
-            });
-
-            map.on('mouseenter', 'aqi-forecast-zones-fill', () => {
+            };
+            let mouseenter = () => {
                 map.getCanvas().style.cursor = 'pointer';
-            });
-
-            map.on('mouseleave', 'aqi-forecast-zones-fill', () => {
+            };
+            let mouseleave = () => {
                 map.getCanvas().style.cursor = '';
+            };
+
+            if (this.aqiData()) {
+                this.day(0);
+            } else {
+                let updateOnFetch = this.aqiData.subscribe(() => {
+                    this.day(0);
+                    updateOnFetch.dispose();
+                });
+            }
+
+            map.on('click', layerName, click);
+            map.on('mouseenter', layerName, mouseenter);
+            map.on('mouseleave', layerName, mouseleave);
+
+            let removeListeners = params.mapType.subscribe(() => {
+                map.off('click', layerName, click);
+                map.off('mouseenter', layerName, mouseenter);
+                map.off('mouseleave', layerName, mouseleave);
+                removeListeners.dispose();
             });
         };
-
-        this.day.subscribe(this.updateDay, this);
 
         MapDetailsPanel.default.apply(this, [params]);
     },
