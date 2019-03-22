@@ -97,3 +97,13 @@ yarn build
 ## Deployment
 
 To deploy the latest to library and examples to the web, simply build (as per above) then commit and push your local changes, and merge them into to the `master` branch in Github.
+
+## Tile Generation
+
+Requires [tippecanoe](https://github.com/mapbox/tippecanoe) to be installed locally.  To generate tiles from the latest local data (stored in `data/`), run the following command from the root directory: 
+
+```sh
+yarn tiles
+```
+
+This will create an `.mbtiles` file (`data/baaqmd.mbtiles`) containing all layers, which is ready for upload to [Mapbox](https://studio.mapbox.com/tilesets/).
