@@ -1,10 +1,18 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700");
 
-$dark-color: rgb(0,76,131);
+$side-panel-width: 335px;
+
 $light-color: rgb(239,246,247);
 $mid-color: rgb(0,142,184);
-$side-panel-width: 335px;
+$dark-color: rgb(0,76,131);
+
+$good-color: #096;
+$moderate-color: #ffde33;
+$unhealthy-for-sensitive-groups-color: #ff9933;
+$unhealthy-color: #cc0033;
+$very-unhealthy-color: #660099;
+$hazardous-color: #7E0023;
 
 .baaqmd-maps-main {
     // put all style rules inside here to ensure they are scoped to library
@@ -153,22 +161,22 @@ $side-panel-width: 335px;
                         border-width: 0 0 4px;
                     }
                     .good {
-                        border-color: #096;
+                        border-color: $good-color;
                     }
                     .moderate {
-                        border-color: #ffde33;
+                        border-color: $moderate-color;
                     }
                     .unhealthy-for-sensitive-groups {
-                        border-color: #ff9933;
+                        border-color: $unhealthy-for-sensitive-groups-color;
                     }
                     .unhealthy {
-                        border-color: #cc0033;
+                        border-color: $unhealthy-color;
                     }
                     .very-unhealthy {
-                        border-color: #660099;
+                        border-color: $very-unhealthy-color;
                     }
                     .hazardous {
-                        border-color: #7E0023;
+                        border-color: $hazardous-color;
                     }
                 }
                 .baaqmd-maps-zone-forecast-date {
@@ -191,7 +199,6 @@ $side-panel-width: 335px;
         padding: 0;
         li {
             display: block;
-            // font-size: 0.8em;
             padding-left: 32px;
             min-height: 20px;
             margin-bottom: 8px;
@@ -211,22 +218,22 @@ $side-panel-width: 335px;
             width: 16px;
         }
         .good::before {
-            background-color: #096;
+            background-color: $good-color;
         }
         .moderate::before {
-            background-color: #ffde33;
+            background-color: $moderate-color;
         }
         .unhealthy-for-sensitive-groups::before {
-            background-color: #ff9933;
+            background-color: $unhealthy-for-sensitive-groups-color;
         }
         .unhealthy::before {
-            background-color: #cc0033;
+            background-color: $unhealthy-color;
         }
         .very-unhealthy::before {
-            background-color: #660099;
+            background-color: $very-unhealthy-color;
         }
         .hazardous::before {
-            background-color: #7E0023;
+            background-color: $hazardous-color;
         }
     }
     .baaqmd-maps-last-updated {

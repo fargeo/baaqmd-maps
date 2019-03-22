@@ -68,11 +68,11 @@ fetch(config.aqiRSSFeed)
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
         const zones = [
-            'Santa Clara Valley',
-            'Northern Zone',
+            'Eastern Zone',
             'Coastal and Central Bay',
+            'Northern Zone',
             'South Central Bay',
-            'Eastern Zone'
+            'Santa Clara Valley'
         ];
         this.aqiData = aqiData;
         this.day = ko.observable();
@@ -87,7 +87,7 @@ export default ko.components.register('AQIForecast', {
                     this.map().setFeatureState({
                         id: i + 1,
                         source: 'composite',
-                        sourceLayer: 'aqi-forecast-zones'
+                        sourceLayer: 'reportingzones'
                     }, {
                         forecast: aqi.forecast
                     });
@@ -106,8 +106,8 @@ export default ko.components.register('AQIForecast', {
 
                 this.zone(feature);
                 ko.applyBindingsToDescendants({
-                    name: feature.properties.Name,
-                    aqiData: this.aqiData().zones[feature.properties.Name],
+                    name: feature.properties.zone,
+                    aqiData: this.aqiData().zones[feature.properties.zone],
                     lastUpdated: this.aqiData().lastUpdated,
                     day: this.day
                 }, p._content);
