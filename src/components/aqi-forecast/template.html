@@ -40,4 +40,25 @@
     at
     <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>)
 </div>
+<h3>
+    <i class="fas fa-globe-americas"></i>
+    Boundaries
+</h3>
+<ul class="baaqmd-maps-legend aqi-forecast-boundaries">
+    <li class="aqi-reporting-zones">
+        <input type="checkbox" data-bind="checked: layers.aqi.flag">
+        <span class="legend-display"></span>
+        AQI Reporting Zones
+    </li>
+    <li class="district-boundary">
+        <input type="checkbox" data-bind="checked: layers.district.flag">
+        <span class="legend-display"></span>
+        District Boundary
+    </li>
+    <li class="counties">
+        <input type="checkbox" data-bind="checked: layers.counties.flag">
+        <span class="legend-display"></span>
+        Counties
+    </li>
+</ul>
 <!-- /ko -->

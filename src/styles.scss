@@ -199,11 +199,41 @@ $hazardous-color: #7E0023;
         padding: 0;
         li {
             display: block;
-            padding-left: 32px;
+            padding-left: 36px;
             min-height: 20px;
             margin-bottom: 8px;
             font-size: 14px;
             line-height: 18px;
+        }
+    }
+    .aqi-forecast-boundaries {
+        padding-top: 16px;
+        li {
+            padding-left: 10px;
+        }
+        .legend-display {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            box-sizing: border-box;
+            position: relative;
+            margin: 0 5px;
+            top: 3px;
+        }
+        .aqi-reporting-zones {
+            .legend-display {
+                border: 2px solid $dark-color;
+            }
+        }
+        .district-boundary {
+            .legend-display {
+                border: 2px solid $mid-color;
+            }
+        }
+        .counties {
+            .legend-display {
+                border: 1px solid #5e5e5e;
+            }
         }
     }
     .aqi-forecast-legend {

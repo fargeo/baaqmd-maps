@@ -63,3 +63,4 @@ typings/
 .atom-build.yml
 
 data/*.mbtiles
+data/*centroids.geojson

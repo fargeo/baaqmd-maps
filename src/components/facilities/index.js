@@ -4,6 +4,10 @@ import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
 export default ko.components.register('Facilities', {
     viewModel: function(params) {
+        this.setupMap = (map) => {
+            // setup map here...
+        };
+
         MapDetailsPanel.default.apply(this, [params]);
     },
     template: template

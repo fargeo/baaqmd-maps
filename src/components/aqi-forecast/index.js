@@ -6,10 +6,16 @@ import * as config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
 const aqiData = ko.observable();
-fetch(config.aqiRSSFeed)
-    .then((response) => {
-        return response.text();
+let alertStatus;
+fetch(config.spaRSSFeed)
+    .then((response) => { return response.text(); })
+    .then((text) => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(text, 'application/xml');
+        alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
+        return fetch(config.aqiRSSFeed);
     })
+    .then((response) => { return response.text(); })
     .then((text) => {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(text, 'application/xml');
@@ -77,6 +83,31 @@ export default ko.components.register('AQIForecast', {
         this.aqiData = aqiData;
         this.day = ko.observable();
         this.zone = ko.observable();
+        this.layers = {
+            aqi: {
+                flag:ko.observable(true),
+                names: [
+                    'aqi-forecast-zones-fill',
+                    'aqi-forecast-zones',
+                    'aqi-forecast-zones-outline',
+                    'aqi-forecast-zones-labels'
+                ]
+            },
+            district: {
+                flag:ko.observable(true),
+                names: [
+                    'aqi-forecast-spa-fill',
+                    'district-boundary'
+                ]
+            },
+            counties: {
+                flag:ko.observable(true),
+                names: [
+                    'counties',
+                    'counties-labels'
+                ]
+            }
+        };
 
         this.day.subscribe((day) => {
             if (typeof day === 'number') {
@@ -138,6 +169,20 @@ export default ko.components.register('AQIForecast', {
                 map.off('mouseleave', layerName, mouseleave);
                 removeListeners.dispose();
             });
+
+            for (let key in this.layers) {
+                let layer = this.layers[key];
+                layer.flag.subscribe((visible) => {
+                    let visibility = visible ? 'visible' : 'none';
+                    layer.names.forEach((name) => {
+                        map.setLayoutProperty(name, 'visibility', visibility);
+                    });
+                });
+            }
+
+            if (alertStatus) {
+                map.setPaintProperty('aqi-forecast-spa-fill', 'fill-opacity', 1);
+            }
         };
 
         MapDetailsPanel.default.apply(this, [params]);

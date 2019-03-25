@@ -135,11 +135,29 @@
     padding: 0; }
     .baaqmd-maps-main .baaqmd-maps-legend li {
       display: block;
-      padding-left: 32px;
+      padding-left: 36px;
       min-height: 20px;
       margin-bottom: 8px;
       font-size: 14px;
       line-height: 18px; }
+  .baaqmd-maps-main .aqi-forecast-boundaries {
+    padding-top: 16px; }
+    .baaqmd-maps-main .aqi-forecast-boundaries li {
+      padding-left: 10px; }
+    .baaqmd-maps-main .aqi-forecast-boundaries .legend-display {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      box-sizing: border-box;
+      position: relative;
+      margin: 0 5px;
+      top: 3px; }
+    .baaqmd-maps-main .aqi-forecast-boundaries .aqi-reporting-zones .legend-display {
+      border: 2px solid #004c83; }
+    .baaqmd-maps-main .aqi-forecast-boundaries .district-boundary .legend-display {
+      border: 2px solid #008eb8; }
+    .baaqmd-maps-main .aqi-forecast-boundaries .counties .legend-display {
+      border: 1px solid #5e5e5e; }
   .baaqmd-maps-main .aqi-forecast-legend li::before {
     border-radius: 3px;
     border: solid 1px #002e50;
