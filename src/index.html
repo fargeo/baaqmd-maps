@@ -6,7 +6,8 @@
                 expanded: detailsExpanded,
                 mapType: mapType,
                 map: map,
-                enableMapTypeSelector: enableMapTypeSelector
+                enableMapTypeSelector: enableMapTypeSelector,
+                showInfoPanel: showInfoPanel
             }
         } -->
         <!-- /ko -->
@@ -20,5 +21,11 @@
             map: map
         }
     } -->
+    <!-- /ko -->
+    <!-- ko if: showInfoPanel -->
+        <div class="baaqmd-maps-info-panel" data-bind="component: {
+            name: mapType() + 'InfoPanel',
+            params: $data
+        }"></div>
     <!-- /ko -->
 </div>

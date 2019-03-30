@@ -3,7 +3,17 @@
 .baaqmd-maps-main {
   height: 100%;
   background-color: #eff6f7;
-  font-family: "Roboto", arial, sans-serif; }
+  font-family: "Roboto", arial, sans-serif;
+  position: relative; }
+  .baaqmd-maps-main .baaqmd-maps-info-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: white;
+    border: 16px solid rgba(170, 170, 170, 0.47);
+    z-index: 1000; }
   .baaqmd-maps-main .mapboxgl-ctrl-group, .baaqmd-maps-main .mapboxgl-ctrl-geocoder, .baaqmd-maps-main .mapboxgl-ctrl-geocoder *, .baaqmd-maps-main .mapboxgl-ctrl-geocoder .geocoder-pin-right * {
     background-color: #eff6f7; }
   .baaqmd-maps-main .mapboxgl-ctrl {
@@ -30,6 +40,8 @@
       border: 1px solid #006785; }
       .baaqmd-maps-main .baaqmd-maps-details-panel h3 i {
         padding-right: 6px; }
+    .baaqmd-maps-main .baaqmd-maps-details-panel .information-link {
+      cursor: pointer; }
     .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-content {
       position: absolute;
       width: 335px;
@@ -141,7 +153,8 @@
       font-size: 14px;
       line-height: 18px; }
   .baaqmd-maps-main .aqi-forecast-boundaries {
-    padding-top: 16px; }
+    padding-top: 16px;
+    padding-bottom: 12px; }
     .baaqmd-maps-main .aqi-forecast-boundaries li {
       padding-left: 10px; }
     .baaqmd-maps-main .aqi-forecast-boundaries .legend-display {
@@ -155,7 +168,7 @@
     .baaqmd-maps-main .aqi-forecast-boundaries .aqi-reporting-zones .legend-display {
       border: 2px solid #004c83; }
     .baaqmd-maps-main .aqi-forecast-boundaries .district-boundary .legend-display {
-      border: 2px solid #008eb8; }
+      border: 4px solid #008eb8; }
     .baaqmd-maps-main .aqi-forecast-boundaries .counties .legend-display {
       border: 1px solid #5e5e5e; }
   .baaqmd-maps-main .aqi-forecast-legend li::before {

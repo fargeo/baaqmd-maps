@@ -1,0 +1,95 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.81365966796874,
+          37.85316995894978
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1,
+        "zone": "Eastern Zone",
+        "id": 1,
+        "Shape_Length": 374736.9750577042,
+        "Shape_Area": 3940126544.015338
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.37945556640624,
+          37.844494798834575
+        ]
+      },
+      "properties": {
+        "OBJECTID": 2,
+        "zone": "Coastal and Central Bay",
+        "id": 2,
+        "Shape_Length": 641035.1503346573,
+        "Shape_Area": 3227631289.6252327
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43988037109374,
+          38.32765244536364
+        ]
+      },
+      "properties": {
+        "OBJECTID": 3,
+        "zone": "Northern Zone",
+        "id": 3,
+        "Shape_Length": 376173.2168249061,
+        "Shape_Area": 4300974066.0450325
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.07595825195312,
+          37.50209991181568
+        ]
+      },
+      "properties": {
+        "OBJECTID": 4,
+        "zone": "South Central Bay",
+        "id": 4,
+        "Shape_Length": 156005.776210397,
+        "Shape_Area": 1010992401.4569461
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.7120361328125,
+          37.23032838760387
+        ]
+      },
+      "properties": {
+        "OBJECTID": 5,
+        "zone": "Santa Clara Valley",
+        "id": 5,
+        "Shape_Length": 322465.01846098335,
+        "Shape_Area": 3146194111.8661466
+      }
+    }
+  ]
+}

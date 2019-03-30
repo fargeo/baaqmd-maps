@@ -50,15 +50,19 @@
         <span class="legend-display"></span>
         AQI Reporting Zones
     </li>
-    <li class="district-boundary">
-        <input type="checkbox" data-bind="checked: layers.district.flag">
-        <span class="legend-display"></span>
-        District Boundary
-    </li>
     <li class="counties">
         <input type="checkbox" data-bind="checked: layers.counties.flag">
         <span class="legend-display"></span>
         Counties
     </li>
+    <li class="district-boundary">
+        <input type="checkbox" data-bind="checked: layers.district.flag">
+        <span class="legend-display"></span>
+        District Boundary
+    </li>
 </ul>
+<h3 class="information-link"> <!-- data-bind="click: function() { showInfoPanel(!showInfoPanel()); }"> -->
+    <i class="fas fa-question-circle"></i>
+    Information
+</h3>
 <!-- /ko -->

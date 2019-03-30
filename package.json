@@ -7,22 +7,25 @@
   "author": "Rob Gaston <rgaston@fargeo.com>",
   "scripts": {
     "dev": "webpack-dev-server",
-    "centroids": "cd src && node centroids.js",
-    "tiles": "cd data && rm baaqmd.mbtiles && tippecanoe -o baaqmd.mbtiles -z15 --drop-densest-as-needed *.geojson -ps -ab",
+    "gen-points": "node scripts/gen-points.js",
+    "tiles": "node scripts/tiles.js",
     "build": "webpack --mode=production"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@turf/turf": "^5.1.6",
+    "aws-sdk": "^2.432.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
+    "mapbox": "^1.0.0-beta10",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "tippecanoe": "^0.3.0",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"

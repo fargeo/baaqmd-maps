@@ -26,6 +26,7 @@ export function Map(opts) {
     if (this.mapTypes.indexOf(opts.mapType) < 0) opts.mapType = this.mapTypes[0];
     this.mapType = ko.observable(opts.mapType);
     this.map = ko.observable();
+    this.showInfoPanel = ko.observable(false);
 
     // public members
     this.el = doc.body.removeChild(doc.body.firstChild);

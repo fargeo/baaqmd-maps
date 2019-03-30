@@ -2,12 +2,11 @@ const fs = require("fs");
 const turf = require("@turf/turf");
 
 const layers = [
-    'reportingzones',
-    'counties'
+    // add names (w/o extension) of geojson files
 ];
 
 layers.forEach((name) => {
-    let fc = fs.readFileSync(`../data/${name}.geojson`);
+    let fc = fs.readFileSync(`./data/${name}.geojson`);
 
     fc = JSON.parse(fc);
     fc.features.forEach((feature) => {
@@ -15,12 +14,12 @@ layers.forEach((name) => {
     });
 
     fs.writeFile(
-        `../data/${name}centroids.geojson`,
+        `./data/${name}points.geojson`,
         JSON.stringify(fc, null, "\t"),
         function(err) {
             if (err) throw err;
 
-            console.log(`${name}centroids.geojson added...`);
+            console.log(`data/${name}points.geojson added...`);
         }
     );
 });
