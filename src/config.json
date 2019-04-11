@@ -1,5 +1,7 @@
 {
     "accessToken": "pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA",
+    "userName": "baaqmd-publicmaps",
+    "tilesetId": "c3867v6s",
     "apiURI": "https://api.mapbox.com/styles/v1/",
     "aqiRSSFeed": "http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml",
     "spaRSSFeed": "http://www.baaqmd.gov/Feeds/AlertRSS.aspx",
