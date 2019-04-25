@@ -1,11 +1,32 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700");
+@font-face{font-family:'proxima_nova_rgregular';
+    src:url('fonts/proxima/proximanova-regular-webfont.eot');
+    src:url('fonts/proxima/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/proxima/proximanova-regular-webfont.woff2') format('woff2'),
+    url('fonts/proxima/proximanova-regular-webfont.ttf') format('truetype');
+    font-weight:normal;
+    font-style:normal}
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?askvjh');
+    src:  url('fonts/icomoon.eot?askvjh#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?askvjh') format('woff2'),
+    url('fonts/icomoon.ttf?askvjh') format('truetype'),
+    url('fonts/icomoon.woff?askvjh') format('woff'),
+    url('fonts/icomoon.svg?askvjh#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 $side-panel-width: 335px;
 
 $light-color: rgb(239,246,247);
 $mid-color: rgb(0,142,184);
 $dark-color: rgb(0,76,131);
+
+$primary-color: rgb(0,142,184);
+$secondary-color: #ee8301;
 
 $good-color: #096;
 $moderate-color: #ffde33;
@@ -17,9 +38,23 @@ $hazardous-color: #7E0023;
 .baaqmd-maps-main {
     // put all style rules inside here to ensure they are scoped to library
     height: 100%;
-    background-color: $light-color;
-    font-family: "Roboto", arial, sans-serif;
+    background-color: white;
+    font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
+    color: rgba(0,0,0,0.67);
     position: relative;
+    a {
+        color: $primary-color;
+        text-decoration: underline;
+    }
+    :focus {
+        outline: -webkit-focus-ring-color auto 0px !important;
+    }
+    a:hover, a:focus {
+        color: $secondary-color;
+    }
+    a:hover, a:focus, a.event-no:hover, a.event-no:focus {
+        outline:none;
+    }
     .baaqmd-maps-info-panel {
         position: absolute;
         top: 0;
@@ -30,11 +65,125 @@ $hazardous-color: #7E0023;
         border: 16px solid rgba(170, 170, 170, 0.47);
         z-index: 1000;
     }
+    .mapboxgl-map {
+        font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
+    }
     .mapboxgl-ctrl-group, .mapboxgl-ctrl-geocoder, .mapboxgl-ctrl-geocoder *, .mapboxgl-ctrl-geocoder .geocoder-pin-right * {
         background-color: $light-color;
     }
     .mapboxgl-ctrl {
-        border-radius: 0;
+        border-radius: 4px;
+    }
+
+    .mapboxgl-ctrl-group {
+        background-color: transparent;
+    }
+    .mapboxgl-ctrl-geocoder {
+        background-color: $light-color;
+        * {
+            background-color: $light-color;
+        }
+        .geocoder-pin-right * {
+            background-color: transparent;
+        }
+        *:focus, .geocoder-pin-right *:focus {
+            background-color: #fff;
+        }
+        * .geocoder-icon-search, .geocoder-icon-search {
+            background-color: transparent;
+        }
+        ul > li > a {
+            text-decoration: none;
+        }
+        ul > li:hover > a, ul > li:focus > a {
+            color: rgba(0,0,0,0.8);
+            background-color: rgba(238,131,1,0.2);
+            text-decoration: none;
+        }
+        ul > li.active > a {
+            color: #202020;
+            background-color: rgba(200,220,240,0.6);
+            text-decoration: none;
+        }
+    }
+    .mapboxgl-ctrl-geocoder:focus {
+        background-color: #fff;
+    }
+    .mapboxgl-ctrl-group:not(:empty) {
+        -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    }
+    .mapboxgl-ctrl-group > button {
+        border-radius: 6px;
+        background: $primary-color;
+        color: white;
+    }
+    .mapboxgl-ctrl-group > button:hover, .mapboxgl-ctrl-group > button:focus {
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+        background: $secondary-color !important;
+    }
+    .icomoon {  font-family: icomoon;  }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+        background-image: none;
+        font-size: 0.9rem;
+        background-image: none !important;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:focus {
+        font-size: 1.1rem;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+        background-image: none;
+        font-size: 0.9rem;
+        background-image: none !important;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:focus {
+        font-size: 1.1rem;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass > .mapboxgl-ctrl-compass-arrow {
+        background-image: none;
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+        margin: 0;
+        text-align: center;
+        width: 24px;
+        height: 24px;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:focus {
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:hover > .mapboxgl-ctrl-compass-arrow, .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:focus > .mapboxgl-ctrl-compass-arrow {
+        font-size: 1.5rem;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate {
+        background-image: none;
+        font-size: 1.1rem;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:focus  {
+        font-size: 1.4rem;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-fullscreen, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-fullscreen,
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-Fullscreen, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-Fullscreen {
+        font-size: 1.4rem;
+    }
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-fullscreen:hover, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-fullscreen:hover,
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-Fullscreen:hover, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-Fullscreen:hover,
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-fullscreen:focus, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-fullscreen:focus,
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-Fullscreen:focus, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-Fullscreen:focus {
+        font-size: 1.6rem;
+    }
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button > i.fas.fa-print.icomoon.icon-Print {
+        background-image: none;
+        font-size: 1.2rem;
+    }
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover, button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:focus {
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover > i.fas.fa-print.icomoon.icon-Print, button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:focus > i.fas.fa-print.icomoon.icon-Print {
+        font-size: 1.4rem;
     }
     .baaqmd-maps-details-panel-wrapper {
         width: $side-panel-width;
@@ -80,7 +229,7 @@ $hazardous-color: #7E0023;
             height: 20px;
             top: 10px;
             z-index: 100;
-            padding: 4px;
+            padding: 0;
             cursor: pointer;
         }
         .baaqmd-maps-details-panel-expander i {
@@ -155,6 +304,9 @@ $hazardous-color: #7E0023;
     .mapboxgl-popup-content {
         max-width: 250px;
         height: 275px;
+        border-radius: 6px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
         .baaqmd-maps-popup {
             overflow-y: auto;
             height: 100%;
@@ -176,21 +328,33 @@ $hazardous-color: #7E0023;
                     }
                     .good {
                         border-color: $good-color;
+                        background-color: $good-color;
+                        color: white;
                     }
                     .moderate {
                         border-color: $moderate-color;
+                        background-color: $moderate-color;
+                        color: #222222;
                     }
                     .unhealthy-for-sensitive-groups {
                         border-color: $unhealthy-for-sensitive-groups-color;
+                        background-color: $unhealthy-for-sensitive-groups-color;
+                        color: #222222;
                     }
                     .unhealthy {
                         border-color: $unhealthy-color;
+                        background-color: $unhealthy-color;
+                        color: white;
                     }
                     .very-unhealthy {
                         border-color: $very-unhealthy-color;
+                        background-color: $very-unhealthy-color;
+                        color: white;
                     }
                     .hazardous {
                         border-color: $hazardous-color;
+                        background-color: $hazardous-color;
+                        color: white;
                     }
                 }
                 .baaqmd-maps-zone-forecast-date {
@@ -285,5 +449,282 @@ $hazardous-color: #7E0023;
         color: darken($light-color, 60%);
         font-size: 12px;
         margin: 12px;
+    }
+    .icomoon {  font-family: icomoon;  }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+        background-image: none;
+        font-size: 0.9rem;
+        background-image: none !important;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:focus {
+        font-size: 1.1rem;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+        background-image: none;
+        font-size: 0.9rem;
+        background-image: none !important;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:focus {
+        font-size: 1.1rem;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass > .mapboxgl-ctrl-compass-arrow {
+        background-image: none;
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+        margin: 0;
+        text-align: center;
+        width: 24px;
+        height: 24px;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:focus {
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:hover > .mapboxgl-ctrl-compass-arrow, .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:focus > .mapboxgl-ctrl-compass-arrow {
+        font-size: 1.5rem;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate {
+        background-image: none;
+        font-size: 1.1rem;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:focus  {
+        font-size: 1.4rem;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-fullscreen, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-fullscreen,
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-Fullscreen, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-Fullscreen {
+        font-size: 1.4rem;
+    }
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-fullscreen:hover, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-fullscreen:hover,
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-Fullscreen:hover, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-Fullscreen:hover,
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-fullscreen:focus, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-fullscreen:focus,
+    button.mapboxgl-ctrl-icon.icomoon.icon-Fullscreen.mapboxgl-ctrl-Fullscreen:focus, button.mapboxgl-ctrl-icon.icomoon.icon-FullscreenB.mapboxgl-ctrl-Fullscreen:focus {
+        font-size: 1.6rem;
+    }
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button > i.fas.fa-print.icomoon.icon-Print {
+        background-image: none;
+        font-size: 1.2rem;
+    }
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover, button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:focus {
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover > i.fas.fa-print.icomoon.icon-Print, button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:focus > i.fas.fa-print.icomoon.icon-Print {
+        font-size: 1.4rem;
+    }
+    /*   panel styles   */
+    .baaqmd-maps-details-panel .baaqmd-maps-type-selector .choices__inner {
+        background-color: transparent;
+        color: rgb(0,79,131);
+        border-color: transparent;
+    }
+    .baaqmd-maps-details-panel .baaqmd-maps-type-selector .choices.is-focused .choices__inner {
+        color: $secondary-color;
+    }
+    .baaqmd-maps-details-panel.baaqmd-maps-expanded {
+        border-right: 1px solid rgba(0,60,120,0.3);
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander {
+        width: 48px;
+        height: 48px;
+        text-align: center;
+        line-height: 2.4rem !important;
+        border-radius: 6px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 6px;
+        background: $primary-color;
+        color: white;
+        top: 0;
+        right: -48px;
+    }
+    .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander:hover, .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander:focus {
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+        background: $secondary-color !important;
+    }
+    .baaqmd-maps-details-panel-expander.mapboxgl-ctrl.mapboxgl-ctrl-group.baaqmd-maps-expanded {
+        right: -48px;
+    }
+    .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-expanded i, .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander i {
+        font-size: 1.3rem;
+        vertical-align: middle;
+    }
+    .baaqmd-maps-details-panel .baaqmd-maps-type-selector .choices[data-type*=select-one]:after {
+        border-color: $primary-color transparent transparent transparent;
+        border-width: 6px;
+        top: 52%;
+    }
+    .baaqmd-maps-details-panel .baaqmd-maps-type-selector .choices[data-type*=select-one].is-focused:after {
+        border-color: $secondary-color transparent transparent transparent;
+    }
+    .choices__item.choices__item--selectable {
+        font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial;
+        font-size: 1rem;
+        line-height: 1rem !important;
+        font-weight: 400;
+        letter-spacing: 1px;
+        font-family: Garamond, Georgia1, Georgia, serif;
+    }
+    .choices__list--dropdown .choices__item--selectable {
+        background-color: rgb(250,250,250);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
+    }
+    .choices__list--dropdown .choices__item--selectable.is-highlighted {
+        background-color: rgba(238,131,1,0.2);
+    }
+    .baaqmd-maps-details-panel h3 {
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
+        font-size: 0.74rem;
+        vertical-align: middle;
+        letter-spacing: 2px;
+        padding: 10px 20px 8px 20px;
+        border: 0px solid rgba(0,142,184,0);
+    }
+    .baaqmd-maps-details-panel h3 i {
+        padding-right: 6px;
+        font-size: 1.3rem;
+        vertical-align: middle;
+    }
+    .baaqmd-maps-aqi-forecast-dates li a {
+        background: white;
+        color: rgba(0,0,0,0.67);
+        font-size: 0.7rem !important;
+        padding: 4px 8px;
+        border-radius: 6px;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 3px 0px;
+    }
+    ul.baaqmd-maps-aqi-forecast-dates {
+        margin: 8px 10px 15px 10px;
+    }
+    .baaqmd-maps-aqi-forecast-dates li a:hover, .baaqmd-maps-aqi-forecast-dates li a:focus {
+        background: $secondary-color !important;
+        background: rgba(0,142,184,0.8);
+        color: white;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .baaqmd-maps-aqi-forecast-dates li.active {
+        border-bottom: solid white 0px;
+    }
+    .baaqmd-maps-aqi-forecast-dates li.active a {
+        background: $primary-color;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 3px 0px;
+    }
+    .baaqmd-maps-legend li {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 0.8rem;
+        line-height: 1.1rem !important;
+    }
+    .aqi-forecast-legend li::before {
+        border-radius: 50%;
+        border: solid 0px #002e50;
+        left: 13px;
+    }
+    .baaqmd-maps-last-updated {
+        color: rgba(0,0,0,0.5);
+        font-size: 0.72rem;
+        font-style: italic;
+        margin: 0 0 10px 13px;
+    }
+    .aqi-forecast-boundaries .legend-display {
+        width: 24px;
+        height: 24px;
+        color: rgba(0,0,0,0.6);
+        font-size: 1.6rem;
+    }
+    .aqi-forecast-boundaries .aqi-reporting-zones .legend-display {
+        border: 0px solid #004c83;
+        color: #004c83;
+    }
+    .aqi-forecast-boundaries .counties .legend-display {
+        border: 0px solid #5e5e5e;
+        color: #5e5e5e;
+    }
+    .aqi-forecast-boundaries .district-boundary .legend-display {
+        border: 0px solid $primary-color;
+        color: $primary-color;
+    }
+    .baaqmd-maps-legend li.aqi-reporting-zones, .baaqmd-maps-legend li.counties, .baaqmd-maps-legend li.district-boundary {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .baaqmd-maps-legend li.aqi-reporting-zones input, .baaqmd-maps-legend li.counties input, .baaqmd-maps-legend li.district-boundary input {
+        margin-top: 7px;
+        vertical-align: top !important;
+        height: 20px;
+        width: 20px;
+    }
+    .aqi-forecast-boundaries {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    /*  popup styles  */
+    .baaqmd-maps-popup h3 span {
+        font-size: 0.95rem;
+        vertical-align: middle;
+        line-height: 0rem !important;
+    }
+    .mapboxgl-popup-content .baaqmd-maps-popup h3 {
+        margin: 0 0 10px;
+    }
+    .baaqmd-maps-popup h3 i {
+        font-size: 1.4rem;
+        vertical-align: middle;
+        line-height: 0rem !important;
+    }
+    .mapboxgl-popup-close-button {
+        right: -8px;
+        top: -8px;
+        background-color: white !important;
+        width: 26px;
+        height: 26px;
+        font-size: 1rem;
+        color: rgba(0,0,0,0.6);
+        border-radius: 50%;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    }
+    .mapboxgl-popup-close-button:hover, .mapboxgl-popup-close-button:focus {
+        color: $primary-color;
+        font-size: 1.3rem;
+    }
+    .baaqmd-maps-popup div {
+        font-style: italic;
+        color: rgba(0,0,0,0.5);
+        font-size: 0.72rem;
+    }
+    .mapboxgl-popup-content .baaqmd-maps-popup h4 {
+        font-size: 0.85rem;
+        vertical-align: middle;
+        margin: 15px 0 0;
+    }
+    .mapboxgl-popup-content .baaqmd-maps-popup table td .baaqmd-maps-zone-forecast-zone-item {
+        border-width: 0;
+        font-size: 0.65rem;
+        font-weight: 700;
+        border-radius: 6px;
+        width: 100%;
+        display: inline-block;
+    }
+    .mapboxgl-popup-content .baaqmd-maps-popup table .baaqmd-maps-zone-forecast-date.active a {
+        color: $primary-color;
+    }
+    .mapboxgl-popup-content .baaqmd-maps-popup table .baaqmd-maps-zone-forecast-date a {
+        color: rgba(0,0,0,0.4);
+    }
+    .mapboxgl-popup-content .baaqmd-maps-popup table .baaqmd-maps-zone-forecast-date a:hover {
+        color: $secondary-color;
+    }
+    .mapboxgl-popup-content .baaqmd-maps-popup table td {
+        font-size: 0.65rem;
     }
 }
