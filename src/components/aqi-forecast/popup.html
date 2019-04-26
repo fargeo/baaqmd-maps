@@ -1,58 +1,60 @@
 <div class="baaqmd-maps-popup">
-    <h3>
-        <i class="fas fa-wind"></i>
-        <span data-bind="text: name"></span>
-    </h3>
-    <div>
-        (Last Updated:
-        <span data-bind="text: lastUpdated.toLocaleDateString()"></span>
-        at
-        <span data-bind="text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>)
+    <div class="baaqmd-maps-popup-content">
+        <h3>
+            <i class="fas fa-wind"></i>
+            <span data-bind="text: name"></span>
+        </h3>
+        <div>
+            (Last Updated:
+            <span data-bind="text: lastUpdated.toLocaleDateString()"></span>
+            at
+            <span data-bind="text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>)
+        </div>
+
+        <table class="baaqmd-maps-zone-forecast">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>AQI</th>
+                    <th>Pollutant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ko foreach: aqiData -->
+                <tr>
+                    <th data-bind="css: {
+                        active: $index() === $parent.day()
+                    }" class="baaqmd-maps-zone-forecast-date">
+                        <a href="#" data-bind="click: function() {
+                            $parent.day($index());
+                        }, text: date"></a>
+                    </th>
+                    <td>
+                        <span class="baaqmd-maps-zone-forecast-zone-item" data-bind="
+                            text: measurement || forecast,
+                            css: {
+                                'good': forecast === 'Good',
+                                'moderate': forecast === 'Moderate',
+                                'unhealthy-for-sensitive-groups': forecast === 'Unhealthy for Sensitive Groups',
+                                'unhealthy': forecast === 'Unhealthy',
+                                'very-unhealthy': forecast === 'Very Unhealthy',
+                                'hazardous': forecast === 'Hazardous'
+                            }
+                            "></span>
+                    </td>
+                    <td data-bind="text: pollutant">OZONE</td>
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+
+        <h4>About the Five Day Forecast</h3>
+
+        <p>The Air District issues a daily air quality forecast that predicts air pollution levels for the coming five-day period. This forecast uses the U.S. EPA's Air Quality Index scale.</p>
+        <p>For forecasting purposes, cities in the Bay Area have been divided into five reporting zones.</p>
+
+        <a target="_blank" href="http://www.baaqmd.gov/rtaqd-data">Real Time Air Monitoring Data (Data View)</a>
+        </br>
+        <a target="_blank" href="http://www.baaqmd.gov/forecast">Additional Information</a>
     </div>
-
-    <table class="baaqmd-maps-zone-forecast">
-        <thead>
-            <tr>
-                <th>&nbsp;</th>
-                <th>AQI</th>
-                <th>Pollutant</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- ko foreach: aqiData -->
-            <tr>
-                <th data-bind="css: {
-                    active: $index() === $parent.day()
-                }" class="baaqmd-maps-zone-forecast-date">
-                    <a href="#" data-bind="click: function() {
-                        $parent.day($index());
-                    }, text: date"></a>
-                </th>
-                <td>
-                    <span class="baaqmd-maps-zone-forecast-zone-item" data-bind="
-                        text: measurement || forecast,
-                        css: {
-                            'good': forecast === 'Good',
-                            'moderate': forecast === 'Moderate',
-                            'unhealthy-for-sensitive-groups': forecast === 'Unhealthy for Sensitive Groups',
-                            'unhealthy': forecast === 'Unhealthy',
-                            'very-unhealthy': forecast === 'Very Unhealthy',
-                            'hazardous': forecast === 'Hazardous'
-                        }
-                        "></span>
-                </td>
-                <td data-bind="text: pollutant">OZONE</td>
-            </tr>
-            <!-- /ko -->
-        </tbody>
-    </table>
-
-    <h4>About the Five Day Forecast</h3>
-
-    <p>The Air District issues a daily air quality forecast that predicts air pollution levels for the coming five-day period. This forecast uses the U.S. EPA's Air Quality Index scale.</p>
-    <p>For forecasting purposes, cities in the Bay Area have been divided into five reporting zones.</p>
-
-    <a target="_blank" href="http://www.baaqmd.gov/rtaqd-data">Real Time Air Monitoring Data (Data View)</a>
-    </br>
-    <a target="_blank" href="http://www.baaqmd.gov/forecast">Additional Information</a>
 </div>
