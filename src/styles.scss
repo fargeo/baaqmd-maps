@@ -110,11 +110,6 @@ $hazardous-color: #7E0023;
                 padding: 16px;
             }
         }
-        .aqi-forecast-legend {
-            li::before {
-                left: 26px;
-            }
-        }
         h3 {
             margin-top: 2px;
             margin-bottom: 4px;
@@ -754,6 +749,7 @@ $hazardous-color: #7E0023;
         }
     }
     .aqi-forecast-legend {
+        position: relative;
         li::before {
             content: '';
             display: block;
