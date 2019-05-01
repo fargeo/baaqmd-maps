@@ -75,17 +75,8 @@
       overflow-y: auto; }
       .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-info-panel-content .baaqmd-maps-info-panel-component {
         padding: 16px; }
-    .baaqmd-maps-main .baaqmd-maps-info-panel .aqi-forecast-legend {
-      position: relative; }
-      .baaqmd-maps-main .baaqmd-maps-info-panel .aqi-forecast-legend li::before {
-        content: '';
-        display: block;
-        position: absolute;
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-        border: solid 0px transparent;
-        left: 13px; }
+    .baaqmd-maps-main .baaqmd-maps-info-panel .aqi-forecast-legend li::before {
+      left: 26px; }
     .baaqmd-maps-main .baaqmd-maps-info-panel h3 {
       margin-top: 2px;
       margin-bottom: 4px; }
@@ -572,4 +563,13 @@
       color: #008eb8; }
     .baaqmd-maps-main .five-day-forecast-table .baaqmd-maps-zone-forecast-date.active a:hover {
       color: #ee8301; }
+  .baaqmd-maps-main .aqi-forecast-legend li::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: solid 0px transparent;
+    left: 13px; }
 
