@@ -545,7 +545,7 @@
   .baaqmd-maps-main .five-day-forecast-table {
     margin-top: 5px;
     width: 100%;
-    border-spacing: 16px 30px; }
+    border-spacing: 16px; }
     .baaqmd-maps-main .five-day-forecast-table th {
       font-size: 0.9rem; }
     .baaqmd-maps-main .five-day-forecast-table .baaqmd-maps-zone-forecast-name {
