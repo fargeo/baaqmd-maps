@@ -3,6 +3,7 @@ import * as mapboxgl from 'mapbox-gl';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html'
+import * as forecastPanelTemplate from './forecast-panel.html'
 import * as config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
@@ -77,6 +78,13 @@ ko.components.register('AQIForecastInfoPanel', {
         this.showInfoPanel = params.showInfoPanel;
     },
     template: infoPanelTemplate
+});
+
+ko.components.register('AQIForecastPanel', {
+    viewModel: function(params) {
+        this.showInfoPanel = params.showInfoPanel;
+    },
+    template: forecastPanelTemplate
 });
 
 export default ko.components.register('AQIForecast', {

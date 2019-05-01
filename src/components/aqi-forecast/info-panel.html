@@ -1,24 +1,34 @@
-<h3 class="modal-title">AQI</h3>
-<dl class="legend aqi">
-    <dt class="modal-term good">Good (0-50)</dt>
-    <dd class="modal-definition">No health impacts are expected when air quality is in this range.</dd>
-
-    <dt class="modal-term moderate">Moderate (51-100)</dt>
-    <dd class="modal-definition">Unusually sensitive people should consider limiting prolonged outdoor exertion.</dd>
-
-    <dt class="modal-term unhealthy-for-sensitive-groups">Unhealthy for Sensitive Groups (101-150)</dt>
-    <dd class="modal-definition">Active children and adults, and people with respiratory disease, such as asthma, should limit outdoor exertion.</dd>
-
-    <dt class="modal-term unhealthy">Unhealthy (151-200)</dt>
-    <dd class="modal-definition">Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion.</dd>
-
-    <dt class="modal-term very-unhealthy">Very Unhealthy (201-300)</dt>
-    <dd class="modal-definition">Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.</dd>
-</dl>
-
-
+<h3 class="modal-title">
+    <i class="fas fa-info-circle"></i>
+    Air Quality Index Forecasts
+</h3>
+<hr>
+<ul class="baaqmd-maps-legend aqi-forecast-legend">
+    <li class="good">
+        <h3>Good (0-50)</h3>
+        <p>No health impacts are expected when air quality is in this range.</p>
+    </li>
+    <li class="moderate">
+        <h3>Moderate (51-100)</h3>
+        <p>Unusually sensitive people should consider limiting prolonged outdoor exertion.</p>
+    </li>
+    <li class="unhealthy-for-sensitive-groups">
+        <h3>Unhealthy for Sensitive Groups (101-150)</h3>
+        <p>Active children and adults, and people with respiratory disease, such as asthma, should limit outdoor exertion.</p>
+    </li>
+    <li class="unhealthy">
+        <h3>Unhealthy (151-200)</h3>
+        <p>Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion.</p>
+    </li>
+    <li class="very-unhealthy">
+        <h3>Very Unhealthy (201-300)</h3>
+        <p>Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.</p>
+    </li>
+    <li class="hazardous">
+        <h3>Hazardous (301-500)</h3>
+        <p>Pollution is hazardous at these levels. Everyone should take steps to reduce their exposure when particle pollution levels are in this range.</p>
+    </li>
+</ul>
 <p>The U.S. EPA developed the Air Quality Index, or AQI, scale to make public health impacts of air pollution concentrations easily understandable.</p>
-<p>The AQI translates daily air pollution concentrations into a number scale, with color-coded ranges as shown below.</p>
+<p>The AQI translates daily air pollution concentrations into a number scale, with color-coded ranges as shown above.</p>
 <p>The AQI numbers refer to specific amounts of pollution in the air, based on federal air quality standards for six major pollutants. In most cases, the federal standard for these pollutants corresponds to the number 100 on the AQI chart.</p>
-
-<button class="close" data-bind="click: function() { showInfoPanel(!showInfoPanel()); }">Close</button>

@@ -34,6 +34,17 @@
         Hazardous (301-500)
     </li>
 </ul>
+<div class="baaqmd-maps-details-links">
+    <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('AQIForecastPanel'); }">
+        <i class="fas fa-wind"></i>
+        5-day Forecast
+    </a>
+    |
+    <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('AQIForecastInfoPanel'); }">
+        <i class="fas fa-info-circle"></i>
+        More Information
+    </a>
+</div>
 <div class="baaqmd-maps-last-updated">
     (Last Updated:
     <span data-bind="text: aqiData().lastUpdated.toLocaleDateString()"></span>
@@ -67,8 +78,4 @@
         District Boundary
     </li>
 </ul>
-<h3 class="information-link"> <!-- data-bind="click: function() { showInfoPanel(!showInfoPanel()); }"> -->
-    <i class="fas fa-question-circle"></i>
-    Information
-</h3>
 <!-- /ko -->

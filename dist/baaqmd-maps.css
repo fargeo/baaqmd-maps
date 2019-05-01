@@ -29,15 +29,69 @@
     color: #ee8301; }
   .baaqmd-maps-main a:hover, .baaqmd-maps-main a:focus, .baaqmd-maps-main a.event-no:hover, .baaqmd-maps-main a.event-no:focus {
     outline: none; }
-  .baaqmd-maps-main .baaqmd-maps-info-panel {
+  .baaqmd-maps-main .baaqmd-maps-info-panel-mask {
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 76, 131, 0.15); }
+  .baaqmd-maps-main .baaqmd-maps-info-panel {
+    position: absolute;
+    margin: auto;
+    top: 32px;
+    bottom: 32px;
+    right: 32px;
+    left: 32px;
+    max-height: 650px;
+    max-width: 850px;
     background-color: white;
-    border: 16px solid rgba(170, 170, 170, 0.47);
-    z-index: 1000; }
+    color: #002e50;
+    border-radius: 6px;
+    border: 0px solid transparent;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    z-index: 1001;
+    font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif; }
+    .baaqmd-maps-main .baaqmd-maps-info-panel hr {
+      margin-bottom: 18px; }
+    .baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel {
+      cursor: pointer;
+      position: absolute;
+      right: -8px;
+      top: -8px;
+      width: 26px;
+      height: 26px;
+      color: rgba(0, 0, 0, 0.6);
+      z-index: 100000;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); }
+    .baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel:hover, .baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel:focus {
+      color: #008eb8;
+      font-size: 1rem; }
+    .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-info-panel-content {
+      height: 100%;
+      overflow-y: auto; }
+      .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-info-panel-content .baaqmd-maps-info-panel-component {
+        padding: 16px; }
+    .baaqmd-maps-main .baaqmd-maps-info-panel .aqi-forecast-legend {
+      position: relative; }
+      .baaqmd-maps-main .baaqmd-maps-info-panel .aqi-forecast-legend li::before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        border: solid 0px transparent;
+        left: 13px; }
+    .baaqmd-maps-main .baaqmd-maps-info-panel h3 {
+      margin-top: 2px;
+      margin-bottom: 4px; }
+    .baaqmd-maps-main .baaqmd-maps-info-panel p {
+      font-size: 0.8rem;
+      line-height: 1.1rem; }
   .baaqmd-maps-main .mapboxgl-map {
     font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif; }
   .baaqmd-maps-main .mapboxgl-ctrl-group, .baaqmd-maps-main .mapboxgl-ctrl-geocoder, .baaqmd-maps-main .mapboxgl-ctrl-geocoder *, .baaqmd-maps-main .mapboxgl-ctrl-geocoder .geocoder-pin-right * {
@@ -100,6 +154,12 @@
     font-size: 1.3rem; }
   .baaqmd-maps-main .mapboxgl-ctrl-icon.baaqmd-maps-print-button:before {
     content: "\e90c"; }
+  .baaqmd-maps-main .mapboxgl-ctrl-icon.baaqmd-maps-help-button {
+    font-size: 1.3rem; }
+  .baaqmd-maps-main .mapboxgl-ctrl-icon.baaqmd-maps-help-button:hover, .baaqmd-maps-main .mapboxgl-ctrl-icon.baaqmd-maps-help-button:focus {
+    font-size: 1.4rem; }
+  .baaqmd-maps-main .mapboxgl-ctrl-icon.baaqmd-maps-help-button:before {
+    content: "\e906"; }
   .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:hover, .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:focus {
     font-size: 1.1rem;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); }
@@ -194,6 +254,11 @@
     width: 0px;
     float: left;
     position: relative; }
+    .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-links {
+      margin: 6px 14px;
+      font-size: 0.8rem; }
+      .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-links a {
+        text-decoration: none; }
     .baaqmd-maps-main .baaqmd-maps-details-panel h3 {
       margin: 0;
       background-color: #008eb8;

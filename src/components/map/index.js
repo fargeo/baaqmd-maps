@@ -6,6 +6,7 @@ import * as template from './template.html';
 import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
 import PrintControl from '../print-control';
+import HelpControl from '../help-control';
 let mapboxQuery = '?access_token=' + config.accessToken;
 mapboxQuery += process.env.NODE_ENV === 'production' ? '' : '&fresh=true';
 
@@ -37,6 +38,7 @@ export default ko.components.register('map', {
                 unit: 'imperial'
             }));
             map.addControl(new PrintControl());
+            map.addControl(new HelpControl(params.showInfoPanel));
             params.map(map);
 
             params.mapType.subscribe((mapType) => {
