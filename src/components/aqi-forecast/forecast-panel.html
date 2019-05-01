@@ -1,5 +1,46 @@
+<!-- ko if: aqiData -->
 <h3 class="modal-title">
     <i class="fas fa-wind"></i>
     Five Day AQI Forecast
+    <span class="baaqmd-maps-last-updated">
+        (Last Updated:
+        <span data-bind="text: aqiData().lastUpdated.toLocaleDateString()"></span>
+        at
+        <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>)
+    </span>
 </h3>
 <hr>
+
+<table class="five-day-forecast-table">
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <!-- ko foreach: aqiData().dates -->
+            <th data-bind="text: date"></th>
+            <!-- /ko -->
+        </tr>
+    </thead>
+    <tbody>
+        <!-- ko foreach: zones -->
+        <tr>
+            <th class="baaqmd-maps-zone-forecast-name" data-bind="text: name"></th>
+            <!-- ko foreach: dates -->
+            <td class="baaqmd-maps-zone-forecast-data">
+                <div class="baaqmd-maps-legend" data-bind="css: {
+                    'good': forecast === 'Good',
+                    'moderate': forecast === 'Moderate',
+                    'unhealthy-for-sensitive-groups': forecast === 'Unhealthy for Sensitive Groups',
+                    'unhealthy': forecast === 'Unhealthy',
+                    'very-unhealthy': forecast === 'Very Unhealthy',
+                    'hazardous': forecast === 'Hazardous'
+                }">
+                    <div class="baaqmd-maps-zone-forecast-measurement" data-bind="text: measurement || forecast"></div>
+                    <div class="baaqmd-maps-pollutant" data-bind="text: pollutant"></div>
+                </div>
+            </td>
+            <!-- /ko -->
+        </tr>
+        <!-- /ko -->
+    </tbody>
+</table>
+<!-- /ko -->

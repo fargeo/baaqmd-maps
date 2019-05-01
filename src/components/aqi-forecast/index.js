@@ -73,7 +73,7 @@ fetch(config.spaRSSFeed)
         });
     });
 
-ko.components.register('AQIForecastInfoPanel', {
+ko.components.register('AQIInfoPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
     },
@@ -83,6 +83,19 @@ ko.components.register('AQIForecastInfoPanel', {
 ko.components.register('AQIForecastPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
+        this.aqiData = aqiData;
+        this.zones = ko.computed(() => {
+            if (aqiData()) {
+                let zones = [];
+                for (var name in aqiData().zones) {
+                    zones.push({
+                        name: name,
+                        dates: aqiData().zones[name]
+                    });
+                }
+                return zones
+            }
+        });
     },
     template: forecastPanelTemplate
 });

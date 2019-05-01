@@ -577,36 +577,6 @@ $hazardous-color: #7E0023;
                             width: 100%;
                             display: inline-block;
                         }
-                        .good {
-                            border-color: $good-color;
-                            background-color: $good-color;
-                            color: white;
-                        }
-                        .moderate {
-                            border-color: $moderate-color;
-                            background-color: $moderate-color;
-                            color: #222222;
-                        }
-                        .unhealthy-for-sensitive-groups {
-                            border-color: $unhealthy-for-sensitive-groups-color;
-                            background-color: $unhealthy-for-sensitive-groups-color;
-                            color: #222222;
-                        }
-                        .unhealthy {
-                            border-color: $unhealthy-color;
-                            background-color: $unhealthy-color;
-                            color: white;
-                        }
-                        .very-unhealthy {
-                            border-color: $very-unhealthy-color;
-                            background-color: $very-unhealthy-color;
-                            color: white;
-                        }
-                        .hazardous {
-                            border-color: $hazardous-color;
-                            background-color: $hazardous-color;
-                            color: white;
-                        }
                     }
                     .baaqmd-maps-zone-forecast-date {
                         a {
@@ -653,6 +623,8 @@ $hazardous-color: #7E0023;
             margin-bottom: 5px;
             font-size: 0.8rem;
             line-height: 1.1rem;
+            background-color: transparent;
+            color: darken($dark-color, 10%);
         }
     }
     .aqi-forecast-boundaries {
@@ -713,40 +685,83 @@ $hazardous-color: #7E0023;
             }
         }
     }
-    .aqi-forecast-legend {
-        li::before {
-            content: '';
-            display: block;
-            position:absolute;
-            height: 16px;
-            width: 16px;
-            border-radius: 50%;
-            border: solid 0px transparent;
-            left: 13px;
-        }
-        .good::before {
-            background-color: $good-color;
-        }
-        .moderate::before {
-            background-color: $moderate-color;
-        }
-        .unhealthy-for-sensitive-groups::before {
-            background-color: $unhealthy-for-sensitive-groups-color;
-        }
-        .unhealthy::before {
-            background-color: $unhealthy-color;
-        }
-        .very-unhealthy::before {
-            background-color: $very-unhealthy-color;
-        }
-        .hazardous::before {
-            background-color: $hazardous-color;
-        }
-    }
     .baaqmd-maps-last-updated {
         color: rgba(black, 0.5);
         font-size: 0.72rem;
         font-style: italic;
         margin: 0 0 10px 13px;
+    }
+    .good, .good:before {
+        border-color: $good-color;
+        background-color: $good-color;
+        color: white;
+    }
+    .moderate, .moderate:before {
+        border-color: $moderate-color;
+        background-color: $moderate-color;
+        color: #222222;
+    }
+    .unhealthy-for-sensitive-groups, .unhealthy-for-sensitive-groups:before {
+        border-color: $unhealthy-for-sensitive-groups-color;
+        background-color: $unhealthy-for-sensitive-groups-color;
+        color: #222222;
+    }
+    .unhealthy, .unhealthy:before {
+        border-color: $unhealthy-color;
+        background-color: $unhealthy-color;
+        color: white;
+    }
+    .very-unhealthy, .very-unhealthy:before {
+        border-color: $very-unhealthy-color;
+        background-color: $very-unhealthy-color;
+        color: white;
+    }
+    .hazardous, .hazardous:before {
+        border-color: $hazardous-color;
+        background-color: $hazardous-color;
+        color: white;
+    }
+    .five-day-forecast-table {
+        margin-top: 5px;
+        width: 100%;
+        border-spacing: 16px 30px;
+        th {
+            font-size: 0.9rem;
+        }
+        .baaqmd-maps-zone-forecast-name{
+            max-width: 100px;
+        }
+        td {
+            text-align: center;
+            font-size: 0.65rem;
+            .baaqmd-maps-legend {
+                padding: 5px;
+                margin-bottom: 4px;
+                border-style: solid;
+                border-width: 0;
+                font-size: 0.65rem;
+                font-weight: 700;
+                border-radius: 6px;
+                width: 100%;
+                display: inline-block;
+                .baaqmd-maps-pollutant{
+                    font-weight: 500;
+                }
+            }
+        }
+        .baaqmd-maps-zone-forecast-date {
+            a {
+                color: rgba(black, 0.4);
+                text-decoration: none;
+            }
+        }
+        .baaqmd-maps-zone-forecast-date.active {
+            a {
+                color: $primary-color;
+            }
+            a:hover {
+                color: $secondary-color;
+            }
+        }
     }
 }
