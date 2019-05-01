@@ -375,6 +375,9 @@ $hazardous-color: #7E0023;
             top: 48px;
             bottom: 0;
             overflow-y: auto;
+            .baaqmd-maps-last-updated {
+                margin: 0 0 10px 13px;
+            }
         }
         .baaqmd-maps-details-panel-expander {
             position: absolute;
@@ -530,11 +533,6 @@ $hazardous-color: #7E0023;
             height: 100%;
             .baaqmd-maps-popup-content {
                 padding: 10px;
-                div {
-                    font-style: italic;
-                    color: rgba(black, 0.5);
-                    font-size: 0.72rem;
-                }
                 h3 {
                     margin: 0 0 10px;
                     span {
@@ -681,7 +679,6 @@ $hazardous-color: #7E0023;
         color: rgba(black, 0.5);
         font-size: 0.72rem;
         font-style: italic;
-        margin: 0 0 10px 13px;
     }
     .good, .good:before {
         border-color: $good-color;

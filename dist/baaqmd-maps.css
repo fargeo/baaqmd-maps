@@ -274,6 +274,8 @@
       top: 48px;
       bottom: 0;
       overflow-y: auto; }
+      .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-content .baaqmd-maps-last-updated {
+        margin: 0 0 10px 13px; }
     .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander {
       position: absolute;
       z-index: 100;
@@ -396,10 +398,6 @@
       height: 100%; }
       .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-popup .baaqmd-maps-popup-content {
         padding: 10px; }
-        .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-popup .baaqmd-maps-popup-content div {
-          font-style: italic;
-          color: rgba(0, 0, 0, 0.5);
-          font-size: 0.72rem; }
         .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-popup .baaqmd-maps-popup-content h3 {
           margin: 0 0 10px; }
           .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-popup .baaqmd-maps-popup-content h3 span {
@@ -507,8 +505,7 @@
   .baaqmd-maps-main .baaqmd-maps-last-updated {
     color: rgba(0, 0, 0, 0.5);
     font-size: 0.72rem;
-    font-style: italic;
-    margin: 0 0 10px 13px; }
+    font-style: italic; }
   .baaqmd-maps-main .good, .baaqmd-maps-main .good:before {
     border-color: #096;
     background-color: #096;
