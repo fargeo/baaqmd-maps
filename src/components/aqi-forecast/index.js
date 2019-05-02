@@ -10,14 +10,18 @@ import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 const aqiData = ko.observable();
 let alertStatus;
 fetch(config.spaRSSFeed)
-    .then((response) => { return response.text(); })
+    .then((response) => {
+        return response.text();
+    })
     .then((text) => {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(text, 'application/xml');
         alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
         return fetch(config.aqiRSSFeed);
     })
-    .then((response) => { return response.text(); })
+    .then((response) => {
+        return response.text();
+    })
     .then((text) => {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(text, 'application/xml');
@@ -114,7 +118,7 @@ export default ko.components.register('AQIForecast', {
         this.zone = ko.observable();
         this.layers = {
             aqi: {
-                flag:ko.observable(true),
+                flag: ko.observable(true),
                 names: [
                     'aqi-forecast-zones-fill',
                     'aqi-forecast-zones',
@@ -123,14 +127,14 @@ export default ko.components.register('AQIForecast', {
                 ]
             },
             district: {
-                flag:ko.observable(true),
+                flag: ko.observable(true),
                 names: [
-                    'aqi-forecast-spa-fill',
+                    'aqi-forecast-sta-fill',
                     'district-boundary'
                 ]
             },
             counties: {
-                flag:ko.observable(true),
+                flag: ko.observable(true),
                 names: [
                     'counties',
                     'counties-labels'
@@ -210,7 +214,7 @@ export default ko.components.register('AQIForecast', {
             }
 
             if (alertStatus) {
-                map.setPaintProperty('aqi-forecast-spa-fill', 'fill-opacity', 1);
+                map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', 1);
             }
         };
 

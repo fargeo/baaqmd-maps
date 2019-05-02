@@ -18,9 +18,19 @@ export default ko.components.register('map', {
         this.style = config.apiURI + config.mapTypes[params.mapType()].style + mapboxQuery;
 
         this.setupMap = (map) => {
+            // District bounds:
+            let x1 = -123.02428294899994;
+            let y1 = 36.89298098100005;
+            let x2 = -121.20819094099994;
+            let y2 = 38.86425008600003;
+
+            let cameraOpts = {padding: 80};
+
             this.map = map;
+
+            map.jumpTo(map.cameraForBounds([[x1, y1], [x2, y2]], cameraOpts));
             map.addControl(new MapboxGeocoder({
-                // bbox: [139.965, -38.030, 155.258, -27.839],
+                bbox: [x1, y1, x2, y2],
                 accessToken: mapboxgl.accessToken,
                 placeholder: "Enter address..."
             }))
@@ -43,6 +53,7 @@ export default ko.components.register('map', {
 
             params.mapType.subscribe((mapType) => {
                 map.setStyle(config.mapTypes[mapType].style);
+                map.jumpTo(map.cameraForBounds([[x1, y1], [x2, y2]], cameraOpts));
             });
             config.mapTypes[params.mapType()].style = map.getStyle();
 
@@ -55,8 +66,6 @@ export default ko.components.register('map', {
                         });
                 }
             }
-
-            window.map = map;
         };
 
         const resize = () => {
