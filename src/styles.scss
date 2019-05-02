@@ -618,7 +618,7 @@ $hazardous-color: #7E0023;
             color: darken($dark-color, 10%);
         }
     }
-    .aqi-forecast-boundaries {
+    .baaqmd-maps-boundaries {
         padding-top: 5px;
         padding-bottom: 5px;
         li {
@@ -673,6 +673,38 @@ $hazardous-color: #7E0023;
                 i:before {
                     content: "\e919";
                 }
+            }
+        }
+    }
+    .impacted-communities{
+        position: relative;
+        .legend-display {
+            line-height: 20px;
+            i:before {
+                content: '';
+                display: block;
+                position:absolute;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+                border: solid 0px transparent;
+                left: 5px;
+                top: -2px;
+            }
+        }
+        .cumulative-impact-areas{
+            i:before {
+                background-color: #609;
+            }
+        }
+        .pm25-impact-areas{
+            i:before {
+                background-color: #ff9933;
+            }
+        }
+        .ozone-impact-areas{
+            i:before {
+                background-color: #11c086;
             }
         }
     }

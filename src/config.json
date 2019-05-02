@@ -17,7 +17,7 @@
             "label": "Facilities Map"
         },
         "ImpactedCommunities": {
-            "style": "mapbox/streets-v9",
+            "style": "baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w",
             "label": "Impacted Communities Map"
         },
         "Monitoring": {
@@ -25,7 +25,7 @@
             "label": "Air Quality Monitoring Map"
         },
         "OpenBurning": {
-            "style": "mapbox/streets-v9",
+            "style": "baaqmd-publicmaps/cjv6xd8ux02hy1fl7un4r0ick",
             "label": "Open Burning Map"
         }
     }

@@ -464,25 +464,25 @@
       line-height: 1.1rem;
       background-color: transparent;
       color: #002e50; }
-  .baaqmd-maps-main .aqi-forecast-boundaries {
+  .baaqmd-maps-main .baaqmd-maps-boundaries {
     padding-top: 5px;
     padding-bottom: 5px; }
-    .baaqmd-maps-main .aqi-forecast-boundaries li {
+    .baaqmd-maps-main .baaqmd-maps-boundaries li {
       padding-left: 10px;
       margin-top: 0;
       margin-bottom: 0; }
-      .baaqmd-maps-main .aqi-forecast-boundaries li input {
+      .baaqmd-maps-main .baaqmd-maps-boundaries li input {
         margin-top: 7px;
         vertical-align: top !important;
         height: 20px;
         width: 20px; }
-    .baaqmd-maps-main .aqi-forecast-boundaries .legend-display {
+    .baaqmd-maps-main .baaqmd-maps-boundaries .legend-display {
       width: 14px;
       height: 24px;
       color: rgba(0, 0, 0, 0.6);
       font-size: 1.6rem;
       border: 0 solid transparent; }
-      .baaqmd-maps-main .aqi-forecast-boundaries .legend-display i {
+      .baaqmd-maps-main .baaqmd-maps-boundaries .legend-display i {
         display: inline-block;
         width: 16px;
         height: 16px;
@@ -493,18 +493,38 @@
         left: -4px;
         font-family: 'icomoon' !important;
         font-style: normal; }
-    .baaqmd-maps-main .aqi-forecast-boundaries .aqi-reporting-zones .legend-display {
+    .baaqmd-maps-main .baaqmd-maps-boundaries .aqi-reporting-zones .legend-display {
       color: #004c83; }
-      .baaqmd-maps-main .aqi-forecast-boundaries .aqi-reporting-zones .legend-display i:before {
+      .baaqmd-maps-main .baaqmd-maps-boundaries .aqi-reporting-zones .legend-display i:before {
         content: "\e917"; }
-    .baaqmd-maps-main .aqi-forecast-boundaries .district-boundary .legend-display {
+    .baaqmd-maps-main .baaqmd-maps-boundaries .district-boundary .legend-display {
       color: #008eb8; }
-      .baaqmd-maps-main .aqi-forecast-boundaries .district-boundary .legend-display i:before {
+      .baaqmd-maps-main .baaqmd-maps-boundaries .district-boundary .legend-display i:before {
         content: "\e918"; }
-    .baaqmd-maps-main .aqi-forecast-boundaries .counties .legend-display {
+    .baaqmd-maps-main .baaqmd-maps-boundaries .counties .legend-display {
       color: #5e5e5e; }
-      .baaqmd-maps-main .aqi-forecast-boundaries .counties .legend-display i:before {
+      .baaqmd-maps-main .baaqmd-maps-boundaries .counties .legend-display i:before {
         content: "\e919"; }
+  .baaqmd-maps-main .impacted-communities {
+    position: relative; }
+    .baaqmd-maps-main .impacted-communities .legend-display {
+      line-height: 20px; }
+      .baaqmd-maps-main .impacted-communities .legend-display i:before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        border: solid 0px transparent;
+        left: 5px;
+        top: -2px; }
+    .baaqmd-maps-main .impacted-communities .cumulative-impact-areas i:before {
+      background-color: #609; }
+    .baaqmd-maps-main .impacted-communities .pm25-impact-areas i:before {
+      background-color: #ff9933; }
+    .baaqmd-maps-main .impacted-communities .ozone-impact-areas i:before {
+      background-color: #11c086; }
   .baaqmd-maps-main .baaqmd-maps-last-updated {
     color: rgba(0, 0, 0, 0.5);
     font-size: 0.72rem;

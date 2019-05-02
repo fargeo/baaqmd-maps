@@ -1,0 +1,53 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.84936523437499,
+          37.607704112428394
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1,
+        "section": "South Section",
+        "id": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.48382568359374,
+          37.92795083988293
+        ]
+      },
+      "properties": {
+        "OBJECTID": 2,
+        "section": "Coastal Section",
+        "id": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.28332519531249,
+          38.33519326105276
+        ]
+      },
+      "properties": {
+        "OBJECTID": 3,
+        "section": "North Section",
+        "id": 3
+      }
+    }
+  ]
+}
