@@ -62,16 +62,19 @@
       position: absolute;
       right: -8px;
       top: -8px;
+      background-color: white !important;
       width: 26px;
       height: 26px;
+      font-size: 1rem;
       color: rgba(0, 0, 0, 0.6);
-      z-index: 100000;
       border-radius: 50%;
-      font-size: 0.8rem;
-      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); }
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+      align-items: flex-start;
+      border: rgba(0, 0, 0, 0.6) none 0px;
+      box-sizing: border-box; }
     .baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel:hover, .baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel:focus {
       color: #008eb8;
-      font-size: 1rem; }
+      font-size: 1.3rem; }
     .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-info-panel-content {
       height: 100%;
       overflow-y: auto; }
