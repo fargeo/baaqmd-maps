@@ -47,12 +47,14 @@
     max-height: 650px;
     max-width: 850px;
     background-color: white;
-    color: #002e50;
+    color: rgba(0, 0, 0, 0.67);
     border-radius: 6px;
     border: 0px solid transparent;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
     z-index: 1001;
     font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif; }
+    .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-info-panel-content .baaqmd-maps-legend li {
+      color: rgba(0, 0, 0, 0.67); }
     .baaqmd-maps-main .baaqmd-maps-info-panel hr {
       margin-bottom: 18px; }
     .baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel {
