@@ -86,7 +86,7 @@
     .baaqmd-maps-main .baaqmd-maps-info-panel p {
       font-size: 0.8rem;
       line-height: 1.1rem; }
-    .baaqmd-maps-main .baaqmd-maps-info-panel .impacted-communities h3 {
+    .baaqmd-maps-main .baaqmd-maps-info-panel .impacted-communities h3, .baaqmd-maps-main .baaqmd-maps-info-panel .impacted-communities p {
       margin-left: 30px; }
     .baaqmd-maps-main .baaqmd-maps-info-panel .impacted-communities i {
       position: relative; }
