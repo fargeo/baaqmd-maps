@@ -1,5 +1,4 @@
 import * as ko from 'knockout';
-import * as mapboxgl from 'mapbox-gl';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html'
@@ -115,7 +114,6 @@ export default ko.components.register('AQIForecast', {
         ];
         this.aqiData = aqiData;
         this.day = ko.observable();
-        this.zone = ko.observable();
         this.layers = {
             aqi: {
                 flag: ko.observable(true),
@@ -142,6 +140,17 @@ export default ko.components.register('AQIForecast', {
             }
         };
 
+        this.popupLayers = ['aqi-forecast-zones-fill'];
+        this.getPopupData = (feature) => {
+            return {
+                name: feature.properties.zone,
+                aqiData: this.aqiData().zones[feature.properties.zone],
+                lastUpdated: this.aqiData().lastUpdated,
+                day: this.day
+            }
+        };
+        this.popupTemplate = popupTemplate;
+
         this.day.subscribe((day) => {
             if (typeof day === 'number') {
                 zones.forEach((zone, i) => {
@@ -160,56 +169,12 @@ export default ko.components.register('AQIForecast', {
         }, this);
 
         this.setupMap = (map) => {
-            let layerName = 'aqi-forecast-zones-fill';
-            let click = (e) => {
-                const feature = e.features[0];
-                const p = new mapboxgl.Popup()
-                    .setLngLat(e.lngLat)
-                    .setHTML(popupTemplate)
-                    .addTo(map);
-
-                this.zone(feature);
-                ko.applyBindingsToDescendants({
-                    name: feature.properties.zone,
-                    aqiData: this.aqiData().zones[feature.properties.zone],
-                    lastUpdated: this.aqiData().lastUpdated,
-                    day: this.day
-                }, p._content);
-            };
-            let mouseenter = () => {
-                map.getCanvas().style.cursor = 'pointer';
-            };
-            let mouseleave = () => {
-                map.getCanvas().style.cursor = '';
-            };
-
             if (this.aqiData()) {
                 this.day(0);
             } else {
                 let updateOnFetch = this.aqiData.subscribe(() => {
                     this.day(0);
                     updateOnFetch.dispose();
-                });
-            }
-
-            map.on('click', layerName, click);
-            map.on('mouseenter', layerName, mouseenter);
-            map.on('mouseleave', layerName, mouseleave);
-
-            let removeListeners = params.mapType.subscribe(() => {
-                map.off('click', layerName, click);
-                map.off('mouseenter', layerName, mouseenter);
-                map.off('mouseleave', layerName, mouseleave);
-                removeListeners.dispose();
-            });
-
-            for (let key in this.layers) {
-                let layer = this.layers[key];
-                layer.flag.subscribe((visible) => {
-                    let visibility = visible ? 'visible' : 'none';
-                    layer.names.forEach((name) => {
-                        map.setLayoutProperty(name, 'visibility', visibility);
-                    });
                 });
             }
 
