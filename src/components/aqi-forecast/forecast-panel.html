@@ -3,10 +3,11 @@
     <i class="fas fa-wind"></i>
     Five Day AQI Forecast
     <span class="baaqmd-maps-last-updated">
-        (Last Updated:
+        Last Updated:
+        <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)"></span>,
         <span data-bind="text: aqiData().lastUpdated.toLocaleDateString()"></span>
         at
-        <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>)
+        <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
     </span>
 </h3>
 <hr>

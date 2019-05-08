@@ -5,10 +5,11 @@
             <span data-bind="text: name"></span>
         </h3>
         <div class="baaqmd-maps-last-updated">
-            (Last Updated:
+            Last Updated:
+            <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(lastUpdated)"></span>,
             <span data-bind="text: lastUpdated.toLocaleDateString()"></span>
             at
-            <span data-bind="text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>)
+            <span data-bind="text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
         </div>
 
         <table class="baaqmd-maps-zone-forecast">
