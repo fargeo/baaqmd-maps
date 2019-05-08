@@ -92,7 +92,7 @@ ko.components.register('AQIForecastPanel', {
                 let zones = [];
                 for (var name in aqiData().zones) {
                     zones.push({
-                        name: name,
+                        name: name.replace('Coastal', 'Coast'),
                         dates: aqiData().zones[name]
                     });
                 }
@@ -143,7 +143,7 @@ export default ko.components.register('AQIForecast', {
         this.popupLayers = ['aqi-forecast-zones-fill'];
         this.getPopupData = (feature) => {
             return {
-                name: feature.properties.zone,
+                name: feature.properties.zone.replace('Coastal', 'Coast'),
                 aqiData: this.aqiData().zones[feature.properties.zone],
                 lastUpdated: this.aqiData().lastUpdated,
                 day: this.day
