@@ -424,7 +424,7 @@
     .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-scroll-for-more {
       position: absolute;
       bottom: -4px;
-      padding: 7px;
+      padding: 2px;
       margin: 4px;
       background-color: rgba(255, 255, 255, 0.9);
       width: 221px;
@@ -439,7 +439,7 @@
       overflow-y: auto;
       height: 100%; }
       .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-popup .baaqmd-maps-popup-content {
-        padding: 10px; }
+        padding: 10px 10px 25px; }
         .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-popup .baaqmd-maps-popup-content h3 {
           margin: 0 0 10px; }
           .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-popup .baaqmd-maps-popup-content h3 span {
