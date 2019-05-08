@@ -181,6 +181,7 @@ export default ko.components.register('AQIForecast', {
             if (alertStatus) {
                 map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', 1);
             }
+            this.layers.counties.flag(false);
         };
 
         MapDetailsPanel.default.apply(this, [params]);

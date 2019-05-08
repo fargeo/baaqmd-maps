@@ -9,7 +9,7 @@
     "center": [-122.172,37.822],
     "mapTypes": {
         "AQIForecast": {
-            "style": "baaqmd-publicmaps/cjsz4y1yo08k31fnpss4i5h5a",
+            "style": "baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4",
             "label": "Air Quality Forecast Map"
         },
         "Facilities": {
