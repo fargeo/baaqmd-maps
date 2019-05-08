@@ -120,7 +120,7 @@ export default ko.components.register('AQIForecast', {
                 names: [
                     'aqi-forecast-zones-fill',
                     'aqi-forecast-zones',
-                    'aqi-forecast-zones-outline',
+                    // 'aqi-forecast-zones-outline',
                     'aqi-forecast-zones-labels'
                 ]
             },
