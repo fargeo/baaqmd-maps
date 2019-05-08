@@ -421,6 +421,20 @@
     border-radius: 6px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12); }
+    .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-scroll-for-more {
+      position: absolute;
+      bottom: -4px;
+      padding: 7px;
+      margin: 4px;
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 221px;
+      -webkit-transition: opacity 300ms ease-in-out;
+      -moz-transition: opacity 300ms ease-in-out;
+      -ms-transition: opacity 300ms ease-in-out;
+      -o-transition: opacity 300ms ease-in-out;
+      opacity: 1; }
+      .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-scroll-for-more.scrolled-to-bottom {
+        opacity: 0; }
     .baaqmd-maps-main .mapboxgl-popup-content .baaqmd-maps-popup {
       overflow-y: auto;
       height: 100%; }

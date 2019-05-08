@@ -14,7 +14,16 @@ export default function MapDetailsPanel(params) {
                         .setLngLat(e.lngLat)
                         .setHTML(this.popupTemplate)
                         .addTo(map);
-                    ko.applyBindingsToDescendants(this.getPopupData(feature), p._content);
+                    let popupData = this.getPopupData(feature)
+                    let popupBody = p._content.querySelector('.baaqmd-maps-popup')
+                    if (popupBody) {
+                        popupData.scrolledToBottom = ko.observable(false);
+                        popupBody.onscroll = function() {
+                            let scrolledToBottom = popupBody.scrollTop >= (popupBody.scrollHeight - popupBody.offsetHeight);
+                            popupData.scrolledToBottom(scrolledToBottom);
+                        }
+                    }
+                    ko.applyBindingsToDescendants(popupData, p._content);
                 }
             };
             let mouseenter = () => {
