@@ -360,6 +360,13 @@ $hazardous-color: #7E0023;
         width: 0px;
         float: left;
         position: relative;
+        .choices__list--single:after {
+            content: '\f279';
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            top: 16px;
+            right: 36px;
+        }
         .baaqmd-maps-details-links {
             margin: 6px 14px;
             font-size: 0.92rem;
