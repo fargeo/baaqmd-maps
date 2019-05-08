@@ -130,16 +130,16 @@ $hazardous-color: #7E0023;
             }
             i {
                 position: relative;
-            }
-            i:before {
-                content: '';
-                display: block;
-                position:absolute;
-                height: 16px;
-                width: 16px;
-                border-radius: 50%;
-                border: solid 0px transparent;
-                left: -24px;
+                &:before {
+                    content: '';
+                    display: block;
+                    position:absolute;
+                    height: 16px;
+                    width: 16px;
+                    border-radius: 50%;
+                    border: solid 0px transparent;
+                    left: -24px;
+                }
             }
         }
     }
