@@ -6,7 +6,17 @@
     "aqiRSSFeed": "http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml",
     "spaRSSFeed": "http://www.baaqmd.gov/Feeds/AlertRSS.aspx",
     "zoom": 7,
-    "center": [-122.172,37.822],
+    "center": [
+        -122.172,
+        37.822
+    ],
+    "bounds": [
+        -123.02428294899994,
+        36.89298098100005,
+        -121.20819094099994,
+        38.86425008600003
+    ],
+    "boundsPadding": 20,
     "mapTypes": {
         "AQIForecast": {
             "style": "baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4",

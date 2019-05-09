@@ -18,19 +18,19 @@ export default ko.components.register('map', {
         this.style = config.apiURI + config.mapTypes[params.mapType()].style + mapboxQuery;
 
         this.setupMap = (map) => {
-            // District bounds:
-            let x1 = -123.02428294899994;
-            let y1 = 36.89298098100005;
-            let x2 = -121.20819094099994;
-            let y2 = 38.86425008600003;
-
-            let cameraOpts = {padding: 20};
+            let cameraOpts = {padding: config.boundsPadding};
+            const jumpToDistrict = () => {
+                map.jumpTo(map.cameraForBounds([
+                    [config.bounds[0], config.bounds[1]],
+                    [config.bounds[2], config.bounds[3]]
+                ], cameraOpts));
+            };
 
             this.map = map;
 
-            map.jumpTo(map.cameraForBounds([[x1, y1], [x2, y2]], cameraOpts));
+            jumpToDistrict();
             map.addControl(new MapboxGeocoder({
-                bbox: [x1, y1, x2, y2],
+                bbox: config.bounds,
                 accessToken: mapboxgl.accessToken,
                 placeholder: "Enter address..."
             }))
@@ -53,7 +53,7 @@ export default ko.components.register('map', {
 
             params.mapType.subscribe((mapType) => {
                 map.setStyle(config.mapTypes[mapType].style);
-                map.jumpTo(map.cameraForBounds([[x1, y1], [x2, y2]], cameraOpts));
+                jumpToDistrict();
             });
             config.mapTypes[params.mapType()].style = map.getStyle();
 
