@@ -24,7 +24,7 @@ export default ko.components.register('map', {
             let x2 = -121.20819094099994;
             let y2 = 38.86425008600003;
 
-            let cameraOpts = {padding: 80};
+            let cameraOpts = {padding: 20};
 
             this.map = map;
 
