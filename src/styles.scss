@@ -58,6 +58,9 @@ $hazardous-color: #7E0023;
     a:hover, a:focus, a.event-no:hover, a.event-no:focus {
         outline:none;
     }
+    h4 i {
+        margin-right: 5px;
+    }
     .baaqmd-maps-info-panel-mask {
         position: absolute;
         top: 0;
@@ -361,6 +364,7 @@ $hazardous-color: #7E0023;
         float: left;
         position: relative;
         .choices__list--single:after {
+            color: $primary-color;
             content: '\f279';
             font-family: "Font Awesome 5 Free";
             position: absolute;
@@ -394,13 +398,29 @@ $hazardous-color: #7E0023;
         }
         h4 {
             margin: 0;
-            color: $mid-color;
-            font-weight: 500;
-            font-size: 0.95em;
             padding: 10px;
+            color: rgba(0, 10, 20, 0.65);
+            font-weight: 600;
+            font-size: 0.9rem;
         }
         .information-link {
             cursor: pointer;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            background: $primary-color;
+            color: white;
+            padding: 5px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            i {
+                margin-right: 6px;
+            }
+            &:hover, &:focus {
+                background: $secondary-color;
+                color: white;
+                box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+            }
         }
         .baaqmd-maps-details-panel-content{
             position: absolute;
@@ -525,7 +545,8 @@ $hazardous-color: #7E0023;
 
     }
     .baaqmd-maps-aqi-forecast-dates{
-        margin: 8px 10px 15px 10px;
+        padding-inline-start: 0;
+        margin: 0px 10px 5px 10px;
         li {
             display: inline-block;
             border-bottom: solid transparent 2px;
@@ -562,6 +583,7 @@ $hazardous-color: #7E0023;
         box-shadow: 0 1px 2px rgba(black, 0.1);
         box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
         .baaqmd-maps-scroll-for-more {
+            color: $primary-color;
             position: absolute;
             bottom: -4px;
             padding: 2px;
@@ -576,9 +598,10 @@ $hazardous-color: #7E0023;
              &.scrolled-to-bottom{
                  opacity: 0;
              }
+             i {
+                 margin-right: 4px;
+             }
         }
-
-
         .baaqmd-maps-popup {
             overflow-y: auto;
             height: 100%;
@@ -637,19 +660,23 @@ $hazardous-color: #7E0023;
             }
         }
         .mapboxgl-popup-close-button {
-            right: -8px;
-            top: -8px;
-            background-color: white !important;
-            width: 26px;
-            height: 26px;
-            font-size: 1rem;
-            color: rgba(black, 0.6);
             border-radius: 50%;
-            box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-        }
-        .mapboxgl-popup-close-button:hover, .mapboxgl-popup-close-button:focus {
+            right: 15px;
+            top: 5px;
             color: $primary-color;
-            font-size: 1.3rem;
+            width: 28px;
+            height: 28px;
+            font-size: 2rem;
+            text-align: center;
+            border-radius: 50%;
+            background-color: transparent;
+            padding: 0 !important;
+            line-height: 0rem !important;
+            &:hover, &:focus {
+                color: $secondary-color;
+                font-size: 2.3rem;
+                background-color: transparent;
+            }
         }
     }
     .baaqmd-maps-legend {
