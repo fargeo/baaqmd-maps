@@ -6,6 +6,7 @@ import '../../bindings/choices';
 export default ko.components.register('details-panel', {
     viewModel: function(params) {
         this.expanded = params.expanded || ko.observable(false);
+        this.shareExpanded = params.shareExpanded || ko.observable(false);
         this.enableMapTypeSelector = params.enableMapTypeSelector;
         this.showInfoPanel = params.showInfoPanel;
         if (typeof params.enableMapTypeSelector !== 'boolean') {
@@ -16,6 +17,9 @@ export default ko.components.register('details-panel', {
         });
         this.toggleExpanded = () => {
             this.expanded(!this.expanded());
+        };
+        this.toggleShareExpanded = () => {
+            this.shareExpanded(!this.shareExpanded());
         };
         this.mapTypesObj = config.default.mapTypes;
         this.mapTypes = [];

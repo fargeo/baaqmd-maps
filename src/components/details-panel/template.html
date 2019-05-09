@@ -5,6 +5,18 @@
             css: {'baaqmd-maps-expanded': expanded}">
             <i class="fas fa-bars"></i>
         </div>
+        <div class="baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons" data-bind="
+            css: {
+                'baaqmd-maps-expanded': expanded,
+                'share-expanded': shareExpanded
+            }">
+            <div data-bind="click: toggleShareExpanded"><i class="im im-share"></i></div>
+            <!-- ko if: shareExpanded -->
+            <div><i class="im im-facebook"></i></div>
+            <div><i class="im im-twitter"></i></div>
+            <div><i class="im im-email"></i></div>
+            <!-- /ko -->
+        </div>
         <div class="baaqmd-maps-type-selector">
             <!-- ko if: enableMapTypeSelector -->
             <select data-bind="
