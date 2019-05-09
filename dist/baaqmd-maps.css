@@ -373,7 +373,7 @@
         text-align: left; }
         .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons div {
           padding-top: 4px;
-          display: inline-block;
+          float: left;
           text-align: center;
           width: 48px;
           height: 44px; }
@@ -382,8 +382,8 @@
         .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons i {
           font-size: 1.8rem; }
         .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons.share-expanded {
-          width: 206px;
-          right: -206px; }
+          width: 192px;
+          right: -192px; }
         .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:hover, .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:focus {
           box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
           background: #008eb8 !important; }
