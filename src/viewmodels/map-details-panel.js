@@ -1,5 +1,6 @@
 import * as ko from 'knockout';
 import * as mapboxgl from 'mapbox-gl';
+import * as scrollForMoreTemplate from '../templates/scroll-for-more.html';
 
 export default function MapDetailsPanel(params) {
     this.mapType = params.mapType;
@@ -9,18 +10,20 @@ export default function MapDetailsPanel(params) {
         if (this.getPopupData && this.popupLayers) {
             let click = (e) => {
                 if (this.popupTemplate) {
+                    this.popupTemplate += scrollForMoreTemplate;
                     const feature = e.features[0];
                     const p = new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
                         .setHTML(this.popupTemplate)
                         .addTo(map);
-                    let popupData = this.getPopupData(feature)
-                    let popupBody = p._content.querySelector('.baaqmd-maps-popup')
+                    let popupData = this.getPopupData(feature);
+                    let popupBody = p._content.querySelector('.baaqmd-maps-popup');
+                    popupData.scrolledToBottom = ko.observable(false);
                     if (popupBody) {
-                        popupData.scrolledToBottom = ko.observable(false);
-                        popupBody.onscroll = function() {
-                            let scrolledToBottom = popupBody.scrollTop >= (popupBody.scrollHeight - popupBody.offsetHeight);
-                            popupData.scrolledToBottom(scrolledToBottom);
+                        popupBody.onscroll = () => {
+                            popupData.scrolledToBottom(
+                                popupBody.scrollTop + popupBody.offsetHeight === popupBody.scrollHeight
+                            );
                         }
                     }
                     ko.applyBindingsToDescendants(popupData, p._content);
