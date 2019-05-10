@@ -392,7 +392,6 @@ $hazardous-color: #7E0023;
         float: left;
         position: relative;
         .choices__list--single:after {
-            color: $primary-color;
             content: '\f279';
             font-family: "Font Awesome 5 Free";
             position: absolute;
@@ -582,6 +581,9 @@ $hazardous-color: #7E0023;
             }
             .choices[data-type*=select-one].is-focused:after {
                 border-color: $secondary-color transparent transparent transparent;
+            }
+            .choices[data-type*=select-one].is-focused.is-open:after {
+                border-color: transparent transparent $secondary-color transparent;
             }
         }
         .baaqmd-maps-popup {

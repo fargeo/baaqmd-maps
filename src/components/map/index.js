@@ -53,7 +53,6 @@ export default ko.components.register('map', {
 
             params.mapType.subscribe((mapType) => {
                 map.setStyle(config.mapTypes[mapType].style);
-                jumpToDistrict();
             });
             config.mapTypes[params.mapType()].style = map.getStyle();
 
