@@ -5,9 +5,9 @@ module.exports = merge(common, {
     mode: 'development',
     devServer: {
         port: 3000,
-        contentBase: __dirname + '/src',
-        inline: true
+        contentBase: './src'
     },
+    devtool: 'inline-source-map',
     module: {
         rules: [{
             test: /\.scss$/,
