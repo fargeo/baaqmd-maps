@@ -1,0 +1,38 @@
+<div class="baaqmd-maps-main">
+    <!-- ko if: detailsActive -->
+        <!-- ko component: {
+            name: "details-panel",
+            params: {
+                expanded: detailsExpanded,
+                mapType: mapType,
+                map: map,
+                enableMapTypeSelector: enableMapTypeSelector,
+                showInfoPanel: showInfoPanel
+            }
+        } -->
+        <!-- /ko -->
+    <!-- /ko -->
+    <!-- ko component: {
+        name: "map",
+        params: {
+            container: el,
+            detailsExpanded: detailsExpanded,
+            mapType: mapType,
+            map: map,
+            showInfoPanel: showInfoPanel
+        }
+    } -->
+    <!-- /ko -->
+    <!-- ko if: showInfoPanel -->
+        <div class="baaqmd-maps-info-panel-mask" data-bind="click: function() { showInfoPanel(false); }"></div>
+        <div class="baaqmd-maps-info-panel">
+            <button class="close-information-panel" data-bind="click: function() { showInfoPanel(false); }">×</button>
+            <div class="baaqmd-maps-info-panel-content">
+                <div class="baaqmd-maps-info-panel-component" data-bind="component: {
+                   name: showInfoPanel(),
+                   params: $data
+               }"></div>
+            </div>
+        </div>
+    <!-- /ko -->
+</div>

@@ -6,10 +6,10 @@
   "repository": "git@github.com:fargeo/baaqmd-maps.git",
   "author": "Rob Gaston <rgaston@fargeo.com>",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --config webpack.dev.js",
     "gen-points": "node scripts/gen-points.js",
     "tiles": "node scripts/tiles.js",
-    "build": "webpack --mode=production"
+    "build": "webpack --config webpack.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -30,7 +30,8 @@
     "tippecanoe": "^0.3.0",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.2",

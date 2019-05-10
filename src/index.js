@@ -1,7 +1,7 @@
 import * as ko from 'knockout';
 import './styles.scss';
 import * as config from './config.json';
-import * as content from './index.html';
+import * as content from './main.html';
 import './components/aqi-forecast/';
 import './components/facilities/';
 import './components/impacted-communities/';
