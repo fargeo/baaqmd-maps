@@ -1,6 +1,5 @@
 import * as ko from 'knockout';
 import * as template from './template.html';
-import * as computedStyleToInlineStyle from 'computed-style-to-inline-style';
 import * as helpTemplate from './help.html'
 
 ko.components.register('MapHelpPanel', {
