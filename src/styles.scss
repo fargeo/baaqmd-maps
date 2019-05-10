@@ -760,11 +760,23 @@ $hazardous-color: #7E0023;
             padding-left: 10px;
             margin-top: 0;
             margin-bottom: 0;
+            position: relative;
             input {
                 margin-top: 7px;
                 vertical-align: top !important;
                 height: 20px;
                 width: 20px;
+            }
+            &:after {
+                content: " ";
+                width: 80px;
+                display: block;
+                height: 0px;
+                background-color: transparent;
+                position: absolute;
+                margin: 14px 10px;
+                right: 0;
+                top: 0;
             }
         }
         .legend-display {
@@ -793,6 +805,10 @@ $hazardous-color: #7E0023;
                     content: "\e917";
                 }
             }
+            &:after {
+                height: 2px;
+                background-color: white;
+            }
         }
         .district-boundary {
             .legend-display {
@@ -801,6 +817,10 @@ $hazardous-color: #7E0023;
                     content: "\e918";
                 }
             }
+            &:after {
+                height: 2px;
+                background-color: black;
+            }
         }
         .counties {
             .legend-display {
@@ -808,6 +828,10 @@ $hazardous-color: #7E0023;
                 i:before {
                     content: "\e919";
                 }
+            }
+            &:after {
+                height: 1px;
+                background-color: #5e5e5e;
             }
         }
     }
