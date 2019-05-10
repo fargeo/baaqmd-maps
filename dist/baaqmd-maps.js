@@ -8501,6 +8501,11 @@ knockout_latest["components"].register('ImpactedCommunitiesInfoPanel', {
     };
 
     this.popupTemplate = impacted_communities_popup;
+
+    this.setupMap = map => {
+      this.layers.counties.flag(false);
+    };
+
     MapDetailsPanel.apply(this, [params]);
   },
   template: impacted_communities_template

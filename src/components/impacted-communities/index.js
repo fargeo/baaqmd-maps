@@ -81,6 +81,10 @@ export default ko.components.register('ImpactedCommunities', {
 
         this.popupTemplate = popupTemplate;
 
+        this.setupMap = (map) => {
+            this.layers.counties.flag(false);
+        };
+
         MapDetailsPanel.default.apply(this, [params]);
     },
     template: template
