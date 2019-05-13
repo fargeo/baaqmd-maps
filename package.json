@@ -6,7 +6,7 @@
   "repository": "git@github.com:fargeo/baaqmd-maps.git",
   "author": "Rob Gaston <rgaston@fargeo.com>",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
+    "dev": "webpack-dev-server --config webpack.dev.js --hot",
     "gen-points": "node scripts/gen-points.js",
     "tiles": "node scripts/tiles.js",
     "build": "webpack --config webpack.prod.js"

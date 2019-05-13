@@ -1,35 +1,13 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = merge.smart(common, {
+module.exports = merge(common, {
     mode: 'development',
     devServer: {
         port: 3000,
-        contentBase: './dist'
+        contentBase: './src'
     },
     devtool: 'inline-source-map',
-    module: {
-        rules: [{
-            test: /\.scss$/,
-            use: [{
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                    hmr: true,
-                    reloadAll: true,
-                }
-            }]
-        }, {
-            test: /\.css$/,
-            use: [{
-                loader: MiniCssExtractPlugin.loader,
-                options: {
-                    hmr: true,
-                    reloadAll: true,
-                }
-            }]
-        }]
-    },
     optimization: {
         removeAvailableModules: false,
         removeEmptyChunks: false,
@@ -37,5 +15,11 @@ module.exports = merge.smart(common, {
     },
     output: {
         pathinfo: false
+    },
+    module: {
+        rules: [{
+            test: /\.(c|sa|sc)ss/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+        }]
     }
 });
