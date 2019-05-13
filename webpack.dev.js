@@ -13,21 +13,29 @@ module.exports = merge.smart(common, {
         rules: [{
             test: /\.scss$/,
             use: [{
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: true,
-                reloadAll: true,
-              }
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    hmr: true,
+                    reloadAll: true,
+                }
             }]
         }, {
             test: /\.css$/,
             use: [{
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: true,
-                reloadAll: true,
-              }
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    hmr: true,
+                    reloadAll: true,
+                }
             }]
         }]
+    },
+    optimization: {
+        removeAvailableModules: false,
+        removeEmptyChunks: false,
+        splitChunks: false
+    },
+    output: {
+        pathinfo: false
     }
 });
