@@ -8,7 +8,7 @@ import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
 const aqiData = ko.observable();
 let alertStatus;
-fetch(config.spaRSSFeed)
+fetch(config.spaRSSFeed, {cache: "no-store"})
     .then((response) => {
         return response.text();
     })
@@ -16,7 +16,7 @@ fetch(config.spaRSSFeed)
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(text, 'application/xml');
         alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
-        return fetch(config.aqiRSSFeed);
+        return fetch(config.aqiRSSFeed, {cache: "no-store"});
     })
     .then((response) => {
         return response.text();

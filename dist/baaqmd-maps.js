@@ -8248,13 +8248,17 @@ function MapDetailsPanel(params) {
 
 const aqiData = knockout_latest["observable"]();
 let alertStatus;
-fetch(config["spaRSSFeed"]).then(response => {
+fetch(config["spaRSSFeed"], {
+  cache: "no-store"
+}).then(response => {
   return response.text();
 }).then(text => {
   const parser = new DOMParser();
   const xmlDoc = parser.parseFromString(text, 'application/xml');
   alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
-  return fetch(config["aqiRSSFeed"]);
+  return fetch(config["aqiRSSFeed"], {
+    cache: "no-store"
+  });
 }).then(response => {
   return response.text();
 }).then(text => {
