@@ -7,13 +7,13 @@ import * as config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
 const aqiData = ko.observable();
+const parser = new DOMParser();
 let alertStatus;
 fetch(config.spaRSSFeed, {cache: "no-store"})
     .then((response) => {
         return response.text();
     })
     .then((text) => {
-        const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(text, 'application/xml');
         alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
         return fetch(config.aqiRSSFeed, {cache: "no-store"});
@@ -22,7 +22,6 @@ fetch(config.spaRSSFeed, {cache: "no-store"})
         return response.text();
     })
     .then((text) => {
-        const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(text, 'application/xml');
         const dates = [];
         const zones = {};

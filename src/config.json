@@ -5,6 +5,7 @@
     "apiURI": "https://api.mapbox.com/styles/v1/",
     "aqiRSSFeed": "http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml",
     "spaRSSFeed": "http://www.baaqmd.gov/Feeds/AlertRSS.aspx",
+    "openBurnRSSFeed": "http://www.baaqmd.gov/Feeds/OpenBurnRSS.aspx",
     "zoom": 7,
     "center": [
         -122.172,

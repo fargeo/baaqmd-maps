@@ -3951,7 +3951,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* 1 */
 /***/ (function(module) {
 
-module.exports = {"accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml","spaRSSFeed":"http://www.baaqmd.gov/Feeds/AlertRSS.aspx","zoom":7,"center":[-122.172,37.822],"bounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4","label":"Air Quality Forecast Map"},"Facilities":{"style":"mapbox/streets-v9","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"Monitoring":{"style":"mapbox/streets-v9","label":"Air Quality Monitoring Map"},"OpenBurning":{"style":"baaqmd-publicmaps/cjv6xd8ux02hy1fl7un4r0ick","label":"Open Burning Map"}}};
+module.exports = {"accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml","spaRSSFeed":"http://www.baaqmd.gov/Feeds/AlertRSS.aspx","openBurnRSSFeed":"http://www.baaqmd.gov/Feeds/OpenBurnRSS.aspx","zoom":7,"center":[-122.172,37.822],"bounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4","label":"Air Quality Forecast Map"},"Facilities":{"style":"mapbox/streets-v9","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"Monitoring":{"style":"mapbox/streets-v9","label":"Air Quality Monitoring Map"},"OpenBurning":{"style":"baaqmd-publicmaps/cjv6xd8ux02hy1fl7un4r0ick","label":"Open Burning Map"}}};
 
 /***/ }),
 /* 2 */
@@ -8247,14 +8247,14 @@ function MapDetailsPanel(params) {
 
 
 const aqiData = knockout_latest["observable"]();
+const aqi_forecast_parser = new DOMParser();
 let alertStatus;
 fetch(config["spaRSSFeed"], {
   cache: "no-store"
 }).then(response => {
   return response.text();
 }).then(text => {
-  const parser = new DOMParser();
-  const xmlDoc = parser.parseFromString(text, 'application/xml');
+  const xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
   alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
   return fetch(config["aqiRSSFeed"], {
     cache: "no-store"
@@ -8262,8 +8262,7 @@ fetch(config["spaRSSFeed"], {
 }).then(response => {
   return response.text();
 }).then(text => {
-  const parser = new DOMParser();
-  const xmlDoc = parser.parseFromString(text, 'application/xml');
+  const xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
   const dates = [];
   const zones = {};
   xmlDoc.querySelectorAll('item').forEach(item => {
@@ -8537,6 +8536,17 @@ var open_burning_template = __webpack_require__(14);
 
 
 
+
+const openBurnData = knockout_latest["observable"]();
+const open_burning_parser = new DOMParser();
+fetch(config["openBurnRSSFeed"], {
+  cache: "no-store"
+}).then(response => {
+  return response.text();
+}).then(text => {
+  const xmlDoc = open_burning_parser.parseFromString(text, 'application/xml');
+  console.log(xmlDoc);
+});
 /* harmony default export */ var open_burning = (knockout_latest["components"].register('OpenBurning', {
   viewModel: function (params) {
     this.setupMap = map => {// setup map here...
