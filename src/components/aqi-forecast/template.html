@@ -4,6 +4,13 @@
 </h3>
 <h4><i class="icomoon im-forecast"></i> Daily Forecast</h4>
 <!-- ko if: aqiData -->
+<div class="baaqmd-maps-last-updated">
+    Last Updated:
+    <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)"></span>,
+    <span data-bind="text: aqiData().lastUpdated.toLocaleDateString()"></span>
+    at
+    <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
+</div>
 <ul class="baaqmd-maps-aqi-forecast-dates">
     <!-- ko foreach: aqiData().dates -->
     <li data-bind="css: {
@@ -45,13 +52,6 @@
         <i class="im im-info"></i>
         More Information
     </a>
-</div>
-<div class="baaqmd-maps-last-updated">
-    Last Updated:
-    <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)"></span>,
-    <span data-bind="text: aqiData().lastUpdated.toLocaleDateString()"></span>
-    at
-    <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
 </div>
 <h3>
     <i class="im im-boundaries"></i>
