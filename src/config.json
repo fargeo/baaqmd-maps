@@ -18,6 +18,7 @@
         38.86425008600003
     ],
     "boundsPadding": 20,
+    "mainMapPage": "http://baaqmd.fargeo-dev.com/dist/",
     "mapTypes": {
         "AQIForecast": {
             "style": "baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4",

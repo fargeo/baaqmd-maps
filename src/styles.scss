@@ -496,6 +496,11 @@ $hazardous-color: #7E0023;
             &.baaqmd-maps-share-buttons {
                 top: 60px;
                 text-align: left;
+                a {
+                    display: block;
+                    float: left;
+                    color: white;
+                }
                 div {
                     padding-top: 4px;
                     float: left;

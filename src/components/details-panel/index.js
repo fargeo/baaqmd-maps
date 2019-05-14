@@ -27,6 +27,7 @@ export default ko.components.register('details-panel', {
         }
         this.mapType = params.mapType;
         this.map = params.map;
+        this.mainMapPage = config.mainMapPage;
     },
     template: template
 });

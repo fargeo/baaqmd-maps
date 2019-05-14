@@ -10,9 +10,21 @@
                 'baaqmd-maps-expanded': expanded
             }">
             <div><i class="im im-share"></i></div>
-            <div><i class="im im-facebook"></i></div>
-            <div><i class="im im-twitter"></i></div>
-            <div><i class="im im-email"></i></div>
+            <a target="_blank" data-bind="attr: {
+                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mainMapPage
+            }">
+                <div><i class="im im-facebook"></i></div>
+            </a>
+            <a target="_blank" data-bind="attr: {
+                'href': 'https://twitter.com/intent/tweet?url=' + mainMapPage
+            }">
+                <div><i class="im im-twitter"></i></div>
+            </a>
+            <a data-bind="attr: {
+                'href': 'mailto:?body=' + mainMapPage
+            }">
+                <div><i class="im im-email"></i></div>
+            </a>
         </div>
         <div class="baaqmd-maps-type-selector">
             <!-- ko if: enableMapTypeSelector -->
