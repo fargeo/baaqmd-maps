@@ -11,17 +11,17 @@
             }">
             <div><i class="im im-share"></i></div>
             <a target="_blank" data-bind="attr: {
-                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mainMapPage
+                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')
             }">
                 <div><i class="im im-facebook"></i></div>
             </a>
             <a target="_blank" data-bind="attr: {
-                'href': 'https://twitter.com/intent/tweet?url=' + mainMapPage
+                'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')
             }">
                 <div><i class="im im-twitter"></i></div>
             </a>
             <a data-bind="attr: {
-                'href': 'mailto:?body=' + mainMapPage
+                'href': 'mailto:?body=' + mapLink().split('&').join('%26')
             }">
                 <div><i class="im im-email"></i></div>
             </a>

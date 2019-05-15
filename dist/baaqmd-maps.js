@@ -445,7 +445,7 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"far fa-question-cir
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-details-panel\" data-bind=\"css: {'baaqmd-maps-expanded': expanded }\">\n    <div class=\"baaqmd-maps-details-panel-wrapper\" data-bind=\"if: map\">\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group\" data-bind=\"\n            click: toggleExpanded,\n            css: {'baaqmd-maps-expanded': expanded}\">\n            <i class=\"fas fa-bars\"></i>\n        </div>\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons\" data-bind=\"\n            css: {\n                'baaqmd-maps-expanded': expanded\n            }\">\n            <div><i class=\"im im-share\"></i></div>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mainMapPage\n            }\">\n                <div><i class=\"im im-facebook\"></i></div>\n            </a>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://twitter.com/intent/tweet?url=' + mainMapPage\n            }\">\n                <div><i class=\"im im-twitter\"></i></div>\n            </a>\n            <a data-bind=\"attr: {\n                'href': 'mailto:?body=' + mainMapPage\n            }\">\n                <div><i class=\"im im-email\"></i></div>\n            </a>\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n            <!-- ko if: enableMapTypeSelector -->\n            <select data-bind=\"\n                optionsText: 'text',\n                optionsValue: 'id',\n                options: mapTypes,\n                value: mapType,\n                choices: {\n                    searchEnabled: false\n                }\n            \"></select>\n            <!-- /ko -->\n            <!-- ko ifnot: enableMapTypeSelector -->\n            <div class=\"choices no-select\">\n                <div class=\"choices__inner\">\n                    <div class=\"choices__list choices__list--single\">\n                        <div class=\"choices__item choices__item--selectable\" data-bind=\"text: mapTypesObj[mapType()].label\"></div>\n                    </div>\n                </div>\n            </div>\n            <!-- /ko -->\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n        </div>\n         <div class=\"baaqmd-maps-details-panel-content\" data-bind=\"component: {\n             name: mapType,\n             params: $data\n         }\"></div>\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-details-panel\" data-bind=\"css: {'baaqmd-maps-expanded': expanded }\">\n    <div class=\"baaqmd-maps-details-panel-wrapper\" data-bind=\"if: map\">\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group\" data-bind=\"\n            click: toggleExpanded,\n            css: {'baaqmd-maps-expanded': expanded}\">\n            <i class=\"fas fa-bars\"></i>\n        </div>\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons\" data-bind=\"\n            css: {\n                'baaqmd-maps-expanded': expanded\n            }\">\n            <div><i class=\"im im-share\"></i></div>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-facebook\"></i></div>\n            </a>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-twitter\"></i></div>\n            </a>\n            <a data-bind=\"attr: {\n                'href': 'mailto:?body=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-email\"></i></div>\n            </a>\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n            <!-- ko if: enableMapTypeSelector -->\n            <select data-bind=\"\n                optionsText: 'text',\n                optionsValue: 'id',\n                options: mapTypes,\n                value: mapType,\n                choices: {\n                    searchEnabled: false\n                }\n            \"></select>\n            <!-- /ko -->\n            <!-- ko ifnot: enableMapTypeSelector -->\n            <div class=\"choices no-select\">\n                <div class=\"choices__inner\">\n                    <div class=\"choices__list choices__list--single\">\n                        <div class=\"choices__item choices__item--selectable\" data-bind=\"text: mapTypesObj[mapType()].label\"></div>\n                    </div>\n                </div>\n            </div>\n            <!-- /ko -->\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n        </div>\n         <div class=\"baaqmd-maps-details-panel-content\" data-bind=\"component: {\n             name: mapType,\n             params: $data\n         }\"></div>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 22 */
@@ -1146,12 +1146,28 @@ mapboxQuery +=  true ? '' : undefined;
     this.style = config["apiURI"] + config["mapTypes"][params.mapType()].style + mapboxQuery;
 
     this.setupMap = map => {
-      let cameraOpts = {
-        padding: config["boundsPadding"]
-      };
-
       const jumpToDistrict = () => {
-        map.jumpTo(map.cameraForBounds([[config["bounds"][0], config["bounds"][1]], [config["bounds"][2], config["bounds"][3]]], cameraOpts));
+        const searchParams = new URLSearchParams(window.location.search);
+        const centerLat = searchParams.get('centerLat');
+        const centerLng = searchParams.get('centerLng');
+        const zoom = searchParams.get('zoom');
+        let cameraOpts;
+
+        if (centerLat & centerLng & zoom) {
+          cameraOpts = {
+            center: {
+              lat: centerLat,
+              lng: centerLng
+            },
+            zoom: zoom
+          };
+        } else {
+          cameraOpts = map.cameraForBounds([[config["bounds"][0], config["bounds"][1]], [config["bounds"][2], config["bounds"][3]]], {
+            padding: config["boundsPadding"]
+          });
+        }
+
+        map.jumpTo(cameraOpts);
       };
 
       this.map = map;
@@ -1265,7 +1281,33 @@ knockout_latest["bindingHandlers"].choices = {
 
     this.mapType = params.mapType;
     this.map = params.map;
-    this.mainMapPage = config["mainMapPage"];
+
+    const getMapLink = () => {
+      const searchParams = new URLSearchParams();
+
+      if (this.map()) {
+        const center = this.map().getCenter();
+        searchParams.set('centerLat', center.lat);
+        searchParams.set('centerLng', center.lng);
+        searchParams.set('zoom', this.map().getZoom());
+      }
+
+      const center = searchParams.set('mapType', params.mapType());
+      return config["mainMapPage"] + `?${searchParams.toString()}`;
+    };
+
+    this.map.subscribe(map => {
+      if (map) {
+        this.mapLink(getMapLink());
+        map.on('moveend', e => {
+          this.mapLink(getMapLink());
+        });
+      }
+    });
+    this.mapType.subscribe(() => {
+      this.mapLink(getMapLink());
+    });
+    this.mapLink = knockout_latest["observable"](getMapLink());
   },
   template: details_panel_template
 }));
@@ -1296,6 +1338,16 @@ function Map(opts) {
   this.detailsActive = knockout_latest["observable"](opts.sidePanel);
   this.enableMapTypeSelector = opts.enableMapTypeSelector;
   this.mapTypes = Object.keys(config["mapTypes"]);
+
+  if (this.enableMapTypeSelector !== false) {
+    const searchParams = new URLSearchParams(window.location.search);
+    const mapType = searchParams.get('mapType');
+
+    if (mapType) {
+      opts.mapType = mapType;
+    }
+  }
+
   if (this.mapTypes.indexOf(opts.mapType) < 0) opts.mapType = this.mapTypes[0];
   this.mapType = knockout_latest["observable"](opts.mapType);
   this.map = knockout_latest["observable"]();

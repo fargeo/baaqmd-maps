@@ -27,7 +27,30 @@ export default ko.components.register('details-panel', {
         }
         this.mapType = params.mapType;
         this.map = params.map;
-        this.mainMapPage = config.mainMapPage;
+        const getMapLink = () => {
+            const searchParams = new URLSearchParams();
+            if (this.map()) {
+                const center = this.map().getCenter();
+                searchParams.set('centerLat', center.lat);
+                searchParams.set('centerLng', center.lng);
+                searchParams.set('zoom', this.map().getZoom());
+            }
+            const center =
+            searchParams.set('mapType', params.mapType());
+            return config.mainMapPage + `?${searchParams.toString()}`;
+        };
+        this.map.subscribe(map => {
+            if (map) {
+                this.mapLink(getMapLink());
+                map.on('moveend', e => {
+                    this.mapLink(getMapLink());
+                });
+            }
+        });
+        this.mapType.subscribe(() => {
+            this.mapLink(getMapLink());
+        });
+        this.mapLink = ko.observable(getMapLink());
     },
     template: template
 });

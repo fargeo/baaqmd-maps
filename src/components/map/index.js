@@ -18,12 +18,29 @@ export default ko.components.register('map', {
         this.style = config.apiURI + config.mapTypes[params.mapType()].style + mapboxQuery;
 
         this.setupMap = (map) => {
-            let cameraOpts = {padding: config.boundsPadding};
             const jumpToDistrict = () => {
-                map.jumpTo(map.cameraForBounds([
-                    [config.bounds[0], config.bounds[1]],
-                    [config.bounds[2], config.bounds[3]]
-                ], cameraOpts));
+                const searchParams = new URLSearchParams(window.location.search);
+                const centerLat = searchParams.get('centerLat');
+                const centerLng = searchParams.get('centerLng');
+                const zoom = searchParams.get('zoom');
+                let cameraOpts;
+                if (centerLat & centerLng & zoom) {
+                    cameraOpts = {
+                        center: {
+                            lat: centerLat,
+                            lng: centerLng
+                        },
+                        zoom: zoom
+                    };
+                } else {
+                    cameraOpts = map.cameraForBounds([
+                        [config.bounds[0], config.bounds[1]],
+                        [config.bounds[2], config.bounds[3]]
+                    ], {
+                        padding: config.boundsPadding
+                    });
+                }
+                map.jumpTo(cameraOpts);
             };
 
             this.map = map;

@@ -23,6 +23,13 @@ export function Map(opts) {
     this.detailsActive = ko.observable(opts.sidePanel);
     this.enableMapTypeSelector = opts.enableMapTypeSelector;
     this.mapTypes = Object.keys(config.mapTypes);
+    if (this.enableMapTypeSelector !== false) {
+        const searchParams = new URLSearchParams(window.location.search);
+        const mapType = searchParams.get('mapType');
+        if (mapType) {
+            opts.mapType = mapType;
+        }
+    }
     if (this.mapTypes.indexOf(opts.mapType) < 0) opts.mapType = this.mapTypes[0];
     this.mapType = ko.observable(opts.mapType);
     this.map = ko.observable();
