@@ -6,6 +6,9 @@
     "aqiRSSFeed": "http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml",
     "spaRSSFeed": "http://www.baaqmd.gov/Feeds/AlertRSS.aspx",
     "openBurnRSSFeed": "http://www.baaqmd.gov/Feeds/OpenBurnRSS.aspx",
+    "aqiInfoURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI",
+    "aboutForecastURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast",
+    "pollutantInfoURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant",
     "zoom": 7,
     "center": [
         -122.172,

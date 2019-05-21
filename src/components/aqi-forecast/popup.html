@@ -16,8 +16,8 @@
             <thead>
                 <tr>
                     <th>&nbsp;</th>
-                    <th>AQI</th>
-                    <th>Pollutant</th>
+                    <th data-bind="click: function() { showInfoPanel('AQIInfoPanel')}">AQI</th>
+                    <th data-bind="click: function() { showInfoPanel('PollutantInfoPanel')}">Pollutant</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,8 +51,7 @@
 
         <h4>About the Five Day Forecast</h4>
 
-        <p>The Air District issues a daily air quality forecast that predicts air pollution levels for the coming five-day period. This forecast uses the U.S. EPA's Air Quality Index scale.</p>
-        <p>For forecasting purposes, cities in the Bay Area have been divided into five reporting zones.</p>
+        <div data-bind="html: aboutForecast"></div>
 
         <a target="_blank" href="http://www.baaqmd.gov/rtaqd-data">Real Time Air Monitoring Data (Data View)</a>
         </br>

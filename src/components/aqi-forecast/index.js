@@ -2,6 +2,7 @@ import * as ko from 'knockout';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html'
+import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html'
 import * as forecastPanelTemplate from './forecast-panel.html'
 import * as config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
@@ -75,9 +76,20 @@ fetch(config.spaRSSFeed, {cache: "no-store"})
         });
     });
 
+const aqiInfo = ko.observable();
+fetch(config.aqiInfoURL)
+    .then((response) => {
+        return response.text();
+    })
+    .then((text) => {
+        const doc = parser.parseFromString(text, 'application/xml');
+        aqiInfo(doc.querySelector('body').innerHTML);
+    });
+
 ko.components.register('AQIInfoPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
+        this.aqiInfo = aqiInfo;
     },
     template: infoPanelTemplate
 });
@@ -102,6 +114,34 @@ ko.components.register('AQIForecastPanel', {
     template: forecastPanelTemplate
 });
 
+const pollutantInfo = ko.observable();
+fetch(config.pollutantInfoURL)
+    .then((response) => {
+        return response.text();
+    })
+    .then((text) => {
+        const doc = parser.parseFromString(text, 'application/xml');
+        pollutantInfo(doc.querySelector('body').innerHTML);
+    });
+
+ko.components.register('PollutantInfoPanel', {
+    viewModel: function(params) {
+        this.showInfoPanel = params.showInfoPanel;
+        this.pollutantInfo = pollutantInfo;
+    },
+    template: pollutantInfoPanelTemplate
+});
+
+const aboutForecast = ko.observable();
+fetch(config.aboutForecastURL)
+    .then((response) => {
+        return response.text();
+    })
+    .then((text) => {
+        const doc = parser.parseFromString(text, 'application/xml');
+        aboutForecast(doc.querySelector('body').innerHTML);
+    });
+
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
         const zones = [
@@ -111,6 +151,7 @@ export default ko.components.register('AQIForecast', {
             'South Central Bay',
             'Santa Clara Valley'
         ];
+        console.log(params.showInfoPanel);
         this.aqiData = aqiData;
         this.day = ko.observable();
         this.layers = {
@@ -145,7 +186,9 @@ export default ko.components.register('AQIForecast', {
                 name: feature.properties.zone.replace('Coastal', 'Coast'),
                 aqiData: this.aqiData().zones[feature.properties.zone],
                 lastUpdated: this.aqiData().lastUpdated,
-                day: this.day
+                day: this.day,
+                showInfoPanel: params.showInfoPanel,
+                aboutForecast: aboutForecast
             }
         };
         this.popupTemplate = popupTemplate;

@@ -688,6 +688,14 @@ $hazardous-color: #7E0023;
                     vertical-align: middle;
                     margin: 15px 0 0;
                 }
+                .baaqmd-maps-zone-forecast {
+                    thead {
+                        th {
+                            cursor: pointer;
+                            color: $primary-color;
+                        }
+                    }
+                }
                 table {
                     margin-top: 5px;
                     width: 100%;
