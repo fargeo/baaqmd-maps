@@ -151,7 +151,6 @@ export default ko.components.register('AQIForecast', {
             'South Central Bay',
             'Santa Clara Valley'
         ];
-        console.log(params.showInfoPanel);
         this.aqiData = aqiData;
         this.day = ko.observable();
         this.layers = {
