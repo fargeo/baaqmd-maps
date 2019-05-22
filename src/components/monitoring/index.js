@@ -4,8 +4,25 @@ import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
 export default ko.components.register('Monitoring', {
     viewModel: function(params) {
+        this.layers = {
+            district: {
+                flag: ko.observable(true),
+                names: [
+                    'aqi-forecast-sta-fill',
+                    'district-boundary'
+                ]
+            },
+            counties: {
+                flag: ko.observable(true),
+                names: [
+                    'counties',
+                    'counties-labels'
+                ]
+            }
+        };
+
         this.setupMap = (map) => {
-            // setup map here...
+            this.layers.counties.flag(false);
         };
 
         MapDetailsPanel.default.apply(this, [params]);
