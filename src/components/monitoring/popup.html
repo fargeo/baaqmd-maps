@@ -1,0 +1,36 @@
+<div class="baaqmd-maps-popup">
+    <div class="baaqmd-maps-popup-content">
+        <h3>
+            <i class="fas fa-users"></i>
+            <span data-bind="text: name"></span>
+        </h3>
+
+
+
+        <h4 data-bind="text: area"></h4>
+        <table class="air-monitoring-table" style="margin-left: 5px;" >
+          <tbody>
+            <!-- ko foreach: attributeList -->
+            <!-- ko if: value -->
+            <tr>
+                <td class="air-monitoring-attribute-data-title" data-bind="text: name"></td>
+                <td class="air-monitoring-attribute-data" data-bind="text: value"></td>
+            </tr>
+            <!-- /ko -->
+            <!-- /ko -->
+            </tbody>
+        </table>
+
+        <!-- ko if: area === 'Meteorological Sites' -->
+        <a href="http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=2730" target="_blank">View Historical Data</a>
+        <!-- /ko -->
+
+        <p data-bind="text: description"></p>
+
+
+        <h4>About This Site</h4>
+
+        <div data-bind="html: feedData"></div>
+
+    </div>
+</div>
