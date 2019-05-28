@@ -853,6 +853,44 @@ $hazardous-color: #7E0023;
             }
         }
     }
+    .air-quality{
+        position: relative;
+        .legend-display {
+            line-height: 20px;
+            i:before {
+                content: '';
+                display: block;
+                position:absolute;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+                border: solid 0px transparent;
+                left: 5px;
+                top: -2px;
+            }
+        }
+    }
+    .air-monitoring{
+        i:before {
+            background-color: #10649F;
+        }
+    }
+    .facility-glm-stations{
+        i:before {
+            background-color: #068A47;
+        }
+    }
+    .meteorological-sites{
+        i:before {
+            background-color: #D28F60;
+        }
+    }
+
+    .air-monitoring-attribute-data {
+      font-weight: bold;
+      text-align: left;
+    }
+
     .impacted-communities{
         position: relative;
         .legend-display {

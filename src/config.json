@@ -9,6 +9,10 @@
     "aqiInfoURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI",
     "aboutForecastURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast",
     "pollutantInfoURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant",
+    "airDistrictStationDataURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations",
+    "facilityGLMStationDataURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations",
+    "meteorologicalSiteDataURL": "http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites",
+    "historicalAirMonitoringDataURL": "http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=",
     "zoom": 7,
     "center": [
         -122.172,
