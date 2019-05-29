@@ -62,7 +62,6 @@ export default ko.components.register('Monitoring', {
             'meteorological-sites'
         ];
 
-
         this.getPopupData = (feature) => {
             let siteType = '';
             let about = '';
