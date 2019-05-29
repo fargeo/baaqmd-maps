@@ -374,7 +374,7 @@ module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-map
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Historical Data\n</h3>\n<hr>\n<div data-bind=\"html: historicalData\"></div>\n";
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    BAAQMD Meteorological Site\n</h3>\n<hr>\n<div data-bind=\"html: historicalData\"></div>\n";
 
 /***/ }),
 /* 17 */
