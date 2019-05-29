@@ -368,7 +368,7 @@ module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Air Quality Moni
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <i class=\"fas fa-users\"></i>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n\n\n\n        <h4 data-bind=\"text: area\"></h4>\n        <table class=\"air-monitoring-table\" style=\"margin-left: 5px;\" >\n          <tbody>\n            <!-- ko foreach: attributeList -->\n            <!-- ko if: value -->\n            <tr>\n                <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: name\"></td>\n                <td class=\"air-monitoring-attribute-data\" data-bind=\"text: value\"></td>\n            </tr>\n            <!-- /ko -->\n            <!-- /ko -->\n            </tbody>\n        </table>\n\n        <!-- ko if: area === 'Meteorological Sites' -->\n        <div class=\"baaqmd-maps-details-links\">\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showHistoricalSiteInfo(id); }\">\n                <i class=\"fas fa-wind\"></i>\n                View Historical Data\n            </a>\n        </div>\n        <!-- /ko -->\n\n\n        <p data-bind=\"text: description\"></p>\n\n\n        <h4>About This Site</h4>\n\n        <div data-bind=\"html: feedData\"></div>\n\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <i class=\"fas fa-users\"></i>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n\n        <h4 data-bind=\"text: siteType\"></h4>\n        <table class=\"air-monitoring-table\" style=\"margin-left: 5px;\" >\n          <tbody>\n            <!-- ko foreach: attributeList -->\n            <!-- ko if: value -->\n            <tr>\n                <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: name\"></td>\n                <td class=\"air-monitoring-attribute-data\" data-bind=\"text: value\"></td>\n            </tr>\n            <!-- /ko -->\n            <!-- /ko -->\n            </tbody>\n        </table>\n\n        <!-- ko if: siteType === 'Meteorological Sites' -->\n        <div class=\"baaqmd-maps-details-links\">\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: showHistoricalSiteInfo\">\n                <i class=\"fas fa-wind\"></i>\n                View Historical Data\n            </a>\n        </div>\n        <!-- /ko -->\n\n        <h4>About This Site</h4>\n\n        <div data-bind=\"html: about\"></div>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 16 */
@@ -701,7 +701,21 @@ function MapDetailsPanel(params) {
   });
 }
 ;
+// CONCATENATED MODULE: ./src/utils/fetch-html.js
+
+function fetchHTML(url, content) {
+  if (!content) content = knockout_latest["observable"]();else content(undefined);
+  fetch(url).then(response => {
+    return response.text();
+  }).then(text => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'application/xml');
+    return content(doc.querySelector('body').innerHTML);
+  });
+  return content;
+}
 // CONCATENATED MODULE: ./src/components/aqi-forecast/index.js
+
 
 
 
@@ -779,13 +793,7 @@ fetch(config["spaRSSFeed"], {
     lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
   });
 });
-const aqiInfo = knockout_latest["observable"]();
-fetch(config["aqiInfoURL"]).then(response => {
-  return response.text();
-}).then(text => {
-  const doc = aqi_forecast_parser.parseFromString(text, 'application/xml');
-  aqiInfo(doc.querySelector('body').innerHTML);
-});
+const aqiInfo = fetchHTML(config["aqiInfoURL"]);
 knockout_latest["components"].register('AQIInfoPanel', {
   viewModel: function (params) {
     this.showInfoPanel = params.showInfoPanel;
@@ -814,13 +822,7 @@ knockout_latest["components"].register('AQIForecastPanel', {
   },
   template: forecast_panel
 });
-const pollutantInfo = knockout_latest["observable"]();
-fetch(config["pollutantInfoURL"]).then(response => {
-  return response.text();
-}).then(text => {
-  const doc = aqi_forecast_parser.parseFromString(text, 'application/xml');
-  pollutantInfo(doc.querySelector('body').innerHTML);
-});
+const pollutantInfo = fetchHTML(config["pollutantInfoURL"]);
 knockout_latest["components"].register('PollutantInfoPanel', {
   viewModel: function (params) {
     this.showInfoPanel = params.showInfoPanel;
@@ -828,13 +830,7 @@ knockout_latest["components"].register('PollutantInfoPanel', {
   },
   template: pollutant_info_panel
 });
-const aboutForecast = knockout_latest["observable"]();
-fetch(config["aboutForecastURL"]).then(response => {
-  return response.text();
-}).then(text => {
-  const doc = aqi_forecast_parser.parseFromString(text, 'application/xml');
-  aboutForecast(doc.querySelector('body').innerHTML);
-});
+const aboutForecast = fetchHTML(config["aboutForecastURL"]);
 /* harmony default export */ var aqi_forecast = (knockout_latest["components"].register('AQIForecast', {
   viewModel: function (params) {
     const zones = ['Eastern Zone', 'Coastal and Central Bay', 'Northern Zone', 'South Central Bay', 'Santa Clara Valley'];
@@ -1024,22 +1020,10 @@ var historical_site_info = __webpack_require__(16);
 
 
 
-const monitoring_parser = new DOMParser();
 
-const fetchSiteData = (url, data) => {
-  if (!data) data = knockout_latest["observable"]();
-  fetch(url).then(response => {
-    return response.text();
-  }).then(text => {
-    const doc = monitoring_parser.parseFromString(text, 'application/xml');
-    return data(doc.querySelector('body').innerHTML);
-  });
-  return data;
-};
-
-const airDistrictStationData = fetchSiteData(config["airDistrictStationDataURL"]);
-const facilityGLMStationData = fetchSiteData(config["facilityGLMStationDataURL"]);
-const meteorologicalSiteData = fetchSiteData(config["meteorologicalSiteDataURL"]);
+const airDistrictStationData = fetchHTML(config["airDistrictStationDataURL"]);
+const facilityGLMStationData = fetchHTML(config["facilityGLMStationDataURL"]);
+const meteorologicalSiteData = fetchHTML(config["meteorologicalSiteDataURL"]);
 let historicalData = knockout_latest["observable"]();
 knockout_latest["components"].register('HistoricalDataPanel', {
   viewModel: function (params) {
@@ -1075,82 +1059,42 @@ knockout_latest["components"].register('HistoricalDataPanel', {
     this.popupLayers = ['air-monitoring', 'facility-glm-stations', 'meteorological-sites'];
 
     this.getPopupData = feature => {
-      let area = '';
-      let description = '';
-      let feedData = '';
-      const attributeList = [{
-        name: "Site ID",
-        value: feature.properties.StationID
-      }, {
-        name: "Site Name",
-        value: feature.properties.Name
-      }, {
-        name: "Start Date",
-        value: feature.properties.StartDate
-      }, {
-        name: "End Date",
-        value: feature.properties.EndDate
-      }, {
-        name: "Latitude",
-        value: feature.properties.Latitude
-      }, {
-        name: "Longitude",
-        value: feature.properties.Longitude
-      }, {
-        name: "Elevation",
-        value: feature.properties.Elevation
-      }, {
-        name: "UTM East",
-        value: feature.properties.utmEast
-      }, {
-        name: "UTM North",
-        value: feature.properties.utmNorth
-      }, {
-        name: "Location",
-        value: feature.properties.location
-      }, {
-        name: "Operator",
-        value: feature.properties.operator
-      }, {
-        name: "Wind Height",
-        value: feature.properties.windHeight
-      }, {
-        name: "County",
-        value: feature.properties.county
-      }];
-
-      this.showHistoricalSiteInfo = id => {
-        historicalData(undefined);
-        fetchSiteData(config["historicalAirMonitoringDataURL"] + feature.properties.StationID, historicalData);
-        this.showInfoPanel('HistoricalDataPanel');
-      };
+      let siteType = '';
+      let about = '';
+      const attributeList = [["Site ID", "StationID"], ["Site Name", "Name"], ["Start Date", "StartDate"], ["End Date", "EndDate"], ["Latitude", "Latitude"], ["Longitude", "Longitude"], ["Elevation", "Elevation"], ["UTM East", "utmEast"], ["UTM North", "utmNorth"], ["Location", "location"], ["Operator", "operator"], ["Wind Height", "windHeight"], ["County", "county"]].map(attr => {
+        return {
+          name: attr[0],
+          value: feature.properties[attr[1]]
+        };
+      });
 
       switch (feature.layer.id) {
         case 'air-monitoring':
-          area = 'Air Monitoring';
-          feedData = airDistrictStationData;
+          siteType = 'Air Monitoring';
+          about = airDistrictStationData;
           break;
 
         case 'facility-glm-stations':
-          area = 'Facility GLM Stations';
-          feedData = facilityGLMStationData;
+          siteType = 'Facility GLM Stations';
+          about = facilityGLMStationData;
           break;
 
         case 'meteorological-sites':
-          area = 'Meteorological Sites';
-          feedData = meteorologicalSiteData;
+          siteType = 'Meteorological Sites';
+          about = meteorologicalSiteData;
           break;
       }
 
       return {
         name: feature.properties.Name,
-        area: area,
-        description: description,
-        feedData: feedData,
+        siteType: siteType,
+        about: about,
         attributeList: attributeList,
-        showInfoPanel: params.showInfoPanel,
-        id: feature.properties.id,
-        showHistoricalSiteInfo: this.showHistoricalSiteInfo
+        showHistoricalSiteInfo: () => {
+          let url = config["historicalAirMonitoringDataURL"] + feature.properties.StationID;
+          fetchHTML(url, historicalData);
+          this.showInfoPanel('HistoricalDataPanel');
+        }
       };
     };
 
@@ -1158,6 +1102,8 @@ knockout_latest["components"].register('HistoricalDataPanel', {
 
     this.setupMap = map => {
       this.layers.counties.flag(false);
+      this.layers.facilityGLMStations.flag(false);
+      this.layers.meteorologicalSites.flag(false);
     };
 
     MapDetailsPanel.apply(this, [params]);
