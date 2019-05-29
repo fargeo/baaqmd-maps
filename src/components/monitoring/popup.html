@@ -5,9 +5,7 @@
             <span data-bind="text: name"></span>
         </h3>
 
-
-
-        <h4 data-bind="text: area"></h4>
+        <h4 data-bind="text: siteType"></h4>
         <table class="air-monitoring-table" style="margin-left: 5px;" >
           <tbody>
             <!-- ko foreach: attributeList -->
@@ -21,22 +19,17 @@
             </tbody>
         </table>
 
-        <!-- ko if: area === 'Meteorological Sites' -->
+        <!-- ko if: siteType === 'Meteorological Sites' -->
         <div class="baaqmd-maps-details-links">
-            <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showHistoricalSiteInfo(id); }">
+            <a href="javascript: void(0);" class="information-link" data-bind="click: showHistoricalSiteInfo">
                 <i class="fas fa-wind"></i>
                 View Historical Data
             </a>
         </div>
         <!-- /ko -->
 
-
-        <p data-bind="text: description"></p>
-
-
         <h4>About This Site</h4>
 
-        <div data-bind="html: feedData"></div>
-
+        <div data-bind="html: about"></div>
     </div>
 </div>

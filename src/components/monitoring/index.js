@@ -3,26 +3,12 @@ import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import * as config from '../../config.json';
-import * as historicalSiteInfoTemplate from './historical-site-info.html'
+import * as historicalSiteInfoTemplate from './historical-site-info.html';
+import fetchHTML from '../../utils/fetch-html'
 
-const parser = new DOMParser();
-
-const fetchSiteData = (url, data) => {
-    if (!data) data = ko.observable();
-    fetch(url)
-        .then((response) => {
-            return response.text();
-        })
-        .then((text) => {
-            const doc = parser.parseFromString(text, 'application/xml');
-            return data(doc.querySelector('body').innerHTML);
-        });
-    return data;
-}
-
-const airDistrictStationData = fetchSiteData(config.airDistrictStationDataURL);
-const facilityGLMStationData = fetchSiteData(config.facilityGLMStationDataURL);
-const meteorologicalSiteData = fetchSiteData(config.meteorologicalSiteDataURL);
+const airDistrictStationData = fetchHTML(config.airDistrictStationDataURL);
+const facilityGLMStationData = fetchHTML(config.facilityGLMStationDataURL);
+const meteorologicalSiteData = fetchHTML(config.meteorologicalSiteDataURL);
 
 let historicalData = ko.observable();
 ko.components.register('HistoricalDataPanel', {
@@ -76,102 +62,65 @@ export default ko.components.register('Monitoring', {
             'meteorological-sites'
         ];
 
-        this.getPopupData = (feature) => {
-            let area = '';
-            let description = '';
-            let feedData = '';
-            const attributeList = [{
-                    name: "Site ID",
-                    value: feature.properties.StationID
-                },
-                {
-                    name: "Site Name",
-                    value: feature.properties.Name
-                },
-                {
-                    name: "Start Date",
-                    value: feature.properties.StartDate
-                },
-                {
-                    name: "End Date",
-                    value: feature.properties.EndDate
-                },
-                {
-                    name: "Latitude",
-                    value: feature.properties.Latitude
-                },
-                {
-                    name: "Longitude",
-                    value: feature.properties.Longitude
-                },
-                {
-                    name: "Elevation",
-                    value: feature.properties.Elevation
-                },
-                {
-                    name: "UTM East",
-                    value: feature.properties.utmEast
-                },
-                {
-                    name: "UTM North",
-                    value: feature.properties.utmNorth
-                },
-                {
-                    name: "Location",
-                    value: feature.properties.location
-                },
-                {
-                    name: "Operator",
-                    value: feature.properties.operator
-                },
-                {
-                    name: "Wind Height",
-                    value: feature.properties.windHeight
-                },
-                {
-                    name: "County",
-                    value: feature.properties.county
-                }
-            ];
 
-            this.showHistoricalSiteInfo = (id) => {
-                historicalData(undefined);
-                fetchSiteData(config.historicalAirMonitoringDataURL + feature.properties.StationID, historicalData);
-                this.showInfoPanel('HistoricalDataPanel');
-            }
+        this.getPopupData = (feature) => {
+            let siteType = '';
+            let about = '';
+            const attributeList = [
+                ["Site ID", "StationID"],
+                ["Site Name", "Name"],
+                ["Start Date", "StartDate"],
+                ["End Date", "EndDate"],
+                ["Latitude", "Latitude"],
+                ["Longitude", "Longitude"],
+                ["Elevation", "Elevation"],
+                ["UTM East", "utmEast"],
+                ["UTM North", "utmNorth"],
+                ["Location", "location"],
+                ["Operator", "operator"],
+                ["Wind Height", "windHeight"],
+                ["County", "county"]
+            ].map((attr) => {
+                return {
+                    name: attr[0],
+                    value: feature.properties[attr[1]]
+                };
+            });
 
             switch (feature.layer.id) {
                 case 'air-monitoring':
-                    area = 'Air Monitoring';
-                    feedData = airDistrictStationData;
+                    siteType = 'Air Monitoring';
+                    about = airDistrictStationData;
                     break;
                 case 'facility-glm-stations':
-                    area = 'Facility GLM Stations';
-                    feedData = facilityGLMStationData;
+                    siteType = 'Facility GLM Stations';
+                    about = facilityGLMStationData;
                     break;
                 case 'meteorological-sites':
-                    area = 'Meteorological Sites';
-                    feedData = meteorologicalSiteData;
+                    siteType = 'Meteorological Sites';
+                    about = meteorologicalSiteData;
                     break;
             }
 
             return {
                 name: feature.properties.Name,
-                area: area,
-                description: description,
-                feedData: feedData,
+                siteType: siteType,
+                about: about,
                 attributeList: attributeList,
-                showInfoPanel: params.showInfoPanel,
-                id: feature.properties.id,
-                showHistoricalSiteInfo: this.showHistoricalSiteInfo
+                showHistoricalSiteInfo: () => {
+                    let url = config.historicalAirMonitoringDataURL + feature.properties.StationID;
+                    fetchHTML(url, historicalData);
+                    this.showInfoPanel('HistoricalDataPanel');
+                }
             };
         };
 
         this.popupTemplate = popupTemplate;
 
-
         this.setupMap = (map) => {
             this.layers.counties.flag(false);
+            this.layers.facilityGLMStations.flag(false);
+            this.layers.meteorologicalSites.flag(false);
         };
 
         MapDetailsPanel.default.apply(this, [params]);

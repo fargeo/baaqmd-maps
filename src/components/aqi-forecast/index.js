@@ -6,6 +6,7 @@ import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html'
 import * as forecastPanelTemplate from './forecast-panel.html'
 import * as config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
+import fetchHTML from '../../utils/fetch-html'
 
 const aqiData = ko.observable();
 const parser = new DOMParser();
@@ -76,16 +77,7 @@ fetch(config.spaRSSFeed, {cache: "no-store"})
         });
     });
 
-const aqiInfo = ko.observable();
-fetch(config.aqiInfoURL)
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const doc = parser.parseFromString(text, 'application/xml');
-        aqiInfo(doc.querySelector('body').innerHTML);
-    });
-
+const aqiInfo = fetchHTML(config.aqiInfoURL);
 ko.components.register('AQIInfoPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
@@ -114,16 +106,7 @@ ko.components.register('AQIForecastPanel', {
     template: forecastPanelTemplate
 });
 
-const pollutantInfo = ko.observable();
-fetch(config.pollutantInfoURL)
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const doc = parser.parseFromString(text, 'application/xml');
-        pollutantInfo(doc.querySelector('body').innerHTML);
-    });
-
+const pollutantInfo = fetchHTML(config.pollutantInfoURL);
 ko.components.register('PollutantInfoPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
@@ -132,16 +115,7 @@ ko.components.register('PollutantInfoPanel', {
     template: pollutantInfoPanelTemplate
 });
 
-const aboutForecast = ko.observable();
-fetch(config.aboutForecastURL)
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const doc = parser.parseFromString(text, 'application/xml');
-        aboutForecast(doc.querySelector('body').innerHTML);
-    });
-
+const aboutForecast = fetchHTML(config.aboutForecastURL);
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
         const zones = [
