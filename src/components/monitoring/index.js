@@ -3,38 +3,35 @@ import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import * as config from '../../config.json';
+import * as historicalSiteInfoTemplate from './historical-site-info.html'
 
 const parser = new DOMParser();
 
-const airDistrictStationData = ko.observable();
-fetch(config.airDistrictStationDataURL)
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const doc = parser.parseFromString(text, 'application/xml');
-        airDistrictStationData(doc.querySelector('body').innerHTML);
-    });
+const fetchSiteData = (url, data) => {
+    if (!data) data = ko.observable();
+    fetch(url)
+        .then((response) => {
+            return response.text();
+        })
+        .then((text) => {
+            const doc = parser.parseFromString(text, 'application/xml');
+            return data(doc.querySelector('body').innerHTML);
+        });
+    return data;
+}
 
-const facilityGLMStationData = ko.observable();
-fetch(config.facilityGLMStationDataURL)
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const doc = parser.parseFromString(text, 'application/xml');
-        facilityGLMStationData(doc.querySelector('body').innerHTML);
-    });
+const airDistrictStationData = fetchSiteData(config.airDistrictStationDataURL);
+const facilityGLMStationData = fetchSiteData(config.facilityGLMStationDataURL);
+const meteorologicalSiteData = fetchSiteData(config.meteorologicalSiteDataURL);
 
-const meteorologicalSiteData = ko.observable();
-fetch(config.meteorologicalSiteDataURL)
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const doc = parser.parseFromString(text, 'application/xml');
-        meteorologicalSiteData(doc.querySelector('body').innerHTML);
-    });
+let historicalData = ko.observable();
+ko.components.register('HistoricalDataPanel', {
+    viewModel: function(params) {
+        this.showInfoPanel = params.showInfoPanel;
+        this.historicalData = historicalData;
+    },
+    template: historicalSiteInfoTemplate
+});
 
 export default ko.components.register('Monitoring', {
     viewModel: function(params) {
@@ -83,60 +80,65 @@ export default ko.components.register('Monitoring', {
             let area = '';
             let description = '';
             let feedData = '';
-            const attributeList = [
-              {
-                name: "Site ID",
-                value: feature.properties.StationID
-              },
-              {
-                name: "Site Name",
-                value: feature.properties.Name
-              },
-              {
-                name: "Start Date",
-                value: feature.properties.StartDate
-              },
-              {
-                name: "End Date",
-                value: feature.properties.EndDate
-              },
-              {
-                name: "Latitude",
-                value: feature.properties.Latitude
-              },
-              {
-                name: "Longitude",
-                value: feature.properties.Longitude
-              },
-              {
-                name: "Elevation",
-                value: feature.properties.Elevation
-              },
-              {
-                name: "UTM East",
-                value: feature.properties.utmEast
-              },
-              {
-                name: "UTM North",
-                value: feature.properties.utmNorth
-              },
-              {
-                name: "Location",
-                value: feature.properties.location
-              },
-              {
-                name: "Operator",
-                value: feature.properties.operator
-              },
-              {
-                name: "Wind Height",
-                value: feature.properties.windHeight
-              },
-              {
-                name: "County",
-                value: feature.properties.county
-              }
+            const attributeList = [{
+                    name: "Site ID",
+                    value: feature.properties.StationID
+                },
+                {
+                    name: "Site Name",
+                    value: feature.properties.Name
+                },
+                {
+                    name: "Start Date",
+                    value: feature.properties.StartDate
+                },
+                {
+                    name: "End Date",
+                    value: feature.properties.EndDate
+                },
+                {
+                    name: "Latitude",
+                    value: feature.properties.Latitude
+                },
+                {
+                    name: "Longitude",
+                    value: feature.properties.Longitude
+                },
+                {
+                    name: "Elevation",
+                    value: feature.properties.Elevation
+                },
+                {
+                    name: "UTM East",
+                    value: feature.properties.utmEast
+                },
+                {
+                    name: "UTM North",
+                    value: feature.properties.utmNorth
+                },
+                {
+                    name: "Location",
+                    value: feature.properties.location
+                },
+                {
+                    name: "Operator",
+                    value: feature.properties.operator
+                },
+                {
+                    name: "Wind Height",
+                    value: feature.properties.windHeight
+                },
+                {
+                    name: "County",
+                    value: feature.properties.county
+                }
             ];
+
+            this.showHistoricalSiteInfo = (id) => {
+                historicalData(undefined);
+                fetchSiteData(config.historicalAirMonitoringDataURL + feature.properties.StationID, historicalData);
+                this.showInfoPanel('HistoricalDataPanel');
+            }
 
             switch (feature.layer.id) {
                 case 'air-monitoring':
@@ -158,7 +160,10 @@ export default ko.components.register('Monitoring', {
                 area: area,
                 description: description,
                 feedData: feedData,
-                attributeList: attributeList
+                attributeList: attributeList,
+                showInfoPanel: params.showInfoPanel,
+                id: feature.properties.id,
+                showHistoricalSiteInfo: this.showHistoricalSiteInfo
             };
         };
 

@@ -22,8 +22,14 @@
         </table>
 
         <!-- ko if: area === 'Meteorological Sites' -->
-        <a href="http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=2730" target="_blank">View Historical Data</a>
+        <div class="baaqmd-maps-details-links">
+            <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showHistoricalSiteInfo(id); }">
+                <i class="fas fa-wind"></i>
+                View Historical Data
+            </a>
+        </div>
         <!-- /ko -->
+
 
         <p data-bind="text: description"></p>
 
