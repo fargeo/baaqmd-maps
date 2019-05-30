@@ -37,6 +37,9 @@ $unhealthy-for-sensitive-groups-color: #ff9933;
 $unhealthy-color: #cc0033;
 $very-unhealthy-color: #660099;
 $hazardous-color: #7E0023;
+$yes-color: #69b764;
+$nobelow2k-color: #ffdd71;
+$no-color: #b10318;
 
 .baaqmd-maps-main {
     // put all style rules inside here to ensure they are scoped to library
@@ -956,6 +959,21 @@ $hazardous-color: #7E0023;
     .hazardous, .hazardous:before {
         border-color: $hazardous-color;
         background-color: $hazardous-color;
+        color: white;
+    }
+    .yes, .yes:before {
+        border-color: $yes-color;
+        background-color: $yes-color;
+        color: white;
+    }
+    .nobelow2k, .nobelow2k:before {
+        border-color: $nobelow2k-color;
+        background-color: $nobelow2k-color;
+        color: #222222;
+    }
+    .no, .no:before {
+        border-color: $no-color;
+        background-color: $no-color;
         color: white;
     }
     .five-day-forecast-table {

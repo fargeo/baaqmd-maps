@@ -380,7 +380,7 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = "<div></div>\n";
+module.exports = "<h3>\n    <i class=\"fas fa-wind\"></i>\n    Open Burn Status\n</h3>\n<h4><i class=\"icomoon im-forecast\"></i> Daily Status</h4>\n<!-- ko if: openBurnData -->\n<div class=\"baaqmd-maps-last-updated\">\n    Last Updated:\n    <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(openBurnData().lastUpdated)\"></span>,\n    <span data-bind=\"text: openBurnData().lastUpdated.toLocaleDateString()\"></span>\n    at\n    <span data-bind=\"text: openBurnData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n</div>\n<ul class=\"baaqmd-maps-aqi-forecast-dates\">\n    <!-- ko foreach: openBurnData().dates -->\n    <li data-bind=\"css: {\n        active: $index() === $parent.day()\n    }\">\n        <a href=\"#\" data-bind=\"click: function() {\n            $parent.day($index());\n        }, text: date.toLocaleDateString('en-US',{day: '2-digit', month: '2-digit'})\"></a>\n    </li>\n    <!-- /ko -->\n</ul>\n<h4><i class=\"icomoon im-aqi-index\"></i> Open Burn Status</h4>\n<ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n    <li class=\"yes\">\n        Allowed\n    </li>\n    <li class=\"nobelow2k\">\n        Prohibited < 2k\n    </li>\n    <li class=\"no\">\n        Prohibited\n    </li>\n</ul>\n<div class=\"baaqmd-maps-details-links\">\n    <a href=\"javascript: void(0);\" class=\"information-link\">\n        <i class=\"im im-info\"></i>\n        More Information\n    </a>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n    <li class=\"counties\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        Counties\n    </li>\n    <li class=\"district-boundary\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        District Boundary\n    </li>\n</ul>\n<!-- /ko -->\n";
 
 /***/ }),
 /* 18 */
@@ -1150,7 +1150,8 @@ fetch(config["openBurnRSSFeed"], {
   });
   openBurnData({
     dates: dates,
-    sections: sections
+    sections: sections,
+    lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
   });
 });
 /* harmony default export */ var open_burning = (knockout_latest["components"].register('OpenBurning', {
@@ -1174,7 +1175,6 @@ fetch(config["openBurnRSSFeed"], {
           const status = this.openBurnData().dates[day].status.find(s => {
             return s.name === section;
           });
-          console.log(status);
           this.map().setFeatureState({
             id: i + 1,
             source: 'composite',

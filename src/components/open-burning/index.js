@@ -39,7 +39,8 @@ fetch(config.openBurnRSSFeed, {cache: "no-store"})
         });
         openBurnData({
             dates: dates,
-            sections: sections
+            sections: sections,
+            lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
         });
     })
 
@@ -74,7 +75,6 @@ export default ko.components.register('OpenBurning', {
                     const status = this.openBurnData().dates[day].status.find((s) => {
                         return s.name === section;
                     });
-                    console.log(status);
                     this.map().setFeatureState({
                         id: i + 1,
                         source: 'composite',
