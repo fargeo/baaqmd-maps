@@ -179,7 +179,7 @@ export default ko.components.register('AQIForecast', {
                     }, {
                         forecast: aqi.forecast
                     });
-                })
+                });
             }
         }, this);
 

@@ -245,7 +245,7 @@ v.fragments={};return e};this.createJavaScriptEvaluatorBlock=function(a){return"
 /* 1 */
 /***/ (function(module) {
 
-module.exports = {"accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml","spaRSSFeed":"http://www.baaqmd.gov/Feeds/AlertRSS.aspx","openBurnRSSFeed":"http://www.baaqmd.gov/Feeds/OpenBurnRSS.aspx","aqiInfoURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI","aboutForecastURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast","pollutantInfoURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant","airDistrictStationDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations","facilityGLMStationDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations","meteorologicalSiteDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites","historicalAirMonitoringDataURL":"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=","zoom":7,"center":[-122.172,37.822],"bounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"mainMapPage":"http://baaqmd.fargeo-dev.com/dist/","mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4","label":"Air Quality Forecast Map"},"Facilities":{"style":"mapbox/streets-v9","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"Monitoring":{"style":"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47","label":"Air Quality Monitoring Map"},"OpenBurning":{"style":"baaqmd-publicmaps/cjv6xd8ux02hy1fl7un4r0ick","label":"Open Burning Map"}}};
+module.exports = {"accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml","spaRSSFeed":"http://www.baaqmd.gov/Feeds/AlertRSS.aspx","openBurnRSSFeed":"http://www.baaqmd.gov/Feeds/OpenBurnRSS.aspx","aqiInfoURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI","aboutForecastURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast","pollutantInfoURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant","airDistrictStationDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations","facilityGLMStationDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations","meteorologicalSiteDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites","historicalAirMonitoringDataURL":"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=","zoom":7,"center":[-122.172,37.822],"bounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"mainMapPage":"http://baaqmd.fargeo-dev.com/dist/","mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4","label":"Air Quality Forecast Map"},"Facilities":{"style":"mapbox/streets-v9","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"Monitoring":{"style":"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47","label":"Air Quality Monitoring Map"},"OpenBurning":{"style":"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63","label":"Open Burning Map"}}};
 
 /***/ }),
 /* 2 */
@@ -1117,9 +1117,86 @@ var open_burning_template = __webpack_require__(17);
 
 
 
+
+const open_burning_parser = new DOMParser();
+const openBurnData = knockout_latest["observable"]();
+fetch(config["openBurnRSSFeed"], {
+  cache: "no-store"
+}).then(response => {
+  return response.text();
+}).then(text => {
+  const xmlDoc = open_burning_parser.parseFromString(text, 'application/xml');
+  const dates = [];
+  const sections = {};
+  xmlDoc.querySelectorAll('item').forEach(item => {
+    const date = new Date(item.querySelector('title').textContent);
+    const status = item.querySelector('description').textContent.split('\n').reduce((statusList, item) => {
+      if (item) statusList.push(item.split(": "));
+      return statusList;
+    }, []).map(item => {
+      const name = item[0].replace('ern', '');
+      const status = item[1] === 'Burn' ? "yes" : "no";
+      if (!sections[name]) sections[name] = [];
+      sections[name].push(status);
+      return {
+        name: name,
+        status: status
+      };
+    });
+    dates.push({
+      date: date,
+      status: status
+    });
+  });
+  openBurnData({
+    dates: dates,
+    sections: sections
+  });
+});
 /* harmony default export */ var open_burning = (knockout_latest["components"].register('OpenBurning', {
   viewModel: function (params) {
-    this.setupMap = map => {// setup map here...
+    const sections = ['South Section', 'Coastal Section', 'North Section'];
+    this.openBurnData = openBurnData;
+    this.day = knockout_latest["observable"]();
+    this.layers = {
+      district: {
+        flag: knockout_latest["observable"](true),
+        names: ['district-boundary']
+      },
+      counties: {
+        flag: knockout_latest["observable"](true),
+        names: ['counties', 'counties-labels']
+      }
+    };
+    this.day.subscribe(day => {
+      if (typeof day === 'number') {
+        sections.forEach((section, i) => {
+          const status = this.openBurnData().dates[day].status.find(s => {
+            return s.name === section;
+          });
+          console.log(status);
+          this.map().setFeatureState({
+            id: i + 1,
+            source: 'composite',
+            sourceLayer: 'openburnsections'
+          }, {
+            status: status.status
+          });
+        });
+      }
+    }, this);
+
+    this.setupMap = map => {
+      if (this.openBurnData()) {
+        this.day(0);
+      } else {
+        let updateOnFetch = this.openBurnData.subscribe(() => {
+          this.day(0);
+          updateOnFetch.dispose();
+        });
+      }
+
+      this.layers.counties.flag(false);
     };
 
     MapDetailsPanel.apply(this, [params]);
