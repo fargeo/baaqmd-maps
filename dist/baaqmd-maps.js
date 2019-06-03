@@ -731,74 +731,84 @@ function fetchHTML(url, content) {
 
 const aqiData = knockout_latest["observable"]();
 const aqi_forecast_parser = new DOMParser();
+const aqiInfo = knockout_latest["observable"]();
+const pollutantInfo = knockout_latest["observable"]();
+const aboutForecast = knockout_latest["observable"]();
 let alertStatus;
-fetch(config["spaRSSFeed"], {
-  cache: "no-store"
-}).then(response => {
-  return response.text();
-}).then(text => {
-  const xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
-  alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
-  return fetch(config["aqiRSSFeed"], {
+
+let fetchData = () => {
+  fetch(config["spaRSSFeed"], {
     cache: "no-store"
-  });
-}).then(response => {
-  return response.text();
-}).then(text => {
-  const xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
-  const dates = [];
-  const zones = {};
-  xmlDoc.querySelectorAll('item').forEach(item => {
-    let day = {
-      date: item.querySelector('date').innerHTML.slice(0, -3),
-      zones: []
-    };
-    item.querySelectorAll('zone').forEach(zone => {
-      let measurement = zone.querySelector('measurement').innerHTML;
-      let forecast;
-
-      if (!isNaN(parseFloat(measurement))) {
-        measurement = parseFloat(measurement);
-
-        if (measurement <= 50) {
-          forecast = 'Good';
-        } else if (measurement >= 51 && measurement <= 100) {
-          forecast = 'Moderate';
-        } else if (measurement >= 101 && measurement <= 150) {
-          forecast = 'Unhealthy for Sensitive Groups';
-        } else if (measurement >= 151 && measurement <= 200) {
-          forecast = 'Unhealthy';
-        } else if (measurement >= 201 && measurement <= 300) {
-          forecast = 'Very Unhealthy';
-        } else if (measurement >= 301 && measurement <= 500) {
-          forecast = 'Hazardous';
-        }
-      } else {
-        forecast = measurement;
-        measurement = null;
-      }
-
-      let zoneData = {
-        title: zone.querySelector('title').innerHTML,
-        measurement: measurement,
-        pollutant: zone.querySelector('pollutant').innerHTML,
-        forecast: forecast
-      };
-      day.zones.push(zoneData);
-      zones[zoneData.title] = zones[zoneData.title] || [];
-      zones[zoneData.title].push(Object.assign({
-        date: day.date
-      }, zoneData));
+  }).then(response => {
+    return response.text();
+  }).then(text => {
+    const xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
+    alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
+    return fetch(config["aqiRSSFeed"], {
+      cache: "no-store"
     });
-    dates.push(day);
+  }).then(response => {
+    return response.text();
+  }).then(text => {
+    const xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
+    const dates = [];
+    const zones = {};
+    xmlDoc.querySelectorAll('item').forEach(item => {
+      let day = {
+        date: item.querySelector('date').innerHTML.slice(0, -3),
+        zones: []
+      };
+      item.querySelectorAll('zone').forEach(zone => {
+        let measurement = zone.querySelector('measurement').innerHTML;
+        let forecast;
+
+        if (!isNaN(parseFloat(measurement))) {
+          measurement = parseFloat(measurement);
+
+          if (measurement <= 50) {
+            forecast = 'Good';
+          } else if (measurement >= 51 && measurement <= 100) {
+            forecast = 'Moderate';
+          } else if (measurement >= 101 && measurement <= 150) {
+            forecast = 'Unhealthy for Sensitive Groups';
+          } else if (measurement >= 151 && measurement <= 200) {
+            forecast = 'Unhealthy';
+          } else if (measurement >= 201 && measurement <= 300) {
+            forecast = 'Very Unhealthy';
+          } else if (measurement >= 301 && measurement <= 500) {
+            forecast = 'Hazardous';
+          }
+        } else {
+          forecast = measurement;
+          measurement = null;
+        }
+
+        let zoneData = {
+          title: zone.querySelector('title').innerHTML,
+          measurement: measurement,
+          pollutant: zone.querySelector('pollutant').innerHTML,
+          forecast: forecast
+        };
+        day.zones.push(zoneData);
+        zones[zoneData.title] = zones[zoneData.title] || [];
+        zones[zoneData.title].push(Object.assign({
+          date: day.date
+        }, zoneData));
+      });
+      dates.push(day);
+    });
+    aqiData({
+      dates: dates,
+      zones: zones,
+      lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
+    });
   });
-  aqiData({
-    dates: dates,
-    zones: zones,
-    lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
-  });
-});
-const aqiInfo = fetchHTML(config["aqiInfoURL"]);
+  fetchHTML(config["aqiInfoURL"], aqiInfo);
+  fetchHTML(config["pollutantInfoURL"], pollutantInfo);
+  fetchHTML(config["aboutForecastURL"], aboutForecast);
+  fetchData = false;
+};
+
 knockout_latest["components"].register('AQIInfoPanel', {
   viewModel: function (params) {
     this.showInfoPanel = params.showInfoPanel;
@@ -827,7 +837,6 @@ knockout_latest["components"].register('AQIForecastPanel', {
   },
   template: forecast_panel
 });
-const pollutantInfo = fetchHTML(config["pollutantInfoURL"]);
 knockout_latest["components"].register('PollutantInfoPanel', {
   viewModel: function (params) {
     this.showInfoPanel = params.showInfoPanel;
@@ -835,9 +844,9 @@ knockout_latest["components"].register('PollutantInfoPanel', {
   },
   template: pollutant_info_panel
 });
-const aboutForecast = fetchHTML(config["aboutForecastURL"]);
 /* harmony default export */ var aqi_forecast = (knockout_latest["components"].register('AQIForecast', {
   viewModel: function (params) {
+    if (fetchData) fetchData();
     const zones = ['Eastern Zone', 'Coastal and Central Bay', 'Northern Zone', 'South Central Bay', 'Santa Clara Valley'];
     this.aqiData = aqiData;
     this.day = knockout_latest["observable"]();
@@ -1026,9 +1035,17 @@ var historical_site_info = __webpack_require__(16);
 
 
 
-const airDistrictStationData = fetchHTML(config["airDistrictStationDataURL"]);
-const facilityGLMStationData = fetchHTML(config["facilityGLMStationDataURL"]);
-const meteorologicalSiteData = fetchHTML(config["meteorologicalSiteDataURL"]);
+const airDistrictStationData = knockout_latest["observable"]();
+const facilityGLMStationData = knockout_latest["observable"]();
+const meteorologicalSiteData = knockout_latest["observable"]();
+
+let monitoring_fetchData = () => {
+  fetchHTML(config["airDistrictStationDataURL"], airDistrictStationData);
+  fetchHTML(config["facilityGLMStationDataURL"], facilityGLMStationData);
+  fetchHTML(config["meteorologicalSiteDataURL"], meteorologicalSiteData);
+  monitoring_fetchData = false;
+};
+
 let historicalData = knockout_latest["observable"]();
 knockout_latest["components"].register('HistoricalDataPanel', {
   viewModel: function (params) {
@@ -1039,6 +1056,7 @@ knockout_latest["components"].register('HistoricalDataPanel', {
 });
 /* harmony default export */ var monitoring = (knockout_latest["components"].register('Monitoring', {
   viewModel: function (params) {
+    if (monitoring_fetchData) monitoring_fetchData();
     this.layers = {
       airMonitoring: {
         flag: knockout_latest["observable"](true),
@@ -1129,46 +1147,52 @@ var open_burning_popup = __webpack_require__(18);
 
 const open_burning_parser = new DOMParser();
 const openBurnData = knockout_latest["observable"]();
-fetch(config["openBurnRSSFeed"], {
-  cache: "no-store"
-}).then(response => {
-  return response.text();
-}).then(text => {
-  const xmlDoc = open_burning_parser.parseFromString(text, 'application/xml');
-  const dates = [];
-  const sections = {};
-  xmlDoc.querySelectorAll('item').forEach(item => {
-    const date = new Date(item.querySelector('title').textContent);
-    const status = item.querySelector('description').textContent.split('\n').reduce((statusList, item) => {
-      if (item) statusList.push(item.split(": "));
-      return statusList;
-    }, []).map(item => {
-      const name = item[0].replace('ern', '');
-      const status = item[1] === 'Burn' ? "yes" : "no";
-      if (!sections[name]) sections[name] = [];
-      sections[name].push({
+
+let open_burning_fetchData = () => {
+  fetch(config["openBurnRSSFeed"], {
+    cache: "no-store"
+  }).then(response => {
+    return response.text();
+  }).then(text => {
+    const xmlDoc = open_burning_parser.parseFromString(text, 'application/xml');
+    const dates = [];
+    const sections = {};
+    xmlDoc.querySelectorAll('item').forEach(item => {
+      const date = new Date(item.querySelector('title').textContent);
+      const status = item.querySelector('description').textContent.split('\n').reduce((statusList, item) => {
+        if (item) statusList.push(item.split(": "));
+        return statusList;
+      }, []).map(item => {
+        const name = item[0].replace('ern', '');
+        const status = item[1] === 'Burn' ? "yes" : "no";
+        if (!sections[name]) sections[name] = [];
+        sections[name].push({
+          date: date,
+          status: status
+        });
+        return {
+          name: name,
+          status: status
+        };
+      });
+      dates.push({
         date: date,
         status: status
       });
-      return {
-        name: name,
-        status: status
-      };
     });
-    dates.push({
-      date: date,
-      status: status
+    openBurnData({
+      dates: dates,
+      sections: sections,
+      lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
     });
   });
-  openBurnData({
-    dates: dates,
-    sections: sections,
-    lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
-  });
-});
+  open_burning_fetchData = false;
+};
+
 /* harmony default export */ var open_burning = (knockout_latest["components"].register('OpenBurning', {
   viewModel: function (params) {
     const sections = ['South Section', 'Coastal Section', 'North Section'];
+    if (open_burning_fetchData) open_burning_fetchData();
     this.openBurnData = openBurnData;
     this.day = knockout_latest["observable"]();
     this.layers = {

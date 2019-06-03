@@ -10,74 +10,82 @@ import fetchHTML from '../../utils/fetch-html';
 
 const aqiData = ko.observable();
 const parser = new DOMParser();
+const aqiInfo = ko.observable();
+const pollutantInfo = ko.observable();
+const aboutForecast = ko.observable();
 let alertStatus;
-fetch(config.spaRSSFeed, {cache: "no-store"})
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const xmlDoc = parser.parseFromString(text, 'application/xml');
-        alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
-        return fetch(config.aqiRSSFeed, {cache: "no-store"});
-    })
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const xmlDoc = parser.parseFromString(text, 'application/xml');
-        const dates = [];
-        const zones = {};
-        xmlDoc.querySelectorAll('item').forEach((item) => {
-            let day = {
-                date: item.querySelector('date').innerHTML.slice(0, -3),
-                zones: []
-            };
-            item.querySelectorAll('zone').forEach((zone) => {
-                let measurement = zone.querySelector('measurement').innerHTML;
-                let forecast;
-                if (!isNaN(parseFloat(measurement))) {
-                    measurement = parseFloat(measurement);
-                    if (measurement <= 50) {
-                        forecast = 'Good';
-                    } else if (measurement >= 51 && measurement <= 100) {
-                        forecast = 'Moderate';
-                    } else if (measurement >= 101 && measurement <= 150) {
-                        forecast = 'Unhealthy for Sensitive Groups';
-                    } else if (measurement >= 151 && measurement <= 200) {
-                        forecast = 'Unhealthy';
-                    } else if (measurement >= 201 && measurement <= 300) {
-                        forecast = 'Very Unhealthy';
-                    } else if (measurement >= 301 && measurement <= 500) {
-                        forecast = 'Hazardous';
-                    }
-                } else {
-                    forecast = measurement;
-                    measurement = null;
-                }
-                let zoneData = {
-                    title: zone.querySelector('title').innerHTML,
-                    measurement: measurement,
-                    pollutant: zone.querySelector('pollutant').innerHTML,
-                    forecast: forecast
+let fetchData = () => {
+    fetch(config.spaRSSFeed, {cache: "no-store"})
+        .then((response) => {
+            return response.text();
+        })
+        .then((text) => {
+            const xmlDoc = parser.parseFromString(text, 'application/xml');
+            alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
+            return fetch(config.aqiRSSFeed, {cache: "no-store"});
+        })
+        .then((response) => {
+            return response.text();
+        })
+        .then((text) => {
+            const xmlDoc = parser.parseFromString(text, 'application/xml');
+            const dates = [];
+            const zones = {};
+            xmlDoc.querySelectorAll('item').forEach((item) => {
+                let day = {
+                    date: item.querySelector('date').innerHTML.slice(0, -3),
+                    zones: []
                 };
-                day.zones.push(zoneData);
+                item.querySelectorAll('zone').forEach((zone) => {
+                    let measurement = zone.querySelector('measurement').innerHTML;
+                    let forecast;
+                    if (!isNaN(parseFloat(measurement))) {
+                        measurement = parseFloat(measurement);
+                        if (measurement <= 50) {
+                            forecast = 'Good';
+                        } else if (measurement >= 51 && measurement <= 100) {
+                            forecast = 'Moderate';
+                        } else if (measurement >= 101 && measurement <= 150) {
+                            forecast = 'Unhealthy for Sensitive Groups';
+                        } else if (measurement >= 151 && measurement <= 200) {
+                            forecast = 'Unhealthy';
+                        } else if (measurement >= 201 && measurement <= 300) {
+                            forecast = 'Very Unhealthy';
+                        } else if (measurement >= 301 && measurement <= 500) {
+                            forecast = 'Hazardous';
+                        }
+                    } else {
+                        forecast = measurement;
+                        measurement = null;
+                    }
+                    let zoneData = {
+                        title: zone.querySelector('title').innerHTML,
+                        measurement: measurement,
+                        pollutant: zone.querySelector('pollutant').innerHTML,
+                        forecast: forecast
+                    };
+                    day.zones.push(zoneData);
 
-                zones[zoneData.title] = zones[zoneData.title] || [];
-                zones[zoneData.title].push(Object.assign({
-                    date: day.date
-                }, zoneData));
+                    zones[zoneData.title] = zones[zoneData.title] || [];
+                    zones[zoneData.title].push(Object.assign({
+                        date: day.date
+                    }, zoneData));
+                });
+                dates.push(day);
             });
-            dates.push(day);
-        });
 
-        aqiData({
-            dates: dates,
-            zones: zones,
-            lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
+            aqiData({
+                dates: dates,
+                zones: zones,
+                lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
+            });
         });
-    });
+    fetchHTML(config.aqiInfoURL, aqiInfo);
+    fetchHTML(config.pollutantInfoURL, pollutantInfo);
+    fetchHTML(config.aboutForecastURL, aboutForecast);
+    fetchData = false;
+};
 
-const aqiInfo = fetchHTML(config.aqiInfoURL);
 ko.components.register('AQIInfoPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
@@ -106,7 +114,6 @@ ko.components.register('AQIForecastPanel', {
     template: forecastPanelTemplate
 });
 
-const pollutantInfo = fetchHTML(config.pollutantInfoURL);
 ko.components.register('PollutantInfoPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
@@ -115,9 +122,9 @@ ko.components.register('PollutantInfoPanel', {
     template: pollutantInfoPanelTemplate
 });
 
-const aboutForecast = fetchHTML(config.aboutForecastURL);
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
+        if (fetchData) fetchData();
         const zones = [
             'Eastern Zone',
             'Coastal and Central Bay',

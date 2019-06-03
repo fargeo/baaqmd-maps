@@ -6,47 +6,50 @@ import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
 const parser = new DOMParser();
 const openBurnData = ko.observable();
-fetch(config.openBurnRSSFeed, {cache: "no-store"})
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        const xmlDoc = parser.parseFromString(text, 'application/xml');
-        const dates = [];
-        const sections = {};
-        xmlDoc.querySelectorAll('item').forEach((item) => {
-            const date = new Date(item.querySelector('title').textContent);
-            const status = item.querySelector('description').textContent
-                .split('\n')
-                .reduce((statusList, item) => {
-                    if (item) statusList.push(item.split(": "));
-                    return statusList;
-                }, [])
-                .map((item) => {
-                    const name = item[0].replace('ern', '');
-                    const status = item[1] === 'Burn' ? "yes" : "no";
+let fetchData = () => {
+    fetch(config.openBurnRSSFeed, {cache: "no-store"})
+        .then((response) => {
+            return response.text();
+        })
+        .then((text) => {
+            const xmlDoc = parser.parseFromString(text, 'application/xml');
+            const dates = [];
+            const sections = {};
+            xmlDoc.querySelectorAll('item').forEach((item) => {
+                const date = new Date(item.querySelector('title').textContent);
+                const status = item.querySelector('description').textContent
+                    .split('\n')
+                    .reduce((statusList, item) => {
+                        if (item) statusList.push(item.split(": "));
+                        return statusList;
+                    }, [])
+                    .map((item) => {
+                        const name = item[0].replace('ern', '');
+                        const status = item[1] === 'Burn' ? "yes" : "no";
 
-                    if (!sections[name]) sections[name] = [];
-                    sections[name].push({
-                        date: date,
-                        status: status
+                        if (!sections[name]) sections[name] = [];
+                        sections[name].push({
+                            date: date,
+                            status: status
+                        });
+                        return {
+                            name: name,
+                            status: status
+                        };
                     });
-                    return {
-                        name: name,
-                        status: status
-                    };
+                dates.push({
+                    date: date,
+                    status: status
                 });
-            dates.push({
-                date: date,
-                status: status
+            });
+            openBurnData({
+                dates: dates,
+                sections: sections,
+                lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
             });
         });
-        openBurnData({
-            dates: dates,
-            sections: sections,
-            lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
-        });
-    });
+    fetchData = false;
+};
 
 export default ko.components.register('OpenBurning', {
     viewModel: function(params) {
@@ -55,6 +58,7 @@ export default ko.components.register('OpenBurning', {
             'Coastal Section',
             'North Section'
         ];
+        if (fetchData) fetchData();
         this.openBurnData = openBurnData;
         this.day = ko.observable();
         this.layers = {
