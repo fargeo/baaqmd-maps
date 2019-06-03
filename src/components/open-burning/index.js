@@ -76,8 +76,6 @@ export default ko.components.register('OpenBurning', {
         this.popupLayers = ['open-burn-sections-fill'];
         this.getPopupData = (feature) => {
             const openBurnData = this.openBurnData();
-            console.log(openBurnData);
-            console.log(feature);
             return {
                 name: feature.properties.section,
                 lastUpdated: openBurnData.lastUpdated,
