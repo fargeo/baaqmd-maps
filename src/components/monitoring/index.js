@@ -4,7 +4,7 @@ import * as popupTemplate from './popup.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import * as config from '../../config.json';
 import * as historicalSiteInfoTemplate from './historical-site-info.html';
-import fetchHTML from '../../utils/fetch-html'
+import fetchHTML from '../../utils/fetch-html';
 
 const airDistrictStationData = fetchHTML(config.airDistrictStationDataURL);
 const facilityGLMStationData = fetchHTML(config.facilityGLMStationDataURL);
@@ -87,18 +87,18 @@ export default ko.components.register('Monitoring', {
             });
 
             switch (feature.layer.id) {
-                case 'air-monitoring':
-                    siteType = 'Air Monitoring';
-                    about = airDistrictStationData;
-                    break;
-                case 'facility-glm-stations':
-                    siteType = 'Facility GLM Stations';
-                    about = facilityGLMStationData;
-                    break;
-                case 'meteorological-sites':
-                    siteType = 'Meteorological Sites';
-                    about = meteorologicalSiteData;
-                    break;
+            case 'air-monitoring':
+                siteType = 'Air Monitoring';
+                about = airDistrictStationData;
+                break;
+            case 'facility-glm-stations':
+                siteType = 'Facility GLM Stations';
+                about = facilityGLMStationData;
+                break;
+            case 'meteorological-sites':
+                siteType = 'Meteorological Sites';
+                about = meteorologicalSiteData;
+                break;
             }
 
             return {
@@ -116,7 +116,7 @@ export default ko.components.register('Monitoring', {
 
         this.popupTemplate = popupTemplate;
 
-        this.setupMap = (map) => {
+        this.setupMap = () => {
             this.layers.counties.flag(false);
             this.layers.facilityGLMStations.flag(false);
             this.layers.meteorologicalSites.flag(false);

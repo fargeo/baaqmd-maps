@@ -50,7 +50,7 @@ export default ko.components.register('map', {
                 bbox: config.bounds,
                 accessToken: mapboxgl.accessToken,
                 placeholder: "Enter address..."
-            }))
+            }));
             map.addControl(new mapboxgl.NavigationControl());
             map.addControl(new mapboxgl.GeolocateControl({
                 positionOptions: {

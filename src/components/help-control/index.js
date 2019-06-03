@@ -1,6 +1,6 @@
 import * as ko from 'knockout';
 import * as template from './template.html';
-import * as helpTemplate from './help.html'
+import * as helpTemplate from './help.html';
 
 ko.components.register('MapHelpPanel', {
     viewModel: function(params) {
@@ -23,7 +23,7 @@ export default class HelpControl {
         this.container = el;
         this.container.onclick = function() {
             self.showInfoPanel('MapHelpPanel');
-        }
+        };
 
         return this.container;
     }

@@ -24,7 +24,7 @@ export default function MapDetailsPanel(params) {
                             popupData.scrolledToBottom(
                                 popupBody.scrollTop + popupBody.offsetHeight === popupBody.scrollHeight
                             );
-                        }
+                        };
                     }
                     ko.applyBindingsToDescendants(popupData, p._content);
                 }
@@ -47,7 +47,7 @@ export default function MapDetailsPanel(params) {
                     map.off('click', layerName, click);
                     map.off('mouseenter', layerName, mouseenter);
                     map.off('mouseleave', layerName, mouseleave);
-                })
+                });
                 removeListeners.dispose();
             });
         }
@@ -68,13 +68,13 @@ export default function MapDetailsPanel(params) {
             this.setupMap(map);
         }
 
-    }
+    };
     if (this.map()){
         setTimeout(() => {
             setupMap(this.map());
-        }, 200)
+        }, 200);
     }
-    this.map.subscribe((mapType) => {
+    this.map.subscribe(() => {
         setupMap(this.map());
     });
-};
+}

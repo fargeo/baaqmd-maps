@@ -1,12 +1,12 @@
 import * as ko from 'knockout';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
-import * as infoPanelTemplate from './info-panel.html'
-import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html'
-import * as forecastPanelTemplate from './forecast-panel.html'
+import * as infoPanelTemplate from './info-panel.html';
+import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html';
+import * as forecastPanelTemplate from './forecast-panel.html';
 import * as config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
-import fetchHTML from '../../utils/fetch-html'
+import fetchHTML from '../../utils/fetch-html';
 
 const aqiData = ko.observable();
 const parser = new DOMParser();
@@ -48,7 +48,7 @@ fetch(config.spaRSSFeed, {cache: "no-store"})
                     } else if (measurement >= 201 && measurement <= 300) {
                         forecast = 'Very Unhealthy';
                     } else if (measurement >= 301 && measurement <= 500) {
-                        forecast = 'Hazardous'
+                        forecast = 'Hazardous';
                     }
                 } else {
                     forecast = measurement;
@@ -99,7 +99,7 @@ ko.components.register('AQIForecastPanel', {
                         dates: aqiData().zones[name]
                     });
                 }
-                return zones
+                return zones;
             }
         });
     },
@@ -162,7 +162,7 @@ export default ko.components.register('AQIForecast', {
                 day: this.day,
                 showInfoPanel: params.showInfoPanel,
                 aboutForecast: aboutForecast
-            }
+            };
         };
         this.popupTemplate = popupTemplate;
 

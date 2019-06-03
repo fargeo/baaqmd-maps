@@ -56,4 +56,4 @@ export function Map(opts) {
 
     opts.container.appendChild(this.el);
     ko.applyBindings(this, this.el);
-};
+}

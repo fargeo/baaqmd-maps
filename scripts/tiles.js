@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const tippecanoe = require('tippecanoe');
 const MapboxClient = require('mapbox');
@@ -50,15 +51,15 @@ if (!mapboxKey) {
             Bucket: cred.bucket,
             Key: cred.key,
             Body: fs.createReadStream(tilesPath)
-        }, (err, response) => {
-            if (err) throw err
+        }, (err) => {
+            if (err) throw err;
 
             console.log('mbtiles upload complete... updating tileset...');
             mapbox.createUpload({
                 tileset: `${config.userName}.${config.tilesetId}`,
                 url: cred.url
-            }, (err, response) => {
-                if (err) throw err
+            }, (err) => {
+                if (err) throw err;
 
                 console.log('tileset update started (this may take a few ' +
                     'minutes to complete, see ' +

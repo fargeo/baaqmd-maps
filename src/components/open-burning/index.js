@@ -1,6 +1,7 @@
 import * as ko from 'knockout';
 import * as config from '../../config.json';
 import * as template from './template.html';
+import * as popupTemplate from './popup.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
 const parser = new DOMParser();
@@ -26,7 +27,10 @@ fetch(config.openBurnRSSFeed, {cache: "no-store"})
                     const status = item[1] === 'Burn' ? "yes" : "no";
 
                     if (!sections[name]) sections[name] = [];
-                    sections[name].push(status);
+                    sections[name].push({
+                        date: date,
+                        status: status
+                    });
                     return {
                         name: name,
                         status: status
@@ -42,7 +46,7 @@ fetch(config.openBurnRSSFeed, {cache: "no-store"})
             sections: sections,
             lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
         });
-    })
+    });
 
 export default ko.components.register('OpenBurning', {
     viewModel: function(params) {
@@ -69,6 +73,19 @@ export default ko.components.register('OpenBurning', {
             }
         };
 
+        this.popupLayers = ['open-burn-sections-fill'];
+        this.getPopupData = (feature) => {
+            const openBurnData = this.openBurnData();
+            console.log(openBurnData);
+            console.log(feature);
+            return {
+                name: feature.properties.section,
+                lastUpdated: openBurnData.lastUpdated,
+                openBurnData: openBurnData.sections[feature.properties.section]
+            };
+        };
+        this.popupTemplate = popupTemplate;
+
         this.day.subscribe((day) => {
             if (typeof day === 'number') {
                 sections.forEach((section, i) => {
@@ -86,7 +103,7 @@ export default ko.components.register('OpenBurning', {
             }
         }, this);
 
-        this.setupMap = (map) => {
+        this.setupMap = () => {
             if (this.openBurnData()) {
                 this.day(0);
             } else {

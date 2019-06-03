@@ -12,14 +12,9 @@ module.exports = {
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         "camelcase": [2, {"properties": "always"}]
     },
-    "globals": {
-        "define": false,
-        "require": false,
-        "window": false,
-        "console": false,
-        "history": false,
-        "location": false,
-        "Promise": false,
-        "setTimeout": false
-    }
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "parser": "babel-eslint"
 };
