@@ -48,7 +48,7 @@ export default class PrintControl {
                 printWindow.print();
                 printWindow.close();
             }, 150);
-        }
+        };
         map.on('moveend', () => {
             printData = map.getCanvas().toDataURL("image/jpeg");
         });
