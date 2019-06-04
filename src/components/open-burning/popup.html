@@ -10,5 +10,40 @@
             at
             <span data-bind="text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
         </div>
+
+        <table class="baaqmd-maps-zone-forecast">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th class="baaqmd-maps-no-link">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ko foreach: openBurnData -->
+                <tr>
+                    <th data-bind="css: {
+                        active: $index() === $parent.day()
+                    }" class="baaqmd-maps-zone-forecast-date">
+                        <a href="#" data-bind="click: function() {
+                            $parent.day($index());
+                        }, text: date.toLocaleDateString('en-US',{day: '2-digit', month: '2-digit'})"></a>
+                    </th>
+                    <td>
+                        <span class="baaqmd-maps-zone-forecast-zone-item" data-bind="
+                            text: statusLabel,
+                            css: status
+                            "></span>
+                    </td>
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+
+        <h3>About Open Burning</h3>
+
+        <p>Open burning is the disposal of any waste material in an open, outdoor fire. Smoke from open burning contains very fine particles, gases, and other toxic chemicals that can be inhaled deeply into the lungs.</p>
+        <p>To minimize its adverse smoke impacts on public health, open burning is generally prohibited in the Bay Area - with the exception of 17 types of fires that are regulated under the Air District's Open Burning Regulation 5. Certain fires for agricultural purposes, flood control, fire training and the prevention of fire hazards, among other purposes, are allowed when weather conditions are favorable for dispersal and dilution of smoke. Many of these fires are only allowed during specified periods - or burn seasons - throughout the year.</p>
+
+        <a target="_blank" href="http://www.baaqmd.gov/openburn">Additional Information</a>
     </div>
 </div>

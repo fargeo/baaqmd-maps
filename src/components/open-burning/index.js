@@ -26,15 +26,18 @@ let fetchData = () => {
                     .map((item) => {
                         const name = item[0].replace('ern', '');
                         const status = item[1] === 'Burn' ? "yes" : "no";
+                        const statusLabel = item[1] === 'Burn' ? "Allowed" : "Prohibited";
 
                         if (!sections[name]) sections[name] = [];
                         sections[name].push({
                             date: date,
-                            status: status
+                            status: status,
+                            statusLabel: statusLabel
                         });
                         return {
                             name: name,
-                            status: status
+                            status: status,
+                            statusLabel: statusLabel
                         };
                     });
                 dates.push({
@@ -83,7 +86,8 @@ export default ko.components.register('OpenBurning', {
             return {
                 name: feature.properties.section,
                 lastUpdated: openBurnData.lastUpdated,
-                openBurnData: openBurnData.sections[feature.properties.section]
+                openBurnData: openBurnData.sections[feature.properties.section],
+                day: this.day
             };
         };
         this.popupTemplate = popupTemplate;

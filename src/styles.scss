@@ -696,6 +696,10 @@ $no-color: #b10318;
                         th {
                             cursor: pointer;
                             color: $primary-color;
+                            &.baaqmd-maps-no-link {
+                                cursor: default;
+                                color: rgba(black, 0.6);
+                            }
                         }
                     }
                 }
