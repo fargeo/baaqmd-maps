@@ -12,15 +12,14 @@ var fc = {
 
 facilities = JSON.parse(facilities);
 facilities.forEach((facility) => {
+    const coords = proj4('EPSG:3310', 'EPSG:4326', [facility.X, facility.Y]);
+    delete facility.X;
+    delete facility.Y;
     fc.features.push({
         "type": "Feature",
         "geometry": {
             "type": "Point",
-            "coordinates": proj4(
-                'EPSG:3310',
-                'EPSG:4326',
-                [facility.X, facility.Y]
-            )
+            "coordinates": coords
         },
         "properties": facility
     });
