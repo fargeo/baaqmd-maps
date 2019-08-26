@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --hot",
     "gen-points": "node scripts/gen-points.js",
+    "gen-facilities-geojson": "node scripts/gen-facilities-geojson.js",
     "tiles": "node scripts/tiles.js",
     "build": "webpack --config webpack.prod.js"
   },
@@ -26,6 +27,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "proj4": "^2.5.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.3",

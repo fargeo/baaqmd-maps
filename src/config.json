@@ -32,7 +32,7 @@
             "label": "Air Quality Forecast Map"
         },
         "Facilities": {
-            "style": "mapbox/streets-v9",
+            "style": "baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2",
             "label": "Facilities Map"
         },
         "ImpactedCommunities": {
