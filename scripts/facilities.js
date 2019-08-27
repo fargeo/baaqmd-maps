@@ -97,7 +97,7 @@ if (!mapboxKey) {
                         console.log('building mbtiles file...');
                         tippecanoe(['./data/facilities/facilities.geojson'], {
                             output: tilesPath,
-                            maximumZoom: "g",
+                            maximumZoom: 20,
                             dropRate: 1
                         }, {
                             echo: true

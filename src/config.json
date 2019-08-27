@@ -4,7 +4,7 @@
     "tilesetId": "c3867v6s",
     "facilityTilesetId": "dht7c8iz",
     "clusteredFacilityTilesetId": "4nmcglky",
-    "facilitiesClusterDistance": 5,
+    "facilitiesClusterDistance": 10,
     "apiURI": "https://api.mapbox.com/styles/v1/",
     "aqiRSSFeed": "http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml",
     "spaRSSFeed": "http://www.baaqmd.gov/Feeds/AlertRSS.aspx",
