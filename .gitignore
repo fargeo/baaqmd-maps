@@ -63,5 +63,7 @@ typings/
 .atom-build.yml
 
 data/*.mbtiles
+data/facilities/*.mbtiles
+data/facilities/*.geojson
 
 secret.json

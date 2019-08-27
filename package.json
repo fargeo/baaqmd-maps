@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --hot",
     "gen-points": "node scripts/gen-points.js",
-    "gen-facilities-geojson": "node scripts/gen-facilities-geojson.js",
+    "facilities": "node scripts/facilities.js",
     "tiles": "node scripts/tiles.js",
     "build": "webpack --config webpack.prod.js"
   },
