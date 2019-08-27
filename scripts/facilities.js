@@ -60,7 +60,7 @@ if (!mapboxKey) {
             console.log('building clustered mbtiles file...');
             tippecanoe(['./data/facilities/facilities.geojson'], {
                 output: clusteredTilesPath,
-                maximumZoom: "g",
+                maximumZoom: 20,
                 clusterDistance: config.facilitiesClusterDistance,
                 dropRate: 1,
                 layer: "facilities-clustered"
