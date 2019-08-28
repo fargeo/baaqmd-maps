@@ -84,11 +84,12 @@ export default ko.components.register('map', {
             }
         };
 
+        const length = 40;
         const resize = () => {
             this.map.resize();
-            duration -= 1;
+            duration -= length;
             if (duration >= 0) {
-                setTimeout(resize, 1);
+                setTimeout(resize, length);
             }
         };
         this.detailsExpanded.subscribe(() => {
