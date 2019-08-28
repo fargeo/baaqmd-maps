@@ -37,6 +37,10 @@ if (!mapboxKey) {
         const coords = proj4("EPSG:3310", "EPSG:4326", [facility.X, facility.Y]);
         delete facility.X;
         delete facility.Y;
+        facility.X_MIN = coords[0];
+        facility.X_MAX = coords[0];
+        facility.Y_MIN = coords[1];
+        facility.Y_MAX = coords[1];
         fc.features.push({
             "type": "Feature",
             "geometry": {
@@ -46,96 +50,115 @@ if (!mapboxKey) {
             "properties": facility
         });
     });
+    let fcRaw = JSON.parse(
+        JSON.stringify(fc)
+    );
+
+    fcRaw.features.forEach((feature) => {
+        delete feature.properties.X_MIN;
+        delete feature.properties.X_MAX;
+        delete feature.properties.Y_MIN;
+        delete feature.properties.Y_MAX;
+    });
 
     fs.writeFile(
-        "./data/facilities/facilities.geojson",
+        "./data/facilities/facilities-clustered.geojson",
         JSON.stringify(fc, null, "\t"),
         function(err) {
             if (err) throw err;
 
-            console.log("data/facilities/facilities.geojson added...");
-
-            if (fs.existsSync(clusteredTilesPath)) fs.unlinkSync(clusteredTilesPath);
-
-            console.log('building clustered mbtiles file...');
-            tippecanoe(['./data/facilities/facilities.geojson'], {
-                output: clusteredTilesPath,
-                maximumZoom: 20,
-                clusterDistance: config.facilitiesClusterDistance,
-                dropRate: 1,
-                layer: "facilities-clustered"
-            }, {
-                echo: true
-            });
-
-            console.log('clustered mbtiles file ready... getting mapbox credentials...');
-            mapbox.createUploadCredentials((err, cred) => {
-                const s3 = new AWS.S3({
-                    accessKeyId: cred.accessKeyId,
-                    secretAccessKey: cred.secretAccessKey,
-                    sessionToken: cred.sessionToken,
-                    region: 'us-east-1'
-                });
-
-                console.log('mapbox credentials ready... uploading clustered mbtiles...');
-                s3.putObject({
-                    Bucket: cred.bucket,
-                    Key: cred.key,
-                    Body: fs.createReadStream(clusteredTilesPath)
-                }, (err) => {
+            fs.writeFile(
+                "./data/facilities/facilities.geojson",
+                JSON.stringify(fcRaw, null, "\t"),
+                function(err) {
                     if (err) throw err;
 
-                    console.log('clustered mbtiles upload complete... updating tileset...');
-                    mapbox.createUpload({
-                        tileset: `${config.userName}.${config.clusteredFacilityTilesetId}`,
-                        url: cred.url
-                    }, (err) => {
-                        if (err) throw err;
+                    console.log("data/facilities/facilities.geojson added...");
 
-                        if (fs.existsSync(tilesPath)) fs.unlinkSync(tilesPath);
+                    if (fs.existsSync(clusteredTilesPath)) fs.unlinkSync(clusteredTilesPath);
 
-                        console.log('building mbtiles file...');
-                        tippecanoe(['./data/facilities/facilities.geojson'], {
-                            output: tilesPath,
-                            maximumZoom: 20,
-                            dropRate: 1
-                        }, {
-                            echo: true
+                    console.log('building clustered mbtiles file...');
+                    tippecanoe(['./data/facilities/facilities-clustered.geojson'], {
+                        output: clusteredTilesPath,
+                        maximumZoom: 20,
+                        clusterDistance: config.facilitiesClusterDistance,
+                        accumulateAttribute: '{"X_MAX":"max","X_MIN":"min","Y_MAX":"max","Y_MIN":"min"}',
+                        dropRate: 1,
+                        layer: "facilities-clustered"
+                    }, {
+                        echo: true
+                    });
+
+                    console.log('clustered mbtiles file ready... getting mapbox credentials...');
+                    mapbox.createUploadCredentials((err, cred) => {
+                        const s3 = new AWS.S3({
+                            accessKeyId: cred.accessKeyId,
+                            secretAccessKey: cred.secretAccessKey,
+                            sessionToken: cred.sessionToken,
+                            region: 'us-east-1'
                         });
 
-                        console.log('mbtiles file ready... getting mapbox credentials...');
-                        mapbox.createUploadCredentials((err, cred) => {
-                            const s3 = new AWS.S3({
-                                accessKeyId: cred.accessKeyId,
-                                secretAccessKey: cred.secretAccessKey,
-                                sessionToken: cred.sessionToken,
-                                region: 'us-east-1'
-                            });
+                        console.log('mapbox credentials ready... uploading clustered mbtiles...');
+                        s3.putObject({
+                            Bucket: cred.bucket,
+                            Key: cred.key,
+                            Body: fs.createReadStream(clusteredTilesPath)
+                        }, (err) => {
+                            if (err) throw err;
 
-                            console.log('mapbox credentials ready... uploading mbtiles...');
-                            s3.putObject({
-                                Bucket: cred.bucket,
-                                Key: cred.key,
-                                Body: fs.createReadStream(tilesPath)
+                            console.log('clustered mbtiles upload complete... updating tileset...');
+                            mapbox.createUpload({
+                                tileset: `${config.userName}.${config.clusteredFacilityTilesetId}`,
+                                url: cred.url
                             }, (err) => {
                                 if (err) throw err;
 
-                                console.log('mbtiles upload complete... updating tileset...');
-                                mapbox.createUpload({
-                                    tileset: `${config.userName}.${config.facilityTilesetId}`,
-                                    url: cred.url
-                                }, (err) => {
-                                    if (err) throw err;
+                                if (fs.existsSync(tilesPath)) fs.unlinkSync(tilesPath);
 
-                                    console.log('tileset update started (this may take a few ' +
+                                console.log('building mbtiles file...');
+                                tippecanoe(['./data/facilities/facilities.geojson'], {
+                                    output: tilesPath,
+                                    maximumZoom: 20,
+                                    dropRate: 1
+                                }, {
+                                    echo: true
+                                });
+
+                                console.log('mbtiles file ready... getting mapbox credentials...');
+                                mapbox.createUploadCredentials((err, cred) => {
+                                    const s3 = new AWS.S3({
+                                        accessKeyId: cred.accessKeyId,
+                                        secretAccessKey: cred.secretAccessKey,
+                                        sessionToken: cred.sessionToken,
+                                        region: 'us-east-1'
+                                    });
+
+                                    console.log('mapbox credentials ready... uploading mbtiles...');
+                                    s3.putObject({
+                                        Bucket: cred.bucket,
+                                        Key: cred.key,
+                                        Body: fs.createReadStream(tilesPath)
+                                    }, (err) => {
+                                        if (err) throw err;
+
+                                        console.log('mbtiles upload complete... updating tileset...');
+                                        mapbox.createUpload({
+                                            tileset: `${config.userName}.${config.facilityTilesetId}`,
+                                            url: cred.url
+                                        }, (err) => {
+                                            if (err) throw err;
+
+                                            console.log('tileset update started (this may take a few ' +
                                         'minutes to complete, see ' +
                                         'https://studio.mapbox.com/tilesets/ for details)...');
+                                        });
+                                    });
                                 });
                             });
                         });
                     });
-                });
-            });
+                }
+            );
         }
     );
 }
