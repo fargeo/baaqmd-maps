@@ -35,14 +35,13 @@ export default ko.components.register('details-panel', {
                 searchParams.set('centerLng', center.lng);
                 searchParams.set('zoom', this.map().getZoom());
             }
-            const center =
             searchParams.set('mapType', params.mapType());
             return config.mainMapPage + `?${searchParams.toString()}`;
         };
         this.map.subscribe(map => {
             if (map) {
                 this.mapLink(getMapLink());
-                map.on('moveend', e => {
+                map.on('moveend', () => {
                     this.mapLink(getMapLink());
                 });
             }
