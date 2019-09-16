@@ -12,21 +12,23 @@ export default function MapDetailsPanel(params) {
                 if (this.popupTemplate) {
                     this.popupTemplate += scrollForMoreTemplate;
                     const feature = e.features[0];
-                    const p = new mapboxgl.Popup()
-                        .setLngLat(e.lngLat)
-                        .setHTML(this.popupTemplate)
-                        .addTo(map);
                     let popupData = this.getPopupData(feature);
-                    let popupBody = p._content.querySelector('.baaqmd-maps-popup');
-                    popupData.scrolledToBottom = ko.observable(false);
-                    if (popupBody) {
-                        popupBody.onscroll = () => {
-                            popupData.scrolledToBottom(
-                                popupBody.scrollTop + popupBody.offsetHeight === popupBody.scrollHeight
-                            );
-                        };
+                    if (popupData) {
+                        const p = new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(this.popupTemplate)
+                            .addTo(map);
+                        let popupBody = p._content.querySelector('.baaqmd-maps-popup');
+                        popupData.scrolledToBottom = ko.observable(false);
+                        if (popupBody) {
+                            popupBody.onscroll = () => {
+                                popupData.scrolledToBottom(
+                                    popupBody.scrollTop + popupBody.offsetHeight === popupBody.scrollHeight
+                                );
+                            };
+                        }
+                        ko.applyBindingsToDescendants(popupData, p._content);
                     }
-                    ko.applyBindingsToDescendants(popupData, p._content);
                 }
             };
             let mouseenter = () => {
