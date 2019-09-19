@@ -344,7 +344,7 @@ module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Facilities\n</h3
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n        <h4 data-bind=\"text: siteType\"></h4>\n        <table class=\"air-monitoring-table\" style=\"margin-left: 5px;\" >\n          <tbody>\n            <!-- ko foreach: attributeList -->\n            <!-- ko if: name -->\n            <tr>\n                <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: name\"></td>\n                <td class=\"air-monitoring-attribute-data\" data-bind=\"text: value\"></td>\n            </tr>\n            <!-- /ko -->\n            <!-- /ko -->\n            <tr>\n              <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: 'State'\"></td>\n              <td class=\"air-monitoring-attribute-data\" data-bind=\"text: 'CA'\"></td>\n            </tr>\n\n            </tbody>\n        </table>\n        <br>\n        <h3>About Facilities</h3>\n\n        <p>The Air District maintains a database of regulated facilities for permitting, modeling and enforcement purposes. The map indicates the locations of individual facilities and provides information about the number of on-site sources and emissions.</p>\n\n\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/?sc_itemid=0A31D9A8-3EBD-4AAF-AE18-BFDF6DE89D91\">View More Information</a></p>\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/about-air-quality/current-air-quality/air-monitoring-data/?DataView=met#/aqi?id=59&date=2019-09-16&view=hourly\">Real Time Air Quality Data (AQI View)</a></p>\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/?sc_itemid=6D304B53-C019-4FE4-8E1A-9930F2F20A0C\">Title V Permits</a></p>\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n        <table class=\"air-monitoring-table\" style=\"margin-left: 5px;\" >\n          <tbody>\n            <!-- ko foreach: attributeList -->\n            <!-- ko if: name -->\n            <tr>\n                <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: name\"></td>\n                <td class=\"air-monitoring-attribute-data\" data-bind=\"text: value\"></td>\n            </tr>\n            <!-- /ko -->\n            <!-- /ko -->\n            <tr>\n              <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: 'State'\"></td>\n              <td class=\"air-monitoring-attribute-data\" data-bind=\"text: 'CA'\"></td>\n            </tr>\n\n            </tbody>\n        </table>\n        <br>\n        <h3>About Facilities</h3>\n\n        <p>The Air District maintains a database of regulated facilities for permitting, modeling and enforcement purposes. The map indicates the locations of individual facilities and provides information about the number of on-site sources and emissions.</p>\n\n\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/?sc_itemid=0A31D9A8-3EBD-4AAF-AE18-BFDF6DE89D91\">View More Information</a></p>\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/about-air-quality/current-air-quality/air-monitoring-data/?DataView=met#/aqi?id=59&date=2019-09-16&view=hourly\">Real Time Air Quality Data (AQI View)</a></p>\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/?sc_itemid=6D304B53-C019-4FE4-8E1A-9930F2F20A0C\">Title V Permits</a></p>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 12 */
@@ -956,37 +956,20 @@ var facilities_popup = __webpack_require__(11);
     this.popupLayers = ['facilities', 'facilities-clustered'];
 
     this.getPopupData = feature => {
-      let siteType = '';
-      let about = '';
-
       if (feature.properties.clustered) {
         let bounds = [feature.properties.X_MIN, feature.properties.Y_MIN, feature.properties.X_MAX, feature.properties.Y_MAX];
         this.map().fitBounds(bounds, {
-          padding: {
-            top: 100,
-            bottom: 100,
-            left: 100,
-            right: 100
-          }
+          padding: 100
         });
       } else {
-        const attributeList = [["Facility Name", "FacilityName"], ["Facility Number", "FacilityNumber"], ["Status", "FacilityStatus"], ["Type", "Subtype"], ["Latitude", "Latitude"], ["Longitude", "Longitude"], ["Permit Expires", "PermitExpirationDate"], ["Site Number", "SiteNumber"], ["Street Address", "Address"], ["City", "City"], ["Zip Code", "ZipCode"], ["Sources", "SourceCount"], ["Abatements", "AbatementCount"], ["Emission Points", "PointCount"]].map(attr => {
+        const attributeList = [["Facility Name", "FacilityName"], ["Facility Number", "FacilityNumber"], ["Status", "FacilityStatus"], ["Type", "Subtype"], ["Latitude", "Y"], ["Longitude", "X"], ["Permit Expires", "PermitExpirationDate"], ["Site Number", "SiteNumber"], ["Street Address", "Address"], ["City", "City"], ["Zip Code", "ZipCode"], ["Sources", "SourceCount"], ["Abatements", "AbatementCount"], ["Emission Points", "PointCount"]].map(attr => {
           return {
             name: attr[0],
             value: feature.properties[attr[1]]
           };
         });
-
-        switch (feature.layer.id) {
-          case 'facilities':
-            siteType = 'Facility';
-            break;
-        }
-
         return {
           name: feature.properties.FacilityName,
-          siteType: siteType,
-          about: about,
           attributeList: attributeList
         };
       }
@@ -995,7 +978,6 @@ var facilities_popup = __webpack_require__(11);
     this.popupTemplate = facilities_popup;
 
     this.setupMap = () => {
-      this.layers.facilities.flag(true);
       this.layers.counties.flag(false);
     };
 
