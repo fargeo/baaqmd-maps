@@ -1,1 +1,37 @@
-<div></div>
+<h3>
+    <i class="fas fa-users"></i>
+    Facilities
+</h3>
+<ul class="baaqmd-maps-legend baaqmd-maps-boundaries air-quality">
+    <li class="air-monitoring">
+        <input type="checkbox" data-bind="checked: layers.facilities.flag">
+        <svg  class="air-monitoring-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+          <title>square-15.svg</title>
+          <rect fill="none" x="0" y="0" width="21" height="21"></rect>
+          <path fill="#ffffff" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff"
+            stroke-width="2"></path>
+          <path fill="#10649f" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"></path>
+        </svg>
+        Facilities
+    </li>
+</ul>
+<h3>
+    <i class="fas fa-globe-americas"></i>
+    Boundaries
+</h3>
+<ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
+    <li class="counties">
+        <input type="checkbox" data-bind="checked: layers.counties.flag">
+        <span class="legend-display">
+            <i></i>
+        </span>
+        Counties
+    </li>
+    <li class="district-boundary">
+        <input type="checkbox" data-bind="checked: layers.district.flag">
+        <span class="legend-display">
+            <i></i>
+        </span>
+        District Boundary
+    </li>
+</ul>
