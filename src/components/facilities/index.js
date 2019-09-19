@@ -35,11 +35,9 @@ export default ko.components.register('Facilities', {
         ];
 
         this.getPopupData = (feature) => {
-            let siteType = '';
-            let about = '';
             if (feature.properties.clustered) {
                 let bounds = [feature.properties.X_MIN, feature.properties.Y_MIN, feature.properties.X_MAX, feature.properties.Y_MAX];
-                this.map().fitBounds(bounds, {padding: {top: 100, bottom: 100, left: 100, right: 100}});
+                this.map().fitBounds(bounds, {padding: 100});
             }
             else {
                 const attributeList = [
@@ -47,8 +45,8 @@ export default ko.components.register('Facilities', {
                     ["Facility Number", "FacilityNumber"],
                     ["Status", "FacilityStatus"],
                     ["Type", "Subtype"],
-                    ["Latitude", "Latitude"],
-                    ["Longitude", "Longitude"],
+                    ["Latitude", "Y"],
+                    ["Longitude", "X"],
                     ["Permit Expires", "PermitExpirationDate"],
                     ["Site Number", "SiteNumber"],
                     ["Street Address", "Address"],
@@ -64,16 +62,8 @@ export default ko.components.register('Facilities', {
                     };
                 });
 
-                switch (feature.layer.id) {
-                case 'facilities':
-                    siteType = 'Facility';
-                    break;
-                }
-
                 return {
                     name: feature.properties.FacilityName,
-                    siteType: siteType,
-                    about: about,
                     attributeList: attributeList,
                 };
             }
@@ -82,7 +72,6 @@ export default ko.components.register('Facilities', {
         this.popupTemplate = popupTemplate;
 
         this.setupMap = () => {
-            this.layers.facilities.flag(true);
             this.layers.counties.flag(false);
         };
 

@@ -86,13 +86,17 @@ if (!mapboxKey) {
 
     facilities = JSON.parse(facilities);
     facilities.forEach((facility) => {
+        let expDate = new Date(facility.PermitExpirationDate);
         const coords = proj4("EPSG:3310", "EPSG:4326", [facility.X, facility.Y]);
-        delete facility.X;
-        delete facility.Y;
+        facility.X = Math.round(coords[0] * 1000) / 1000;
+        facility.Y = Math.round(coords[1] * 1000) / 1000;
         facility.X_MIN = coords[0];
         facility.X_MAX = coords[0];
         facility.Y_MIN = coords[1];
         facility.Y_MAX = coords[1];
+        facility.PermitExpirationDate = (expDate.getMonth() + 1) +
+            "-" + expDate.getDate() + "-" +
+            expDate.getFullYear();
         fc.features.push({
             "type": "Feature",
             "geometry": {
