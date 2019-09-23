@@ -962,7 +962,7 @@ var facilities_popup = __webpack_require__(11);
           padding: 100
         });
       } else {
-        const attributeList = [["Facility Name", "FacilityName"], ["Facility Number", "FacilityNumber"], ["Status", "FacilityStatus"], ["Type", "Subtype"], ["Latitude", "Y"], ["Longitude", "X"], ["Permit Expires", "PermitExpirationDate"], ["Site Number", "SiteNumber"], ["Street Address", "Address"], ["City", "City"], ["Zip Code", "ZipCode"], ["Sources", "SourceCount"], ["Abatements", "AbatementCount"], ["Emission Points", "PointCount"]].map(attr => {
+        const attributeList = [["Facility Number", "FacilityNumber"], ["Status", "FacilityStatus"], ["Type", "Subtype"], ["Latitude", "Y"], ["Longitude", "X"], ["Permit Expires", "PermitExpirationDate"], ["Site Number", "SiteNumber"], ["Street Address", "Address"], ["City", "City"], ["Zip Code", "ZipCode"], ["Sources", "SourceCount"], ["Abatements", "AbatementCount"], ["Emission Points", "PointCount"]].map(attr => {
           return {
             name: attr[0],
             value: feature.properties[attr[1]]
