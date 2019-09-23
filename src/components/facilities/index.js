@@ -41,7 +41,6 @@ export default ko.components.register('Facilities', {
             }
             else {
                 const attributeList = [
-                    ["Facility Name", "FacilityName"],
                     ["Facility Number", "FacilityNumber"],
                     ["Status", "FacilityStatus"],
                     ["Type", "Subtype"],
