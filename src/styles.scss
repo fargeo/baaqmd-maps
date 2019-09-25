@@ -771,6 +771,10 @@ $no-color: #b10318;
             line-height: 1.1rem;
             background-color: transparent;
             color: darken($dark-color, 10%);
+            .facilities-layer-icon {
+                position: relative;
+                top: 5px;
+            }
         }
     }
     .baaqmd-maps-boundaries {
