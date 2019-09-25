@@ -672,7 +672,7 @@ $no-color: #b10318;
             overflow-y: auto;
             height: 100%;
             .baaqmd-maps-popup-content {
-                padding: 10px 10px 25px;
+                padding: 10px 30px 25px 10px;
                 h3 {
                     margin: 0 0 10px;
                     span {
@@ -739,7 +739,7 @@ $no-color: #b10318;
         }
         .mapboxgl-popup-close-button {
             border-radius: 50%;
-            right: 15px;
+            right: 10px;
             top: 5px;
             color: $primary-color;
             width: 28px;

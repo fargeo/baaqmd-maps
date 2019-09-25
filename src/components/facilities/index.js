@@ -35,8 +35,9 @@ export default ko.components.register('Facilities', {
         ];
 
         this.getPopupData = (feature) => {
-            if (feature.properties.clustered) {
-                let bounds = [feature.properties.X_MIN, feature.properties.Y_MIN, feature.properties.X_MAX, feature.properties.Y_MAX];
+            var data = feature.properties;
+            if (data.clustered) {
+                let bounds = [data.X_MIN, data.Y_MIN, data.X_MAX, data.Y_MAX];
                 this.map().fitBounds(bounds, {padding: 100});
             }
             else {
@@ -57,12 +58,12 @@ export default ko.components.register('Facilities', {
                 ].map((attr) => {
                     return {
                         name: attr[0],
-                        value: feature.properties[attr[1]]
+                        value: data[attr[1]]
                     };
                 });
 
                 return {
-                    name: feature.properties.FacilityName,
+                    name: data.FacilityName,
                     attributeList: attributeList,
                 };
             }

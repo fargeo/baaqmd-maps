@@ -956,8 +956,10 @@ var facilities_popup = __webpack_require__(11);
     this.popupLayers = ['facilities', 'facilities-clustered'];
 
     this.getPopupData = feature => {
-      if (feature.properties.clustered) {
-        let bounds = [feature.properties.X_MIN, feature.properties.Y_MIN, feature.properties.X_MAX, feature.properties.Y_MAX];
+      var data = feature.properties;
+
+      if (data.clustered) {
+        let bounds = [data.X_MIN, data.Y_MIN, data.X_MAX, data.Y_MAX];
         this.map().fitBounds(bounds, {
           padding: 100
         });
@@ -965,11 +967,11 @@ var facilities_popup = __webpack_require__(11);
         const attributeList = [["Facility Number", "FacilityNumber"], ["Status", "FacilityStatus"], ["Type", "Subtype"], ["Latitude", "Y"], ["Longitude", "X"], ["Permit Expires", "PermitExpirationDate"], ["Site Number", "SiteNumber"], ["Street Address", "Address"], ["City", "City"], ["Zip Code", "ZipCode"], ["Sources", "SourceCount"], ["Abatements", "AbatementCount"], ["Emission Points", "PointCount"]].map(attr => {
           return {
             name: attr[0],
-            value: feature.properties[attr[1]]
+            value: data[attr[1]]
           };
         });
         return {
-          name: feature.properties.FacilityName,
+          name: data.FacilityName,
           attributeList: attributeList
         };
       }
