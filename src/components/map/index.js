@@ -82,6 +82,16 @@ export default ko.components.register('map', {
                         });
                 }
             }
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                this.map.on('dragstart', (event) => {
+                    if (event.originalEvent && 'touches' in event.originalEvent && event.originalEvent.touches.length >= 2) {
+                        this.map.dragPan.enable();
+                    } else {
+                        this.map.dragPan.disable();
+                        this.map.dragPan.enable();
+                    }
+                });
+            }
         };
 
         const length = 40;
