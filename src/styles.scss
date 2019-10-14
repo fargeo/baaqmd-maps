@@ -668,76 +668,10 @@ $no-color: #b10318;
                  margin-right: 4px;
              }
         }
-        .baaqmd-maps-popup {
-            overflow-y: auto;
-            height: 100%;
-            .baaqmd-maps-popup-content {
-                padding: 10px 30px 25px 10px;
-                h3 {
-                    margin: 0 0 10px;
-                    span {
-                        font-size: 0.95rem;
-                        vertical-align: middle;
-                        line-height: 0rem !important;
-                    }
-                    i {
-                        font-size: 1.4rem;
-                        vertical-align: middle;
-                        line-height: 0rem !important;
-                    }
-                }
-                h4 {
-                    font-size: 0.85rem;
-                    vertical-align: middle;
-                    margin: 15px 0 0;
-                }
-                .baaqmd-maps-zone-forecast {
-                    thead {
-                        th {
-                            cursor: pointer;
-                            color: $primary-color;
-                            &.baaqmd-maps-no-link {
-                                cursor: default;
-                                color: rgba(black, 0.6);
-                            }
-                        }
-                    }
-                }
-                table {
-                    margin-top: 5px;
-                    width: 100%;
-                    td {
-                        text-align: center;
-                        font-size: 0.65rem;
-                        .baaqmd-maps-zone-forecast-zone-item {
-                            margin-bottom: 4px;
-                            border-style: solid;
-                            border-width: 0;
-                            font-size: 0.65rem;
-                            font-weight: 700;
-                            border-radius: 6px;
-                            width: 100%;
-                            display: inline-block;
-                        }
-                    }
-                    .baaqmd-maps-zone-forecast-date {
-                        a {
-                            color: rgba(black, 0.4);
-                            text-decoration: none;
-                        }
-                    }
-                    .baaqmd-maps-zone-forecast-date.active {
-                        a {
-                            color: $primary-color;
-                        }
-                        a:hover {
-                            color: $secondary-color;
-                        }
-                    }
-                }
-            }
-        }
-        .mapboxgl-popup-close-button {
+        .mapboxgl-popup-close-button, .mapboxgl-popup-expand-button {
+            position: absolute;
+            border: 0;
+            cursor: pointer;
             border-radius: 50%;
             right: 10px;
             top: 5px;
@@ -754,6 +688,84 @@ $no-color: #b10318;
                 color: $secondary-color;
                 font-size: 2.3rem;
                 background-color: transparent;
+            }
+        }
+        .mapboxgl-popup-expand-button {
+            font-size: 1rem;
+            right: 34px;
+            top: 8px;
+            &:hover, &:focus {
+                top: 9px;
+                font-size: 1.3rem;
+            }
+        }
+    }
+    .baaqmd-maps-popup {
+        overflow-y: auto;
+        height: 100%;
+        .baaqmd-maps-popup-content {
+            padding: 10px 30px 25px 10px;
+            h3 {
+                margin: 0 0 10px;
+                span {
+                    font-size: 0.95rem;
+                    vertical-align: middle;
+                    line-height: 0rem !important;
+                }
+                i {
+                    font-size: 1.4rem;
+                    vertical-align: middle;
+                    line-height: 0rem !important;
+                }
+            }
+            h4 {
+                font-size: 0.85rem;
+                vertical-align: middle;
+                margin: 15px 0 0;
+            }
+            .baaqmd-maps-zone-forecast {
+                thead {
+                    th {
+                        cursor: pointer;
+                        color: $primary-color;
+                        &.baaqmd-maps-no-link {
+                            cursor: default;
+                            color: rgba(black, 0.6);
+                        }
+                    }
+                }
+            }
+            table {
+                margin-top: 5px;
+                width: 100%;
+                td {
+                    text-align: center;
+                    font-size: 0.65rem;
+                    .baaqmd-maps-zone-forecast-zone-item {
+                        margin-bottom: 4px;
+                        border-style: solid;
+                        border-width: 0;
+                        font-size: 0.65rem;
+                        font-weight: 700;
+                        border-radius: 6px;
+                        width: 100%;
+                        display: inline-block;
+                    }
+                }
+                .baaqmd-maps-zone-forecast-date {
+                    a {
+                        color: rgba(black, 0.4);
+                        text-decoration: none;
+                    }
+                }
+                .baaqmd-maps-zone-forecast-date.active {
+                    a {
+                        color: $primary-color;
+                    }
+                    a:hover {
+                        color: $secondary-color;
+                    }
+                }
             }
         }
     }
