@@ -245,7 +245,7 @@ v.fragments={};return e};this.createJavaScriptEvaluatorBlock=function(a){return"
 /* 1 */
 /***/ (function(module) {
 
-module.exports = {"accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","facilityTilesetId":"dht7c8iz","clusteredFacilityTilesetId":"4nmcglky","facilitiesClusterDistance":15,"facilitiesJSONPath":"./data/facilities/facilities.json","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml","spaRSSFeed":"http://www.baaqmd.gov/Feeds/AlertRSS.aspx","openBurnRSSFeed":"http://www.baaqmd.gov/Feeds/OpenBurnRSS.aspx","aqiInfoURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI","aboutForecastURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast","pollutantInfoURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant","airDistrictStationDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations","facilityGLMStationDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations","meteorologicalSiteDataURL":"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites","historicalAirMonitoringDataURL":"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=","zoom":7,"center":[-122.172,37.822],"bounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"mainMapPage":"http://baaqmd.fargeo-dev.com/dist/","mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4","label":"Air Quality Forecast Map"},"Facilities":{"style":"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"Monitoring":{"style":"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47","label":"Air Quality Monitoring Map"},"OpenBurning":{"style":"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63","label":"Open Burning Map"}}};
+module.exports = JSON.parse("{\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"http://www.baaqmd.gov/Feeds/AlertRSS.aspx\",\"openBurnRSSFeed\":\"http://www.baaqmd.gov/Feeds/OpenBurnRSS.aspx\",\"aqiInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant\",\"airDistrictStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalAirMonitoringDataURL\":\"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63\",\"label\":\"Open Burning Map\"}}}");
 
 /***/ }),
 /* 2 */
@@ -308,7 +308,7 @@ module.exports = "<h3>\n    <i class=\"fas fa-wind\"></i>\n    Air Quality Forec
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <i class=\"fas fa-wind\"></i>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n        <div class=\"baaqmd-maps-last-updated\">\n            Last Updated:\n            <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(lastUpdated)\"></span>,\n            <span data-bind=\"text: lastUpdated.toLocaleDateString()\"></span>\n            at\n            <span data-bind=\"text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n        </div>\n\n        <table class=\"baaqmd-maps-zone-forecast\">\n            <thead>\n                <tr>\n                    <th>&nbsp;</th>\n                    <th data-bind=\"click: function() { showInfoPanel('AQIInfoPanel')}\">AQI</th>\n                    <th data-bind=\"click: function() { showInfoPanel('PollutantInfoPanel')}\">Pollutant</th>\n                </tr>\n            </thead>\n            <tbody>\n                <!-- ko foreach: aqiData -->\n                <tr>\n                    <th data-bind=\"css: {\n                        active: $index() === $parent.day()\n                    }\" class=\"baaqmd-maps-zone-forecast-date\">\n                        <a href=\"#\" data-bind=\"click: function() {\n                            $parent.day($index());\n                        }, text: date\"></a>\n                    </th>\n                    <td>\n                        <span class=\"baaqmd-maps-zone-forecast-zone-item\" data-bind=\"\n                            text: measurement || forecast,\n                            css: {\n                                'good': forecast === 'Good',\n                                'moderate': forecast === 'Moderate',\n                                'unhealthy-for-sensitive-groups': forecast === 'Unhealthy for Sensitive Groups',\n                                'unhealthy': forecast === 'Unhealthy',\n                                'very-unhealthy': forecast === 'Very Unhealthy',\n                                'hazardous': forecast === 'Hazardous'\n                            }\n                            \"></span>\n                    </td>\n                    <td data-bind=\"text: pollutant\"></td>\n                </tr>\n                <!-- /ko -->\n            </tbody>\n        </table>\n\n        <h4>About the Five Day Forecast</h4>\n\n        <div data-bind=\"html: aboutForecast\"></div>\n\n        <a target=\"_blank\" href=\"http://www.baaqmd.gov/rtaqd-data\">Real Time Air Monitoring Data (Data View)</a>\n        </br>\n        <a target=\"_blank\" href=\"http://www.baaqmd.gov/forecast\">Additional Information</a>\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <i class=\"fas fa-wind\"></i>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n        <div class=\"baaqmd-maps-last-updated\">\n            Last Updated:\n            <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(lastUpdated)\"></span>,\n            <span data-bind=\"text: lastUpdated.toLocaleDateString()\"></span>\n            at\n            <span data-bind=\"text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n        </div>\n\n        <table class=\"baaqmd-maps-zone-forecast\">\n            <thead>\n                <tr>\n                    <th>&nbsp;</th>\n                    <th data-bind=\"click: function() { showInfoPanel('AQIInfoPanel')}\">AQI</th>\n                    <th data-bind=\"click: function() { showInfoPanel('PollutantInfoPanel')}\">Pollutant</th>\n                </tr>\n            </thead>\n            <tbody>\n                <!-- ko foreach: aqiData -->\n                <tr>\n                    <th data-bind=\"css: {\n                        active: $index() === $parent.day()\n                    }\" class=\"baaqmd-maps-zone-forecast-date\">\n                        <a href=\"#\" data-bind=\"click: function() {\n                            $parent.day($index());\n                        }, text: date\"></a>\n                    </th>\n                    <td>\n                        <span class=\"baaqmd-maps-zone-forecast-zone-item\" data-bind=\"\n                            text: measurement || forecast,\n                            css: {\n                                'good': forecast === 'Good',\n                                'moderate': forecast === 'Moderate',\n                                'unhealthy-for-sensitive-groups': forecast === 'Unhealthy for Sensitive Groups',\n                                'unhealthy': forecast === 'Unhealthy',\n                                'very-unhealthy': forecast === 'Very Unhealthy',\n                                'hazardous': forecast === 'Hazardous'\n                            }\n                            \"></span>\n                    </td>\n                    <td data-bind=\"text: pollutant\"></td>\n                </tr>\n                <!-- /ko -->\n            </tbody>\n        </table>\n\n        <h4>About the Five Day Forecast</h4>\n\n        <div data-bind=\"html: aboutForecast\"></div>\n\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/rtaqd-data\">Real Time Air Monitoring Data (Data View)</a></p>\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/forecast\">Additional Information</a></p>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 6 */
@@ -408,7 +408,7 @@ var f=t("inherits"),c=t("./hash"),l=t("safe-buffer").Buffer,p=[1116352408,189944
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl:{\n    style: style,\n    afterRender: setupMap\n}\"></div>\n";
+module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl:{\n    style: style,\n    customAttribution: customAttribution,\n    afterRender: setupMap\n}\"></div>\n";
 
 /***/ }),
 /* 22 */
@@ -634,21 +634,47 @@ var scroll_for_more = __webpack_require__(9);
 
 
 
+let popupComponents = [];
+let popupData;
 function MapDetailsPanel(params) {
+  const popupComponent = params.mapType() + 'Popup';
   this.mapType = params.mapType;
   this.map = params.map;
   this.showInfoPanel = params.showInfoPanel;
 
   var setupMap = map => {
     if (this.getPopupData && this.popupLayers) {
+      if (this.popupTemplate && !popupComponents.includes(popupComponent)) {
+        knockout_latest["components"].register(popupComponent, {
+          viewModel: function () {
+            if (popupData) {
+              for (var key in popupData) {
+                this[key] = popupData[key];
+              }
+            }
+          },
+          template: this.popupTemplate
+        });
+        popupComponents.push(popupComponent);
+      }
+
       let click = e => {
         if (this.popupTemplate) {
           this.popupTemplate += scroll_for_more;
           const feature = e.features[0];
-          let popupData = this.getPopupData(feature);
+          popupData = this.getPopupData(feature);
 
           if (popupData) {
-            const p = new mapbox_gl["Popup"]().setLngLat(e.lngLat).setHTML(this.popupTemplate).addTo(map);
+            popupData.showInfoPanel = params.showInfoPanel;
+            var expandButton = `<button
+                            class="mapboxgl-popup-expand-button"
+                            type="button"
+                            data-bind="click: function() {
+                                showInfoPanel('${popupComponent}');
+                            }">
+                                <i class="fas fa-window-maximize"></i>
+                        </button>`;
+            const p = new mapbox_gl["Popup"]().setLngLat(e.lngLat).setHTML(expandButton + this.popupTemplate).addTo(map);
 
             let popupBody = p._content.querySelector('.baaqmd-maps-popup');
 
@@ -1466,6 +1492,7 @@ mapboxQuery +=  true ? '' : undefined;
     let duration;
     this.detailsExpanded = params.detailsExpanded || knockout_latest["observable"](false);
     this.style = config["apiURI"] + config["mapTypes"][params.mapType()].style + mapboxQuery;
+    this.customAttribution = '<a href="http://http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
 
     this.setupMap = map => {
       const jumpToDistrict = () => {
@@ -1528,6 +1555,17 @@ mapboxQuery +=  true ? '' : undefined;
             config["mapTypes"][mapType].style = json;
           });
         }
+      }
+
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        this.map.on('dragstart', event => {
+          if (event.originalEvent && 'touches' in event.originalEvent && event.originalEvent.touches.length >= 2) {
+            this.map.dragPan.enable();
+          } else {
+            this.map.dragPan.disable();
+            this.map.dragPan.enable();
+          }
+        });
       }
     };
 
