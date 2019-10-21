@@ -34,6 +34,7 @@ export function Map(opts) {
     this.mapType = ko.observable(opts.mapType);
     this.map = ko.observable();
     this.showInfoPanel = ko.observable(false);
+    this.development = opts.development;
 
     // public members
     this.el = doc.body.removeChild(doc.body.firstChild);

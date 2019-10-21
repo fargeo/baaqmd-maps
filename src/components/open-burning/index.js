@@ -6,8 +6,8 @@ import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 
 const parser = new DOMParser();
 const openBurnData = ko.observable();
-let fetchData = () => {
-    fetch(config.openBurnRSSFeed, {cache: "no-store"})
+let fetchData = (rootURL) => {
+    fetch(rootURL + config.openBurnRSSFeed, {cache: "no-store"})
         .then((response) => {
             return response.text();
         })
@@ -61,7 +61,8 @@ export default ko.components.register('OpenBurning', {
             'Coastal Section',
             'North Section'
         ];
-        if (fetchData) fetchData();
+        const rootUrl = params.development ? config.devRSSRoot : config.prodRSSRoot;
+        if (fetchData) fetchData(rootUrl);
         this.openBurnData = openBurnData;
         this.day = ko.observable();
         this.layers = {

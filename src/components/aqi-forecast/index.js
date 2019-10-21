@@ -14,15 +14,15 @@ const aqiInfo = ko.observable();
 const pollutantInfo = ko.observable();
 const aboutForecast = ko.observable();
 let alertStatus;
-let fetchData = () => {
-    fetch(config.spaRSSFeed, {cache: "no-store"})
+let fetchData = (rootURL) => {
+    fetch(rootURL + config.spaRSSFeed, {cache: "no-store"})
         .then((response) => {
             return response.text();
         })
         .then((text) => {
             const xmlDoc = parser.parseFromString(text, 'application/xml');
             alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
-            return fetch(config.aqiRSSFeed, {cache: "no-store"});
+            return fetch(rootURL + config.aqiRSSFeed, {cache: "no-store"});
         })
         .then((response) => {
             return response.text();
@@ -124,7 +124,8 @@ ko.components.register('PollutantInfoPanel', {
 
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
-        if (fetchData) fetchData();
+        const rootUrl = params.development ? config.devRSSRoot : config.prodRSSRoot;
+        if (fetchData) fetchData(rootUrl);
         const zones = [
             'Eastern Zone',
             'Coastal and Central Bay',

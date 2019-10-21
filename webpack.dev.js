@@ -5,7 +5,11 @@ module.exports = merge(common, {
     mode: 'development',
     devServer: {
         port: 3000,
-        contentBase: './src'
+        contentBase: './src',
+        disableHostCheck: true,
+        hot: true,
+        host: '0.0.0.0',
+        useLocalIp: true
     },
     devtool: 'inline-source-map',
     optimization: {
