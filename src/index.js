@@ -55,6 +55,18 @@ export function Map(opts) {
         return false;
     };
 
+    this.scrolling = ko.observable(false);
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        var scrollTimeout = null;
+        window.onscroll = () => {
+            this.scrolling(true);
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                this.scrolling(false);
+            }, 200);
+        };
+    }
+
     opts.container.appendChild(this.el);
     ko.applyBindings(this, this.el);
 }

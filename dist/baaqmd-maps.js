@@ -245,7 +245,7 @@ v.fragments={};return e};this.createJavaScriptEvaluatorBlock=function(a){return"
 /* 1 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"http://www.baaqmd.gov/Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"http://www.baaqmd.gov/Feeds/AlertRSS.aspx\",\"openBurnRSSFeed\":\"http://www.baaqmd.gov/Feeds/OpenBurnRSS.aspx\",\"aqiInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant\",\"airDistrictStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalAirMonitoringDataURL\":\"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63\",\"label\":\"Open Burning Map\"}}}");
+module.exports = JSON.parse("{\"prodRSSRoot\":\"http://www.baaqmd.gov/\",\"devRSSRoot\":\"http://dev-sa-baaqmd-preview.cylogy.com/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"Feeds/AlertRSS.aspx\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS.aspx\",\"aqiInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant\",\"airDistrictStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalAirMonitoringDataURL\":\"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63\",\"label\":\"Open Burning Map\"}}}");
 
 /***/ }),
 /* 2 */
@@ -296,7 +296,7 @@ return mapboxgl;
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko if: detailsActive -->\n        <!-- ko component: {\n            name: \"details-panel\",\n            params: {\n                expanded: detailsExpanded,\n                mapType: mapType,\n                map: map,\n                enableMapTypeSelector: enableMapTypeSelector,\n                showInfoPanel: showInfoPanel\n            }\n        } -->\n        <!-- /ko -->\n    <!-- /ko -->\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            showInfoPanel: showInfoPanel\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { showInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"close-information-panel\" data-bind=\"click: function() { showInfoPanel(false); }\">×</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n               }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko if: detailsActive -->\n        <!-- ko component: {\n            name: \"details-panel\",\n            params: {\n                expanded: detailsExpanded,\n                mapType: mapType,\n                map: map,\n                enableMapTypeSelector: enableMapTypeSelector,\n                showInfoPanel: showInfoPanel,\n                development: development\n            }\n        } -->\n        <!-- /ko -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            showInfoPanel: showInfoPanel\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { showInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"close-information-panel\" data-bind=\"click: function() { showInfoPanel(false); }\">×</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n               }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
 
 /***/ }),
 /* 4 */
@@ -771,15 +771,15 @@ const pollutantInfo = knockout_latest["observable"]();
 const aboutForecast = knockout_latest["observable"]();
 let alertStatus;
 
-let fetchData = () => {
-  fetch(config["spaRSSFeed"], {
+let fetchData = rootURL => {
+  fetch(rootURL + config["spaRSSFeed"], {
     cache: "no-store"
   }).then(response => {
     return response.text();
   }).then(text => {
     const xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
     alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
-    return fetch(config["aqiRSSFeed"], {
+    return fetch(rootURL + config["aqiRSSFeed"], {
       cache: "no-store"
     });
   }).then(response => {
@@ -881,7 +881,8 @@ knockout_latest["components"].register('PollutantInfoPanel', {
 });
 /* harmony default export */ var aqi_forecast = (knockout_latest["components"].register('AQIForecast', {
   viewModel: function (params) {
-    if (fetchData) fetchData();
+    const rootUrl = params.development ? config["devRSSRoot"] : config["prodRSSRoot"];
+    if (fetchData) fetchData(rootUrl);
     const zones = ['Eastern Zone', 'Coastal and Central Bay', 'Northern Zone', 'South Central Bay', 'Santa Clara Valley'];
     this.aqiData = aqiData;
     this.day = knockout_latest["observable"]();
@@ -1228,8 +1229,8 @@ var open_burning_popup = __webpack_require__(19);
 const open_burning_parser = new DOMParser();
 const openBurnData = knockout_latest["observable"]();
 
-let open_burning_fetchData = () => {
-  fetch(config["openBurnRSSFeed"], {
+let open_burning_fetchData = rootURL => {
+  fetch(rootURL + config["openBurnRSSFeed"], {
     cache: "no-store"
   }).then(response => {
     return response.text();
@@ -1275,7 +1276,8 @@ let open_burning_fetchData = () => {
 /* harmony default export */ var open_burning = (knockout_latest["components"].register('OpenBurning', {
   viewModel: function (params) {
     const sections = ['South Section', 'Coastal Section', 'North Section'];
-    if (open_burning_fetchData) open_burning_fetchData();
+    const rootUrl = params.development ? config["devRSSRoot"] : config["prodRSSRoot"];
+    if (open_burning_fetchData) open_burning_fetchData(rootUrl);
     this.openBurnData = openBurnData;
     this.day = knockout_latest["observable"]();
     this.layers = {
@@ -1558,13 +1560,16 @@ mapboxQuery +=  true ? '' : undefined;
       }
 
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        this.map.dragPan.disable();
         this.map.on('dragstart', event => {
           if (event.originalEvent && 'touches' in event.originalEvent && event.originalEvent.touches.length >= 2) {
             this.map.dragPan.enable();
           } else {
             this.map.dragPan.disable();
-            this.map.dragPan.enable();
           }
+        });
+        this.map.on('dragend', event => {
+          this.map.dragPan.disable();
         });
       }
     };
@@ -1617,6 +1622,7 @@ knockout_latest["bindingHandlers"].choices = {
   viewModel: function (params) {
     this.expanded = params.expanded || knockout_latest["observable"](false);
     this.enableMapTypeSelector = params.enableMapTypeSelector;
+    this.development = params.development;
     this.showInfoPanel = params.showInfoPanel;
 
     if (typeof params.enableMapTypeSelector !== 'boolean') {
@@ -1713,7 +1719,8 @@ function Map(opts) {
   if (this.mapTypes.indexOf(opts.mapType) < 0) opts.mapType = this.mapTypes[0];
   this.mapType = knockout_latest["observable"](opts.mapType);
   this.map = knockout_latest["observable"]();
-  this.showInfoPanel = knockout_latest["observable"](false); // public members
+  this.showInfoPanel = knockout_latest["observable"](false);
+  this.development = opts.development; // public members
 
   this.el = doc.body.removeChild(doc.body.firstChild);
 
@@ -1736,6 +1743,20 @@ function Map(opts) {
     this.detailsActive(false);
     return false;
   };
+
+  this.scrolling = knockout_latest["observable"](false);
+
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    var scrollTimeout = null;
+
+    window.onscroll = () => {
+      this.scrolling(true);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        this.scrolling(false);
+      }, 200);
+    };
+  }
 
   opts.container.appendChild(this.el);
   knockout_latest["applyBindings"](this, this.el);

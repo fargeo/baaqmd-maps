@@ -1064,4 +1064,19 @@ $no-color: #b10318;
             font-size: 2em;
         }
     }
+    .baaqmd-maps-scroll-mask {
+        position: absolute;
+        z-index: 1000;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: rgba(134, 134, 134, 0.75);
+        .baaqmd-maps-scroll-mask-message {
+            color: rgb(236, 236, 236);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
 }
