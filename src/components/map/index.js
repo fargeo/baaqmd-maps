@@ -83,18 +83,16 @@ export default ko.components.register('map', {
                         });
                 }
             }
+
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
                 this.map.dragPan.disable();
-                this.map.on('dragstart', (event) => {
-                    if (event.originalEvent && 'touches' in event.originalEvent && event.originalEvent.touches.length >= 2) {
+
+                this.map.on('touchstart', (e) => {
+                    const oe = e.originalEvent;
+                    if (oe && 'touches' in oe && oe.touches.length >= 2)
                         this.map.dragPan.enable();
-                    } else {
-                        this.map.dragPan.disable();
-                    }
                 });
-                this.map.on('dragend', (event) => {
-                    this.map.dragPan.disable();
-                });
+                this.map.on('dragend', () => this.map.dragPan.disable());
             }
         };
 

@@ -35,6 +35,15 @@ export function Map(opts) {
     this.map = ko.observable();
     this.showInfoPanel = ko.observable(false);
     this.development = opts.development;
+    this.scrolling = ko.observable(false);
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        var scrollTimeout = null;
+        document.onscroll = () => {
+            this.scrolling(true);
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => this.scrolling(false), 200);
+        };
+    }
 
     // public members
     this.el = doc.body.removeChild(doc.body.firstChild);
@@ -54,18 +63,6 @@ export function Map(opts) {
         this.detailsActive(false);
         return false;
     };
-
-    this.scrolling = ko.observable(false);
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        var scrollTimeout = null;
-        window.onscroll = () => {
-            this.scrolling(true);
-            if (scrollTimeout) clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                this.scrolling(false);
-            }, 200);
-        };
-    }
 
     opts.container.appendChild(this.el);
     ko.applyBindings(this, this.el);

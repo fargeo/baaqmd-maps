@@ -200,7 +200,7 @@ $no-color: #b10318;
         border-radius: 6px;
     }
     .mapboxgl-ctrl-group > button {
-        border-radius: 0px;
+        border-radius: 6px;
         background: $primary-color;
         color: white;
     }
@@ -293,7 +293,11 @@ $no-color: #b10318;
     }
     .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate {
         background-image: none;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+    }
+    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate::before {
+        background-image: none;
     }
     .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:focus  {
         font-size: 1.4rem;
@@ -499,6 +503,7 @@ $no-color: #b10318;
             &.baaqmd-maps-share-buttons {
                 top: 60px;
                 text-align: left;
+                overflow: hidden;
                 a {
                     display: block;
                     float: left;

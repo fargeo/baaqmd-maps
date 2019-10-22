@@ -43,6 +43,6 @@
     "choices.js": "^6.0.3",
     "computed-style-to-inline-style": "^3.0.0",
     "knockout": "^3.5.0",
-    "mapbox-gl": "^0.53.0"
+    "mapbox-gl": "^1.4.1"
   }
 }
