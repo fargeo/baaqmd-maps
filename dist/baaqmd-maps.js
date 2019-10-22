@@ -1721,7 +1721,7 @@ function Map(opts) {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
     var scrollTimeout = null;
 
-    document.onscroll = () => {
+    parent.window.onscroll = () => {
       this.scrolling(true);
       if (scrollTimeout) clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => this.scrolling(false), 200);

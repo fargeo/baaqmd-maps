@@ -38,7 +38,7 @@ export function Map(opts) {
     this.scrolling = ko.observable(false);
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         var scrollTimeout = null;
-        document.onscroll = () => {
+        parent.window.onscroll = () => {
             this.scrolling(true);
             if (scrollTimeout) clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => this.scrolling(false), 200);
