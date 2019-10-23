@@ -6,7 +6,7 @@
         <table class="air-monitoring-table" style="margin-left: 5px;" >
           <tbody>
             <!-- ko foreach: attributeList -->
-            <!-- ko if: name -->
+            <!-- ko if: name && value !== undefined -->
             <tr>
                 <td class="air-monitoring-attribute-data-title" data-bind="text: name"></td>
                 <td class="air-monitoring-attribute-data" data-bind="text: value"></td>

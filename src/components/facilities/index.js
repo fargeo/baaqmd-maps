@@ -54,14 +54,20 @@ export default ko.components.register('Facilities', {
                     ["Zip Code", "ZipCode"],
                     ["Sources", "SourceCount"],
                     ["Abatements", "AbatementCount"],
-                    ["Emission Points", "PointCount"]
+                    ["Emission Points", "PointCount"],
+                    ["Particulates", "Particulates"],
+                    ["Organics", "Organics"],
+                    ["Nitrogen Oxides", "NitrogenOxides"],
+                    ["Sulphur Dioxide", "SulphurDioxide"],
+                    ["Carbon Monoxide", "CarbonMonoxide"],
+                    ["Greenhouse Gases", "GreenhouseGases"]
                 ].map((attr) => {
                     return {
                         name: attr[0],
                         value: data[attr[1]]
                     };
                 });
-
+                console.log(attributeList);
                 return {
                     name: data.FacilityName,
                     attributeList: attributeList,

@@ -5,6 +5,8 @@ const tippecanoe = require('tippecanoe');
 const MapboxClient = require('mapbox');
 const AWS = require('aws-sdk');
 const config = JSON.parse(fs.readFileSync('./src/config.json'));
+const https = require('https');
+
 let mapboxKey;
 
 function updateTileset(jsonPath, featureCollection, tilePath, tileConfig, tilesetId, callback) {
@@ -76,73 +78,85 @@ if (!mapboxKey) {
     console.error('missing Mapbox secret key; add a key that has access to ' +
         'the Mapbox uploads API to "mapboxKey" in "./secret.json"');
 } else {
-    let facilities = fs.readFileSync(config.facilitiesJSONPath);
-    let fc = {
-        "type": "FeatureCollection",
-        "features": []
-    };
-
-    proj4.defs("EPSG:3310","+proj=aea +lat_1=34 +lat_2=40.5 +lat_0=0 +lon_0=-120 +x_0=0 +y_0=-4000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
-
-    facilities = JSON.parse(facilities);
-    facilities.forEach((facility) => {
-        let expDate = new Date(facility.PermitExpirationDate);
-        const coords = proj4("EPSG:3310", "EPSG:4326", [facility.X, facility.Y]);
-        facility.X = Math.round(coords[0] * 1000) / 1000;
-        facility.Y = Math.round(coords[1] * 1000) / 1000;
-        facility.X_MIN = coords[0];
-        facility.X_MAX = coords[0];
-        facility.Y_MIN = coords[1];
-        facility.Y_MAX = coords[1];
-        facility.PermitExpirationDate = (expDate.getMonth() + 1) +
-            "-" + expDate.getDate() + "-" +
-            expDate.getFullYear();
-        fc.features.push({
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": coords
-            },
-            "properties": facility
+    https.get(config.facilitiesJSONURL, (res) => {
+        let facilities = '';
+        res.setEncoding('utf8');
+        res.on('data', (d) => {
+            facilities += d;
         });
-    });
+        res.on('end', function() {
+            let fc = {
+                "type": "FeatureCollection",
+                "features": []
+            };
 
-    updateTileset(
-        "./data/facilities/facilities-clustered.geojson",
-        fc,
-        './data/facilities/facilities-clustered.mbtiles',
-        {
-            output: './data/facilities/facilities-clustered.mbtiles',
-            maximumZoom: 20,
-            clusterDistance: config.facilitiesClusterDistance,
-            accumulateAttribute: JSON.stringify({
-                "X_MAX":"max",
-                "X_MIN":"min",
-                "Y_MAX":"max",
-                "Y_MIN":"min"
-            }),
-            dropRate: 1,
-            layer: "facilities-clustered"
-        },
-        config.clusteredFacilityTilesetId,
-        () => {
-            fc.features.forEach((feature) => {
-                delete feature.properties.X_MIN;
-                delete feature.properties.X_MAX;
-                delete feature.properties.Y_MIN;
-                delete feature.properties.Y_MAX;
+            proj4.defs("EPSG:3310","+proj=aea +lat_1=34 +lat_2=40.5 +lat_0=0 +lon_0=-120 +x_0=0 +y_0=-4000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
+
+            facilities = JSON.parse(facilities);
+            facilities.forEach((facility) => {
+                let expDate = new Date(facility.PermitExpirationDate);
+                const coords = proj4("EPSG:3310", "EPSG:4326", [facility.X, facility.Y]);
+                facility.X = Math.round(coords[0] * 1000) / 1000;
+                facility.Y = Math.round(coords[1] * 1000) / 1000;
+                facility.X_MIN = coords[0];
+                facility.X_MAX = coords[0];
+                facility.Y_MIN = coords[1];
+                facility.Y_MAX = coords[1];
+                facility.PermitExpirationDate = (expDate.getMonth() + 1) +
+                    "-" + expDate.getDate() + "-" +
+                    expDate.getFullYear();
+                fc.features.push({
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": coords
+                    },
+                    "properties": facility
+                });
             });
+            console.log(fc.features[0]);
+
             updateTileset(
-                "./data/facilities/facilities.geojson",
+                "./data/facilities/facilities-clustered.geojson",
                 fc,
-                './data/facilities/facilities.mbtiles',
+                './data/facilities/facilities-clustered.mbtiles',
                 {
-                    output: './data/facilities/facilities.mbtiles',
+                    output: './data/facilities/facilities-clustered.mbtiles',
                     maximumZoom: 20,
-                    dropRate: 1
+                    clusterDistance: config.facilitiesClusterDistance,
+                    accumulateAttribute: JSON.stringify({
+                        "X_MAX":"max",
+                        "X_MIN":"min",
+                        "Y_MAX":"max",
+                        "Y_MIN":"min"
+                    }),
+                    dropRate: 1,
+                    layer: "facilities-clustered"
                 },
-                config.facilityTilesetId
+                config.clusteredFacilityTilesetId,
+                () => {
+                    fc.features.forEach((feature) => {
+                        delete feature.properties.X_MIN;
+                        delete feature.properties.X_MAX;
+                        delete feature.properties.Y_MIN;
+                        delete feature.properties.Y_MAX;
+                    });
+                    updateTileset(
+                        "./data/facilities/facilities.geojson",
+                        fc,
+                        './data/facilities/facilities.mbtiles',
+                        {
+                            output: './data/facilities/facilities.mbtiles',
+                            maximumZoom: 20,
+                            minimumZoom: 10,
+                            dropRate: 1
+                        },
+                        config.facilityTilesetId
+                    );
+                }
             );
-        }
-    );
+        });
+    }).on('error', (e) => {
+        console.error(e);
+    });
 }
