@@ -613,7 +613,7 @@ var main = __webpack_require__(3);
 var template = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./src/components/aqi-forecast/popup.html
-var popup = __webpack_require__(5);
+var aqi_forecast_popup = __webpack_require__(5);
 
 // EXTERNAL MODULE: ./src/components/aqi-forecast/info-panel.html
 var info_panel = __webpack_require__(6);
@@ -638,6 +638,7 @@ let popupComponents = [];
 let popupData;
 function MapDetailsPanel(params) {
   const popupComponent = params.mapType() + 'Popup';
+  let popup;
   this.mapType = params.mapType;
   this.map = params.map;
   this.showInfoPanel = params.showInfoPanel;
@@ -674,9 +675,9 @@ function MapDetailsPanel(params) {
                             }">
                                 <i class="fas fa-window-maximize"></i>
                         </button>`;
-            const p = new mapbox_gl["Popup"]().setLngLat(e.lngLat).setHTML(expandButton + this.popupTemplate).addTo(map);
+            popup = new mapbox_gl["Popup"]().setLngLat(e.lngLat).setHTML(expandButton + this.popupTemplate).addTo(map);
 
-            let popupBody = p._content.querySelector('.baaqmd-maps-popup');
+            let popupBody = popup._content.querySelector('.baaqmd-maps-popup');
 
             popupData.scrolledToBottom = knockout_latest["observable"](false);
 
@@ -686,7 +687,10 @@ function MapDetailsPanel(params) {
               };
             }
 
-            knockout_latest["applyBindingsToDescendants"](popupData, p._content);
+            popup.on('close', () => {
+              popup = undefined;
+            });
+            knockout_latest["applyBindingsToDescendants"](popupData, popup._content);
           }
         }
       };
@@ -729,6 +733,11 @@ function MapDetailsPanel(params) {
     if (this.setupMap) {
       this.setupMap(map);
     }
+
+    this.mapType.subscribe(() => {
+      if (popup) popup.remove();
+      popup = undefined;
+    });
   };
 
   if (this.map()) {
@@ -914,7 +923,7 @@ knockout_latest["components"].register('PollutantInfoPanel', {
       };
     };
 
-    this.popupTemplate = popup;
+    this.popupTemplate = aqi_forecast_popup;
     this.day.subscribe(day => {
       if (typeof day === 'number') {
         zones.forEach((zone, i) => {
