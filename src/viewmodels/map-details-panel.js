@@ -6,6 +6,7 @@ let popupComponents = [];
 let popupData;
 export default function MapDetailsPanel(params) {
     const popupComponent = params.mapType() + 'Popup';
+    let popup;
     this.mapType = params.mapType;
     this.map = params.map;
     this.showInfoPanel = params.showInfoPanel;
@@ -40,11 +41,11 @@ export default function MapDetailsPanel(params) {
                             }">
                                 <i class="fas fa-window-maximize"></i>
                         </button>`;
-                        const p = new mapboxgl.Popup()
+                        popup = new mapboxgl.Popup()
                             .setLngLat(e.lngLat)
                             .setHTML(expandButton + this.popupTemplate)
                             .addTo(map);
-                        let popupBody = p._content.querySelector('.baaqmd-maps-popup');
+                        let popupBody = popup._content.querySelector('.baaqmd-maps-popup');
                         popupData.scrolledToBottom = ko.observable(false);
                         if (popupBody) {
                             popupBody.onscroll = () => {
@@ -53,7 +54,8 @@ export default function MapDetailsPanel(params) {
                                 );
                             };
                         }
-                        ko.applyBindingsToDescendants(popupData, p._content);
+                        popup.on('close', () => { popup = undefined; });
+                        ko.applyBindingsToDescendants(popupData, popup._content);
                     }
                 }
             };
@@ -96,6 +98,10 @@ export default function MapDetailsPanel(params) {
             this.setupMap(map);
         }
 
+        this.mapType.subscribe(() => {
+            if (popup) popup.remove();
+            popup = undefined;
+        });
     };
     if (this.map()){
         setTimeout(() => {
