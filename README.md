@@ -1,6 +1,4 @@
-# Example Usage ([raw example](http://baaqmd.fargeo-dev.com/dist/))
-
-<iframe src="http://baaqmd.fargeo-dev.com/dist/" width="100%" height="500px;" style="border: 1px solid grey;"></iframe>
+# Example Usage ([view example](http://baaqmd.fargeo-dev.com/))
 
 ```html
 <link rel="stylesheet" href="http://baaqmd.fargeo-dev.com/dist/baaqmd-maps.css">

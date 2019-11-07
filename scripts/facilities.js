@@ -96,8 +96,10 @@ if (!mapboxKey) {
             facilities.forEach((facility) => {
                 let expDate = new Date(facility.PermitExpirationDate);
                 const coords = proj4("EPSG:3310", "EPSG:4326", [facility.X, facility.Y]);
-                facility.X = Math.round(coords[0] * 1000) / 1000;
-                facility.Y = Math.round(coords[1] * 1000) / 1000;
+                const roundKeys = ["X", "Y", "Particulates", "Organics", "NitrogenOxides", "SulphurDioxide", "CarbonMonoxide", "GreenhouseGases"];
+                facility.X = coords[0];
+                facility.Y = coords[1];
+                roundKeys.forEach((key) => facility[key] = Math.round(facility[key] * 1000) / 1000);
                 facility.X_MIN = coords[0];
                 facility.X_MAX = coords[0];
                 facility.Y_MIN = coords[1];
