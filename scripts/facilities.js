@@ -99,7 +99,7 @@ if (!mapboxKey) {
                 const roundKeys = ["X", "Y", "Particulates", "Organics", "NitrogenOxides", "SulphurDioxide", "CarbonMonoxide", "GreenhouseGases"];
                 facility.X = coords[0];
                 facility.Y = coords[1];
-                roundKeys.forEach((key) => facility[key] = Math.round(facility[key] * 1000) / 1000);
+                roundKeys.forEach((key) => facility[key] = facility[key] ? Math.round(facility[key] * 1000) / 1000 : null);
                 facility.X_MIN = coords[0];
                 facility.X_MAX = coords[0];
                 facility.Y_MIN = coords[1];
