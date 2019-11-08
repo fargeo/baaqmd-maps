@@ -13,30 +13,18 @@
 <style>
     body {
         margin: 0;
-        font-family: sans-serif;
-    }
-
-    main {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 30px;
     }
 
     #map {
-        border: 1px solid black;
-        height: 500px;
+        position: absolute;
+        height: 100%;
+        right: 0;
+        left: 0;
     }
 </style>
 
 <body>
-    <main>
-        <h1>
-            BAAQMD Maps DEV
-            <a href="raw.html">(raw example)</a>
-        </h1>
-        <div id="map"></div>
-    </main>
-
+    <div id="map"></div>
 
     <script type="text/javascript">
         new baaqmdMaps.Map({

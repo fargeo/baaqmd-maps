@@ -13,22 +13,34 @@
 <style>
     body {
         margin: 0;
+        font-family: sans-serif;
+    }
+
+    main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px;
     }
 
     #map {
-        position: absolute;
-        height: 100%;
-        right: 0;
-        left: 0;
+        border: 1px solid black;
+        height: 500px;
     }
 </style>
 
 <body>
-    <div id="map"></div>
+    <main>
+        <h1>
+            BAAQMD Maps
+            <a href="dist/index.html">(raw example)</a>
+        </h1>
+        <div id="map"></div>
+    </main>
+
 
     <script type="text/javascript">
         new baaqmdMaps.Map({
-            container: "map"
+            container: "map",
         });
     </script>
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BAAQMD Maps Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" class="">
+</head>
+
+<link rel="stylesheet" href="baaqmd-maps.css">
+<script src="baaqmd-maps.js" type="text/javascript"></script>
+
+<style>
+    body {
+        margin: 0;
+    }
+
+    #map {
+        position: absolute;
+        height: 100%;
+        right: 0;
+        left: 0;
+    }
+</style>
+
+<body>
+    <div id="map"></div>
+
+    <script type="text/javascript">
+        new baaqmdMaps.Map({
+            container: "map"
+        });
+    </script>
+</body>
+
+</html>
