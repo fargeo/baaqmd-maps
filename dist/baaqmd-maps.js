@@ -1006,7 +1006,6 @@ var facilities_popup = __webpack_require__(11);
             value: data[attr[1]]
           };
         });
-        console.log(attributeList);
         return {
           name: data.FacilityName,
           attributeList: attributeList

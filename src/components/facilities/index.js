@@ -67,7 +67,6 @@ export default ko.components.register('Facilities', {
                         value: data[attr[1]]
                     };
                 });
-                console.log(attributeList);
                 return {
                     name: data.FacilityName,
                     attributeList: attributeList,
