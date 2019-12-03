@@ -1,7 +1,7 @@
 {
     "prodRSSRoot": "http://www.baaqmd.gov/",
     "devRSSRoot": "http://dev-sa-baaqmd-preview.cylogy.com/",
-    "accessToken": "pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2pzZGt3ZHRhMDh3cDQzcW41OWVzdnIxZCJ9.aXg05_M-IWK7IvajJ2KqOA",
+    "accessToken": "pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw",
     "userName": "baaqmd-publicmaps",
     "tilesetId": "c3867v6s",
     "facilitiesJSONURL": "https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D",

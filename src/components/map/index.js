@@ -14,6 +14,7 @@ export default ko.components.register('map', {
     viewModel: function(params) {
         let duration;
         this.detailsExpanded = params.detailsExpanded || ko.observable(false);
+        this.accessToken = params.accessToken;
 
         this.style = config.apiURI + config.mapTypes[params.mapType()].style + mapboxQuery;
         this.customAttribution = '<a href="http://http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';

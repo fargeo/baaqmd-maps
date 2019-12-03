@@ -19,6 +19,7 @@ export function Map(opts) {
     if (typeof opts.sidePanel !== 'boolean') opts.sidePanel = true;
 
     // private members
+    this.accessToken = opts.accessToken;
     this.detailsExpanded = ko.observable(false);
     this.detailsActive = ko.observable(opts.sidePanel);
     this.enableMapTypeSelector = opts.enableMapTypeSelector;
