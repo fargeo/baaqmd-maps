@@ -124,7 +124,7 @@ ko.components.register('PollutantInfoPanel', {
 
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
-        const rootUrl = params.development ? config.devRSSRoot : config.prodRSSRoot;
+        const rootUrl = params.rootURL || config.prodRoot;
         if (fetchData) fetchData(rootUrl);
         const zones = [
             'Eastern Zone',

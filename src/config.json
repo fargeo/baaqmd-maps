@@ -1,6 +1,5 @@
 {
-    "prodRSSRoot": "http://www.baaqmd.gov/",
-    "devRSSRoot": "http://dev-sa-baaqmd-preview.cylogy.com/",
+    "prodRoot": "http://www.baaqmd.gov/",
     "accessToken": "pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw",
     "userName": "baaqmd-publicmaps",
     "tilesetId": "c3867v6s",

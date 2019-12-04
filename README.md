@@ -46,7 +46,7 @@ new Map(options: Object)
 -   `options.sidePanel`([`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), default `true`): If `true`, the side panel with layer controls and details will be included with the map.
 -   `options.mapType`([`string`](), default `'AQIForecast'`): the name of the map type that should be rendered.  Should be one of the following: `'AQIForecast'`, `'Facilities'`, `'ImpactedCommunities'`, `'Monitoring'`, `'OpenBurning'`
 -   `options.enableMapTypeSelector`([`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), default `true`): If `true`, the title in the side panel will allow the user to select between map types
--   `options.development`([`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), default `false`): If `true`, the library will use "development" mode configurations and service endpoints.
+-   `options.rootURL`([`string`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), default `'http://www.baaqmd.gov/'`): overrides the default URL for services and content
 -   `options.accessToken`([`string`](), default `'pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw'`): the Mapbox access token to use with this map. Defaults to the "Farallon Development" access token.
 
 ### Instance Members

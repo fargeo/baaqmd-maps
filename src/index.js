@@ -35,7 +35,7 @@ export function Map(opts) {
     this.mapType = ko.observable(opts.mapType);
     this.map = ko.observable();
     this.showInfoPanel = ko.observable(false);
-    this.development = opts.development;
+    this.rootURL = opts.rootURL;
     this.scrolling = ko.observable(false);
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         var scrollTimeout = null;

@@ -61,7 +61,7 @@ export default ko.components.register('OpenBurning', {
             'Coastal Section',
             'North Section'
         ];
-        const rootUrl = params.development ? config.devRSSRoot : config.prodRSSRoot;
+        const rootUrl = params.rootURL || config.prodRoot;
         if (fetchData) fetchData(rootUrl);
         this.openBurnData = openBurnData;
         this.day = ko.observable();

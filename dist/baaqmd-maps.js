@@ -245,7 +245,7 @@ v.fragments={};return e};this.createJavaScriptEvaluatorBlock=function(a){return"
 /* 1 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"prodRSSRoot\":\"http://www.baaqmd.gov/\",\"devRSSRoot\":\"http://dev-sa-baaqmd-preview.cylogy.com/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"Feeds/AlertRSS.aspx\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS.aspx\",\"aqiInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant\",\"airDistrictStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalAirMonitoringDataURL\":\"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63\",\"label\":\"Open Burning Map\"}}}");
+module.exports = JSON.parse("{\"prodRoot\":\"http://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"Feeds/AlertRSS.aspx\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS.aspx\",\"aqiInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant\",\"airDistrictStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalAirMonitoringDataURL\":\"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63\",\"label\":\"Open Burning Map\"}}}");
 
 /***/ }),
 /* 2 */
@@ -296,7 +296,7 @@ return mapboxgl;
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko if: detailsActive -->\n        <!-- ko component: {\n            name: \"details-panel\",\n            params: {\n                expanded: detailsExpanded,\n                mapType: mapType,\n                map: map,\n                enableMapTypeSelector: enableMapTypeSelector,\n                showInfoPanel: showInfoPanel,\n                development: development\n            }\n        } -->\n        <!-- /ko -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            showInfoPanel: showInfoPanel,\n            accessToken: accessToken\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { showInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"close-information-panel\" data-bind=\"click: function() { showInfoPanel(false); }\">×</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n               }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko if: detailsActive -->\n        <!-- ko component: {\n            name: \"details-panel\",\n            params: {\n                expanded: detailsExpanded,\n                mapType: mapType,\n                map: map,\n                enableMapTypeSelector: enableMapTypeSelector,\n                showInfoPanel: showInfoPanel,\n                rootURL: rootURL\n            }\n        } -->\n        <!-- /ko -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            showInfoPanel: showInfoPanel,\n            accessToken: accessToken\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { showInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"close-information-panel\" data-bind=\"click: function() { showInfoPanel(false); }\">×</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n               }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
 
 /***/ }),
 /* 4 */
@@ -890,7 +890,7 @@ knockout_latest["components"].register('PollutantInfoPanel', {
 });
 /* harmony default export */ var aqi_forecast = (knockout_latest["components"].register('AQIForecast', {
   viewModel: function (params) {
-    const rootUrl = params.development ? config["devRSSRoot"] : config["prodRSSRoot"];
+    const rootUrl = params.rootURL || config["prodRoot"];
     if (fetchData) fetchData(rootUrl);
     const zones = ['Eastern Zone', 'Coastal and Central Bay', 'Northern Zone', 'South Central Bay', 'Santa Clara Valley'];
     this.aqiData = aqiData;
@@ -1285,7 +1285,7 @@ let open_burning_fetchData = rootURL => {
 /* harmony default export */ var open_burning = (knockout_latest["components"].register('OpenBurning', {
   viewModel: function (params) {
     const sections = ['South Section', 'Coastal Section', 'North Section'];
-    const rootUrl = params.development ? config["devRSSRoot"] : config["prodRSSRoot"];
+    const rootUrl = params.rootURL || config["prodRoot"];
     if (open_burning_fetchData) open_burning_fetchData(rootUrl);
     this.openBurnData = openBurnData;
     this.day = knockout_latest["observable"]();
@@ -1627,7 +1627,7 @@ knockout_latest["bindingHandlers"].choices = {
   viewModel: function (params) {
     this.expanded = params.expanded || knockout_latest["observable"](false);
     this.enableMapTypeSelector = params.enableMapTypeSelector;
-    this.development = params.development;
+    this.rootURL = params.rootURL;
     this.showInfoPanel = params.showInfoPanel;
 
     if (typeof params.enableMapTypeSelector !== 'boolean') {
@@ -1726,7 +1726,7 @@ function Map(opts) {
   this.mapType = knockout_latest["observable"](opts.mapType);
   this.map = knockout_latest["observable"]();
   this.showInfoPanel = knockout_latest["observable"](false);
-  this.development = opts.development;
+  this.rootURL = opts.rootURL;
   this.scrolling = knockout_latest["observable"](false);
 
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
