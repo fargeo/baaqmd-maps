@@ -245,7 +245,7 @@ v.fragments={};return e};this.createJavaScriptEvaluatorBlock=function(a){return"
 /* 1 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"prodRoot\":\"http://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"Feeds/AlertRSS.aspx\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS.aspx\",\"aqiInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Pollutant\",\"airDistrictStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"http://www.baaqmd.gov/Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalAirMonitoringDataURL\":\"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63\",\"label\":\"Open Burning Map\"}}}");
+module.exports = JSON.parse("{\"prodRoot\":\"http://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"Feeds/AlertRSS\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalAirMonitoringDataURL\":\"http://baaqmdmapsprod.azurewebsites.net/historicaldata?metDataId=\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/cjwb0oq9z0ixg1cqukdhhdp63\",\"label\":\"Open Burning Map\"}}}");
 
 /***/ }),
 /* 2 */
@@ -847,9 +847,9 @@ let fetchData = rootURL => {
       lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
     });
   });
-  fetchHTML(config["aqiInfoURL"], aqiInfo);
-  fetchHTML(config["pollutantInfoURL"], pollutantInfo);
-  fetchHTML(config["aboutForecastURL"], aboutForecast);
+  fetchHTML(rootURL + config["aqiInfoURL"], aqiInfo);
+  fetchHTML(rootURL + config["pollutantInfoURL"], pollutantInfo);
+  fetchHTML(rootURL + config["aboutForecastURL"], aboutForecast);
   fetchData = false;
 };
 
@@ -1129,10 +1129,10 @@ const airDistrictStationData = knockout_latest["observable"]();
 const facilityGLMStationData = knockout_latest["observable"]();
 const meteorologicalSiteData = knockout_latest["observable"]();
 
-let monitoring_fetchData = () => {
-  fetchHTML(config["airDistrictStationDataURL"], airDistrictStationData);
-  fetchHTML(config["facilityGLMStationDataURL"], facilityGLMStationData);
-  fetchHTML(config["meteorologicalSiteDataURL"], meteorologicalSiteData);
+let monitoring_fetchData = rootURL => {
+  fetchHTML(rootURL + config["airDistrictStationDataURL"], airDistrictStationData);
+  fetchHTML(rootURL + config["facilityGLMStationDataURL"], facilityGLMStationData);
+  fetchHTML(rootURL + config["meteorologicalSiteDataURL"], meteorologicalSiteData);
   monitoring_fetchData = false;
 };
 
@@ -1146,7 +1146,8 @@ knockout_latest["components"].register('HistoricalDataPanel', {
 });
 /* harmony default export */ var monitoring = (knockout_latest["components"].register('Monitoring', {
   viewModel: function (params) {
-    if (monitoring_fetchData) monitoring_fetchData();
+    const rootUrl = params.rootURL || config["prodRoot"];
+    if (monitoring_fetchData) monitoring_fetchData(rootUrl);
     this.layers = {
       airMonitoring: {
         flag: knockout_latest["observable"](true),

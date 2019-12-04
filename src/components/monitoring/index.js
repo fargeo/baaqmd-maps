@@ -9,10 +9,10 @@ import fetchHTML from '../../utils/fetch-html';
 const airDistrictStationData = ko.observable();
 const facilityGLMStationData = ko.observable();
 const meteorologicalSiteData = ko.observable();
-let fetchData = () => {
-    fetchHTML(config.airDistrictStationDataURL, airDistrictStationData);
-    fetchHTML(config.facilityGLMStationDataURL, facilityGLMStationData);
-    fetchHTML(config.meteorologicalSiteDataURL, meteorologicalSiteData);
+let fetchData = (rootURL) => {
+    fetchHTML(rootURL + config.airDistrictStationDataURL, airDistrictStationData);
+    fetchHTML(rootURL + config.facilityGLMStationDataURL, facilityGLMStationData);
+    fetchHTML(rootURL + config.meteorologicalSiteDataURL, meteorologicalSiteData);
     fetchData = false;
 };
 
@@ -27,7 +27,8 @@ ko.components.register('HistoricalDataPanel', {
 
 export default ko.components.register('Monitoring', {
     viewModel: function(params) {
-        if (fetchData) fetchData();
+        const rootUrl = params.rootURL || config.prodRoot;
+        if (fetchData) fetchData(rootUrl);
         this.layers = {
             airMonitoring: {
                 flag: ko.observable(true),

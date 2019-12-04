@@ -80,9 +80,9 @@ let fetchData = (rootURL) => {
                 lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
             });
         });
-    fetchHTML(config.aqiInfoURL, aqiInfo);
-    fetchHTML(config.pollutantInfoURL, pollutantInfo);
-    fetchHTML(config.aboutForecastURL, aboutForecast);
+    fetchHTML(rootURL + config.aqiInfoURL, aqiInfo);
+    fetchHTML(rootURL + config.pollutantInfoURL, pollutantInfo);
+    fetchHTML(rootURL + config.aboutForecastURL, aboutForecast);
     fetchData = false;
 };
 
