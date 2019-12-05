@@ -7,14 +7,14 @@ import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
 import PrintControl from '../print-control';
 import HelpControl from '../help-control';
-let mapboxQuery = '?access_token=' + config.accessToken;
-mapboxQuery += process.env.NODE_ENV === 'production' ? '' : '&fresh=true';
+let mapboxQuery = process.env.NODE_ENV === 'production' ? '' : '&fresh=true';
 
 export default ko.components.register('map', {
     viewModel: function(params) {
         let duration;
         this.detailsExpanded = params.detailsExpanded || ko.observable(false);
-        this.accessToken = params.accessToken;
+        this.accessToken = params.accessToken || config.accessToken;
+        mapboxQuery = '?access_token=' + this.accessToken + mapboxQuery;
 
         this.style = config.apiURI + config.mapTypes[params.mapType()].style + mapboxQuery;
         this.customAttribution = '<a href="http://http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';

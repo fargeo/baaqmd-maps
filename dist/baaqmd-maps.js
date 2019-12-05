@@ -1497,13 +1497,13 @@ class help_control_HelpControl {
 
 
 
-let mapboxQuery = '?access_token=' + config["accessToken"];
-mapboxQuery +=  true ? '' : undefined;
+let mapboxQuery =  true ? '' : undefined;
 /* harmony default export */ var components_map = (knockout_latest["components"].register('map', {
   viewModel: function (params) {
     let duration;
     this.detailsExpanded = params.detailsExpanded || knockout_latest["observable"](false);
-    this.accessToken = params.accessToken;
+    this.accessToken = params.accessToken || config["accessToken"];
+    mapboxQuery = '?access_token=' + this.accessToken + mapboxQuery;
     this.style = config["apiURI"] + config["mapTypes"][params.mapType()].style + mapboxQuery;
     this.customAttribution = '<a href="http://http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
 
