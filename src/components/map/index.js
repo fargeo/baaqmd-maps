@@ -17,7 +17,7 @@ export default ko.components.register('map', {
         mapboxQuery = '?access_token=' + this.accessToken + mapboxQuery;
 
         this.style = config.apiURI + config.mapTypes[params.mapType()].style + mapboxQuery;
-        this.customAttribution = '<a href="http://http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
+        this.customAttribution = '<a href="http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
 
         this.setupMap = (map) => {
             const jumpToDistrict = () => {
