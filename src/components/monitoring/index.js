@@ -36,6 +36,12 @@ export default ko.components.register('Monitoring', {
                     'air-monitoring'
                 ]
             },
+            airMonitoringHistorical: {
+                flag: ko.observable(true),
+                names: [
+                    'air-monitoring-historical'
+                ]
+            },
             facilityGLMStations: {
                 flag: ko.observable(true),
                 names: [
@@ -66,6 +72,7 @@ export default ko.components.register('Monitoring', {
 
         this.popupLayers = [
             'air-monitoring',
+            'air-monitoring-historical',
             'facility-glm-stations',
             'meteorological-sites'
         ];
@@ -73,29 +80,10 @@ export default ko.components.register('Monitoring', {
         this.getPopupData = (feature) => {
             let siteType = '';
             let about = '';
-            const attributeList = [
-                ["Site ID", "StationID"],
-                ["Site Name", "Name"],
-                ["Start Date", "StartDate"],
-                ["End Date", "EndDate"],
-                ["Latitude", "Latitude"],
-                ["Longitude", "Longitude"],
-                ["Elevation", "Elevation"],
-                ["UTM East", "utmEast"],
-                ["UTM North", "utmNorth"],
-                ["Location", "location"],
-                ["Operator", "operator"],
-                ["Wind Height", "windHeight"],
-                ["County", "county"]
-            ].map((attr) => {
-                return {
-                    name: attr[0],
-                    value: feature.properties[attr[1]]
-                };
-            });
 
             switch (feature.layer.id) {
             case 'air-monitoring':
+            case 'air-monitoring-historical':
                 siteType = 'Air Monitoring';
                 about = airDistrictStationData;
                 break;
@@ -110,10 +98,9 @@ export default ko.components.register('Monitoring', {
             }
 
             return {
-                name: feature.properties.Name,
+                properties: feature.properties,
                 siteType: siteType,
                 about: about,
-                attributeList: attributeList,
                 showHistoricalSiteInfo: () => {
                     let url = config.historicalAirMonitoringDataURL + feature.properties.StationID;
                     fetchHTML(url, historicalData);
@@ -128,6 +115,7 @@ export default ko.components.register('Monitoring', {
             this.layers.counties.flag(false);
             this.layers.facilityGLMStations.flag(false);
             this.layers.meteorologicalSites.flag(false);
+            this.layers.airMonitoringHistorical.flag(false);
         };
 
         MapDetailsPanel.default.apply(this, [params]);

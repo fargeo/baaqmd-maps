@@ -1,25 +1,173 @@
 <div class="baaqmd-maps-popup">
     <div class="baaqmd-maps-popup-content">
+        <!-- ko if: siteType === 'Air Monitoring' -->
         <h3>
-            <i class="fas fa-users"></i>
-            <span data-bind="text: name"></span>
+            <i class="fas fa-broadcast-tower"></i>
+            <span data-bind="text: properties.Station_name"></span>
         </h3>
 
         <h4 data-bind="text: siteType"></h4>
         <table class="air-monitoring-table" style="margin-left: 5px;" >
           <tbody>
-            <!-- ko foreach: attributeList -->
-            <!-- ko if: value -->
             <tr>
-                <td class="air-monitoring-attribute-data-title" data-bind="text: name"></td>
-                <td class="air-monitoring-attribute-data" data-bind="text: value"></td>
+                <td class="air-monitoring-attribute-data-title">Site ID</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.BAAQMD_Station_no_"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Address</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Address"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">City</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.City"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Zip Code</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Zip_code"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Start Date</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: new Date(properties.Station_start_date).toLocaleDateString()"></td>
+            </tr>
+            <!-- ko if: properties.Station_end_date -->
+            <tr>
+                <td class="air-monitoring-attribute-data-title">End Date</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: new Date(properties.Station_end_date).toLocaleDateString()"></td>
             </tr>
             <!-- /ko -->
+            <tr>
+                <td class="air-monitoring-attribute-data-title">UTM East</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.UTM_East"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">UTM North</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.UTM_North"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Latitude</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Latitude"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Longitude</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Longitude"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Elevation (m)</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Elevation_above_sea_level__m_"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Sensors</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Parameter_monitored"></td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- /ko -->
+
+        <!-- ko if: siteType === 'Facility GLM Stations' -->
+
+        <h3>
+            <i class="fas fa-broadcast-tower"></i>
+            <span data-bind="text: properties.Name"></span>
+        </h3>
+
+        <h4 data-bind="text: siteType"></h4>
+        <table class="air-monitoring-table" style="margin-left: 5px;" >
+          <tbody>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Site ID</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.StationID"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Latitude</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Latitude"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Longitude</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Longitude"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Elevation</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Elevation"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">County</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.County"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Sensors</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Parameters"></td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- /ko -->
+
+
+        <!-- ko if: siteType === 'Meteorological Sites' -->
+        <h3>
+            <i class="fas fa-broadcast-tower"></i>
+            <span data-bind="text: properties.Site_Name"></span>
+        </h3>
+
+        <h4 data-bind="text: siteType"></h4>
+        <table class="air-monitoring-table" style="margin-left: 5px;" >
+          <tbody>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Site ID</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Site_ID"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Start Date</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: new Date(properties.Start_Date).toLocaleDateString()"></td>
+            </tr>
+            <!-- ko if: properties.End_Date -->
+            <tr>
+                <td class="air-monitoring-attribute-data-title">End Date</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: new Date(properties.End_Date).toLocaleDateString()"></td>
+            </tr>
             <!-- /ko -->
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Operator</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Operator"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Latitude</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Latitude__DMS_"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Longitude</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Longitude__DMS_"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">UTM East</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.UTM_East__2017_"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">UTM North</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.UTM_North__2017_"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Elevation (m)</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Elevation_in__Meter"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Wind Height (m)</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.WindHeight_in_meters"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Location</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Location"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">County</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.County"></td>
+            </tr>
+            <tr>
+                <td class="air-monitoring-attribute-data-title">Sensors</td>
+                <td class="air-monitoring-attribute-data" data-bind="text: properties.Sensors"></td>
+            </tr>
             </tbody>
         </table>
 
-        <!-- ko if: siteType === 'Meteorological Sites' -->
         <div class="baaqmd-maps-details-links">
             <a href="javascript: void(0);" class="information-link" data-bind="click: showHistoricalSiteInfo">
                 <i class="fas fa-wind"></i>
