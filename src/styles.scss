@@ -239,24 +239,26 @@ $no-color: #b10318;
         }
 
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 0.9rem;
         background-image: none !important;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:focus {
+    .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:hover, .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:focus {
         font-size: 1.1rem;
         box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+    .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 0.9rem;
         background-image: none !important;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:before {
-      content: "\e90f";
+    .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon:before {
+        display: inline-block;
+        padding-top: 7px;
+        content: "\e90f";
     }
-    .mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:focus {
+    .baaqmd-maps-print-button:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-zoom-in:focus .mapboxgl-ctrl-icon {
         font-size: 1.3rem;
     }
     .mapboxgl-ctrl-icon.baaqmd-maps-print-button:before {
@@ -271,35 +273,35 @@ $no-color: #b10318;
     .mapboxgl-ctrl-icon.baaqmd-maps-help-button:before {
       content: "\e906";
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:focus {
-        font-size: 1.1rem;
+    .mapboxgl-ctrl-zoom-out:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-zoom-out:focus .mapboxgl-ctrl-icon {
+        // font-size: 1.1rem;
         box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass > .mapboxgl-ctrl-compass-arrow {
+    .mapboxgl-ctrl button.mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 1.3rem;
         margin: 0;
         text-align: center;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass > .mapboxgl-ctrl-compass-arrow:before {
+    .mapboxgl-ctrl-compass .mapboxgl-ctrl-icon:before {
         margin-top:-2px;
         content: "\e90e";
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:focus {
+    .mapboxgl-ctrl-compass:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-compass:focus .mapboxgl-ctrl-icon {
         box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:hover > .mapboxgl-ctrl-compass-arrow, .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:focus > .mapboxgl-ctrl-compass-arrow {
+    .mapboxgl-ctrl-compass:hover .mapboxgl-ctrl-icon > .mapboxgl-ctrl-compass-arrow, .mapboxgl-ctrl-compass:focus .mapboxgl-ctrl-icon > .mapboxgl-ctrl-compass-arrow {
         font-size: 1.5rem;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate {
+    .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 1.3rem;
         line-height: 1.8rem;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate::before {
+    .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon::before {
         background-image: none;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:focus  {
+    .mapboxgl-ctrl-geolocate:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-geolocate:focus .mapboxgl-ctrl-icon {
         font-size: 1.4rem;
         box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
     }
@@ -324,34 +326,43 @@ $no-color: #b10318;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    .mapboxgl-ctrl button .mapboxgl-ctrl-icon:before {
+    }
+    .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 0.9rem;
         background-image: none !important;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:before {
+    .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon, .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+
+    }
+    .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:before {
+        display: inline-block;
+        padding-top: 7px;
         content: "\e900";
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:focus {
+    .mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-zoom-in:focus {
         font-size: 1.1rem;
         box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+    .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 0.9rem;
         background-image: none !important;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:focus {
-        font-size: 1.1rem;
-        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    .mapboxgl-ctrl-zoom-out:hover .mapboxgl-ctrl-icon:before, .mapboxgl-ctrl-zoom-out:focus .mapboxgl-ctrl-icon:before,
+    .mapboxgl-ctrl-zoom-in:hover .mapboxgl-ctrl-icon:before, .mapboxgl-ctrl-zoom-in:focus .mapboxgl-ctrl-icon:before {
+        // font-size: 1.1rem;
+        // padding-top: 6px;
+        // box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass > .mapboxgl-ctrl-compass-arrow {
+    .mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 1.3rem;
         line-height: 1.5rem;
         margin: 0;
         text-align: center;
-        width: 24px;
+        width: 29px;
         height: 24px;
     }
     .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:focus {
@@ -360,27 +371,32 @@ $no-color: #b10318;
     .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:hover > .mapboxgl-ctrl-compass-arrow, .mapboxgl-ctrl-icon.mapboxgl-ctrl-compass:focus > .mapboxgl-ctrl-compass-arrow {
         font-size: 1.5rem;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate {
+    .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon{
         background-image: none;
         font-size: 1.1rem;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:before {
+    .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon::before{
         content: "\e903";
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:hover, .mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate:focus  {
+    .mapboxgl-ctrl-geolocate:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-geolocate:focus .mapboxgl-ctrl-icon {
         font-size: 1.4rem;
         box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-fullscreen, .mapboxgl-ctrl-icon.mapboxgl-ctrl-shrink {
+    .mapboxgl-ctrl button.mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon, .mapboxgl-ctrl button.mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon{
+        background-image: none;
         font-size: 1.3rem;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-fullscreen:hover , .mapboxgl-ctrl-icon.mapboxgl-ctrl-shrink:hover {
+    .mapboxgl-ctrl-fullscreen:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-shrink:hover .mapboxgl-ctrl-icon{
         font-size: 1.6rem;
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-fullscreen:before {
+    .mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon:before {
+        padding-top: 4px;
+        display: inline-block;
         content: "\e905";
     }
-    .mapboxgl-ctrl-icon.mapboxgl-ctrl-shrink:before {
+    .mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon:before {
+        padding-top: 4px;
+        display: inline-block;
         content: "\e916";
     }
     .baaqmd-maps-details-panel-wrapper {
