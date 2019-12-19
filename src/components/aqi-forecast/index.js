@@ -13,7 +13,7 @@ const parser = new DOMParser();
 const aqiInfo = ko.observable();
 const pollutantInfo = ko.observable();
 const aboutForecast = ko.observable();
-let alertStatus;
+const alertStatus = ko.observable();
 let fetchData = (rootURL) => {
     fetch(rootURL + config.spaRSSFeed, {cache: "no-store"})
         .then((response) => {
@@ -21,7 +21,7 @@ let fetchData = (rootURL) => {
         })
         .then((text) => {
             const xmlDoc = parser.parseFromString(text, 'application/xml');
-            alertStatus = xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert";
+            alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert");
             return fetch(rootURL + config.aqiRSSFeed, {cache: "no-store"});
         })
         .then((response) => {
@@ -134,6 +134,7 @@ export default ko.components.register('AQIForecast', {
             'Santa Clara Valley'
         ];
         this.aqiData = aqiData;
+        this.alertStatus = alertStatus;
         this.day = ko.observable();
         this.layers = {
             aqi: {
@@ -201,7 +202,7 @@ export default ko.components.register('AQIForecast', {
                 });
             }
 
-            if (alertStatus) {
+            if (alertStatus()) {
                 map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', 1);
             }
             this.layers.counties.flag(false);

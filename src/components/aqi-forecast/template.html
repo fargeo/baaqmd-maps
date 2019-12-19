@@ -1,3 +1,21 @@
+<!-- ko if: !alertStatus() -->
+<div class="spare-air-alert">
+      <div class="spare-logo">
+                <div class="spare-icon icon-SpareAirWinterHoriz"></div>
+                <div class="spare-icon icon-AlertTextHoriz"></div>
+      </div>
+      <div class="clear"></div>
+      <div class="spare-title">Spare the Air Alert in Effect</div>
+      <div class="no-burn-area">
+                <div class="no-burn-icon icon-NoBurn"></div>
+                <div class="no-burn-text">No Wood Burning</div>
+      </div>
+      <div class="clear"></div>
+      <div class="spare-date">
+          <span data-bind="text: new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric' }).format(new Date())"></span>
+      </div>
+</div>
+<!-- /ko -->
 <h3>
     <i class="fas fa-wind"></i>
     Air Quality Forecast
