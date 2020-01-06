@@ -906,10 +906,13 @@ $no-color: #b10318;
             }
         }
     }
-    .air-monitoring{
+    .air-monitoring {
         i:before {
             background-color: #10649F;
         }
+    }
+    li.closed-sites {
+        padding-left: 30px;
     }
     .facility-glm-stations{
         i:before {

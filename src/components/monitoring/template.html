@@ -4,50 +4,86 @@
 </h3>
 <ul class="baaqmd-maps-legend baaqmd-maps-boundaries air-quality">
     <li class="air-monitoring">
-        <input type="checkbox" data-bind="checked: layers.airMonitoring.flag">
-        <svg  class="air-monitoring-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
-          <title>square-15.svg</title>
-          <rect fill="none" x="0" y="0" width="21" height="21"></rect>
-          <path fill="#ffffff" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff"
-            stroke-width="2"></path>
-          <path fill="#10649f" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"></path>
-        </svg>
-        Air Monitoring
+        <input type="checkbox" data-bind="checked: layers.airMonitoring.flag" id="air-monitoring-toggle">
+        <label for="air-monitoring-toggle">
+            <svg class="air-monitoring-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+              <title>square-15.svg</title>
+              <rect fill="none" x="0" y="0" width="21" height="21"></rect>
+              <path fill="#ffffff" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff"
+                stroke-width="2"></path>
+              <path fill="#10649f" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"></path>
+            </svg>
+            Air Monitoring
+        </label>
     </li>
-    <li class="air-monitoring">
-        <input type="checkbox" data-bind="checked: layers.airMonitoringHistorical.flag">
-        <svg  class="air-monitoring-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
-          <title>square-15.svg</title>
-          <rect fill="none" x="0" y="0" width="21" height="21"></rect>
-          <path fill="#ffffff" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff"
-            stroke-width="2"></path>
-          <path fill="#10649f" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"></path>
-        </svg>
-        Air Monitoring (retired)
+    <li class="air-monitoring closed-sites">
+        <input type="checkbox" data-bind="checked: layers.airMonitoringHistorical.flag" id="air-monitoring-historical-toggle">
+        <label for="air-monitoring-historical-toggle">
+            <svg class="air-monitoring-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+              <title>square-15.svg</title>
+              <rect fill="none" x="0" y="0" width="21" height="21"></rect>
+              <path fill="#ffffff" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff"
+                stroke-width="2"></path>
+              <path fill="#10649f" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"></path>
+            </svg>
+            Closed
+        </label>
     </li>
     <li class="facility-glm-stations">
-        <input type="checkbox" data-bind="checked: layers.facilityGLMStations.flag">
-        <svg class="facility-glm-stations-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
-          <title>circle-15.svg</title>
-          <rect fill="none" x="0" y="0" width="21" height="21"></rect>
-          <path fill="#ffffff" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
-          <path fill="#068a47" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z"></path>
-        </svg>
-        Facility GLM Stations
+        <input type="checkbox" data-bind="checked: layers.facilityGLMStations.flag" id="facility-glm-stations">
+        <label for="facility-glm-stations">
+            <svg class="facility-glm-stations-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+              <title>circle-15.svg</title>
+              <rect fill="none" x="0" y="0" width="21" height="21"></rect>
+              <path fill="#ffffff" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
+              <path fill="#068a47" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z"></path>
+            </svg>
+            Facility GLM Stations
+        </label>
+    </li>
+    <li class="facility-glm-stations closed-sites">
+        <input type="checkbox" disabled id="facility-glm-stations closed-sites">
+        <label for="facility-glm-stations closed-sites">
+            <svg class="facility-glm-stations-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+              <title>circle-15.svg</title>
+              <rect fill="none" x="0" y="0" width="21" height="21"></rect>
+              <path fill="#ffffff" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
+              <path fill="#068a47" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z"></path>
+            </svg>
+            Closed
+        </label>
     </li>
     <li class="meteorological-sites">
-        <input type="checkbox" data-bind="checked: layers.meteorologicalSites.flag">
-        <svg class="meteorological-sites-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
-        	<title>triangle-15.svg</title>
-        	<rect fill="none" x="0" y="0" width="21" height="21"></rect>
-        	<path fill="#ffffff" transform="translate(3 3)" d="M7.5385,2
-        	C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
-        	C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
-        	<path fill="#d28f60" transform="translate(3 3)" d="M7.5385,2
-        	C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
-        	C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z"></path>
-        </svg>
-        Meteorological Sites
+        <input type="checkbox" data-bind="checked: layers.meteorologicalSites.flag" id="meteorological-sites">
+        <label for="meteorological-sites">
+            <svg class="meteorological-sites-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+            	<title>triangle-15.svg</title>
+            	<rect fill="none" x="0" y="0" width="21" height="21"></rect>
+            	<path fill="#ffffff" transform="translate(3 3)" d="M7.5385,2
+            	C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
+            	C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
+            	<path fill="#d28f60" transform="translate(3 3)" d="M7.5385,2
+            	C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
+            	C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z"></path>
+            </svg>
+            Meteorological Sites
+        </label>
+    </li>
+    <li class="meteorological-sites closed-sites">
+        <input type="checkbox" data-bind="checked: layers.meteorologicalSitesHistorical.flag" id="meteorological-sites closed-sites">
+        <label for="meteorological-sites closed-sites">
+            <svg class="meteorological-sites-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+            	<title>triangle-15.svg</title>
+            	<rect fill="none" x="0" y="0" width="21" height="21"></rect>
+            	<path fill="#ffffff" transform="translate(3 3)" d="M7.5385,2
+            	C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
+            	C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
+            	<path fill="#d28f60" transform="translate(3 3)" d="M7.5385,2
+            	C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
+            	C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z"></path>
+            </svg>
+            Closed
+        </label>
     </li>
 </ul>
 <h3>

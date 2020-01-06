@@ -54,6 +54,12 @@ export default ko.components.register('Monitoring', {
                     'meteorological-sites'
                 ]
             },
+            meteorologicalSitesHistorical: {
+                flag: ko.observable(true),
+                names: [
+                    'meteorological-sites-historical'
+                ]
+            },
             district: {
                 flag: ko.observable(true),
                 names: [
@@ -74,7 +80,8 @@ export default ko.components.register('Monitoring', {
             'air-monitoring',
             'air-monitoring-historical',
             'facility-glm-stations',
-            'meteorological-sites'
+            'meteorological-sites',
+            'meteorological-sites-historical'
         ];
 
         this.getPopupData = (feature) => {
@@ -92,6 +99,7 @@ export default ko.components.register('Monitoring', {
                 about = facilityGLMStationData;
                 break;
             case 'meteorological-sites':
+            case 'meteorological-sites-historical':
                 siteType = 'Meteorological Sites';
                 about = meteorologicalSiteData;
                 break;
@@ -116,6 +124,7 @@ export default ko.components.register('Monitoring', {
             this.layers.facilityGLMStations.flag(false);
             this.layers.meteorologicalSites.flag(false);
             this.layers.airMonitoringHistorical.flag(false);
+            this.layers.meteorologicalSitesHistorical.flag(false);
         };
 
         MapDetailsPanel.default.apply(this, [params]);
