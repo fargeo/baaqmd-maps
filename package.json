@@ -10,6 +10,7 @@
     "gen-points": "node scripts/gen-points.js",
     "facilities": "node scripts/facilities.js",
     "tiles": "node scripts/tiles.js",
+    "docs": "node scripts/docs.js",
     "build": "webpack --config webpack.prod.js"
   },
   "devDependencies": {

@@ -3,6 +3,7 @@ import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import * as config from '../../config.json';
+import * as siteDocs from '../../../data/sites/docs.json';
 import * as historicalSiteInfoTemplate from './historical-site-info.html';
 import fetchHTML from '../../utils/fetch-html';
 
@@ -21,6 +22,8 @@ ko.components.register('HistoricalDataPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
         this.historicalData = historicalData;
+        this.historicalDocRootURL = config.historicalDocRootURL;
+        this.docTypes = ['ascii', '300', '600'];
     },
     template: historicalSiteInfoTemplate
 });
@@ -85,6 +88,7 @@ export default ko.components.register('Monitoring', {
         ];
 
         this.getPopupData = (feature) => {
+            const docData = siteDocs.default[feature.properties.Site_ID+''];
             let siteType = '';
             let about = '';
 
@@ -109,9 +113,14 @@ export default ko.components.register('Monitoring', {
                 properties: feature.properties,
                 siteType: siteType,
                 about: about,
+                historicalData: docData,
                 showHistoricalSiteInfo: () => {
-                    let url = config.historicalAirMonitoringDataURL + feature.properties.StationID;
-                    fetchHTML(url, historicalData);
+                    historicalData(
+                        Object.keys(docData).map((year) => {
+                            docData[year].year = year;
+                            return docData[year];
+                        })
+                    );
                     this.showInfoPanel('HistoricalDataPanel');
                 }
             };

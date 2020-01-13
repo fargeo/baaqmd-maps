@@ -1,6 +1,41 @@
+<!--ko let: {
+    historicalDocRootURL: historicalDocRootURL,
+    docTypes: docTypes
+}-->
 <h3 class="modal-title">
     <i class="fas fa-info-circle"></i>
     BAAQMD Meteorological Site
 </h3>
 <hr>
-<div data-bind="html: historicalData"></div>
+<div>
+    <table class="historical-site-data">
+        <thead>
+        <tr>
+            <th>Year</th>
+            <th>ASCII</th>
+            <th>ISCST3 300m mixing height</th>
+            <th>ISCST3 600m mixing height</th>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- ko foreach: historicalData -->
+            <tr>
+                <td data-bind="text: year"></td>
+                <!-- ko foreach: docTypes -->
+                <td>
+                    <!-- ko if: $parent[$data] -->
+                        <a download data-bind="attr: {
+                            href: historicalDocRootURL + $parent[$data]
+                        }, text: $parent[$data]"></a>
+                    <!-- /ko -->
+                    <!-- ko if: !$parent[$data] -->
+                        <span>N/A</span>
+                    <!-- /ko -->
+                </td>
+                <!-- /ko -->
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+</div>
+<!--/ko-->
