@@ -2,9 +2,19 @@ import * as ko from 'knockout';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
+import * as config from '../../config.json';
+import fetchHTML from '../../utils/fetch-html';
+
+const aboutFacilities = ko.observable();
+let fetchData = (rootURL) => {
+    fetchHTML(rootURL + config.aboutFacilitiesURL, aboutFacilities);
+    fetchData = false;
+};
 
 export default ko.components.register('Facilities', {
     viewModel: function(params) {
+        const rootUrl = params.rootURL || config.prodRoot;
+        if (fetchData) fetchData(rootUrl);
 
         this.layers = {
             facilities: {
@@ -70,6 +80,7 @@ export default ko.components.register('Facilities', {
                 return {
                     name: data.FacilityName,
                     attributeList: attributeList,
+                    aboutFacilities: aboutFacilities
                 };
             }
         };

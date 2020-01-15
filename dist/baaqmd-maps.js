@@ -246,7 +246,7 @@ a+" })()) }}"};this.addTemplate=function(a,b){w.write("<script type='text/html' 
 /* 1 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"prodRoot\":\"http://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"Feeds/AlertRSS\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalDocRootURL\":\"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb\",\"label\":\"Open Burning Map\"}}}");
+module.exports = JSON.parse("{\"prodRoot\":\"http://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Files/Feeds/aqi_rss.xml\",\"spaRSSFeed\":\"Feeds/AlertRSS\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"openBurnStatusInfoURL\":\"Utils/Interactive-Map-Content/OBS-Info\",\"aboutImpactedCommunitiesURL\":\"Utils/Interactive-Map-Content/CARE-Info\",\"aboutFacilitiesURL\":\"Utils/Interactive-Map-Content/About-Facility\",\"summerModalURL\":\"Utils/Interactive-Map-Content/Summer-Modal-Content\",\"winterModalURL\":\"Utils/Interactive-Map-Content/Winter-Modal-Content\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalDocRootURL\":\"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"http://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb\",\"label\":\"Open Burning Map\"}}}");
 
 /***/ }),
 /* 2 */
@@ -345,7 +345,7 @@ module.exports = "<h3>\n    <i class=\"fas fa-city\"></i>\n    Facilities\n</h3>
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n        <table class=\"air-monitoring-table\" style=\"margin-left: 5px;\" >\n          <tbody>\n            <!-- ko foreach: attributeList -->\n            <!-- ko if: name && value !== undefined -->\n            <tr>\n                <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: name\"></td>\n                <td class=\"air-monitoring-attribute-data\" data-bind=\"text: value\"></td>\n            </tr>\n            <!-- /ko -->\n            <!-- /ko -->\n            <tr>\n              <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: 'State'\"></td>\n              <td class=\"air-monitoring-attribute-data\" data-bind=\"text: 'CA'\"></td>\n            </tr>\n\n            </tbody>\n        </table>\n        <br>\n        <h3>About Facilities</h3>\n\n        <p>The Air District maintains a database of regulated facilities for permitting, modeling and enforcement purposes. The map indicates the locations of individual facilities and provides information about the number of on-site sources and emissions.</p>\n\n\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/?sc_itemid=0A31D9A8-3EBD-4AAF-AE18-BFDF6DE89D91\">View More Information</a></p>\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/about-air-quality/current-air-quality/air-monitoring-data/?DataView=met#/aqi?id=59&date=2019-09-16&view=hourly\">Real Time Air Quality Data (AQI View)</a></p>\n        <p><a target=\"_blank\" href=\"http://www.baaqmd.gov/?sc_itemid=6D304B53-C019-4FE4-8E1A-9930F2F20A0C\">Title V Permits</a></p>\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n        <table class=\"air-monitoring-table\" style=\"margin-left: 5px;\" >\n          <tbody>\n            <!-- ko foreach: attributeList -->\n            <!-- ko if: name && value !== undefined -->\n            <tr>\n                <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: name\"></td>\n                <td class=\"air-monitoring-attribute-data\" data-bind=\"text: value\"></td>\n            </tr>\n            <!-- /ko -->\n            <!-- /ko -->\n            <tr>\n              <td class=\"air-monitoring-attribute-data-title\" data-bind=\"text: 'State'\"></td>\n              <td class=\"air-monitoring-attribute-data\" data-bind=\"text: 'CA'\"></td>\n            </tr>\n\n            </tbody>\n        </table>\n        <br>\n        <h3>About Facilities</h3>\n\n        <div data-bind=\"html: aboutFacilities\"></div>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 12 */
@@ -357,7 +357,7 @@ module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Impacted Communi
 /* 13 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <i class=\"fas fa-users\"></i>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n\n        <h4 data-bind=\"text: area\"></h4>\n\n        <p data-bind=\"text: description\"></p>\n\n        <h4>About Impacted Communities</h4>\n\n        <p>The Community Air Risk Evaluation (CARE) program identifies areas with high concentrations of air pollution and populations most vulnerable to air pollution's health impacts. The maps, along with information about pollutants and their sources that lead to the impacts, help prioritize a broad array of actions designed to foster healthy communities via the Clean Air Communities Initiative.</p>\n\n        <a target=\"_blank\" href=\"http://www.baaqmd.gov/care\">Community Air Risk Evaluation Program</a>\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <i class=\"fas fa-users\"></i>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n\n        <h4 data-bind=\"text: area\"></h4>\n\n        <p data-bind=\"text: description\"></p>\n\n        <h4>About Impacted Communities</h4>\n\n        <div data-bind=\"html: aboutImpactedCommunities\"></div>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 14 */
@@ -399,7 +399,7 @@ module.exports = "<h3>\n    <i class=\"fas fa-fire\"></i>\n    Open Burn Status\
 /* 20 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n        <div class=\"baaqmd-maps-last-updated\">\n            Last Updated:\n            <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(lastUpdated)\"></span>,\n            <span data-bind=\"text: lastUpdated.toLocaleDateString()\"></span>\n            at\n            <span data-bind=\"text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n        </div>\n\n        <table class=\"baaqmd-maps-zone-forecast\">\n            <thead>\n                <tr>\n                    <th>&nbsp;</th>\n                    <th class=\"baaqmd-maps-no-link\">Status</th>\n                </tr>\n            </thead>\n            <tbody>\n                <!-- ko foreach: openBurnData -->\n                <tr>\n                    <th data-bind=\"css: {\n                        active: $index() === $parent.day()\n                    }\" class=\"baaqmd-maps-zone-forecast-date\">\n                        <a href=\"#\" data-bind=\"click: function() {\n                            $parent.day($index());\n                        }, text: date.toLocaleDateString('en-US',{day: '2-digit', month: '2-digit'})\"></a>\n                    </th>\n                    <td>\n                        <span class=\"baaqmd-maps-zone-forecast-zone-item\" data-bind=\"\n                            text: statusLabel,\n                            css: status\n                            \"></span>\n                    </td>\n                </tr>\n                <!-- /ko -->\n            </tbody>\n        </table>\n        <br>\n        <h3>About Open Burning</h3>\n\n        <p>Open burning is the disposal of any waste material in an open, outdoor fire. Smoke from open burning contains very fine particles, gases, and other toxic chemicals that can be inhaled deeply into the lungs.</p>\n        <p>To minimize its adverse smoke impacts on public health, open burning is generally prohibited in the Bay Area - with the exception of 17 types of fires that are regulated under the Air District's Open Burning Regulation 5. Certain fires for agricultural purposes, flood control, fire training and the prevention of fire hazards, among other purposes, are allowed when weather conditions are favorable for dispersal and dilution of smoke. Many of these fires are only allowed during specified periods - or burn seasons - throughout the year.</p>\n\n        <a target=\"_blank\" href=\"http://www.baaqmd.gov/openburn\">Additional Information</a>\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <span data-bind=\"text: name\"></span>\n        </h3>\n        <div class=\"baaqmd-maps-last-updated\">\n            Last Updated:\n            <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(lastUpdated)\"></span>,\n            <span data-bind=\"text: lastUpdated.toLocaleDateString()\"></span>\n            at\n            <span data-bind=\"text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n        </div>\n\n        <table class=\"baaqmd-maps-zone-forecast\">\n            <thead>\n                <tr>\n                    <th>&nbsp;</th>\n                    <th class=\"baaqmd-maps-no-link\">Status</th>\n                </tr>\n            </thead>\n            <tbody>\n                <!-- ko foreach: openBurnData -->\n                <tr>\n                    <th data-bind=\"css: {\n                        active: $index() === $parent.day()\n                    }\" class=\"baaqmd-maps-zone-forecast-date\">\n                        <a href=\"#\" data-bind=\"click: function() {\n                            $parent.day($index());\n                        }, text: date.toLocaleDateString('en-US',{day: '2-digit', month: '2-digit'})\"></a>\n                    </th>\n                    <td>\n                        <span class=\"baaqmd-maps-zone-forecast-zone-item\" data-bind=\"\n                            text: statusLabel,\n                            css: status\n                            \"></span>\n                    </td>\n                </tr>\n                <!-- /ko -->\n            </tbody>\n        </table>\n        <br>\n        <h3>About Open Burning</h3>\n\n        <div data-bind=\"html: openBurnStatusInfo\"></div>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 21 */
@@ -987,8 +987,19 @@ var facilities_popup = __webpack_require__(11);
 
 
 
+
+
+const aboutFacilities = knockout_latest["observable"]();
+
+let facilities_fetchData = rootURL => {
+  fetchHTML(rootURL + config["aboutFacilitiesURL"], aboutFacilities);
+  facilities_fetchData = false;
+};
+
 /* harmony default export */ var facilities = (knockout_latest["components"].register('Facilities', {
   viewModel: function (params) {
+    const rootUrl = params.rootURL || config["prodRoot"];
+    if (facilities_fetchData) facilities_fetchData(rootUrl);
     this.layers = {
       facilities: {
         flag: knockout_latest["observable"](true),
@@ -1022,7 +1033,8 @@ var facilities_popup = __webpack_require__(11);
         });
         return {
           name: data.FacilityName,
-          attributeList: attributeList
+          attributeList: attributeList,
+          aboutFacilities: aboutFacilities
         };
       }
     };
@@ -1052,14 +1064,26 @@ var impacted_communities_info_panel = __webpack_require__(14);
 
 
 
+
+
+const aboutImpactedCommunities = knockout_latest["observable"]();
+
+let impacted_communities_fetchData = rootURL => {
+  fetchHTML(rootURL + config["aboutImpactedCommunitiesURL"], aboutImpactedCommunities);
+  impacted_communities_fetchData = false;
+};
+
 knockout_latest["components"].register('ImpactedCommunitiesInfoPanel', {
   viewModel: function (params) {
     this.showInfoPanel = params.showInfoPanel;
+    this.aboutImpactedCommunities = params.aboutImpactedCommunities;
   },
   template: impacted_communities_info_panel
 });
 /* harmony default export */ var impacted_communities = (knockout_latest["components"].register('ImpactedCommunities', {
   viewModel: function (params) {
+    const rootUrl = params.rootURL || config["prodRoot"];
+    if (impacted_communities_fetchData) impacted_communities_fetchData(rootUrl);
     this.layers = {
       impacted: {
         flag: knockout_latest["observable"](true),
@@ -1108,7 +1132,8 @@ knockout_latest["components"].register('ImpactedCommunitiesInfoPanel', {
       return {
         name: feature.properties.Name,
         area: area,
-        description: description
+        description: description,
+        aboutImpactedCommunities: aboutImpactedCommunities
       };
     };
 
@@ -1269,6 +1294,7 @@ var open_burning_info_panel = __webpack_require__(21);
 
 
 
+
 knockout_latest["components"].register('OpenBurnInfoPanel', {
   viewModel: function (params) {
     this.showInfoPanel = params.showInfoPanel;
@@ -1277,6 +1303,7 @@ knockout_latest["components"].register('OpenBurnInfoPanel', {
 });
 const open_burning_parser = new DOMParser();
 const openBurnData = knockout_latest["observable"]();
+const openBurnStatusInfo = knockout_latest["observable"]();
 
 let open_burning_fetchData = rootURL => {
   fetch(rootURL + config["openBurnRSSFeed"], {
@@ -1319,6 +1346,7 @@ let open_burning_fetchData = rootURL => {
       lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
     });
   });
+  fetchHTML(rootURL + config["openBurnStatusInfoURL"], openBurnStatusInfo);
   open_burning_fetchData = false;
 };
 
@@ -1347,7 +1375,8 @@ let open_burning_fetchData = rootURL => {
         name: feature.properties.section,
         lastUpdated: openBurnData.lastUpdated,
         openBurnData: openBurnData.sections[feature.properties.section],
-        day: this.day
+        day: this.day,
+        openBurnStatusInfo: openBurnStatusInfo
       };
     };
 

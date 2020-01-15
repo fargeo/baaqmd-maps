@@ -1,18 +1,29 @@
 import * as ko from 'knockout';
+import * as config from '../../config.json';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
+import fetchHTML from '../../utils/fetch-html';
+
+const aboutImpactedCommunities = ko.observable();
+let fetchData = (rootURL) => {
+    fetchHTML(rootURL + config.aboutImpactedCommunitiesURL, aboutImpactedCommunities);
+    fetchData = false;
+};
 
 ko.components.register('ImpactedCommunitiesInfoPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
+        this.aboutImpactedCommunities = params.aboutImpactedCommunities;
     },
     template: infoPanelTemplate
 });
 
 export default ko.components.register('ImpactedCommunities', {
     viewModel: function(params) {
+        const rootUrl = params.rootURL || config.prodRoot;
+        if (fetchData) fetchData(rootUrl);
         this.layers = {
             impacted: {
                 flag: ko.observable(true),
@@ -75,7 +86,8 @@ export default ko.components.register('ImpactedCommunities', {
             return {
                 name: feature.properties.Name,
                 area: area,
-                description: description
+                description: description,
+                aboutImpactedCommunities: aboutImpactedCommunities
             };
         };
 

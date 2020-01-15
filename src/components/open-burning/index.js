@@ -4,6 +4,7 @@ import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
+import fetchHTML from '../../utils/fetch-html';
 
 ko.components.register('OpenBurnInfoPanel', {
     viewModel: function(params) {
@@ -14,6 +15,7 @@ ko.components.register('OpenBurnInfoPanel', {
 
 const parser = new DOMParser();
 const openBurnData = ko.observable();
+const openBurnStatusInfo = ko.observable();
 let fetchData = (rootURL) => {
     fetch(rootURL + config.openBurnRSSFeed, {cache: "no-store"})
         .then((response) => {
@@ -59,6 +61,7 @@ let fetchData = (rootURL) => {
                 lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
             });
         });
+    fetchHTML(rootURL + config.openBurnStatusInfoURL, openBurnStatusInfo);
     fetchData = false;
 };
 
@@ -96,7 +99,8 @@ export default ko.components.register('OpenBurning', {
                 name: feature.properties.section,
                 lastUpdated: openBurnData.lastUpdated,
                 openBurnData: openBurnData.sections[feature.properties.section],
-                day: this.day
+                day: this.day,
+                openBurnStatusInfo: openBurnStatusInfo
             };
         };
         this.popupTemplate = popupTemplate;
