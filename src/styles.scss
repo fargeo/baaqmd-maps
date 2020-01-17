@@ -912,11 +912,16 @@ $no-color: #b10318;
         }
     }
     li.closed-sites {
-        padding-left: 30px;
+        padding-left: 37px;
     }
     .facility-glm-stations{
         i:before {
             background-color: #068A47;
+        }
+    }
+    li.closed-sites.facility-glm-stations{
+        label {
+            color: #9a9a9a;
         }
     }
     .meteorological-sites{
