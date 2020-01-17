@@ -10,7 +10,7 @@
     "facilitiesJSONPath": "./data/facilities/facilities.json",
     "apiURI": "https://api.mapbox.com/styles/v1/",
     "aqiRSSFeed": "Files/Feeds/aqi_rss.xml",
-    "spaRSSFeed": "Feeds/AlertRSS",
+    "spaRSSFeed": "Feeds/TwoDayMapAlertRSS",
     "openBurnRSSFeed": "Feeds/OpenBurnRSS",
     "aqiInfoURL": "Utils/Interactive-Map-Content/AQI",
     "aboutForecastURL": "Utils/Interactive-Map-Content/About-Forecast",
