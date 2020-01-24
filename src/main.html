@@ -1,17 +1,16 @@
 <div class="baaqmd-maps-main">
-    <!-- ko if: detailsActive -->
-        <!-- ko component: {
-            name: "details-panel",
-            params: {
-                expanded: detailsExpanded,
-                mapType: mapType,
-                map: map,
-                enableMapTypeSelector: enableMapTypeSelector,
-                showInfoPanel: showInfoPanel,
-                rootURL: rootURL
-            }
-        } -->
-        <!-- /ko -->
+    <!-- ko component: {
+        name: "details-panel",
+        params: {
+            expanded: detailsExpanded,
+            mapType: mapType,
+            map: map,
+            enableMapTypeSelector: enableMapTypeSelector,
+            showInfoPanel: showInfoPanel,
+            rootURL: rootURL,
+            detailsActive: detailsActive
+        }
+    } -->
     <!-- /ko -->
     <div class="baaqmd-maps-scroll-mask" data-bind="visible: scrolling" style="display: none;">
         <h3 class="baaqmd-maps-scroll-mask-message">

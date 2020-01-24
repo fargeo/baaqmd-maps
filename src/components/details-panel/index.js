@@ -8,6 +8,7 @@ export default ko.components.register('details-panel', {
         this.expanded = params.expanded || ko.observable(false);
         this.enableMapTypeSelector = params.enableMapTypeSelector;
         this.rootURL = params.rootURL;
+        this.detailsActive = params.detailsActive;
         this.showInfoPanel = params.showInfoPanel;
         if (typeof params.enableMapTypeSelector !== 'boolean') {
             this.enableMapTypeSelector = true;

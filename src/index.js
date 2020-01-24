@@ -17,10 +17,11 @@ export function Map(opts) {
         opts.container = document.querySelector(`#${opts.container}`);
     }
     if (typeof opts.sidePanel !== 'boolean') opts.sidePanel = true;
+    if (typeof opts.sidePanelExpanded !== 'boolean') opts.sidePanelExpanded = true;
 
     // private members
     this.accessToken = opts.accessToken;
-    this.detailsExpanded = ko.observable(false);
+    this.detailsExpanded = ko.observable(opts.sidePanelExpanded);
     this.detailsActive = ko.observable(opts.sidePanel);
     this.enableMapTypeSelector = opts.enableMapTypeSelector;
     this.mapTypes = Object.keys(config.mapTypes);
