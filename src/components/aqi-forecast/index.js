@@ -35,10 +35,10 @@ let fetchData = (rootURL) => {
                     default:
                         mode = 'none';
                     }
-                    // alertMode(mode);
+                    alertMode(mode);
                 }
             });
-            alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() === "no alert");
+            alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert");
             return fetch(rootURL + config.aqiRSSFeed, {cache: "no-store"});
         })
         .then((response) => {

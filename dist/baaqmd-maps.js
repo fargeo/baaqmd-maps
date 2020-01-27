@@ -791,7 +791,7 @@ const aqi_forecast_parser = new DOMParser();
 const aqiInfo = knockout_latest["observable"]();
 const pollutantInfo = knockout_latest["observable"]();
 const aboutForecast = knockout_latest["observable"]();
-const alertMode = knockout_latest["observable"]('summer');
+const alertMode = knockout_latest["observable"]('none');
 const alertStatus = knockout_latest["observable"]();
 
 let fetchData = rootURL => {
@@ -816,11 +816,12 @@ let fetchData = rootURL => {
 
           default:
             mode = 'none';
-        } // alertMode(mode);
+        }
 
+        alertMode(mode);
       }
     });
-    alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() === "no alert");
+    alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert");
     return fetch(rootURL + config["aqiRSSFeed"], {
       cache: "no-store"
     });
