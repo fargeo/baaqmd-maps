@@ -1,14 +1,27 @@
 <!-- ko if: alertStatus() -->
 <div class="spare-air-alert">
       <div class="spare-logo">
-                <div class="spare-icon icon-SpareAirWinterHoriz"></div>
-                <div class="spare-icon icon-AlertTextHoriz"></div>
+        <!-- ko if: alertMode() !== 'winter' -->
+            <div class="spare-icon icon-SpareAirHorizontal"></div>
+        <!-- /ko -->
+        <!-- ko if: alertMode() === 'winter' -->
+            <div class="spare-icon icon-SpareAirWinterHoriz"></div>
+        <!-- /ko -->
+        <div class="spare-icon icon-AlertTextHoriz"></div>
       </div>
       <div class="clear"></div>
       <div class="spare-title">Spare the Air Alert in Effect</div>
       <div class="no-burn-area">
-                <div class="no-burn-icon icon-NoBurn"></div>
-                <div class="no-burn-text">No Wood Burning</div>
+          <!-- ko if: alertMode() === 'none' -->
+          <div class="no-burn-icon icon-NoBurnAlert"></div>
+          <!-- /ko -->
+          <!-- ko if: alertMode() === 'winter' -->
+          <div class="no-burn-icon icon-NoBurn"></div>
+          <div class="no-burn-text">No Wood Burning</div>
+          <!-- /ko -->
+          <!-- ko if: alertMode() === 'summer' -->
+          <div class="no-burn-icon icon-WalkBikeLonger"></div>
+          <!-- /ko -->
       </div>
       <div class="clear"></div>
       <div class="spare-date">

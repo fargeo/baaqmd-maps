@@ -1311,10 +1311,14 @@ $no-color: #b10318;
     }
     .no-burn-icon.icon-NoBurnAlert {
         font-size: 4.28rem;
-        line-height:4.6rem;
+        line-height: 1.6rem;
         width: 100%;
         text-align: center;
         color: rgb(191,67,67);
+    }
+    .icon-NoBurnAlert:before {
+        font-family: 'icomoon' !important;
+        content: "\e927";
     }
     .spare-air-burn-text {
         color: #876130;
@@ -1542,6 +1546,10 @@ $no-color: #b10318;
         line-height: 2rem !important;
         margin-left: 40px;
     }
+    .icon-SpareAirHorizontal:before {
+        font-family: 'icomoon' !important;
+        content: "\e924";
+    }
     .spare-icon.icon-SpareAirWinterHoriz {
         float: left;
         font-size: 3rem;
@@ -1615,6 +1623,10 @@ $no-color: #b10318;
         font-size: 2rem;
         margin-left: 5px;
         color: #ffe560;
+    }
+    .icon-WalkBikeLonger:before {
+        font-family: 'icomoon' !important;
+        content: "\e929";
     }
     .no-burn-text {
         color: #ffe560;

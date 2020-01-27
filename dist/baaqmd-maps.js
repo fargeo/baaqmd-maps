@@ -303,7 +303,7 @@ module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko component: {\n  
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- ko if: alertStatus() -->\n<div class=\"spare-air-alert\">\n      <div class=\"spare-logo\">\n                <div class=\"spare-icon icon-SpareAirWinterHoriz\"></div>\n                <div class=\"spare-icon icon-AlertTextHoriz\"></div>\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"spare-title\">Spare the Air Alert in Effect</div>\n      <div class=\"no-burn-area\">\n                <div class=\"no-burn-icon icon-NoBurn\"></div>\n                <div class=\"no-burn-text\">No Wood Burning</div>\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"spare-date\">\n          <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric' }).format(new Date())\"></span>\n      </div>\n</div>\n<!-- /ko -->\n<h3>\n    <i class=\"fas fa-wind\"></i>\n    Air Quality Forecast\n</h3>\n<h4><i class=\"icomoon im-forecast\"></i> Daily Forecast</h4>\n<!-- ko if: aqiData -->\n<div class=\"baaqmd-maps-last-updated\">\n    Last Updated:\n    <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)\"></span>,\n    <span data-bind=\"text: aqiData().lastUpdated.toLocaleDateString()\"></span>\n    at\n    <span data-bind=\"text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n</div>\n<ul class=\"baaqmd-maps-aqi-forecast-dates\">\n    <!-- ko foreach: aqiData().dates -->\n    <li data-bind=\"css: {\n        active: $index() === $parent.day()\n    }\">\n        <a href=\"#\" data-bind=\"click: function() {\n            $parent.day($index());\n        }, text: date\"></a>\n    </li>\n    <!-- /ko -->\n</ul>\n<h4><i class=\"icomoon im-aqi-index\"></i> Air Quality Index</h4>\n<ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n    <li class=\"good\">\n        Good (0-50)\n    </li>\n    <li class=\"moderate\">\n        Moderate (51-100)\n    </li>\n    <li class=\"unhealthy-for-sensitive-groups\">\n        Unhealthy for Sensitive Groups (101-150)\n    </li>\n    <li class=\"unhealthy\">\n        Unhealthy (151-200)\n    </li>\n    <li class=\"very-unhealthy\">\n        Very Unhealthy (201-300)\n    </li>\n    <li class=\"hazardous\">\n        Hazardous (301-500)\n    </li>\n</ul>\n<div class=\"baaqmd-maps-details-links\">\n    <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIForecastPanel'); }\">\n        <i class=\"fas fa-wind\"></i>\n        Five Day Forecast\n    </a>\n    <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIInfoPanel'); }\">\n        <i class=\"im im-info\"></i>\n        More AQI Information\n    </a>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n    <li class=\"aqi-reporting-zones\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.aqi.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        AQI Reporting Zones\n    </li>\n    <li class=\"counties\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        Counties\n    </li>\n    <li class=\"district-boundary\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        District Boundary\n    </li>\n</ul>\n<!-- /ko -->\n";
+module.exports = "<!-- ko if: alertStatus() -->\n<div class=\"spare-air-alert\">\n      <div class=\"spare-logo\">\n        <!-- ko if: alertMode() !== 'winter' -->\n            <div class=\"spare-icon icon-SpareAirHorizontal\"></div>\n        <!-- /ko -->\n        <!-- ko if: alertMode() === 'winter' -->\n            <div class=\"spare-icon icon-SpareAirWinterHoriz\"></div>\n        <!-- /ko -->\n        <div class=\"spare-icon icon-AlertTextHoriz\"></div>\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"spare-title\">Spare the Air Alert in Effect</div>\n      <div class=\"no-burn-area\">\n          <!-- ko if: alertMode() === 'none' -->\n          <div class=\"no-burn-icon icon-NoBurnAlert\"></div>\n          <!-- /ko -->\n          <!-- ko if: alertMode() === 'winter' -->\n          <div class=\"no-burn-icon icon-NoBurn\"></div>\n          <div class=\"no-burn-text\">No Wood Burning</div>\n          <!-- /ko -->\n          <!-- ko if: alertMode() === 'summer' -->\n          <div class=\"no-burn-icon icon-WalkBikeLonger\"></div>\n          <!-- /ko -->\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"spare-date\">\n          <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric' }).format(new Date())\"></span>\n      </div>\n</div>\n<!-- /ko -->\n<h3>\n    <i class=\"fas fa-wind\"></i>\n    Air Quality Forecast\n</h3>\n<h4><i class=\"icomoon im-forecast\"></i> Daily Forecast</h4>\n<!-- ko if: aqiData -->\n<div class=\"baaqmd-maps-last-updated\">\n    Last Updated:\n    <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)\"></span>,\n    <span data-bind=\"text: aqiData().lastUpdated.toLocaleDateString()\"></span>\n    at\n    <span data-bind=\"text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n</div>\n<ul class=\"baaqmd-maps-aqi-forecast-dates\">\n    <!-- ko foreach: aqiData().dates -->\n    <li data-bind=\"css: {\n        active: $index() === $parent.day()\n    }\">\n        <a href=\"#\" data-bind=\"click: function() {\n            $parent.day($index());\n        }, text: date\"></a>\n    </li>\n    <!-- /ko -->\n</ul>\n<h4><i class=\"icomoon im-aqi-index\"></i> Air Quality Index</h4>\n<ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n    <li class=\"good\">\n        Good (0-50)\n    </li>\n    <li class=\"moderate\">\n        Moderate (51-100)\n    </li>\n    <li class=\"unhealthy-for-sensitive-groups\">\n        Unhealthy for Sensitive Groups (101-150)\n    </li>\n    <li class=\"unhealthy\">\n        Unhealthy (151-200)\n    </li>\n    <li class=\"very-unhealthy\">\n        Very Unhealthy (201-300)\n    </li>\n    <li class=\"hazardous\">\n        Hazardous (301-500)\n    </li>\n</ul>\n<div class=\"baaqmd-maps-details-links\">\n    <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIForecastPanel'); }\">\n        <i class=\"fas fa-wind\"></i>\n        Five Day Forecast\n    </a>\n    <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIInfoPanel'); }\">\n        <i class=\"im im-info\"></i>\n        More AQI Information\n    </a>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n    <li class=\"aqi-reporting-zones\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.aqi.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        AQI Reporting Zones\n    </li>\n    <li class=\"counties\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        Counties\n    </li>\n    <li class=\"district-boundary\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        District Boundary\n    </li>\n</ul>\n<!-- /ko -->\n";
 
 /***/ }),
 /* 5 */
@@ -791,6 +791,7 @@ const aqi_forecast_parser = new DOMParser();
 const aqiInfo = knockout_latest["observable"]();
 const pollutantInfo = knockout_latest["observable"]();
 const aboutForecast = knockout_latest["observable"]();
+const alertMode = knockout_latest["observable"]('summer');
 const alertStatus = knockout_latest["observable"]();
 
 let fetchData = rootURL => {
@@ -800,7 +801,26 @@ let fetchData = rootURL => {
     return response.text();
   }).then(text => {
     const xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
-    alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert");
+    xmlDoc.querySelectorAll('item').forEach(item => {
+      if (item.querySelector('title').innerHTML === 'Alert Mode') {
+        var mode;
+
+        switch (item.querySelector('description').innerHTML) {
+          case 'Winter Season in Effect':
+            mode = 'winter';
+            break;
+
+          case 'Summer Season in Effect':
+            mode = 'summer';
+            break;
+
+          default:
+            mode = 'none';
+        } // alertMode(mode);
+
+      }
+    });
+    alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() === "no alert");
     return fetch(rootURL + config["aqiRSSFeed"], {
       cache: "no-store"
     });
@@ -907,6 +927,7 @@ knockout_latest["components"].register('PollutantInfoPanel', {
     if (fetchData) fetchData(rootUrl);
     const zones = ['Eastern Zone', 'Coastal and Central Bay', 'Northern Zone', 'South Central Bay', 'Santa Clara Valley'];
     this.aqiData = aqiData;
+    this.alertMode = alertMode;
     this.alertStatus = alertStatus;
     this.day = knockout_latest["observable"]();
     this.layers = {

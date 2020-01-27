@@ -13,6 +13,7 @@ const parser = new DOMParser();
 const aqiInfo = ko.observable();
 const pollutantInfo = ko.observable();
 const aboutForecast = ko.observable();
+const alertMode = ko.observable('none');
 const alertStatus = ko.observable();
 let fetchData = (rootURL) => {
     fetch(rootURL + config.spaRSSFeed, {cache: "no-store"})
@@ -21,7 +22,23 @@ let fetchData = (rootURL) => {
         })
         .then((text) => {
             const xmlDoc = parser.parseFromString(text, 'application/xml');
-            alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert");
+            xmlDoc.querySelectorAll('item').forEach((item) => {
+                if (item.querySelector('title').innerHTML === 'Alert Mode') {
+                    var mode;
+                    switch (item.querySelector('description').innerHTML) {
+                    case 'Winter Season in Effect':
+                        mode = 'winter';
+                        break;
+                    case 'Summer Season in Effect':
+                        mode = 'summer';
+                        break;
+                    default:
+                        mode = 'none';
+                    }
+                    // alertMode(mode);
+                }
+            });
+            alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() === "no alert");
             return fetch(rootURL + config.aqiRSSFeed, {cache: "no-store"});
         })
         .then((response) => {
@@ -134,6 +151,7 @@ export default ko.components.register('AQIForecast', {
             'Santa Clara Valley'
         ];
         this.aqiData = aqiData;
+        this.alertMode = alertMode;
         this.alertStatus = alertStatus;
         this.day = ko.observable();
         this.layers = {
