@@ -785,8 +785,8 @@ function MapDetailsPanel(params) {
 
 
 (function () {
-  let proto = DOMParser.prototype;
-  let nativeParse = proto.parseFromString;
+  const proto = DOMParser.prototype;
+  const nativeParse = proto.parseFromString;
 
   try {
     if (new DOMParser().parseFromString("", "text/html")) return;
@@ -798,7 +798,7 @@ function MapDetailsPanel(params) {
 
   proto.parseFromString = function (markup, type) {
     if (/^\s*text\/html\s*(?:;|$)/i.test(type)) {
-      let doc = document.implementation.createHTMLDocument("");
+      const doc = document.implementation.createHTMLDocument("");
 
       if (markup.toLowerCase().indexOf('<!doctype') > -1) {
         doc.documentElement.innerHTML = markup;

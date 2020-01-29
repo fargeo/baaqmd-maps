@@ -1,8 +1,8 @@
 import * as ko from 'knockout';
 
 (function() {
-    let proto = DOMParser.prototype;
-    let nativeParse = proto.parseFromString;
+    const proto = DOMParser.prototype;
+    const nativeParse = proto.parseFromString;
 
     try {
         if ((new DOMParser()).parseFromString("", "text/html")) return;
@@ -10,7 +10,7 @@ import * as ko from 'knockout';
 
     proto.parseFromString = function(markup, type) {
         if (/^\s*text\/html\s*(?:;|$)/i.test(type)) {
-            let doc = document.implementation.createHTMLDocument("");
+            const doc = document.implementation.createHTMLDocument("");
             if (markup.toLowerCase().indexOf('<!doctype') > -1) {
                 doc.documentElement.innerHTML = markup;
             }
