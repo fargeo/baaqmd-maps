@@ -1,5 +1,5 @@
 <!-- ko if: alertStatus() -->
-<div class="spare-air-alert">
+<div class="spare-air-alert" data-bind="css: {'modal-control': alertMode() !== 'none' }, click: showSTAModal">
       <div class="spare-logo">
         <!-- ko if: alertMode() !== 'winter' -->
             <div class="spare-icon icon-SpareAirHorizontal"></div>

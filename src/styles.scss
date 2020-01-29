@@ -1331,7 +1331,9 @@ $no-color: #b10318;
     .alert-main-text {
         font-size: 1rem;
     }
-
+    .modal-control {
+        cursor: pointer;
+    }
     @media (max-width: 800px) {
         .no-burn-icon.icon-NoBurnAlert {
             font-size: 3.5rem;

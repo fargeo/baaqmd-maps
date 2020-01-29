@@ -2,6 +2,8 @@ import * as ko from 'knockout';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html';
+import * as summerModalTemplate from './summer-modal.html';
+import * as winterModalTemplate from './winter-modal.html';
 import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html';
 import * as forecastPanelTemplate from './forecast-panel.html';
 import * as config from '../../config.json';
@@ -13,6 +15,8 @@ const parser = new DOMParser();
 const aqiInfo = ko.observable();
 const pollutantInfo = ko.observable();
 const aboutForecast = ko.observable();
+const summerModal = ko.observable();
+const winterModal = ko.observable();
 const alertMode = ko.observable('none');
 const alertStatus = ko.observable();
 let fetchData = (rootURL) => {
@@ -100,6 +104,8 @@ let fetchData = (rootURL) => {
     fetchHTML(rootURL + config.aqiInfoURL, aqiInfo);
     fetchHTML(rootURL + config.pollutantInfoURL, pollutantInfo);
     fetchHTML(rootURL + config.aboutForecastURL, aboutForecast);
+    fetchHTML(rootURL + config.summerModalURL, summerModal);
+    fetchHTML(rootURL + config.winterModalURL, winterModal);
     fetchData = false;
 };
 
@@ -109,6 +115,22 @@ ko.components.register('AQIInfoPanel', {
         this.aqiInfo = aqiInfo;
     },
     template: infoPanelTemplate
+});
+
+ko.components.register('SummerModal', {
+    viewModel: function(params) {
+        this.showInfoPanel = params.showInfoPanel;
+        this.summerModal = summerModal;
+    },
+    template: summerModalTemplate
+});
+
+ko.components.register('WinterModal', {
+    viewModel: function(params) {
+        this.showInfoPanel = params.showInfoPanel;
+        this.winterModal = winterModal;
+    },
+    template: winterModalTemplate
 });
 
 ko.components.register('AQIForecastPanel', {
@@ -224,6 +246,13 @@ export default ko.components.register('AQIForecast', {
                 map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', 1);
             }
             this.layers.counties.flag(false);
+        };
+
+        this.showSTAModal = () => {
+            const alertMode = this.alertMode();
+            if (alertMode !== 'none') {
+                params.showInfoPanel(alertMode === 'winter' ? 'WinterModal' : 'SummerModal');
+            }
         };
 
         MapDetailsPanel.default.apply(this, [params]);
