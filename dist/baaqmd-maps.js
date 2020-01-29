@@ -873,7 +873,7 @@ let fetchData = rootURL => {
         alertMode(mode);
       }
     });
-    alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() === "no alert");
+    alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert");
     return fetch(rootURL + config["aqiRSSFeed"], {
       cache: "no-store"
     });
