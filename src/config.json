@@ -1,5 +1,5 @@
 {
-    "prodRoot": "http://www.baaqmd.gov/",
+    "prodRoot": "https://www.baaqmd.gov/",
     "accessToken": "pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw",
     "userName": "baaqmd-publicmaps",
     "tilesetId": "c3867v6s",
@@ -36,7 +36,7 @@
         38.86425008600003
     ],
     "boundsPadding": 20,
-    "mainMapPage": "http://baaqmd.fargeo-dev.com/dist/",
+    "mainMapPage": "https://baaqmd.fargeo-dev.com/dist/",
     "mapTypes": {
         "AQIForecast": {
             "style": "baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4",
