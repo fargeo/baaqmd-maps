@@ -9,7 +9,7 @@
     "facilitiesClusterDistance": 30,
     "facilitiesJSONPath": "./data/facilities/facilities.json",
     "apiURI": "https://api.mapbox.com/styles/v1/",
-    "aqiRSSFeed": "Files/Feeds/aqi_rss.xml",
+    "aqiRSSFeed": "Feeds/Air-Forecast-Map",
     "spaRSSFeed": "Feeds/TwoDayMapAlertRSS",
     "openBurnRSSFeed": "Feeds/OpenBurnRSS",
     "aqiInfoURL": "Utils/Interactive-Map-Content/AQI",
