@@ -45,6 +45,7 @@
     "computed-style-to-inline-style": "^3.0.0",
     "knockout": "^3.5.0",
     "mapbox-gl": "^1.6.1",
+    "url-search-params-polyfill": "^8.0.0",
     "whatwg-fetch": "^3.0.0"
   }
 }
