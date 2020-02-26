@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 import * as ko from 'knockout';
 import './styles.scss';
 import * as config from './config.json';
