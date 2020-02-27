@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -944,6 +944,16 @@ var n;n=function(){return function(e){var t={};function i(n){if(t[n])return t[n]
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+__webpack_require__(35).polyfill();
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Code refactored from Mozilla Developer Network:
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
@@ -993,12 +1003,6 @@ module.exports = {
 
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1018,6 +1022,12 @@ module.exports = {
 
 /***/ }),
 /* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1544,14 +1554,14 @@ if (!self.fetch) {
 // EXTERNAL MODULE: ./node_modules/url-search-params-polyfill/index.js
 var url_search_params_polyfill = __webpack_require__(33);
 
-// EXTERNAL MODULE: ./node_modules/es6-object-assign/index.js
-var es6_object_assign = __webpack_require__(34);
+// EXTERNAL MODULE: ./node_modules/es6-object-assign/auto.js
+var auto = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./node_modules/knockout/build/output/knockout-latest.js
 var knockout_latest = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./src/styles.scss
-var styles = __webpack_require__(35);
+var styles = __webpack_require__(36);
 
 // EXTERNAL MODULE: ./src/config.json
 var config = __webpack_require__(1);
@@ -2464,13 +2474,13 @@ var open_burning_fetchData = function fetchData(rootURL) {
 var mapbox_gl_geocoder_min = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css
-var mapbox_gl_geocoder = __webpack_require__(36);
+var mapbox_gl_geocoder = __webpack_require__(37);
 
 // EXTERNAL MODULE: ./src/components/map/template.html
 var map_template = __webpack_require__(26);
 
 // EXTERNAL MODULE: ./node_modules/mapbox-gl/dist/mapbox-gl.css
-var dist_mapbox_gl = __webpack_require__(37);
+var dist_mapbox_gl = __webpack_require__(38);
 
 // CONCATENATED MODULE: ./src/bindings/mapbox-gl.js
 
@@ -2769,7 +2779,7 @@ var details_panel_template = __webpack_require__(31);
 var choices_min = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/choices.js/public/assets/styles/choices.min.css
-var styles_choices_min = __webpack_require__(38);
+var styles_choices_min = __webpack_require__(39);
 
 // CONCATENATED MODULE: ./src/bindings/choices.js
 
