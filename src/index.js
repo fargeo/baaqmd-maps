@@ -1,6 +1,7 @@
 import 'whatwg-fetch';
 import 'url-search-params-polyfill';
 import 'es6-object-assign/auto';
+import 'polyfill-array-includes';
 import * as ko from 'knockout';
 import './styles.scss';
 import * as config from './config.json';

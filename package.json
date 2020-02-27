@@ -47,6 +47,7 @@
     "ie11-custom-properties": "^3.0.6",
     "knockout": "^3.5.0",
     "mapbox-gl": "^1.6.1",
+    "polyfill-array-includes": "^2.0.0",
     "url-search-params-polyfill": "^8.0.0",
     "whatwg-fetch": "^3.0.0"
   }

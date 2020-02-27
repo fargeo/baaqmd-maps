@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -955,9 +955,9 @@ module.exports = {
 
 /***/ }),
 /* 34 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{value:function(r,e){if(null==this)throw new TypeError('"this" is null or not defined');var t=Object(this),n=t.length>>>0;if(0===n)return!1;for(var i=0|e,o=Math.max(i>=0?i:n-Math.abs(i),0);o<n;){if(function(r,e){return r===e||"number"==typeof r&&"number"==typeof e&&isNaN(r)&&isNaN(e)}(t[o],r))return!0;o++}return!1}});
 
 /***/ }),
 /* 35 */
@@ -979,6 +979,12 @@ module.exports = {
 
 /***/ }),
 /* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1508,11 +1514,14 @@ var url_search_params_polyfill = __webpack_require__(31);
 // EXTERNAL MODULE: ./node_modules/es6-object-assign/auto.js
 var auto = __webpack_require__(32);
 
+// EXTERNAL MODULE: ./node_modules/polyfill-array-includes/index.js
+var polyfill_array_includes = __webpack_require__(34);
+
 // EXTERNAL MODULE: ./node_modules/knockout/build/output/knockout-latest.js
 var knockout_latest = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./src/styles.scss
-var styles = __webpack_require__(34);
+var styles = __webpack_require__(35);
 
 // EXTERNAL MODULE: ./src/config.json
 var config = __webpack_require__(1);
@@ -2425,13 +2434,13 @@ var open_burning_fetchData = function fetchData(rootURL) {
 var mapbox_gl_geocoder_min = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css
-var mapbox_gl_geocoder = __webpack_require__(35);
+var mapbox_gl_geocoder = __webpack_require__(36);
 
 // EXTERNAL MODULE: ./src/components/map/template.html
 var map_template = __webpack_require__(26);
 
 // EXTERNAL MODULE: ./node_modules/mapbox-gl/dist/mapbox-gl.css
-var dist_mapbox_gl = __webpack_require__(36);
+var dist_mapbox_gl = __webpack_require__(37);
 
 // CONCATENATED MODULE: ./src/bindings/mapbox-gl.js
 
@@ -2645,7 +2654,7 @@ var details_panel_template = __webpack_require__(29);
 var choices_min = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./node_modules/choices.js/public/assets/styles/choices.min.css
-var styles_choices_min = __webpack_require__(37);
+var styles_choices_min = __webpack_require__(38);
 
 // CONCATENATED MODULE: ./src/bindings/choices.js
 
@@ -2730,6 +2739,7 @@ knockout_latest["bindingHandlers"].choices = {
 }));
 // CONCATENATED MODULE: ./src/index.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
+
 
 
 
