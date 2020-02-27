@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 41);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -465,71 +465,22 @@ module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl:{\n    acc
 /* 27 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-icon baaqmd-maps-print-button\" type=\"button\">\n    </button>\n</div>\n";
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else { var mod; }
-})(this, function (module) {
-  "use strict";
-
-  var each = Array.prototype.forEach;
-
-
-  function computedStyleToInlineStyle(element) {
-    var _context2;
-
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    if (!element) {
-      throw new Error("No element specified.");
-    }
-
-    if (options.recursive) {
-      var _context;
-
-      (_context = element.children, each).call(_context, function (child) {
-        computedStyleToInlineStyle(child, options);
-      });
-    }
-
-    var computedStyle = getComputedStyle(element);
-    (_context2 = options.properties || computedStyle, each).call(_context2, function (property) {
-      element.style[property] = computedStyle.getPropertyValue(property);
-    });
-  }
-
-  module.exports = computedStyleToInlineStyle;
-});
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
 module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-icon baaqmd-maps-help-button\" type=\"button\">\n    </button>\n</div>\n";
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = "<h3 class=\"modal-title\">\n    <i class=\"far fa-question-circle\"></i>\n    Help\n</h3>\n<hr>\n";
 
 /***/ }),
-/* 31 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"baaqmd-maps-details-panel\" data-bind=\"css: {'baaqmd-maps-expanded': expanded }, visible: detailsActive\">\n    <div class=\"baaqmd-maps-details-panel-wrapper\" data-bind=\"if: map\">\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group\" data-bind=\"\n            click: toggleExpanded,\n            css: {'baaqmd-maps-expanded': expanded}\">\n            <i class=\"fas fa-bars\"></i>\n        </div>\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons\" data-bind=\"\n            css: {\n                'baaqmd-maps-expanded': expanded\n            }\">\n            <div><i class=\"im im-share\"></i></div>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-facebook\"></i></div>\n            </a>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-twitter\"></i></div>\n            </a>\n            <a data-bind=\"attr: {\n                'href': 'mailto:?body=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-email\"></i></div>\n            </a>\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n            <!-- ko if: enableMapTypeSelector -->\n            <select data-bind=\"\n                optionsText: 'text',\n                optionsValue: 'id',\n                options: mapTypes,\n                value: mapType,\n                choices: {\n                    searchEnabled: false\n                }\n            \"></select>\n            <!-- /ko -->\n            <!-- ko ifnot: enableMapTypeSelector -->\n            <div class=\"choices no-select\">\n                <div class=\"choices__inner\">\n                    <div class=\"choices__list choices__list--single\">\n                        <div class=\"choices__item choices__item--selectable\" data-bind=\"text: mapTypesObj[mapType()].label\"></div>\n                    </div>\n                </div>\n            </div>\n            <!-- /ko -->\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n        </div>\n         <div class=\"baaqmd-maps-details-panel-content\" data-bind=\"component: {\n             name: mapType,\n             params: $data\n         }\"></div>\n    </div>\n</div>\n";
 
 /***/ }),
-/* 32 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*! choices.js v6.0.3 | (c) 2019 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
@@ -592,7 +543,7 @@ var n;n=function(){return function(e){var t={};function i(n){if(t[n])return t[n]
 !function(){"use strict";var i={}.hasOwnProperty;function r(){for(var e=[],t=0;t<arguments.length;t++){var n=arguments[t];if(n){var o=typeof n;if("string"===o||"number"===o)e.push(n);else if(Array.isArray(n)&&n.length){var s=r.apply(null,n);s&&e.push(s)}else if("object"===o)for(var a in n)i.call(n,a)&&n[a]&&e.push(a)}}return e.join(" ")}e.exports?(r.default=r,e.exports=r):void 0===(n=function(){return r}.apply(t,[]))||(e.exports=n)}()},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.clearChoices=t.activateChoices=t.filterChoices=t.addChoice=void 0;var n=i(1);t.addChoice=function(e){var t=e.value,i=e.label,r=e.id,o=e.groupId,s=e.disabled,a=e.elementId,c=e.customProperties,l=e.placeholder,u=e.keyCode;return{type:n.ACTION_TYPES.ADD_CHOICE,value:t,label:i,id:r,groupId:o,disabled:s,elementId:a,customProperties:c,placeholder:l,keyCode:u}};t.filterChoices=function(e){return{type:n.ACTION_TYPES.FILTER_CHOICES,results:e}};t.activateChoices=function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0];return{type:n.ACTION_TYPES.ACTIVATE_CHOICES,active:e}};t.clearChoices=function(){return{type:n.ACTION_TYPES.CLEAR_CHOICES}}},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.highlightItem=t.removeItem=t.addItem=void 0;var n=i(1);t.addItem=function(e){var t=e.value,i=e.label,r=e.id,o=e.choiceId,s=e.groupId,a=e.customProperties,c=e.placeholder,l=e.keyCode;return{type:n.ACTION_TYPES.ADD_ITEM,value:t,label:i,id:r,choiceId:o,groupId:s,customProperties:a,placeholder:c,keyCode:l}};t.removeItem=function(e,t){return{type:n.ACTION_TYPES.REMOVE_ITEM,id:e,choiceId:t}};t.highlightItem=function(e,t){return{type:n.ACTION_TYPES.HIGHLIGHT_ITEM,id:e,highlighted:t}}},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.addGroup=void 0;var n=i(1);t.addGroup=function(e,t,i,r){return{type:n.ACTION_TYPES.ADD_GROUP,value:e,id:t,active:i,disabled:r}}},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.resetTo=t.clearAll=void 0;t.clearAll=function(){return{type:"CLEAR_ALL"}};t.resetTo=function(e){return{type:"RESET_TO",state:e}}},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.setIsLoading=void 0;t.setIsLoading=function(e){return{type:"SET_IS_LOADING",isLoading:e}}}])});
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -940,17 +891,17 @@ var n;n=function(){return function(e){var t={};function i(n){if(t[n])return t[n]
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(3)))
 
 /***/ }),
-/* 34 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(35).polyfill();
+__webpack_require__(33).polyfill();
 
 
 /***/ }),
-/* 35 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1003,650 +954,22 @@ module.exports = {
 
 
 /***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
 /* 36 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/*! ie11CustomProperties.js v3.0.6 | MIT License | https://git.io/fjXMN */
-!function () {
-	'use strict';
-
-	// check for support
-	var testEl = document.createElement('i');
-	testEl.style.setProperty('--x', 'y');
-	if (testEl.style.getPropertyValue('--x') === 'y' || !testEl.msMatchesSelector) return;
-
-	if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector;
-
-    var listeners = [],
-        root = document,
-        Observer;
-
-	function qsa(el, selector){
-		try {
-			return el.querySelectorAll(selector);
-		} catch(e) {
-			// console.warn('the Selector '+selector+' can not be parsed');
-			return [];
-		}
-	}
-    function onElement (selector, callback) {
-        var listener = {
-            selector: selector,
-            callback: callback,
-            elements: new WeakMap(),
-        };
-		var els = qsa(root, listener.selector), i=0, el;
-		while (el = els[i++]) {
-            listener.elements.set(el, true);
-            listener.callback.call(el, el);
-        }
-        listeners.push(listener);
-        if (!Observer) {
-            Observer = new MutationObserver(checkMutations);
-            Observer.observe(root, {
-                childList: true,
-                subtree: true
-            });
-        }
-        checkListener(listener);
-    };
-    function checkListener(listener, target) {
-        var i = 0, el, els = [];
-		try {
-			target && target.matches(listener.selector) && els.push(target);
-		} catch(e) {}
-        if (loaded) { // ok? check inside node on innerHTML - only when loaded
-            Array.prototype.push.apply(els, qsa(target || root, listener.selector));
-        }
-        while (el = els[i++]) {
-            if (listener.elements.has(el)) continue;
-            listener.elements.set(el,true);
-            listener.callback.call(el, el);
-        }
-    }
-    function checkListeners(inside) {
-        var i = 0, listener;
-        while (listener = listeners[i++]) checkListener(listener, inside);
-    }
-    function checkMutations(mutations) {
-		var j = 0, i, mutation, nodes, target;
-        while (mutation = mutations[j++]) {
-            nodes = mutation.addedNodes, i = 0;
-            while (target = nodes[i++]) target.nodeType === 1 && checkListeners(target);
-        }
-    }
-
-    var loaded = false;
-    document.addEventListener('DOMContentLoaded', function () {
-        loaded = true;
-    });
-
-	// svg polyfills
-	function copyProperty(prop, from, to){
-		var desc = Object.getOwnPropertyDescriptor(from, prop);
-		Object.defineProperty(to, prop, desc);
-	}
-	if (!('classList' in Element.prototype)) {
-		copyProperty('classList', HTMLElement.prototype, Element.prototype);
-	}
-	if (!('innerHTML' in Element.prototype)) {
-		copyProperty('innerHTML', HTMLElement.prototype, Element.prototype);
-	}
-	if (!('sheet' in SVGStyleElement.prototype)) {
-		Object.defineProperty(SVGStyleElement.prototype, 'sheet', {
-			get:function(){
-				var all = document.styleSheets, i=0, sheet;
-				while (sheet=all[i++]) {
-					if (sheet.ownerNode === this) return sheet;
-				}
-
-			}
-		});
-	}
-
-
-	// main logic
-
-	// cached regexps, better performance
-	const regFindSetters = /([\s{;])(--([A-Za-z0-9-_]+\s*:[^;!}{]+)(!important)?)(?=\s*([;}]|$))/g;
-	const regFindGetters = /([{;]\s*)([A-Za-z0-9-_]+\s*:[^;}{]*var\([^!;}{]+)(!important)?(?=\s*([;}$]|$))/g;
-	const regRuleIEGetters = /-ieVar-([^:]+):/g
-	const regRuleIESetters = /-ie-([^};]+)/g
-	const regHasVar = /var\(/;
-	const regPseudos = /:(hover|active|focus|target|:before|:after)/;
-
-	onElement('link[rel="stylesheet"]', function (el) {
-		fetchCss(el.href, function (css) {
-			var newCss = rewriteCss(css);
-			if (css === newCss) return;
-			newCss = relToAbs(el.href, newCss);
-			el.disabled = true;
-			var style = document.createElement('style');
-			el.parentNode.insertBefore(style, el);
-			activateStyleElement(style, newCss);
-		});
-	});
-	onElement('style', function (el) {
-		//if (el.hasAttribute('ie-polyfilled')) return;
-		if (el.ieCP_polyfilled) return;
-
-		if (el.ieCP_elementSheet) return;
-		var css = el.innerHTML;
-		var newCss = rewriteCss(css);
-		if (css === newCss) return;
-		activateStyleElement(el, newCss);
-	});
-	onElement('[ie-style]', function (el) {
-		var newCss = rewriteCss('{'+el.getAttribute('ie-style')).substr(1);
-		el.style.cssText += ';'+ newCss;
-		var found = parseRewrittenStyle(el.style);
-		if (found.getters) addGetterElement(el, found.getters, '%styleAttr');
-		if (found.setters) addSetterElement(el, found.setters);
-	});
-
-	function relToAbs(base, css) {
-		return css.replace(/url\(([^)]+)\)/g, function($0, $1){
-			$1 = $1.trim().replace(/(^['"]|['"]$)/g,'');
-			if ($1.match(/^([a-z]+:|\/)/)) return $0;
-			base = base.replace(/\?.*/,'');
-			return 'url('+ base + './../' + $1 +')';
-		});
-	}
-
-	// ie has a bug, where unknown properties at pseudo-selectors are computed at the element
-	// #el::after { -content:'x'; } => getComputedStyle(el)['-content'] == 'x'
-	// should we add something like -ieVar-pseudo_after-content:'x'?
-	function rewriteCss(css) {
-
-		/* uncomment if spec finished and needed by someone
-		css = css.replace(/@property ([^{]+){([^}]+)}/, function($0, prop, body){
-			prop = prop.trim();
-			const declaration = {name:prop};
-			body.split(';').forEach(function(pair){
-				const x = pair.split(':');
-				if (x[1]) declaration[ x[0].trim() ] = x[1];
-			});
-			declaration['inherits'] = declaration['inherits'].trim()==='true' ? true : false;
-			declaration['initialValue'] = declaration['initial-value'];
-			CSS.registerProperty(declaration)
-			return '/*\n @property ... removed \n*'+'/';
-		});
-		*/
-
-		return css.replace(regFindSetters, function($0, $1, $2, $3, important){
-			return $1+'-ie-'+(important?'❗':'')+$3;
-		}).replace(regFindGetters, function($0, $1, $2, important){
-			return $1+'-ieVar-'+(important?'❗':'')+$2+'; '+$2; // keep the original, so chaining works "--x:var(--y)"
-		});
-	}
-
-	// beta
-	const styles_of_getter_properties = {};
-
-	function parseRewrittenStyle(style) { // less memory then parameter cssText?
-
-		// beta
-		style['z-index']; // ie11 can access unknown properties in stylesheets only if accessed a dashed known property
-
-		const cssText = style.cssText;
-		var matchesGetters = cssText.match(regRuleIEGetters), j, match;
-		if (matchesGetters) {
-			var getters = []; // eg. [border,color]
-			for (j = 0; match = matchesGetters[j++];) {
-				let propName = match.slice(7, -1);
-				if (propName[0] === '❗') propName = propName.substr(1);
-				getters.push(propName);
-
-				// beta
-				if (!styles_of_getter_properties[propName]) styles_of_getter_properties[propName] = [];
-				styles_of_getter_properties[propName].push(style);
-			}
-		}
-		var matchesSetters = cssText.match(regRuleIESetters);
-		if (matchesSetters) {
-			var setters = {}; // eg. [--color:#fff, --padding:10px];
-			for (j = 0; match = matchesSetters[j++];) {
-				let x = match.substr(4).split(':');
-				let propName = x[0];
-				let propValue = x[1];
-				if (propName[0] === '❗') propName = propName.substr(1);
-				setters[propName] = propValue;
-			}
-		}
-		return {getters:getters, setters:setters};
-	}
-	function activateStyleElement(style, css) {
-		style.innerHTML = css;
-		//style.setAttribute('ie-polyfilled', true);
-		style.ieCP_polyfilled = true;
-		var rules = style.sheet.rules, i=0, rule; // cssRules = CSSRuleList, rules = MSCSSRuleList
-		while (rule = rules[i++]) {
-			const found = parseRewrittenStyle(rule.style);
-			if (found.getters) addGettersSelector(rule.selectorText, found.getters);
-			if (found.setters) addSettersSelector(rule.selectorText, found.setters);
-
-			// mediaQueries: redraw the hole document
-			// better add events for each element?
-			const media = rule.parentRule && rule.parentRule.media && rule.parentRule.media.mediaText;
-			if (media && (found.getters || found.setters)) {
-				matchMedia(media).addListener(function(){
-					drawTree(document.documentElement)
-				})
-			}
-		}
-
-		// beta
-		redrawStyleSheets()
-	}
-
-	function addGettersSelector(selector, properties) {
-		selectorAddPseudoListeners(selector);
-		onElement(unPseudo(selector), function (el) {
-			addGetterElement(el, properties, selector);
-			drawElement(el);
-		});
-	}
-	function addGetterElement(el, properties, selector) {
-		var i=0, prop, j;
-		const selectors = selector.split(','); // split grouped selectors
-		el.setAttribute('iecp-needed', true);
-		if (!el.ieCPSelectors) el.ieCPSelectors = {};
-		while (prop = properties[i++]) {
-			for (j = 0; selector = selectors[j++];) {
-				const parts = selector.trim().split('::');
-				if (!el.ieCPSelectors[prop]) el.ieCPSelectors[prop] = [];
-				el.ieCPSelectors[prop].push({
-					selector: parts[0],
-					pseudo: parts[1] ? '::' + parts[1] : ''
-				});
-			}
-		}
-	}
-	function addSettersSelector(selector, propVals) {
-		selectorAddPseudoListeners(selector);
-		onElement(unPseudo(selector), function (el) {
-			addSetterElement(el, propVals);
-		});
-	}
-	function addSetterElement(el, propVals) {
-		if (!el.ieCP_setters) el.ieCP_setters = {};
-		for (var prop in propVals) { // eg. {foo:#fff, bar:baz}
-			el.ieCP_setters['--' + prop] = 1;
-		}
-		drawTree(el);
-	}
-
-	//beta
-	function redrawStyleSheets() {
-		for (var prop in styles_of_getter_properties) {
-			let styles = styles_of_getter_properties[prop];
-			for (var i=0, style; style=styles[i++];) {
-				if (style.owningElement) continue;
-				var value = style['-ieVar-'+prop];
-				if (!value) continue;
-				value = styleComputeValueWidthVars(getComputedStyle(document.documentElement), value);
-				if (value === '') continue;
-				try {
-					style[prop] = value;
-				} catch(e) {}
-			}
-		}
-	}
-
-
-	const pseudos = {
-		hover:{
-			on:'mouseenter',
-			off:'mouseleave'
-		},
-		focus:{
-			on:'focusin',
-			off:'focusout'
-		},
-		active:{
-			on:'CSSActivate',
-			off:'CSSDeactivate'
-		},
-	};
-	function selectorAddPseudoListeners(selector){
-		// ie11 has the strange behavoir, that groups of selectors are individual rules, but starting with the full selector:
-		// td, th, button { color:red } results in this rules:
-		// "td, th, button" | "th, th" | "th"
-		selector = selector.split(',')[0];
-		for (var pseudo in pseudos) {
-			var parts = selector.split(':'+pseudo);
-			if (parts.length > 1) {
-				var ending = parts[1].match(/^[^\s]*/); // ending elementpart of selector (used for not(:active))
-				let sel = unPseudo(parts[0]+ending);
-				const listeners = pseudos[pseudo];
-				onElement(sel, function (el) {
-					el.addEventListener(listeners.on, drawTreeEvent);
-					el.addEventListener(listeners.off, drawTreeEvent);
-				});
-			}
-		}
-	}
-	let CSSActive = null;
-	document.addEventListener('mousedown',function(e){
-		setTimeout(function(){
-			if (e.target === document.activeElement) {
-				var evt = document.createEvent('Event');
-				evt.initEvent('CSSActivate', true, true);
-				CSSActive = e.target;
-				CSSActive.dispatchEvent(evt);
-			}
-		})
-	});
-	document.addEventListener('mouseup',function(){
-		if (CSSActive) {
-			var evt = document.createEvent('Event');
-			evt.initEvent('CSSDeactivate', true, true);
-			CSSActive.dispatchEvent(evt);
-			CSSActive = null;
-		}
-	});
-
-	function unPseudo(selector){
-		return selector.replace(regPseudos,'').replace(':not()','');
-	}
-
-	var uniqueCounter = 0;
-
-	/* old
-	function _drawElement(el) {
-		if (!el.ieCP_unique) { // use el.uniqueNumber? but needs class for the css-selector => test performance
-			el.ieCP_unique = ++uniqueCounter;
-			el.classList.add('iecp-u' + el.ieCP_unique);
-		}
-		var style = getComputedStyle(el);
-		if (el.ieCP_sheet) while (el.ieCP_sheet.rules[0]) el.ieCP_sheet.deleteRule(0);
-		for (var prop in el.ieCPSelectors) {
-			var important = style['-ieVar-❗' + prop];
-			let valueWithVar = important || style['-ieVar-' + prop];
-			if (!valueWithVar) continue; // todo, what if '0'
-
-			var details = {};
-			var value = styleComputeValueWidthVars(style, valueWithVar, details);
-
-			if (important) value += ' !important';
-			for (var i=0, item; item=el.ieCPSelectors[prop][i++];) { // todo: split and use requestAnimationFrame?
-				if (item.selector === '%styleAttr') {
-					el.style[prop] = value;
-				} else {
-
-					// beta
-					if (!important && details.allByRoot !== false) continue; // dont have to draw root-properties
-
-					//let selector = item.selector.replace(/>? \.[^ ]+/, ' ', item.selector); // todo: try to equalize specificity
-					let selector = item.selector;
-					elementStyleSheet(el).insertRule(selector + '.iecp-u' + el.ieCP_unique + item.pseudo + ' {' + prop + ':' + value + '}', 0); // faster then innerHTML
-				}
-			}
-		}
-	}
-	*/
-
-	function _drawElement(el) {
-		if (!el.ieCP_unique) { // use el.uniqueNumber? but needs class for the css-selector => test performance
-			el.ieCP_unique = ++uniqueCounter;
-			el.classList.add('iecp-u' + el.ieCP_unique);
-		}
-		var style = getComputedStyle(el);
-		let css = '';
-		for (var prop in el.ieCPSelectors) {
-			var important = style['-ieVar-❗' + prop];
-			let valueWithVar = important || style['-ieVar-' + prop];
-			if (!valueWithVar) continue; // todo, what if '0'
-
-			var details = {};
-			var value = styleComputeValueWidthVars(style, valueWithVar, details);
-			//if (value==='initial') value = initials[prop];
-
-			if (important) value += ' !important';
-			for (var i=0, item; item=el.ieCPSelectors[prop][i++];) { // todo: split and use requestAnimationFrame?
-				if (item.selector === '%styleAttr') {
-					el.style[prop] = value;
-				} else {
-
-					// beta
-					if (!important && details.allByRoot !== false) continue; // dont have to draw root-properties
-
-					//let selector = item.selector.replace(/>? \.[^ ]+/, ' ', item.selector); // todo: try to equalize specificity
-					let selector = item.selector;
-					css += selector + '.iecp-u' + el.ieCP_unique + item.pseudo + '{' + prop + ':' + value + '}\n'; // faster than insertRule
-				}
-			}
-		}
-		elementSetCss(el, css);
-	}
-	function elementSetCss(el, css){
-		if (!el.ieCP_styleEl && css) {
-			const styleEl = document.createElement('style');
-			styleEl.ieCP_elementSheet = 1;
-			//el.appendChild(styleEl); // yes! self-closing tags can have style as children, but - if i set innerHTML, the stylesheet is lost
-			document.head.appendChild(styleEl);
-			el.ieCP_styleEl = styleEl;
-		}
-		if (el.ieCP_styleEl) el.ieCP_styleEl.innerHTML = css;
-	}
-	function drawTree(target) {
-		if (!target) return;
-		var els = target.querySelectorAll('[iecp-needed]');
-		if (target.hasAttribute && target.hasAttribute('iecp-needed')) drawElement(target); // self
-		for (var i = 0, el; el = els[i++];) drawElement(el); // tree
-	}
-	// draw queue
-	let drawQueue = new Set();
-	let collecting = false;
-	let drawing = false;
-	function drawElement(el){
-		drawQueue.add(el);
-		if (collecting) return;
-		collecting = true;
-		requestAnimationFrame(function(){
-			collecting = false;
-			drawing = true;
-			drawQueue.forEach(_drawElement);
-			drawQueue.clear();
-			setTimeout(function(){ // mutationObserver will trigger delayed, requestAnimationFrame will miss some changes
-				drawing = false;
-			})
-		})
-	}
-
-
-	function drawTreeEvent(e) {
-		drawTree(e.target)
-	}
-
-	function findVars(str, cb){ // css value parser
-		let level=0, openedLevel=null, lastPoint=0, newStr = '', i=0, char, insideCalc;
-		while (char=str[i++]) {
-			if (char === '(') {
-				++level;
-				if (openedLevel === null && str[i-4]+str[i-3]+str[i-2] === 'var') {
-					openedLevel = level;
-					newStr += str.substring(lastPoint, i-4);
-					lastPoint = i;
-				}
-				if (str[i-5]+str[i-4]+str[i-3]+str[i-2] === 'calc') {
-					insideCalc = level;
-				}
-			}
-			if (char === ')' && openedLevel === level) {
-				let variable = str.substring(lastPoint, i-1).trim(), fallback;
-				let x = variable.indexOf(',');
-				if (x!==-1) {
-					fallback = variable.slice(x+1);
-					variable = variable.slice(0,x);
-				}
-				newStr += cb(variable, fallback, insideCalc);
-				lastPoint = i;
-				openedLevel = null;
-			}
-			if (char === ')') {
-				--level;
-				if (insideCalc === level) insideCalc = null;
-			}
-		}
-		newStr += str.substring(lastPoint);
-		return newStr;
-	}
-	function styleComputeValueWidthVars(style, valueWithVars, details){
-		return findVars(valueWithVars, function(variable, fallback, insideCalc){
-			var value = style.getPropertyValue(variable);
-			if (insideCalc) value = value.replace(/^calc\(/, '('); // prevent nested calc
-			if (details && style.lastPropertyServedBy !== document.documentElement) details.allByRoot = false;
-			if (value==='' && fallback) value = styleComputeValueWidthVars(style, fallback, details);
-			return value;
-		});
-	}
-
-	// mutation listener
-	var observer = new MutationObserver(function(mutations) {
-		if (drawing) return;
-		for (var i=0, mutation; mutation=mutations[i++];) {
-			//if (mutation.attributeName === 'ie-polyfilled') continue;
-			if (mutation.attributeName === 'iecp-needed') continue; // why?
-			// recheck all selectors if it targets new elements?
-			drawTree(mutation.target);
-		}
-	});
-	setTimeout(function(){
-		observer.observe(document,{attributes: true, subtree: true });
-	})
-
-	// :target listener
-	var oldHash = location.hash
-	addEventListener('hashchange',function(e){
-		var newEl = document.getElementById(location.hash.substr(1));
-		if (newEl) {
-			var oldEl = document.getElementById(oldHash.substr(1));
-			drawTree(newEl);
-			drawTree(oldEl);
-		} else {
-			drawTree(document);
-		}
-		oldHash = location.hash;
-	});
-
-	// add owningElement to Element.style
-	var descriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'style');
-	var styleGetter = descriptor.get;
-	descriptor.get = function () {
-		const style = styleGetter.call(this);
-		style.owningElement = this;
-		return style;
-	}
-	Object.defineProperty(HTMLElement.prototype, 'style', descriptor);
-
-	// add computedFor to computed style-objects
-	var originalGetComputed = getComputedStyle;
-	window.getComputedStyle = function (el) {
-		var style = originalGetComputed.apply(this, arguments);
-		style.computedFor = el;
-		//style.pseudoElt = pseudoElt; //not needed at the moment
-		return style;
-	}
-
-	// getPropertyValue / setProperty hooks
-	const StyleProto = CSSStyleDeclaration.prototype;
-
-	const oldGetP = StyleProto.getPropertyValue;
-	StyleProto.getPropertyValue = function (property) {
-		this.lastPropertyServedBy = false;
-		if (property[0] !== '-' || property[1] !== '-') return oldGetP.apply(this, arguments);
-		const undashed = property.substr(2);
-		const ieProperty = '-ie-'+undashed;
-		const iePropertyImportant = '-ie-❗'+undashed;
-		let value = this[iePropertyImportant] || this[ieProperty];
-		if (this.computedFor) { // computedStyle
-			if (value !== undefined && value !== 'inherit') {
-				if (regHasVar.test(value)) {
-					value = styleComputeValueWidthVars(this, value);
-				}
-				this.lastPropertyServedBy = this.computedFor;
-			} else { // inherited
-				if (value==='inherit' || !register[property] || register[property].inherits) {
-					// inherited
-					//let el = this.pseudoElt ? this.computedFor : this.computedFor.parentNode;
-					let el = this.computedFor.parentNode;
-					while (el.nodeType === 1) {
-						// how slower would it be to getComputedStyle for every element, not just with defined ieCP_setters
-						if (el.ieCP_setters && el.ieCP_setters[property]) {
-							// i could make
-							// value = el.nodeType ? getComputedStyle(this.computedFor.parentNode).getPropertyValue(property)
-							// but i fear performance, stupid?
-							var style = getComputedStyle(el);
-							var tmpVal = style[iePropertyImportant] || style[ieProperty];
-							if (tmpVal !== undefined) {
-								value = tmpVal;
-								if (regHasVar.test(value)) {
-									// calculated style from current element not from the element the value was inherited from! (style, value)
-									value = styleComputeValueWidthVars(this, value);
-								}
-								this.lastPropertyServedBy = el;
-								break;
-							}
-						}
-						el = el.parentNode;
-					}
-				}
-			}
-		}
-		//if ((value === undefined || value === 'initial') && register[property]) value = register[property].initialValue; // todo?
-		if (value === undefined && register[property]) value = register[property].initialValue;
-		if (value === undefined) value = '';
-		return value;
-	};
-
-	const oldSetP = StyleProto.setProperty;
-	StyleProto.setProperty = function (property, value, prio) {
-		if (property[0] !== '-' || property[1] !== '-') return oldSetP.apply(this, arguments);
-		const el = this.owningElement;
-		if (el) {
-			if (!el.ieCP_setters) el.ieCP_setters = {};
-			el.ieCP_setters[property] = 1;
-			drawTree(el); // after setting property?
-		}
-		property = '-ie-'+(prio==='important'?'❗':'') + property.substr(2);
-		this.cssText += '; ' + property + ':' + value + ';';
-		//this[property] = value;
-		el === document.documentElement && redrawStyleSheets();
-	};
-
-
-	if (!window.CSS) window.CSS = {};
-	const register = {}
-	CSS.registerProperty = function(options){
-		register[options.name] = options;
-	}
-
-	// fix "initial" keyword with generated custom properties, this is not supported ad all by ie, should i make a separate "inherit"-polyfill?
-	/*
-	const computed = getComputedStyle(document.documentElement)
-	const initials = {};
-	for (let i in computed) {
-		initials[i.replace(/([A-Z])/, function(x){ return '-'+x.toLowerCase(x) })] = computed[i];
-	}
-	initials['display'] = 'inline';
-	*/
-
-	// utils
-	function fetchCss(url, callback) {
-		var request = new XMLHttpRequest();
-		request.open('GET', url);
-		request.overrideMimeType('text/css');
-		request.onload = function () {
-			if (request.status >= 200 && request.status < 400) {
-				callback(request.responseText);
-			}
-		};
-		request.send();
-	}
-
-}();
-
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 /* 37 */
@@ -1656,24 +979,6 @@ module.exports = {
 
 /***/ }),
 /* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2198,19 +1503,16 @@ if (!self.fetch) {
 }
 
 // EXTERNAL MODULE: ./node_modules/url-search-params-polyfill/index.js
-var url_search_params_polyfill = __webpack_require__(33);
+var url_search_params_polyfill = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/es6-object-assign/auto.js
-var auto = __webpack_require__(34);
-
-// EXTERNAL MODULE: ./node_modules/ie11-custom-properties/ie11CustomProperties.js
-var ie11CustomProperties = __webpack_require__(36);
+var auto = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/knockout/build/output/knockout-latest.js
 var knockout_latest = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./src/styles.scss
-var styles = __webpack_require__(37);
+var styles = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./src/config.json
 var config = __webpack_require__(1);
@@ -3123,13 +2425,13 @@ var open_burning_fetchData = function fetchData(rootURL) {
 var mapbox_gl_geocoder_min = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css
-var mapbox_gl_geocoder = __webpack_require__(38);
+var mapbox_gl_geocoder = __webpack_require__(35);
 
 // EXTERNAL MODULE: ./src/components/map/template.html
 var map_template = __webpack_require__(26);
 
 // EXTERNAL MODULE: ./node_modules/mapbox-gl/dist/mapbox-gl.css
-var dist_mapbox_gl = __webpack_require__(39);
+var dist_mapbox_gl = __webpack_require__(36);
 
 // CONCATENATED MODULE: ./src/bindings/mapbox-gl.js
 
@@ -3152,103 +2454,18 @@ knockout_latest["bindingHandlers"].mapboxgl = {
   }
 };
 /* harmony default export */ var bindings_mapbox_gl = (knockout_latest["bindingHandlers"].mapboxgl);
-// EXTERNAL MODULE: ./src/components/print-control/template.html
-var print_control_template = __webpack_require__(27);
+// EXTERNAL MODULE: ./src/components/help-control/template.html
+var help_control_template = __webpack_require__(27);
 
-// EXTERNAL MODULE: ./node_modules/computed-style-to-inline-style/dist/index.js
-var dist = __webpack_require__(28);
+// EXTERNAL MODULE: ./src/components/help-control/help.html
+var help = __webpack_require__(28);
 
-// CONCATENATED MODULE: ./src/components/print-control/index.js
+// CONCATENATED MODULE: ./src/components/help-control/index.js
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-
-var print_control_PrintControl =
-/*#__PURE__*/
-function () {
-  function PrintControl() {
-    _classCallCheck(this, PrintControl);
-  }
-
-  _createClass(PrintControl, [{
-    key: "onAdd",
-    value: function onAdd(map) {
-      var parser = new DOMParser();
-      var doc = parser.parseFromString(print_control_template, "text/html");
-      var el = doc.body.removeChild(doc.body.firstChild);
-      this.map = map;
-      this.container = el;
-
-      var mapboxLogo = map._container.querySelector('.mapboxgl-ctrl-logo');
-
-      dist(mapboxLogo, {
-        recursive: true
-      });
-      var printData;
-
-      this.container.onclick = function () {
-        var printWindow = window.open('', 'BAAQMD Maps', 'height=600,width=800');
-        var img = new Image();
-        var logo = new Image();
-        logo.src = mapboxLogo.style.backgroundImage.slice(5, mapboxLogo.style.backgroundImage.length - 2);
-
-        if (!printData) {
-          printData = map.getCanvas().toDataURL("image/jpeg");
-        }
-
-        img.src = printData;
-        img.style.width = '100%';
-        logo.style.width = '100px';
-        printWindow.document.write('<html><head><title>BAAQMD Maps</title>');
-        printWindow.document.write('</head><body>');
-        printWindow.document.write(img.outerHTML);
-        printWindow.document.write('<div style="position:absolute;bottom:10px;left:15px;z-index:200">' + logo.outerHTML + '</div>' + '<div style="float:right;font-family:sans-serif;position:absolute;bottom:0;right:0;z-index:200;background-color:white;padding:10px;">' + '<span>© Mapbox</span>&nbsp;<span>© OpenStreetMap</span>' + '</div>');
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-        printWindow.focus();
-        setTimeout(function () {
-          printWindow.print();
-          printWindow.close();
-        }, 150);
-      };
-
-      map.on('moveend', function () {
-        printData = map.getCanvas().toDataURL("image/jpeg");
-      });
-      map.on('resize', function () {
-        printData = map.getCanvas().toDataURL("image/jpeg");
-      });
-      return this.container;
-    }
-  }, {
-    key: "onRemove",
-    value: function onRemove() {
-      this.container.parentNode.removeChild(this.container);
-      this.map = undefined;
-    }
-  }]);
-
-  return PrintControl;
-}();
-
-
-// EXTERNAL MODULE: ./src/components/help-control/template.html
-var help_control_template = __webpack_require__(29);
-
-// EXTERNAL MODULE: ./src/components/help-control/help.html
-var help = __webpack_require__(30);
-
-// CONCATENATED MODULE: ./src/components/help-control/index.js
-function help_control_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function help_control_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function help_control_createClass(Constructor, protoProps, staticProps) { if (protoProps) help_control_defineProperties(Constructor.prototype, protoProps); if (staticProps) help_control_defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
@@ -3264,12 +2481,12 @@ var help_control_HelpControl =
 /*#__PURE__*/
 function () {
   function HelpControl(showInfoPanel) {
-    help_control_classCallCheck(this, HelpControl);
+    _classCallCheck(this, HelpControl);
 
     this.showInfoPanel = showInfoPanel;
   }
 
-  help_control_createClass(HelpControl, [{
+  _createClass(HelpControl, [{
     key: "onAdd",
     value: function onAdd(map) {
       var self = this;
@@ -3304,7 +2521,7 @@ function () {
 
 
 
-
+ // import PrintControl from '../print-control';
 
 
 var mapboxQuery =  true ? '' : undefined;
@@ -3363,8 +2580,8 @@ var mapboxQuery =  true ? '' : undefined;
       }));
       map.addControl(new mapbox_gl["ScaleControl"]({
         unit: 'imperial'
-      }));
-      map.addControl(new print_control_PrintControl());
+      })); // map.addControl(new PrintControl());
+
       map.addControl(new help_control_HelpControl(params.showInfoPanel));
       params.map(map);
       params.mapType.subscribe(function (mapType) {
@@ -3422,13 +2639,13 @@ var mapboxQuery =  true ? '' : undefined;
   template: map_template
 }));
 // EXTERNAL MODULE: ./src/components/details-panel/template.html
-var details_panel_template = __webpack_require__(31);
+var details_panel_template = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/choices.js/public/assets/scripts/choices.min.js
-var choices_min = __webpack_require__(32);
+var choices_min = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./node_modules/choices.js/public/assets/styles/choices.min.css
-var styles_choices_min = __webpack_require__(40);
+var styles_choices_min = __webpack_require__(37);
 
 // CONCATENATED MODULE: ./src/bindings/choices.js
 
@@ -3513,7 +2730,6 @@ knockout_latest["bindingHandlers"].choices = {
 }));
 // CONCATENATED MODULE: ./src/index.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
-
 
 
 
