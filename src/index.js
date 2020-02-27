@@ -1,6 +1,7 @@
 import 'whatwg-fetch';
 import 'url-search-params-polyfill';
 import 'es6-object-assign/auto';
+import 'ie11-custom-properties';
 import * as ko from 'knockout';
 import './styles.scss';
 import * as config from './config.json';

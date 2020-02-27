@@ -44,6 +44,7 @@
     "choices.js": "^6.0.3",
     "computed-style-to-inline-style": "^3.0.0",
     "es6-object-assign": "^1.1.0",
+    "ie11-custom-properties": "^3.0.6",
     "knockout": "^3.5.0",
     "mapbox-gl": "^1.6.1",
     "url-search-params-polyfill": "^8.0.0",
