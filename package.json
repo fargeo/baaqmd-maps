@@ -44,12 +44,9 @@
     "choices.js": "^6.0.3",
     "computed-style-to-inline-style": "^3.0.0",
     "core-js": "^3.6.4",
-    "es6-object-assign": "^1.1.0",
-    "ie11-custom-properties": "^3.0.6",
+    "intl": "^1.2.5",
     "knockout": "^3.5.0",
     "mapbox-gl": "^1.6.1",
-    "polyfill-array-includes": "^2.0.0",
-    "url-search-params-polyfill": "^8.0.0",
     "whatwg-fetch": "^3.0.0"
   }
 }

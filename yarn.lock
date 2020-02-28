@@ -3944,11 +3944,6 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-es6-object-assign@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
-  integrity sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw=
-
 es6-promise@^4.0.5:
   version "4.2.8"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
@@ -5000,11 +4995,6 @@ icss-utils@^4.1.0:
   dependencies:
     postcss "^7.0.14"
 
-ie11-custom-properties@^3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/ie11-custom-properties/-/ie11-custom-properties-3.0.6.tgz#c892460b95308b6a830a1f9f7b12068b21590291"
-  integrity sha512-IIyVr9NhUc1LNwxEO9hlfE2Tw7X/dKzuIAXMB+FyJaN18WXxN9yJ3uE+se60nFcjRSfNgntyGuosh4daxaXpsA==
-
 ieee754@1.1.13, ieee754@^1.1.12, ieee754@^1.1.4:
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"
@@ -5135,6 +5125,11 @@ interpret@1.2.0, interpret@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
   integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
+
+intl@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
+  integrity sha1-giRKIZDE5Bn4Nx9ao02qNCDiq94=
 
 into-stream@^3.1.0:
   version "3.1.0"
@@ -6876,11 +6871,6 @@ point-in-polygon@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/point-in-polygon/-/point-in-polygon-1.0.1.tgz#d59b64e8fee41c49458aac82b56718c5957b2af7"
   integrity sha1-1Ztk6P7kHElFiqyCtWcYxZV7Kvc=
-
-polyfill-array-includes@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/polyfill-array-includes/-/polyfill-array-includes-2.0.0.tgz#a160d85de1a7eec4be0fd67da1c5030b699d2429"
-  integrity sha512-HTrB0xYCN3TgOQvk5Tc7ehhl0vC73DARlhNMIDF8xCdPwPOELAYEZkgqJp0vbUGnM3FvcaXgxrwLw+bzKepI2A==
 
 portfinder@^1.0.25:
   version "1.0.25"
@@ -8933,11 +8923,6 @@ url-parse@^1.4.3:
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
-
-url-search-params-polyfill@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-8.0.0.tgz#17415ca6815ff0661e07737b84bcc28e708a7875"
-  integrity sha512-X4BTaEq1UMz9bTbMKQ6r+CippkKBsFWHiP9wycQc7aHH2Ml/Iieuo44+GJDb77pfP71bONYA/nUd4iokYAxVRQ==
 
 url-to-options@^1.0.1:
   version "1.0.1"
