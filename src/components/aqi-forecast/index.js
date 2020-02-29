@@ -27,9 +27,9 @@ let fetchData = (rootURL) => {
         .then((text) => {
             const xmlDoc = parser.parseFromString(text, 'application/xml');
             xmlDoc.querySelectorAll('item').forEach((item) => {
-                if (item.querySelector('title').innerHTML === 'Alert Mode') {
+                if (item.querySelector('title').textContent === 'Alert Mode') {
                     var mode;
-                    switch (item.querySelector('description').innerHTML) {
+                    switch (item.querySelector('description').textContent) {
                     case 'Winter Season in Effect':
                         mode = 'winter';
                         break;
@@ -42,7 +42,7 @@ let fetchData = (rootURL) => {
                     alertMode(mode);
                 }
             });
-            alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert");
+            alertStatus(xmlDoc.querySelector('item description').textContent.toLowerCase() !== "no alert");
             return fetch(rootURL + config.aqiRSSFeed, {cache: "no-store"});
         })
         .then((response) => {
@@ -54,11 +54,11 @@ let fetchData = (rootURL) => {
             const zones = {};
             xmlDoc.querySelectorAll('item').forEach((item) => {
                 let day = {
-                    date: item.querySelector('date').innerHTML.slice(0, -3),
+                    date: item.querySelector('date').textContent.slice(0, -3),
                     zones: []
                 };
                 item.querySelectorAll('zone').forEach((zone) => {
-                    let measurement = zone.querySelector('measurement').innerHTML;
+                    let measurement = zone.querySelector('measurement').textContent;
                     let forecast;
                     if (!isNaN(parseFloat(measurement))) {
                         measurement = parseFloat(measurement);
@@ -80,9 +80,9 @@ let fetchData = (rootURL) => {
                         measurement = null;
                     }
                     let zoneData = {
-                        title: zone.querySelector('title').innerHTML,
+                        title: zone.querySelector('title').textContent,
                         measurement: measurement,
-                        pollutant: zone.querySelector('pollutant').innerHTML,
+                        pollutant: zone.querySelector('pollutant').textContent,
                         forecast: forecast
                     };
                     day.zones.push(zoneData);
@@ -98,7 +98,7 @@ let fetchData = (rootURL) => {
             aqiData({
                 dates: dates,
                 zones: zones,
-                lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
+                lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').textContent)
             });
         });
     fetchHTML(rootURL + config.aqiInfoURL, aqiInfo);

@@ -12,10 +12,10 @@ import * as ko from 'knockout';
         if (/^\s*text\/html\s*(?:;|$)/i.test(type)) {
             const doc = document.implementation.createHTMLDocument("");
             if (markup.toLowerCase().indexOf('<!doctype') > -1) {
-                doc.documentElement.innerHTML = markup;
+                doc.documentElement.textContent = markup;
             }
             else {
-                doc.body.innerHTML = markup;
+                doc.body.textContent = markup;
             }
             return doc;
         } else {
@@ -34,7 +34,7 @@ export default function fetchHTML(url, content) {
         .then((text) => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
-            return content(doc.querySelector('body').innerHTML);
+            return content(doc.querySelector('body').textContent);
         });
     return content;
 }

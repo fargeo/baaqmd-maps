@@ -7,6 +7,7 @@ import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
 import PrintControl from '../print-control';
 import HelpControl from '../help-control';
+import detectIE from '../../utils/detect-ie';
 let mapboxQuery = process.env.NODE_ENV === 'production' ? '' : '&fresh=true';
 
 export default ko.components.register('map', {
@@ -66,7 +67,7 @@ export default ko.components.register('map', {
             map.addControl(new mapboxgl.ScaleControl({
                 unit: 'imperial'
             }));
-            map.addControl(new PrintControl());
+            if (!detectIE()) map.addControl(new PrintControl());
             map.addControl(new HelpControl(params.showInfoPanel));
             params.map(map);
 
