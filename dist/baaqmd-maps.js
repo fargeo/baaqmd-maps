@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 583);
+/******/ 	return __webpack_require__(__webpack_require__.s = 585);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -370,7 +370,7 @@ module.exports =
   // eslint-disable-next-line no-new-func
   Function('return this')();
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(101)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(79)))
 
 /***/ }),
 /* 8 */
@@ -426,7 +426,7 @@ iterate.stop = function (result) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(7);
-var shared = __webpack_require__(81);
+var shared = __webpack_require__(82);
 var has = __webpack_require__(17);
 var uid = __webpack_require__(64);
 var NATIVE_SYMBOL = __webpack_require__(109);
@@ -735,7 +735,7 @@ var global = __webpack_require__(7);
 var isObject = __webpack_require__(11);
 var createNonEnumerableProperty = __webpack_require__(18);
 var objectHas = __webpack_require__(17);
-var sharedKey = __webpack_require__(80);
+var sharedKey = __webpack_require__(81);
 var hiddenKeys = __webpack_require__(65);
 
 var WeakMap = global.WeakMap;
@@ -947,7 +947,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var DESCRIPTORS = __webpack_require__(10);
-var propertyIsEnumerableModule = __webpack_require__(79);
+var propertyIsEnumerableModule = __webpack_require__(80);
 var createPropertyDescriptor = __webpack_require__(42);
 var toIndexedObject = __webpack_require__(30);
 var toPrimitive = __webpack_require__(35);
@@ -1014,7 +1014,7 @@ var TEMPLATE = String(String).split('String');
 
 var has = __webpack_require__(17);
 var toObject = __webpack_require__(16);
-var sharedKey = __webpack_require__(80);
+var sharedKey = __webpack_require__(81);
 var CORRECT_PROTOTYPE_GETTER = __webpack_require__(113);
 
 var IE_PROTO = sharedKey('IE_PROTO');
@@ -1041,7 +1041,7 @@ var enumBugKeys = __webpack_require__(107);
 var hiddenKeys = __webpack_require__(65);
 var html = __webpack_require__(139);
 var documentCreateElement = __webpack_require__(102);
-var sharedKey = __webpack_require__(80);
+var sharedKey = __webpack_require__(81);
 
 var GT = '>';
 var LT = '<';
@@ -1415,7 +1415,7 @@ var global = __webpack_require__(7);
 var DESCRIPTORS = __webpack_require__(10);
 var TYPED_ARRAYS_CONSTRUCTORS_REQUIRES_WRAPPERS = __webpack_require__(130);
 var ArrayBufferViewCore = __webpack_require__(14);
-var ArrayBufferModule = __webpack_require__(97);
+var ArrayBufferModule = __webpack_require__(98);
 var anInstance = __webpack_require__(36);
 var createPropertyDescriptor = __webpack_require__(42);
 var createNonEnumerableProperty = __webpack_require__(18);
@@ -1435,7 +1435,7 @@ var setSpecies = __webpack_require__(54);
 var definePropertyModule = __webpack_require__(13);
 var getOwnPropertyDescriptorModule = __webpack_require__(25);
 var InternalStateModule = __webpack_require__(19);
-var inheritIfRequired = __webpack_require__(93);
+var inheritIfRequired = __webpack_require__(94);
 
 var getInternalState = InternalStateModule.get;
 var setInternalState = InternalStateModule.set;
@@ -1648,7 +1648,7 @@ if (DESCRIPTORS) {
 // TODO: in core-js@4, move /modules/ dependencies to public entries for better optimization by tools like `preset-env`
 var Map = __webpack_require__(127);
 var WeakMap = __webpack_require__(128);
-var shared = __webpack_require__(81);
+var shared = __webpack_require__(82);
 
 var metadata = shared('metadata');
 var store = metadata.store || (metadata.store = new WeakMap());
@@ -2143,7 +2143,7 @@ module.exports = function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var requireObjectCoercible = __webpack_require__(23);
-var whitespaces = __webpack_require__(92);
+var whitespaces = __webpack_require__(93);
 
 var whitespace = '[' + whitespaces + ']';
 var ltrim = RegExp('^' + whitespace + whitespace + '*');
@@ -2536,6 +2536,32 @@ module.exports = {
 
 /***/ }),
 /* 79 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2555,10 +2581,10 @@ exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(81);
+var shared = __webpack_require__(82);
 var uid = __webpack_require__(64);
 
 var keys = shared('keys');
@@ -2569,7 +2595,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var IS_PURE = __webpack_require__(5);
@@ -2585,7 +2611,7 @@ var store = __webpack_require__(105);
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2605,7 +2631,7 @@ module.exports = IS_PURE || !fails(function () {
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var wellKnownSymbol = __webpack_require__(9);
@@ -2649,7 +2675,7 @@ module.exports = function (exec, SKIP_CLOSING) {
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getBuiltIn = __webpack_require__(15);
@@ -2658,7 +2684,7 @@ module.exports = getBuiltIn('navigator', 'userAgent') || '';
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var aFunction = __webpack_require__(4);
@@ -2704,7 +2730,7 @@ module.exports = {
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2764,7 +2790,7 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2774,7 +2800,7 @@ __webpack_require__(120);
 var redefine = __webpack_require__(26);
 var fails = __webpack_require__(3);
 var wellKnownSymbol = __webpack_require__(9);
-var regexpExec = __webpack_require__(88);
+var regexpExec = __webpack_require__(89);
 var createNonEnumerableProperty = __webpack_require__(18);
 
 var SPECIES = wellKnownSymbol('species');
@@ -2896,13 +2922,13 @@ module.exports = function (KEY, length, exec, sham) {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var regexpFlags = __webpack_require__(61);
-var stickyHelpers = __webpack_require__(89);
+var stickyHelpers = __webpack_require__(90);
 
 var nativeExec = RegExp.prototype.exec;
 // This always refers to the native implementation, because the
@@ -2990,7 +3016,7 @@ module.exports = patchedExec;
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3020,7 +3046,7 @@ exports.BROKEN_CARET = fails(function () {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3035,11 +3061,11 @@ module.exports = function (S, index, unicode) {
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var classof = __webpack_require__(34);
-var regexpExec = __webpack_require__(88);
+var regexpExec = __webpack_require__(89);
 
 // `RegExpExec` abstract operation
 // https://tc39.github.io/ecma262/#sec-regexpexec
@@ -3063,7 +3089,7 @@ module.exports = function (R, S) {
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports) {
 
 // a string of all valid unicode whitespaces
@@ -3072,7 +3098,7 @@ module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(11);
@@ -3095,7 +3121,7 @@ module.exports = function ($this, dummy, Wrapper) {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports) {
 
 var nativeExpm1 = Math.expm1;
@@ -3114,7 +3140,7 @@ module.exports = (!nativeExpm1
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports) {
 
 module.exports = function (exec) {
@@ -3127,7 +3153,7 @@ module.exports = function (exec) {
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3141,9 +3167,9 @@ var iterate = __webpack_require__(8);
 var anInstance = __webpack_require__(36);
 var isObject = __webpack_require__(11);
 var fails = __webpack_require__(3);
-var checkCorrectnessOfIteration = __webpack_require__(83);
+var checkCorrectnessOfIteration = __webpack_require__(84);
 var setToStringTag = __webpack_require__(39);
-var inheritIfRequired = __webpack_require__(93);
+var inheritIfRequired = __webpack_require__(94);
 
 module.exports = function (CONSTRUCTOR_NAME, wrapper, common) {
   var IS_MAP = CONSTRUCTOR_NAME.indexOf('Map') !== -1;
@@ -3233,7 +3259,7 @@ module.exports = function (CONSTRUCTOR_NAME, wrapper, common) {
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3248,7 +3274,7 @@ var anInstance = __webpack_require__(36);
 var toInteger = __webpack_require__(31);
 var toLength = __webpack_require__(12);
 var toIndex = __webpack_require__(171);
-var IEEE754 = __webpack_require__(365);
+var IEEE754 = __webpack_require__(367);
 var getPrototypeOf = __webpack_require__(27);
 var setPrototypeOf = __webpack_require__(50);
 var getOwnPropertyNames = __webpack_require__(51).f;
@@ -3466,7 +3492,7 @@ module.exports = {
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3489,7 +3515,7 @@ module.exports = function (/* ...elements */) {
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3522,7 +3548,7 @@ module.exports = function from(source /* , mapFn, thisArg */) {
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3534,32 +3560,6 @@ module.exports = function of() {
   while (length--) A[length] = arguments[length];
   return new this(A);
 };
-
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
 
 
 /***/ }),
@@ -3748,7 +3748,7 @@ module.exports = !fails(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(7);
-var userAgent = __webpack_require__(84);
+var userAgent = __webpack_require__(85);
 
 var process = global.process;
 var versions = process && process.versions;
@@ -3975,7 +3975,7 @@ module.exports = function (METHOD_NAME) {
 "use strict";
 
 var $ = __webpack_require__(0);
-var exec = __webpack_require__(88);
+var exec = __webpack_require__(89);
 
 $({ target: 'RegExp', proto: true, forced: /./.exec !== exec }, {
   exec: exec
@@ -4045,7 +4045,7 @@ module.exports = ''.repeat || function repeat(count) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var fails = __webpack_require__(3);
-var whitespaces = __webpack_require__(92);
+var whitespaces = __webpack_require__(93);
 
 var non = '\u200B\u0085\u180E';
 
@@ -4064,7 +4064,7 @@ module.exports = function (METHOD_NAME) {
 
 var global = __webpack_require__(7);
 var trim = __webpack_require__(62).trim;
-var whitespaces = __webpack_require__(92);
+var whitespaces = __webpack_require__(93);
 
 var $parseInt = global.parseInt;
 var hex = /^[+-]?0[Xx]/;
@@ -4203,7 +4203,7 @@ module.exports = {
 
 "use strict";
 
-var collection = __webpack_require__(96);
+var collection = __webpack_require__(97);
 var collectionStrong = __webpack_require__(168);
 
 // `Map` constructor
@@ -4222,7 +4222,7 @@ module.exports = collection('Map', function (init) {
 var global = __webpack_require__(7);
 var redefineAll = __webpack_require__(44);
 var InternalMetadataModule = __webpack_require__(52);
-var collection = __webpack_require__(96);
+var collection = __webpack_require__(97);
 var collectionWeak = __webpack_require__(170);
 var isObject = __webpack_require__(11);
 var enforceIternalState = __webpack_require__(19).enforce;
@@ -4301,7 +4301,7 @@ module.exports = typeof ArrayBuffer !== 'undefined' && typeof DataView !== 'unde
 /* eslint-disable no-new */
 var global = __webpack_require__(7);
 var fails = __webpack_require__(3);
-var checkCorrectnessOfIteration = __webpack_require__(83);
+var checkCorrectnessOfIteration = __webpack_require__(84);
 var NATIVE_ARRAY_BUFFER_VIEWS = __webpack_require__(14).NATIVE_ARRAY_BUFFER_VIEWS;
 
 var ArrayBuffer = global.ArrayBuffer;
@@ -4329,7 +4329,7 @@ module.exports = !NATIVE_ARRAY_BUFFER_VIEWS || !fails(function () {
 "use strict";
 
 // TODO: in core-js@4, move /modules/ dependencies to public entries for better optimization by tools like `preset-env`
-__webpack_require__(86);
+__webpack_require__(87);
 var $ = __webpack_require__(0);
 var getBuiltIn = __webpack_require__(15);
 var USE_NATIVE_URL = __webpack_require__(175);
@@ -4890,7 +4890,7 @@ var DESCRIPTORS = __webpack_require__(10);
 var fails = __webpack_require__(3);
 var objectKeys = __webpack_require__(58);
 var getOwnPropertySymbolsModule = __webpack_require__(108);
-var propertyIsEnumerableModule = __webpack_require__(79);
+var propertyIsEnumerableModule = __webpack_require__(80);
 var toObject = __webpack_require__(16);
 var IndexedObject = __webpack_require__(63);
 
@@ -4946,7 +4946,7 @@ module.exports = !nativeAssign || fails(function () {
 var DESCRIPTORS = __webpack_require__(10);
 var objectKeys = __webpack_require__(58);
 var toIndexedObject = __webpack_require__(30);
-var propertyIsEnumerable = __webpack_require__(79).f;
+var propertyIsEnumerable = __webpack_require__(80).f;
 
 // `Object.{ entries, values }` methods implementation
 var createMethod = function (TO_ENTRIES) {
@@ -5247,7 +5247,7 @@ var createNonEnumerableProperty = __webpack_require__(18);
 var fails = __webpack_require__(3);
 var wellKnownSymbol = __webpack_require__(9);
 var speciesConstructor = __webpack_require__(22);
-var advanceStringIndex = __webpack_require__(90);
+var advanceStringIndex = __webpack_require__(91);
 var InternalStateModule = __webpack_require__(19);
 var IS_PURE = __webpack_require__(5);
 
@@ -5349,7 +5349,7 @@ IS_PURE || MATCH_ALL in RegExpPrototype || createNonEnumerableProperty(RegExpPro
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://github.com/zloirock/core-js/issues/280
-var userAgent = __webpack_require__(84);
+var userAgent = __webpack_require__(85);
 
 // eslint-disable-next-line unicorn/no-unsafe-regex
 module.exports = /Version\/10\.\d+(\.\d+)?( Mobile\/\w+)? Safari\//.test(userAgent);
@@ -5397,7 +5397,7 @@ defineIterator(String, 'String', function (iterated) {
 
 var global = __webpack_require__(7);
 var trim = __webpack_require__(62).trim;
-var whitespaces = __webpack_require__(92);
+var whitespaces = __webpack_require__(93);
 
 var $parseFloat = global.parseFloat;
 var FORCED = 1 / $parseFloat(whitespaces + '-0') !== -Infinity;
@@ -5515,7 +5515,7 @@ module.exports = global.Promise;
 /* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var userAgent = __webpack_require__(84);
+var userAgent = __webpack_require__(85);
 
 module.exports = /(iphone|ipod|ipad).*applewebkit/i.test(userAgent);
 
@@ -5645,7 +5645,7 @@ module.exports = function (a, b) {
 var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(4);
 var newPromiseCapabilityModule = __webpack_require__(75);
-var perform = __webpack_require__(95);
+var perform = __webpack_require__(96);
 var iterate = __webpack_require__(8);
 
 // `Promise.allSettled` method
@@ -5885,7 +5885,7 @@ module.exports = {
 
 "use strict";
 
-var collection = __webpack_require__(96);
+var collection = __webpack_require__(97);
 var collectionStrong = __webpack_require__(168);
 
 // `Set` constructor
@@ -6111,7 +6111,7 @@ var has = __webpack_require__(17);
 var assign = __webpack_require__(142);
 var arrayFrom = __webpack_require__(148);
 var codeAt = __webpack_require__(60).codeAt;
-var toASCII = __webpack_require__(438);
+var toASCII = __webpack_require__(440);
 var setToStringTag = __webpack_require__(39);
 var URLSearchParamsModule = __webpack_require__(131);
 var InternalStateModule = __webpack_require__(19);
@@ -7443,7 +7443,7 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 ;var i=t.length-n;r?(r=Number(r))>i&&(r=i):r=i;var s=e.length;if(s%2!=0)throw new TypeError("Invalid hex string");r>s/2&&(r=s/2);for(var o=0;o<r;++o){var a=parseInt(e.substr(2*o,2),16);if(isNaN(a))return o;t[n+o]=a}return o}function E(t,e,n,r){return K(F(e,t.length-n),t,n,r)}function x(t,e,n,r){return K(V(e),t,n,r)}function A(t,e,n,r){return x(t,e,n,r)}function R(t,e,n,r){return K(Q(e),t,n,r)}function O(t,e,n,r){return K(H(e,t.length-n),t,n,r)}function T(t,e,n){return 0===e&&n===t.length?X.fromByteArray(t):X.fromByteArray(t.slice(e,n))}function I(t,e,n){n=Math.min(t.length,n);for(var r=[],i=e;i<n;){var s=t[i],o=null,a=s>239?4:s>223?3:s>191?2:1;if(i+a<=n){var u,h,f,c;switch(a){case 1:s<128&&(o=s);break;case 2:u=t[i+1],128==(192&u)&&(c=(31&s)<<6|63&u)>127&&(o=c);break;case 3:u=t[i+1],h=t[i+2],128==(192&u)&&128==(192&h)&&(c=(15&s)<<12|(63&u)<<6|63&h)>2047&&(c<55296||c>57343)&&(o=c);break;case 4:u=t[i+1],h=t[i+2],f=t[i+3],128==(192&u)&&128==(192&h)&&128==(192&f)&&(c=(15&s)<<18|(63&u)<<12|(63&h)<<6|63&f)>65535&&c<1114112&&(o=c)}}null===o?(o=65533,a=1):o>65535&&(o-=65536,r.push(o>>>10&1023|55296),o=56320|1023&o),r.push(o),i+=a}return P(r)}function P(t){var e=t.length;if(e<=W)return String.fromCharCode.apply(String,t);for(var n="",r=0;r<e;)n+=String.fromCharCode.apply(String,t.slice(r,r+=W));return n}function S(t,e,n){var r="";n=Math.min(t.length,n);for(var i=e;i<n;++i)r+=String.fromCharCode(127&t[i]);return r}function B(t,e,n){var r="";n=Math.min(t.length,n);for(var i=e;i<n;++i)r+=String.fromCharCode(t[i]);return r}function L(t,e,n){var r=t.length;(!e||e<0)&&(e=0),(!n||n<0||n>r)&&(n=r);for(var i="",s=e;s<n;++s)i+=G(t[s]);return i}function k(t,e,n){for(var r=t.slice(e,n),i="",s=0;s<r.length;s+=2)i+=String.fromCharCode(r[s]+256*r[s+1]);return i}function C(t,e,n){if(t%1!=0||t<0)throw new RangeError("offset is not uint");if(t+e>n)throw new RangeError("Trying to access beyond buffer length")}function U(t,e,n,r,i,o){if(!s.isBuffer(t))throw new TypeError('"buffer" argument must be a Buffer instance');if(e>i||e<o)throw new RangeError('"value" argument is out of bounds');if(n+r>t.length)throw new RangeError("Index out of range")}function q(t,e,n,r){e<0&&(e=65535+e+1);for(var i=0,s=Math.min(t.length-n,2);i<s;++i)t[n+i]=(e&255<<8*(r?i:1-i))>>>8*(r?i:1-i)}function j(t,e,n,r){e<0&&(e=4294967295+e+1);for(var i=0,s=Math.min(t.length-n,4);i<s;++i)t[n+i]=e>>>8*(r?i:3-i)&255}function N(t,e,n,r,i,s){if(n+r>t.length)throw new RangeError("Index out of range");if(n<0)throw new RangeError("Index out of range")}function M(t,e,n,r,i){return i||N(t,e,n,4,3.4028234663852886e38,-3.4028234663852886e38),Z.write(t,e,n,r,23,4),n+4}function D(t,e,n,r,i){return i||N(t,e,n,8,1.7976931348623157e308,-1.7976931348623157e308),Z.write(t,e,n,r,52,8),n+8}function Y(t){if(t=z(t).replace(tt,""),t.length<2)return"";for(;t.length%4!=0;)t+="=";return t}function z(t){return t.trim?t.trim():t.replace(/^\s+|\s+$/g,"")}function G(t){return t<16?"0"+t.toString(16):t.toString(16)}function F(t,e){e=e||1/0;for(var n,r=t.length,i=null,s=[],o=0;o<r;++o){if((n=t.charCodeAt(o))>55295&&n<57344){if(!i){if(n>56319){(e-=3)>-1&&s.push(239,191,189);continue}if(o+1===r){(e-=3)>-1&&s.push(239,191,189);continue}i=n;continue}if(n<56320){(e-=3)>-1&&s.push(239,191,189),i=n;continue}n=65536+(i-55296<<10|n-56320)}else i&&(e-=3)>-1&&s.push(239,191,189);if(i=null,n<128){if((e-=1)<0)break;s.push(n)}else if(n<2048){if((e-=2)<0)break;s.push(n>>6|192,63&n|128)}else if(n<65536){if((e-=3)<0)break;s.push(n>>12|224,n>>6&63|128,63&n|128)}else{if(!(n<1114112))throw new Error("Invalid code point");if((e-=4)<0)break;s.push(n>>18|240,n>>12&63|128,n>>6&63|128,63&n|128)}}return s}function V(t){for(var e=[],n=0;n<t.length;++n)e.push(255&t.charCodeAt(n));return e}function H(t,e){for(var n,r,i,s=[],o=0;o<t.length&&!((e-=2)<0);++o)n=t.charCodeAt(o),r=n>>8,i=n%256,s.push(i),s.push(r);return s}function Q(t){return X.toByteArray(Y(t))}function K(t,e,n,r){for(var i=0;i<r&&!(i+n>=e.length||i>=t.length);++i)e[i+n]=t[i];return i}function J(t){return t!==t}var X=t("base64-js"),Z=t("ieee754"),$=t("isarray");n.Buffer=s,n.SlowBuffer=y,n.INSPECT_MAX_BYTES=50,s.TYPED_ARRAY_SUPPORT=void 0!==e.TYPED_ARRAY_SUPPORT?e.TYPED_ARRAY_SUPPORT:function(){try{var t=new Uint8Array(1);return t.__proto__={__proto__:Uint8Array.prototype,foo:function(){return 42}},42===t.foo()&&"function"==typeof t.subarray&&0===t.subarray(1,1).byteLength}catch(t){return!1}}(),n.kMaxLength=r(),s.poolSize=8192,s._augment=function(t){return t.__proto__=s.prototype,t},s.from=function(t,e,n){return o(null,t,e,n)},s.TYPED_ARRAY_SUPPORT&&(s.prototype.__proto__=Uint8Array.prototype,s.__proto__=Uint8Array,"undefined"!=typeof Symbol&&Symbol.species&&s[Symbol.species]===s&&Object.defineProperty(s,Symbol.species,{value:null,configurable:!0})),s.alloc=function(t,e,n){return u(null,t,e,n)},s.allocUnsafe=function(t){return h(null,t)},s.allocUnsafeSlow=function(t){return h(null,t)},s.isBuffer=function(t){return!(null==t||!t._isBuffer)},s.compare=function(t,e){if(!s.isBuffer(t)||!s.isBuffer(e))throw new TypeError("Arguments must be Buffers");if(t===e)return 0;for(var n=t.length,r=e.length,i=0,o=Math.min(n,r);i<o;++i)if(t[i]!==e[i]){n=t[i],r=e[i];break}return n<r?-1:r<n?1:0},s.isEncoding=function(t){switch(String(t).toLowerCase()){case"hex":case"utf8":case"utf-8":case"ascii":case"latin1":case"binary":case"base64":case"ucs2":case"ucs-2":case"utf16le":case"utf-16le":return!0;default:return!1}},s.concat=function(t,e){if(!$(t))throw new TypeError('"list" argument must be an Array of Buffers');if(0===t.length)return s.alloc(0);var n;if(void 0===e)for(e=0,n=0;n<t.length;++n)e+=t[n].length;var r=s.allocUnsafe(e),i=0;for(n=0;n<t.length;++n){var o=t[n];if(!s.isBuffer(o))throw new TypeError('"list" argument must be an Array of Buffers');o.copy(r,i),i+=o.length}return r},s.byteLength=v,s.prototype._isBuffer=!0,s.prototype.swap16=function(){var t=this.length;if(t%2!=0)throw new RangeError("Buffer size must be a multiple of 16-bits");for(var e=0;e<t;e+=2)_(this,e,e+1);return this},s.prototype.swap32=function(){var t=this.length;if(t%4!=0)throw new RangeError("Buffer size must be a multiple of 32-bits");for(var e=0;e<t;e+=4)_(this,e,e+3),_(this,e+1,e+2);return this},s.prototype.swap64=function(){var t=this.length;if(t%8!=0)throw new RangeError("Buffer size must be a multiple of 64-bits");for(var e=0;e<t;e+=8)_(this,e,e+7),_(this,e+1,e+6),_(this,e+2,e+5),_(this,e+3,e+4);return this},s.prototype.toString=function(){var t=0|this.length;return 0===t?"":0===arguments.length?I(this,0,t):g.apply(this,arguments)},s.prototype.equals=function(t){if(!s.isBuffer(t))throw new TypeError("Argument must be a Buffer");return this===t||0===s.compare(this,t)},s.prototype.inspect=function(){var t="",e=n.INSPECT_MAX_BYTES;return this.length>0&&(t=this.toString("hex",0,e).match(/.{2}/g).join(" "),this.length>e&&(t+=" ... ")),"<Buffer "+t+">"},s.prototype.compare=function(t,e,n,r,i){if(!s.isBuffer(t))throw new TypeError("Argument must be a Buffer");if(void 0===e&&(e=0),void 0===n&&(n=t?t.length:0),void 0===r&&(r=0),void 0===i&&(i=this.length),e<0||n>t.length||r<0||i>this.length)throw new RangeError("out of range index");if(r>=i&&e>=n)return 0;if(r>=i)return-1;if(e>=n)return 1;if(e>>>=0,n>>>=0,r>>>=0,i>>>=0,this===t)return 0;for(var o=i-r,a=n-e,u=Math.min(o,a),h=this.slice(r,i),f=t.slice(e,n),c=0;c<u;++c)if(h[c]!==f[c]){o=h[c],a=f[c];break}return o<a?-1:a<o?1:0},s.prototype.includes=function(t,e,n){return-1!==this.indexOf(t,e,n)},s.prototype.indexOf=function(t,e,n){return m(this,t,e,n,!0)},s.prototype.lastIndexOf=function(t,e,n){return m(this,t,e,n,!1)},s.prototype.write=function(t,e,n,r){if(void 0===e)r="utf8",n=this.length,e=0;else if(void 0===n&&"string"==typeof e)r=e,n=this.length,e=0;else{if(!isFinite(e))throw new Error("Buffer.write(string, encoding, offset[, length]) is no longer supported");e|=0,isFinite(n)?(n|=0,void 0===r&&(r="utf8")):(r=n,n=void 0)}var i=this.length-e;if((void 0===n||n>i)&&(n=i),t.length>0&&(n<0||e<0)||e>this.length)throw new RangeError("Attempt to write outside buffer bounds");r||(r="utf8");for(var s=!1;;)switch(r){case"hex":return w(this,t,e,n);case"utf8":case"utf-8":return E(this,t,e,n);case"ascii":return x(this,t,e,n);case"latin1":case"binary":return A(this,t,e,n);case"base64":return R(this,t,e,n);case"ucs2":case"ucs-2":case"utf16le":case"utf-16le":return O(this,t,e,n);default:if(s)throw new TypeError("Unknown encoding: "+r);r=(""+r).toLowerCase(),s=!0}},s.prototype.toJSON=function(){return{type:"Buffer",data:Array.prototype.slice.call(this._arr||this,0)}};var W=4096;s.prototype.slice=function(t,e){var n=this.length;t=~~t,e=void 0===e?n:~~e,t<0?(t+=n)<0&&(t=0):t>n&&(t=n),e<0?(e+=n)<0&&(e=0):e>n&&(e=n),e<t&&(e=t);var r;if(s.TYPED_ARRAY_SUPPORT)r=this.subarray(t,e),r.__proto__=s.prototype;else{var i=e-t;r=new s(i,void 0);for(var o=0;o<i;++o)r[o]=this[o+t]}return r},s.prototype.readUIntLE=function(t,e,n){t|=0,e|=0,n||C(t,e,this.length);for(var r=this[t],i=1,s=0;++s<e&&(i*=256);)r+=this[t+s]*i;return r},s.prototype.readUIntBE=function(t,e,n){t|=0,e|=0,n||C(t,e,this.length);for(var r=this[t+--e],i=1;e>0&&(i*=256);)r+=this[t+--e]*i;return r},s.prototype.readUInt8=function(t,e){return e||C(t,1,this.length),this[t]},s.prototype.readUInt16LE=function(t,e){return e||C(t,2,this.length),this[t]|this[t+1]<<8},s.prototype.readUInt16BE=function(t,e){return e||C(t,2,this.length),this[t]<<8|this[t+1]},s.prototype.readUInt32LE=function(t,e){return e||C(t,4,this.length),(this[t]|this[t+1]<<8|this[t+2]<<16)+16777216*this[t+3]},s.prototype.readUInt32BE=function(t,e){return e||C(t,4,this.length),16777216*this[t]+(this[t+1]<<16|this[t+2]<<8|this[t+3])},s.prototype.readIntLE=function(t,e,n){t|=0,e|=0,n||C(t,e,this.length);for(var r=this[t],i=1,s=0;++s<e&&(i*=256);)r+=this[t+s]*i;return i*=128,r>=i&&(r-=Math.pow(2,8*e)),r},s.prototype.readIntBE=function(t,e,n){t|=0,e|=0,n||C(t,e,this.length);for(var r=e,i=1,s=this[t+--r];r>0&&(i*=256);)s+=this[t+--r]*i;return i*=128,s>=i&&(s-=Math.pow(2,8*e)),s},s.prototype.readInt8=function(t,e){return e||C(t,1,this.length),128&this[t]?-1*(255-this[t]+1):this[t]},s.prototype.readInt16LE=function(t,e){e||C(t,2,this.length);var n=this[t]|this[t+1]<<8;return 32768&n?4294901760|n:n},s.prototype.readInt16BE=function(t,e){e||C(t,2,this.length);var n=this[t+1]|this[t]<<8;return 32768&n?4294901760|n:n},s.prototype.readInt32LE=function(t,e){return e||C(t,4,this.length),this[t]|this[t+1]<<8|this[t+2]<<16|this[t+3]<<24},s.prototype.readInt32BE=function(t,e){return e||C(t,4,this.length),this[t]<<24|this[t+1]<<16|this[t+2]<<8|this[t+3]},s.prototype.readFloatLE=function(t,e){return e||C(t,4,this.length),Z.read(this,t,!0,23,4)},s.prototype.readFloatBE=function(t,e){return e||C(t,4,this.length),Z.read(this,t,!1,23,4)},s.prototype.readDoubleLE=function(t,e){return e||C(t,8,this.length),Z.read(this,t,!0,52,8)},s.prototype.readDoubleBE=function(t,e){return e||C(t,8,this.length),Z.read(this,t,!1,52,8)},s.prototype.writeUIntLE=function(t,e,n,r){if(t=+t,e|=0,n|=0,!r){U(this,t,e,n,Math.pow(2,8*n)-1,0)}var i=1,s=0;for(this[e]=255&t;++s<n&&(i*=256);)this[e+s]=t/i&255;return e+n},s.prototype.writeUIntBE=function(t,e,n,r){if(t=+t,e|=0,n|=0,!r){U(this,t,e,n,Math.pow(2,8*n)-1,0)}var i=n-1,s=1;for(this[e+i]=255&t;--i>=0&&(s*=256);)this[e+i]=t/s&255;return e+n},s.prototype.writeUInt8=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,1,255,0),s.TYPED_ARRAY_SUPPORT||(t=Math.floor(t)),this[e]=255&t,e+1},s.prototype.writeUInt16LE=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,2,65535,0),s.TYPED_ARRAY_SUPPORT?(this[e]=255&t,this[e+1]=t>>>8):q(this,t,e,!0),e+2},s.prototype.writeUInt16BE=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,2,65535,0),s.TYPED_ARRAY_SUPPORT?(this[e]=t>>>8,this[e+1]=255&t):q(this,t,e,!1),e+2},s.prototype.writeUInt32LE=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,4,4294967295,0),s.TYPED_ARRAY_SUPPORT?(this[e+3]=t>>>24,this[e+2]=t>>>16,this[e+1]=t>>>8,this[e]=255&t):j(this,t,e,!0),e+4},s.prototype.writeUInt32BE=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,4,4294967295,0),s.TYPED_ARRAY_SUPPORT?(this[e]=t>>>24,this[e+1]=t>>>16,this[e+2]=t>>>8,this[e+3]=255&t):j(this,t,e,!1),e+4},s.prototype.writeIntLE=function(t,e,n,r){if(t=+t,e|=0,!r){var i=Math.pow(2,8*n-1);U(this,t,e,n,i-1,-i)}var s=0,o=1,a=0;for(this[e]=255&t;++s<n&&(o*=256);)t<0&&0===a&&0!==this[e+s-1]&&(a=1),this[e+s]=(t/o>>0)-a&255;return e+n},s.prototype.writeIntBE=function(t,e,n,r){if(t=+t,e|=0,!r){var i=Math.pow(2,8*n-1);U(this,t,e,n,i-1,-i)}var s=n-1,o=1,a=0;for(this[e+s]=255&t;--s>=0&&(o*=256);)t<0&&0===a&&0!==this[e+s+1]&&(a=1),this[e+s]=(t/o>>0)-a&255;return e+n},s.prototype.writeInt8=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,1,127,-128),s.TYPED_ARRAY_SUPPORT||(t=Math.floor(t)),t<0&&(t=255+t+1),this[e]=255&t,e+1},s.prototype.writeInt16LE=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,2,32767,-32768),s.TYPED_ARRAY_SUPPORT?(this[e]=255&t,this[e+1]=t>>>8):q(this,t,e,!0),e+2},s.prototype.writeInt16BE=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,2,32767,-32768),s.TYPED_ARRAY_SUPPORT?(this[e]=t>>>8,this[e+1]=255&t):q(this,t,e,!1),e+2},s.prototype.writeInt32LE=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,4,2147483647,-2147483648),s.TYPED_ARRAY_SUPPORT?(this[e]=255&t,this[e+1]=t>>>8,this[e+2]=t>>>16,this[e+3]=t>>>24):j(this,t,e,!0),e+4},s.prototype.writeInt32BE=function(t,e,n){return t=+t,e|=0,n||U(this,t,e,4,2147483647,-2147483648),t<0&&(t=4294967295+t+1),s.TYPED_ARRAY_SUPPORT?(this[e]=t>>>24,this[e+1]=t>>>16,this[e+2]=t>>>8,this[e+3]=255&t):j(this,t,e,!1),e+4},s.prototype.writeFloatLE=function(t,e,n){return M(this,t,e,!0,n)},s.prototype.writeFloatBE=function(t,e,n){return M(this,t,e,!1,n)},s.prototype.writeDoubleLE=function(t,e,n){return D(this,t,e,!0,n)},s.prototype.writeDoubleBE=function(t,e,n){return D(this,t,e,!1,n)},s.prototype.copy=function(t,e,n,r){if(n||(n=0),r||0===r||(r=this.length),e>=t.length&&(e=t.length),e||(e=0),r>0&&r<n&&(r=n),r===n)return 0;if(0===t.length||0===this.length)return 0;if(e<0)throw new RangeError("targetStart out of bounds");if(n<0||n>=this.length)throw new RangeError("sourceStart out of bounds");if(r<0)throw new RangeError("sourceEnd out of bounds");r>this.length&&(r=this.length),t.length-e<r-n&&(r=t.length-e+n);var i,o=r-n;if(this===t&&n<e&&e<r)for(i=o-1;i>=0;--i)t[i+e]=this[i+n];else if(o<1e3||!s.TYPED_ARRAY_SUPPORT)for(i=0;i<o;++i)t[i+e]=this[i+n];else Uint8Array.prototype.set.call(t,this.subarray(n,n+o),e);return o},s.prototype.fill=function(t,e,n,r){if("string"==typeof t){if("string"==typeof e?(r=e,e=0,n=this.length):"string"==typeof n&&(r=n,n=this.length),1===t.length){var i=t.charCodeAt(0);i<256&&(t=i)}if(void 0!==r&&"string"!=typeof r)throw new TypeError("encoding must be a string");if("string"==typeof r&&!s.isEncoding(r))throw new TypeError("Unknown encoding: "+r)}else"number"==typeof t&&(t&=255);if(e<0||this.length<e||this.length<n)throw new RangeError("Out of range index");if(n<=e)return this;e>>>=0,n=void 0===n?this.length:n>>>0,t||(t=0);var o;if("number"==typeof t)for(o=e;o<n;++o)this[o]=t;else{var a=s.isBuffer(t)?t:F(new s(t,r).toString()),u=a.length;for(o=0;o<n-e;++o)this[o+e]=a[o%u]}return this};var tt=/[^+\/0-9A-Za-z-_]/g}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{"base64-js":24,ieee754:29,isarray:32}],26:[function(t,e,n){"use strict";function r(){}function i(t,e,n){this.fn=t,this.context=e,this.once=n||!1}function s(t,e,n,r,s){if("function"!=typeof n)throw new TypeError("The listener must be a function");var o=new i(n,r||t,s),a=h?h+e:e;return t._events[a]?t._events[a].fn?t._events[a]=[t._events[a],o]:t._events[a].push(o):(t._events[a]=o,t._eventsCount++),t}function o(t,e){0==--t._eventsCount?t._events=new r:delete t._events[e]}function a(){this._events=new r,this._eventsCount=0}var u=Object.prototype.hasOwnProperty,h="~";Object.create&&(r.prototype=Object.create(null),(new r).__proto__||(h=!1)),a.prototype.eventNames=function(){var t,e,n=[];if(0===this._eventsCount)return n;for(e in t=this._events)u.call(t,e)&&n.push(h?e.slice(1):e);return Object.getOwnPropertySymbols?n.concat(Object.getOwnPropertySymbols(t)):n},a.prototype.listeners=function(t){var e=h?h+t:t,n=this._events[e];if(!n)return[];if(n.fn)return[n.fn];for(var r=0,i=n.length,s=new Array(i);r<i;r++)s[r]=n[r].fn;return s},a.prototype.listenerCount=function(t){var e=h?h+t:t,n=this._events[e];return n?n.fn?1:n.length:0},a.prototype.emit=function(t,e,n,r,i,s){var o=h?h+t:t;if(!this._events[o])return!1;var a,u,f=this._events[o],c=arguments.length;if(f.fn){switch(f.once&&this.removeListener(t,f.fn,void 0,!0),c){case 1:return f.fn.call(f.context),!0;case 2:return f.fn.call(f.context,e),!0;case 3:return f.fn.call(f.context,e,n),!0;case 4:return f.fn.call(f.context,e,n,r),!0;case 5:return f.fn.call(f.context,e,n,r,i),!0;case 6:return f.fn.call(f.context,e,n,r,i,s),!0}for(u=1,a=new Array(c-1);u<c;u++)a[u-1]=arguments[u];f.fn.apply(f.context,a)}else{var l,p=f.length;for(u=0;u<p;u++)switch(f[u].once&&this.removeListener(t,f[u].fn,void 0,!0),c){case 1:f[u].fn.call(f[u].context);break;case 2:f[u].fn.call(f[u].context,e);break;case 3:f[u].fn.call(f[u].context,e,n);break;case 4:f[u].fn.call(f[u].context,e,n,r);break;default:if(!a)for(l=1,a=new Array(c-1);l<c;l++)a[l-1]=arguments[l];f[u].fn.apply(f[u].context,a)}}return!0},a.prototype.on=function(t,e,n){return s(this,t,e,n,!1)},a.prototype.once=function(t,e,n){return s(this,t,e,n,!0)},a.prototype.removeListener=function(t,e,n,r){var i=h?h+t:t;if(!this._events[i])return this;if(!e)return o(this,i),this;var s=this._events[i];if(s.fn)s.fn!==e||r&&!s.once||n&&s.context!==n||o(this,i);else{for(var a=0,u=[],f=s.length;a<f;a++)(s[a].fn!==e||r&&!s[a].once||n&&s[a].context!==n)&&u.push(s[a]);u.length?this._events[i]=1===u.length?u[0]:u:o(this,i)}return this},a.prototype.removeAllListeners=function(t){var e;return t?(e=h?h+t:t,this._events[e]&&o(this,e)):(this._events=new r,this._eventsCount=0),this},a.prototype.off=a.prototype.removeListener,a.prototype.addListener=a.prototype.on,a.prefixed=h,a.EventEmitter=a,void 0!==e&&(e.exports=a)},{}],27:[function(t,e,n){function r(){this._events=this._events||{},this._maxListeners=this._maxListeners||void 0}function i(t){return"function"==typeof t}function s(t){return"number"==typeof t}function o(t){return"object"==typeof t&&null!==t}function a(t){return void 0===t}e.exports=r,r.EventEmitter=r,r.prototype._events=void 0,r.prototype._maxListeners=void 0,r.defaultMaxListeners=10,r.prototype.setMaxListeners=function(t){if(!s(t)||t<0||isNaN(t))throw TypeError("n must be a positive number");return this._maxListeners=t,this},r.prototype.emit=function(t){var e,n,r,s,u,h;if(this._events||(this._events={}),"error"===t&&(!this._events.error||o(this._events.error)&&!this._events.error.length)){if((e=arguments[1])instanceof Error)throw e;var f=new Error('Uncaught, unspecified "error" event. ('+e+")");throw f.context=e,f}if(n=this._events[t],a(n))return!1;if(i(n))switch(arguments.length){case 1:n.call(this);break;case 2:n.call(this,arguments[1]);break;case 3:n.call(this,arguments[1],arguments[2]);break;default:s=Array.prototype.slice.call(arguments,1),n.apply(this,s)}else if(o(n))for(s=Array.prototype.slice.call(arguments,1),h=n.slice(),r=h.length,u=0;u<r;u++)h[u].apply(this,s);return!0},r.prototype.addListener=function(t,e){var n;if(!i(e))throw TypeError("listener must be a function");return this._events||(this._events={}),this._events.newListener&&this.emit("newListener",t,i(e.listener)?e.listener:e),this._events[t]?o(this._events[t])?this._events[t].push(e):this._events[t]=[this._events[t],e]:this._events[t]=e,o(this._events[t])&&!this._events[t].warned&&(n=a(this._maxListeners)?r.defaultMaxListeners:this._maxListeners)&&n>0&&this._events[t].length>n&&(this._events[t].warned=!0,console.error("(node) warning: possible EventEmitter memory leak detected. %d listeners added. Use emitter.setMaxListeners() to increase limit.",this._events[t].length),"function"==typeof console.trace&&console.trace()),this},r.prototype.on=r.prototype.addListener,r.prototype.once=function(t,e){function n(){this.removeListener(t,n),r||(r=!0,e.apply(this,arguments))}if(!i(e))throw TypeError("listener must be a function");var r=!1;return n.listener=e,this.on(t,n),this},r.prototype.removeListener=function(t,e){var n,r,s,a;if(!i(e))throw TypeError("listener must be a function");if(!this._events||!this._events[t])return this;if(n=this._events[t],s=n.length,r=-1,n===e||i(n.listener)&&n.listener===e)delete this._events[t],this._events.removeListener&&this.emit("removeListener",t,e);else if(o(n)){for(a=s;a-- >0;)if(n[a]===e||n[a].listener&&n[a].listener===e){r=a;break}if(r<0)return this;1===n.length?(n.length=0,delete this._events[t]):n.splice(r,1),this._events.removeListener&&this.emit("removeListener",t,e)}return this},r.prototype.removeAllListeners=function(t){var e,n;if(!this._events)return this;if(!this._events.removeListener)return 0===arguments.length?this._events={}:this._events[t]&&delete this._events[t],this;if(0===arguments.length){for(e in this._events)"removeListener"!==e&&this.removeAllListeners(e);return this.removeAllListeners("removeListener"),this._events={},this}if(n=this._events[t],i(n))this.removeListener(t,n);else if(n)for(;n.length;)this.removeListener(t,n[n.length-1]);return delete this._events[t],this},r.prototype.listeners=function(t){return this._events&&this._events[t]?i(this._events[t])?[this._events[t]]:this._events[t].slice():[]},r.prototype.listenerCount=function(t){if(this._events){var e=this._events[t];if(i(e))return 1;if(e)return e.length}return 0},r.listenerCount=function(t,e){return t.listenerCount(e)}},{}],28:[function(t,e,n){!function(){var t=this,r={};void 0!==n?e.exports=r:t.fuzzy=r,r.simpleFilter=function(t,e){return e.filter(function(e){return r.test(t,e)})},r.test=function(t,e){return null!==r.match(t,e)},r.match=function(t,e,n){n=n||{};var r,i=0,s=[],o=e.length,a=0,u=0,h=n.pre||"",f=n.post||"",c=n.caseSensitive&&e||e.toLowerCase();t=n.caseSensitive&&t||t.toLowerCase();for(var l=0;l<o;l++)r=e[l],c[l]===t[i]?(r=h+r+f,i+=1,u+=1+u):u=0,a+=u,s[s.length]=r;return i===t.length?(a=c===t?1/0:a,{rendered:s.join(""),score:a}):null},r.filter=function(t,e,n){return e&&0!==e.length?"string"!=typeof t?e:(n=n||{},e.reduce(function(e,i,s,o){var a=i;n.extract&&(a=n.extract(i));var u=r.match(t,a,n);return null!=u&&(e[e.length]={string:u.rendered,score:u.score,index:s,original:i}),e},[]).sort(function(t,e){var n=e.score-t.score;return n||t.index-e.index})):[]}}()},{}],29:[function(t,e,n){n.read=function(t,e,n,r,i){var s,o,a=8*i-r-1,u=(1<<a)-1,h=u>>1,f=-7,c=n?i-1:0,l=n?-1:1,p=t[e+c];for(c+=l,s=p&(1<<-f)-1,p>>=-f,f+=a;f>0;s=256*s+t[e+c],c+=l,f-=8);for(o=s&(1<<-f)-1,s>>=-f,f+=r;f>0;o=256*o+t[e+c],c+=l,f-=8);if(0===s)s=1-h;else{if(s===u)return o?NaN:1/0*(p?-1:1);o+=Math.pow(2,r),s-=h}return(p?-1:1)*o*Math.pow(2,s-r)},n.write=function(t,e,n,r,i,s){var o,a,u,h=8*s-i-1,f=(1<<h)-1,c=f>>1,l=23===i?Math.pow(2,-24)-Math.pow(2,-77):0,p=r?0:s-1,d=r?1:-1,y=e<0||0===e&&1/e<0?1:0;for(e=Math.abs(e),isNaN(e)||e===1/0?(a=isNaN(e)?1:0,o=f):(o=Math.floor(Math.log(e)/Math.LN2),e*(u=Math.pow(2,-o))<1&&(o--,u*=2),e+=o+c>=1?l/u:l*Math.pow(2,1-c),e*u>=2&&(o++,u/=2),o+c>=f?(a=0,o=f):o+c>=1?(a=(e*u-1)*Math.pow(2,i),o+=c):(a=e*Math.pow(2,c-1)*Math.pow(2,i),o=0));i>=8;t[n+p]=255&a,p+=d,a/=256,i-=8);for(o=o<<i|a,h+=i;h>0;t[n+p]=255&o,p+=d,o/=256,h-=8);t[n+p-d]|=128*y}},{}],30:[function(t,e,n){"function"==typeof Object.create?e.exports=function(t,e){t.super_=e,t.prototype=Object.create(e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}})}:e.exports=function(t,e){t.super_=e;var n=function(){};n.prototype=e.prototype,t.prototype=new n,t.prototype.constructor=t}},{}],31:[function(t,e,n){"use strict";var r=Object.prototype.toString;e.exports=function(t){var e;return"[object Object]"===r.call(t)&&(null===(e=Object.getPrototypeOf(t))||e===Object.getPrototypeOf({}))}},{}],32:[function(t,e,n){var r={}.toString;e.exports=Array.isArray||function(t){return"[object Array]"==r.call(t)}},{}],33:[function(t,e,n){(function(t){function n(t,e,n){function i(e){var n=y,r=v;return y=v=void 0,A=e,_=t.apply(r,n)}function s(t){return A=t,m=setTimeout(f,e),R?i(t):_}function u(t){var n=t-x,r=t-A,i=e-n;return O?w(i,g-r):i}function h(t){var n=t-x,r=t-A;return void 0===x||n>=e||n<0||O&&r>=g}function f(){var t=E();if(h(t))return c(t);m=setTimeout(f,u(t))}function c(t){return m=void 0,T&&y?i(t):(y=v=void 0,_)}function l(){void 0!==m&&clearTimeout(m),A=0,y=x=v=m=void 0}function p(){return void 0===m?_:c(E())}function d(){var t=E(),n=h(t);if(y=arguments,v=this,x=t,n){if(void 0===m)return s(x);if(O)return m=setTimeout(f,e),i(x)}return void 0===m&&(m=setTimeout(f,e)),_}var y,v,g,_,m,x,A=0,R=!1,O=!1,T=!0;if("function"!=typeof t)throw new TypeError(a);return e=o(e)||0,r(n)&&(R=!!n.leading,O="maxWait"in n,g=O?b(o(n.maxWait)||0,e):g,T="trailing"in n?!!n.trailing:T),d.cancel=l,d.flush=p,d}function r(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}function i(t){return!!t&&"object"==typeof t}function s(t){return"symbol"==typeof t||i(t)&&m.call(t)==h}function o(t){if("number"==typeof t)return t;if(s(t))return u;if(r(t)){var e="function"==typeof t.valueOf?t.valueOf():t;t=r(e)?e+"":e}if("string"!=typeof t)return 0===t?t:+t;t=t.replace(f,"");var n=l.test(t);return n||p.test(t)?d(t.slice(2),n?2:8):c.test(t)?u:+t}var a="Expected a function",u=NaN,h="[object Symbol]",f=/^\s+|\s+$/g,c=/^[-+]0x[0-9a-f]+$/i,l=/^0b[01]+$/i,p=/^0o[0-7]+$/i,d=parseInt,y="object"==typeof t&&t&&t.Object===Object&&t,v="object"==typeof self&&self&&self.Object===Object&&self,g=y||v||Function("return this")(),_=Object.prototype,m=_.toString,b=Math.max,w=Math.min,E=function(){return g.Date.now()};e.exports=n}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{}],34:[function(t,e,n){function r(t,e){for(var n in t)e[n]=t[n]}function i(t,e,n){return o(t,e,n)}var s=t("buffer"),o=s.Buffer;o.from&&o.alloc&&o.allocUnsafe&&o.allocUnsafeSlow?e.exports=s:(r(s,n),n.Buffer=i),r(o,i),i.from=function(t,e,n){if("number"==typeof t)throw new TypeError("Argument must not be a number");return o(t,e,n)},i.alloc=function(t,e,n){if("number"!=typeof t)throw new TypeError("Argument must be a number");var r=o(t);return void 0!==e?"string"==typeof n?r.fill(e,n):r.fill(e):r.fill(0),r},i.allocUnsafe=function(t){if("number"!=typeof t)throw new TypeError("Argument must be a number");return o(t)},i.allocUnsafeSlow=function(t){if("number"!=typeof t)throw new TypeError("Argument must be a number");return s.SlowBuffer(t)}},{buffer:25}],35:[function(t,e,n){function r(t,e){this._block=i.alloc(t),this._finalSize=e,this._blockSize=t,this._len=0}var i=t("safe-buffer").Buffer;r.prototype.update=function(t,e){"string"==typeof t&&(e=e||"utf8",t=i.from(t,e));for(var n=this._block,r=this._blockSize,s=t.length,o=this._len,a=0;a<s;){for(var u=o%r,h=Math.min(s-a,r-u),f=0;f<h;f++)n[u+f]=t[a+f];o+=h,a+=h,o%r==0&&this._update(n)}return this._len+=s,this},r.prototype.digest=function(t){var e=this._len%this._blockSize;this._block[e]=128,this._block.fill(0,e+1),e>=this._finalSize&&(this._update(this._block),this._block.fill(0));var n=8*this._len;if(n<=4294967295)this._block.writeUInt32BE(n,this._blockSize-4);else{var r=(4294967295&n)>>>0,i=(n-r)/4294967296;this._block.writeUInt32BE(i,this._blockSize-8),this._block.writeUInt32BE(r,this._blockSize-4)}this._update(this._block);var s=this._hash();return t?s.toString(t):s},r.prototype._update=function(){throw new Error("_update must be implemented by subclass")},e.exports=r},{"safe-buffer":34}],36:[function(t,e,n){var n=e.exports=function(t){t=t.toLowerCase();var e=n[t];if(!e)throw new Error(t+" is not supported (we accept pull requests)");return new e};n.sha=t("./sha"),n.sha1=t("./sha1"),n.sha224=t("./sha224"),n.sha256=t("./sha256"),n.sha384=t("./sha384"),n.sha512=t("./sha512")},{"./sha":37,"./sha1":38,"./sha224":39,"./sha256":40,"./sha384":41,"./sha512":42}],37:[function(t,e,n){function r(){this.init(),this._w=c,u.call(this,64,56)}function i(t){return t<<5|t>>>27}function s(t){return t<<30|t>>>2}function o(t,e,n,r){return 0===t?e&n|~e&r:2===t?e&n|e&r|n&r:e^n^r}var a=t("inherits"),u=t("./hash"),h=t("safe-buffer").Buffer,f=[1518500249,1859775393,-1894007588,-899497514],c=new Array(80);a(r,u),r.prototype.init=function(){return this._a=1732584193,this._b=4023233417,this._c=2562383102,this._d=271733878,this._e=3285377520,this},r.prototype._update=function(t){for(var e=this._w,n=0|this._a,r=0|this._b,a=0|this._c,u=0|this._d,h=0|this._e,c=0;c<16;++c)e[c]=t.readInt32BE(4*c);for(;c<80;++c)e[c]=e[c-3]^e[c-8]^e[c-14]^e[c-16];for(var l=0;l<80;++l){var p=~~(l/20),d=i(n)+o(p,r,a,u)+h+e[l]+f[p]|0;h=u,u=a,a=s(r),r=n,n=d}this._a=n+this._a|0,this._b=r+this._b|0,this._c=a+this._c|0,this._d=u+this._d|0,this._e=h+this._e|0},r.prototype._hash=function(){var t=h.allocUnsafe(20);return t.writeInt32BE(0|this._a,0),t.writeInt32BE(0|this._b,4),t.writeInt32BE(0|this._c,8),t.writeInt32BE(0|this._d,12),t.writeInt32BE(0|this._e,16),t},e.exports=r},{"./hash":35,inherits:30,"safe-buffer":34}],38:[function(t,e,n){function r(){this.init(),this._w=l,h.call(this,64,56)}function i(t){return t<<1|t>>>31}function s(t){return t<<5|t>>>27}function o(t){return t<<30|t>>>2}function a(t,e,n,r){return 0===t?e&n|~e&r:2===t?e&n|e&r|n&r:e^n^r}var u=t("inherits"),h=t("./hash"),f=t("safe-buffer").Buffer,c=[1518500249,1859775393,-1894007588,-899497514],l=new Array(80);u(r,h),r.prototype.init=function(){return this._a=1732584193,this._b=4023233417,this._c=2562383102,this._d=271733878,this._e=3285377520,this},r.prototype._update=function(t){for(var e=this._w,n=0|this._a,r=0|this._b,u=0|this._c,h=0|this._d,f=0|this._e,l=0;l<16;++l)e[l]=t.readInt32BE(4*l);for(;l<80;++l)e[l]=i(e[l-3]^e[l-8]^e[l-14]^e[l-16]);for(var p=0;p<80;++p){var d=~~(p/20),y=s(n)+a(d,r,u,h)+f+e[p]+c[d]|0;f=h,h=u,u=o(r),r=n,n=y}this._a=n+this._a|0,this._b=r+this._b|0,this._c=u+this._c|0,this._d=h+this._d|0,this._e=f+this._e|0},r.prototype._hash=function(){var t=f.allocUnsafe(20);return t.writeInt32BE(0|this._a,0),t.writeInt32BE(0|this._b,4),t.writeInt32BE(0|this._c,8),t.writeInt32BE(0|this._d,12),t.writeInt32BE(0|this._e,16),t},e.exports=r},{"./hash":35,inherits:30,"safe-buffer":34}],39:[function(t,e,n){function r(){this.init(),this._w=u,o.call(this,64,56)}var i=t("inherits"),s=t("./sha256"),o=t("./hash"),a=t("safe-buffer").Buffer,u=new Array(64);i(r,s),r.prototype.init=function(){return this._a=3238371032,this._b=914150663,this._c=812702999,this._d=4144912697,this._e=4290775857,this._f=1750603025,this._g=1694076839,this._h=3204075428,this},r.prototype._hash=function(){var t=a.allocUnsafe(28);return t.writeInt32BE(this._a,0),t.writeInt32BE(this._b,4),t.writeInt32BE(this._c,8),t.writeInt32BE(this._d,12),t.writeInt32BE(this._e,16),t.writeInt32BE(this._f,20),t.writeInt32BE(this._g,24),t},e.exports=r},{"./hash":35,"./sha256":40,inherits:30,"safe-buffer":34}],40:[function(t,e,n){function r(){this.init(),this._w=d,c.call(this,64,56)}function i(t,e,n){return n^t&(e^n)}function s(t,e,n){return t&e|n&(t|e)}function o(t){return(t>>>2|t<<30)^(t>>>13|t<<19)^(t>>>22|t<<10)}function a(t){return(t>>>6|t<<26)^(t>>>11|t<<21)^(t>>>25|t<<7)}function u(t){return(t>>>7|t<<25)^(t>>>18|t<<14)^t>>>3}function h(t){return(t>>>17|t<<15)^(t>>>19|t<<13)^t>>>10}
 var f=t("inherits"),c=t("./hash"),l=t("safe-buffer").Buffer,p=[1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298],d=new Array(64);f(r,c),r.prototype.init=function(){return this._a=1779033703,this._b=3144134277,this._c=1013904242,this._d=2773480762,this._e=1359893119,this._f=2600822924,this._g=528734635,this._h=1541459225,this},r.prototype._update=function(t){for(var e=this._w,n=0|this._a,r=0|this._b,f=0|this._c,c=0|this._d,l=0|this._e,d=0|this._f,y=0|this._g,v=0|this._h,g=0;g<16;++g)e[g]=t.readInt32BE(4*g);for(;g<64;++g)e[g]=h(e[g-2])+e[g-7]+u(e[g-15])+e[g-16]|0;for(var _=0;_<64;++_){var m=v+a(l)+i(l,d,y)+p[_]+e[_]|0,b=o(n)+s(n,r,f)|0;v=y,y=d,d=l,l=c+m|0,c=f,f=r,r=n,n=m+b|0}this._a=n+this._a|0,this._b=r+this._b|0,this._c=f+this._c|0,this._d=c+this._d|0,this._e=l+this._e|0,this._f=d+this._f|0,this._g=y+this._g|0,this._h=v+this._h|0},r.prototype._hash=function(){var t=l.allocUnsafe(32);return t.writeInt32BE(this._a,0),t.writeInt32BE(this._b,4),t.writeInt32BE(this._c,8),t.writeInt32BE(this._d,12),t.writeInt32BE(this._e,16),t.writeInt32BE(this._f,20),t.writeInt32BE(this._g,24),t.writeInt32BE(this._h,28),t},e.exports=r},{"./hash":35,inherits:30,"safe-buffer":34}],41:[function(t,e,n){function r(){this.init(),this._w=u,o.call(this,128,112)}var i=t("inherits"),s=t("./sha512"),o=t("./hash"),a=t("safe-buffer").Buffer,u=new Array(160);i(r,s),r.prototype.init=function(){return this._ah=3418070365,this._bh=1654270250,this._ch=2438529370,this._dh=355462360,this._eh=1731405415,this._fh=2394180231,this._gh=3675008525,this._hh=1203062813,this._al=3238371032,this._bl=914150663,this._cl=812702999,this._dl=4144912697,this._el=4290775857,this._fl=1750603025,this._gl=1694076839,this._hl=3204075428,this},r.prototype._hash=function(){function t(t,n,r){e.writeInt32BE(t,r),e.writeInt32BE(n,r+4)}var e=a.allocUnsafe(48);return t(this._ah,this._al,0),t(this._bh,this._bl,8),t(this._ch,this._cl,16),t(this._dh,this._dl,24),t(this._eh,this._el,32),t(this._fh,this._fl,40),e},e.exports=r},{"./hash":35,"./sha512":42,inherits:30,"safe-buffer":34}],42:[function(t,e,n){function r(){this.init(),this._w=g,d.call(this,128,112)}function i(t,e,n){return n^t&(e^n)}function s(t,e,n){return t&e|n&(t|e)}function o(t,e){return(t>>>28|e<<4)^(e>>>2|t<<30)^(e>>>7|t<<25)}function a(t,e){return(t>>>14|e<<18)^(t>>>18|e<<14)^(e>>>9|t<<23)}function u(t,e){return(t>>>1|e<<31)^(t>>>8|e<<24)^t>>>7}function h(t,e){return(t>>>1|e<<31)^(t>>>8|e<<24)^(t>>>7|e<<25)}function f(t,e){return(t>>>19|e<<13)^(e>>>29|t<<3)^t>>>6}function c(t,e){return(t>>>19|e<<13)^(e>>>29|t<<3)^(t>>>6|e<<26)}function l(t,e){return t>>>0<e>>>0?1:0}var p=t("inherits"),d=t("./hash"),y=t("safe-buffer").Buffer,v=[1116352408,3609767458,1899447441,602891725,3049323471,3964484399,3921009573,2173295548,961987163,4081628472,1508970993,3053834265,2453635748,2937671579,2870763221,3664609560,3624381080,2734883394,310598401,1164996542,607225278,1323610764,1426881987,3590304994,1925078388,4068182383,2162078206,991336113,2614888103,633803317,3248222580,3479774868,3835390401,2666613458,4022224774,944711139,264347078,2341262773,604807628,2007800933,770255983,1495990901,1249150122,1856431235,1555081692,3175218132,1996064986,2198950837,2554220882,3999719339,2821834349,766784016,2952996808,2566594879,3210313671,3203337956,3336571891,1034457026,3584528711,2466948901,113926993,3758326383,338241895,168717936,666307205,1188179964,773529912,1546045734,1294757372,1522805485,1396182291,2643833823,1695183700,2343527390,1986661051,1014477480,2177026350,1206759142,2456956037,344077627,2730485921,1290863460,2820302411,3158454273,3259730800,3505952657,3345764771,106217008,3516065817,3606008344,3600352804,1432725776,4094571909,1467031594,275423344,851169720,430227734,3100823752,506948616,1363258195,659060556,3750685593,883997877,3785050280,958139571,3318307427,1322822218,3812723403,1537002063,2003034995,1747873779,3602036899,1955562222,1575990012,2024104815,1125592928,2227730452,2716904306,2361852424,442776044,2428436474,593698344,2756734187,3733110249,3204031479,2999351573,3329325298,3815920427,3391569614,3928383900,3515267271,566280711,3940187606,3454069534,4118630271,4000239992,116418474,1914138554,174292421,2731055270,289380356,3203993006,460393269,320620315,685471733,587496836,852142971,1086792851,1017036298,365543100,1126000580,2618297676,1288033470,3409855158,1501505948,4234509866,1607167915,987167468,1816402316,1246189591],g=new Array(160);p(r,d),r.prototype.init=function(){return this._ah=1779033703,this._bh=3144134277,this._ch=1013904242,this._dh=2773480762,this._eh=1359893119,this._fh=2600822924,this._gh=528734635,this._hh=1541459225,this._al=4089235720,this._bl=2227873595,this._cl=4271175723,this._dl=1595750129,this._el=2917565137,this._fl=725511199,this._gl=4215389547,this._hl=327033209,this},r.prototype._update=function(t){for(var e=this._w,n=0|this._ah,r=0|this._bh,p=0|this._ch,d=0|this._dh,y=0|this._eh,g=0|this._fh,_=0|this._gh,m=0|this._hh,b=0|this._al,w=0|this._bl,E=0|this._cl,x=0|this._dl,A=0|this._el,R=0|this._fl,O=0|this._gl,T=0|this._hl,I=0;I<32;I+=2)e[I]=t.readInt32BE(4*I),e[I+1]=t.readInt32BE(4*I+4);for(;I<160;I+=2){var P=e[I-30],S=e[I-30+1],B=u(P,S),L=h(S,P);P=e[I-4],S=e[I-4+1];var k=f(P,S),C=c(S,P),U=e[I-14],q=e[I-14+1],j=e[I-32],N=e[I-32+1],M=L+q|0,D=B+U+l(M,L)|0;M=M+C|0,D=D+k+l(M,C)|0,M=M+N|0,D=D+j+l(M,N)|0,e[I]=D,e[I+1]=M}for(var Y=0;Y<160;Y+=2){D=e[Y],M=e[Y+1];var z=s(n,r,p),G=s(b,w,E),F=o(n,b),V=o(b,n),H=a(y,A),Q=a(A,y),K=v[Y],J=v[Y+1],X=i(y,g,_),Z=i(A,R,O),$=T+Q|0,W=m+H+l($,T)|0;$=$+Z|0,W=W+X+l($,Z)|0,$=$+J|0,W=W+K+l($,J)|0,$=$+M|0,W=W+D+l($,M)|0;var tt=V+G|0,et=F+z+l(tt,V)|0;m=_,T=O,_=g,O=R,g=y,R=A,A=x+$|0,y=d+W+l(A,x)|0,d=p,x=E,p=r,E=w,r=n,w=b,b=$+tt|0,n=W+et+l(b,$)|0}this._al=this._al+b|0,this._bl=this._bl+w|0,this._cl=this._cl+E|0,this._dl=this._dl+x|0,this._el=this._el+A|0,this._fl=this._fl+R|0,this._gl=this._gl+O|0,this._hl=this._hl+T|0,this._ah=this._ah+n+l(this._al,b)|0,this._bh=this._bh+r+l(this._bl,w)|0,this._ch=this._ch+p+l(this._cl,E)|0,this._dh=this._dh+d+l(this._dl,x)|0,this._eh=this._eh+y+l(this._el,A)|0,this._fh=this._fh+g+l(this._fl,R)|0,this._gh=this._gh+_+l(this._gl,O)|0,this._hh=this._hh+m+l(this._hl,T)|0},r.prototype._hash=function(){function t(t,n,r){e.writeInt32BE(t,r),e.writeInt32BE(n,r+4)}var e=y.allocUnsafe(64);return t(this._ah,this._al,0),t(this._bh,this._bl,8),t(this._ch,this._cl,16),t(this._dh,this._dl,24),t(this._eh,this._el,32),t(this._fh,this._fl,40),t(this._gh,this._gl,48),t(this._hh,this._hl,56),e},e.exports=r},{"./hash":35,inherits:30,"safe-buffer":34}],43:[function(t,e,n){"use strict";var r=t("./src/suggestions");window.Suggestions=e.exports=r},{"./src/suggestions":45}],44:[function(t,e,n){"Use strict";var r=function(t){return this.component=t,this.items=[],this.active=0,this.element=document.createElement("ul"),this.element.className="suggestions",this.selectingListItem=!1,t.el.parentNode.insertBefore(this.element,t.el.nextSibling),this};r.prototype.show=function(){this.element.style.display="block"},r.prototype.hide=function(){this.element.style.display="none"},r.prototype.add=function(t){this.items.push(t)},r.prototype.clear=function(){this.items=[],this.active=0},r.prototype.isEmpty=function(){return!this.items.length},r.prototype.draw=function(){if(this.element.innerHTML="",0===this.items.length)return void this.hide();for(var t=0;t<this.items.length;t++)this.drawItem(this.items[t],this.active===t);this.show()},r.prototype.drawItem=function(t,e){var n=document.createElement("li"),r=document.createElement("a");e&&(n.className+=" active"),r.innerHTML=t.string,n.appendChild(r),this.element.appendChild(n),n.addEventListener("mousedown",function(){this.selectingListItem=!0}.bind(this)),n.addEventListener("mouseup",function(){this.handleMouseUp.call(this,t)}.bind(this))},r.prototype.handleMouseUp=function(t){this.selectingListItem=!1,this.component.value(t.original),this.clear(),this.draw()},r.prototype.move=function(t){this.active=t,this.draw()},r.prototype.previous=function(){this.move(0===this.active?this.items.length-1:this.active-1)},r.prototype.next=function(){this.move(this.active===this.items.length-1?0:this.active+1)},e.exports=r},{}],45:[function(t,e,n){"use strict";var r=t("xtend"),i=t("fuzzy"),s=t("./list"),o=function(t,e,n){return n=n||{},this.options=r({minLength:2,limit:5,filter:!0},n),this.el=t,this.data=e||[],this.list=new s(this),this.query="",this.selected=null,this.list.draw(),this.el.addEventListener("keyup",function(t){this.handleKeyUp(t.keyCode)}.bind(this),!1),this.el.addEventListener("keydown",function(t){this.handleKeyDown(t)}.bind(this)),this.el.addEventListener("focus",function(){this.handleFocus()}.bind(this)),this.el.addEventListener("blur",function(){this.handleBlur()}.bind(this)),this.el.addEventListener("paste",function(t){this.handlePaste(t)}.bind(this)),this};o.prototype.handleKeyUp=function(t){40!==t&&38!==t&&27!==t&&13!==t&&9!==t&&this.handleInputChange(this.el.value)},o.prototype.handleKeyDown=function(t){switch(t.keyCode){case 13:case 9:t.preventDefault(),this.list.isEmpty()||(this.value(this.list.items[this.list.active].original),this.list.hide());break;case 27:this.list.isEmpty()||this.list.hide();break;case 38:this.list.previous();break;case 40:this.list.next()}},o.prototype.handleBlur=function(){this.list.selectingListItem||this.list.hide()},o.prototype.handlePaste=function(t){if(t.clipboardData)this.handleInputChange(t.clipboardData.getData("Text"));else{var e=this;setTimeout(function(){e.handleInputChange(t.target.value)},100)}},o.prototype.handleInputChange=function(t){if(this.query=this.normalize(t),this.list.clear(),this.query.length<this.options.minLength)return void this.list.draw();this.getCandidates(function(t){for(var e=0;e<t.length&&(this.list.add(t[e]),e!==this.options.limit-1);e++);this.list.draw()}.bind(this))},o.prototype.handleFocus=function(){this.list.isEmpty()||this.list.show(),this.list.selectingListItem=!1},o.prototype.update=function(t){this.data=t,this.handleKeyUp()},o.prototype.clear=function(){this.data=[],this.list.clear()},o.prototype.normalize=function(t){return t=t.toLowerCase()},o.prototype.match=function(t,e){return t.indexOf(e)>-1},o.prototype.value=function(t){if(this.selected=t,this.el.value=this.getItemValue(t),document.createEvent){var e=document.createEvent("HTMLEvents");e.initEvent("change",!0,!1),this.el.dispatchEvent(e)}else this.el.fireEvent("onchange")},o.prototype.getCandidates=function(t){var e={pre:"<strong>",post:"</strong>",extract:function(t){return this.getItemValue(t)}.bind(this)};t(this.options.filter?i.filter(this.query,this.data,e):this.data.map(function(t){for(var e=this.getItemValue(t),n=this.normalize(e),r=n.lastIndexOf(this.query);r>-1;){var i=r+this.query.length;e=e.slice(0,r)+"<strong>"+e.slice(r,i)+"</strong>"+e.slice(i),r=n.slice(0,r).lastIndexOf(this.query)}return{original:t,string:e}}.bind(this)))},o.prototype.getItemValue=function(t){return t},e.exports=o},{"./list":44,fuzzy:28,xtend:46}],46:[function(t,e,n){function r(){for(var t={},e=0;e<arguments.length;e++){var n=arguments[e];for(var r in n)i.call(n,r)&&(t[r]=n[r])}return t}e.exports=r;var i=Object.prototype.hasOwnProperty},{}]},{},[3])(3)});
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(101)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(79)))
 
 /***/ }),
 /* 204 */
@@ -7455,22 +7455,71 @@ module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl:{\n    acc
 /* 205 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-icon baaqmd-maps-help-button\" type=\"button\">\n    </button>\n</div>\n";
+module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-icon baaqmd-maps-print-button\" type=\"button\">\n    </button>\n</div>\n";
 
 /***/ }),
 /* 206 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"far fa-question-circle\"></i>\n    Help\n</h3>\n<hr>\n";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (module) {
+  "use strict";
+
+  var each = Array.prototype.forEach;
+
+
+  function computedStyleToInlineStyle(element) {
+    var _context2;
+
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    if (!element) {
+      throw new Error("No element specified.");
+    }
+
+    if (options.recursive) {
+      var _context;
+
+      (_context = element.children, each).call(_context, function (child) {
+        computedStyleToInlineStyle(child, options);
+      });
+    }
+
+    var computedStyle = getComputedStyle(element);
+    (_context2 = options.properties || computedStyle, each).call(_context2, function (property) {
+      element.style[property] = computedStyle.getPropertyValue(property);
+    });
+  }
+
+  module.exports = computedStyleToInlineStyle;
+});
 
 /***/ }),
 /* 207 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-details-panel\" data-bind=\"css: {'baaqmd-maps-expanded': expanded }, visible: detailsActive\">\n    <div class=\"baaqmd-maps-details-panel-wrapper\" data-bind=\"if: map\">\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group\" data-bind=\"\n            click: toggleExpanded,\n            css: {'baaqmd-maps-expanded': expanded}\">\n            <i class=\"fas fa-bars\"></i>\n        </div>\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons\" data-bind=\"\n            css: {\n                'baaqmd-maps-expanded': expanded\n            }\">\n            <div><i class=\"im im-share\"></i></div>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-facebook\"></i></div>\n            </a>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-twitter\"></i></div>\n            </a>\n            <a data-bind=\"attr: {\n                'href': 'mailto:?body=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-email\"></i></div>\n            </a>\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n            <!-- ko if: enableMapTypeSelector -->\n            <select data-bind=\"\n                optionsText: 'text',\n                optionsValue: 'id',\n                options: mapTypes,\n                value: mapType,\n                choices: {\n                    searchEnabled: false\n                }\n            \"></select>\n            <!-- /ko -->\n            <!-- ko ifnot: enableMapTypeSelector -->\n            <div class=\"choices no-select\">\n                <div class=\"choices__inner\">\n                    <div class=\"choices__list choices__list--single\">\n                        <div class=\"choices__item choices__item--selectable\" data-bind=\"text: mapTypesObj[mapType()].label\"></div>\n                    </div>\n                </div>\n            </div>\n            <!-- /ko -->\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n        </div>\n         <div class=\"baaqmd-maps-details-panel-content\" data-bind=\"component: {\n             name: mapType,\n             params: $data\n         }\"></div>\n    </div>\n</div>\n";
+module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-icon baaqmd-maps-help-button\" type=\"button\">\n    </button>\n</div>\n";
 
 /***/ }),
 /* 208 */
+/***/ (function(module, exports) {
+
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"far fa-question-circle\"></i>\n    Help\n</h3>\n<hr>\n";
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"baaqmd-maps-details-panel\" data-bind=\"css: {'baaqmd-maps-expanded': expanded }, visible: detailsActive\">\n    <div class=\"baaqmd-maps-details-panel-wrapper\" data-bind=\"if: map\">\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group\" data-bind=\"\n            click: toggleExpanded,\n            css: {'baaqmd-maps-expanded': expanded}\">\n            <i class=\"fas fa-bars\"></i>\n        </div>\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons\" data-bind=\"\n            css: {\n                'baaqmd-maps-expanded': expanded\n            }\">\n            <div><i class=\"im im-share\"></i></div>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-facebook\"></i></div>\n            </a>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-twitter\"></i></div>\n            </a>\n            <a data-bind=\"attr: {\n                'href': 'mailto:?body=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-email\"></i></div>\n            </a>\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n            <!-- ko if: enableMapTypeSelector -->\n            <select data-bind=\"\n                optionsText: 'text',\n                optionsValue: 'id',\n                options: mapTypes,\n                value: mapType,\n                choices: {\n                    searchEnabled: false\n                }\n            \"></select>\n            <!-- /ko -->\n            <!-- ko ifnot: enableMapTypeSelector -->\n            <div class=\"choices no-select\">\n                <div class=\"choices__inner\">\n                    <div class=\"choices__list choices__list--single\">\n                        <div class=\"choices__item choices__item--selectable\" data-bind=\"text: mapTypesObj[mapType()].label\"></div>\n                    </div>\n                </div>\n            </div>\n            <!-- /ko -->\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n        </div>\n         <div class=\"baaqmd-maps-details-panel-content\" data-bind=\"component: {\n             name: mapType,\n             params: $data\n         }\"></div>\n    </div>\n</div>\n";
+
+/***/ }),
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*! choices.js v6.0.3 | (c) 2019 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
@@ -7533,434 +7582,4407 @@ var n;n=function(){return function(e){var t={};function i(n){if(t[n])return t[n]
 !function(){"use strict";var i={}.hasOwnProperty;function r(){for(var e=[],t=0;t<arguments.length;t++){var n=arguments[t];if(n){var o=typeof n;if("string"===o||"number"===o)e.push(n);else if(Array.isArray(n)&&n.length){var s=r.apply(null,n);s&&e.push(s)}else if("object"===o)for(var a in n)i.call(n,a)&&n[a]&&e.push(a)}}return e.join(" ")}e.exports?(r.default=r,e.exports=r):void 0===(n=function(){return r}.apply(t,[]))||(e.exports=n)}()},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.clearChoices=t.activateChoices=t.filterChoices=t.addChoice=void 0;var n=i(1);t.addChoice=function(e){var t=e.value,i=e.label,r=e.id,o=e.groupId,s=e.disabled,a=e.elementId,c=e.customProperties,l=e.placeholder,u=e.keyCode;return{type:n.ACTION_TYPES.ADD_CHOICE,value:t,label:i,id:r,groupId:o,disabled:s,elementId:a,customProperties:c,placeholder:l,keyCode:u}};t.filterChoices=function(e){return{type:n.ACTION_TYPES.FILTER_CHOICES,results:e}};t.activateChoices=function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0];return{type:n.ACTION_TYPES.ACTIVATE_CHOICES,active:e}};t.clearChoices=function(){return{type:n.ACTION_TYPES.CLEAR_CHOICES}}},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.highlightItem=t.removeItem=t.addItem=void 0;var n=i(1);t.addItem=function(e){var t=e.value,i=e.label,r=e.id,o=e.choiceId,s=e.groupId,a=e.customProperties,c=e.placeholder,l=e.keyCode;return{type:n.ACTION_TYPES.ADD_ITEM,value:t,label:i,id:r,choiceId:o,groupId:s,customProperties:a,placeholder:c,keyCode:l}};t.removeItem=function(e,t){return{type:n.ACTION_TYPES.REMOVE_ITEM,id:e,choiceId:t}};t.highlightItem=function(e,t){return{type:n.ACTION_TYPES.HIGHLIGHT_ITEM,id:e,highlighted:t}}},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.addGroup=void 0;var n=i(1);t.addGroup=function(e,t,i,r){return{type:n.ACTION_TYPES.ADD_GROUP,value:e,id:t,active:i,disabled:r}}},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.resetTo=t.clearAll=void 0;t.clearAll=function(){return{type:"CLEAR_ALL"}};t.resetTo=function(e){return{type:"RESET_TO",state:e}}},function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.setIsLoading=void 0;t.setIsLoading=function(e){return{type:"SET_IS_LOADING",isLoading:e}}}])});
 
 /***/ }),
-/* 209 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {/**
- *
- *
- * @author Jerry Bendy <jerry@icewingcc.com>
- * @licence MIT
- *
- */
-
-(function(self) {
-    'use strict';
-
-    var nativeURLSearchParams = (self.URLSearchParams && self.URLSearchParams.prototype.get) ? self.URLSearchParams : null,
-        isSupportObjectConstructor = nativeURLSearchParams && (new nativeURLSearchParams({a: 1})).toString() === 'a=1',
-        // There is a bug in safari 10.1 (and earlier) that incorrectly decodes `%2B` as an empty space and not a plus.
-        decodesPlusesCorrectly = nativeURLSearchParams && (new nativeURLSearchParams('s=%2B').get('s') === '+'),
-        __URLSearchParams__ = "__URLSearchParams__",
-        // Fix bug in Edge which cannot encode ' &' correctly
-        encodesAmpersandsCorrectly = nativeURLSearchParams ? (function() {
-            var ampersandTest = new nativeURLSearchParams();
-            ampersandTest.append('s', ' &');
-            return ampersandTest.toString() === 's=+%26';
-        })() : true,
-        prototype = URLSearchParamsPolyfill.prototype,
-        iterable = !!(self.Symbol && self.Symbol.iterator);
-
-    if (nativeURLSearchParams && isSupportObjectConstructor && decodesPlusesCorrectly && encodesAmpersandsCorrectly) {
-        return;
-    }
-
-
-    /**
-     * Make a URLSearchParams instance
-     *
-     * @param {object|string|URLSearchParams} search
-     * @constructor
-     */
-    function URLSearchParamsPolyfill(search) {
-        search = search || "";
-
-        // support construct object with another URLSearchParams instance
-        if (search instanceof URLSearchParams || search instanceof URLSearchParamsPolyfill) {
-            search = search.toString();
-        }
-        this [__URLSearchParams__] = parseToDict(search);
-    }
-
-
-    /**
-     * Appends a specified key/value pair as a new search parameter.
-     *
-     * @param {string} name
-     * @param {string} value
-     */
-    prototype.append = function(name, value) {
-        appendTo(this [__URLSearchParams__], name, value);
-    };
-
-    /**
-     * Deletes the given search parameter, and its associated value,
-     * from the list of all search parameters.
-     *
-     * @param {string} name
-     */
-    prototype['delete'] = function(name) {
-        delete this [__URLSearchParams__] [name];
-    };
-
-    /**
-     * Returns the first value associated to the given search parameter.
-     *
-     * @param {string} name
-     * @returns {string|null}
-     */
-    prototype.get = function(name) {
-        var dict = this [__URLSearchParams__];
-        return this.has(name) ? dict[name][0] : null;
-    };
-
-    /**
-     * Returns all the values association with a given search parameter.
-     *
-     * @param {string} name
-     * @returns {Array}
-     */
-    prototype.getAll = function(name) {
-        var dict = this [__URLSearchParams__];
-        return this.has(name) ? dict [name].slice(0) : [];
-    };
-
-    /**
-     * Returns a Boolean indicating if such a search parameter exists.
-     *
-     * @param {string} name
-     * @returns {boolean}
-     */
-    prototype.has = function(name) {
-        return hasOwnProperty(this [__URLSearchParams__], name);
-    };
-
-    /**
-     * Sets the value associated to a given search parameter to
-     * the given value. If there were several values, delete the
-     * others.
-     *
-     * @param {string} name
-     * @param {string} value
-     */
-    prototype.set = function set(name, value) {
-        this [__URLSearchParams__][name] = ['' + value];
-    };
-
-    /**
-     * Returns a string containg a query string suitable for use in a URL.
-     *
-     * @returns {string}
-     */
-    prototype.toString = function() {
-        var dict = this[__URLSearchParams__], query = [], i, key, name, value;
-        for (key in dict) {
-            name = encode(key);
-            for (i = 0, value = dict[key]; i < value.length; i++) {
-                query.push(name + '=' + encode(value[i]));
-            }
-        }
-        return query.join('&');
-    };
-
-    // There is a bug in Safari 10.1 and `Proxy`ing it is not enough.
-    var forSureUsePolyfill = !decodesPlusesCorrectly;
-    var useProxy = (!forSureUsePolyfill && nativeURLSearchParams && !isSupportObjectConstructor && self.Proxy);
-    /*
-     * Apply polifill to global object and append other prototype into it
-     */
-    Object.defineProperty(self, 'URLSearchParams', {
-        value: (useProxy ?
-            // Safari 10.0 doesn't support Proxy, so it won't extend URLSearchParams on safari 10.0
-            new Proxy(nativeURLSearchParams, {
-                construct: function(target, args) {
-                    return new target((new URLSearchParamsPolyfill(args[0]).toString()));
-                }
-            }) :
-            URLSearchParamsPolyfill)
-    });
-
-    var USPProto = self.URLSearchParams.prototype;
-
-    USPProto.polyfill = true;
-
-    /**
-     *
-     * @param {function} callback
-     * @param {object} thisArg
-     */
-    USPProto.forEach = USPProto.forEach || function(callback, thisArg) {
-        var dict = parseToDict(this.toString());
-        Object.getOwnPropertyNames(dict).forEach(function(name) {
-            dict[name].forEach(function(value) {
-                callback.call(thisArg, value, name, this);
-            }, this);
-        }, this);
-    };
-
-    /**
-     * Sort all name-value pairs
-     */
-    USPProto.sort = USPProto.sort || function() {
-        var dict = parseToDict(this.toString()), keys = [], k, i, j;
-        for (k in dict) {
-            keys.push(k);
-        }
-        keys.sort();
-
-        for (i = 0; i < keys.length; i++) {
-            this['delete'](keys[i]);
-        }
-        for (i = 0; i < keys.length; i++) {
-            var key = keys[i], values = dict[key];
-            for (j = 0; j < values.length; j++) {
-                this.append(key, values[j]);
-            }
-        }
-    };
-
-    /**
-     * Returns an iterator allowing to go through all keys of
-     * the key/value pairs contained in this object.
-     *
-     * @returns {function}
-     */
-    USPProto.keys = USPProto.keys || function() {
-        var items = [];
-        this.forEach(function(item, name) {
-            items.push(name);
-        });
-        return makeIterator(items);
-    };
-
-    /**
-     * Returns an iterator allowing to go through all values of
-     * the key/value pairs contained in this object.
-     *
-     * @returns {function}
-     */
-    USPProto.values = USPProto.values || function() {
-        var items = [];
-        this.forEach(function(item) {
-            items.push(item);
-        });
-        return makeIterator(items);
-    };
-
-    /**
-     * Returns an iterator allowing to go through all key/value
-     * pairs contained in this object.
-     *
-     * @returns {function}
-     */
-    USPProto.entries = USPProto.entries || function() {
-        var items = [];
-        this.forEach(function(item, name) {
-            items.push([name, item]);
-        });
-        return makeIterator(items);
-    };
-
-
-    if (iterable) {
-        USPProto[self.Symbol.iterator] = USPProto[self.Symbol.iterator] || USPProto.entries;
-    }
-
-
-    function encode(str) {
-        var replace = {
-            '!': '%21',
-            "'": '%27',
-            '(': '%28',
-            ')': '%29',
-            '~': '%7E',
-            '%20': '+',
-            '%00': '\x00'
-        };
-        return encodeURIComponent(str).replace(/[!'\(\)~]|%20|%00/g, function(match) {
-            return replace[match];
-        });
-    }
-
-    function decode(str) {
-        return str
-            .replace(/[ +]/g, '%20')
-            .replace(/(%[a-f0-9]{2})+/ig, function(match) {
-                return decodeURIComponent(match);
-            });
-    }
-
-    function makeIterator(arr) {
-        var iterator = {
-            next: function() {
-                var value = arr.shift();
-                return {done: value === undefined, value: value};
-            }
-        };
-
-        if (iterable) {
-            iterator[self.Symbol.iterator] = function() {
-                return iterator;
-            };
-        }
-
-        return iterator;
-    }
-
-    function parseToDict(search) {
-        var dict = {};
-
-        if (typeof search === "object") {
-            // if `search` is an array, treat it as a sequence
-            if (isArray(search)) {
-                for (var i = 0; i < search.length; i++) {
-                    var item = search[i];
-                    if (isArray(item) && item.length === 2) {
-                        appendTo(dict, item[0], item[1]);
-                    } else {
-                        throw new TypeError("Failed to construct 'URLSearchParams': Sequence initializer must only contain pair elements");
-                    }
-                }
-
-            } else {
-                for (var key in search) {
-                    if (search.hasOwnProperty(key)) {
-                        appendTo(dict, key, search[key]);
-                    }
-                }
-            }
-
-        } else {
-            // remove first '?'
-            if (search.indexOf("?") === 0) {
-                search = search.slice(1);
-            }
-
-            var pairs = search.split("&");
-            for (var j = 0; j < pairs.length; j++) {
-                var value = pairs [j],
-                    index = value.indexOf('=');
-
-                if (-1 < index) {
-                    appendTo(dict, decode(value.slice(0, index)), decode(value.slice(index + 1)));
-
-                } else {
-                    if (value) {
-                        appendTo(dict, decode(value), '');
-                    }
-                }
-            }
-        }
-
-        return dict;
-    }
-
-    function appendTo(dict, name, value) {
-        var val = typeof value === 'string' ? value : (
-            value !== null && value !== undefined && typeof value.toString === 'function' ? value.toString() : JSON.stringify(value)
-        );
-
-        // #47 Prevent using `hasOwnProperty` as a property name
-        if (hasOwnProperty(dict, name)) {
-            dict[name].push(val);
-        } else {
-            dict[name] = [val];
-        }
-    }
-
-    function isArray(val) {
-        return !!val && '[object Array]' === Object.prototype.toString.call(val);
-    }
-
-    function hasOwnProperty(obj, prop) {
-        return Object.prototype.hasOwnProperty.call(obj, prop);
-    }
-
-})(typeof global !== 'undefined' ? global : (typeof window !== 'undefined' ? window : this));
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(101)))
-
-/***/ }),
-/* 210 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(211).polyfill();
-
-
-/***/ }),
 /* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/**
- * Code refactored from Mozilla Developer Network:
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
- */
+/* WEBPACK VAR INJECTION */(function(global) {// Expose `IntlPolyfill` as global to add locale data into runtime later on.
+global.IntlPolyfill = __webpack_require__(212);
 
+// Require all locale data for `Intl`. This module will be
+// ignored when bundling for the browser with Browserify/Webpack.
+__webpack_require__(213);
 
-
-function assign(target, firstSource) {
-  if (target === undefined || target === null) {
-    throw new TypeError('Cannot convert first argument to object');
-  }
-
-  var to = Object(target);
-  for (var i = 1; i < arguments.length; i++) {
-    var nextSource = arguments[i];
-    if (nextSource === undefined || nextSource === null) {
-      continue;
-    }
-
-    var keysArray = Object.keys(Object(nextSource));
-    for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
-      var nextKey = keysArray[nextIndex];
-      var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
-      if (desc !== undefined && desc.enumerable) {
-        to[nextKey] = nextSource[nextKey];
-      }
-    }
-  }
-  return to;
+// hack to export the polyfill as global Intl if needed
+if (!global.Intl) {
+    global.Intl = global.IntlPolyfill;
+    global.IntlPolyfill.__applyLocaleSensitivePrototypes();
 }
 
-function polyfill() {
-  if (!Object.assign) {
-    Object.defineProperty(Object, 'assign', {
-      enumerable: false,
-      configurable: true,
-      writable: true,
-      value: assign
-    });
-  }
-}
+// providing an idiomatic api for the nodejs version of this module
+module.exports = global.IntlPolyfill;
 
-module.exports = {
-  assign: assign,
-  polyfill: polyfill
-};
-
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(79)))
 
 /***/ }),
 /* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(213);
-__webpack_require__(416);
-__webpack_require__(573);
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+};
+
+var jsx = function () {
+  var REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 0xeac7;
+  return function createRawReactElement(type, props, key, children) {
+    var defaultProps = type && type.defaultProps;
+    var childrenLength = arguments.length - 3;
+
+    if (!props && childrenLength !== 0) {
+      props = {};
+    }
+
+    if (props && defaultProps) {
+      for (var propName in defaultProps) {
+        if (props[propName] === void 0) {
+          props[propName] = defaultProps[propName];
+        }
+      }
+    } else if (!props) {
+      props = defaultProps || {};
+    }
+
+    if (childrenLength === 1) {
+      props.children = children;
+    } else if (childrenLength > 1) {
+      var childArray = Array(childrenLength);
+
+      for (var i = 0; i < childrenLength; i++) {
+        childArray[i] = arguments[i + 3];
+      }
+
+      props.children = childArray;
+    }
+
+    return {
+      $$typeof: REACT_ELEMENT_TYPE,
+      type: type,
+      key: key === undefined ? null : '' + key,
+      ref: null,
+      props: props,
+      _owner: null
+    };
+  };
+}();
+
+var asyncToGenerator = function (fn) {
+  return function () {
+    var gen = fn.apply(this, arguments);
+    return new Promise(function (resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+
+        if (info.done) {
+          resolve(value);
+        } else {
+          return Promise.resolve(value).then(function (value) {
+            return step("next", value);
+          }, function (err) {
+            return step("throw", err);
+          });
+        }
+      }
+
+      return step("next");
+    });
+  };
+};
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+var defineEnumerableProperties = function (obj, descs) {
+  for (var key in descs) {
+    var desc = descs[key];
+    desc.configurable = desc.enumerable = true;
+    if ("value" in desc) desc.writable = true;
+    Object.defineProperty(obj, key, desc);
+  }
+
+  return obj;
+};
+
+var defaults = function (obj, defaults) {
+  var keys = Object.getOwnPropertyNames(defaults);
+
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var value = Object.getOwnPropertyDescriptor(defaults, key);
+
+    if (value && value.configurable && obj[key] === undefined) {
+      Object.defineProperty(obj, key, value);
+    }
+  }
+
+  return obj;
+};
+
+var defineProperty$1 = function (obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+var get = function get(object, property, receiver) {
+  if (object === null) object = Function.prototype;
+  var desc = Object.getOwnPropertyDescriptor(object, property);
+
+  if (desc === undefined) {
+    var parent = Object.getPrototypeOf(object);
+
+    if (parent === null) {
+      return undefined;
+    } else {
+      return get(parent, property, receiver);
+    }
+  } else if ("value" in desc) {
+    return desc.value;
+  } else {
+    var getter = desc.get;
+
+    if (getter === undefined) {
+      return undefined;
+    }
+
+    return getter.call(receiver);
+  }
+};
+
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+var _instanceof = function (left, right) {
+  if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
+    return right[Symbol.hasInstance](left);
+  } else {
+    return left instanceof right;
+  }
+};
+
+var interopRequireDefault = function (obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+};
+
+var interopRequireWildcard = function (obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  } else {
+    var newObj = {};
+
+    if (obj != null) {
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+      }
+    }
+
+    newObj.default = obj;
+    return newObj;
+  }
+};
+
+var newArrowCheck = function (innerThis, boundThis) {
+  if (innerThis !== boundThis) {
+    throw new TypeError("Cannot instantiate an arrow function");
+  }
+};
+
+var objectDestructuringEmpty = function (obj) {
+  if (obj == null) throw new TypeError("Cannot destructure undefined");
+};
+
+var objectWithoutProperties = function (obj, keys) {
+  var target = {};
+
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
+  }
+
+  return target;
+};
+
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+var selfGlobal = typeof global === "undefined" ? self : global;
+
+var set = function set(object, property, value, receiver) {
+  var desc = Object.getOwnPropertyDescriptor(object, property);
+
+  if (desc === undefined) {
+    var parent = Object.getPrototypeOf(object);
+
+    if (parent !== null) {
+      set(parent, property, value, receiver);
+    }
+  } else if ("value" in desc && desc.writable) {
+    desc.value = value;
+  } else {
+    var setter = desc.set;
+
+    if (setter !== undefined) {
+      setter.call(receiver, value);
+    }
+  }
+
+  return value;
+};
+
+var slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+
+var slicedToArrayLoose = function (arr, i) {
+  if (Array.isArray(arr)) {
+    return arr;
+  } else if (Symbol.iterator in Object(arr)) {
+    var _arr = [];
+
+    for (var _iterator = arr[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
+      _arr.push(_step.value);
+
+      if (i && _arr.length === i) break;
+    }
+
+    return _arr;
+  } else {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance");
+  }
+};
+
+var taggedTemplateLiteral = function (strings, raw) {
+  return Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
+    }
+  }));
+};
+
+var taggedTemplateLiteralLoose = function (strings, raw) {
+  strings.raw = raw;
+  return strings;
+};
+
+var temporalRef = function (val, name, undef) {
+  if (val === undef) {
+    throw new ReferenceError(name + " is not defined - temporal dead zone");
+  } else {
+    return val;
+  }
+};
+
+var temporalUndefined = {};
+
+var toArray = function (arr) {
+  return Array.isArray(arr) ? arr : Array.from(arr);
+};
+
+var toConsumableArray = function (arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  } else {
+    return Array.from(arr);
+  }
+};
+
+
+
+var babelHelpers$1 = Object.freeze({
+  jsx: jsx,
+  asyncToGenerator: asyncToGenerator,
+  classCallCheck: classCallCheck,
+  createClass: createClass,
+  defineEnumerableProperties: defineEnumerableProperties,
+  defaults: defaults,
+  defineProperty: defineProperty$1,
+  get: get,
+  inherits: inherits,
+  interopRequireDefault: interopRequireDefault,
+  interopRequireWildcard: interopRequireWildcard,
+  newArrowCheck: newArrowCheck,
+  objectDestructuringEmpty: objectDestructuringEmpty,
+  objectWithoutProperties: objectWithoutProperties,
+  possibleConstructorReturn: possibleConstructorReturn,
+  selfGlobal: selfGlobal,
+  set: set,
+  slicedToArray: slicedToArray,
+  slicedToArrayLoose: slicedToArrayLoose,
+  taggedTemplateLiteral: taggedTemplateLiteral,
+  taggedTemplateLiteralLoose: taggedTemplateLiteralLoose,
+  temporalRef: temporalRef,
+  temporalUndefined: temporalUndefined,
+  toArray: toArray,
+  toConsumableArray: toConsumableArray,
+  typeof: _typeof,
+  extends: _extends,
+  instanceof: _instanceof
+});
+
+var realDefineProp = function () {
+    var sentinel = function sentinel() {};
+    try {
+        Object.defineProperty(sentinel, 'a', {
+            get: function get() {
+                return 1;
+            }
+        });
+        Object.defineProperty(sentinel, 'prototype', { writable: false });
+        return sentinel.a === 1 && sentinel.prototype instanceof Object;
+    } catch (e) {
+        return false;
+    }
+}();
+
+// Need a workaround for getters in ES3
+var es3 = !realDefineProp && !Object.prototype.__defineGetter__;
+
+// We use this a lot (and need it for proto-less objects)
+var hop = Object.prototype.hasOwnProperty;
+
+// Naive defineProperty for compatibility
+var defineProperty = realDefineProp ? Object.defineProperty : function (obj, name, desc) {
+    if ('get' in desc && obj.__defineGetter__) obj.__defineGetter__(name, desc.get);else if (!hop.call(obj, name) || 'value' in desc) obj[name] = desc.value;
+};
+
+// Array.prototype.indexOf, as good as we need it to be
+var arrIndexOf = Array.prototype.indexOf || function (search) {
+    /*jshint validthis:true */
+    var t = this;
+    if (!t.length) return -1;
+
+    for (var i = arguments[1] || 0, max = t.length; i < max; i++) {
+        if (t[i] === search) return i;
+    }
+
+    return -1;
+};
+
+// Create an object with the specified prototype (2nd arg required for Record)
+var objCreate = Object.create || function (proto, props) {
+    var obj = void 0;
+
+    function F() {}
+    F.prototype = proto;
+    obj = new F();
+
+    for (var k in props) {
+        if (hop.call(props, k)) defineProperty(obj, k, props[k]);
+    }
+
+    return obj;
+};
+
+// Snapshot some (hopefully still) native built-ins
+var arrSlice = Array.prototype.slice;
+var arrConcat = Array.prototype.concat;
+var arrPush = Array.prototype.push;
+var arrJoin = Array.prototype.join;
+var arrShift = Array.prototype.shift;
+
+// Naive Function.prototype.bind for compatibility
+var fnBind = Function.prototype.bind || function (thisObj) {
+    var fn = this,
+        args = arrSlice.call(arguments, 1);
+
+    // All our (presently) bound functions have either 1 or 0 arguments. By returning
+    // different function signatures, we can pass some tests in ES3 environments
+    if (fn.length === 1) {
+        return function () {
+            return fn.apply(thisObj, arrConcat.call(args, arrSlice.call(arguments)));
+        };
+    }
+    return function () {
+        return fn.apply(thisObj, arrConcat.call(args, arrSlice.call(arguments)));
+    };
+};
+
+// Object housing internal properties for constructors
+var internals = objCreate(null);
+
+// Keep internal properties internal
+var secret = Math.random();
+
+// Helper functions
+// ================
+
+/**
+ * A function to deal with the inaccuracy of calculating log10 in pre-ES6
+ * JavaScript environments. Math.log(num) / Math.LN10 was responsible for
+ * causing issue #62.
+ */
+function log10Floor(n) {
+    // ES6 provides the more accurate Math.log10
+    if (typeof Math.log10 === 'function') return Math.floor(Math.log10(n));
+
+    var x = Math.round(Math.log(n) * Math.LOG10E);
+    return x - (Number('1e' + x) > n);
+}
+
+/**
+ * A map that doesn't contain Object in its prototype chain
+ */
+function Record(obj) {
+    // Copy only own properties over unless this object is already a Record instance
+    for (var k in obj) {
+        if (obj instanceof Record || hop.call(obj, k)) defineProperty(this, k, { value: obj[k], enumerable: true, writable: true, configurable: true });
+    }
+}
+Record.prototype = objCreate(null);
+
+/**
+ * An ordered list
+ */
+function List() {
+    defineProperty(this, 'length', { writable: true, value: 0 });
+
+    if (arguments.length) arrPush.apply(this, arrSlice.call(arguments));
+}
+List.prototype = objCreate(null);
+
+/**
+ * Constructs a regular expression to restore tainted RegExp properties
+ */
+function createRegExpRestore() {
+    if (internals.disableRegExpRestore) {
+        return function () {/* no-op */};
+    }
+
+    var regExpCache = {
+        lastMatch: RegExp.lastMatch || '',
+        leftContext: RegExp.leftContext,
+        multiline: RegExp.multiline,
+        input: RegExp.input
+    },
+        has = false;
+
+    // Create a snapshot of all the 'captured' properties
+    for (var i = 1; i <= 9; i++) {
+        has = (regExpCache['$' + i] = RegExp['$' + i]) || has;
+    }return function () {
+        // Now we've snapshotted some properties, escape the lastMatch string
+        var esc = /[.?*+^$[\]\\(){}|-]/g,
+            lm = regExpCache.lastMatch.replace(esc, '\\$&'),
+            reg = new List();
+
+        // If any of the captured strings were non-empty, iterate over them all
+        if (has) {
+            for (var _i = 1; _i <= 9; _i++) {
+                var m = regExpCache['$' + _i];
+
+                // If it's empty, add an empty capturing group
+                if (!m) lm = '()' + lm;
+
+                // Else find the string in lm and escape & wrap it to capture it
+                else {
+                        m = m.replace(esc, '\\$&');
+                        lm = lm.replace(m, '(' + m + ')');
+                    }
+
+                // Push it to the reg and chop lm to make sure further groups come after
+                arrPush.call(reg, lm.slice(0, lm.indexOf('(') + 1));
+                lm = lm.slice(lm.indexOf('(') + 1);
+            }
+        }
+
+        var exprStr = arrJoin.call(reg, '') + lm;
+
+        // Shorten the regex by replacing each part of the expression with a match
+        // for a string of that exact length.  This is safe for the type of
+        // expressions generated above, because the expression matches the whole
+        // match string, so we know each group and each segment between capturing
+        // groups can be matched by its length alone.
+        exprStr = exprStr.replace(/(\\\(|\\\)|[^()])+/g, function (match) {
+            return '[\\s\\S]{' + match.replace('\\', '').length + '}';
+        });
+
+        // Create the regular expression that will reconstruct the RegExp properties
+        var expr = new RegExp(exprStr, regExpCache.multiline ? 'gm' : 'g');
+
+        // Set the lastIndex of the generated expression to ensure that the match
+        // is found in the correct index.
+        expr.lastIndex = regExpCache.leftContext.length;
+
+        expr.exec(regExpCache.input);
+    };
+}
+
+/**
+ * Mimics ES5's abstract ToObject() function
+ */
+function toObject(arg) {
+    if (arg === null) throw new TypeError('Cannot convert null or undefined to object');
+
+    if ((typeof arg === 'undefined' ? 'undefined' : babelHelpers$1['typeof'](arg)) === 'object') return arg;
+    return Object(arg);
+}
+
+function toNumber(arg) {
+    if (typeof arg === 'number') return arg;
+    return Number(arg);
+}
+
+function toInteger(arg) {
+    var number = toNumber(arg);
+    if (isNaN(number)) return 0;
+    if (number === +0 || number === -0 || number === +Infinity || number === -Infinity) return number;
+    if (number < 0) return Math.floor(Math.abs(number)) * -1;
+    return Math.floor(Math.abs(number));
+}
+
+function toLength(arg) {
+    var len = toInteger(arg);
+    if (len <= 0) return 0;
+    if (len === Infinity) return Math.pow(2, 53) - 1;
+    return Math.min(len, Math.pow(2, 53) - 1);
+}
+
+/**
+ * Returns "internal" properties for an object
+ */
+function getInternalProperties(obj) {
+    if (hop.call(obj, '__getInternalProperties')) return obj.__getInternalProperties(secret);
+
+    return objCreate(null);
+}
+
+/**
+* Defines regular expressions for various operations related to the BCP 47 syntax,
+* as defined at http://tools.ietf.org/html/bcp47#section-2.1
+*/
+
+// extlang       = 3ALPHA              ; selected ISO 639 codes
+//                 *2("-" 3ALPHA)      ; permanently reserved
+var extlang = '[a-z]{3}(?:-[a-z]{3}){0,2}';
+
+// language      = 2*3ALPHA            ; shortest ISO 639 code
+//                 ["-" extlang]       ; sometimes followed by
+//                                     ; extended language subtags
+//               / 4ALPHA              ; or reserved for future use
+//               / 5*8ALPHA            ; or registered language subtag
+var language = '(?:[a-z]{2,3}(?:-' + extlang + ')?|[a-z]{4}|[a-z]{5,8})';
+
+// script        = 4ALPHA              ; ISO 15924 code
+var script = '[a-z]{4}';
+
+// region        = 2ALPHA              ; ISO 3166-1 code
+//               / 3DIGIT              ; UN M.49 code
+var region = '(?:[a-z]{2}|\\d{3})';
+
+// variant       = 5*8alphanum         ; registered variants
+//               / (DIGIT 3alphanum)
+var variant = '(?:[a-z0-9]{5,8}|\\d[a-z0-9]{3})';
+
+//                                     ; Single alphanumerics
+//                                     ; "x" reserved for private use
+// singleton     = DIGIT               ; 0 - 9
+//               / %x41-57             ; A - W
+//               / %x59-5A             ; Y - Z
+//               / %x61-77             ; a - w
+//               / %x79-7A             ; y - z
+var singleton = '[0-9a-wy-z]';
+
+// extension     = singleton 1*("-" (2*8alphanum))
+var extension = singleton + '(?:-[a-z0-9]{2,8})+';
+
+// privateuse    = "x" 1*("-" (1*8alphanum))
+var privateuse = 'x(?:-[a-z0-9]{1,8})+';
+
+// irregular     = "en-GB-oed"         ; irregular tags do not match
+//               / "i-ami"             ; the 'langtag' production and
+//               / "i-bnn"             ; would not otherwise be
+//               / "i-default"         ; considered 'well-formed'
+//               / "i-enochian"        ; These tags are all valid,
+//               / "i-hak"             ; but most are deprecated
+//               / "i-klingon"         ; in favor of more modern
+//               / "i-lux"             ; subtags or subtag
+//               / "i-mingo"           ; combination
+//               / "i-navajo"
+//               / "i-pwn"
+//               / "i-tao"
+//               / "i-tay"
+//               / "i-tsu"
+//               / "sgn-BE-FR"
+//               / "sgn-BE-NL"
+//               / "sgn-CH-DE"
+var irregular = '(?:en-GB-oed' + '|i-(?:ami|bnn|default|enochian|hak|klingon|lux|mingo|navajo|pwn|tao|tay|tsu)' + '|sgn-(?:BE-FR|BE-NL|CH-DE))';
+
+// regular       = "art-lojban"        ; these tags match the 'langtag'
+//               / "cel-gaulish"       ; production, but their subtags
+//               / "no-bok"            ; are not extended language
+//               / "no-nyn"            ; or variant subtags: their meaning
+//               / "zh-guoyu"          ; is defined by their registration
+//               / "zh-hakka"          ; and all of these are deprecated
+//               / "zh-min"            ; in favor of a more modern
+//               / "zh-min-nan"        ; subtag or sequence of subtags
+//               / "zh-xiang"
+var regular = '(?:art-lojban|cel-gaulish|no-bok|no-nyn' + '|zh-(?:guoyu|hakka|min|min-nan|xiang))';
+
+// grandfathered = irregular           ; non-redundant tags registered
+//               / regular             ; during the RFC 3066 era
+var grandfathered = '(?:' + irregular + '|' + regular + ')';
+
+// langtag       = language
+//                 ["-" script]
+//                 ["-" region]
+//                 *("-" variant)
+//                 *("-" extension)
+//                 ["-" privateuse]
+var langtag = language + '(?:-' + script + ')?(?:-' + region + ')?(?:-' + variant + ')*(?:-' + extension + ')*(?:-' + privateuse + ')?';
+
+// Language-Tag  = langtag             ; normal language tags
+//               / privateuse          ; private use tag
+//               / grandfathered       ; grandfathered tags
+var expBCP47Syntax = RegExp('^(?:' + langtag + '|' + privateuse + '|' + grandfathered + ')$', 'i');
+
+// Match duplicate variants in a language tag
+var expVariantDupes = RegExp('^(?!x).*?-(' + variant + ')-(?:\\w{4,8}-(?!x-))*\\1\\b', 'i');
+
+// Match duplicate singletons in a language tag (except in private use)
+var expSingletonDupes = RegExp('^(?!x).*?-(' + singleton + ')-(?:\\w+-(?!x-))*\\1\\b', 'i');
+
+// Match all extension sequences
+var expExtSequences = RegExp('-' + extension, 'ig');
+
+// Default locale is the first-added locale data for us
+var defaultLocale = void 0;
+function setDefaultLocale(locale) {
+    defaultLocale = locale;
+}
+
+// IANA Subtag Registry redundant tag and subtag maps
+var redundantTags = {
+    tags: {
+        "art-lojban": "jbo",
+        "i-ami": "ami",
+        "i-bnn": "bnn",
+        "i-hak": "hak",
+        "i-klingon": "tlh",
+        "i-lux": "lb",
+        "i-navajo": "nv",
+        "i-pwn": "pwn",
+        "i-tao": "tao",
+        "i-tay": "tay",
+        "i-tsu": "tsu",
+        "no-bok": "nb",
+        "no-nyn": "nn",
+        "sgn-BE-FR": "sfb",
+        "sgn-BE-NL": "vgt",
+        "sgn-CH-DE": "sgg",
+        "zh-guoyu": "cmn",
+        "zh-hakka": "hak",
+        "zh-min-nan": "nan",
+        "zh-xiang": "hsn",
+        "sgn-BR": "bzs",
+        "sgn-CO": "csn",
+        "sgn-DE": "gsg",
+        "sgn-DK": "dsl",
+        "sgn-ES": "ssp",
+        "sgn-FR": "fsl",
+        "sgn-GB": "bfi",
+        "sgn-GR": "gss",
+        "sgn-IE": "isg",
+        "sgn-IT": "ise",
+        "sgn-JP": "jsl",
+        "sgn-MX": "mfs",
+        "sgn-NI": "ncs",
+        "sgn-NL": "dse",
+        "sgn-NO": "nsl",
+        "sgn-PT": "psr",
+        "sgn-SE": "swl",
+        "sgn-US": "ase",
+        "sgn-ZA": "sfs",
+        "zh-cmn": "cmn",
+        "zh-cmn-Hans": "cmn-Hans",
+        "zh-cmn-Hant": "cmn-Hant",
+        "zh-gan": "gan",
+        "zh-wuu": "wuu",
+        "zh-yue": "yue"
+    },
+    subtags: {
+        BU: "MM",
+        DD: "DE",
+        FX: "FR",
+        TP: "TL",
+        YD: "YE",
+        ZR: "CD",
+        heploc: "alalc97",
+        'in': "id",
+        iw: "he",
+        ji: "yi",
+        jw: "jv",
+        mo: "ro",
+        ayx: "nun",
+        bjd: "drl",
+        ccq: "rki",
+        cjr: "mom",
+        cka: "cmr",
+        cmk: "xch",
+        drh: "khk",
+        drw: "prs",
+        gav: "dev",
+        hrr: "jal",
+        ibi: "opa",
+        kgh: "kml",
+        lcq: "ppr",
+        mst: "mry",
+        myt: "mry",
+        sca: "hle",
+        tie: "ras",
+        tkk: "twm",
+        tlw: "weo",
+        tnf: "prs",
+        ybd: "rki",
+        yma: "lrr"
+    },
+    extLang: {
+        aao: ["aao", "ar"],
+        abh: ["abh", "ar"],
+        abv: ["abv", "ar"],
+        acm: ["acm", "ar"],
+        acq: ["acq", "ar"],
+        acw: ["acw", "ar"],
+        acx: ["acx", "ar"],
+        acy: ["acy", "ar"],
+        adf: ["adf", "ar"],
+        ads: ["ads", "sgn"],
+        aeb: ["aeb", "ar"],
+        aec: ["aec", "ar"],
+        aed: ["aed", "sgn"],
+        aen: ["aen", "sgn"],
+        afb: ["afb", "ar"],
+        afg: ["afg", "sgn"],
+        ajp: ["ajp", "ar"],
+        apc: ["apc", "ar"],
+        apd: ["apd", "ar"],
+        arb: ["arb", "ar"],
+        arq: ["arq", "ar"],
+        ars: ["ars", "ar"],
+        ary: ["ary", "ar"],
+        arz: ["arz", "ar"],
+        ase: ["ase", "sgn"],
+        asf: ["asf", "sgn"],
+        asp: ["asp", "sgn"],
+        asq: ["asq", "sgn"],
+        asw: ["asw", "sgn"],
+        auz: ["auz", "ar"],
+        avl: ["avl", "ar"],
+        ayh: ["ayh", "ar"],
+        ayl: ["ayl", "ar"],
+        ayn: ["ayn", "ar"],
+        ayp: ["ayp", "ar"],
+        bbz: ["bbz", "ar"],
+        bfi: ["bfi", "sgn"],
+        bfk: ["bfk", "sgn"],
+        bjn: ["bjn", "ms"],
+        bog: ["bog", "sgn"],
+        bqn: ["bqn", "sgn"],
+        bqy: ["bqy", "sgn"],
+        btj: ["btj", "ms"],
+        bve: ["bve", "ms"],
+        bvl: ["bvl", "sgn"],
+        bvu: ["bvu", "ms"],
+        bzs: ["bzs", "sgn"],
+        cdo: ["cdo", "zh"],
+        cds: ["cds", "sgn"],
+        cjy: ["cjy", "zh"],
+        cmn: ["cmn", "zh"],
+        coa: ["coa", "ms"],
+        cpx: ["cpx", "zh"],
+        csc: ["csc", "sgn"],
+        csd: ["csd", "sgn"],
+        cse: ["cse", "sgn"],
+        csf: ["csf", "sgn"],
+        csg: ["csg", "sgn"],
+        csl: ["csl", "sgn"],
+        csn: ["csn", "sgn"],
+        csq: ["csq", "sgn"],
+        csr: ["csr", "sgn"],
+        czh: ["czh", "zh"],
+        czo: ["czo", "zh"],
+        doq: ["doq", "sgn"],
+        dse: ["dse", "sgn"],
+        dsl: ["dsl", "sgn"],
+        dup: ["dup", "ms"],
+        ecs: ["ecs", "sgn"],
+        esl: ["esl", "sgn"],
+        esn: ["esn", "sgn"],
+        eso: ["eso", "sgn"],
+        eth: ["eth", "sgn"],
+        fcs: ["fcs", "sgn"],
+        fse: ["fse", "sgn"],
+        fsl: ["fsl", "sgn"],
+        fss: ["fss", "sgn"],
+        gan: ["gan", "zh"],
+        gds: ["gds", "sgn"],
+        gom: ["gom", "kok"],
+        gse: ["gse", "sgn"],
+        gsg: ["gsg", "sgn"],
+        gsm: ["gsm", "sgn"],
+        gss: ["gss", "sgn"],
+        gus: ["gus", "sgn"],
+        hab: ["hab", "sgn"],
+        haf: ["haf", "sgn"],
+        hak: ["hak", "zh"],
+        hds: ["hds", "sgn"],
+        hji: ["hji", "ms"],
+        hks: ["hks", "sgn"],
+        hos: ["hos", "sgn"],
+        hps: ["hps", "sgn"],
+        hsh: ["hsh", "sgn"],
+        hsl: ["hsl", "sgn"],
+        hsn: ["hsn", "zh"],
+        icl: ["icl", "sgn"],
+        ils: ["ils", "sgn"],
+        inl: ["inl", "sgn"],
+        ins: ["ins", "sgn"],
+        ise: ["ise", "sgn"],
+        isg: ["isg", "sgn"],
+        isr: ["isr", "sgn"],
+        jak: ["jak", "ms"],
+        jax: ["jax", "ms"],
+        jcs: ["jcs", "sgn"],
+        jhs: ["jhs", "sgn"],
+        jls: ["jls", "sgn"],
+        jos: ["jos", "sgn"],
+        jsl: ["jsl", "sgn"],
+        jus: ["jus", "sgn"],
+        kgi: ["kgi", "sgn"],
+        knn: ["knn", "kok"],
+        kvb: ["kvb", "ms"],
+        kvk: ["kvk", "sgn"],
+        kvr: ["kvr", "ms"],
+        kxd: ["kxd", "ms"],
+        lbs: ["lbs", "sgn"],
+        lce: ["lce", "ms"],
+        lcf: ["lcf", "ms"],
+        liw: ["liw", "ms"],
+        lls: ["lls", "sgn"],
+        lsg: ["lsg", "sgn"],
+        lsl: ["lsl", "sgn"],
+        lso: ["lso", "sgn"],
+        lsp: ["lsp", "sgn"],
+        lst: ["lst", "sgn"],
+        lsy: ["lsy", "sgn"],
+        ltg: ["ltg", "lv"],
+        lvs: ["lvs", "lv"],
+        lzh: ["lzh", "zh"],
+        max: ["max", "ms"],
+        mdl: ["mdl", "sgn"],
+        meo: ["meo", "ms"],
+        mfa: ["mfa", "ms"],
+        mfb: ["mfb", "ms"],
+        mfs: ["mfs", "sgn"],
+        min: ["min", "ms"],
+        mnp: ["mnp", "zh"],
+        mqg: ["mqg", "ms"],
+        mre: ["mre", "sgn"],
+        msd: ["msd", "sgn"],
+        msi: ["msi", "ms"],
+        msr: ["msr", "sgn"],
+        mui: ["mui", "ms"],
+        mzc: ["mzc", "sgn"],
+        mzg: ["mzg", "sgn"],
+        mzy: ["mzy", "sgn"],
+        nan: ["nan", "zh"],
+        nbs: ["nbs", "sgn"],
+        ncs: ["ncs", "sgn"],
+        nsi: ["nsi", "sgn"],
+        nsl: ["nsl", "sgn"],
+        nsp: ["nsp", "sgn"],
+        nsr: ["nsr", "sgn"],
+        nzs: ["nzs", "sgn"],
+        okl: ["okl", "sgn"],
+        orn: ["orn", "ms"],
+        ors: ["ors", "ms"],
+        pel: ["pel", "ms"],
+        pga: ["pga", "ar"],
+        pks: ["pks", "sgn"],
+        prl: ["prl", "sgn"],
+        prz: ["prz", "sgn"],
+        psc: ["psc", "sgn"],
+        psd: ["psd", "sgn"],
+        pse: ["pse", "ms"],
+        psg: ["psg", "sgn"],
+        psl: ["psl", "sgn"],
+        pso: ["pso", "sgn"],
+        psp: ["psp", "sgn"],
+        psr: ["psr", "sgn"],
+        pys: ["pys", "sgn"],
+        rms: ["rms", "sgn"],
+        rsi: ["rsi", "sgn"],
+        rsl: ["rsl", "sgn"],
+        sdl: ["sdl", "sgn"],
+        sfb: ["sfb", "sgn"],
+        sfs: ["sfs", "sgn"],
+        sgg: ["sgg", "sgn"],
+        sgx: ["sgx", "sgn"],
+        shu: ["shu", "ar"],
+        slf: ["slf", "sgn"],
+        sls: ["sls", "sgn"],
+        sqk: ["sqk", "sgn"],
+        sqs: ["sqs", "sgn"],
+        ssh: ["ssh", "ar"],
+        ssp: ["ssp", "sgn"],
+        ssr: ["ssr", "sgn"],
+        svk: ["svk", "sgn"],
+        swc: ["swc", "sw"],
+        swh: ["swh", "sw"],
+        swl: ["swl", "sgn"],
+        syy: ["syy", "sgn"],
+        tmw: ["tmw", "ms"],
+        tse: ["tse", "sgn"],
+        tsm: ["tsm", "sgn"],
+        tsq: ["tsq", "sgn"],
+        tss: ["tss", "sgn"],
+        tsy: ["tsy", "sgn"],
+        tza: ["tza", "sgn"],
+        ugn: ["ugn", "sgn"],
+        ugy: ["ugy", "sgn"],
+        ukl: ["ukl", "sgn"],
+        uks: ["uks", "sgn"],
+        urk: ["urk", "ms"],
+        uzn: ["uzn", "uz"],
+        uzs: ["uzs", "uz"],
+        vgt: ["vgt", "sgn"],
+        vkk: ["vkk", "ms"],
+        vkt: ["vkt", "ms"],
+        vsi: ["vsi", "sgn"],
+        vsl: ["vsl", "sgn"],
+        vsv: ["vsv", "sgn"],
+        wuu: ["wuu", "zh"],
+        xki: ["xki", "sgn"],
+        xml: ["xml", "sgn"],
+        xmm: ["xmm", "ms"],
+        xms: ["xms", "sgn"],
+        yds: ["yds", "sgn"],
+        ysl: ["ysl", "sgn"],
+        yue: ["yue", "zh"],
+        zib: ["zib", "sgn"],
+        zlm: ["zlm", "ms"],
+        zmi: ["zmi", "ms"],
+        zsl: ["zsl", "sgn"],
+        zsm: ["zsm", "ms"]
+    }
+};
+
+/**
+ * Convert only a-z to uppercase as per section 6.1 of the spec
+ */
+function toLatinUpperCase(str) {
+    var i = str.length;
+
+    while (i--) {
+        var ch = str.charAt(i);
+
+        if (ch >= "a" && ch <= "z") str = str.slice(0, i) + ch.toUpperCase() + str.slice(i + 1);
+    }
+
+    return str;
+}
+
+/**
+ * The IsStructurallyValidLanguageTag abstract operation verifies that the locale
+ * argument (which must be a String value)
+ *
+ * - represents a well-formed BCP 47 language tag as specified in RFC 5646 section
+ *   2.1, or successor,
+ * - does not include duplicate variant subtags, and
+ * - does not include duplicate singleton subtags.
+ *
+ * The abstract operation returns true if locale can be generated from the ABNF
+ * grammar in section 2.1 of the RFC, starting with Language-Tag, and does not
+ * contain duplicate variant or singleton subtags (other than as a private use
+ * subtag). It returns false otherwise. Terminal value characters in the grammar are
+ * interpreted as the Unicode equivalents of the ASCII octet values given.
+ */
+function /* 6.2.2 */IsStructurallyValidLanguageTag(locale) {
+    // represents a well-formed BCP 47 language tag as specified in RFC 5646
+    if (!expBCP47Syntax.test(locale)) return false;
+
+    // does not include duplicate variant subtags, and
+    if (expVariantDupes.test(locale)) return false;
+
+    // does not include duplicate singleton subtags.
+    if (expSingletonDupes.test(locale)) return false;
+
+    return true;
+}
+
+/**
+ * The CanonicalizeLanguageTag abstract operation returns the canonical and case-
+ * regularized form of the locale argument (which must be a String value that is
+ * a structurally valid BCP 47 language tag as verified by the
+ * IsStructurallyValidLanguageTag abstract operation). It takes the steps
+ * specified in RFC 5646 section 4.5, or successor, to bring the language tag
+ * into canonical form, and to regularize the case of the subtags, but does not
+ * take the steps to bring a language tag into “extlang form” and to reorder
+ * variant subtags.
+
+ * The specifications for extensions to BCP 47 language tags, such as RFC 6067,
+ * may include canonicalization rules for the extension subtag sequences they
+ * define that go beyond the canonicalization rules of RFC 5646 section 4.5.
+ * Implementations are allowed, but not required, to apply these additional rules.
+ */
+function /* 6.2.3 */CanonicalizeLanguageTag(locale) {
+    var match = void 0,
+        parts = void 0;
+
+    // A language tag is in 'canonical form' when the tag is well-formed
+    // according to the rules in Sections 2.1 and 2.2
+
+    // Section 2.1 says all subtags use lowercase...
+    locale = locale.toLowerCase();
+
+    // ...with 2 exceptions: 'two-letter and four-letter subtags that neither
+    // appear at the start of the tag nor occur after singletons.  Such two-letter
+    // subtags are all uppercase (as in the tags "en-CA-x-ca" or "sgn-BE-FR") and
+    // four-letter subtags are titlecase (as in the tag "az-Latn-x-latn").
+    parts = locale.split('-');
+    for (var i = 1, max = parts.length; i < max; i++) {
+        // Two-letter subtags are all uppercase
+        if (parts[i].length === 2) parts[i] = parts[i].toUpperCase();
+
+        // Four-letter subtags are titlecase
+        else if (parts[i].length === 4) parts[i] = parts[i].charAt(0).toUpperCase() + parts[i].slice(1);
+
+            // Is it a singleton?
+            else if (parts[i].length === 1 && parts[i] !== 'x') break;
+    }
+    locale = arrJoin.call(parts, '-');
+
+    // The steps laid out in RFC 5646 section 4.5 are as follows:
+
+    // 1.  Extension sequences are ordered into case-insensitive ASCII order
+    //     by singleton subtag.
+    if ((match = locale.match(expExtSequences)) && match.length > 1) {
+        // The built-in sort() sorts by ASCII order, so use that
+        match.sort();
+
+        // Replace all extensions with the joined, sorted array
+        locale = locale.replace(RegExp('(?:' + expExtSequences.source + ')+', 'i'), arrJoin.call(match, ''));
+    }
+
+    // 2.  Redundant or grandfathered tags are replaced by their 'Preferred-
+    //     Value', if there is one.
+    if (hop.call(redundantTags.tags, locale)) locale = redundantTags.tags[locale];
+
+    // 3.  Subtags are replaced by their 'Preferred-Value', if there is one.
+    //     For extlangs, the original primary language subtag is also
+    //     replaced if there is a primary language subtag in the 'Preferred-
+    //     Value'.
+    parts = locale.split('-');
+
+    for (var _i = 1, _max = parts.length; _i < _max; _i++) {
+        if (hop.call(redundantTags.subtags, parts[_i])) parts[_i] = redundantTags.subtags[parts[_i]];else if (hop.call(redundantTags.extLang, parts[_i])) {
+            parts[_i] = redundantTags.extLang[parts[_i]][0];
+
+            // For extlang tags, the prefix needs to be removed if it is redundant
+            if (_i === 1 && redundantTags.extLang[parts[1]][1] === parts[0]) {
+                parts = arrSlice.call(parts, _i++);
+                _max -= 1;
+            }
+        }
+    }
+
+    return arrJoin.call(parts, '-');
+}
+
+/**
+ * The DefaultLocale abstract operation returns a String value representing the
+ * structurally valid (6.2.2) and canonicalized (6.2.3) BCP 47 language tag for the
+ * host environment’s current locale.
+ */
+function /* 6.2.4 */DefaultLocale() {
+    return defaultLocale;
+}
+
+// Sect 6.3 Currency Codes
+// =======================
+
+var expCurrencyCode = /^[A-Z]{3}$/;
+
+/**
+ * The IsWellFormedCurrencyCode abstract operation verifies that the currency argument
+ * (after conversion to a String value) represents a well-formed 3-letter ISO currency
+ * code. The following steps are taken:
+ */
+function /* 6.3.1 */IsWellFormedCurrencyCode(currency) {
+    // 1. Let `c` be ToString(currency)
+    var c = String(currency);
+
+    // 2. Let `normalized` be the result of mapping c to upper case as described
+    //    in 6.1.
+    var normalized = toLatinUpperCase(c);
+
+    // 3. If the string length of normalized is not 3, return false.
+    // 4. If normalized contains any character that is not in the range "A" to "Z"
+    //    (U+0041 to U+005A), return false.
+    if (expCurrencyCode.test(normalized) === false) return false;
+
+    // 5. Return true
+    return true;
+}
+
+var expUnicodeExSeq = /-u(?:-[0-9a-z]{2,8})+/gi; // See `extension` below
+
+function /* 9.2.1 */CanonicalizeLocaleList(locales) {
+    // The abstract operation CanonicalizeLocaleList takes the following steps:
+
+    // 1. If locales is undefined, then a. Return a new empty List
+    if (locales === undefined) return new List();
+
+    // 2. Let seen be a new empty List.
+    var seen = new List();
+
+    // 3. If locales is a String value, then
+    //    a. Let locales be a new array created as if by the expression new
+    //    Array(locales) where Array is the standard built-in constructor with
+    //    that name and locales is the value of locales.
+    locales = typeof locales === 'string' ? [locales] : locales;
+
+    // 4. Let O be ToObject(locales).
+    var O = toObject(locales);
+
+    // 5. Let lenValue be the result of calling the [[Get]] internal method of
+    //    O with the argument "length".
+    // 6. Let len be ToUint32(lenValue).
+    var len = toLength(O.length);
+
+    // 7. Let k be 0.
+    var k = 0;
+
+    // 8. Repeat, while k < len
+    while (k < len) {
+        // a. Let Pk be ToString(k).
+        var Pk = String(k);
+
+        // b. Let kPresent be the result of calling the [[HasProperty]] internal
+        //    method of O with argument Pk.
+        var kPresent = Pk in O;
+
+        // c. If kPresent is true, then
+        if (kPresent) {
+            // i. Let kValue be the result of calling the [[Get]] internal
+            //     method of O with argument Pk.
+            var kValue = O[Pk];
+
+            // ii. If the type of kValue is not String or Object, then throw a
+            //     TypeError exception.
+            if (kValue === null || typeof kValue !== 'string' && (typeof kValue === "undefined" ? "undefined" : babelHelpers$1["typeof"](kValue)) !== 'object') throw new TypeError('String or Object type expected');
+
+            // iii. Let tag be ToString(kValue).
+            var tag = String(kValue);
+
+            // iv. If the result of calling the abstract operation
+            //     IsStructurallyValidLanguageTag (defined in 6.2.2), passing tag as
+            //     the argument, is false, then throw a RangeError exception.
+            if (!IsStructurallyValidLanguageTag(tag)) throw new RangeError("'" + tag + "' is not a structurally valid language tag");
+
+            // v. Let tag be the result of calling the abstract operation
+            //    CanonicalizeLanguageTag (defined in 6.2.3), passing tag as the
+            //    argument.
+            tag = CanonicalizeLanguageTag(tag);
+
+            // vi. If tag is not an element of seen, then append tag as the last
+            //     element of seen.
+            if (arrIndexOf.call(seen, tag) === -1) arrPush.call(seen, tag);
+        }
+
+        // d. Increase k by 1.
+        k++;
+    }
+
+    // 9. Return seen.
+    return seen;
+}
+
+/**
+ * The BestAvailableLocale abstract operation compares the provided argument
+ * locale, which must be a String value with a structurally valid and
+ * canonicalized BCP 47 language tag, against the locales in availableLocales and
+ * returns either the longest non-empty prefix of locale that is an element of
+ * availableLocales, or undefined if there is no such element. It uses the
+ * fallback mechanism of RFC 4647, section 3.4. The following steps are taken:
+ */
+function /* 9.2.2 */BestAvailableLocale(availableLocales, locale) {
+    // 1. Let candidate be locale
+    var candidate = locale;
+
+    // 2. Repeat
+    while (candidate) {
+        // a. If availableLocales contains an element equal to candidate, then return
+        // candidate.
+        if (arrIndexOf.call(availableLocales, candidate) > -1) return candidate;
+
+        // b. Let pos be the character index of the last occurrence of "-"
+        // (U+002D) within candidate. If that character does not occur, return
+        // undefined.
+        var pos = candidate.lastIndexOf('-');
+
+        if (pos < 0) return;
+
+        // c. If pos ≥ 2 and the character "-" occurs at index pos-2 of candidate,
+        //    then decrease pos by 2.
+        if (pos >= 2 && candidate.charAt(pos - 2) === '-') pos -= 2;
+
+        // d. Let candidate be the substring of candidate from position 0, inclusive,
+        //    to position pos, exclusive.
+        candidate = candidate.substring(0, pos);
+    }
+}
+
+/**
+ * The LookupMatcher abstract operation compares requestedLocales, which must be
+ * a List as returned by CanonicalizeLocaleList, against the locales in
+ * availableLocales and determines the best available language to meet the
+ * request. The following steps are taken:
+ */
+function /* 9.2.3 */LookupMatcher(availableLocales, requestedLocales) {
+    // 1. Let i be 0.
+    var i = 0;
+
+    // 2. Let len be the number of elements in requestedLocales.
+    var len = requestedLocales.length;
+
+    // 3. Let availableLocale be undefined.
+    var availableLocale = void 0;
+
+    var locale = void 0,
+        noExtensionsLocale = void 0;
+
+    // 4. Repeat while i < len and availableLocale is undefined:
+    while (i < len && !availableLocale) {
+        // a. Let locale be the element of requestedLocales at 0-origined list
+        //    position i.
+        locale = requestedLocales[i];
+
+        // b. Let noExtensionsLocale be the String value that is locale with all
+        //    Unicode locale extension sequences removed.
+        noExtensionsLocale = String(locale).replace(expUnicodeExSeq, '');
+
+        // c. Let availableLocale be the result of calling the
+        //    BestAvailableLocale abstract operation (defined in 9.2.2) with
+        //    arguments availableLocales and noExtensionsLocale.
+        availableLocale = BestAvailableLocale(availableLocales, noExtensionsLocale);
+
+        // d. Increase i by 1.
+        i++;
+    }
+
+    // 5. Let result be a new Record.
+    var result = new Record();
+
+    // 6. If availableLocale is not undefined, then
+    if (availableLocale !== undefined) {
+        // a. Set result.[[locale]] to availableLocale.
+        result['[[locale]]'] = availableLocale;
+
+        // b. If locale and noExtensionsLocale are not the same String value, then
+        if (String(locale) !== String(noExtensionsLocale)) {
+            // i. Let extension be the String value consisting of the first
+            //    substring of locale that is a Unicode locale extension sequence.
+            var extension = locale.match(expUnicodeExSeq)[0];
+
+            // ii. Let extensionIndex be the character position of the initial
+            //     "-" of the first Unicode locale extension sequence within locale.
+            var extensionIndex = locale.indexOf('-u-');
+
+            // iii. Set result.[[extension]] to extension.
+            result['[[extension]]'] = extension;
+
+            // iv. Set result.[[extensionIndex]] to extensionIndex.
+            result['[[extensionIndex]]'] = extensionIndex;
+        }
+    }
+    // 7. Else
+    else
+        // a. Set result.[[locale]] to the value returned by the DefaultLocale abstract
+        //    operation (defined in 6.2.4).
+        result['[[locale]]'] = DefaultLocale();
+
+    // 8. Return result
+    return result;
+}
+
+/**
+ * The BestFitMatcher abstract operation compares requestedLocales, which must be
+ * a List as returned by CanonicalizeLocaleList, against the locales in
+ * availableLocales and determines the best available language to meet the
+ * request. The algorithm is implementation dependent, but should produce results
+ * that a typical user of the requested locales would perceive as at least as
+ * good as those produced by the LookupMatcher abstract operation. Options
+ * specified through Unicode locale extension sequences must be ignored by the
+ * algorithm. Information about such subsequences is returned separately.
+ * The abstract operation returns a record with a [[locale]] field, whose value
+ * is the language tag of the selected locale, which must be an element of
+ * availableLocales. If the language tag of the request locale that led to the
+ * selected locale contained a Unicode locale extension sequence, then the
+ * returned record also contains an [[extension]] field whose value is the first
+ * Unicode locale extension sequence, and an [[extensionIndex]] field whose value
+ * is the index of the first Unicode locale extension sequence within the request
+ * locale language tag.
+ */
+function /* 9.2.4 */BestFitMatcher(availableLocales, requestedLocales) {
+    return LookupMatcher(availableLocales, requestedLocales);
+}
+
+/**
+ * The ResolveLocale abstract operation compares a BCP 47 language priority list
+ * requestedLocales against the locales in availableLocales and determines the
+ * best available language to meet the request. availableLocales and
+ * requestedLocales must be provided as List values, options as a Record.
+ */
+function /* 9.2.5 */ResolveLocale(availableLocales, requestedLocales, options, relevantExtensionKeys, localeData) {
+    if (availableLocales.length === 0) {
+        throw new ReferenceError('No locale data has been provided for this object yet.');
+    }
+
+    // The following steps are taken:
+    // 1. Let matcher be the value of options.[[localeMatcher]].
+    var matcher = options['[[localeMatcher]]'];
+
+    var r = void 0;
+
+    // 2. If matcher is "lookup", then
+    if (matcher === 'lookup')
+        // a. Let r be the result of calling the LookupMatcher abstract operation
+        //    (defined in 9.2.3) with arguments availableLocales and
+        //    requestedLocales.
+        r = LookupMatcher(availableLocales, requestedLocales);
+
+        // 3. Else
+    else
+        // a. Let r be the result of calling the BestFitMatcher abstract
+        //    operation (defined in 9.2.4) with arguments availableLocales and
+        //    requestedLocales.
+        r = BestFitMatcher(availableLocales, requestedLocales);
+
+    // 4. Let foundLocale be the value of r.[[locale]].
+    var foundLocale = r['[[locale]]'];
+
+    var extensionSubtags = void 0,
+        extensionSubtagsLength = void 0;
+
+    // 5. If r has an [[extension]] field, then
+    if (hop.call(r, '[[extension]]')) {
+        // a. Let extension be the value of r.[[extension]].
+        var extension = r['[[extension]]'];
+        // b. Let split be the standard built-in function object defined in ES5,
+        //    15.5.4.14.
+        var split = String.prototype.split;
+        // c. Let extensionSubtags be the result of calling the [[Call]] internal
+        //    method of split with extension as the this value and an argument
+        //    list containing the single item "-".
+        extensionSubtags = split.call(extension, '-');
+        // d. Let extensionSubtagsLength be the result of calling the [[Get]]
+        //    internal method of extensionSubtags with argument "length".
+        extensionSubtagsLength = extensionSubtags.length;
+    }
+
+    // 6. Let result be a new Record.
+    var result = new Record();
+
+    // 7. Set result.[[dataLocale]] to foundLocale.
+    result['[[dataLocale]]'] = foundLocale;
+
+    // 8. Let supportedExtension be "-u".
+    var supportedExtension = '-u';
+    // 9. Let i be 0.
+    var i = 0;
+    // 10. Let len be the result of calling the [[Get]] internal method of
+    //     relevantExtensionKeys with argument "length".
+    var len = relevantExtensionKeys.length;
+
+    // 11 Repeat while i < len:
+    while (i < len) {
+        // a. Let key be the result of calling the [[Get]] internal method of
+        //    relevantExtensionKeys with argument ToString(i).
+        var key = relevantExtensionKeys[i];
+        // b. Let foundLocaleData be the result of calling the [[Get]] internal
+        //    method of localeData with the argument foundLocale.
+        var foundLocaleData = localeData[foundLocale];
+        // c. Let keyLocaleData be the result of calling the [[Get]] internal
+        //    method of foundLocaleData with the argument key.
+        var keyLocaleData = foundLocaleData[key];
+        // d. Let value be the result of calling the [[Get]] internal method of
+        //    keyLocaleData with argument "0".
+        var value = keyLocaleData['0'];
+        // e. Let supportedExtensionAddition be "".
+        var supportedExtensionAddition = '';
+        // f. Let indexOf be the standard built-in function object defined in
+        //    ES5, 15.4.4.14.
+        var indexOf = arrIndexOf;
+
+        // g. If extensionSubtags is not undefined, then
+        if (extensionSubtags !== undefined) {
+            // i. Let keyPos be the result of calling the [[Call]] internal
+            //    method of indexOf with extensionSubtags as the this value and
+            // an argument list containing the single item key.
+            var keyPos = indexOf.call(extensionSubtags, key);
+
+            // ii. If keyPos ≠ -1, then
+            if (keyPos !== -1) {
+                // 1. If keyPos + 1 < extensionSubtagsLength and the length of the
+                //    result of calling the [[Get]] internal method of
+                //    extensionSubtags with argument ToString(keyPos +1) is greater
+                //    than 2, then
+                if (keyPos + 1 < extensionSubtagsLength && extensionSubtags[keyPos + 1].length > 2) {
+                    // a. Let requestedValue be the result of calling the [[Get]]
+                    //    internal method of extensionSubtags with argument
+                    //    ToString(keyPos + 1).
+                    var requestedValue = extensionSubtags[keyPos + 1];
+                    // b. Let valuePos be the result of calling the [[Call]]
+                    //    internal method of indexOf with keyLocaleData as the
+                    //    this value and an argument list containing the single
+                    //    item requestedValue.
+                    var valuePos = indexOf.call(keyLocaleData, requestedValue);
+
+                    // c. If valuePos ≠ -1, then
+                    if (valuePos !== -1) {
+                        // i. Let value be requestedValue.
+                        value = requestedValue,
+                        // ii. Let supportedExtensionAddition be the
+                        //     concatenation of "-", key, "-", and value.
+                        supportedExtensionAddition = '-' + key + '-' + value;
+                    }
+                }
+                // 2. Else
+                else {
+                        // a. Let valuePos be the result of calling the [[Call]]
+                        // internal method of indexOf with keyLocaleData as the this
+                        // value and an argument list containing the single item
+                        // "true".
+                        var _valuePos = indexOf(keyLocaleData, 'true');
+
+                        // b. If valuePos ≠ -1, then
+                        if (_valuePos !== -1)
+                            // i. Let value be "true".
+                            value = 'true';
+                    }
+            }
+        }
+        // h. If options has a field [[<key>]], then
+        if (hop.call(options, '[[' + key + ']]')) {
+            // i. Let optionsValue be the value of options.[[<key>]].
+            var optionsValue = options['[[' + key + ']]'];
+
+            // ii. If the result of calling the [[Call]] internal method of indexOf
+            //     with keyLocaleData as the this value and an argument list
+            //     containing the single item optionsValue is not -1, then
+            if (indexOf.call(keyLocaleData, optionsValue) !== -1) {
+                // 1. If optionsValue is not equal to value, then
+                if (optionsValue !== value) {
+                    // a. Let value be optionsValue.
+                    value = optionsValue;
+                    // b. Let supportedExtensionAddition be "".
+                    supportedExtensionAddition = '';
+                }
+            }
+        }
+        // i. Set result.[[<key>]] to value.
+        result['[[' + key + ']]'] = value;
+
+        // j. Append supportedExtensionAddition to supportedExtension.
+        supportedExtension += supportedExtensionAddition;
+
+        // k. Increase i by 1.
+        i++;
+    }
+    // 12. If the length of supportedExtension is greater than 2, then
+    if (supportedExtension.length > 2) {
+        // a.
+        var privateIndex = foundLocale.indexOf("-x-");
+        // b.
+        if (privateIndex === -1) {
+            // i.
+            foundLocale = foundLocale + supportedExtension;
+        }
+        // c.
+        else {
+                // i.
+                var preExtension = foundLocale.substring(0, privateIndex);
+                // ii.
+                var postExtension = foundLocale.substring(privateIndex);
+                // iii.
+                foundLocale = preExtension + supportedExtension + postExtension;
+            }
+        // d. asserting - skipping
+        // e.
+        foundLocale = CanonicalizeLanguageTag(foundLocale);
+    }
+    // 13. Set result.[[locale]] to foundLocale.
+    result['[[locale]]'] = foundLocale;
+
+    // 14. Return result.
+    return result;
+}
+
+/**
+ * The LookupSupportedLocales abstract operation returns the subset of the
+ * provided BCP 47 language priority list requestedLocales for which
+ * availableLocales has a matching locale when using the BCP 47 Lookup algorithm.
+ * Locales appear in the same order in the returned list as in requestedLocales.
+ * The following steps are taken:
+ */
+function /* 9.2.6 */LookupSupportedLocales(availableLocales, requestedLocales) {
+    // 1. Let len be the number of elements in requestedLocales.
+    var len = requestedLocales.length;
+    // 2. Let subset be a new empty List.
+    var subset = new List();
+    // 3. Let k be 0.
+    var k = 0;
+
+    // 4. Repeat while k < len
+    while (k < len) {
+        // a. Let locale be the element of requestedLocales at 0-origined list
+        //    position k.
+        var locale = requestedLocales[k];
+        // b. Let noExtensionsLocale be the String value that is locale with all
+        //    Unicode locale extension sequences removed.
+        var noExtensionsLocale = String(locale).replace(expUnicodeExSeq, '');
+        // c. Let availableLocale be the result of calling the
+        //    BestAvailableLocale abstract operation (defined in 9.2.2) with
+        //    arguments availableLocales and noExtensionsLocale.
+        var availableLocale = BestAvailableLocale(availableLocales, noExtensionsLocale);
+
+        // d. If availableLocale is not undefined, then append locale to the end of
+        //    subset.
+        if (availableLocale !== undefined) arrPush.call(subset, locale);
+
+        // e. Increment k by 1.
+        k++;
+    }
+
+    // 5. Let subsetArray be a new Array object whose elements are the same
+    //    values in the same order as the elements of subset.
+    var subsetArray = arrSlice.call(subset);
+
+    // 6. Return subsetArray.
+    return subsetArray;
+}
+
+/**
+ * The BestFitSupportedLocales abstract operation returns the subset of the
+ * provided BCP 47 language priority list requestedLocales for which
+ * availableLocales has a matching locale when using the Best Fit Matcher
+ * algorithm. Locales appear in the same order in the returned list as in
+ * requestedLocales. The steps taken are implementation dependent.
+ */
+function /*9.2.7 */BestFitSupportedLocales(availableLocales, requestedLocales) {
+    // ###TODO: implement this function as described by the specification###
+    return LookupSupportedLocales(availableLocales, requestedLocales);
+}
+
+/**
+ * The SupportedLocales abstract operation returns the subset of the provided BCP
+ * 47 language priority list requestedLocales for which availableLocales has a
+ * matching locale. Two algorithms are available to match the locales: the Lookup
+ * algorithm described in RFC 4647 section 3.4, and an implementation dependent
+ * best-fit algorithm. Locales appear in the same order in the returned list as
+ * in requestedLocales. The following steps are taken:
+ */
+function /*9.2.8 */SupportedLocales(availableLocales, requestedLocales, options) {
+    var matcher = void 0,
+        subset = void 0;
+
+    // 1. If options is not undefined, then
+    if (options !== undefined) {
+        // a. Let options be ToObject(options).
+        options = new Record(toObject(options));
+        // b. Let matcher be the result of calling the [[Get]] internal method of
+        //    options with argument "localeMatcher".
+        matcher = options.localeMatcher;
+
+        // c. If matcher is not undefined, then
+        if (matcher !== undefined) {
+            // i. Let matcher be ToString(matcher).
+            matcher = String(matcher);
+
+            // ii. If matcher is not "lookup" or "best fit", then throw a RangeError
+            //     exception.
+            if (matcher !== 'lookup' && matcher !== 'best fit') throw new RangeError('matcher should be "lookup" or "best fit"');
+        }
+    }
+    // 2. If matcher is undefined or "best fit", then
+    if (matcher === undefined || matcher === 'best fit')
+        // a. Let subset be the result of calling the BestFitSupportedLocales
+        //    abstract operation (defined in 9.2.7) with arguments
+        //    availableLocales and requestedLocales.
+        subset = BestFitSupportedLocales(availableLocales, requestedLocales);
+        // 3. Else
+    else
+        // a. Let subset be the result of calling the LookupSupportedLocales
+        //    abstract operation (defined in 9.2.6) with arguments
+        //    availableLocales and requestedLocales.
+        subset = LookupSupportedLocales(availableLocales, requestedLocales);
+
+    // 4. For each named own property name P of subset,
+    for (var P in subset) {
+        if (!hop.call(subset, P)) continue;
+
+        // a. Let desc be the result of calling the [[GetOwnProperty]] internal
+        //    method of subset with P.
+        // b. Set desc.[[Writable]] to false.
+        // c. Set desc.[[Configurable]] to false.
+        // d. Call the [[DefineOwnProperty]] internal method of subset with P, desc,
+        //    and true as arguments.
+        defineProperty(subset, P, {
+            writable: false, configurable: false, value: subset[P]
+        });
+    }
+    // "Freeze" the array so no new elements can be added
+    defineProperty(subset, 'length', { writable: false });
+
+    // 5. Return subset
+    return subset;
+}
+
+/**
+ * The GetOption abstract operation extracts the value of the property named
+ * property from the provided options object, converts it to the required type,
+ * checks whether it is one of a List of allowed values, and fills in a fallback
+ * value if necessary.
+ */
+function /*9.2.9 */GetOption(options, property, type, values, fallback) {
+    // 1. Let value be the result of calling the [[Get]] internal method of
+    //    options with argument property.
+    var value = options[property];
+
+    // 2. If value is not undefined, then
+    if (value !== undefined) {
+        // a. Assert: type is "boolean" or "string".
+        // b. If type is "boolean", then let value be ToBoolean(value).
+        // c. If type is "string", then let value be ToString(value).
+        value = type === 'boolean' ? Boolean(value) : type === 'string' ? String(value) : value;
+
+        // d. If values is not undefined, then
+        if (values !== undefined) {
+            // i. If values does not contain an element equal to value, then throw a
+            //    RangeError exception.
+            if (arrIndexOf.call(values, value) === -1) throw new RangeError("'" + value + "' is not an allowed value for `" + property + '`');
+        }
+
+        // e. Return value.
+        return value;
+    }
+    // Else return fallback.
+    return fallback;
+}
+
+/**
+ * The GetNumberOption abstract operation extracts a property value from the
+ * provided options object, converts it to a Number value, checks whether it is
+ * in the allowed range, and fills in a fallback value if necessary.
+ */
+function /* 9.2.10 */GetNumberOption(options, property, minimum, maximum, fallback) {
+    // 1. Let value be the result of calling the [[Get]] internal method of
+    //    options with argument property.
+    var value = options[property];
+
+    // 2. If value is not undefined, then
+    if (value !== undefined) {
+        // a. Let value be ToNumber(value).
+        value = Number(value);
+
+        // b. If value is NaN or less than minimum or greater than maximum, throw a
+        //    RangeError exception.
+        if (isNaN(value) || value < minimum || value > maximum) throw new RangeError('Value is not a number or outside accepted range');
+
+        // c. Return floor(value).
+        return Math.floor(value);
+    }
+    // 3. Else return fallback.
+    return fallback;
+}
+
+// 8 The Intl Object
+var Intl = {};
+
+// 8.2 Function Properties of the Intl Object
+
+// 8.2.1
+// @spec[tc39/ecma402/master/spec/intl.html]
+// @clause[sec-intl.getcanonicallocales]
+function getCanonicalLocales(locales) {
+    // 1. Let ll be ? CanonicalizeLocaleList(locales).
+    var ll = CanonicalizeLocaleList(locales);
+    // 2. Return CreateArrayFromList(ll).
+    {
+        var result = [];
+
+        var len = ll.length;
+        var k = 0;
+
+        while (k < len) {
+            result[k] = ll[k];
+            k++;
+        }
+        return result;
+    }
+}
+
+Object.defineProperty(Intl, 'getCanonicalLocales', {
+    enumerable: false,
+    configurable: true,
+    writable: true,
+    value: getCanonicalLocales
+});
+
+// Currency minor units output from get-4217 grunt task, formatted
+var currencyMinorUnits = {
+    BHD: 3, BYR: 0, XOF: 0, BIF: 0, XAF: 0, CLF: 4, CLP: 0, KMF: 0, DJF: 0,
+    XPF: 0, GNF: 0, ISK: 0, IQD: 3, JPY: 0, JOD: 3, KRW: 0, KWD: 3, LYD: 3,
+    OMR: 3, PYG: 0, RWF: 0, TND: 3, UGX: 0, UYI: 0, VUV: 0, VND: 0
+};
+
+// Define the NumberFormat constructor internally so it cannot be tainted
+function NumberFormatConstructor() {
+    var locales = arguments[0];
+    var options = arguments[1];
+
+    if (!this || this === Intl) {
+        return new Intl.NumberFormat(locales, options);
+    }
+
+    return InitializeNumberFormat(toObject(this), locales, options);
+}
+
+defineProperty(Intl, 'NumberFormat', {
+    configurable: true,
+    writable: true,
+    value: NumberFormatConstructor
+});
+
+// Must explicitly set prototypes as unwritable
+defineProperty(Intl.NumberFormat, 'prototype', {
+    writable: false
+});
+
+/**
+ * The abstract operation InitializeNumberFormat accepts the arguments
+ * numberFormat (which must be an object), locales, and options. It initializes
+ * numberFormat as a NumberFormat object.
+ */
+function /*11.1.1.1 */InitializeNumberFormat(numberFormat, locales, options) {
+    // This will be a internal properties object if we're not already initialized
+    var internal = getInternalProperties(numberFormat);
+
+    // Create an object whose props can be used to restore the values of RegExp props
+    var regexpRestore = createRegExpRestore();
+
+    // 1. If numberFormat has an [[initializedIntlObject]] internal property with
+    // value true, throw a TypeError exception.
+    if (internal['[[initializedIntlObject]]'] === true) throw new TypeError('`this` object has already been initialized as an Intl object');
+
+    // Need this to access the `internal` object
+    defineProperty(numberFormat, '__getInternalProperties', {
+        value: function value() {
+            // NOTE: Non-standard, for internal use only
+            if (arguments[0] === secret) return internal;
+        }
+    });
+
+    // 2. Set the [[initializedIntlObject]] internal property of numberFormat to true.
+    internal['[[initializedIntlObject]]'] = true;
+
+    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+    //    abstract operation (defined in 9.2.1) with argument locales.
+    var requestedLocales = CanonicalizeLocaleList(locales);
+
+    // 4. If options is undefined, then
+    if (options === undefined)
+        // a. Let options be the result of creating a new object as if by the
+        // expression new Object() where Object is the standard built-in constructor
+        // with that name.
+        options = {};
+
+        // 5. Else
+    else
+        // a. Let options be ToObject(options).
+        options = toObject(options);
+
+    // 6. Let opt be a new Record.
+    var opt = new Record(),
+
+
+    // 7. Let matcher be the result of calling the GetOption abstract operation
+    //    (defined in 9.2.9) with the arguments options, "localeMatcher", "string",
+    //    a List containing the two String values "lookup" and "best fit", and
+    //    "best fit".
+    matcher = GetOption(options, 'localeMatcher', 'string', new List('lookup', 'best fit'), 'best fit');
+
+    // 8. Set opt.[[localeMatcher]] to matcher.
+    opt['[[localeMatcher]]'] = matcher;
+
+    // 9. Let NumberFormat be the standard built-in object that is the initial value
+    //    of Intl.NumberFormat.
+    // 10. Let localeData be the value of the [[localeData]] internal property of
+    //     NumberFormat.
+    var localeData = internals.NumberFormat['[[localeData]]'];
+
+    // 11. Let r be the result of calling the ResolveLocale abstract operation
+    //     (defined in 9.2.5) with the [[availableLocales]] internal property of
+    //     NumberFormat, requestedLocales, opt, the [[relevantExtensionKeys]]
+    //     internal property of NumberFormat, and localeData.
+    var r = ResolveLocale(internals.NumberFormat['[[availableLocales]]'], requestedLocales, opt, internals.NumberFormat['[[relevantExtensionKeys]]'], localeData);
+
+    // 12. Set the [[locale]] internal property of numberFormat to the value of
+    //     r.[[locale]].
+    internal['[[locale]]'] = r['[[locale]]'];
+
+    // 13. Set the [[numberingSystem]] internal property of numberFormat to the value
+    //     of r.[[nu]].
+    internal['[[numberingSystem]]'] = r['[[nu]]'];
+
+    // The specification doesn't tell us to do this, but it's helpful later on
+    internal['[[dataLocale]]'] = r['[[dataLocale]]'];
+
+    // 14. Let dataLocale be the value of r.[[dataLocale]].
+    var dataLocale = r['[[dataLocale]]'];
+
+    // 15. Let s be the result of calling the GetOption abstract operation with the
+    //     arguments options, "style", "string", a List containing the three String
+    //     values "decimal", "percent", and "currency", and "decimal".
+    var s = GetOption(options, 'style', 'string', new List('decimal', 'percent', 'currency'), 'decimal');
+
+    // 16. Set the [[style]] internal property of numberFormat to s.
+    internal['[[style]]'] = s;
+
+    // 17. Let c be the result of calling the GetOption abstract operation with the
+    //     arguments options, "currency", "string", undefined, and undefined.
+    var c = GetOption(options, 'currency', 'string');
+
+    // 18. If c is not undefined and the result of calling the
+    //     IsWellFormedCurrencyCode abstract operation (defined in 6.3.1) with
+    //     argument c is false, then throw a RangeError exception.
+    if (c !== undefined && !IsWellFormedCurrencyCode(c)) throw new RangeError("'" + c + "' is not a valid currency code");
+
+    // 19. If s is "currency" and c is undefined, throw a TypeError exception.
+    if (s === 'currency' && c === undefined) throw new TypeError('Currency code is required when style is currency');
+
+    var cDigits = void 0;
+
+    // 20. If s is "currency", then
+    if (s === 'currency') {
+        // a. Let c be the result of converting c to upper case as specified in 6.1.
+        c = c.toUpperCase();
+
+        // b. Set the [[currency]] internal property of numberFormat to c.
+        internal['[[currency]]'] = c;
+
+        // c. Let cDigits be the result of calling the CurrencyDigits abstract
+        //    operation (defined below) with argument c.
+        cDigits = CurrencyDigits(c);
+    }
+
+    // 21. Let cd be the result of calling the GetOption abstract operation with the
+    //     arguments options, "currencyDisplay", "string", a List containing the
+    //     three String values "code", "symbol", and "name", and "symbol".
+    var cd = GetOption(options, 'currencyDisplay', 'string', new List('code', 'symbol', 'name'), 'symbol');
+
+    // 22. If s is "currency", then set the [[currencyDisplay]] internal property of
+    //     numberFormat to cd.
+    if (s === 'currency') internal['[[currencyDisplay]]'] = cd;
+
+    // 23. Let mnid be the result of calling the GetNumberOption abstract operation
+    //     (defined in 9.2.10) with arguments options, "minimumIntegerDigits", 1, 21,
+    //     and 1.
+    var mnid = GetNumberOption(options, 'minimumIntegerDigits', 1, 21, 1);
+
+    // 24. Set the [[minimumIntegerDigits]] internal property of numberFormat to mnid.
+    internal['[[minimumIntegerDigits]]'] = mnid;
+
+    // 25. If s is "currency", then let mnfdDefault be cDigits; else let mnfdDefault
+    //     be 0.
+    var mnfdDefault = s === 'currency' ? cDigits : 0;
+
+    // 26. Let mnfd be the result of calling the GetNumberOption abstract operation
+    //     with arguments options, "minimumFractionDigits", 0, 20, and mnfdDefault.
+    var mnfd = GetNumberOption(options, 'minimumFractionDigits', 0, 20, mnfdDefault);
+
+    // 27. Set the [[minimumFractionDigits]] internal property of numberFormat to mnfd.
+    internal['[[minimumFractionDigits]]'] = mnfd;
+
+    // 28. If s is "currency", then let mxfdDefault be max(mnfd, cDigits); else if s
+    //     is "percent", then let mxfdDefault be max(mnfd, 0); else let mxfdDefault
+    //     be max(mnfd, 3).
+    var mxfdDefault = s === 'currency' ? Math.max(mnfd, cDigits) : s === 'percent' ? Math.max(mnfd, 0) : Math.max(mnfd, 3);
+
+    // 29. Let mxfd be the result of calling the GetNumberOption abstract operation
+    //     with arguments options, "maximumFractionDigits", mnfd, 20, and mxfdDefault.
+    var mxfd = GetNumberOption(options, 'maximumFractionDigits', mnfd, 20, mxfdDefault);
+
+    // 30. Set the [[maximumFractionDigits]] internal property of numberFormat to mxfd.
+    internal['[[maximumFractionDigits]]'] = mxfd;
+
+    // 31. Let mnsd be the result of calling the [[Get]] internal method of options
+    //     with argument "minimumSignificantDigits".
+    var mnsd = options.minimumSignificantDigits;
+
+    // 32. Let mxsd be the result of calling the [[Get]] internal method of options
+    //     with argument "maximumSignificantDigits".
+    var mxsd = options.maximumSignificantDigits;
+
+    // 33. If mnsd is not undefined or mxsd is not undefined, then:
+    if (mnsd !== undefined || mxsd !== undefined) {
+        // a. Let mnsd be the result of calling the GetNumberOption abstract
+        //    operation with arguments options, "minimumSignificantDigits", 1, 21,
+        //    and 1.
+        mnsd = GetNumberOption(options, 'minimumSignificantDigits', 1, 21, 1);
+
+        // b. Let mxsd be the result of calling the GetNumberOption abstract
+        //     operation with arguments options, "maximumSignificantDigits", mnsd,
+        //     21, and 21.
+        mxsd = GetNumberOption(options, 'maximumSignificantDigits', mnsd, 21, 21);
+
+        // c. Set the [[minimumSignificantDigits]] internal property of numberFormat
+        //    to mnsd, and the [[maximumSignificantDigits]] internal property of
+        //    numberFormat to mxsd.
+        internal['[[minimumSignificantDigits]]'] = mnsd;
+        internal['[[maximumSignificantDigits]]'] = mxsd;
+    }
+    // 34. Let g be the result of calling the GetOption abstract operation with the
+    //     arguments options, "useGrouping", "boolean", undefined, and true.
+    var g = GetOption(options, 'useGrouping', 'boolean', undefined, true);
+
+    // 35. Set the [[useGrouping]] internal property of numberFormat to g.
+    internal['[[useGrouping]]'] = g;
+
+    // 36. Let dataLocaleData be the result of calling the [[Get]] internal method of
+    //     localeData with argument dataLocale.
+    var dataLocaleData = localeData[dataLocale];
+
+    // 37. Let patterns be the result of calling the [[Get]] internal method of
+    //     dataLocaleData with argument "patterns".
+    var patterns = dataLocaleData.patterns;
+
+    // 38. Assert: patterns is an object (see 11.2.3)
+
+    // 39. Let stylePatterns be the result of calling the [[Get]] internal method of
+    //     patterns with argument s.
+    var stylePatterns = patterns[s];
+
+    // 40. Set the [[positivePattern]] internal property of numberFormat to the
+    //     result of calling the [[Get]] internal method of stylePatterns with the
+    //     argument "positivePattern".
+    internal['[[positivePattern]]'] = stylePatterns.positivePattern;
+
+    // 41. Set the [[negativePattern]] internal property of numberFormat to the
+    //     result of calling the [[Get]] internal method of stylePatterns with the
+    //     argument "negativePattern".
+    internal['[[negativePattern]]'] = stylePatterns.negativePattern;
+
+    // 42. Set the [[boundFormat]] internal property of numberFormat to undefined.
+    internal['[[boundFormat]]'] = undefined;
+
+    // 43. Set the [[initializedNumberFormat]] internal property of numberFormat to
+    //     true.
+    internal['[[initializedNumberFormat]]'] = true;
+
+    // In ES3, we need to pre-bind the format() function
+    if (es3) numberFormat.format = GetFormatNumber.call(numberFormat);
+
+    // Restore the RegExp properties
+    regexpRestore();
+
+    // Return the newly initialised object
+    return numberFormat;
+}
+
+function CurrencyDigits(currency) {
+    // When the CurrencyDigits abstract operation is called with an argument currency
+    // (which must be an upper case String value), the following steps are taken:
+
+    // 1. If the ISO 4217 currency and funds code list contains currency as an
+    // alphabetic code, then return the minor unit value corresponding to the
+    // currency from the list; else return 2.
+    return currencyMinorUnits[currency] !== undefined ? currencyMinorUnits[currency] : 2;
+}
+
+/* 11.2.3 */internals.NumberFormat = {
+    '[[availableLocales]]': [],
+    '[[relevantExtensionKeys]]': ['nu'],
+    '[[localeData]]': {}
+};
+
+/**
+ * When the supportedLocalesOf method of Intl.NumberFormat is called, the
+ * following steps are taken:
+ */
+/* 11.2.2 */
+defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
+    configurable: true,
+    writable: true,
+    value: fnBind.call(function (locales) {
+        // Bound functions only have the `this` value altered if being used as a constructor,
+        // this lets us imitate a native function that has no constructor
+        if (!hop.call(this, '[[availableLocales]]')) throw new TypeError('supportedLocalesOf() is not a constructor');
+
+        // Create an object whose props can be used to restore the values of RegExp props
+        var regexpRestore = createRegExpRestore(),
+
+
+        // 1. If options is not provided, then let options be undefined.
+        options = arguments[1],
+
+
+        // 2. Let availableLocales be the value of the [[availableLocales]] internal
+        //    property of the standard built-in object that is the initial value of
+        //    Intl.NumberFormat.
+
+        availableLocales = this['[[availableLocales]]'],
+
+
+        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+        //    abstract operation (defined in 9.2.1) with argument locales.
+        requestedLocales = CanonicalizeLocaleList(locales);
+
+        // Restore the RegExp properties
+        regexpRestore();
+
+        // 4. Return the result of calling the SupportedLocales abstract operation
+        //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
+        //    and options.
+        return SupportedLocales(availableLocales, requestedLocales, options);
+    }, internals.NumberFormat)
+});
+
+/**
+ * This named accessor property returns a function that formats a number
+ * according to the effective locale and the formatting options of this
+ * NumberFormat object.
+ */
+/* 11.3.2 */defineProperty(Intl.NumberFormat.prototype, 'format', {
+    configurable: true,
+    get: GetFormatNumber
+});
+
+function GetFormatNumber() {
+    var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
+
+    // Satisfy test 11.3_b
+    if (!internal || !internal['[[initializedNumberFormat]]']) throw new TypeError('`this` value for format() is not an initialized Intl.NumberFormat object.');
+
+    // The value of the [[Get]] attribute is a function that takes the following
+    // steps:
+
+    // 1. If the [[boundFormat]] internal property of this NumberFormat object
+    //    is undefined, then:
+    if (internal['[[boundFormat]]'] === undefined) {
+        // a. Let F be a Function object, with internal properties set as
+        //    specified for built-in functions in ES5, 15, or successor, and the
+        //    length property set to 1, that takes the argument value and
+        //    performs the following steps:
+        var F = function F(value) {
+            // i. If value is not provided, then let value be undefined.
+            // ii. Let x be ToNumber(value).
+            // iii. Return the result of calling the FormatNumber abstract
+            //      operation (defined below) with arguments this and x.
+            return FormatNumber(this, /* x = */Number(value));
+        };
+
+        // b. Let bind be the standard built-in function object defined in ES5,
+        //    15.3.4.5.
+        // c. Let bf be the result of calling the [[Call]] internal method of
+        //    bind with F as the this value and an argument list containing
+        //    the single item this.
+        var bf = fnBind.call(F, this);
+
+        // d. Set the [[boundFormat]] internal property of this NumberFormat
+        //    object to bf.
+        internal['[[boundFormat]]'] = bf;
+    }
+    // Return the value of the [[boundFormat]] internal property of this
+    // NumberFormat object.
+    return internal['[[boundFormat]]'];
+}
+
+function formatToParts() {
+    var value = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
+    var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
+    if (!internal || !internal['[[initializedNumberFormat]]']) throw new TypeError('`this` value for formatToParts() is not an initialized Intl.NumberFormat object.');
+
+    var x = Number(value);
+    return FormatNumberToParts(this, x);
+}
+
+Object.defineProperty(Intl.NumberFormat.prototype, 'formatToParts', {
+    configurable: true,
+    enumerable: false,
+    writable: true,
+    value: formatToParts
+});
+
+/*
+ * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+ * @clause[sec-formatnumbertoparts]
+ */
+function FormatNumberToParts(numberFormat, x) {
+    // 1. Let parts be ? PartitionNumberPattern(numberFormat, x).
+    var parts = PartitionNumberPattern(numberFormat, x);
+    // 2. Let result be ArrayCreate(0).
+    var result = [];
+    // 3. Let n be 0.
+    var n = 0;
+    // 4. For each part in parts, do:
+    for (var i = 0; parts.length > i; i++) {
+        var part = parts[i];
+        // a. Let O be ObjectCreate(%ObjectPrototype%).
+        var O = {};
+        // a. Perform ? CreateDataPropertyOrThrow(O, "type", part.[[type]]).
+        O.type = part['[[type]]'];
+        // a. Perform ? CreateDataPropertyOrThrow(O, "value", part.[[value]]).
+        O.value = part['[[value]]'];
+        // a. Perform ? CreateDataPropertyOrThrow(result, ? ToString(n), O).
+        result[n] = O;
+        // a. Increment n by 1.
+        n += 1;
+    }
+    // 5. Return result.
+    return result;
+}
+
+/*
+ * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+ * @clause[sec-partitionnumberpattern]
+ */
+function PartitionNumberPattern(numberFormat, x) {
+
+    var internal = getInternalProperties(numberFormat),
+        locale = internal['[[dataLocale]]'],
+        nums = internal['[[numberingSystem]]'],
+        data = internals.NumberFormat['[[localeData]]'][locale],
+        ild = data.symbols[nums] || data.symbols.latn,
+        pattern = void 0;
+
+    // 1. If x is not NaN and x < 0, then:
+    if (!isNaN(x) && x < 0) {
+        // a. Let x be -x.
+        x = -x;
+        // a. Let pattern be the value of numberFormat.[[negativePattern]].
+        pattern = internal['[[negativePattern]]'];
+    }
+    // 2. Else,
+    else {
+            // a. Let pattern be the value of numberFormat.[[positivePattern]].
+            pattern = internal['[[positivePattern]]'];
+        }
+    // 3. Let result be a new empty List.
+    var result = new List();
+    // 4. Let beginIndex be Call(%StringProto_indexOf%, pattern, "{", 0).
+    var beginIndex = pattern.indexOf('{', 0);
+    // 5. Let endIndex be 0.
+    var endIndex = 0;
+    // 6. Let nextIndex be 0.
+    var nextIndex = 0;
+    // 7. Let length be the number of code units in pattern.
+    var length = pattern.length;
+    // 8. Repeat while beginIndex is an integer index into pattern:
+    while (beginIndex > -1 && beginIndex < length) {
+        // a. Set endIndex to Call(%StringProto_indexOf%, pattern, "}", beginIndex)
+        endIndex = pattern.indexOf('}', beginIndex);
+        // a. If endIndex = -1, throw new Error exception.
+        if (endIndex === -1) throw new Error();
+        // a. If beginIndex is greater than nextIndex, then:
+        if (beginIndex > nextIndex) {
+            // i. Let literal be a substring of pattern from position nextIndex, inclusive, to position beginIndex, exclusive.
+            var literal = pattern.substring(nextIndex, beginIndex);
+            // ii. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
+            arrPush.call(result, { '[[type]]': 'literal', '[[value]]': literal });
+        }
+        // a. Let p be the substring of pattern from position beginIndex, exclusive, to position endIndex, exclusive.
+        var p = pattern.substring(beginIndex + 1, endIndex);
+        // a. If p is equal "number", then:
+        if (p === "number") {
+            // i. If x is NaN,
+            if (isNaN(x)) {
+                // 1. Let n be an ILD String value indicating the NaN value.
+                var n = ild.nan;
+                // 2. Add new part record { [[type]]: "nan", [[value]]: n } as a new element of the list result.
+                arrPush.call(result, { '[[type]]': 'nan', '[[value]]': n });
+            }
+            // ii. Else if isFinite(x) is false,
+            else if (!isFinite(x)) {
+                    // 1. Let n be an ILD String value indicating infinity.
+                    var _n = ild.infinity;
+                    // 2. Add new part record { [[type]]: "infinity", [[value]]: n } as a new element of the list result.
+                    arrPush.call(result, { '[[type]]': 'infinity', '[[value]]': _n });
+                }
+                // iii. Else,
+                else {
+                        // 1. If the value of numberFormat.[[style]] is "percent" and isFinite(x), let x be 100 × x.
+                        if (internal['[[style]]'] === 'percent' && isFinite(x)) x *= 100;
+
+                        var _n2 = void 0;
+                        // 2. If the numberFormat.[[minimumSignificantDigits]] and numberFormat.[[maximumSignificantDigits]] are present, then
+                        if (hop.call(internal, '[[minimumSignificantDigits]]') && hop.call(internal, '[[maximumSignificantDigits]]')) {
+                            // a. Let n be ToRawPrecision(x, numberFormat.[[minimumSignificantDigits]], numberFormat.[[maximumSignificantDigits]]).
+                            _n2 = ToRawPrecision(x, internal['[[minimumSignificantDigits]]'], internal['[[maximumSignificantDigits]]']);
+                        }
+                        // 3. Else,
+                        else {
+                                // a. Let n be ToRawFixed(x, numberFormat.[[minimumIntegerDigits]], numberFormat.[[minimumFractionDigits]], numberFormat.[[maximumFractionDigits]]).
+                                _n2 = ToRawFixed(x, internal['[[minimumIntegerDigits]]'], internal['[[minimumFractionDigits]]'], internal['[[maximumFractionDigits]]']);
+                            }
+                        // 4. If the value of the numberFormat.[[numberingSystem]] matches one of the values in the "Numbering System" column of Table 2 below, then
+                        if (numSys[nums]) {
+                            (function () {
+                                // a. Let digits be an array whose 10 String valued elements are the UTF-16 string representations of the 10 digits specified in the "Digits" column of the matching row in Table 2.
+                                var digits = numSys[nums];
+                                // a. Replace each digit in n with the value of digits[digit].
+                                _n2 = String(_n2).replace(/\d/g, function (digit) {
+                                    return digits[digit];
+                                });
+                            })();
+                        }
+                        // 5. Else use an implementation dependent algorithm to map n to the appropriate representation of n in the given numbering system.
+                        else _n2 = String(_n2); // ###TODO###
+
+                        var integer = void 0;
+                        var fraction = void 0;
+                        // 6. Let decimalSepIndex be Call(%StringProto_indexOf%, n, ".", 0).
+                        var decimalSepIndex = _n2.indexOf('.', 0);
+                        // 7. If decimalSepIndex > 0, then:
+                        if (decimalSepIndex > 0) {
+                            // a. Let integer be the substring of n from position 0, inclusive, to position decimalSepIndex, exclusive.
+                            integer = _n2.substring(0, decimalSepIndex);
+                            // a. Let fraction be the substring of n from position decimalSepIndex, exclusive, to the end of n.
+                            fraction = _n2.substring(decimalSepIndex + 1, decimalSepIndex.length);
+                        }
+                        // 8. Else:
+                        else {
+                                // a. Let integer be n.
+                                integer = _n2;
+                                // a. Let fraction be undefined.
+                                fraction = undefined;
+                            }
+                        // 9. If the value of the numberFormat.[[useGrouping]] is true,
+                        if (internal['[[useGrouping]]'] === true) {
+                            // a. Let groupSepSymbol be the ILND String representing the grouping separator.
+                            var groupSepSymbol = ild.group;
+                            // a. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
+                            var groups = [];
+                            // ----> implementation:
+                            // Primary group represents the group closest to the decimal
+                            var pgSize = data.patterns.primaryGroupSize || 3;
+                            // Secondary group is every other group
+                            var sgSize = data.patterns.secondaryGroupSize || pgSize;
+                            // Group only if necessary
+                            if (integer.length > pgSize) {
+                                // Index of the primary grouping separator
+                                var end = integer.length - pgSize;
+                                // Starting index for our loop
+                                var idx = end % sgSize;
+                                var start = integer.slice(0, idx);
+                                if (start.length) arrPush.call(groups, start);
+                                // Loop to separate into secondary grouping digits
+                                while (idx < end) {
+                                    arrPush.call(groups, integer.slice(idx, idx + sgSize));
+                                    idx += sgSize;
+                                }
+                                // Add the primary grouping digits
+                                arrPush.call(groups, integer.slice(end));
+                            } else {
+                                arrPush.call(groups, integer);
+                            }
+                            // a. Assert: The number of elements in groups List is greater than 0.
+                            if (groups.length === 0) throw new Error();
+                            // a. Repeat, while groups List is not empty:
+                            while (groups.length) {
+                                // i. Remove the first element from groups and let integerGroup be the value of that element.
+                                var integerGroup = arrShift.call(groups);
+                                // ii. Add new part record { [[type]]: "integer", [[value]]: integerGroup } as a new element of the list result.
+                                arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integerGroup });
+                                // iii. If groups List is not empty, then:
+                                if (groups.length) {
+                                    // 1. Add new part record { [[type]]: "group", [[value]]: groupSepSymbol } as a new element of the list result.
+                                    arrPush.call(result, { '[[type]]': 'group', '[[value]]': groupSepSymbol });
+                                }
+                            }
+                        }
+                        // 10. Else,
+                        else {
+                                // a. Add new part record { [[type]]: "integer", [[value]]: integer } as a new element of the list result.
+                                arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integer });
+                            }
+                        // 11. If fraction is not undefined, then:
+                        if (fraction !== undefined) {
+                            // a. Let decimalSepSymbol be the ILND String representing the decimal separator.
+                            var decimalSepSymbol = ild.decimal;
+                            // a. Add new part record { [[type]]: "decimal", [[value]]: decimalSepSymbol } as a new element of the list result.
+                            arrPush.call(result, { '[[type]]': 'decimal', '[[value]]': decimalSepSymbol });
+                            // a. Add new part record { [[type]]: "fraction", [[value]]: fraction } as a new element of the list result.
+                            arrPush.call(result, { '[[type]]': 'fraction', '[[value]]': fraction });
+                        }
+                    }
+        }
+        // a. Else if p is equal "plusSign", then:
+        else if (p === "plusSign") {
+                // i. Let plusSignSymbol be the ILND String representing the plus sign.
+                var plusSignSymbol = ild.plusSign;
+                // ii. Add new part record { [[type]]: "plusSign", [[value]]: plusSignSymbol } as a new element of the list result.
+                arrPush.call(result, { '[[type]]': 'plusSign', '[[value]]': plusSignSymbol });
+            }
+            // a. Else if p is equal "minusSign", then:
+            else if (p === "minusSign") {
+                    // i. Let minusSignSymbol be the ILND String representing the minus sign.
+                    var minusSignSymbol = ild.minusSign;
+                    // ii. Add new part record { [[type]]: "minusSign", [[value]]: minusSignSymbol } as a new element of the list result.
+                    arrPush.call(result, { '[[type]]': 'minusSign', '[[value]]': minusSignSymbol });
+                }
+                // a. Else if p is equal "percentSign" and numberFormat.[[style]] is "percent", then:
+                else if (p === "percentSign" && internal['[[style]]'] === "percent") {
+                        // i. Let percentSignSymbol be the ILND String representing the percent sign.
+                        var percentSignSymbol = ild.percentSign;
+                        // ii. Add new part record { [[type]]: "percentSign", [[value]]: percentSignSymbol } as a new element of the list result.
+                        arrPush.call(result, { '[[type]]': 'literal', '[[value]]': percentSignSymbol });
+                    }
+                    // a. Else if p is equal "currency" and numberFormat.[[style]] is "currency", then:
+                    else if (p === "currency" && internal['[[style]]'] === "currency") {
+                            // i. Let currency be the value of numberFormat.[[currency]].
+                            var currency = internal['[[currency]]'];
+
+                            var cd = void 0;
+
+                            // ii. If numberFormat.[[currencyDisplay]] is "code", then
+                            if (internal['[[currencyDisplay]]'] === "code") {
+                                // 1. Let cd be currency.
+                                cd = currency;
+                            }
+                            // iii. Else if numberFormat.[[currencyDisplay]] is "symbol", then
+                            else if (internal['[[currencyDisplay]]'] === "symbol") {
+                                    // 1. Let cd be an ILD string representing currency in short form. If the implementation does not have such a representation of currency, use currency itself.
+                                    cd = data.currencies[currency] || currency;
+                                }
+                                // iv. Else if numberFormat.[[currencyDisplay]] is "name", then
+                                else if (internal['[[currencyDisplay]]'] === "name") {
+                                        // 1. Let cd be an ILD string representing currency in long form. If the implementation does not have such a representation of currency, then use currency itself.
+                                        cd = currency;
+                                    }
+                            // v. Add new part record { [[type]]: "currency", [[value]]: cd } as a new element of the list result.
+                            arrPush.call(result, { '[[type]]': 'currency', '[[value]]': cd });
+                        }
+                        // a. Else,
+                        else {
+                                // i. Let literal be the substring of pattern from position beginIndex, inclusive, to position endIndex, inclusive.
+                                var _literal = pattern.substring(beginIndex, endIndex);
+                                // ii. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
+                                arrPush.call(result, { '[[type]]': 'literal', '[[value]]': _literal });
+                            }
+        // a. Set nextIndex to endIndex + 1.
+        nextIndex = endIndex + 1;
+        // a. Set beginIndex to Call(%StringProto_indexOf%, pattern, "{", nextIndex)
+        beginIndex = pattern.indexOf('{', nextIndex);
+    }
+    // 9. If nextIndex is less than length, then:
+    if (nextIndex < length) {
+        // a. Let literal be the substring of pattern from position nextIndex, inclusive, to position length, exclusive.
+        var _literal2 = pattern.substring(nextIndex, length);
+        // a. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
+        arrPush.call(result, { '[[type]]': 'literal', '[[value]]': _literal2 });
+    }
+    // 10. Return result.
+    return result;
+}
+
+/*
+ * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+ * @clause[sec-formatnumber]
+ */
+function FormatNumber(numberFormat, x) {
+    // 1. Let parts be ? PartitionNumberPattern(numberFormat, x).
+    var parts = PartitionNumberPattern(numberFormat, x);
+    // 2. Let result be an empty String.
+    var result = '';
+    // 3. For each part in parts, do:
+    for (var i = 0; parts.length > i; i++) {
+        var part = parts[i];
+        // a. Set result to a String value produced by concatenating result and part.[[value]].
+        result += part['[[value]]'];
+    }
+    // 4. Return result.
+    return result;
+}
+
+/**
+ * When the ToRawPrecision abstract operation is called with arguments x (which
+ * must be a finite non-negative number), minPrecision, and maxPrecision (both
+ * must be integers between 1 and 21) the following steps are taken:
+ */
+function ToRawPrecision(x, minPrecision, maxPrecision) {
+    // 1. Let p be maxPrecision.
+    var p = maxPrecision;
+
+    var m = void 0,
+        e = void 0;
+
+    // 2. If x = 0, then
+    if (x === 0) {
+        // a. Let m be the String consisting of p occurrences of the character "0".
+        m = arrJoin.call(Array(p + 1), '0');
+        // b. Let e be 0.
+        e = 0;
+    }
+    // 3. Else
+    else {
+            // a. Let e and n be integers such that 10ᵖ⁻¹ ≤ n < 10ᵖ and for which the
+            //    exact mathematical value of n × 10ᵉ⁻ᵖ⁺¹ – x is as close to zero as
+            //    possible. If there are two such sets of e and n, pick the e and n for
+            //    which n × 10ᵉ⁻ᵖ⁺¹ is larger.
+            e = log10Floor(Math.abs(x));
+
+            // Easier to get to m from here
+            var f = Math.round(Math.exp(Math.abs(e - p + 1) * Math.LN10));
+
+            // b. Let m be the String consisting of the digits of the decimal
+            //    representation of n (in order, with no leading zeroes)
+            m = String(Math.round(e - p + 1 < 0 ? x * f : x / f));
+        }
+
+    // 4. If e ≥ p, then
+    if (e >= p)
+        // a. Return the concatenation of m and e-p+1 occurrences of the character "0".
+        return m + arrJoin.call(Array(e - p + 1 + 1), '0');
+
+        // 5. If e = p-1, then
+    else if (e === p - 1)
+            // a. Return m.
+            return m;
+
+            // 6. If e ≥ 0, then
+        else if (e >= 0)
+                // a. Let m be the concatenation of the first e+1 characters of m, the character
+                //    ".", and the remaining p–(e+1) characters of m.
+                m = m.slice(0, e + 1) + '.' + m.slice(e + 1);
+
+                // 7. If e < 0, then
+            else if (e < 0)
+                    // a. Let m be the concatenation of the String "0.", –(e+1) occurrences of the
+                    //    character "0", and the string m.
+                    m = '0.' + arrJoin.call(Array(-(e + 1) + 1), '0') + m;
+
+    // 8. If m contains the character ".", and maxPrecision > minPrecision, then
+    if (m.indexOf(".") >= 0 && maxPrecision > minPrecision) {
+        // a. Let cut be maxPrecision – minPrecision.
+        var cut = maxPrecision - minPrecision;
+
+        // b. Repeat while cut > 0 and the last character of m is "0":
+        while (cut > 0 && m.charAt(m.length - 1) === '0') {
+            //  i. Remove the last character from m.
+            m = m.slice(0, -1);
+
+            //  ii. Decrease cut by 1.
+            cut--;
+        }
+
+        // c. If the last character of m is ".", then
+        if (m.charAt(m.length - 1) === '.')
+            //    i. Remove the last character from m.
+            m = m.slice(0, -1);
+    }
+    // 9. Return m.
+    return m;
+}
+
+/**
+ * @spec[tc39/ecma402/master/spec/numberformat.html]
+ * @clause[sec-torawfixed]
+ * When the ToRawFixed abstract operation is called with arguments x (which must
+ * be a finite non-negative number), minInteger (which must be an integer between
+ * 1 and 21), minFraction, and maxFraction (which must be integers between 0 and
+ * 20) the following steps are taken:
+ */
+function ToRawFixed(x, minInteger, minFraction, maxFraction) {
+    // 1. Let f be maxFraction.
+    var f = maxFraction;
+    // 2. Let n be an integer for which the exact mathematical value of n ÷ 10f – x is as close to zero as possible. If there are two such n, pick the larger n.
+    var n = Math.pow(10, f) * x; // diverging...
+    // 3. If n = 0, let m be the String "0". Otherwise, let m be the String consisting of the digits of the decimal representation of n (in order, with no leading zeroes).
+    var m = n === 0 ? "0" : n.toFixed(0); // divering...
+
+    {
+        // this diversion is needed to take into consideration big numbers, e.g.:
+        // 1.2344501e+37 -> 12344501000000000000000000000000000000
+        var idx = void 0;
+        var exp = (idx = m.indexOf('e')) > -1 ? m.slice(idx + 1) : 0;
+        if (exp) {
+            m = m.slice(0, idx).replace('.', '');
+            m += arrJoin.call(Array(exp - (m.length - 1) + 1), '0');
+        }
+    }
+
+    var int = void 0;
+    // 4. If f ≠ 0, then
+    if (f !== 0) {
+        // a. Let k be the number of characters in m.
+        var k = m.length;
+        // a. If k ≤ f, then
+        if (k <= f) {
+            // i. Let z be the String consisting of f+1–k occurrences of the character "0".
+            var z = arrJoin.call(Array(f + 1 - k + 1), '0');
+            // ii. Let m be the concatenation of Strings z and m.
+            m = z + m;
+            // iii. Let k be f+1.
+            k = f + 1;
+        }
+        // a. Let a be the first k–f characters of m, and let b be the remaining f characters of m.
+        var a = m.substring(0, k - f),
+            b = m.substring(k - f, m.length);
+        // a. Let m be the concatenation of the three Strings a, ".", and b.
+        m = a + "." + b;
+        // a. Let int be the number of characters in a.
+        int = a.length;
+    }
+    // 5. Else, let int be the number of characters in m.
+    else int = m.length;
+    // 6. Let cut be maxFraction – minFraction.
+    var cut = maxFraction - minFraction;
+    // 7. Repeat while cut > 0 and the last character of m is "0":
+    while (cut > 0 && m.slice(-1) === "0") {
+        // a. Remove the last character from m.
+        m = m.slice(0, -1);
+        // a. Decrease cut by 1.
+        cut--;
+    }
+    // 8. If the last character of m is ".", then
+    if (m.slice(-1) === ".") {
+        // a. Remove the last character from m.
+        m = m.slice(0, -1);
+    }
+    // 9. If int < minInteger, then
+    if (int < minInteger) {
+        // a. Let z be the String consisting of minInteger–int occurrences of the character "0".
+        var _z = arrJoin.call(Array(minInteger - int + 1), '0');
+        // a. Let m be the concatenation of Strings z and m.
+        m = _z + m;
+    }
+    // 10. Return m.
+    return m;
+}
+
+// Sect 11.3.2 Table 2, Numbering systems
+// ======================================
+var numSys = {
+    arab: ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"],
+    arabext: ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"],
+    bali: ["᭐", "᭑", "᭒", "᭓", "᭔", "᭕", "᭖", "᭗", "᭘", "᭙"],
+    beng: ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"],
+    deva: ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"],
+    fullwide: ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"],
+    gujr: ["૦", "૧", "૨", "૩", "૪", "૫", "૬", "૭", "૮", "૯"],
+    guru: ["੦", "੧", "੨", "੩", "੪", "੫", "੬", "੭", "੮", "੯"],
+    hanidec: ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"],
+    khmr: ["០", "១", "២", "៣", "៤", "៥", "៦", "៧", "៨", "៩"],
+    knda: ["೦", "೧", "೨", "೩", "೪", "೫", "೬", "೭", "೮", "೯"],
+    laoo: ["໐", "໑", "໒", "໓", "໔", "໕", "໖", "໗", "໘", "໙"],
+    latn: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    limb: ["᥆", "᥇", "᥈", "᥉", "᥊", "᥋", "᥌", "᥍", "᥎", "᥏"],
+    mlym: ["൦", "൧", "൨", "൩", "൪", "൫", "൬", "൭", "൮", "൯"],
+    mong: ["᠐", "᠑", "᠒", "᠓", "᠔", "᠕", "᠖", "᠗", "᠘", "᠙"],
+    mymr: ["၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"],
+    orya: ["୦", "୧", "୨", "୩", "୪", "୫", "୬", "୭", "୮", "୯"],
+    tamldec: ["௦", "௧", "௨", "௩", "௪", "௫", "௬", "௭", "௮", "௯"],
+    telu: ["౦", "౧", "౨", "౩", "౪", "౫", "౬", "౭", "౮", "౯"],
+    thai: ["๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙"],
+    tibt: ["༠", "༡", "༢", "༣", "༤", "༥", "༦", "༧", "༨", "༩"]
+};
+
+/**
+ * This function provides access to the locale and formatting options computed
+ * during initialization of the object.
+ *
+ * The function returns a new object whose properties and attributes are set as
+ * if constructed by an object literal assigning to each of the following
+ * properties the value of the corresponding internal property of this
+ * NumberFormat object (see 11.4): locale, numberingSystem, style, currency,
+ * currencyDisplay, minimumIntegerDigits, minimumFractionDigits,
+ * maximumFractionDigits, minimumSignificantDigits, maximumSignificantDigits, and
+ * useGrouping. Properties whose corresponding internal properties are not present
+ * are not assigned.
+ */
+/* 11.3.3 */defineProperty(Intl.NumberFormat.prototype, 'resolvedOptions', {
+    configurable: true,
+    writable: true,
+    value: function value() {
+        var prop = void 0,
+            descs = new Record(),
+            props = ['locale', 'numberingSystem', 'style', 'currency', 'currencyDisplay', 'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits', 'minimumSignificantDigits', 'maximumSignificantDigits', 'useGrouping'],
+            internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
+
+        // Satisfy test 11.3_b
+        if (!internal || !internal['[[initializedNumberFormat]]']) throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.NumberFormat object.');
+
+        for (var i = 0, max = props.length; i < max; i++) {
+            if (hop.call(internal, prop = '[[' + props[i] + ']]')) descs[props[i]] = { value: internal[prop], writable: true, configurable: true, enumerable: true };
+        }
+
+        return objCreate({}, descs);
+    }
+});
+
+/* jslint esnext: true */
+
+// Match these datetime components in a CLDR pattern, except those in single quotes
+var expDTComponents = /(?:[Eec]{1,6}|G{1,5}|[Qq]{1,5}|(?:[yYur]+|U{1,5})|[ML]{1,5}|d{1,2}|D{1,3}|F{1}|[abB]{1,5}|[hkHK]{1,2}|w{1,2}|W{1}|m{1,2}|s{1,2}|[zZOvVxX]{1,4})(?=([^']*'[^']*')*[^']*$)/g;
+// trim patterns after transformations
+var expPatternTrimmer = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+// Skip over patterns with these datetime components because we don't have data
+// to back them up:
+// timezone, weekday, amoung others
+var unwantedDTCs = /[rqQASjJgwWIQq]/; // xXVO were removed from this list in favor of computing matches with timeZoneName values but printing as empty string
+
+var dtKeys = ["era", "year", "month", "day", "weekday", "quarter"];
+var tmKeys = ["hour", "minute", "second", "hour12", "timeZoneName"];
+
+function isDateFormatOnly(obj) {
+    for (var i = 0; i < tmKeys.length; i += 1) {
+        if (obj.hasOwnProperty(tmKeys[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isTimeFormatOnly(obj) {
+    for (var i = 0; i < dtKeys.length; i += 1) {
+        if (obj.hasOwnProperty(dtKeys[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function joinDateAndTimeFormats(dateFormatObj, timeFormatObj) {
+    var o = { _: {} };
+    for (var i = 0; i < dtKeys.length; i += 1) {
+        if (dateFormatObj[dtKeys[i]]) {
+            o[dtKeys[i]] = dateFormatObj[dtKeys[i]];
+        }
+        if (dateFormatObj._[dtKeys[i]]) {
+            o._[dtKeys[i]] = dateFormatObj._[dtKeys[i]];
+        }
+    }
+    for (var j = 0; j < tmKeys.length; j += 1) {
+        if (timeFormatObj[tmKeys[j]]) {
+            o[tmKeys[j]] = timeFormatObj[tmKeys[j]];
+        }
+        if (timeFormatObj._[tmKeys[j]]) {
+            o._[tmKeys[j]] = timeFormatObj._[tmKeys[j]];
+        }
+    }
+    return o;
+}
+
+function computeFinalPatterns(formatObj) {
+    // From http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns:
+    //  'In patterns, two single quotes represents a literal single quote, either
+    //   inside or outside single quotes. Text within single quotes is not
+    //   interpreted in any way (except for two adjacent single quotes).'
+    formatObj.pattern12 = formatObj.extendedPattern.replace(/'([^']*)'/g, function ($0, literal) {
+        return literal ? literal : "'";
+    });
+
+    // pattern 12 is always the default. we can produce the 24 by removing {ampm}
+    formatObj.pattern = formatObj.pattern12.replace('{ampm}', '').replace(expPatternTrimmer, '');
+    return formatObj;
+}
+
+function expDTComponentsMeta($0, formatObj) {
+    switch ($0.charAt(0)) {
+        // --- Era
+        case 'G':
+            formatObj.era = ['short', 'short', 'short', 'long', 'narrow'][$0.length - 1];
+            return '{era}';
+
+        // --- Year
+        case 'y':
+        case 'Y':
+        case 'u':
+        case 'U':
+        case 'r':
+            formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{year}';
+
+        // --- Quarter (not supported in this polyfill)
+        case 'Q':
+        case 'q':
+            formatObj.quarter = ['numeric', '2-digit', 'short', 'long', 'narrow'][$0.length - 1];
+            return '{quarter}';
+
+        // --- Month
+        case 'M':
+        case 'L':
+            formatObj.month = ['numeric', '2-digit', 'short', 'long', 'narrow'][$0.length - 1];
+            return '{month}';
+
+        // --- Week (not supported in this polyfill)
+        case 'w':
+            // week of the year
+            formatObj.week = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{weekday}';
+        case 'W':
+            // week of the month
+            formatObj.week = 'numeric';
+            return '{weekday}';
+
+        // --- Day
+        case 'd':
+            // day of the month
+            formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{day}';
+        case 'D': // day of the year
+        case 'F': // day of the week
+        case 'g':
+            // 1..n: Modified Julian day
+            formatObj.day = 'numeric';
+            return '{day}';
+
+        // --- Week Day
+        case 'E':
+            // day of the week
+            formatObj.weekday = ['short', 'short', 'short', 'long', 'narrow', 'short'][$0.length - 1];
+            return '{weekday}';
+        case 'e':
+            // local day of the week
+            formatObj.weekday = ['numeric', '2-digit', 'short', 'long', 'narrow', 'short'][$0.length - 1];
+            return '{weekday}';
+        case 'c':
+            // stand alone local day of the week
+            formatObj.weekday = ['numeric', undefined, 'short', 'long', 'narrow', 'short'][$0.length - 1];
+            return '{weekday}';
+
+        // --- Period
+        case 'a': // AM, PM
+        case 'b': // am, pm, noon, midnight
+        case 'B':
+            // flexible day periods
+            formatObj.hour12 = true;
+            return '{ampm}';
+
+        // --- Hour
+        case 'h':
+        case 'H':
+            formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{hour}';
+        case 'k':
+        case 'K':
+            formatObj.hour12 = true; // 12-hour-cycle time formats (using h or K)
+            formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{hour}';
+
+        // --- Minute
+        case 'm':
+            formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{minute}';
+
+        // --- Second
+        case 's':
+            formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{second}';
+        case 'S':
+        case 'A':
+            formatObj.second = 'numeric';
+            return '{second}';
+
+        // --- Timezone
+        case 'z': // 1..3, 4: specific non-location format
+        case 'Z': // 1..3, 4, 5: The ISO8601 varios formats
+        case 'O': // 1, 4: miliseconds in day short, long
+        case 'v': // 1, 4: generic non-location format
+        case 'V': // 1, 2, 3, 4: time zone ID or city
+        case 'X': // 1, 2, 3, 4: The ISO8601 varios formats
+        case 'x':
+            // 1, 2, 3, 4: The ISO8601 varios formats
+            // this polyfill only supports much, for now, we are just doing something dummy
+            formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
+            return '{timeZoneName}';
+    }
+}
+
+/**
+ * Converts the CLDR availableFormats into the objects and patterns required by
+ * the ECMAScript Internationalization API specification.
+ */
+function createDateTimeFormat(skeleton, pattern) {
+    // we ignore certain patterns that are unsupported to avoid this expensive op.
+    if (unwantedDTCs.test(pattern)) return undefined;
+
+    var formatObj = {
+        originalPattern: pattern,
+        _: {}
+    };
+
+    // Replace the pattern string with the one required by the specification, whilst
+    // at the same time evaluating it for the subsets and formats
+    formatObj.extendedPattern = pattern.replace(expDTComponents, function ($0) {
+        // See which symbol we're dealing with
+        return expDTComponentsMeta($0, formatObj._);
+    });
+
+    // Match the skeleton string with the one required by the specification
+    // this implementation is based on the Date Field Symbol Table:
+    // http://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+    // Note: we are adding extra data to the formatObject even though this polyfill
+    //       might not support it.
+    skeleton.replace(expDTComponents, function ($0) {
+        // See which symbol we're dealing with
+        return expDTComponentsMeta($0, formatObj);
+    });
+
+    return computeFinalPatterns(formatObj);
+}
+
+/**
+ * Processes DateTime formats from CLDR to an easier-to-parse format.
+ * the result of this operation should be cached the first time a particular
+ * calendar is analyzed.
+ *
+ * The specification requires we support at least the following subsets of
+ * date/time components:
+ *
+ *   - 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
+ *   - 'weekday', 'year', 'month', 'day'
+ *   - 'year', 'month', 'day'
+ *   - 'year', 'month'
+ *   - 'month', 'day'
+ *   - 'hour', 'minute', 'second'
+ *   - 'hour', 'minute'
+ *
+ * We need to cherry pick at least these subsets from the CLDR data and convert
+ * them into the pattern objects used in the ECMA-402 API.
+ */
+function createDateTimeFormats(formats) {
+    var availableFormats = formats.availableFormats;
+    var timeFormats = formats.timeFormats;
+    var dateFormats = formats.dateFormats;
+    var result = [];
+    var skeleton = void 0,
+        pattern = void 0,
+        computed = void 0,
+        i = void 0,
+        j = void 0;
+    var timeRelatedFormats = [];
+    var dateRelatedFormats = [];
+
+    // Map available (custom) formats into a pattern for createDateTimeFormats
+    for (skeleton in availableFormats) {
+        if (availableFormats.hasOwnProperty(skeleton)) {
+            pattern = availableFormats[skeleton];
+            computed = createDateTimeFormat(skeleton, pattern);
+            if (computed) {
+                result.push(computed);
+                // in some cases, the format is only displaying date specific props
+                // or time specific props, in which case we need to also produce the
+                // combined formats.
+                if (isDateFormatOnly(computed)) {
+                    dateRelatedFormats.push(computed);
+                } else if (isTimeFormatOnly(computed)) {
+                    timeRelatedFormats.push(computed);
+                }
+            }
+        }
+    }
+
+    // Map time formats into a pattern for createDateTimeFormats
+    for (skeleton in timeFormats) {
+        if (timeFormats.hasOwnProperty(skeleton)) {
+            pattern = timeFormats[skeleton];
+            computed = createDateTimeFormat(skeleton, pattern);
+            if (computed) {
+                result.push(computed);
+                timeRelatedFormats.push(computed);
+            }
+        }
+    }
+
+    // Map date formats into a pattern for createDateTimeFormats
+    for (skeleton in dateFormats) {
+        if (dateFormats.hasOwnProperty(skeleton)) {
+            pattern = dateFormats[skeleton];
+            computed = createDateTimeFormat(skeleton, pattern);
+            if (computed) {
+                result.push(computed);
+                dateRelatedFormats.push(computed);
+            }
+        }
+    }
+
+    // combine custom time and custom date formats when they are orthogonals to complete the
+    // formats supported by CLDR.
+    // This Algo is based on section "Missing Skeleton Fields" from:
+    // http://unicode.org/reports/tr35/tr35-dates.html#availableFormats_appendItems
+    for (i = 0; i < timeRelatedFormats.length; i += 1) {
+        for (j = 0; j < dateRelatedFormats.length; j += 1) {
+            if (dateRelatedFormats[j].month === 'long') {
+                pattern = dateRelatedFormats[j].weekday ? formats.full : formats.long;
+            } else if (dateRelatedFormats[j].month === 'short') {
+                pattern = formats.medium;
+            } else {
+                pattern = formats.short;
+            }
+            computed = joinDateAndTimeFormats(dateRelatedFormats[j], timeRelatedFormats[i]);
+            computed.originalPattern = pattern;
+            computed.extendedPattern = pattern.replace('{0}', timeRelatedFormats[i].extendedPattern).replace('{1}', dateRelatedFormats[j].extendedPattern).replace(/^[,\s]+|[,\s]+$/gi, '');
+            result.push(computeFinalPatterns(computed));
+        }
+    }
+
+    return result;
+}
+
+// this represents the exceptions of the rule that are not covered by CLDR availableFormats
+// for single property configurations, they play no role when using multiple properties, and
+// those that are not in this table, are not exceptions or are not covered by the data we
+// provide.
+var validSyntheticProps = {
+    second: {
+        numeric: 's',
+        '2-digit': 'ss'
+    },
+    minute: {
+        numeric: 'm',
+        '2-digit': 'mm'
+    },
+    year: {
+        numeric: 'y',
+        '2-digit': 'yy'
+    },
+    day: {
+        numeric: 'd',
+        '2-digit': 'dd'
+    },
+    month: {
+        numeric: 'L',
+        '2-digit': 'LL',
+        narrow: 'LLLLL',
+        short: 'LLL',
+        long: 'LLLL'
+    },
+    weekday: {
+        narrow: 'ccccc',
+        short: 'ccc',
+        long: 'cccc'
+    }
+};
+
+function generateSyntheticFormat(propName, propValue) {
+    if (validSyntheticProps[propName] && validSyntheticProps[propName][propValue]) {
+        var _ref2;
+
+        return _ref2 = {
+            originalPattern: validSyntheticProps[propName][propValue],
+            _: defineProperty$1({}, propName, propValue),
+            extendedPattern: "{" + propName + "}"
+        }, defineProperty$1(_ref2, propName, propValue), defineProperty$1(_ref2, "pattern12", "{" + propName + "}"), defineProperty$1(_ref2, "pattern", "{" + propName + "}"), _ref2;
+    }
+}
+
+// An object map of date component keys, saves using a regex later
+var dateWidths = objCreate(null, { narrow: {}, short: {}, long: {} });
+
+/**
+ * Returns a string for a date component, resolved using multiple inheritance as specified
+ * as specified in the Unicode Technical Standard 35.
+ */
+function resolveDateString(data, ca, component, width, key) {
+    // From http://www.unicode.org/reports/tr35/tr35.html#Multiple_Inheritance:
+    // 'In clearly specified instances, resources may inherit from within the same locale.
+    //  For example, ... the Buddhist calendar inherits from the Gregorian calendar.'
+    var obj = data[ca] && data[ca][component] ? data[ca][component] : data.gregory[component],
+
+
+    // "sideways" inheritance resolves strings when a key doesn't exist
+    alts = {
+        narrow: ['short', 'long'],
+        short: ['long', 'narrow'],
+        long: ['short', 'narrow']
+    },
+
+
+    //
+    resolved = hop.call(obj, width) ? obj[width] : hop.call(obj, alts[width][0]) ? obj[alts[width][0]] : obj[alts[width][1]];
+
+    // `key` wouldn't be specified for components 'dayPeriods'
+    return key !== null ? resolved[key] : resolved;
+}
+
+// Define the DateTimeFormat constructor internally so it cannot be tainted
+function DateTimeFormatConstructor() {
+    var locales = arguments[0];
+    var options = arguments[1];
+
+    if (!this || this === Intl) {
+        return new Intl.DateTimeFormat(locales, options);
+    }
+    return InitializeDateTimeFormat(toObject(this), locales, options);
+}
+
+defineProperty(Intl, 'DateTimeFormat', {
+    configurable: true,
+    writable: true,
+    value: DateTimeFormatConstructor
+});
+
+// Must explicitly set prototypes as unwritable
+defineProperty(DateTimeFormatConstructor, 'prototype', {
+    writable: false
+});
+
+/**
+ * The abstract operation InitializeDateTimeFormat accepts the arguments dateTimeFormat
+ * (which must be an object), locales, and options. It initializes dateTimeFormat as a
+ * DateTimeFormat object.
+ */
+function /* 12.1.1.1 */InitializeDateTimeFormat(dateTimeFormat, locales, options) {
+    // This will be a internal properties object if we're not already initialized
+    var internal = getInternalProperties(dateTimeFormat);
+
+    // Create an object whose props can be used to restore the values of RegExp props
+    var regexpRestore = createRegExpRestore();
+
+    // 1. If dateTimeFormat has an [[initializedIntlObject]] internal property with
+    //    value true, throw a TypeError exception.
+    if (internal['[[initializedIntlObject]]'] === true) throw new TypeError('`this` object has already been initialized as an Intl object');
+
+    // Need this to access the `internal` object
+    defineProperty(dateTimeFormat, '__getInternalProperties', {
+        value: function value() {
+            // NOTE: Non-standard, for internal use only
+            if (arguments[0] === secret) return internal;
+        }
+    });
+
+    // 2. Set the [[initializedIntlObject]] internal property of numberFormat to true.
+    internal['[[initializedIntlObject]]'] = true;
+
+    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+    //    abstract operation (defined in 9.2.1) with argument locales.
+    var requestedLocales = CanonicalizeLocaleList(locales);
+
+    // 4. Let options be the result of calling the ToDateTimeOptions abstract
+    //    operation (defined below) with arguments options, "any", and "date".
+    options = ToDateTimeOptions(options, 'any', 'date');
+
+    // 5. Let opt be a new Record.
+    var opt = new Record();
+
+    // 6. Let matcher be the result of calling the GetOption abstract operation
+    //    (defined in 9.2.9) with arguments options, "localeMatcher", "string", a List
+    //    containing the two String values "lookup" and "best fit", and "best fit".
+    var matcher = GetOption(options, 'localeMatcher', 'string', new List('lookup', 'best fit'), 'best fit');
+
+    // 7. Set opt.[[localeMatcher]] to matcher.
+    opt['[[localeMatcher]]'] = matcher;
+
+    // 8. Let DateTimeFormat be the standard built-in object that is the initial
+    //    value of Intl.DateTimeFormat.
+    var DateTimeFormat = internals.DateTimeFormat; // This is what we *really* need
+
+    // 9. Let localeData be the value of the [[localeData]] internal property of
+    //    DateTimeFormat.
+    var localeData = DateTimeFormat['[[localeData]]'];
+
+    // 10. Let r be the result of calling the ResolveLocale abstract operation
+    //     (defined in 9.2.5) with the [[availableLocales]] internal property of
+    //      DateTimeFormat, requestedLocales, opt, the [[relevantExtensionKeys]]
+    //      internal property of DateTimeFormat, and localeData.
+    var r = ResolveLocale(DateTimeFormat['[[availableLocales]]'], requestedLocales, opt, DateTimeFormat['[[relevantExtensionKeys]]'], localeData);
+
+    // 11. Set the [[locale]] internal property of dateTimeFormat to the value of
+    //     r.[[locale]].
+    internal['[[locale]]'] = r['[[locale]]'];
+
+    // 12. Set the [[calendar]] internal property of dateTimeFormat to the value of
+    //     r.[[ca]].
+    internal['[[calendar]]'] = r['[[ca]]'];
+
+    // 13. Set the [[numberingSystem]] internal property of dateTimeFormat to the value of
+    //     r.[[nu]].
+    internal['[[numberingSystem]]'] = r['[[nu]]'];
+
+    // The specification doesn't tell us to do this, but it's helpful later on
+    internal['[[dataLocale]]'] = r['[[dataLocale]]'];
+
+    // 14. Let dataLocale be the value of r.[[dataLocale]].
+    var dataLocale = r['[[dataLocale]]'];
+
+    // 15. Let tz be the result of calling the [[Get]] internal method of options with
+    //     argument "timeZone".
+    var tz = options.timeZone;
+
+    // 16. If tz is not undefined, then
+    if (tz !== undefined) {
+        // a. Let tz be ToString(tz).
+        // b. Convert tz to upper case as described in 6.1.
+        //    NOTE: If an implementation accepts additional time zone values, as permitted
+        //          under certain conditions by the Conformance clause, different casing
+        //          rules apply.
+        tz = toLatinUpperCase(tz);
+
+        // c. If tz is not "UTC", then throw a RangeError exception.
+        // ###TODO: accept more time zones###
+        if (tz !== 'UTC') throw new RangeError('timeZone is not supported.');
+    }
+
+    // 17. Set the [[timeZone]] internal property of dateTimeFormat to tz.
+    internal['[[timeZone]]'] = tz;
+
+    // 18. Let opt be a new Record.
+    opt = new Record();
+
+    // 19. For each row of Table 3, except the header row, do:
+    for (var prop in dateTimeComponents) {
+        if (!hop.call(dateTimeComponents, prop)) continue;
+
+        // 20. Let prop be the name given in the Property column of the row.
+        // 21. Let value be the result of calling the GetOption abstract operation,
+        //     passing as argument options, the name given in the Property column of the
+        //     row, "string", a List containing the strings given in the Values column of
+        //     the row, and undefined.
+        var value = GetOption(options, prop, 'string', dateTimeComponents[prop]);
+
+        // 22. Set opt.[[<prop>]] to value.
+        opt['[[' + prop + ']]'] = value;
+    }
+
+    // Assigned a value below
+    var bestFormat = void 0;
+
+    // 23. Let dataLocaleData be the result of calling the [[Get]] internal method of
+    //     localeData with argument dataLocale.
+    var dataLocaleData = localeData[dataLocale];
+
+    // 24. Let formats be the result of calling the [[Get]] internal method of
+    //     dataLocaleData with argument "formats".
+    //     Note: we process the CLDR formats into the spec'd structure
+    var formats = ToDateTimeFormats(dataLocaleData.formats);
+
+    // 25. Let matcher be the result of calling the GetOption abstract operation with
+    //     arguments options, "formatMatcher", "string", a List containing the two String
+    //     values "basic" and "best fit", and "best fit".
+    matcher = GetOption(options, 'formatMatcher', 'string', new List('basic', 'best fit'), 'best fit');
+
+    // Optimization: caching the processed formats as a one time operation by
+    // replacing the initial structure from localeData
+    dataLocaleData.formats = formats;
+
+    // 26. If matcher is "basic", then
+    if (matcher === 'basic') {
+        // 27. Let bestFormat be the result of calling the BasicFormatMatcher abstract
+        //     operation (defined below) with opt and formats.
+        bestFormat = BasicFormatMatcher(opt, formats);
+
+        // 28. Else
+    } else {
+        {
+            // diverging
+            var _hr = GetOption(options, 'hour12', 'boolean' /*, undefined, undefined*/);
+            opt.hour12 = _hr === undefined ? dataLocaleData.hour12 : _hr;
+        }
+        // 29. Let bestFormat be the result of calling the BestFitFormatMatcher
+        //     abstract operation (defined below) with opt and formats.
+        bestFormat = BestFitFormatMatcher(opt, formats);
+    }
+
+    // 30. For each row in Table 3, except the header row, do
+    for (var _prop in dateTimeComponents) {
+        if (!hop.call(dateTimeComponents, _prop)) continue;
+
+        // a. Let prop be the name given in the Property column of the row.
+        // b. Let pDesc be the result of calling the [[GetOwnProperty]] internal method of
+        //    bestFormat with argument prop.
+        // c. If pDesc is not undefined, then
+        if (hop.call(bestFormat, _prop)) {
+            // i. Let p be the result of calling the [[Get]] internal method of bestFormat
+            //    with argument prop.
+            var p = bestFormat[_prop];
+            {
+                // diverging
+                p = bestFormat._ && hop.call(bestFormat._, _prop) ? bestFormat._[_prop] : p;
+            }
+
+            // ii. Set the [[<prop>]] internal property of dateTimeFormat to p.
+            internal['[[' + _prop + ']]'] = p;
+        }
+    }
+
+    var pattern = void 0; // Assigned a value below
+
+    // 31. Let hr12 be the result of calling the GetOption abstract operation with
+    //     arguments options, "hour12", "boolean", undefined, and undefined.
+    var hr12 = GetOption(options, 'hour12', 'boolean' /*, undefined, undefined*/);
+
+    // 32. If dateTimeFormat has an internal property [[hour]], then
+    if (internal['[[hour]]']) {
+        // a. If hr12 is undefined, then let hr12 be the result of calling the [[Get]]
+        //    internal method of dataLocaleData with argument "hour12".
+        hr12 = hr12 === undefined ? dataLocaleData.hour12 : hr12;
+
+        // b. Set the [[hour12]] internal property of dateTimeFormat to hr12.
+        internal['[[hour12]]'] = hr12;
+
+        // c. If hr12 is true, then
+        if (hr12 === true) {
+            // i. Let hourNo0 be the result of calling the [[Get]] internal method of
+            //    dataLocaleData with argument "hourNo0".
+            var hourNo0 = dataLocaleData.hourNo0;
+
+            // ii. Set the [[hourNo0]] internal property of dateTimeFormat to hourNo0.
+            internal['[[hourNo0]]'] = hourNo0;
+
+            // iii. Let pattern be the result of calling the [[Get]] internal method of
+            //      bestFormat with argument "pattern12".
+            pattern = bestFormat.pattern12;
+        }
+
+        // d. Else
+        else
+            // i. Let pattern be the result of calling the [[Get]] internal method of
+            //    bestFormat with argument "pattern".
+            pattern = bestFormat.pattern;
+    }
+
+    // 33. Else
+    else
+        // a. Let pattern be the result of calling the [[Get]] internal method of
+        //    bestFormat with argument "pattern".
+        pattern = bestFormat.pattern;
+
+    // 34. Set the [[pattern]] internal property of dateTimeFormat to pattern.
+    internal['[[pattern]]'] = pattern;
+
+    // 35. Set the [[boundFormat]] internal property of dateTimeFormat to undefined.
+    internal['[[boundFormat]]'] = undefined;
+
+    // 36. Set the [[initializedDateTimeFormat]] internal property of dateTimeFormat to
+    //     true.
+    internal['[[initializedDateTimeFormat]]'] = true;
+
+    // In ES3, we need to pre-bind the format() function
+    if (es3) dateTimeFormat.format = GetFormatDateTime.call(dateTimeFormat);
+
+    // Restore the RegExp properties
+    regexpRestore();
+
+    // Return the newly initialised object
+    return dateTimeFormat;
+}
+
+/**
+ * Several DateTimeFormat algorithms use values from the following table, which provides
+ * property names and allowable values for the components of date and time formats:
+ */
+var dateTimeComponents = {
+    weekday: ["narrow", "short", "long"],
+    era: ["narrow", "short", "long"],
+    year: ["2-digit", "numeric"],
+    month: ["2-digit", "numeric", "narrow", "short", "long"],
+    day: ["2-digit", "numeric"],
+    hour: ["2-digit", "numeric"],
+    minute: ["2-digit", "numeric"],
+    second: ["2-digit", "numeric"],
+    timeZoneName: ["short", "long"]
+};
+
+/**
+ * When the ToDateTimeOptions abstract operation is called with arguments options,
+ * required, and defaults, the following steps are taken:
+ */
+function ToDateTimeFormats(formats) {
+    if (Object.prototype.toString.call(formats) === '[object Array]') {
+        return formats;
+    }
+    return createDateTimeFormats(formats);
+}
+
+/**
+ * When the ToDateTimeOptions abstract operation is called with arguments options,
+ * required, and defaults, the following steps are taken:
+ */
+function ToDateTimeOptions(options, required, defaults) {
+    // 1. If options is undefined, then let options be null, else let options be
+    //    ToObject(options).
+    if (options === undefined) options = null;else {
+        // (#12) options needs to be a Record, but it also needs to inherit properties
+        var opt2 = toObject(options);
+        options = new Record();
+
+        for (var k in opt2) {
+            options[k] = opt2[k];
+        }
+    }
+
+    // 2. Let create be the standard built-in function object defined in ES5, 15.2.3.5.
+    var create = objCreate;
+
+    // 3. Let options be the result of calling the [[Call]] internal method of create with
+    //    undefined as the this value and an argument list containing the single item
+    //    options.
+    options = create(options);
+
+    // 4. Let needDefaults be true.
+    var needDefaults = true;
+
+    // 5. If required is "date" or "any", then
+    if (required === 'date' || required === 'any') {
+        // a. For each of the property names "weekday", "year", "month", "day":
+        // i. If the result of calling the [[Get]] internal method of options with the
+        //    property name is not undefined, then let needDefaults be false.
+        if (options.weekday !== undefined || options.year !== undefined || options.month !== undefined || options.day !== undefined) needDefaults = false;
+    }
+
+    // 6. If required is "time" or "any", then
+    if (required === 'time' || required === 'any') {
+        // a. For each of the property names "hour", "minute", "second":
+        // i. If the result of calling the [[Get]] internal method of options with the
+        //    property name is not undefined, then let needDefaults be false.
+        if (options.hour !== undefined || options.minute !== undefined || options.second !== undefined) needDefaults = false;
+    }
+
+    // 7. If needDefaults is true and defaults is either "date" or "all", then
+    if (needDefaults && (defaults === 'date' || defaults === 'all'))
+        // a. For each of the property names "year", "month", "day":
+        // i. Call the [[DefineOwnProperty]] internal method of options with the
+        //    property name, Property Descriptor {[[Value]]: "numeric", [[Writable]]:
+        //    true, [[Enumerable]]: true, [[Configurable]]: true}, and false.
+        options.year = options.month = options.day = 'numeric';
+
+    // 8. If needDefaults is true and defaults is either "time" or "all", then
+    if (needDefaults && (defaults === 'time' || defaults === 'all'))
+        // a. For each of the property names "hour", "minute", "second":
+        // i. Call the [[DefineOwnProperty]] internal method of options with the
+        //    property name, Property Descriptor {[[Value]]: "numeric", [[Writable]]:
+        //    true, [[Enumerable]]: true, [[Configurable]]: true}, and false.
+        options.hour = options.minute = options.second = 'numeric';
+
+    // 9. Return options.
+    return options;
+}
+
+/**
+ * When the BasicFormatMatcher abstract operation is called with two arguments options and
+ * formats, the following steps are taken:
+ */
+function BasicFormatMatcher(options, formats) {
+    // 1. Let removalPenalty be 120.
+    var removalPenalty = 120;
+
+    // 2. Let additionPenalty be 20.
+    var additionPenalty = 20;
+
+    // 3. Let longLessPenalty be 8.
+    var longLessPenalty = 8;
+
+    // 4. Let longMorePenalty be 6.
+    var longMorePenalty = 6;
+
+    // 5. Let shortLessPenalty be 6.
+    var shortLessPenalty = 6;
+
+    // 6. Let shortMorePenalty be 3.
+    var shortMorePenalty = 3;
+
+    // 7. Let bestScore be -Infinity.
+    var bestScore = -Infinity;
+
+    // 8. Let bestFormat be undefined.
+    var bestFormat = void 0;
+
+    // 9. Let i be 0.
+    var i = 0;
+
+    // 10. Assert: formats is an Array object.
+
+    // 11. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
+    var len = formats.length;
+
+    // 12. Repeat while i < len:
+    while (i < len) {
+        // a. Let format be the result of calling the [[Get]] internal method of formats with argument ToString(i).
+        var format = formats[i];
+
+        // b. Let score be 0.
+        var score = 0;
+
+        // c. For each property shown in Table 3:
+        for (var property in dateTimeComponents) {
+            if (!hop.call(dateTimeComponents, property)) continue;
+
+            // i. Let optionsProp be options.[[<property>]].
+            var optionsProp = options['[[' + property + ']]'];
+
+            // ii. Let formatPropDesc be the result of calling the [[GetOwnProperty]] internal method of format
+            //     with argument property.
+            // iii. If formatPropDesc is not undefined, then
+            //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
+            var formatProp = hop.call(format, property) ? format[property] : undefined;
+
+            // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
+            //     additionPenalty.
+            if (optionsProp === undefined && formatProp !== undefined) score -= additionPenalty;
+
+            // v. Else if optionsProp is not undefined and formatProp is undefined, then decrease score by
+            //    removalPenalty.
+            else if (optionsProp !== undefined && formatProp === undefined) score -= removalPenalty;
+
+                // vi. Else
+                else {
+                        // 1. Let values be the array ["2-digit", "numeric", "narrow", "short",
+                        //    "long"].
+                        var values = ['2-digit', 'numeric', 'narrow', 'short', 'long'];
+
+                        // 2. Let optionsPropIndex be the index of optionsProp within values.
+                        var optionsPropIndex = arrIndexOf.call(values, optionsProp);
+
+                        // 3. Let formatPropIndex be the index of formatProp within values.
+                        var formatPropIndex = arrIndexOf.call(values, formatProp);
+
+                        // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
+                        var delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
+
+                        // 5. If delta = 2, decrease score by longMorePenalty.
+                        if (delta === 2) score -= longMorePenalty;
+
+                        // 6. Else if delta = 1, decrease score by shortMorePenalty.
+                        else if (delta === 1) score -= shortMorePenalty;
+
+                            // 7. Else if delta = -1, decrease score by shortLessPenalty.
+                            else if (delta === -1) score -= shortLessPenalty;
+
+                                // 8. Else if delta = -2, decrease score by longLessPenalty.
+                                else if (delta === -2) score -= longLessPenalty;
+                    }
+        }
+
+        // d. If score > bestScore, then
+        if (score > bestScore) {
+            // i. Let bestScore be score.
+            bestScore = score;
+
+            // ii. Let bestFormat be format.
+            bestFormat = format;
+        }
+
+        // e. Increase i by 1.
+        i++;
+    }
+
+    // 13. Return bestFormat.
+    return bestFormat;
+}
+
+/**
+ * When the BestFitFormatMatcher abstract operation is called with two arguments options
+ * and formats, it performs implementation dependent steps, which should return a set of
+ * component representations that a typical user of the selected locale would perceive as
+ * at least as good as the one returned by BasicFormatMatcher.
+ *
+ * This polyfill defines the algorithm to be the same as BasicFormatMatcher,
+ * with the addition of bonus points awarded where the requested format is of
+ * the same data type as the potentially matching format.
+ *
+ * This algo relies on the concept of closest distance matching described here:
+ * http://unicode.org/reports/tr35/tr35-dates.html#Matching_Skeletons
+ * Typically a “best match” is found using a closest distance match, such as:
+ *
+ * Symbols requesting a best choice for the locale are replaced.
+ *      j → one of {H, k, h, K}; C → one of {a, b, B}
+ * -> Covered by cldr.js matching process
+ *
+ * For fields with symbols representing the same type (year, month, day, etc):
+ *     Most symbols have a small distance from each other.
+ *         M ≅ L; E ≅ c; a ≅ b ≅ B; H ≅ k ≅ h ≅ K; ...
+ *     -> Covered by cldr.js matching process
+ *
+ *     Width differences among fields, other than those marking text vs numeric, are given small distance from each other.
+ *         MMM ≅ MMMM
+ *         MM ≅ M
+ *     Numeric and text fields are given a larger distance from each other.
+ *         MMM ≈ MM
+ *     Symbols representing substantial differences (week of year vs week of month) are given much larger a distances from each other.
+ *         d ≋ D; ...
+ *     Missing or extra fields cause a match to fail. (But see Missing Skeleton Fields).
+ *
+ *
+ * For example,
+ *
+ *     { month: 'numeric', day: 'numeric' }
+ *
+ * should match
+ *
+ *     { month: '2-digit', day: '2-digit' }
+ *
+ * rather than
+ *
+ *     { month: 'short', day: 'numeric' }
+ *
+ * This makes sense because a user requesting a formatted date with numeric parts would
+ * not expect to see the returned format containing narrow, short or long part names
+ */
+function BestFitFormatMatcher(options, formats) {
+    /** Diverging: this block implements the hack for single property configuration, eg.:
+     *
+     *      `new Intl.DateTimeFormat('en', {day: 'numeric'})`
+     *
+     * should produce a single digit with the day of the month. This is needed because
+     * CLDR `availableFormats` data structure doesn't cover these cases.
+     */
+    {
+        var optionsPropNames = [];
+        for (var property in dateTimeComponents) {
+            if (!hop.call(dateTimeComponents, property)) continue;
+
+            if (options['[[' + property + ']]'] !== undefined) {
+                optionsPropNames.push(property);
+            }
+        }
+        if (optionsPropNames.length === 1) {
+            var _bestFormat = generateSyntheticFormat(optionsPropNames[0], options['[[' + optionsPropNames[0] + ']]']);
+            if (_bestFormat) {
+                return _bestFormat;
+            }
+        }
+    }
+
+    // 1. Let removalPenalty be 120.
+    var removalPenalty = 120;
+
+    // 2. Let additionPenalty be 20.
+    var additionPenalty = 20;
+
+    // 3. Let longLessPenalty be 8.
+    var longLessPenalty = 8;
+
+    // 4. Let longMorePenalty be 6.
+    var longMorePenalty = 6;
+
+    // 5. Let shortLessPenalty be 6.
+    var shortLessPenalty = 6;
+
+    // 6. Let shortMorePenalty be 3.
+    var shortMorePenalty = 3;
+
+    var patternPenalty = 2;
+
+    var hour12Penalty = 1;
+
+    // 7. Let bestScore be -Infinity.
+    var bestScore = -Infinity;
+
+    // 8. Let bestFormat be undefined.
+    var bestFormat = void 0;
+
+    // 9. Let i be 0.
+    var i = 0;
+
+    // 10. Assert: formats is an Array object.
+
+    // 11. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
+    var len = formats.length;
+
+    // 12. Repeat while i < len:
+    while (i < len) {
+        // a. Let format be the result of calling the [[Get]] internal method of formats with argument ToString(i).
+        var format = formats[i];
+
+        // b. Let score be 0.
+        var score = 0;
+
+        // c. For each property shown in Table 3:
+        for (var _property in dateTimeComponents) {
+            if (!hop.call(dateTimeComponents, _property)) continue;
+
+            // i. Let optionsProp be options.[[<property>]].
+            var optionsProp = options['[[' + _property + ']]'];
+
+            // ii. Let formatPropDesc be the result of calling the [[GetOwnProperty]] internal method of format
+            //     with argument property.
+            // iii. If formatPropDesc is not undefined, then
+            //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
+            var formatProp = hop.call(format, _property) ? format[_property] : undefined;
+
+            // Diverging: using the default properties produced by the pattern/skeleton
+            // to match it with user options, and apply a penalty
+            var patternProp = hop.call(format._, _property) ? format._[_property] : undefined;
+            if (optionsProp !== patternProp) {
+                score -= patternPenalty;
+            }
+
+            // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
+            //     additionPenalty.
+            if (optionsProp === undefined && formatProp !== undefined) score -= additionPenalty;
+
+            // v. Else if optionsProp is not undefined and formatProp is undefined, then decrease score by
+            //    removalPenalty.
+            else if (optionsProp !== undefined && formatProp === undefined) score -= removalPenalty;
+
+                // vi. Else
+                else {
+                        // 1. Let values be the array ["2-digit", "numeric", "narrow", "short",
+                        //    "long"].
+                        var values = ['2-digit', 'numeric', 'narrow', 'short', 'long'];
+
+                        // 2. Let optionsPropIndex be the index of optionsProp within values.
+                        var optionsPropIndex = arrIndexOf.call(values, optionsProp);
+
+                        // 3. Let formatPropIndex be the index of formatProp within values.
+                        var formatPropIndex = arrIndexOf.call(values, formatProp);
+
+                        // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
+                        var delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
+
+                        {
+                            // diverging from spec
+                            // When the bestFit argument is true, subtract additional penalty where data types are not the same
+                            if (formatPropIndex <= 1 && optionsPropIndex >= 2 || formatPropIndex >= 2 && optionsPropIndex <= 1) {
+                                // 5. If delta = 2, decrease score by longMorePenalty.
+                                if (delta > 0) score -= longMorePenalty;else if (delta < 0) score -= longLessPenalty;
+                            } else {
+                                // 5. If delta = 2, decrease score by longMorePenalty.
+                                if (delta > 1) score -= shortMorePenalty;else if (delta < -1) score -= shortLessPenalty;
+                            }
+                        }
+                    }
+        }
+
+        {
+            // diverging to also take into consideration differences between 12 or 24 hours
+            // which is special for the best fit only.
+            if (format._.hour12 !== options.hour12) {
+                score -= hour12Penalty;
+            }
+        }
+
+        // d. If score > bestScore, then
+        if (score > bestScore) {
+            // i. Let bestScore be score.
+            bestScore = score;
+            // ii. Let bestFormat be format.
+            bestFormat = format;
+        }
+
+        // e. Increase i by 1.
+        i++;
+    }
+
+    // 13. Return bestFormat.
+    return bestFormat;
+}
+
+/* 12.2.3 */internals.DateTimeFormat = {
+    '[[availableLocales]]': [],
+    '[[relevantExtensionKeys]]': ['ca', 'nu'],
+    '[[localeData]]': {}
+};
+
+/**
+ * When the supportedLocalesOf method of Intl.DateTimeFormat is called, the
+ * following steps are taken:
+ */
+/* 12.2.2 */
+defineProperty(Intl.DateTimeFormat, 'supportedLocalesOf', {
+    configurable: true,
+    writable: true,
+    value: fnBind.call(function (locales) {
+        // Bound functions only have the `this` value altered if being used as a constructor,
+        // this lets us imitate a native function that has no constructor
+        if (!hop.call(this, '[[availableLocales]]')) throw new TypeError('supportedLocalesOf() is not a constructor');
+
+        // Create an object whose props can be used to restore the values of RegExp props
+        var regexpRestore = createRegExpRestore(),
+
+
+        // 1. If options is not provided, then let options be undefined.
+        options = arguments[1],
+
+
+        // 2. Let availableLocales be the value of the [[availableLocales]] internal
+        //    property of the standard built-in object that is the initial value of
+        //    Intl.NumberFormat.
+
+        availableLocales = this['[[availableLocales]]'],
+
+
+        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+        //    abstract operation (defined in 9.2.1) with argument locales.
+        requestedLocales = CanonicalizeLocaleList(locales);
+
+        // Restore the RegExp properties
+        regexpRestore();
+
+        // 4. Return the result of calling the SupportedLocales abstract operation
+        //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
+        //    and options.
+        return SupportedLocales(availableLocales, requestedLocales, options);
+    }, internals.NumberFormat)
+});
+
+/**
+ * This named accessor property returns a function that formats a number
+ * according to the effective locale and the formatting options of this
+ * DateTimeFormat object.
+ */
+/* 12.3.2 */defineProperty(Intl.DateTimeFormat.prototype, 'format', {
+    configurable: true,
+    get: GetFormatDateTime
+});
+
+function GetFormatDateTime() {
+    var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
+
+    // Satisfy test 12.3_b
+    if (!internal || !internal['[[initializedDateTimeFormat]]']) throw new TypeError('`this` value for format() is not an initialized Intl.DateTimeFormat object.');
+
+    // The value of the [[Get]] attribute is a function that takes the following
+    // steps:
+
+    // 1. If the [[boundFormat]] internal property of this DateTimeFormat object
+    //    is undefined, then:
+    if (internal['[[boundFormat]]'] === undefined) {
+        // a. Let F be a Function object, with internal properties set as
+        //    specified for built-in functions in ES5, 15, or successor, and the
+        //    length property set to 0, that takes the argument date and
+        //    performs the following steps:
+        var F = function F() {
+            var date = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
+            //   i. If date is not provided or is undefined, then let x be the
+            //      result as if by the expression Date.now() where Date.now is
+            //      the standard built-in function defined in ES5, 15.9.4.4.
+            //  ii. Else let x be ToNumber(date).
+            // iii. Return the result of calling the FormatDateTime abstract
+            //      operation (defined below) with arguments this and x.
+            var x = date === undefined ? Date.now() : toNumber(date);
+            return FormatDateTime(this, x);
+        };
+        // b. Let bind be the standard built-in function object defined in ES5,
+        //    15.3.4.5.
+        // c. Let bf be the result of calling the [[Call]] internal method of
+        //    bind with F as the this value and an argument list containing
+        //    the single item this.
+        var bf = fnBind.call(F, this);
+        // d. Set the [[boundFormat]] internal property of this NumberFormat
+        //    object to bf.
+        internal['[[boundFormat]]'] = bf;
+    }
+    // Return the value of the [[boundFormat]] internal property of this
+    // NumberFormat object.
+    return internal['[[boundFormat]]'];
+}
+
+function formatToParts$1() {
+    var date = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
+    var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
+
+    if (!internal || !internal['[[initializedDateTimeFormat]]']) throw new TypeError('`this` value for formatToParts() is not an initialized Intl.DateTimeFormat object.');
+
+    var x = date === undefined ? Date.now() : toNumber(date);
+    return FormatToPartsDateTime(this, x);
+}
+
+Object.defineProperty(Intl.DateTimeFormat.prototype, 'formatToParts', {
+    enumerable: false,
+    writable: true,
+    configurable: true,
+    value: formatToParts$1
+});
+
+function CreateDateTimeParts(dateTimeFormat, x) {
+    // 1. If x is not a finite Number, then throw a RangeError exception.
+    if (!isFinite(x)) throw new RangeError('Invalid valid date passed to format');
+
+    var internal = dateTimeFormat.__getInternalProperties(secret);
+
+    // Creating restore point for properties on the RegExp object... please wait
+    /* let regexpRestore = */createRegExpRestore(); // ###TODO: review this
+
+    // 2. Let locale be the value of the [[locale]] internal property of dateTimeFormat.
+    var locale = internal['[[locale]]'];
+
+    // 3. Let nf be the result of creating a new NumberFormat object as if by the
+    // expression new Intl.NumberFormat([locale], {useGrouping: false}) where
+    // Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
+    var nf = new Intl.NumberFormat([locale], { useGrouping: false });
+
+    // 4. Let nf2 be the result of creating a new NumberFormat object as if by the
+    // expression new Intl.NumberFormat([locale], {minimumIntegerDigits: 2, useGrouping:
+    // false}) where Intl.NumberFormat is the standard built-in constructor defined in
+    // 11.1.3.
+    var nf2 = new Intl.NumberFormat([locale], { minimumIntegerDigits: 2, useGrouping: false });
+
+    // 5. Let tm be the result of calling the ToLocalTime abstract operation (defined
+    // below) with x, the value of the [[calendar]] internal property of dateTimeFormat,
+    // and the value of the [[timeZone]] internal property of dateTimeFormat.
+    var tm = ToLocalTime(x, internal['[[calendar]]'], internal['[[timeZone]]']);
+
+    // 6. Let result be the value of the [[pattern]] internal property of dateTimeFormat.
+    var pattern = internal['[[pattern]]'];
+
+    // 7.
+    var result = new List();
+
+    // 8.
+    var index = 0;
+
+    // 9.
+    var beginIndex = pattern.indexOf('{');
+
+    // 10.
+    var endIndex = 0;
+
+    // Need the locale minus any extensions
+    var dataLocale = internal['[[dataLocale]]'];
+
+    // Need the calendar data from CLDR
+    var localeData = internals.DateTimeFormat['[[localeData]]'][dataLocale].calendars;
+    var ca = internal['[[calendar]]'];
+
+    // 11.
+    while (beginIndex !== -1) {
+        var fv = void 0;
+        // a.
+        endIndex = pattern.indexOf('}', beginIndex);
+        // b.
+        if (endIndex === -1) {
+            throw new Error('Unclosed pattern');
+        }
+        // c.
+        if (beginIndex > index) {
+            arrPush.call(result, {
+                type: 'literal',
+                value: pattern.substring(index, beginIndex)
+            });
+        }
+        // d.
+        var p = pattern.substring(beginIndex + 1, endIndex);
+        // e.
+        if (dateTimeComponents.hasOwnProperty(p)) {
+            //   i. Let f be the value of the [[<p>]] internal property of dateTimeFormat.
+            var f = internal['[[' + p + ']]'];
+            //  ii. Let v be the value of tm.[[<p>]].
+            var v = tm['[[' + p + ']]'];
+            // iii. If p is "year" and v ≤ 0, then let v be 1 - v.
+            if (p === 'year' && v <= 0) {
+                v = 1 - v;
+            }
+            //  iv. If p is "month", then increase v by 1.
+            else if (p === 'month') {
+                    v++;
+                }
+                //   v. If p is "hour" and the value of the [[hour12]] internal property of
+                //      dateTimeFormat is true, then
+                else if (p === 'hour' && internal['[[hour12]]'] === true) {
+                        // 1. Let v be v modulo 12.
+                        v = v % 12;
+                        // 2. If v is 0 and the value of the [[hourNo0]] internal property of
+                        //    dateTimeFormat is true, then let v be 12.
+                        if (v === 0 && internal['[[hourNo0]]'] === true) {
+                            v = 12;
+                        }
+                    }
+
+            //  vi. If f is "numeric", then
+            if (f === 'numeric') {
+                // 1. Let fv be the result of calling the FormatNumber abstract operation
+                //    (defined in 11.3.2) with arguments nf and v.
+                fv = FormatNumber(nf, v);
+            }
+            // vii. Else if f is "2-digit", then
+            else if (f === '2-digit') {
+                    // 1. Let fv be the result of calling the FormatNumber abstract operation
+                    //    with arguments nf2 and v.
+                    fv = FormatNumber(nf2, v);
+                    // 2. If the length of fv is greater than 2, let fv be the substring of fv
+                    //    containing the last two characters.
+                    if (fv.length > 2) {
+                        fv = fv.slice(-2);
+                    }
+                }
+                // viii. Else if f is "narrow", "short", or "long", then let fv be a String
+                //     value representing f in the desired form; the String value depends upon
+                //     the implementation and the effective locale and calendar of
+                //     dateTimeFormat. If p is "month", then the String value may also depend
+                //     on whether dateTimeFormat has a [[day]] internal property. If p is
+                //     "timeZoneName", then the String value may also depend on the value of
+                //     the [[inDST]] field of tm.
+                else if (f in dateWidths) {
+                        switch (p) {
+                            case 'month':
+                                fv = resolveDateString(localeData, ca, 'months', f, tm['[[' + p + ']]']);
+                                break;
+
+                            case 'weekday':
+                                try {
+                                    fv = resolveDateString(localeData, ca, 'days', f, tm['[[' + p + ']]']);
+                                    // fv = resolveDateString(ca.days, f)[tm['[['+ p +']]']];
+                                } catch (e) {
+                                    throw new Error('Could not find weekday data for locale ' + locale);
+                                }
+                                break;
+
+                            case 'timeZoneName':
+                                fv = ''; // ###TODO
+                                break;
+
+                            case 'era':
+                                try {
+                                    fv = resolveDateString(localeData, ca, 'eras', f, tm['[[' + p + ']]']);
+                                } catch (e) {
+                                    throw new Error('Could not find era data for locale ' + locale);
+                                }
+                                break;
+
+                            default:
+                                fv = tm['[[' + p + ']]'];
+                        }
+                    }
+            // ix
+            arrPush.call(result, {
+                type: p,
+                value: fv
+            });
+            // f.
+        } else if (p === 'ampm') {
+            // i.
+            var _v = tm['[[hour]]'];
+            // ii./iii.
+            fv = resolveDateString(localeData, ca, 'dayPeriods', _v > 11 ? 'pm' : 'am', null);
+            // iv.
+            arrPush.call(result, {
+                type: 'dayPeriod',
+                value: fv
+            });
+            // g.
+        } else {
+            arrPush.call(result, {
+                type: 'literal',
+                value: pattern.substring(beginIndex, endIndex + 1)
+            });
+        }
+        // h.
+        index = endIndex + 1;
+        // i.
+        beginIndex = pattern.indexOf('{', index);
+    }
+    // 12.
+    if (endIndex < pattern.length - 1) {
+        arrPush.call(result, {
+            type: 'literal',
+            value: pattern.substr(endIndex + 1)
+        });
+    }
+    // 13.
+    return result;
+}
+
+/**
+ * When the FormatDateTime abstract operation is called with arguments dateTimeFormat
+ * (which must be an object initialized as a DateTimeFormat) and x (which must be a Number
+ * value), it returns a String value representing x (interpreted as a time value as
+ * specified in ES5, 15.9.1.1) according to the effective locale and the formatting
+ * options of dateTimeFormat.
+ */
+function FormatDateTime(dateTimeFormat, x) {
+    var parts = CreateDateTimeParts(dateTimeFormat, x);
+    var result = '';
+
+    for (var i = 0; parts.length > i; i++) {
+        var part = parts[i];
+        result += part.value;
+    }
+    return result;
+}
+
+function FormatToPartsDateTime(dateTimeFormat, x) {
+    var parts = CreateDateTimeParts(dateTimeFormat, x);
+    var result = [];
+    for (var i = 0; parts.length > i; i++) {
+        var part = parts[i];
+        result.push({
+            type: part.type,
+            value: part.value
+        });
+    }
+    return result;
+}
+
+/**
+ * When the ToLocalTime abstract operation is called with arguments date, calendar, and
+ * timeZone, the following steps are taken:
+ */
+function ToLocalTime(date, calendar, timeZone) {
+    // 1. Apply calendrical calculations on date for the given calendar and time zone to
+    //    produce weekday, era, year, month, day, hour, minute, second, and inDST values.
+    //    The calculations should use best available information about the specified
+    //    calendar and time zone. If the calendar is "gregory", then the calculations must
+    //    match the algorithms specified in ES5, 15.9.1, except that calculations are not
+    //    bound by the restrictions on the use of best available information on time zones
+    //    for local time zone adjustment and daylight saving time adjustment imposed by
+    //    ES5, 15.9.1.7 and 15.9.1.8.
+    // ###TODO###
+    var d = new Date(date),
+        m = 'get' + (timeZone || '');
+
+    // 2. Return a Record with fields [[weekday]], [[era]], [[year]], [[month]], [[day]],
+    //    [[hour]], [[minute]], [[second]], and [[inDST]], each with the corresponding
+    //    calculated value.
+    return new Record({
+        '[[weekday]]': d[m + 'Day'](),
+        '[[era]]': +(d[m + 'FullYear']() >= 0),
+        '[[year]]': d[m + 'FullYear'](),
+        '[[month]]': d[m + 'Month'](),
+        '[[day]]': d[m + 'Date'](),
+        '[[hour]]': d[m + 'Hours'](),
+        '[[minute]]': d[m + 'Minutes'](),
+        '[[second]]': d[m + 'Seconds'](),
+        '[[inDST]]': false // ###TODO###
+    });
+}
+
+/**
+ * The function returns a new object whose properties and attributes are set as if
+ * constructed by an object literal assigning to each of the following properties the
+ * value of the corresponding internal property of this DateTimeFormat object (see 12.4):
+ * locale, calendar, numberingSystem, timeZone, hour12, weekday, era, year, month, day,
+ * hour, minute, second, and timeZoneName. Properties whose corresponding internal
+ * properties are not present are not assigned.
+ */
+/* 12.3.3 */defineProperty(Intl.DateTimeFormat.prototype, 'resolvedOptions', {
+    writable: true,
+    configurable: true,
+    value: function value() {
+        var prop = void 0,
+            descs = new Record(),
+            props = ['locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday', 'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName'],
+            internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
+
+        // Satisfy test 12.3_b
+        if (!internal || !internal['[[initializedDateTimeFormat]]']) throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.DateTimeFormat object.');
+
+        for (var i = 0, max = props.length; i < max; i++) {
+            if (hop.call(internal, prop = '[[' + props[i] + ']]')) descs[props[i]] = { value: internal[prop], writable: true, configurable: true, enumerable: true };
+        }
+
+        return objCreate({}, descs);
+    }
+});
+
+var ls = Intl.__localeSensitiveProtos = {
+    Number: {},
+    Date: {}
+};
+
+/**
+ * When the toLocaleString method is called with optional arguments locales and options,
+ * the following steps are taken:
+ */
+/* 13.2.1 */ls.Number.toLocaleString = function () {
+    // Satisfy test 13.2.1_1
+    if (Object.prototype.toString.call(this) !== '[object Number]') throw new TypeError('`this` value must be a number for Number.prototype.toLocaleString()');
+
+    // 1. Let x be this Number value (as defined in ES5, 15.7.4).
+    // 2. If locales is not provided, then let locales be undefined.
+    // 3. If options is not provided, then let options be undefined.
+    // 4. Let numberFormat be the result of creating a new object as if by the
+    //    expression new Intl.NumberFormat(locales, options) where
+    //    Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
+    // 5. Return the result of calling the FormatNumber abstract operation
+    //    (defined in 11.3.2) with arguments numberFormat and x.
+    return FormatNumber(new NumberFormatConstructor(arguments[0], arguments[1]), this);
+};
+
+/**
+ * When the toLocaleString method is called with optional arguments locales and options,
+ * the following steps are taken:
+ */
+/* 13.3.1 */ls.Date.toLocaleString = function () {
+    // Satisfy test 13.3.0_1
+    if (Object.prototype.toString.call(this) !== '[object Date]') throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleString()');
+
+    // 1. Let x be this time value (as defined in ES5, 15.9.5).
+    var x = +this;
+
+    // 2. If x is NaN, then return "Invalid Date".
+    if (isNaN(x)) return 'Invalid Date';
+
+    // 3. If locales is not provided, then let locales be undefined.
+    var locales = arguments[0];
+
+    // 4. If options is not provided, then let options be undefined.
+    var options = arguments[1];
+
+    // 5. Let options be the result of calling the ToDateTimeOptions abstract
+    //    operation (defined in 12.1.1) with arguments options, "any", and "all".
+    options = ToDateTimeOptions(options, 'any', 'all');
+
+    // 6. Let dateTimeFormat be the result of creating a new object as if by the
+    //    expression new Intl.DateTimeFormat(locales, options) where
+    //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+    var dateTimeFormat = new DateTimeFormatConstructor(locales, options);
+
+    // 7. Return the result of calling the FormatDateTime abstract operation (defined
+    //    in 12.3.2) with arguments dateTimeFormat and x.
+    return FormatDateTime(dateTimeFormat, x);
+};
+
+/**
+ * When the toLocaleDateString method is called with optional arguments locales and
+ * options, the following steps are taken:
+ */
+/* 13.3.2 */ls.Date.toLocaleDateString = function () {
+    // Satisfy test 13.3.0_1
+    if (Object.prototype.toString.call(this) !== '[object Date]') throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleDateString()');
+
+    // 1. Let x be this time value (as defined in ES5, 15.9.5).
+    var x = +this;
+
+    // 2. If x is NaN, then return "Invalid Date".
+    if (isNaN(x)) return 'Invalid Date';
+
+    // 3. If locales is not provided, then let locales be undefined.
+    var locales = arguments[0],
+
+
+    // 4. If options is not provided, then let options be undefined.
+    options = arguments[1];
+
+    // 5. Let options be the result of calling the ToDateTimeOptions abstract
+    //    operation (defined in 12.1.1) with arguments options, "date", and "date".
+    options = ToDateTimeOptions(options, 'date', 'date');
+
+    // 6. Let dateTimeFormat be the result of creating a new object as if by the
+    //    expression new Intl.DateTimeFormat(locales, options) where
+    //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+    var dateTimeFormat = new DateTimeFormatConstructor(locales, options);
+
+    // 7. Return the result of calling the FormatDateTime abstract operation (defined
+    //    in 12.3.2) with arguments dateTimeFormat and x.
+    return FormatDateTime(dateTimeFormat, x);
+};
+
+/**
+ * When the toLocaleTimeString method is called with optional arguments locales and
+ * options, the following steps are taken:
+ */
+/* 13.3.3 */ls.Date.toLocaleTimeString = function () {
+    // Satisfy test 13.3.0_1
+    if (Object.prototype.toString.call(this) !== '[object Date]') throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleTimeString()');
+
+    // 1. Let x be this time value (as defined in ES5, 15.9.5).
+    var x = +this;
+
+    // 2. If x is NaN, then return "Invalid Date".
+    if (isNaN(x)) return 'Invalid Date';
+
+    // 3. If locales is not provided, then let locales be undefined.
+    var locales = arguments[0];
+
+    // 4. If options is not provided, then let options be undefined.
+    var options = arguments[1];
+
+    // 5. Let options be the result of calling the ToDateTimeOptions abstract
+    //    operation (defined in 12.1.1) with arguments options, "time", and "time".
+    options = ToDateTimeOptions(options, 'time', 'time');
+
+    // 6. Let dateTimeFormat be the result of creating a new object as if by the
+    //    expression new Intl.DateTimeFormat(locales, options) where
+    //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+    var dateTimeFormat = new DateTimeFormatConstructor(locales, options);
+
+    // 7. Return the result of calling the FormatDateTime abstract operation (defined
+    //    in 12.3.2) with arguments dateTimeFormat and x.
+    return FormatDateTime(dateTimeFormat, x);
+};
+
+defineProperty(Intl, '__applyLocaleSensitivePrototypes', {
+    writable: true,
+    configurable: true,
+    value: function value() {
+        defineProperty(Number.prototype, 'toLocaleString', { writable: true, configurable: true, value: ls.Number.toLocaleString });
+        // Need this here for IE 8, to avoid the _DontEnum_ bug
+        defineProperty(Date.prototype, 'toLocaleString', { writable: true, configurable: true, value: ls.Date.toLocaleString });
+
+        for (var k in ls.Date) {
+            if (hop.call(ls.Date, k)) defineProperty(Date.prototype, k, { writable: true, configurable: true, value: ls.Date[k] });
+        }
+    }
+});
+
+/**
+ * Can't really ship a single script with data for hundreds of locales, so we provide
+ * this __addLocaleData method as a means for the developer to add the data on an
+ * as-needed basis
+ */
+defineProperty(Intl, '__addLocaleData', {
+    value: function value(data) {
+        if (!IsStructurallyValidLanguageTag(data.locale)) throw new Error("Object passed doesn't identify itself with a valid language tag");
+
+        addLocaleData(data, data.locale);
+    }
+});
+
+function addLocaleData(data, tag) {
+    // Both NumberFormat and DateTimeFormat require number data, so throw if it isn't present
+    if (!data.number) throw new Error("Object passed doesn't contain locale data for Intl.NumberFormat");
+
+    var locale = void 0,
+        locales = [tag],
+        parts = tag.split('-');
+
+    // Create fallbacks for locale data with scripts, e.g. Latn, Hans, Vaii, etc
+    if (parts.length > 2 && parts[1].length === 4) arrPush.call(locales, parts[0] + '-' + parts[2]);
+
+    while (locale = arrShift.call(locales)) {
+        // Add to NumberFormat internal properties as per 11.2.3
+        arrPush.call(internals.NumberFormat['[[availableLocales]]'], locale);
+        internals.NumberFormat['[[localeData]]'][locale] = data.number;
+
+        // ...and DateTimeFormat internal properties as per 12.2.3
+        if (data.date) {
+            data.date.nu = data.number.nu;
+            arrPush.call(internals.DateTimeFormat['[[availableLocales]]'], locale);
+            internals.DateTimeFormat['[[localeData]]'][locale] = data.date;
+        }
+    }
+
+    // If this is the first set of locale data added, make it the default
+    if (defaultLocale === undefined) setDefaultLocale(tag);
+}
+
+defineProperty(Intl, '__disableRegExpRestore', {
+    value: function value() {
+        internals.disableRegExpRestore = true;
+    }
+});
+
+module.exports = Intl;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(79)))
+
+/***/ }),
+/* 213 */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+/* 214 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(215);
+__webpack_require__(418);
+__webpack_require__(575);
 var path = __webpack_require__(38);
 
 module.exports = path;
 
 
 /***/ }),
-/* 213 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(214);
-__webpack_require__(215);
 __webpack_require__(216);
 __webpack_require__(217);
 __webpack_require__(218);
@@ -7995,16 +12017,16 @@ __webpack_require__(246);
 __webpack_require__(247);
 __webpack_require__(248);
 __webpack_require__(249);
+__webpack_require__(250);
 __webpack_require__(251);
-__webpack_require__(252);
 __webpack_require__(253);
 __webpack_require__(254);
 __webpack_require__(255);
 __webpack_require__(256);
 __webpack_require__(257);
-__webpack_require__(147);
 __webpack_require__(258);
 __webpack_require__(259);
+__webpack_require__(147);
 __webpack_require__(260);
 __webpack_require__(261);
 __webpack_require__(262);
@@ -8031,16 +12053,16 @@ __webpack_require__(282);
 __webpack_require__(283);
 __webpack_require__(284);
 __webpack_require__(285);
-__webpack_require__(86);
 __webpack_require__(286);
 __webpack_require__(287);
+__webpack_require__(87);
 __webpack_require__(288);
 __webpack_require__(289);
 __webpack_require__(290);
 __webpack_require__(291);
-__webpack_require__(153);
 __webpack_require__(292);
 __webpack_require__(293);
+__webpack_require__(153);
 __webpack_require__(294);
 __webpack_require__(295);
 __webpack_require__(296);
@@ -8049,9 +12071,9 @@ __webpack_require__(298);
 __webpack_require__(299);
 __webpack_require__(300);
 __webpack_require__(301);
-__webpack_require__(155);
 __webpack_require__(302);
 __webpack_require__(303);
+__webpack_require__(155);
 __webpack_require__(304);
 __webpack_require__(305);
 __webpack_require__(306);
@@ -8064,9 +12086,9 @@ __webpack_require__(312);
 __webpack_require__(313);
 __webpack_require__(314);
 __webpack_require__(315);
-__webpack_require__(120);
 __webpack_require__(316);
 __webpack_require__(317);
+__webpack_require__(120);
 __webpack_require__(318);
 __webpack_require__(319);
 __webpack_require__(320);
@@ -8104,20 +12126,20 @@ __webpack_require__(351);
 __webpack_require__(352);
 __webpack_require__(353);
 __webpack_require__(354);
+__webpack_require__(355);
 __webpack_require__(356);
-__webpack_require__(357);
+__webpack_require__(358);
 __webpack_require__(359);
-__webpack_require__(360);
 __webpack_require__(361);
-__webpack_require__(167);
 __webpack_require__(362);
+__webpack_require__(363);
+__webpack_require__(167);
+__webpack_require__(364);
 __webpack_require__(127);
 __webpack_require__(169);
 __webpack_require__(128);
-__webpack_require__(363);
-__webpack_require__(364);
+__webpack_require__(365);
 __webpack_require__(366);
-__webpack_require__(367);
 __webpack_require__(368);
 __webpack_require__(369);
 __webpack_require__(370);
@@ -8166,13 +12188,15 @@ __webpack_require__(412);
 __webpack_require__(413);
 __webpack_require__(414);
 __webpack_require__(415);
+__webpack_require__(416);
+__webpack_require__(417);
 var path = __webpack_require__(38);
 
 module.exports = path;
 
 
 /***/ }),
-/* 214 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8200,11 +12224,11 @@ var getOwnPropertyNamesExternal = __webpack_require__(140);
 var getOwnPropertySymbolsModule = __webpack_require__(108);
 var getOwnPropertyDescriptorModule = __webpack_require__(25);
 var definePropertyModule = __webpack_require__(13);
-var propertyIsEnumerableModule = __webpack_require__(79);
+var propertyIsEnumerableModule = __webpack_require__(80);
 var createNonEnumerableProperty = __webpack_require__(18);
 var redefine = __webpack_require__(26);
-var shared = __webpack_require__(81);
-var sharedKey = __webpack_require__(80);
+var shared = __webpack_require__(82);
+var sharedKey = __webpack_require__(81);
 var hiddenKeys = __webpack_require__(65);
 var uid = __webpack_require__(64);
 var wellKnownSymbol = __webpack_require__(9);
@@ -8490,7 +12514,7 @@ hiddenKeys[HIDDEN] = true;
 
 
 /***/ }),
-/* 215 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8501,7 +12525,7 @@ defineWellKnownSymbol('asyncIterator');
 
 
 /***/ }),
-/* 216 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8558,7 +12582,7 @@ if (DESCRIPTORS && typeof NativeSymbol == 'function' && (!('description' in Nati
 
 
 /***/ }),
-/* 217 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8569,7 +12593,7 @@ defineWellKnownSymbol('hasInstance');
 
 
 /***/ }),
-/* 218 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8580,7 +12604,7 @@ defineWellKnownSymbol('isConcatSpreadable');
 
 
 /***/ }),
-/* 219 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8591,7 +12615,7 @@ defineWellKnownSymbol('iterator');
 
 
 /***/ }),
-/* 220 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8602,7 +12626,7 @@ defineWellKnownSymbol('match');
 
 
 /***/ }),
-/* 221 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8612,7 +12636,7 @@ defineWellKnownSymbol('matchAll');
 
 
 /***/ }),
-/* 222 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8623,7 +12647,7 @@ defineWellKnownSymbol('replace');
 
 
 /***/ }),
-/* 223 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8634,7 +12658,7 @@ defineWellKnownSymbol('search');
 
 
 /***/ }),
-/* 224 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8645,7 +12669,7 @@ defineWellKnownSymbol('species');
 
 
 /***/ }),
-/* 225 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8656,7 +12680,7 @@ defineWellKnownSymbol('split');
 
 
 /***/ }),
-/* 226 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8667,7 +12691,7 @@ defineWellKnownSymbol('toPrimitive');
 
 
 /***/ }),
-/* 227 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8678,7 +12702,7 @@ defineWellKnownSymbol('toStringTag');
 
 
 /***/ }),
-/* 228 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -8689,7 +12713,7 @@ defineWellKnownSymbol('unscopables');
 
 
 /***/ }),
-/* 229 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8703,7 +12727,7 @@ $({ target: 'Object', stat: true, forced: Object.assign !== assign }, {
 
 
 /***/ }),
-/* 230 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8718,7 +12742,7 @@ $({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
 
 
 /***/ }),
-/* 231 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8733,7 +12757,7 @@ $({ target: 'Object', stat: true, forced: !DESCRIPTORS, sham: !DESCRIPTORS }, {
 
 
 /***/ }),
-/* 232 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8748,7 +12772,7 @@ $({ target: 'Object', stat: true, forced: !DESCRIPTORS, sham: !DESCRIPTORS }, {
 
 
 /***/ }),
-/* 233 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8764,7 +12788,7 @@ $({ target: 'Object', stat: true }, {
 
 
 /***/ }),
-/* 234 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8786,7 +12810,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !FREEZING }
 
 
 /***/ }),
-/* 235 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8807,7 +12831,7 @@ $({ target: 'Object', stat: true }, {
 
 
 /***/ }),
-/* 236 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8829,7 +12853,7 @@ $({ target: 'Object', stat: true, forced: FORCED, sham: !DESCRIPTORS }, {
 
 
 /***/ }),
-/* 237 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8859,7 +12883,7 @@ $({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
 
 
 /***/ }),
-/* 238 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8876,7 +12900,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
 
 
 /***/ }),
-/* 239 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8898,7 +12922,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !CORRECT_PR
 
 
 /***/ }),
-/* 240 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8912,7 +12936,7 @@ $({ target: 'Object', stat: true }, {
 
 
 /***/ }),
-/* 241 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8932,7 +12956,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
 
 
 /***/ }),
-/* 242 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8952,7 +12976,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
 
 
 /***/ }),
-/* 243 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8972,7 +12996,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
 
 
 /***/ }),
-/* 244 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -8992,7 +13016,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
 
 
 /***/ }),
-/* 245 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9014,7 +13038,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !FREEZING }
 
 
 /***/ }),
-/* 246 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9036,7 +13060,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !FREEZING }
 
 
 /***/ }),
-/* 247 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9050,7 +13074,7 @@ $({ target: 'Object', stat: true }, {
 
 
 /***/ }),
-/* 248 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9066,12 +13090,12 @@ $({ target: 'Object', stat: true }, {
 
 
 /***/ }),
-/* 249 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var TO_STRING_TAG_SUPPORT = __webpack_require__(112);
 var redefine = __webpack_require__(26);
-var toString = __webpack_require__(250);
+var toString = __webpack_require__(252);
 
 // `Object.prototype.toString` method
 // https://tc39.github.io/ecma262/#sec-object.prototype.tostring
@@ -9081,7 +13105,7 @@ if (!TO_STRING_TAG_SUPPORT) {
 
 
 /***/ }),
-/* 250 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9097,14 +13121,14 @@ module.exports = TO_STRING_TAG_SUPPORT ? {}.toString : function toString() {
 
 
 /***/ }),
-/* 251 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(10);
-var FORCED = __webpack_require__(82);
+var FORCED = __webpack_require__(83);
 var toObject = __webpack_require__(16);
 var aFunction = __webpack_require__(4);
 var definePropertyModule = __webpack_require__(13);
@@ -9121,14 +13145,14 @@ if (DESCRIPTORS) {
 
 
 /***/ }),
-/* 252 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(10);
-var FORCED = __webpack_require__(82);
+var FORCED = __webpack_require__(83);
 var toObject = __webpack_require__(16);
 var aFunction = __webpack_require__(4);
 var definePropertyModule = __webpack_require__(13);
@@ -9145,14 +13169,14 @@ if (DESCRIPTORS) {
 
 
 /***/ }),
-/* 253 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(10);
-var FORCED = __webpack_require__(82);
+var FORCED = __webpack_require__(83);
 var toObject = __webpack_require__(16);
 var toPrimitive = __webpack_require__(35);
 var getPrototypeOf = __webpack_require__(27);
@@ -9175,14 +13199,14 @@ if (DESCRIPTORS) {
 
 
 /***/ }),
-/* 254 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(10);
-var FORCED = __webpack_require__(82);
+var FORCED = __webpack_require__(83);
 var toObject = __webpack_require__(16);
 var toPrimitive = __webpack_require__(35);
 var getPrototypeOf = __webpack_require__(27);
@@ -9205,7 +13229,7 @@ if (DESCRIPTORS) {
 
 
 /***/ }),
-/* 255 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9219,7 +13243,7 @@ $({ target: 'Function', proto: true }, {
 
 
 /***/ }),
-/* 256 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var DESCRIPTORS = __webpack_require__(10);
@@ -9247,7 +13271,7 @@ if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
 
 
 /***/ }),
-/* 257 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9274,12 +13298,12 @@ if (!(HAS_INSTANCE in FunctionPrototype)) {
 
 
 /***/ }),
-/* 258 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
 var from = __webpack_require__(148);
-var checkCorrectnessOfIteration = __webpack_require__(83);
+var checkCorrectnessOfIteration = __webpack_require__(84);
 
 var INCORRECT_ITERATION = !checkCorrectnessOfIteration(function (iterable) {
   Array.from(iterable);
@@ -9293,7 +13317,7 @@ $({ target: 'Array', stat: true, forced: INCORRECT_ITERATION }, {
 
 
 /***/ }),
-/* 259 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9307,7 +13331,7 @@ $({ target: 'Array', stat: true }, {
 
 
 /***/ }),
-/* 260 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9337,7 +13361,7 @@ $({ target: 'Array', stat: true, forced: ISNT_GENERIC }, {
 
 
 /***/ }),
-/* 261 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9404,7 +13428,7 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 262 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9422,7 +13446,7 @@ addToUnscopables('copyWithin');
 
 
 /***/ }),
-/* 263 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9445,7 +13469,7 @@ $({ target: 'Array', proto: true, forced: !STRICT_METHOD || !USES_TO_LENGTH }, {
 
 
 /***/ }),
-/* 264 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9463,7 +13487,7 @@ addToUnscopables('fill');
 
 
 /***/ }),
-/* 265 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9488,7 +13512,7 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGT
 
 
 /***/ }),
-/* 266 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9519,7 +13543,7 @@ addToUnscopables(FIND);
 
 
 /***/ }),
-/* 267 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9550,7 +13574,7 @@ addToUnscopables(FIND_INDEX);
 
 
 /***/ }),
-/* 268 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9577,7 +13601,7 @@ $({ target: 'Array', proto: true }, {
 
 
 /***/ }),
-/* 269 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9605,7 +13629,7 @@ $({ target: 'Array', proto: true }, {
 
 
 /***/ }),
-/* 270 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9621,7 +13645,7 @@ $({ target: 'Array', proto: true, forced: [].forEach != forEach }, {
 
 
 /***/ }),
-/* 271 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9646,7 +13670,7 @@ addToUnscopables('includes');
 
 
 /***/ }),
-/* 272 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9675,7 +13699,7 @@ $({ target: 'Array', proto: true, forced: NEGATIVE_ZERO || !STRICT_METHOD || !US
 
 
 /***/ }),
-/* 273 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9700,7 +13724,7 @@ $({ target: 'Array', proto: true, forced: ES3_STRINGS || !STRICT_METHOD }, {
 
 
 /***/ }),
-/* 274 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -9714,7 +13738,7 @@ $({ target: 'Array', proto: true, forced: lastIndexOf !== [].lastIndexOf }, {
 
 
 /***/ }),
-/* 275 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9739,13 +13763,13 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGT
 
 
 /***/ }),
-/* 276 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
-var $reduce = __webpack_require__(85).left;
+var $reduce = __webpack_require__(86).left;
 var arrayMethodIsStrict = __webpack_require__(43);
 var arrayMethodUsesToLength = __webpack_require__(29);
 
@@ -9762,13 +13786,13 @@ $({ target: 'Array', proto: true, forced: !STRICT_METHOD || !USES_TO_LENGTH }, {
 
 
 /***/ }),
-/* 277 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
-var $reduceRight = __webpack_require__(85).right;
+var $reduceRight = __webpack_require__(86).right;
 var arrayMethodIsStrict = __webpack_require__(43);
 var arrayMethodUsesToLength = __webpack_require__(29);
 
@@ -9786,7 +13810,7 @@ $({ target: 'Array', proto: true, forced: !STRICT_METHOD || !USES_TO_LENGTH }, {
 
 
 /***/ }),
-/* 278 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9811,7 +13835,7 @@ $({ target: 'Array', proto: true, forced: String(test) === String(test.reverse()
 
 
 /***/ }),
-/* 279 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9867,7 +13891,7 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGT
 
 
 /***/ }),
-/* 280 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9890,7 +13914,7 @@ $({ target: 'Array', proto: true, forced: !STRICT_METHOD || !USES_TO_LENGTH }, {
 
 
 /***/ }),
-/* 281 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9929,7 +13953,7 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 282 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10006,7 +14030,7 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGT
 
 
 /***/ }),
-/* 283 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var setSpecies = __webpack_require__(54);
@@ -10017,7 +14041,7 @@ setSpecies('Array');
 
 
 /***/ }),
-/* 284 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // this method was added to unscopables after implementation
@@ -10028,7 +14052,7 @@ addToUnscopables('flat');
 
 
 /***/ }),
-/* 285 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // this method was added to unscopables after implementation
@@ -10039,7 +14063,7 @@ addToUnscopables('flatMap');
 
 
 /***/ }),
-/* 286 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -10072,7 +14096,7 @@ $({ target: 'String', stat: true, forced: INCORRECT_LENGTH }, {
 
 
 /***/ }),
-/* 287 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -10097,7 +14121,7 @@ $({ target: 'String', stat: true }, {
 
 
 /***/ }),
-/* 288 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10115,7 +14139,7 @@ $({ target: 'String', proto: true }, {
 
 
 /***/ }),
-/* 289 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10156,7 +14180,7 @@ $({ target: 'String', proto: true, forced: !MDN_POLYFILL_BUG && !CORRECT_IS_REGE
 
 
 /***/ }),
-/* 290 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10177,17 +14201,17 @@ $({ target: 'String', proto: true, forced: !correctIsRegExpLogic('includes') }, 
 
 
 /***/ }),
-/* 291 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var fixRegExpWellKnownSymbolLogic = __webpack_require__(87);
+var fixRegExpWellKnownSymbolLogic = __webpack_require__(88);
 var anObject = __webpack_require__(1);
 var toLength = __webpack_require__(12);
 var requireObjectCoercible = __webpack_require__(23);
-var advanceStringIndex = __webpack_require__(90);
-var regExpExec = __webpack_require__(91);
+var advanceStringIndex = __webpack_require__(91);
+var regExpExec = __webpack_require__(92);
 
 // @@match logic
 fixRegExpWellKnownSymbolLogic('match', 1, function (MATCH, nativeMatch, maybeCallNative) {
@@ -10228,7 +14252,7 @@ fixRegExpWellKnownSymbolLogic('match', 1, function (MATCH, nativeMatch, maybeCal
 
 
 /***/ }),
-/* 292 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10247,7 +14271,7 @@ $({ target: 'String', proto: true, forced: WEBKIT_BUG }, {
 
 
 /***/ }),
-/* 293 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10266,7 +14290,7 @@ $({ target: 'String', proto: true, forced: WEBKIT_BUG }, {
 
 
 /***/ }),
-/* 294 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -10280,19 +14304,19 @@ $({ target: 'String', proto: true }, {
 
 
 /***/ }),
-/* 295 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var fixRegExpWellKnownSymbolLogic = __webpack_require__(87);
+var fixRegExpWellKnownSymbolLogic = __webpack_require__(88);
 var anObject = __webpack_require__(1);
 var toObject = __webpack_require__(16);
 var toLength = __webpack_require__(12);
 var toInteger = __webpack_require__(31);
 var requireObjectCoercible = __webpack_require__(23);
-var advanceStringIndex = __webpack_require__(90);
-var regExpExec = __webpack_require__(91);
+var advanceStringIndex = __webpack_require__(91);
+var regExpExec = __webpack_require__(92);
 
 var max = Math.max;
 var min = Math.min;
@@ -10422,16 +14446,16 @@ fixRegExpWellKnownSymbolLogic('replace', 2, function (REPLACE, nativeReplace, ma
 
 
 /***/ }),
-/* 296 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var fixRegExpWellKnownSymbolLogic = __webpack_require__(87);
+var fixRegExpWellKnownSymbolLogic = __webpack_require__(88);
 var anObject = __webpack_require__(1);
 var requireObjectCoercible = __webpack_require__(23);
 var sameValue = __webpack_require__(144);
-var regExpExec = __webpack_require__(91);
+var regExpExec = __webpack_require__(92);
 
 // @@search logic
 fixRegExpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybeCallNative) {
@@ -10463,20 +14487,20 @@ fixRegExpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybe
 
 
 /***/ }),
-/* 297 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var fixRegExpWellKnownSymbolLogic = __webpack_require__(87);
+var fixRegExpWellKnownSymbolLogic = __webpack_require__(88);
 var isRegExp = __webpack_require__(74);
 var anObject = __webpack_require__(1);
 var requireObjectCoercible = __webpack_require__(23);
 var speciesConstructor = __webpack_require__(22);
-var advanceStringIndex = __webpack_require__(90);
+var advanceStringIndex = __webpack_require__(91);
 var toLength = __webpack_require__(12);
-var callRegExpExec = __webpack_require__(91);
-var regexpExec = __webpack_require__(88);
+var callRegExpExec = __webpack_require__(92);
+var regexpExec = __webpack_require__(89);
 var fails = __webpack_require__(3);
 
 var arrayPush = [].push;
@@ -10604,7 +14628,7 @@ fixRegExpWellKnownSymbolLogic('split', 2, function (SPLIT, nativeSplit, maybeCal
 
 
 /***/ }),
-/* 298 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10643,7 +14667,7 @@ $({ target: 'String', proto: true, forced: !MDN_POLYFILL_BUG && !CORRECT_IS_REGE
 
 
 /***/ }),
-/* 299 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10662,7 +14686,7 @@ $({ target: 'String', proto: true, forced: forcedStringTrimMethod('trim') }, {
 
 
 /***/ }),
-/* 300 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10686,7 +14710,7 @@ $({ target: 'String', proto: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 301 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10710,7 +14734,7 @@ $({ target: 'String', proto: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 302 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10729,7 +14753,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('anchor') }, {
 
 
 /***/ }),
-/* 303 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10748,7 +14772,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('big') }, {
 
 
 /***/ }),
-/* 304 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10767,7 +14791,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('blink') }, {
 
 
 /***/ }),
-/* 305 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10786,7 +14810,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('bold') }, {
 
 
 /***/ }),
-/* 306 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10805,7 +14829,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('fixed') }, {
 
 
 /***/ }),
-/* 307 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10824,7 +14848,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('fontcolor') }
 
 
 /***/ }),
-/* 308 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10843,7 +14867,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('fontsize') },
 
 
 /***/ }),
-/* 309 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10862,7 +14886,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('italics') }, 
 
 
 /***/ }),
-/* 310 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10881,7 +14905,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('link') }, {
 
 
 /***/ }),
-/* 311 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10900,7 +14924,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('small') }, {
 
 
 /***/ }),
-/* 312 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10919,7 +14943,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('strike') }, {
 
 
 /***/ }),
-/* 313 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10938,7 +14962,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('sub') }, {
 
 
 /***/ }),
-/* 314 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10957,18 +14981,18 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('sup') }, {
 
 
 /***/ }),
-/* 315 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var DESCRIPTORS = __webpack_require__(10);
 var global = __webpack_require__(7);
 var isForced = __webpack_require__(67);
-var inheritIfRequired = __webpack_require__(93);
+var inheritIfRequired = __webpack_require__(94);
 var defineProperty = __webpack_require__(13).f;
 var getOwnPropertyNames = __webpack_require__(51).f;
 var isRegExp = __webpack_require__(74);
 var getFlags = __webpack_require__(61);
-var stickyHelpers = __webpack_require__(89);
+var stickyHelpers = __webpack_require__(90);
 var redefine = __webpack_require__(26);
 var fails = __webpack_require__(3);
 var setInternalState = __webpack_require__(19).set;
@@ -11047,13 +15071,13 @@ setSpecies('RegExp');
 
 
 /***/ }),
-/* 316 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var DESCRIPTORS = __webpack_require__(10);
 var objectDefinePropertyModule = __webpack_require__(13);
 var regExpFlags = __webpack_require__(61);
-var UNSUPPORTED_Y = __webpack_require__(89).UNSUPPORTED_Y;
+var UNSUPPORTED_Y = __webpack_require__(90).UNSUPPORTED_Y;
 
 // `RegExp.prototype.flags` getter
 // https://tc39.github.io/ecma262/#sec-get-regexp.prototype.flags
@@ -11066,11 +15090,11 @@ if (DESCRIPTORS && (/./g.flags != 'g' || UNSUPPORTED_Y)) {
 
 
 /***/ }),
-/* 317 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var DESCRIPTORS = __webpack_require__(10);
-var UNSUPPORTED_Y = __webpack_require__(89).UNSUPPORTED_Y;
+var UNSUPPORTED_Y = __webpack_require__(90).UNSUPPORTED_Y;
 var defineProperty = __webpack_require__(13).f;
 var getInternalState = __webpack_require__(19).get;
 var RegExpPrototype = RegExp.prototype;
@@ -11093,7 +15117,7 @@ if (DESCRIPTORS && UNSUPPORTED_Y) {
 
 
 /***/ }),
-/* 318 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11130,7 +15154,7 @@ $({ target: 'RegExp', proto: true, forced: !DELEGATES_TO_EXEC }, {
 
 
 /***/ }),
-/* 319 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11162,7 +15186,7 @@ if (NOT_GENERIC || INCORRECT_NAME) {
 
 
 /***/ }),
-/* 320 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11176,7 +15200,7 @@ $({ global: true, forced: parseInt != parseIntImplementation }, {
 
 
 /***/ }),
-/* 321 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11190,7 +15214,7 @@ $({ global: true, forced: parseFloat != parseFloatImplementation }, {
 
 
 /***/ }),
-/* 322 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11201,7 +15225,7 @@ var isForced = __webpack_require__(67);
 var redefine = __webpack_require__(26);
 var has = __webpack_require__(17);
 var classof = __webpack_require__(34);
-var inheritIfRequired = __webpack_require__(93);
+var inheritIfRequired = __webpack_require__(94);
 var toPrimitive = __webpack_require__(35);
 var fails = __webpack_require__(3);
 var create = __webpack_require__(28);
@@ -11275,7 +15299,7 @@ if (isForced(NUMBER, !NativeNumber(' 0o1') || !NativeNumber('0b1') || NativeNumb
 
 
 /***/ }),
-/* 323 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11288,7 +15312,7 @@ $({ target: 'Number', stat: true }, {
 
 
 /***/ }),
-/* 324 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11300,7 +15324,7 @@ $({ target: 'Number', stat: true }, { isFinite: numberIsFinite });
 
 
 /***/ }),
-/* 325 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11314,7 +15338,7 @@ $({ target: 'Number', stat: true }, {
 
 
 /***/ }),
-/* 326 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11330,7 +15354,7 @@ $({ target: 'Number', stat: true }, {
 
 
 /***/ }),
-/* 327 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11348,7 +15372,7 @@ $({ target: 'Number', stat: true }, {
 
 
 /***/ }),
-/* 328 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11361,7 +15385,7 @@ $({ target: 'Number', stat: true }, {
 
 
 /***/ }),
-/* 329 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11374,7 +15398,7 @@ $({ target: 'Number', stat: true }, {
 
 
 /***/ }),
-/* 330 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11388,7 +15412,7 @@ $({ target: 'Number', stat: true, forced: Number.parseFloat != parseFloat }, {
 
 
 /***/ }),
-/* 331 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11402,7 +15426,7 @@ $({ target: 'Number', stat: true, forced: Number.parseInt != parseInt }, {
 
 
 /***/ }),
-/* 332 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11535,7 +15559,7 @@ $({ target: 'Number', proto: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 333 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11566,7 +15590,7 @@ $({ target: 'Number', proto: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 334 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11595,7 +15619,7 @@ $({ target: 'Math', stat: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 335 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11617,7 +15641,7 @@ $({ target: 'Math', stat: true, forced: !(nativeAsinh && 1 / nativeAsinh(0) > 0)
 
 
 /***/ }),
-/* 336 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11636,7 +15660,7 @@ $({ target: 'Math', stat: true, forced: !(nativeAtanh && 1 / nativeAtanh(-0) < 0
 
 
 /***/ }),
-/* 337 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11655,7 +15679,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 338 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11674,11 +15698,11 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 339 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var expm1 = __webpack_require__(94);
+var expm1 = __webpack_require__(95);
 
 var nativeCosh = Math.cosh;
 var abs = Math.abs;
@@ -11695,11 +15719,11 @@ $({ target: 'Math', stat: true, forced: !nativeCosh || nativeCosh(710) === Infin
 
 
 /***/ }),
-/* 340 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var expm1 = __webpack_require__(94);
+var expm1 = __webpack_require__(95);
 
 // `Math.expm1` method
 // https://tc39.github.io/ecma262/#sec-math.expm1
@@ -11707,7 +15731,7 @@ $({ target: 'Math', stat: true, forced: expm1 != Math.expm1 }, { expm1: expm1 })
 
 
 /***/ }),
-/* 341 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11719,7 +15743,7 @@ $({ target: 'Math', stat: true }, { fround: fround });
 
 
 /***/ }),
-/* 342 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11758,7 +15782,7 @@ $({ target: 'Math', stat: true, forced: BUGGY }, {
 
 
 /***/ }),
-/* 343 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11786,7 +15810,7 @@ $({ target: 'Math', stat: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 344 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11804,7 +15828,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 345 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11816,7 +15840,7 @@ $({ target: 'Math', stat: true }, { log1p: log1p });
 
 
 /***/ }),
-/* 346 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11834,7 +15858,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 347 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11848,12 +15872,12 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 348 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
 var fails = __webpack_require__(3);
-var expm1 = __webpack_require__(94);
+var expm1 = __webpack_require__(95);
 
 var abs = Math.abs;
 var exp = Math.exp;
@@ -11874,11 +15898,11 @@ $({ target: 'Math', stat: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 349 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var expm1 = __webpack_require__(94);
+var expm1 = __webpack_require__(95);
 
 var exp = Math.exp;
 
@@ -11894,7 +15918,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 350 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var setToStringTag = __webpack_require__(39);
@@ -11905,7 +15929,7 @@ setToStringTag(Math, 'Math', true);
 
 
 /***/ }),
-/* 351 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11923,7 +15947,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 352 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -11938,7 +15962,7 @@ $({ target: 'Date', stat: true }, {
 
 
 /***/ }),
-/* 353 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11966,11 +15990,11 @@ $({ target: 'Date', proto: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 354 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var toISOString = __webpack_require__(355);
+var toISOString = __webpack_require__(357);
 
 // `Date.prototype.toISOString` method
 // https://tc39.github.io/ecma262/#sec-date.prototype.toisostring
@@ -11981,7 +16005,7 @@ $({ target: 'Date', proto: true, forced: Date.prototype.toISOString !== toISOStr
 
 
 /***/ }),
-/* 355 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12019,7 +16043,7 @@ module.exports = (fails(function () {
 
 
 /***/ }),
-/* 356 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var redefine = __webpack_require__(26);
@@ -12042,11 +16066,11 @@ if (new Date(NaN) + '' != INVALID_DATE) {
 
 
 /***/ }),
-/* 357 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createNonEnumerableProperty = __webpack_require__(18);
-var dateToPrimitive = __webpack_require__(358);
+var dateToPrimitive = __webpack_require__(360);
 var wellKnownSymbol = __webpack_require__(9);
 
 var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
@@ -12060,7 +16084,7 @@ if (!(TO_PRIMITIVE in DatePrototype)) {
 
 
 /***/ }),
-/* 358 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12076,7 +16100,7 @@ module.exports = function (hint) {
 
 
 /***/ }),
-/* 359 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -12114,7 +16138,7 @@ if ($stringify) {
 
 
 /***/ }),
-/* 360 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(7);
@@ -12126,7 +16150,7 @@ setToStringTag(global.JSON, 'JSON', true);
 
 
 /***/ }),
-/* 361 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12146,14 +16170,14 @@ var anInstance = __webpack_require__(36);
 var classof = __webpack_require__(34);
 var inspectSource = __webpack_require__(104);
 var iterate = __webpack_require__(8);
-var checkCorrectnessOfIteration = __webpack_require__(83);
+var checkCorrectnessOfIteration = __webpack_require__(84);
 var speciesConstructor = __webpack_require__(22);
 var task = __webpack_require__(126).set;
 var microtask = __webpack_require__(164);
 var promiseResolve = __webpack_require__(165);
 var hostReportErrors = __webpack_require__(166);
 var newPromiseCapabilityModule = __webpack_require__(75);
-var perform = __webpack_require__(95);
+var perform = __webpack_require__(96);
 var InternalStateModule = __webpack_require__(19);
 var isForced = __webpack_require__(67);
 var wellKnownSymbol = __webpack_require__(9);
@@ -12512,7 +16536,7 @@ $({ target: PROMISE, stat: true, forced: INCORRECT_ITERATION }, {
 
 
 /***/ }),
-/* 362 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12555,12 +16579,12 @@ if (!IS_PURE && typeof NativePromise == 'function' && !NativePromise.prototype['
 
 
 /***/ }),
-/* 363 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var collection = __webpack_require__(96);
+var collection = __webpack_require__(97);
 var collectionWeak = __webpack_require__(170);
 
 // `WeakSet` constructor
@@ -12571,14 +16595,14 @@ collection('WeakSet', function (init) {
 
 
 /***/ }),
-/* 364 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var global = __webpack_require__(7);
-var arrayBufferModule = __webpack_require__(97);
+var arrayBufferModule = __webpack_require__(98);
 var setSpecies = __webpack_require__(54);
 
 var ARRAY_BUFFER = 'ArrayBuffer';
@@ -12595,7 +16619,7 @@ setSpecies(ARRAY_BUFFER);
 
 
 /***/ }),
-/* 365 */
+/* 367 */
 /***/ (function(module, exports) {
 
 // IEEE754 conversions based on https://github.com/feross/ieee754
@@ -12689,7 +16713,7 @@ module.exports = {
 
 
 /***/ }),
-/* 366 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -12705,14 +16729,14 @@ $({ target: 'ArrayBuffer', stat: true, forced: !NATIVE_ARRAY_BUFFER_VIEWS }, {
 
 
 /***/ }),
-/* 367 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var fails = __webpack_require__(3);
-var ArrayBufferModule = __webpack_require__(97);
+var ArrayBufferModule = __webpack_require__(98);
 var anObject = __webpack_require__(1);
 var toAbsoluteIndex = __webpack_require__(47);
 var toLength = __webpack_require__(12);
@@ -12748,11 +16772,11 @@ $({ target: 'ArrayBuffer', proto: true, unsafe: true, forced: INCORRECT_SLICE },
 
 
 /***/ }),
-/* 368 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var ArrayBufferModule = __webpack_require__(97);
+var ArrayBufferModule = __webpack_require__(98);
 var NATIVE_ARRAY_BUFFER = __webpack_require__(129);
 
 // `DataView` constructor
@@ -12763,7 +16787,7 @@ $({ global: true, forced: !NATIVE_ARRAY_BUFFER }, {
 
 
 /***/ }),
-/* 369 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12778,7 +16802,7 @@ createTypedArrayConstructor('Int8', function (init) {
 
 
 /***/ }),
-/* 370 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12793,7 +16817,7 @@ createTypedArrayConstructor('Uint8', function (init) {
 
 
 /***/ }),
-/* 371 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12808,7 +16832,7 @@ createTypedArrayConstructor('Uint8', function (init) {
 
 
 /***/ }),
-/* 372 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12823,7 +16847,7 @@ createTypedArrayConstructor('Int16', function (init) {
 
 
 /***/ }),
-/* 373 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12838,7 +16862,7 @@ createTypedArrayConstructor('Uint16', function (init) {
 
 
 /***/ }),
-/* 374 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12853,7 +16877,7 @@ createTypedArrayConstructor('Int32', function (init) {
 
 
 /***/ }),
-/* 375 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12868,7 +16892,7 @@ createTypedArrayConstructor('Uint32', function (init) {
 
 
 /***/ }),
-/* 376 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12883,7 +16907,7 @@ createTypedArrayConstructor('Float32', function (init) {
 
 
 /***/ }),
-/* 377 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var createTypedArrayConstructor = __webpack_require__(45);
@@ -12898,7 +16922,7 @@ createTypedArrayConstructor('Float64', function (init) {
 
 
 /***/ }),
-/* 378 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12913,7 +16937,7 @@ exportTypedArrayStaticMethod('from', typedArrayFrom, TYPED_ARRAYS_CONSTRUCTORS_R
 
 
 /***/ }),
-/* 379 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12936,7 +16960,7 @@ exportTypedArrayStaticMethod('of', function of(/* ...items */) {
 
 
 /***/ }),
-/* 380 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12955,7 +16979,7 @@ exportTypedArrayMethod('copyWithin', function copyWithin(target, start /* , end 
 
 
 /***/ }),
-/* 381 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12974,7 +16998,7 @@ exportTypedArrayMethod('every', function every(callbackfn /* , thisArg */) {
 
 
 /***/ }),
-/* 382 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12994,7 +17018,7 @@ exportTypedArrayMethod('fill', function fill(value /* , start, end */) {
 
 
 /***/ }),
-/* 383 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13021,7 +17045,7 @@ exportTypedArrayMethod('filter', function filter(callbackfn /* , thisArg */) {
 
 
 /***/ }),
-/* 384 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13040,7 +17064,7 @@ exportTypedArrayMethod('find', function find(predicate /* , thisArg */) {
 
 
 /***/ }),
-/* 385 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13059,7 +17083,7 @@ exportTypedArrayMethod('findIndex', function findIndex(predicate /* , thisArg */
 
 
 /***/ }),
-/* 386 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13078,7 +17102,7 @@ exportTypedArrayMethod('forEach', function forEach(callbackfn /* , thisArg */) {
 
 
 /***/ }),
-/* 387 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13097,7 +17121,7 @@ exportTypedArrayMethod('includes', function includes(searchElement /* , fromInde
 
 
 /***/ }),
-/* 388 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13116,14 +17140,14 @@ exportTypedArrayMethod('indexOf', function indexOf(searchElement /* , fromIndex 
 
 
 /***/ }),
-/* 389 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var global = __webpack_require__(7);
 var ArrayBufferViewCore = __webpack_require__(14);
-var ArrayIterators = __webpack_require__(86);
+var ArrayIterators = __webpack_require__(87);
 var wellKnownSymbol = __webpack_require__(9);
 
 var ITERATOR = wellKnownSymbol('iterator');
@@ -13161,7 +17185,7 @@ exportTypedArrayMethod(ITERATOR, typedArrayValues, !CORRECT_ITER_NAME);
 
 
 /***/ }),
-/* 390 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13181,7 +17205,7 @@ exportTypedArrayMethod('join', function join(separator) {
 
 
 /***/ }),
-/* 391 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13201,7 +17225,7 @@ exportTypedArrayMethod('lastIndexOf', function lastIndexOf(searchElement /* , fr
 
 
 /***/ }),
-/* 392 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13224,13 +17248,13 @@ exportTypedArrayMethod('map', function map(mapfn /* , thisArg */) {
 
 
 /***/ }),
-/* 393 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var ArrayBufferViewCore = __webpack_require__(14);
-var $reduce = __webpack_require__(85).left;
+var $reduce = __webpack_require__(86).left;
 
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
 var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
@@ -13243,13 +17267,13 @@ exportTypedArrayMethod('reduce', function reduce(callbackfn /* , initialValue */
 
 
 /***/ }),
-/* 394 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var ArrayBufferViewCore = __webpack_require__(14);
-var $reduceRight = __webpack_require__(85).right;
+var $reduceRight = __webpack_require__(86).right;
 
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
 var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
@@ -13262,7 +17286,7 @@ exportTypedArrayMethod('reduceRight', function reduceRight(callbackfn /* , initi
 
 
 /***/ }),
-/* 395 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13290,7 +17314,7 @@ exportTypedArrayMethod('reverse', function reverse() {
 
 
 /***/ }),
-/* 396 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13324,7 +17348,7 @@ exportTypedArrayMethod('set', function set(arrayLike /* , offset */) {
 
 
 /***/ }),
-/* 397 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13357,7 +17381,7 @@ exportTypedArrayMethod('slice', function slice(start, end) {
 
 
 /***/ }),
-/* 398 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13376,7 +17400,7 @@ exportTypedArrayMethod('some', function some(callbackfn /* , thisArg */) {
 
 
 /***/ }),
-/* 399 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13395,7 +17419,7 @@ exportTypedArrayMethod('sort', function sort(comparefn) {
 
 
 /***/ }),
-/* 400 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13423,7 +17447,7 @@ exportTypedArrayMethod('subarray', function subarray(begin, end) {
 
 
 /***/ }),
-/* 401 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13457,7 +17481,7 @@ exportTypedArrayMethod('toLocaleString', function toLocaleString() {
 
 
 /***/ }),
-/* 402 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13485,7 +17509,7 @@ exportTypedArrayMethod('toString', arrayToString, IS_NOT_ARRAY_METHOD);
 
 
 /***/ }),
-/* 403 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13516,7 +17540,7 @@ $({ target: 'Reflect', stat: true, forced: OPTIONAL_ARGUMENTS_LIST }, {
 
 
 /***/ }),
-/* 404 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13573,7 +17597,7 @@ $({ target: 'Reflect', stat: true, forced: FORCED, sham: FORCED }, {
 
 
 /***/ }),
-/* 405 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13607,7 +17631,7 @@ $({ target: 'Reflect', stat: true, forced: ERROR_INSTEAD_OF_FALSE, sham: !DESCRI
 
 
 /***/ }),
-/* 406 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13625,7 +17649,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 407 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13655,7 +17679,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 408 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13673,7 +17697,7 @@ $({ target: 'Reflect', stat: true, sham: !DESCRIPTORS }, {
 
 
 /***/ }),
-/* 409 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13691,7 +17715,7 @@ $({ target: 'Reflect', stat: true, sham: !CORRECT_PROTOTYPE_GETTER }, {
 
 
 /***/ }),
-/* 410 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13706,7 +17730,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 411 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13725,7 +17749,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 412 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13739,7 +17763,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 413 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13764,7 +17788,7 @@ $({ target: 'Reflect', stat: true, sham: !FREEZING }, {
 
 
 /***/ }),
-/* 414 */
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13815,7 +17839,7 @@ $({ target: 'Reflect', stat: true, forced: MS_EDGE_BUG }, {
 
 
 /***/ }),
-/* 415 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13840,37 +17864,35 @@ if (objectSetPrototypeOf) $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 416 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(417);
-
-
-/***/ }),
-/* 417 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var proposals = __webpack_require__(418);
-
-module.exports = proposals;
-
-
-/***/ }),
 /* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(419);
-var parent = __webpack_require__(429);
-
-module.exports = parent;
 
 
 /***/ }),
 /* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(420);
+var proposals = __webpack_require__(420);
+
+module.exports = proposals;
+
+
+/***/ }),
+/* 420 */
+/***/ (function(module, exports, __webpack_require__) {
+
 __webpack_require__(421);
+var parent = __webpack_require__(431);
+
+module.exports = parent;
+
+
+/***/ }),
+/* 421 */
+/***/ (function(module, exports, __webpack_require__) {
+
 __webpack_require__(422);
 __webpack_require__(423);
 __webpack_require__(424);
@@ -13878,10 +17900,12 @@ __webpack_require__(425);
 __webpack_require__(426);
 __webpack_require__(427);
 __webpack_require__(428);
+__webpack_require__(429);
+__webpack_require__(430);
 
 
 /***/ }),
-/* 420 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13902,7 +17926,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 421 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13929,7 +17953,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 422 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13959,7 +17983,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 423 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -13998,7 +18022,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 424 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14019,7 +18043,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 425 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14040,7 +18064,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 426 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14069,7 +18093,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 427 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14090,7 +18114,7 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 428 */
+/* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14112,29 +18136,29 @@ $({ target: 'Reflect', stat: true }, {
 
 
 /***/ }),
-/* 429 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(430);
-__webpack_require__(435);
+__webpack_require__(432);
 __webpack_require__(437);
-var parent = __webpack_require__(439);
+__webpack_require__(439);
+var parent = __webpack_require__(441);
 
 module.exports = parent;
 
 
 /***/ }),
-/* 430 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(431);
-__webpack_require__(432);
 __webpack_require__(433);
 __webpack_require__(434);
+__webpack_require__(435);
+__webpack_require__(436);
 
 
 /***/ }),
-/* 431 */
+/* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14153,7 +18177,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 432 */
+/* 434 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14172,7 +18196,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 433 */
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14196,7 +18220,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 434 */
+/* 436 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -14220,14 +18244,14 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 435 */
+/* 437 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(436);
+__webpack_require__(438);
 
 
 /***/ }),
-/* 436 */
+/* 438 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14245,7 +18269,7 @@ $({ target: 'String', proto: true }, {
 
 
 /***/ }),
-/* 437 */
+/* 439 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(174);
@@ -14254,7 +18278,7 @@ __webpack_require__(131);
 
 
 /***/ }),
-/* 438 */
+/* 440 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14429,37 +18453,37 @@ module.exports = function (input) {
 
 
 /***/ }),
-/* 439 */
+/* 441 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(440);
-__webpack_require__(443);
-__webpack_require__(472);
-__webpack_require__(481);
-__webpack_require__(484);
-__webpack_require__(492);
+__webpack_require__(442);
+__webpack_require__(445);
+__webpack_require__(474);
+__webpack_require__(483);
+__webpack_require__(486);
 __webpack_require__(494);
 __webpack_require__(496);
-__webpack_require__(500);
-__webpack_require__(503);
+__webpack_require__(498);
+__webpack_require__(502);
 __webpack_require__(505);
 __webpack_require__(507);
 __webpack_require__(509);
-var parent = __webpack_require__(511);
+__webpack_require__(511);
+var parent = __webpack_require__(513);
 
 module.exports = parent;
 
 
 /***/ }),
-/* 440 */
+/* 442 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(441);
-__webpack_require__(442);
+__webpack_require__(443);
+__webpack_require__(444);
 
 
 /***/ }),
-/* 441 */
+/* 443 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14487,7 +18511,7 @@ if (DESCRIPTORS && !('lastIndex' in [])) {
 
 
 /***/ }),
-/* 442 */
+/* 444 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14520,19 +18544,17 @@ if (DESCRIPTORS && !('lastItem' in [])) {
 
 
 /***/ }),
-/* 443 */
+/* 445 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(444);
-__webpack_require__(445);
 __webpack_require__(446);
 __webpack_require__(447);
 __webpack_require__(448);
 __webpack_require__(449);
 __webpack_require__(450);
 __webpack_require__(451);
+__webpack_require__(452);
 __webpack_require__(453);
-__webpack_require__(454);
 __webpack_require__(455);
 __webpack_require__(456);
 __webpack_require__(457);
@@ -14550,10 +18572,12 @@ __webpack_require__(468);
 __webpack_require__(469);
 __webpack_require__(470);
 __webpack_require__(471);
+__webpack_require__(472);
+__webpack_require__(473);
 
 
 /***/ }),
-/* 444 */
+/* 446 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14582,7 +18606,7 @@ $({ target: 'Map', stat: true }, {
 
 
 /***/ }),
-/* 445 */
+/* 447 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14607,14 +18631,14 @@ $({ target: 'Map', stat: true }, {
 
 
 /***/ }),
-/* 446 */
+/* 448 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
-var collectionDeleteAll = __webpack_require__(98);
+var collectionDeleteAll = __webpack_require__(99);
 
 // `Map.prototype.deleteAll` method
 // https://github.com/tc39/proposal-collection-methods
@@ -14626,7 +18650,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 447 */
+/* 449 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14653,7 +18677,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 448 */
+/* 450 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14686,7 +18710,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 449 */
+/* 451 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14713,7 +18737,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 450 */
+/* 452 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14740,7 +18764,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 451 */
+/* 453 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14749,7 +18773,7 @@ var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var getMapIterator = __webpack_require__(41);
-var sameValueZero = __webpack_require__(452);
+var sameValueZero = __webpack_require__(454);
 var iterate = __webpack_require__(8);
 
 // `Map.prototype.includes` method
@@ -14764,7 +18788,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 452 */
+/* 454 */
 /***/ (function(module, exports) {
 
 // `SameValueZero` abstract operation
@@ -14776,7 +18800,7 @@ module.exports = function (x, y) {
 
 
 /***/ }),
-/* 453 */
+/* 455 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14799,7 +18823,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 454 */
+/* 456 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14832,7 +18856,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 455 */
+/* 457 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14865,7 +18889,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 456 */
+/* 458 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14893,7 +18917,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 457 */
+/* 459 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14929,7 +18953,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 458 */
+/* 460 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14956,7 +18980,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 459 */
+/* 461 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14985,7 +19009,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 460 */
+/* 462 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15004,14 +19028,14 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 461 */
+/* 463 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
-var collectionDeleteAll = __webpack_require__(98);
+var collectionDeleteAll = __webpack_require__(99);
 
 // `Set.prototype.deleteAll` method
 // https://github.com/tc39/proposal-collection-methods
@@ -15023,7 +19047,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 462 */
+/* 464 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15050,7 +19074,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 463 */
+/* 465 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15083,7 +19107,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 464 */
+/* 466 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15110,7 +19134,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 465 */
+/* 467 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15136,7 +19160,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 466 */
+/* 468 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15169,7 +19193,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 467 */
+/* 469 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15205,7 +19229,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 468 */
+/* 470 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15232,14 +19256,14 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 469 */
+/* 471 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
-var collectionDeleteAll = __webpack_require__(98);
+var collectionDeleteAll = __webpack_require__(99);
 
 // `WeakMap.prototype.deleteAll` method
 // https://github.com/tc39/proposal-collection-methods
@@ -15251,7 +19275,7 @@ $({ target: 'WeakMap', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 470 */
+/* 472 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15270,14 +19294,14 @@ $({ target: 'WeakSet', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 471 */
+/* 473 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
-var collectionDeleteAll = __webpack_require__(98);
+var collectionDeleteAll = __webpack_require__(99);
 
 // `WeakSet.prototype.deleteAll` method
 // https://github.com/tc39/proposal-collection-methods
@@ -15289,25 +19313,25 @@ $({ target: 'WeakSet', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 472 */
+/* 474 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(473);
-__webpack_require__(474);
 __webpack_require__(475);
 __webpack_require__(476);
 __webpack_require__(477);
 __webpack_require__(478);
 __webpack_require__(479);
 __webpack_require__(480);
+__webpack_require__(481);
+__webpack_require__(482);
 
 
 /***/ }),
-/* 473 */
+/* 475 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var from = __webpack_require__(99);
+var from = __webpack_require__(100);
 
 // `Map.from` method
 // https://tc39.github.io/proposal-setmap-offrom/#sec-map.from
@@ -15317,11 +19341,11 @@ $({ target: 'Map', stat: true }, {
 
 
 /***/ }),
-/* 474 */
+/* 476 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var of = __webpack_require__(100);
+var of = __webpack_require__(101);
 
 // `Map.of` method
 // https://tc39.github.io/proposal-setmap-offrom/#sec-map.of
@@ -15331,11 +19355,11 @@ $({ target: 'Map', stat: true }, {
 
 
 /***/ }),
-/* 475 */
+/* 477 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var from = __webpack_require__(99);
+var from = __webpack_require__(100);
 
 // `Set.from` method
 // https://tc39.github.io/proposal-setmap-offrom/#sec-set.from
@@ -15345,11 +19369,11 @@ $({ target: 'Set', stat: true }, {
 
 
 /***/ }),
-/* 476 */
+/* 478 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var of = __webpack_require__(100);
+var of = __webpack_require__(101);
 
 // `Set.of` method
 // https://tc39.github.io/proposal-setmap-offrom/#sec-set.of
@@ -15359,11 +19383,11 @@ $({ target: 'Set', stat: true }, {
 
 
 /***/ }),
-/* 477 */
+/* 479 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var from = __webpack_require__(99);
+var from = __webpack_require__(100);
 
 // `WeakMap.from` method
 // https://tc39.github.io/proposal-setmap-offrom/#sec-weakmap.from
@@ -15373,11 +19397,11 @@ $({ target: 'WeakMap', stat: true }, {
 
 
 /***/ }),
-/* 478 */
+/* 480 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var of = __webpack_require__(100);
+var of = __webpack_require__(101);
 
 // `WeakMap.of` method
 // https://tc39.github.io/proposal-setmap-offrom/#sec-weakmap.of
@@ -15387,11 +19411,11 @@ $({ target: 'WeakMap', stat: true }, {
 
 
 /***/ }),
-/* 479 */
+/* 481 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var from = __webpack_require__(99);
+var from = __webpack_require__(100);
 
 // `WeakSet.from` method
 // https://tc39.github.io/proposal-setmap-offrom/#sec-weakset.from
@@ -15401,11 +19425,11 @@ $({ target: 'WeakSet', stat: true }, {
 
 
 /***/ }),
-/* 480 */
+/* 482 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var of = __webpack_require__(100);
+var of = __webpack_require__(101);
 
 // `WeakSet.of` method
 // https://tc39.github.io/proposal-setmap-offrom/#sec-weakset.of
@@ -15415,15 +19439,15 @@ $({ target: 'WeakSet', stat: true }, {
 
 
 /***/ }),
-/* 481 */
+/* 483 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(482);
-__webpack_require__(483);
+__webpack_require__(484);
+__webpack_require__(485);
 
 
 /***/ }),
-/* 482 */
+/* 484 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15445,7 +19469,7 @@ $({ global: true }, {
 
 
 /***/ }),
-/* 483 */
+/* 485 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15462,20 +19486,20 @@ $({ global: true }, {
 
 
 /***/ }),
-/* 484 */
+/* 486 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(485);
-__webpack_require__(486);
 __webpack_require__(487);
 __webpack_require__(488);
 __webpack_require__(489);
 __webpack_require__(490);
 __webpack_require__(491);
+__webpack_require__(492);
+__webpack_require__(493);
 
 
 /***/ }),
-/* 485 */
+/* 487 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15493,7 +19517,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 486 */
+/* 488 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15506,7 +19530,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 487 */
+/* 489 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15523,7 +19547,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 488 */
+/* 490 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15541,7 +19565,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 489 */
+/* 491 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15554,7 +19578,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 490 */
+/* 492 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15571,7 +19595,7 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 491 */
+/* 493 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15585,14 +19609,14 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 492 */
+/* 494 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(493);
+__webpack_require__(495);
 
 
 /***/ }),
-/* 493 */
+/* 495 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -15607,14 +19631,14 @@ $({ target: 'Math', stat: true }, {
 
 
 /***/ }),
-/* 494 */
+/* 496 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(495);
+__webpack_require__(497);
 
 
 /***/ }),
-/* 495 */
+/* 497 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15651,16 +19675,16 @@ $({ target: 'Number', stat: true }, {
 
 
 /***/ }),
-/* 496 */
+/* 498 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(497);
-__webpack_require__(498);
 __webpack_require__(499);
+__webpack_require__(500);
+__webpack_require__(501);
 
 
 /***/ }),
-/* 497 */
+/* 499 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15678,7 +19702,7 @@ $({ target: 'Object', stat: true }, {
 
 
 /***/ }),
-/* 498 */
+/* 500 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15696,7 +19720,7 @@ $({ target: 'Object', stat: true }, {
 
 
 /***/ }),
-/* 499 */
+/* 501 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15714,15 +19738,15 @@ $({ target: 'Object', stat: true }, {
 
 
 /***/ }),
-/* 500 */
+/* 502 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(501);
-__webpack_require__(502);
+__webpack_require__(503);
+__webpack_require__(504);
 
 
 /***/ }),
-/* 501 */
+/* 503 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15936,7 +19960,7 @@ setSpecies('Observable');
 
 
 /***/ }),
-/* 502 */
+/* 504 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -15944,24 +19968,6 @@ var defineWellKnownSymbol = __webpack_require__(21);
 // `Symbol.observable` well-known symbol
 // https://github.com/tc39/proposal-observable
 defineWellKnownSymbol('observable');
-
-
-/***/ }),
-/* 503 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(504);
-
-
-/***/ }),
-/* 504 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var defineWellKnownSymbol = __webpack_require__(21);
-
-// `Symbol.patternMatch` well-known symbol
-// https://github.com/tc39/proposal-pattern-matching
-defineWellKnownSymbol('patternMatch');
 
 
 /***/ }),
@@ -15975,11 +19981,29 @@ __webpack_require__(506);
 /* 506 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var defineWellKnownSymbol = __webpack_require__(21);
+
+// `Symbol.patternMatch` well-known symbol
+// https://github.com/tc39/proposal-pattern-matching
+defineWellKnownSymbol('patternMatch');
+
+
+/***/ }),
+/* 507 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(508);
+
+
+/***/ }),
+/* 508 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 var $ = __webpack_require__(0);
 var newPromiseCapabilityModule = __webpack_require__(75);
-var perform = __webpack_require__(95);
+var perform = __webpack_require__(96);
 
 // `Promise.try` method
 // https://github.com/tc39/proposal-promise-try
@@ -15994,14 +20018,14 @@ $({ target: 'Promise', stat: true }, {
 
 
 /***/ }),
-/* 507 */
+/* 509 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(508);
+__webpack_require__(510);
 
 
 /***/ }),
-/* 508 */
+/* 510 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -16040,14 +20064,14 @@ $({ target: 'Math', stat: true, forced: true }, {
 
 
 /***/ }),
-/* 509 */
+/* 511 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(510);
+__webpack_require__(512);
 
 
 /***/ }),
-/* 510 */
+/* 512 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16092,28 +20116,28 @@ $({ target: 'String', proto: true }, {
 
 
 /***/ }),
-/* 511 */
+/* 513 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(512);
 __webpack_require__(514);
-__webpack_require__(544);
-__webpack_require__(548);
-__webpack_require__(556);
-var parent = __webpack_require__(559);
+__webpack_require__(516);
+__webpack_require__(546);
+__webpack_require__(550);
+__webpack_require__(558);
+var parent = __webpack_require__(561);
 
 module.exports = parent;
 
 
 /***/ }),
-/* 512 */
+/* 514 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(513);
+__webpack_require__(515);
 
 
 /***/ }),
-/* 513 */
+/* 515 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -16147,12 +20171,10 @@ $({ target: 'Array', stat: true }, {
 
 
 /***/ }),
-/* 514 */
+/* 516 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(515);
 __webpack_require__(517);
-__webpack_require__(518);
 __webpack_require__(519);
 __webpack_require__(520);
 __webpack_require__(521);
@@ -16178,10 +20200,12 @@ __webpack_require__(540);
 __webpack_require__(541);
 __webpack_require__(542);
 __webpack_require__(543);
+__webpack_require__(544);
+__webpack_require__(545);
 
 
 /***/ }),
-/* 515 */
+/* 517 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16192,7 +20216,7 @@ var anInstance = __webpack_require__(36);
 var createNonEnumerableProperty = __webpack_require__(18);
 var has = __webpack_require__(17);
 var wellKnownSymbol = __webpack_require__(9);
-var AsyncIteratorPrototype = __webpack_require__(516);
+var AsyncIteratorPrototype = __webpack_require__(518);
 var IS_PURE = __webpack_require__(5);
 
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
@@ -16217,7 +20241,7 @@ $({ global: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 516 */
+/* 518 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(7);
@@ -16260,7 +20284,7 @@ module.exports = AsyncIteratorPrototype;
 
 
 /***/ }),
-/* 517 */
+/* 519 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16294,7 +20318,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 518 */
+/* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16342,7 +20366,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 519 */
+/* 521 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16359,7 +20383,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 520 */
+/* 522 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16408,7 +20432,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 521 */
+/* 523 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16425,7 +20449,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 522 */
+/* 524 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16499,7 +20523,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 523 */
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16516,7 +20540,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 524 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://github.com/tc39/proposal-iterator-helpers
@@ -16552,7 +20576,7 @@ $({ target: 'AsyncIterator', stat: true }, {
 
 
 /***/ }),
-/* 525 */
+/* 527 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16589,7 +20613,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 526 */
+/* 528 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16642,7 +20666,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 527 */
+/* 529 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16659,7 +20683,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 528 */
+/* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16688,7 +20712,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 529 */
+/* 531 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16705,7 +20729,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 530 */
+/* 532 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16760,7 +20784,7 @@ $({ global: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 531 */
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16787,7 +20811,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 532 */
+/* 534 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16824,7 +20848,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 533 */
+/* 535 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16847,7 +20871,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 534 */
+/* 536 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16884,7 +20908,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 535 */
+/* 537 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16907,7 +20931,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 536 */
+/* 538 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16960,7 +20984,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 537 */
+/* 539 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16978,7 +21002,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 538 */
+/* 540 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://github.com/tc39/proposal-iterator-helpers
@@ -17016,7 +21040,7 @@ $({ target: 'Iterator', stat: true }, {
 
 
 /***/ }),
-/* 539 */
+/* 541 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17046,7 +21070,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 540 */
+/* 542 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17078,7 +21102,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 541 */
+/* 543 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17101,7 +21125,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 542 */
+/* 544 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17133,7 +21157,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 543 */
+/* 545 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17155,18 +21179,18 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 
 /***/ }),
-/* 544 */
+/* 546 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://github.com/thumbsupep/proposal-upsert
 // TODO: remove from `core-js@4`
-__webpack_require__(545);
-__webpack_require__(546);
 __webpack_require__(547);
+__webpack_require__(548);
+__webpack_require__(549);
 
 
 /***/ }),
-/* 545 */
+/* 547 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17184,7 +21208,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 546 */
+/* 548 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17201,7 +21225,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 547 */
+/* 549 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17218,20 +21242,20 @@ $({ target: 'WeakMap', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 548 */
+/* 550 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(549);
-__webpack_require__(550);
 __webpack_require__(551);
 __webpack_require__(552);
 __webpack_require__(553);
 __webpack_require__(554);
 __webpack_require__(555);
+__webpack_require__(556);
+__webpack_require__(557);
 
 
 /***/ }),
-/* 549 */
+/* 551 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17260,7 +21284,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 550 */
+/* 552 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17290,7 +21314,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 551 */
+/* 553 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17315,7 +21339,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 552 */
+/* 554 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17347,7 +21371,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 553 */
+/* 555 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17372,7 +21396,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 554 */
+/* 556 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17398,7 +21422,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 555 */
+/* 557 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17428,16 +21452,16 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 
 /***/ }),
-/* 556 */
+/* 558 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://github.com/tc39/proposal-using-statement
-__webpack_require__(557);
-__webpack_require__(558);
+__webpack_require__(559);
+__webpack_require__(560);
 
 
 /***/ }),
-/* 557 */
+/* 559 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -17448,7 +21472,7 @@ defineWellKnownSymbol('asyncDispose');
 
 
 /***/ }),
-/* 558 */
+/* 560 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var defineWellKnownSymbol = __webpack_require__(21);
@@ -17459,26 +21483,26 @@ defineWellKnownSymbol('dispose');
 
 
 /***/ }),
-/* 559 */
+/* 561 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(560);
-__webpack_require__(563);
-var parent = __webpack_require__(566);
+__webpack_require__(562);
+__webpack_require__(565);
+var parent = __webpack_require__(568);
 
 module.exports = parent;
 
 
 /***/ }),
-/* 560 */
+/* 562 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(561);
-__webpack_require__(562);
+__webpack_require__(563);
+__webpack_require__(564);
 
 
 /***/ }),
-/* 561 */
+/* 563 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17530,7 +21554,7 @@ $({ global: true }, {
 
 
 /***/ }),
-/* 562 */
+/* 564 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17539,7 +21563,7 @@ var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(15);
 var newPromiseCapabilityModule = __webpack_require__(75);
-var perform = __webpack_require__(95);
+var perform = __webpack_require__(96);
 var iterate = __webpack_require__(8);
 
 var PROMISE_ANY_ERROR = 'No one promise resolved';
@@ -17583,15 +21607,15 @@ $({ target: 'Promise', stat: true }, {
 
 
 /***/ }),
-/* 563 */
+/* 565 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(564);
-__webpack_require__(565);
+__webpack_require__(566);
+__webpack_require__(567);
 
 
 /***/ }),
-/* 564 */
+/* 566 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17648,7 +21672,7 @@ $({ target: 'String', proto: true }, {
 
 
 /***/ }),
-/* 565 */
+/* 567 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // TODO: remove from `core-js@4`
@@ -17658,41 +21682,25 @@ defineWellKnownSymbol('replaceAll');
 
 
 /***/ }),
-/* 566 */
+/* 568 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(567);
 __webpack_require__(569);
 __webpack_require__(571);
+__webpack_require__(573);
 var path = __webpack_require__(38);
 
 module.exports = path;
 
 
 /***/ }),
-/* 567 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(568);
-var global = __webpack_require__(7);
-
-module.exports = global;
-
-
-/***/ }),
-/* 568 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// TODO: Remove from `core-js@4`
-__webpack_require__(147);
-
-
-/***/ }),
 /* 569 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// TODO: Remove from `core-js@4`
 __webpack_require__(570);
+var global = __webpack_require__(7);
+
+module.exports = global;
 
 
 /***/ }),
@@ -17700,7 +21708,7 @@ __webpack_require__(570);
 /***/ (function(module, exports, __webpack_require__) {
 
 // TODO: Remove from `core-js@4`
-__webpack_require__(167);
+__webpack_require__(147);
 
 
 /***/ }),
@@ -17716,18 +21724,34 @@ __webpack_require__(572);
 /***/ (function(module, exports, __webpack_require__) {
 
 // TODO: Remove from `core-js@4`
-__webpack_require__(153);
+__webpack_require__(167);
 
 
 /***/ }),
 /* 573 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// TODO: Remove from `core-js@4`
 __webpack_require__(574);
-__webpack_require__(575);
+
+
+/***/ }),
+/* 574 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// TODO: Remove from `core-js@4`
+__webpack_require__(153);
+
+
+/***/ }),
+/* 575 */
+/***/ (function(module, exports, __webpack_require__) {
+
 __webpack_require__(576);
 __webpack_require__(577);
 __webpack_require__(578);
+__webpack_require__(579);
+__webpack_require__(580);
 __webpack_require__(174);
 __webpack_require__(176);
 __webpack_require__(131);
@@ -17737,7 +21761,7 @@ module.exports = path;
 
 
 /***/ }),
-/* 574 */
+/* 576 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(7);
@@ -17758,12 +21782,12 @@ for (var COLLECTION_NAME in DOMIterables) {
 
 
 /***/ }),
-/* 575 */
+/* 577 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(7);
 var DOMIterables = __webpack_require__(181);
-var ArrayIteratorMethods = __webpack_require__(86);
+var ArrayIteratorMethods = __webpack_require__(87);
 var createNonEnumerableProperty = __webpack_require__(18);
 var wellKnownSymbol = __webpack_require__(9);
 
@@ -17797,7 +21821,7 @@ for (var COLLECTION_NAME in DOMIterables) {
 
 
 /***/ }),
-/* 576 */
+/* 578 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -17818,7 +21842,7 @@ $({ global: true, bind: true, enumerable: true, forced: FORCED }, {
 
 
 /***/ }),
-/* 577 */
+/* 579 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
@@ -17840,12 +21864,12 @@ $({ global: true, enumerable: true, noTargetGet: true }, {
 
 
 /***/ }),
-/* 578 */
+/* 580 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
 var global = __webpack_require__(7);
-var userAgent = __webpack_require__(84);
+var userAgent = __webpack_require__(85);
 
 var slice = [].slice;
 var MSIE = /MSIE .\./.test(userAgent); // <- dirty ie9- check
@@ -17874,18 +21898,6 @@ $({ global: true, bind: true, forced: MSIE }, {
 
 
 /***/ }),
-/* 579 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 580 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
 /* 581 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17899,10 +21911,25 @@ $({ global: true, bind: true, forced: MSIE }, {
 
 /***/ }),
 /* 583 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 584 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 585 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/intl/index.js
+var intl = __webpack_require__(211);
 
 // CONCATENATED MODULE: ./node_modules/whatwg-fetch/fetch.js
 var support = {
@@ -18422,20 +22449,14 @@ if (!self.fetch) {
   self.Response = Response
 }
 
-// EXTERNAL MODULE: ./node_modules/url-search-params-polyfill/index.js
-var url_search_params_polyfill = __webpack_require__(209);
-
-// EXTERNAL MODULE: ./node_modules/es6-object-assign/auto.js
-var auto = __webpack_require__(210);
-
 // EXTERNAL MODULE: ./node_modules/core-js/index.js
-var core_js = __webpack_require__(212);
+var core_js = __webpack_require__(214);
 
 // EXTERNAL MODULE: ./node_modules/knockout/build/output/knockout-latest.js
 var knockout_latest = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/styles.scss
-var styles = __webpack_require__(579);
+var styles = __webpack_require__(581);
 
 // EXTERNAL MODULE: ./src/config.json
 var config = __webpack_require__(6);
@@ -18611,9 +22632,9 @@ function MapDetailsPanel(params) {
       var doc = document.implementation.createHTMLDocument("");
 
       if (markup.toLowerCase().indexOf('<!doctype') > -1) {
-        doc.documentElement.innerHTML = markup;
+        doc.documentElement.textContent = markup;
       } else {
-        doc.body.innerHTML = markup;
+        doc.body.textContent = markup;
       }
 
       return doc;
@@ -18630,7 +22651,7 @@ function fetchHTML(url, content) {
   }).then(function (text) {
     var parser = new DOMParser();
     var doc = parser.parseFromString(text, 'text/html');
-    return content(doc.querySelector('body').innerHTML);
+    return content(doc.querySelector('body').textContent);
   });
   return content;
 }
@@ -18664,10 +22685,10 @@ var _fetchData = function fetchData(rootURL) {
   }).then(function (text) {
     var xmlDoc = aqi_forecast_parser.parseFromString(text, 'application/xml');
     xmlDoc.querySelectorAll('item').forEach(function (item) {
-      if (item.querySelector('title').innerHTML === 'Alert Mode') {
+      if (item.querySelector('title').textContent === 'Alert Mode') {
         var mode;
 
-        switch (item.querySelector('description').innerHTML) {
+        switch (item.querySelector('description').textContent) {
           case 'Winter Season in Effect':
             mode = 'winter';
             break;
@@ -18683,7 +22704,7 @@ var _fetchData = function fetchData(rootURL) {
         alertMode(mode);
       }
     });
-    alertStatus(xmlDoc.querySelector('item description').innerHTML.toLowerCase() !== "no alert");
+    alertStatus(xmlDoc.querySelector('item description').textContent.toLowerCase() !== "no alert");
     return fetch(rootURL + config["aqiRSSFeed"], {
       cache: "no-store"
     });
@@ -18695,11 +22716,11 @@ var _fetchData = function fetchData(rootURL) {
     var zones = {};
     xmlDoc.querySelectorAll('item').forEach(function (item) {
       var day = {
-        date: item.querySelector('date').innerHTML.slice(0, -3),
+        date: item.querySelector('date').textContent.slice(0, -3),
         zones: []
       };
       item.querySelectorAll('zone').forEach(function (zone) {
-        var measurement = zone.querySelector('measurement').innerHTML;
+        var measurement = zone.querySelector('measurement').textContent;
         var forecast;
 
         if (!isNaN(parseFloat(measurement))) {
@@ -18724,9 +22745,9 @@ var _fetchData = function fetchData(rootURL) {
         }
 
         var zoneData = {
-          title: zone.querySelector('title').innerHTML,
+          title: zone.querySelector('title').textContent,
           measurement: measurement,
-          pollutant: zone.querySelector('pollutant').innerHTML,
+          pollutant: zone.querySelector('pollutant').textContent,
           forecast: forecast
         };
         day.zones.push(zoneData);
@@ -18740,7 +22761,7 @@ var _fetchData = function fetchData(rootURL) {
     aqiData({
       dates: dates,
       zones: zones,
-      lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').innerHTML)
+      lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').textContent)
     });
   });
   fetchHTML(rootURL + config["aqiInfoURL"], aqiInfo);
@@ -19348,13 +23369,13 @@ var open_burning_fetchData = function fetchData(rootURL) {
 var mapbox_gl_geocoder_min = __webpack_require__(203);
 
 // EXTERNAL MODULE: ./node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css
-var mapbox_gl_geocoder = __webpack_require__(580);
+var mapbox_gl_geocoder = __webpack_require__(582);
 
 // EXTERNAL MODULE: ./src/components/map/template.html
 var map_template = __webpack_require__(204);
 
 // EXTERNAL MODULE: ./node_modules/mapbox-gl/dist/mapbox-gl.css
-var dist_mapbox_gl = __webpack_require__(581);
+var dist_mapbox_gl = __webpack_require__(583);
 
 // CONCATENATED MODULE: ./src/bindings/mapbox-gl.js
 
@@ -19377,18 +23398,103 @@ knockout_latest["bindingHandlers"].mapboxgl = {
   }
 };
 /* harmony default export */ var bindings_mapbox_gl = (knockout_latest["bindingHandlers"].mapboxgl);
-// EXTERNAL MODULE: ./src/components/help-control/template.html
-var help_control_template = __webpack_require__(205);
+// EXTERNAL MODULE: ./src/components/print-control/template.html
+var print_control_template = __webpack_require__(205);
 
-// EXTERNAL MODULE: ./src/components/help-control/help.html
-var help = __webpack_require__(206);
+// EXTERNAL MODULE: ./node_modules/computed-style-to-inline-style/dist/index.js
+var dist = __webpack_require__(206);
 
-// CONCATENATED MODULE: ./src/components/help-control/index.js
+// CONCATENATED MODULE: ./src/components/print-control/index.js
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+var print_control_PrintControl =
+/*#__PURE__*/
+function () {
+  function PrintControl() {
+    _classCallCheck(this, PrintControl);
+  }
+
+  _createClass(PrintControl, [{
+    key: "onAdd",
+    value: function onAdd(map) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(print_control_template, "text/html");
+      var el = doc.body.removeChild(doc.body.firstChild);
+      this.map = map;
+      this.container = el;
+
+      var mapboxLogo = map._container.querySelector('.mapboxgl-ctrl-logo');
+
+      dist(mapboxLogo, {
+        recursive: true
+      });
+      var printData;
+
+      this.container.onclick = function () {
+        var printWindow = window.open('', 'BAAQMD Maps', 'height=600,width=800');
+        var img = new Image();
+        var logo = new Image();
+        logo.src = mapboxLogo.style.backgroundImage.slice(5, mapboxLogo.style.backgroundImage.length - 2);
+
+        if (!printData) {
+          printData = map.getCanvas().toDataURL("image/jpeg");
+        }
+
+        img.src = printData;
+        img.style.width = '100%';
+        logo.style.width = '100px';
+        printWindow.document.write('<html><head><title>BAAQMD Maps</title>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(img.outerHTML);
+        printWindow.document.write('<div style="position:absolute;bottom:10px;left:15px;z-index:200">' + logo.outerHTML + '</div>' + '<div style="float:right;font-family:sans-serif;position:absolute;bottom:0;right:0;z-index:200;background-color:white;padding:10px;">' + '<span>© Mapbox</span>&nbsp;<span>© OpenStreetMap</span>' + '</div>');
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.focus();
+        setTimeout(function () {
+          printWindow.print();
+          printWindow.close();
+        }, 150);
+      };
+
+      map.on('moveend', function () {
+        printData = map.getCanvas().toDataURL("image/jpeg");
+      });
+      map.on('resize', function () {
+        printData = map.getCanvas().toDataURL("image/jpeg");
+      });
+      return this.container;
+    }
+  }, {
+    key: "onRemove",
+    value: function onRemove() {
+      this.container.parentNode.removeChild(this.container);
+      this.map = undefined;
+    }
+  }]);
+
+  return PrintControl;
+}();
+
+
+// EXTERNAL MODULE: ./src/components/help-control/template.html
+var help_control_template = __webpack_require__(207);
+
+// EXTERNAL MODULE: ./src/components/help-control/help.html
+var help = __webpack_require__(208);
+
+// CONCATENATED MODULE: ./src/components/help-control/index.js
+function help_control_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function help_control_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function help_control_createClass(Constructor, protoProps, staticProps) { if (protoProps) help_control_defineProperties(Constructor.prototype, protoProps); if (staticProps) help_control_defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
@@ -19404,12 +23510,12 @@ var help_control_HelpControl =
 /*#__PURE__*/
 function () {
   function HelpControl(showInfoPanel) {
-    _classCallCheck(this, HelpControl);
+    help_control_classCallCheck(this, HelpControl);
 
     this.showInfoPanel = showInfoPanel;
   }
 
-  _createClass(HelpControl, [{
+  help_control_createClass(HelpControl, [{
     key: "onAdd",
     value: function onAdd(map) {
       var self = this;
@@ -19437,6 +23543,16 @@ function () {
 }();
 
 
+// CONCATENATED MODULE: ./src/utils/detect-ie.js
+function GetIEVersion() {
+  var sAgent = window.navigator.userAgent;
+  var Idx = sAgent.indexOf("MSIE");
+  if (Idx > 0) return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));else if (!!navigator.userAgent.match(/Trident\/7\./)) return 11;else return 0;
+}
+
+function detectIE() {
+  return GetIEVersion() > 0;
+}
 // CONCATENATED MODULE: ./src/components/map/index.js
 
 
@@ -19444,7 +23560,8 @@ function () {
 
 
 
- // import PrintControl from '../print-control';
+
+
 
 
 var mapboxQuery =  true ? '' : undefined;
@@ -19503,8 +23620,8 @@ var mapboxQuery =  true ? '' : undefined;
       }));
       map.addControl(new mapbox_gl["ScaleControl"]({
         unit: 'imperial'
-      })); // map.addControl(new PrintControl());
-
+      }));
+      if (!detectIE()) map.addControl(new print_control_PrintControl());
       map.addControl(new help_control_HelpControl(params.showInfoPanel));
       params.map(map);
       params.mapType.subscribe(function (mapType) {
@@ -19562,13 +23679,13 @@ var mapboxQuery =  true ? '' : undefined;
   template: map_template
 }));
 // EXTERNAL MODULE: ./src/components/details-panel/template.html
-var details_panel_template = __webpack_require__(207);
+var details_panel_template = __webpack_require__(209);
 
 // EXTERNAL MODULE: ./node_modules/choices.js/public/assets/scripts/choices.min.js
-var choices_min = __webpack_require__(208);
+var choices_min = __webpack_require__(210);
 
 // EXTERNAL MODULE: ./node_modules/choices.js/public/assets/styles/choices.min.css
-var styles_choices_min = __webpack_require__(582);
+var styles_choices_min = __webpack_require__(584);
 
 // CONCATENATED MODULE: ./src/bindings/choices.js
 
@@ -19653,7 +23770,6 @@ knockout_latest["bindingHandlers"].choices = {
 }));
 // CONCATENATED MODULE: ./src/index.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
-
 
 
 
