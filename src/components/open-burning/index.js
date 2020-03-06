@@ -26,7 +26,7 @@ let fetchData = (rootURL) => {
             const dates = [];
             const sections = {};
             xmlDoc.querySelectorAll('item').forEach((item) => {
-                const date = new Date(item.querySelector('title').textContent);
+                const date = new Date(item.querySelector('title').textContent.replace("Spare the Air Status for ", ""));
                 const status = item.querySelector('description').textContent
                     .split('\n')
                     .reduce((statusList, item) => {

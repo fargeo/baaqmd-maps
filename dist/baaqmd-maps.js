@@ -23260,7 +23260,7 @@ var open_burning_fetchData = function fetchData(rootURL) {
     var dates = [];
     var sections = {};
     xmlDoc.querySelectorAll('item').forEach(function (item) {
-      var date = new Date(item.querySelector('title').textContent);
+      var date = new Date(item.querySelector('title').textContent.replace("Spare the Air Status for ", ""));
       var status = item.querySelector('description').textContent.split('\n').reduce(function (statusList, item) {
         if (item) statusList.push(item.split(": "));
         return statusList;
