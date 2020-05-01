@@ -89,14 +89,6 @@ export default ko.components.register('map', {
                 lng: centerLng
             };
             this.mapConfig.zoom = zoom;
-        } else {
-            this.mapConfig.bounds = [
-                [config.bounds[0], config.bounds[1]],
-                [config.bounds[2], config.bounds[3]]
-            ];
-            this.mapConfig.fitBoundsOptions = {
-                padding: config.boundsPadding
-            };
         }
 
         const length = 40;

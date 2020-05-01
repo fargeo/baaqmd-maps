@@ -98,7 +98,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var getOwnPropertyDescriptor = __webpack_require__(25).f;
 var createNonEnumerableProperty = __webpack_require__(18);
 var redefine = __webpack_require__(26);
@@ -348,12 +348,6 @@ module.exports = false;
 
 /***/ }),
 /* 6 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"prodRoot\":\"https://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Feeds/Air-Forecast-Map\",\"spaRSSFeed\":\"Feeds/TwoDayMapAlertRSS\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"openBurnStatusInfoURL\":\"Utils/Interactive-Map-Content/OBS-Info\",\"aboutImpactedCommunitiesURL\":\"Utils/Interactive-Map-Content/CARE-Info\",\"aboutFacilitiesURL\":\"Utils/Interactive-Map-Content/About-Facility\",\"summerModalURL\":\"Utils/Interactive-Map-Content/Summer-Modal-Content\",\"winterModalURL\":\"Utils/Interactive-Map-Content/Winter-Modal-Content\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalDocRootURL\":\"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/\",\"zoom\":7,\"center\":[-122.172,37.822],\"bounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"https://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb\",\"label\":\"Open Burning Map\"}}}");
-
-/***/ }),
-/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var check = function (it) {
@@ -373,7 +367,7 @@ module.exports =
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(79)))
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(1);
@@ -422,10 +416,16 @@ iterate.stop = function (result) {
 
 
 /***/ }),
+/* 8 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"prodRoot\":\"https://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Feeds/Air-Forecast-Map\",\"spaRSSFeed\":\"Feeds/TwoDayMapAlertRSS\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"openBurnStatusInfoURL\":\"Utils/Interactive-Map-Content/OBS-Info\",\"aboutImpactedCommunitiesURL\":\"Utils/Interactive-Map-Content/CARE-Info\",\"aboutFacilitiesURL\":\"Utils/Interactive-Map-Content/About-Facility\",\"summerModalURL\":\"Utils/Interactive-Map-Content/Summer-Modal-Content\",\"winterModalURL\":\"Utils/Interactive-Map-Content/Winter-Modal-Content\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalDocRootURL\":\"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/\",\"zoom\":7,\"center\":[-122.172,37.822],\"districtBounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"https://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb\",\"label\":\"Open Burning Map\"}}}");
+
+/***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var shared = __webpack_require__(82);
 var has = __webpack_require__(17);
 var uid = __webpack_require__(64);
@@ -514,7 +514,7 @@ exports.f = DESCRIPTORS ? nativeDefineProperty : function defineProperty(O, P, A
 
 var NATIVE_ARRAY_BUFFER = __webpack_require__(129);
 var DESCRIPTORS = __webpack_require__(10);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var isObject = __webpack_require__(11);
 var has = __webpack_require__(17);
 var classof = __webpack_require__(71);
@@ -674,7 +674,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var path = __webpack_require__(38);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 
 var aFunction = function (variable) {
   return typeof variable == 'function' ? variable : undefined;
@@ -731,7 +731,7 @@ module.exports = DESCRIPTORS ? function (object, key, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var NATIVE_WEAK_MAP = __webpack_require__(135);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var isObject = __webpack_require__(11);
 var createNonEnumerableProperty = __webpack_require__(18);
 var objectHas = __webpack_require__(17);
@@ -972,7 +972,7 @@ exports.f = DESCRIPTORS ? nativeGetOwnPropertyDescriptor : function getOwnProper
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var createNonEnumerableProperty = __webpack_require__(18);
 var has = __webpack_require__(17);
 var setGlobal = __webpack_require__(103);
@@ -1300,7 +1300,7 @@ return mapboxgl;
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 
 module.exports = global;
 
@@ -1411,7 +1411,7 @@ module.exports = function (target, src, options) {
 "use strict";
 
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var DESCRIPTORS = __webpack_require__(10);
 var TYPED_ARRAYS_CONSTRUCTORS_REQUIRES_WRAPPERS = __webpack_require__(130);
 var ArrayBufferViewCore = __webpack_require__(14);
@@ -2617,7 +2617,7 @@ var store = __webpack_require__(105);
 "use strict";
 
 var IS_PURE = __webpack_require__(5);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var fails = __webpack_require__(3);
 
 // Forced replacement object prototype accessors methods
@@ -3159,11 +3159,11 @@ module.exports = function (exec) {
 "use strict";
 
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var isForced = __webpack_require__(67);
 var redefine = __webpack_require__(26);
 var InternalMetadataModule = __webpack_require__(52);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var anInstance = __webpack_require__(36);
 var isObject = __webpack_require__(11);
 var fails = __webpack_require__(3);
@@ -3264,7 +3264,7 @@ module.exports = function (CONSTRUCTOR_NAME, wrapper, common) {
 
 "use strict";
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var DESCRIPTORS = __webpack_require__(10);
 var NATIVE_ARRAY_BUFFER = __webpack_require__(129);
 var createNonEnumerableProperty = __webpack_require__(18);
@@ -3523,7 +3523,7 @@ module.exports = function (/* ...elements */) {
 // https://tc39.github.io/proposal-setmap-offrom/
 var aFunction = __webpack_require__(4);
 var bind = __webpack_require__(20);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 module.exports = function from(source /* , mapFn, thisArg */) {
   var length = arguments.length;
@@ -3566,7 +3566,7 @@ module.exports = function of() {
 /* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var isObject = __webpack_require__(11);
 
 var document = global.document;
@@ -3582,7 +3582,7 @@ module.exports = function (it) {
 /* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var createNonEnumerableProperty = __webpack_require__(18);
 
 module.exports = function (key, value) {
@@ -3616,7 +3616,7 @@ module.exports = store.inspectSource;
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var setGlobal = __webpack_require__(103);
 
 var SHARED = '__core-js_shared__';
@@ -3747,7 +3747,7 @@ module.exports = !fails(function () {
 /* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var userAgent = __webpack_require__(85);
 
 var process = global.process;
@@ -4062,7 +4062,7 @@ module.exports = function (METHOD_NAME) {
 /* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var trim = __webpack_require__(62).trim;
 var whitespaces = __webpack_require__(93);
 
@@ -4094,7 +4094,7 @@ module.exports = Math.sign || function sign(x) {
 /* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var fails = __webpack_require__(3);
 var classof = __webpack_require__(34);
 var bind = __webpack_require__(20);
@@ -4225,7 +4225,7 @@ module.exports = collection('Map', function (init) {
 
 "use strict";
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var redefineAll = __webpack_require__(44);
 var InternalMetadataModule = __webpack_require__(52);
 var collection = __webpack_require__(97);
@@ -4305,7 +4305,7 @@ module.exports = typeof ArrayBuffer !== 'undefined' && typeof DataView !== 'unde
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable no-new */
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var fails = __webpack_require__(3);
 var checkCorrectnessOfIteration = __webpack_require__(84);
 var NATIVE_ARRAY_BUFFER_VIEWS = __webpack_require__(14).NATIVE_ARRAY_BUFFER_VIEWS;
@@ -4776,7 +4776,7 @@ module.exports = !DESCRIPTORS && !fails(function () {
 /* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var inspectSource = __webpack_require__(104);
 
 var WeakMap = global.WeakMap;
@@ -5047,7 +5047,7 @@ module.exports = Function.bind || function bind(that /* , ...args */) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 
 // `globalThis` object
 // https://github.com/tc39/proposal-global
@@ -5401,7 +5401,7 @@ defineIterator(String, 'String', function (iterated) {
 /* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var trim = __webpack_require__(62).trim;
 var whitespaces = __webpack_require__(93);
 
@@ -5421,7 +5421,7 @@ module.exports = FORCED ? function parseFloat(string) {
 /* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 
 var globalIsFinite = global.isFinite;
 
@@ -5512,7 +5512,7 @@ module.exports = Math.fround || function fround(x) {
 /* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 
 module.exports = global.Promise;
 
@@ -5530,7 +5530,7 @@ module.exports = /(iphone|ipod|ipad).*applewebkit/i.test(userAgent);
 /* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var getOwnPropertyDescriptor = __webpack_require__(25).f;
 var classof = __webpack_require__(34);
 var macrotask = __webpack_require__(126).set;
@@ -5632,7 +5632,7 @@ module.exports = function (C, x) {
 /* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 
 module.exports = function (a, b) {
   var console = global.console;
@@ -5652,7 +5652,7 @@ var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(4);
 var newPromiseCapabilityModule = __webpack_require__(75);
 var perform = __webpack_require__(96);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Promise.allSettled` method
 // https://github.com/tc39/proposal-promise-allSettled
@@ -5703,7 +5703,7 @@ var create = __webpack_require__(28);
 var redefineAll = __webpack_require__(44);
 var bind = __webpack_require__(20);
 var anInstance = __webpack_require__(36);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var defineIterator = __webpack_require__(116);
 var setSpecies = __webpack_require__(54);
 var DESCRIPTORS = __webpack_require__(10);
@@ -5912,7 +5912,7 @@ var getWeakData = __webpack_require__(52).getWeakData;
 var anObject = __webpack_require__(1);
 var isObject = __webpack_require__(11);
 var anInstance = __webpack_require__(36);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var ArrayIterationModule = __webpack_require__(24);
 var $has = __webpack_require__(17);
 var InternalStateModule = __webpack_require__(19);
@@ -6109,7 +6109,7 @@ __webpack_require__(155);
 var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(10);
 var USE_NATIVE_URL = __webpack_require__(175);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var defineProperties = __webpack_require__(110);
 var redefine = __webpack_require__(26);
 var anInstance = __webpack_require__(36);
@@ -12208,7 +12208,7 @@ module.exports = path;
 "use strict";
 
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var getBuiltIn = __webpack_require__(15);
 var IS_PURE = __webpack_require__(5);
 var DESCRIPTORS = __webpack_require__(10);
@@ -12540,7 +12540,7 @@ defineWellKnownSymbol('asyncIterator');
 
 var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(10);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var has = __webpack_require__(17);
 var isObject = __webpack_require__(11);
 var defineProperty = __webpack_require__(13).f;
@@ -12820,7 +12820,7 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !FREEZING }
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var createProperty = __webpack_require__(53);
 
 // `Object.fromEntries` method
@@ -14991,7 +14991,7 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('sup') }, {
 /***/ (function(module, exports, __webpack_require__) {
 
 var DESCRIPTORS = __webpack_require__(10);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var isForced = __webpack_require__(67);
 var inheritIfRequired = __webpack_require__(94);
 var defineProperty = __webpack_require__(13).f;
@@ -15226,7 +15226,7 @@ $({ global: true, forced: parseFloat != parseFloatImplementation }, {
 "use strict";
 
 var DESCRIPTORS = __webpack_require__(10);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var isForced = __webpack_require__(67);
 var redefine = __webpack_require__(26);
 var has = __webpack_require__(17);
@@ -16147,7 +16147,7 @@ if ($stringify) {
 /* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var setToStringTag = __webpack_require__(39);
 
 // JSON[@@toStringTag] property
@@ -16163,7 +16163,7 @@ setToStringTag(global.JSON, 'JSON', true);
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var getBuiltIn = __webpack_require__(15);
 var NativePromise = __webpack_require__(162);
 var redefine = __webpack_require__(26);
@@ -16175,7 +16175,7 @@ var aFunction = __webpack_require__(4);
 var anInstance = __webpack_require__(36);
 var classof = __webpack_require__(34);
 var inspectSource = __webpack_require__(104);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var checkCorrectnessOfIteration = __webpack_require__(84);
 var speciesConstructor = __webpack_require__(22);
 var task = __webpack_require__(126).set;
@@ -16607,7 +16607,7 @@ collection('WeakSet', function (init) {
 "use strict";
 
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var arrayBufferModule = __webpack_require__(98);
 var setSpecies = __webpack_require__(54);
 
@@ -17151,7 +17151,7 @@ exportTypedArrayMethod('indexOf', function indexOf(searchElement /* , fromIndex 
 
 "use strict";
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var ArrayBufferViewCore = __webpack_require__(14);
 var ArrayIterators = __webpack_require__(87);
 var wellKnownSymbol = __webpack_require__(9);
@@ -17458,7 +17458,7 @@ exportTypedArrayMethod('subarray', function subarray(begin, end) {
 
 "use strict";
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var ArrayBufferViewCore = __webpack_require__(14);
 var fails = __webpack_require__(3);
 
@@ -17494,7 +17494,7 @@ exportTypedArrayMethod('toLocaleString', function toLocaleString() {
 
 var exportTypedArrayMethod = __webpack_require__(14).exportTypedArrayMethod;
 var fails = __webpack_require__(3);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 
 var Uint8Array = global.Uint8Array;
 var Uint8ArrayPrototype = Uint8Array && Uint8Array.prototype || {};
@@ -17998,7 +17998,7 @@ var Set = __webpack_require__(169);
 var ReflectMetadataModule = __webpack_require__(46);
 var anObject = __webpack_require__(1);
 var getPrototypeOf = __webpack_require__(27);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 var ordinaryOwnMetadataKeys = ReflectMetadataModule.keys;
 var toMetadataKey = ReflectMetadataModule.toKey;
@@ -18589,7 +18589,7 @@ __webpack_require__(473);
 "use strict";
 
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var aFunction = __webpack_require__(4);
 
 // `Map.groupBy` method
@@ -18618,7 +18618,7 @@ $({ target: 'Map', stat: true }, {
 "use strict";
 
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var aFunction = __webpack_require__(4);
 
 // `Map.keyBy` method
@@ -18666,7 +18666,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var bind = __webpack_require__(20);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.every` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18696,7 +18696,7 @@ var aFunction = __webpack_require__(4);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(22);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.filter` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18726,7 +18726,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var bind = __webpack_require__(20);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.find` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18753,7 +18753,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var bind = __webpack_require__(20);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.findKey` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18780,7 +18780,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var getMapIterator = __webpack_require__(41);
 var sameValueZero = __webpack_require__(454);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.includes` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18815,7 +18815,7 @@ var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.includes` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18842,7 +18842,7 @@ var aFunction = __webpack_require__(4);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(22);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.mapKeys` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18875,7 +18875,7 @@ var aFunction = __webpack_require__(4);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(22);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.mapValues` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18904,7 +18904,7 @@ var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.merge` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18933,7 +18933,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Map.prototype.reduce` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18969,7 +18969,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var bind = __webpack_require__(20);
 var getMapIterator = __webpack_require__(41);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.some` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19063,7 +19063,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var bind = __webpack_require__(20);
 var getSetIterator = __webpack_require__(55);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.every` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19093,7 +19093,7 @@ var aFunction = __webpack_require__(4);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(22);
 var getSetIterator = __webpack_require__(55);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.filter` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19123,7 +19123,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var bind = __webpack_require__(20);
 var getSetIterator = __webpack_require__(55);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.find` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19149,7 +19149,7 @@ var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var getSetIterator = __webpack_require__(55);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.join` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19179,7 +19179,7 @@ var aFunction = __webpack_require__(4);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(22);
 var getSetIterator = __webpack_require__(55);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.map` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19209,7 +19209,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
 var getSetIterator = __webpack_require__(55);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.reduce` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19245,7 +19245,7 @@ var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var bind = __webpack_require__(20);
 var getSetIterator = __webpack_require__(55);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.some` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19769,7 +19769,7 @@ var defineProperty = __webpack_require__(13).f;
 var createNonEnumerableProperty = __webpack_require__(18);
 var redefineAll = __webpack_require__(44);
 var getIterator = __webpack_require__(77);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var hostReportErrors = __webpack_require__(166);
 var wellKnownSymbol = __webpack_require__(9);
 var InternalStateModule = __webpack_require__(19);
@@ -20250,7 +20250,7 @@ $({ global: true, forced: IS_PURE }, {
 /* 518 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var shared = __webpack_require__(105);
 var getPrototypeOf = __webpack_require__(27);
 var has = __webpack_require__(17);
@@ -20742,7 +20742,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var anInstance = __webpack_require__(36);
 var createNonEnumerableProperty = __webpack_require__(18);
 var fails = __webpack_require__(3);
@@ -20861,7 +20861,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var aFunction = __webpack_require__(4);
 var anObject = __webpack_require__(1);
 
@@ -20921,7 +20921,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var aFunction = __webpack_require__(4);
 var anObject = __webpack_require__(1);
 
@@ -20997,7 +20997,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var anObject = __webpack_require__(1);
 
 $({ target: 'Iterator', proto: true, real: true }, {
@@ -21083,7 +21083,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var aFunction = __webpack_require__(4);
 var anObject = __webpack_require__(1);
 
@@ -21115,7 +21115,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var aFunction = __webpack_require__(4);
 var anObject = __webpack_require__(1);
 
@@ -21170,7 +21170,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var anObject = __webpack_require__(1);
 
 var push = [].push;
@@ -21272,7 +21272,7 @@ var getBuiltIn = __webpack_require__(15);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
 var speciesConstructor = __webpack_require__(22);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.difference` method
 // https://github.com/tc39/proposal-set-methods
@@ -21301,7 +21301,7 @@ var getBuiltIn = __webpack_require__(15);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
 var speciesConstructor = __webpack_require__(22);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.intersection` method
 // https://github.com/tc39/proposal-set-methods
@@ -21329,7 +21329,7 @@ var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.isDisjointFrom` method
 // https://tc39.github.io/proposal-set-methods/#Set.prototype.isDisjointFrom
@@ -21356,7 +21356,7 @@ var getBuiltIn = __webpack_require__(15);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
 var getIterator = __webpack_require__(77);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.isSubsetOf` method
 // https://tc39.github.io/proposal-set-methods/#Set.prototype.isSubsetOf
@@ -21386,7 +21386,7 @@ var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(5);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.isSupersetOf` method
 // https://tc39.github.io/proposal-set-methods/#Set.prototype.isSupersetOf
@@ -21413,7 +21413,7 @@ var getBuiltIn = __webpack_require__(15);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
 var speciesConstructor = __webpack_require__(22);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.union` method
 // https://github.com/tc39/proposal-set-methods
@@ -21439,7 +21439,7 @@ var getBuiltIn = __webpack_require__(15);
 var anObject = __webpack_require__(1);
 var aFunction = __webpack_require__(4);
 var speciesConstructor = __webpack_require__(22);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 // `Set.prototype.symmetricDifference` method
 // https://github.com/tc39/proposal-set-methods
@@ -21520,7 +21520,7 @@ var setPrototypeOf = __webpack_require__(50);
 var create = __webpack_require__(28);
 var defineProperty = __webpack_require__(13);
 var createPropertyDescriptor = __webpack_require__(42);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 var createNonEnumerableProperty = __webpack_require__(18);
 var InternalStateModule = __webpack_require__(19);
 
@@ -21570,7 +21570,7 @@ var aFunction = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(15);
 var newPromiseCapabilityModule = __webpack_require__(75);
 var perform = __webpack_require__(96);
-var iterate = __webpack_require__(8);
+var iterate = __webpack_require__(7);
 
 var PROMISE_ANY_ERROR = 'No one promise resolved';
 
@@ -21704,7 +21704,7 @@ module.exports = path;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(570);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 
 module.exports = global;
 
@@ -21770,7 +21770,7 @@ module.exports = path;
 /* 576 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var DOMIterables = __webpack_require__(181);
 var forEach = __webpack_require__(151);
 var createNonEnumerableProperty = __webpack_require__(18);
@@ -21791,7 +21791,7 @@ for (var COLLECTION_NAME in DOMIterables) {
 /* 577 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var DOMIterables = __webpack_require__(181);
 var ArrayIteratorMethods = __webpack_require__(87);
 var createNonEnumerableProperty = __webpack_require__(18);
@@ -21831,7 +21831,7 @@ for (var COLLECTION_NAME in DOMIterables) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var task = __webpack_require__(126);
 
 var FORCED = !global.setImmediate || !global.clearImmediate;
@@ -21852,7 +21852,7 @@ $({ global: true, bind: true, enumerable: true, forced: FORCED }, {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var microtask = __webpack_require__(164);
 var classof = __webpack_require__(34);
 
@@ -21874,7 +21874,7 @@ $({ global: true, enumerable: true, noTargetGet: true }, {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var global = __webpack_require__(7);
+var global = __webpack_require__(6);
 var userAgent = __webpack_require__(85);
 
 var slice = [].slice;
@@ -22469,7 +22469,7 @@ var knockout_latest = __webpack_require__(2);
 var styles = __webpack_require__(581);
 
 // EXTERNAL MODULE: ./src/config.json
-var config = __webpack_require__(6);
+var config = __webpack_require__(8);
 
 // EXTERNAL MODULE: ./src/main.html
 var main = __webpack_require__(182);
@@ -23655,11 +23655,6 @@ var mapboxQuery =  true ? '' : undefined;
         lng: centerLng
       };
       this.mapConfig.zoom = zoom;
-    } else {
-      this.mapConfig.bounds = [[config["bounds"][0], config["bounds"][1]], [config["bounds"][2], config["bounds"][3]]];
-      this.mapConfig.fitBoundsOptions = {
-        padding: config["boundsPadding"]
-      };
     }
 
     var length = 40;
