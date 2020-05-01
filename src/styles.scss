@@ -1670,3 +1670,41 @@ $no-color: #b10318;
     }
   }
 }
+
+@media (max-width: 400px) {
+    .baaqmd-maps-main .baaqmd-maps-details-panel.baaqmd-maps-expanded {
+        width: 80%;
+    }
+    .baaqmd-maps-main .baaqmd-maps-details-panel-wrapper {
+        width: 100%;
+    }
+    .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-content {
+        width: 100%;
+    }
+    .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-type-selector .choices__item.choices__item--selectable {
+        letter-spacing: 0;    font-size: 0.95rem;
+    }
+    .baaqmd-maps-main .baaqmd-maps-details-panel h3 {
+        letter-spacing: 1px;
+    }
+    .baaqmd-maps-main .baaqmd-maps-boundaries li:after {
+        width: 50px;
+    }
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li {
+        margin-bottom: 8px;
+    }
+}
+@media (max-width: 350px) {
+    .baaqmd-maps-main .baaqmd-maps-details-panel h3 {
+        letter-spacing: 0;
+    }
+    .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-type-selector .choices__item.choices__item--selectable {
+        font-size: 0.85rem;
+    }
+    .baaqmd-maps-main .baaqmd-maps-boundaries li:after {
+        width: 20px;
+    }
+    .baaqmd-maps-main .baaqmd-maps-legend li {
+        font-size: .75rem;
+    }
+}
