@@ -7455,7 +7455,7 @@ var f=t("inherits"),c=t("./hash"),l=t("safe-buffer").Buffer,p=[1116352408,189944
 /* 204 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig\"></div>;\n";
+module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig\"></div>\n";
 
 /***/ }),
 /* 205 */
