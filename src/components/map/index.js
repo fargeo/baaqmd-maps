@@ -21,34 +21,8 @@ export default ko.components.register('map', {
         this.customAttribution = '<a href="http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
 
         this.setupMap = (map) => {
-            const jumpToDistrict = () => {
-                const searchParams = new URLSearchParams(window.location.search);
-                const centerLat = searchParams.get('centerLat');
-                const centerLng = searchParams.get('centerLng');
-                const zoom = searchParams.get('zoom');
-                let cameraOpts;
-                if (centerLat & centerLng & zoom) {
-                    cameraOpts = {
-                        center: {
-                            lat: centerLat,
-                            lng: centerLng
-                        },
-                        zoom: zoom
-                    };
-                } else {
-                    cameraOpts = map.cameraForBounds([
-                        [config.bounds[0], config.bounds[1]],
-                        [config.bounds[2], config.bounds[3]]
-                    ], {
-                        padding: config.boundsPadding
-                    });
-                }
-                map.jumpTo(cameraOpts);
-            };
-
             this.map = map;
 
-            jumpToDistrict();
             map.addControl(new MapboxGeocoder({
                 bbox: config.bounds,
                 accessToken: mapboxgl.accessToken,
@@ -97,6 +71,33 @@ export default ko.components.register('map', {
                 this.map.on('dragend', () => this.map.dragPan.disable());
             }
         };
+
+        this.mapConfig = {
+            accessToken: this.accessToken,
+            style: this.style,
+            customAttribution: this.customAttribution,
+            afterRender: this.setupMap
+        };
+
+        const searchParams = new URLSearchParams(window.location.search);
+        const centerLat = searchParams.get('centerLat');
+        const centerLng = searchParams.get('centerLng');
+        const zoom = searchParams.get('zoom');
+        if (centerLat & centerLng & zoom) {
+            this.mapConfig.center = {
+                lat: centerLat,
+                lng: centerLng
+            };
+            this.mapConfig.zoom = zoom;
+        } else {
+            this.mapConfig.bounds = [
+                [config.bounds[0], config.bounds[1]],
+                [config.bounds[2], config.bounds[3]]
+            ];
+            this.mapConfig.fitBoundsOptions = {
+                padding: config.boundsPadding
+            };
+        }
 
         const length = 40;
         const resize = () => {
