@@ -34,7 +34,7 @@ export default function fetchHTML(url, content) {
         .then((text) => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
-            return content(doc.querySelector('body').textContent);
+            return content(doc.querySelector('body').innerHTML);
         });
     return content;
 }
