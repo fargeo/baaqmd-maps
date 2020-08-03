@@ -22661,7 +22661,7 @@ function fetchHTML(url, content) {
   }).then(function (text) {
     var parser = new DOMParser();
     var doc = parser.parseFromString(text, 'text/html');
-    return content(doc.querySelector('body').textContent);
+    return content(doc.querySelector('body').innerHTML);
   });
   return content;
 }
