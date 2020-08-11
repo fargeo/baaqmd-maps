@@ -1,34 +1,35 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700");
 
-@font-face{
-  font-family:'proxima_nova_rgregular';
-  src:url('fonts/proxima/proximanova-regular-webfont.eot');
-  src:url('fonts/proxima/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
-  url('fonts/proxima/proximanova-regular-webfont.woff2') format('woff2'),
-  url('fonts/proxima/proximanova-regular-webfont.ttf') format('truetype');
-  font-weight:normal;
-  font-style:normal
-}
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?askvjh');
-  src:  url('fonts/icomoon.eot?askvjh#iefix') format('embedded-opentype'),
-  url('fonts/icomoon.woff2?askvjh') format('woff2'),
-  url('fonts/icomoon.ttf?askvjh') format('truetype'),
-  url('fonts/icomoon.woff?askvjh') format('woff'),
-  url('fonts/icomoon.svg?askvjh#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'proxima_nova_rgregular';
+    src: url('fonts/proxima/proximanova-regular-webfont.eot');
+    src: url('fonts/proxima/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/proxima/proximanova-regular-webfont.woff2') format('woff2'),
+        url('fonts/proxima/proximanova-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?askvjh');
+    src: url('fonts/icomoon.eot?askvjh#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.woff2?askvjh') format('woff2'),
+        url('fonts/icomoon.ttf?askvjh') format('truetype'),
+        url('fonts/icomoon.woff?askvjh') format('woff'),
+        url('fonts/icomoon.svg?askvjh#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 $side-panel-width: 335px;
 
-$light-color: rgb(239,246,247);
-$mid-color: rgb(0,142,184);
-$dark-color: rgb(0,76,131);
+$light-color: rgb(239, 246, 247);
+$mid-color: rgb(0, 142, 184);
+$dark-color: rgb(0, 76, 131);
 
-$primary-color: rgb(0,142,184);
+$primary-color: rgb(0, 142, 184);
 $secondary-color: #ee8301;
 
 $good-color: #096;
@@ -42,1668 +43,2237 @@ $nobelow2k-color: #ffdd71;
 $no-color: #b10318;
 
 .baaqmd-maps-main {
-  // put all style rules inside here to ensure they are scoped to library
-  height: 100%;
-  background-color: $light-color;
-  font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
-  color: rgba(black, 0.67);
-  position: relative;
-  a {
-    color: $primary-color;
-    text-decoration: underline;
-  }
-  :focus {
-    outline: -webkit-focus-ring-color auto 0px !important;
-  }
-  a:hover, a:focus {
-    color: $secondary-color;
-  }
-  a:hover, a:focus, a.event-no:hover, a.event-no:focus {
-    outline:none;
-  }
-  .baaqmd-maps-info-panel-mask {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: rgba($dark-color, 0.15);
-  }
-  .baaqmd-maps-info-panel {
-    position: absolute;
-    margin: auto;
-    top: 32px;
-    bottom: 32px;
-    right: 32px;
-    left: 32px;
-    max-height: 650px;
-    max-width: 850px;
-    background-color: white;
-    color: rgba(black, 0.67);
-    border-radius: 6px;
-    border: 0px solid transparent;
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-    z-index: 1001;
-    font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
-    .baaqmd-maps-info-panel-content .baaqmd-maps-legend li {
-      color: rgba(black, 0.67);
-    }
-    hr {
-      margin-bottom: 18px;
-    }
-    .close-information-panel {
-      cursor: pointer;
-      position: absolute;
-      border-radius: 50%;
-      right: 15px;
-      top: 5px;
-      color: $primary-color;
-      width: 28px;
-      height: 28px;
-      font-size: 2rem;
-      text-align: center;
-      border-color: transparent;
-      background-color: transparent;
-      padding: 0 !important;
-      line-height: 0rem !important;
-      &:hover, &:focus {
-        color: $secondary-color;
-        font-size: 2.3rem;
-        background-color: transparent;
-      }
-    }
-    .baaqmd-maps-info-panel-content {
-      height: 100%;
-      overflow-y: auto;
-      .baaqmd-maps-info-panel-component {
-        padding: 16px;
-      }
-    }
-    h3 {
-      margin-top: 2px;
-      margin-bottom: 4px;
-    }
-    p {
-      font-size: 0.8rem;
-      line-height: 1.1rem;
-    }
-    .impacted-communities {
-      h3, p {
-        margin-left: 30px;
-      }
-      i {
-        position: relative;
-        &:before {
-          content: '';
-          display: block;
-          position:absolute;
-          height: 16px;
-          width: 16px;
-          border-radius: 50%;
-          border: solid 0px transparent;
-          left: -24px;
-        }
-      }
-    }
-  }
-  .mapboxgl-map {
-    font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
-  }
-  .mapboxgl-ctrl-group, .mapboxgl-ctrl-geocoder, .mapboxgl-ctrl-geocoder *, .mapboxgl-ctrl-geocoder .geocoder-pin-right * {
-    background-color: $light-color;
-  }
-  .mapboxgl-ctrl {
-    border-radius: 0px;
-  }
-
-  .mapboxgl-ctrl-group {
-    background-color: transparent;
-  }
-  .mapboxgl-ctrl-geocoder {
-    background-color: $light-color;
-    * {
-      background-color: $light-color;
-    }
-    .geocoder-pin-right * {
-      background-color: transparent;
-    }
-    *:focus, .geocoder-pin-right *:focus {
-      background-color: white;
-    }
-    * .geocoder-icon-search, .geocoder-icon-search {
-      background-color: transparent;
-    }
-    ul > li > a {
-      text-decoration: none;
-    }
-    ul > li:hover > a, ul > li:focus > a {
-      color: rgba(black, 0.8);
-      background-color: rgba(238,131,1,0.2);
-      text-decoration: none;
-    }
-    ul > li.active > a {
-      color: #202020;
-      background-color: rgba(200,220,240,0.6);
-      text-decoration: none;
-    }
-  }
-  .mapboxgl-ctrl-geocoder:focus {
-    background-color: #fff;
-  }
-  .mapboxgl-ctrl-group:not(:empty) {
-    -moz-box-shadow: 0 2px 2px rgba(black, 0.1);
-    -webkit-box-shadow: 0 2px 2px rgba(black, 0.1);
-    box-shadow: 0 0 2px 2px rgba(black, 0.1);
-  }
-  .mapboxgl-ctrl-group {
-    border-radius: 6px;
-  }
-  .mapboxgl-ctrl-group > button {
-    border-radius: 6px;
-    background: $primary-color;
-    color: white;
-  }
-  .mapboxgl-ctrl-group > button:hover, .mapboxgl-ctrl-group > button:focus {
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-    background: #ee8301;
-  }
-  i.icomoon, i.im {
-    font-style: normal;
-  }
-  .icomoon, .im {
-    font-family: icomoon;
-    &.im-aqi-index:before {
-      content: "\e901";
-    }
-    &.im-forecast:before {
-      content: "\e921";
-    }
-    &.im-info:before {
-      content: "\e920";
-    }
-    &.im-boundaries:before {
-      content: "\e91f";
-    }
-    &.im-share:before {
-      content: "\e91c";
-    }
-    &.im-email:before {
-      content: "\e91a";
-    }
-    &.im-twitter:before {
-      content: "\e91b";
-    }
-    &.im-facebook:before {
-      content: "\e91d";
-    }
-
-  }
-  .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
-    background-image: none;
-    font-size: 0.9rem;
-    background-image: none !important;
-  }
-  .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:hover, .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:focus {
-    font-size: 1.1rem;
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
-    background-image: none;
-    font-size: 0.9rem;
-    background-image: none !important;
-  }
-  .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon:before {
-    display: inline-block;
-    padding-top: 7px;
-    content: "\e90f";
-  }
-  .baaqmd-maps-print-button:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-zoom-in:focus .mapboxgl-ctrl-icon {
-    font-size: 1.3rem;
-  }
-  .mapboxgl-ctrl-icon.baaqmd-maps-print-button:before {
-    content: "\e90c";
-  }
-  .mapboxgl-ctrl-icon.baaqmd-maps-help-button {
-    font-size: 1.3rem;
-  }
-  .mapboxgl-ctrl-icon.baaqmd-maps-help-button:hover, .mapboxgl-ctrl-icon.baaqmd-maps-help-button:focus {
-    font-size: 1.4rem;
-  }
-  .mapboxgl-ctrl-icon.baaqmd-maps-help-button:before {
-    content: "\e906";
-  }
-  .mapboxgl-ctrl-zoom-out:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-zoom-out:focus .mapboxgl-ctrl-icon {
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  .mapboxgl-ctrl button.mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
-    background-image: none;
-    font-size: 1.3rem;
-    margin: 0;
-    text-align: center;
-  }
-  .mapboxgl-ctrl-compass .mapboxgl-ctrl-icon:before {
-    margin-top:-2px;
-    content: "\e90e";
-  }
-  .mapboxgl-ctrl-compass:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-compass:focus .mapboxgl-ctrl-icon {
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  .mapboxgl-ctrl-compass:hover .mapboxgl-ctrl-icon > .mapboxgl-ctrl-compass-arrow, .mapboxgl-ctrl-compass:focus .mapboxgl-ctrl-icon > .mapboxgl-ctrl-compass-arrow {
-    font-size: 1.5rem;
-  }
-  .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
-    background-image: none;
-    font-size: 1.3rem;
-    line-height: 1.8rem;
-  }
-  .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon::before {
-    background-image: none;
-  }
-  .mapboxgl-ctrl-geolocate:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-geolocate:focus .mapboxgl-ctrl-icon {
-    font-size: 1.4rem;
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  button.mapboxgl-ctrl-icon.baaqmd-maps-print-button > i.fas.fa-print.icomoon.icon-Print {
-    background-image: none;
-    font-size: 1.2rem;
-  }
-  button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover, button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:focus {
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover > i.fas.fa-print.icomoon.icon-Print, button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:focus > i.fas.fa-print.icomoon.icon-Print {
-    font-size: 1.4rem;
-  }
-  .mapboxgl-ctrl-icon {
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  .mapboxgl-ctrl button .mapboxgl-ctrl-icon:before {
-  }
-  .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
-    background-image: none;
-    font-size: 0.9rem;
-    background-image: none !important;
-  }
-  .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon, .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
-
-  }
-  .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:before {
-    display: inline-block;
-    padding-top: 7px;
-    content: "\e900";
-  }
-  .mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-zoom-in:focus {
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
-    background-image: none;
-    font-size: 0.9rem;
-    background-image: none !important;
-  }
-  .mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
-    background-image: none;
-    font-size: 1.3rem;
-    line-height: 1.5rem;
-    margin: 0;
-    text-align: center;
-    width: 29px;
-    height: 24px;
-  }
-  .mapboxgl-ctrl-compass:hover, .mapboxgl-ctrl-compass:focus {
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  .mapboxgl-ctrl-compass:hover > .mapboxgl-ctrl-compass-arrow, .mapboxgl-ctrl-compass:focus > .mapboxgl-ctrl-compass-arrow {
-    font-size: 1.5rem;
-  }
-  .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon{
-    background-image: none;
-    font-size: 1.1rem;
-  }
-  .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon::before{
-    content: "\e903";
-  }
-  .mapboxgl-ctrl-geolocate:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-geolocate:focus .mapboxgl-ctrl-icon {
-    font-size: 1.4rem;
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  .mapboxgl-ctrl button.mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon, .mapboxgl-ctrl button.mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon{
-    background-image: none;
-    font-size: 1.3rem;
-  }
-  .mapboxgl-ctrl-fullscreen:hover .mapboxgl-ctrl-icon, .mapboxgl-ctrl-shrink:hover .mapboxgl-ctrl-icon{
-    font-size: 1.6rem;
-  }
-  .mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon:before {
-    padding-top: 4px;
-    display: inline-block;
-    content: "\e905";
-  }
-  .mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon:before {
-    padding-top: 4px;
-    display: inline-block;
-    content: "\e916";
-  }
-  .baaqmd-maps-details-panel-wrapper {
-    width: $side-panel-width;
-  }
-  .baaqmd-maps-map, .baaqmd-maps-details-panel, .baaqmd-maps-details-panel-wrapper {
+    // put all style rules inside here to ensure they are scoped to library
     height: 100%;
-  }
-  .baaqmd-maps-details-panel, .baaqmd-maps-details-panel-expander, .baaqmd-maps-details-panel-expander div {
-    transition-property: all;
-    transition-duration: 300ms;
-  }
-  .baaqmd-maps-details-panel {
-    padding: 0px;
-    width: 0px;
-    float: left;
+    background-color: $light-color;
+    font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
+    color: rgba(black, 0.67);
     position: relative;
-    .choices__list--single:after {
-      content: '\f279';
-      font-family: "Font Awesome 5 Free";
-      position: absolute;
-      top: 16px;
-      right: 36px;
-    }
-    .baaqmd-maps-details-links {
-      margin: 6px 14px;
-      font-size: 0.92rem;
-      a {
-        text-decoration: none;
-      }
-    }
-    h3 {
-      margin: 0;
-      background-color: $mid-color;
-      border: 0px solid transparent;
-      color: white;
-      font-weight: 600;
-      text-transform: uppercase;
-      font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
-      font-size: 0.74rem;
-      vertical-align: middle;
-      letter-spacing: 2px;
-      padding: 10px 20px 8px 20px;
-      i {
-        padding-right: 6px;
-        font-size: 1.3rem;
-        vertical-align: middle;
-      }
-    }
-    h4 {
-      margin: 0;
-      padding: 10px;
-      color: rgba(0, 10, 20, 0.65);
-      font-weight: 600;
-      font-size: 0.9rem;
-      line-height: 1.2em;
-      i {
-        font-size: 1.2em;
-        margin-right: 5px;
-      }
-    }
-    .information-link {
-      cursor: pointer;
-      display: block;
-      text-align: center;
-      background: $primary-color;
-      color: white;
-      padding: 5px 0;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      i {
-        margin-right: 6px;
-      }
-      &:hover, &:focus {
-        background: $secondary-color;
-        color: white;
-        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-      }
-    }
-    .baaqmd-maps-details-panel-content{
-      position: absolute;
-      width: $side-panel-width;
-      top: 48px;
-      bottom: 0;
-      overflow-y: auto;
-      .baaqmd-maps-last-updated {
-        margin: 0 0 10px 13px;
-      }
-    }
-    .baaqmd-maps-details-panel-expander {
-      position: absolute;
-      z-index: 100;
-      padding: 0;
-      cursor: pointer;
-      width: 48px;
-      height: 48px;
-      text-align: center;
-      line-height: 2.4rem !important;
-      border-radius: 6px;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 6px;
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 6px;
-      background: $primary-color;
-      color: white;
-      top: 0;
-      right: -48px;
-      &:hover, &:focus {
-        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-        background: $secondary-color !important;
-      }
-      i {
-        font-size: 1.3rem;
-        vertical-align: middle;
-        padding: 11px 2px 5px;
-      }
-      &.baaqmd-maps-expanded i {
-        padding: 11px 2px 4px;
-      }
-      &.baaqmd-maps-share-buttons {
-        top: 60px;
-        text-align: left;
-        overflow: hidden;
-        a {
-          display: block;
-          float: left;
-          color: white;
-        }
-        div {
-          padding-top: 4px;
-          float: left;
-          text-align: center;
-          width: 48px;
-          height: 44px;
-          &:hover, &:focus {
-            background: $secondary-color !important;
-          }
-        }
-        i {
-          font-size: 1.8rem;
-        }
-        &:hover, &:focus {
-          box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-          background: $primary-color !important;
-          width: 192px;
-          right: -192px;
-        }
-      }
-    }
-    .baaqmd-maps-type-selector {
-      .choices.no-select {
-        cursor: default;
-        .choices__inner {
-          padding-bottom: 8px;
-        }
-        div {
-          cursor: default;
-        }
-      }
-      .choices.no-select::after {
-        border-color: transparent;
-      }
-      .choices[data-type*=select-one]:after {
-        border-color: $light-color transparent transparent transparent;
-        right: 16px;
-      }
-      .choices[data-type*=select-one].is-open:after {
-        border-color: transparent transparent $light-color transparent;
-        right: 16px;
-      }
-      .choices__inner {
-        display: block;
-        width: auto;
-        min-height: 28px;
-        padding-top: 10px;
-        padding-right: 30px;
-        font-weight: 300;
-        font-size: 16px;
-        border-radius: 0;
-        background-color: transparent;
-        color: $dark-color;
-        border-color: transparent;
-      }
-      .choices.is-focused .choices__inner {
-        color: $secondary-color;
-      }
-      .choices__item.choices__item--selectable {
-        font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial;
-        font-size: 1rem;
-        line-height: 1rem !important;
-        font-weight: 400;
-        letter-spacing: 1px;
-        font-family: Garamond, Georgia1, Georgia, serif;
-      }
-      .choices__list--dropdown .choices__item--selectable {
-        background-color: rgb(250,250,250);
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0;
-        font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
-      }
-      .choices__list--dropdown .choices__item--selectable.is-highlighted {
-        background-color: rgba(238,131,1,0.2);
-      }
-      .choices[data-type*=select-one]:after {
-        border-color: $primary-color transparent transparent transparent;
-        border-width: 6px;
-        top: 52%;
-      }
-      .choices[data-type*=select-one].is-focused:after {
-        border-color: $secondary-color transparent transparent transparent;
-      }
-      .choices[data-type*=select-one].is-focused.is-open:after {
-        border-color: transparent transparent $secondary-color transparent;
-      }
-    }
-    .baaqmd-maps-popup {
-      display: none;
-    }
-  }
-  .baaqmd-maps-details-panel.baaqmd-maps-expanded {
-    border-right: 1px solid rgba(0,60,120,0.3);
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-  }
-  .baaqmd-maps-details-panel.baaqmd-maps-expanded {
-    border-right: 1px solid $mid-color;
-    width: $side-panel-width;
-  }
-  .baaqmd-maps-print-button {
-    font-size: 18px;
-  }
-  .baaqmd-maps-help-button {
 
-  }
-  .baaqmd-maps-aqi-forecast-dates{
-    padding-inline-start: 0;
-    margin: 0px 10px 5px 10px;
-    li {
-      display: inline-block;
-      border-bottom: solid transparent 2px;
-      a {
-        text-decoration: none;
-        margin: 0 2px;
-        background: white;
-        color: rgba(black, 0.67);
-        font-size: 0.7rem !important;
-        padding: 4px 8px;
-        border-radius: 6px;
-        box-shadow: rgba(black, 0.19) 0px 1px 3px 0px;
-      }
-      a:hover, li a:focus {
-        background: $secondary-color;
-        color: white;
-        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-      }
+    a {
+        color: $primary-color;
+        text-decoration: underline;
     }
-    li.active {
-      border-bottom: solid white 0px;
-      a {
+
+    :focus {
+        outline: -webkit-focus-ring-color auto 0px !important;
+    }
+
+    a:hover,
+    a:focus {
+        color: $secondary-color;
+    }
+
+    a:hover,
+    a:focus,
+    a.event-no:hover,
+    a.event-no:focus {
+        outline: none;
+    }
+
+    .baaqmd-maps-info-panel-mask {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: rgba($dark-color, 0.15);
+    }
+
+    .baaqmd-maps-info-panel {
+        position: absolute;
+        margin: auto;
+        top: 32px;
+        bottom: 32px;
+        right: 32px;
+        left: 32px;
+        max-height: 650px;
+        max-width: 850px;
+        background-color: white;
+        color: rgba(black, 0.67);
+        border-radius: 6px;
+        border: 0px solid transparent;
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+        z-index: 1001;
+        font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
+
+        .baaqmd-maps-info-panel-content .baaqmd-maps-legend li {
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        .baaqmd-maps-info-panel-content .baaqmd-maps-legend li:before {
+            display: block;
+            content: "";
+        }
+
+        hr {
+            margin-bottom: 18px;
+        }
+
+        .close-information-panel {
+            cursor: pointer;
+            position: absolute;
+            border-radius: 50%;
+            right: 10px;
+            top: 5px;
+            color: $primary-color;
+            width: 28px;
+            height: 28px;
+            font-size: 3rem;
+            text-align: center;
+            border-color: transparent;
+            background-color: transparent;
+            padding: 0 !important;
+            line-height: 0rem !important;
+
+            &:hover,
+            &:focus {
+                color: $secondary-color;
+                font-size: 3.3rem;
+                background-color: transparent;
+            }
+        }
+
+        .baaqmd-maps-info-panel-content {
+            height: 100%;
+            overflow-y: auto;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+
+            .baaqmd-maps-info-panel-component {
+                padding: 16px;
+            }
+        }
+
+        h3 {
+            margin-top: 2px;
+            margin-bottom: 4px;
+        }
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+        }
+
+        .impacted-communities {
+
+            h3,
+            p {
+                margin-left: 30px;
+            }
+
+            i {
+                position: relative;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    height: 16px;
+                    width: 16px;
+                    border-radius: 50%;
+                    border: solid 0px transparent;
+                    left: -24px;
+                }
+            }
+        }
+    }
+
+    .mapboxgl-map {
+        font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
+    }
+
+    .mapboxgl-ctrl-group,
+    .mapboxgl-ctrl-geocoder,
+    .mapboxgl-ctrl-geocoder *,
+    .mapboxgl-ctrl-geocoder .geocoder-pin-right * {
+        background-color: $light-color;
+    }
+
+    .mapboxgl-ctrl {
+        border-radius: 0px;
+    }
+
+    .mapboxgl-ctrl-group {
+        background-color: transparent !important;
+    }
+
+    .mapboxgl-ctrl-geocoder {
+        background-color: $light-color;
+        border-radius: 4px;
+
+        * {
+            background-color: $light-color;
+        }
+
+        .geocoder-pin-right * {
+            background-color: transparent;
+        }
+
+        *:focus,
+        .geocoder-pin-right *:focus {
+            background-color: white;
+        }
+
+        * .geocoder-icon-search,
+        .geocoder-icon-search {
+            background-color: transparent;
+        }
+
+        ul>li>a {
+            text-decoration: none;
+        }
+
+        ul>li:hover>a,
+        ul>li:focus>a {
+            color: rgba(black, 0.8);
+            background-color: rgba(238, 131, 1, 0.2);
+            text-decoration: none;
+        }
+
+        ul>li.active>a {
+            color: #202020;
+            background-color: rgba(200, 220, 240, 0.6);
+            text-decoration: none;
+        }
+    }
+
+    .mapboxgl-ctrl-geocoder:focus {
+        background-color: #fff;
+    }
+
+    .mapboxgl-ctrl-group:not(:empty) {
+        -moz-box-shadow: 0 2px 2px rgba(black, 0.1);
+        -webkit-box-shadow: 0 2px 2px rgba(black, 0.1);
+        box-shadow: 0 0 2px 2px rgba(black, 0.1);
+    }
+
+    .mapboxgl-ctrl-group {
+        border-radius: 6px;
+    }
+
+    .mapboxgl-ctrl-group>button {
+        border-radius: 6px;
         background: $primary-color;
         color: white;
-        box-shadow: rgba(black, 0.19) 0px 1px 3px 0px;
-      }
     }
-  }
-  .mapboxgl-popup-content {
-    padding: 0px;
-    max-width: 250px;
-    height: 275px;
-    border-radius: 6px;
-    box-shadow: 0 1px 2px rgba(black, 0.1);
-    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
-    .baaqmd-maps-scroll-for-more {
-      color: $primary-color;
-      position: absolute;
-      bottom: -4px;
-      padding: 2px;
-      margin: 4px;
-      background-color: rgba(255, 255, 255, 0.9);
-      width: 238px;
-      -webkit-transition: opacity 300ms ease-in-out;
-      -moz-transition: opacity 300ms ease-in-out;
-      -ms-transition: opacity 300ms ease-in-out;
-      -o-transition: opacity 300ms ease-in-out;
-      opacity: 1;
-      &.scrolled-to-bottom{
-        opacity: 0;
-      }
-      i {
-        margin-right: 4px;
-      }
+
+    .mapboxgl-ctrl-group>button:hover,
+    .mapboxgl-ctrl-group>button:focus {
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+        background: #ee8301 !important;
     }
-    .mapboxgl-popup-close-button, .mapboxgl-popup-expand-button {
-      position: absolute;
-      border: 0;
-      cursor: pointer;
-      border-radius: 50%;
-      right: 10px;
-      top: 5px;
-      color: $primary-color;
-      width: 28px;
-      height: 28px;
-      font-size: 2rem;
-      text-align: center;
-      border-radius: 50%;
-      background-color: transparent;
-      padding: 0 !important;
-      line-height: 0rem !important;
-      &:hover, &:focus {
-        color: $secondary-color;
-        font-size: 2.3rem;
-        background-color: transparent;
-      }
+
+    i.icomoon,
+    i.im {
+        font-style: normal;
     }
-    .mapboxgl-popup-expand-button {
-      font-size: 1rem;
-      right: 34px;
-      top: 8px;
-      &:hover, &:focus {
-        top: 9px;
+
+    .icomoon,
+    .im {
+        font-family: icomoon;
+
+        &.im-aqi-index:before {
+            content: "\e901";
+        }
+
+        &.im-forecast:before {
+            content: "\e921";
+        }
+
+        &.im-info:before {
+            content: "\e920";
+        }
+
+        &.im-boundaries:before {
+            content: "\e91f";
+        }
+
+        &.im-share:before {
+            content: "\e91c";
+        }
+
+        &.im-email:before {
+            content: "\e91a";
+        }
+
+        &.im-twitter:before {
+            content: "\e91b";
+        }
+
+        &.im-facebook:before {
+            content: "\e91d";
+        }
+
+    }
+
+    .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 1.6rem;
+        padding-top: 6px !important;
+        background-image: none !important;
+    }
+
+    .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:hover,
+    .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:focus {
+        font-size: 1.1rem;
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 1.6rem;
+        padding-top: 5px !important;
+        background-image: none !important;
+    }
+
+    .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon:before {
+        display: inline-block;
+        padding-top: 1px;
+        content: "\e90f";
+    }
+
+    .baaqmd-maps-print-button:hover .mapboxgl-ctrl-icon,
+    .mapboxgl-ctrl-zoom-in:focus .mapboxgl-ctrl-icon {
         font-size: 1.3rem;
-      }
     }
-  }
-  .baaqmd-maps-popup {
-    overflow-y: auto;
-    height: 100%;
-    .baaqmd-maps-popup-content {
-      padding: 10px 30px 25px 10px;
-      h3 {
-        margin: 0 30px 10px 0;
-        span {
-          font-size: 0.95rem;
-          vertical-align: middle;
-          line-height: 0rem !important;
+
+    .mapboxgl-ctrl-icon.baaqmd-maps-print-button:before {
+        content: "\e90c";
+        font-size: 2.2rem;
+    }
+
+    .mapboxgl-ctrl-icon.baaqmd-maps-help-button {
+        font-size: 1.3rem;
+    }
+
+    .mapboxgl-ctrl-icon.baaqmd-maps-help-button:hover,
+    .mapboxgl-ctrl-icon.baaqmd-maps-help-button:focus {
+        font-size: 1.4rem;
+    }
+
+    .mapboxgl-ctrl-icon.baaqmd-maps-help-button:before {
+        content: "\e906";
+        font-size: 2.2rem;
+    }
+
+    .mapboxgl-ctrl-zoom-out:hover .mapboxgl-ctrl-icon,
+    .mapboxgl-ctrl-zoom-out:focus .mapboxgl-ctrl-icon {
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    .mapboxgl-ctrl button.mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 2.2rem;
+        margin: 0 0 -1px 0;
+        line-height: 2rem !important;
+        text-align: center;
+    }
+
+    .mapboxgl-ctrl-compass .mapboxgl-ctrl-icon:before {
+        margin-top: -2px;
+        content: "\e90e";
+    }
+
+    .mapboxgl-ctrl-compass:hover .mapboxgl-ctrl-icon,
+    .mapboxgl-ctrl-compass:focus .mapboxgl-ctrl-icon {
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    .mapboxgl-ctrl-compass:hover .mapboxgl-ctrl-icon>.mapboxgl-ctrl-compass-arrow,
+    .mapboxgl-ctrl-compass:focus .mapboxgl-ctrl-icon>.mapboxgl-ctrl-compass-arrow {
+        font-size: 1.5rem;
+    }
+
+    .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+        padding-top: 5px;
+    }
+
+    .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon::before {
+        background-image: none;
+    }
+
+    .mapboxgl-ctrl-geolocate:hover .mapboxgl-ctrl-icon,
+    .mapboxgl-ctrl-geolocate:focus .mapboxgl-ctrl-icon {
+        font-size: 1.8rem;
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button>i.fas.fa-print.icomoon.icon-Print {
+        background-image: none;
+        font-size: 1.2rem;
+    }
+
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover,
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:focus {
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:hover>i.fas.fa-print.icomoon.icon-Print,
+    button.mapboxgl-ctrl-icon.baaqmd-maps-print-button:focus>i.fas.fa-print.icomoon.icon-Print {
+        font-size: 1.4rem;
+    }
+
+    .mapboxgl-ctrl-icon {
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .mapboxgl-ctrl button .mapboxgl-ctrl-icon:before {}
+
+    .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 1.6rem;
+        padding-top: 0 !important;
+        background-image: none !important;
+    }
+
+    .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon,
+    .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {}
+
+    .mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon:before {
+        display: inline-block;
+        padding-top: 0px;
+        content: "\e900";
+    }
+
+    .mapboxgl-ctrl-zoom-in:hover,
+    .mapboxgl-ctrl-zoom-in:focus {
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 1.6rem;
+        padding-top: 5px !important;
+        background-image: none !important;
+    }
+
+    .mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 2.2rem;
+        margin: 0 0 0 -1px;
+        line-height: 2rem !important;
+        text-align: center;
+        width: 29px;
+        height: 24px;
+    }
+
+    .mapboxgl-ctrl-compass:hover,
+    .mapboxgl-ctrl-compass:focus {
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    .mapboxgl-ctrl-compass:hover>.mapboxgl-ctrl-compass-arrow,
+    .mapboxgl-ctrl-compass:focus>.mapboxgl-ctrl-compass-arrow {
+        font-size: 1.5rem;
+    }
+
+    .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 1.8rem;
+    }
+
+    .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon::before {
+        content: "\e903";
+    }
+
+    .mapboxgl-ctrl-geolocate:hover .mapboxgl-ctrl-icon,
+    .mapboxgl-ctrl-geolocate:focus .mapboxgl-ctrl-icon {
+        font-size: 1.8rem;
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    .mapboxgl-ctrl button.mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon,
+    .mapboxgl-ctrl button.mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon {
+        background-image: none;
+        font-size: 2rem;
+        padding-top: 4px;
+    }
+
+    .mapboxgl-ctrl-fullscreen:hover .mapboxgl-ctrl-icon,
+    .mapboxgl-ctrl-shrink:hover .mapboxgl-ctrl-icon {
+        font-size: 2rem;
+    }
+
+    .mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon:before {
+        padding-top: 0px;
+        display: inline-block;
+        content: "\e905";
+    }
+
+    .mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon:before {
+        padding-top: 4px;
+        display: inline-block;
+        content: "\e916";
+    }
+
+    .baaqmd-maps-details-panel-wrapper {
+        width: $side-panel-width;
+    }
+
+    .baaqmd-maps-map,
+    .baaqmd-maps-details-panel,
+    .baaqmd-maps-details-panel-wrapper {
+        height: 100%;
+    }
+
+    .baaqmd-maps-details-panel,
+    .baaqmd-maps-details-panel-expander,
+    .baaqmd-maps-details-panel-expander div {
+        transition-property: all;
+        transition-duration: 300ms;
+    }
+
+    .baaqmd-maps-details-panel {
+        padding: 0px;
+        width: 0px;
+        float: left;
+        position: relative;
+
+        .choices__list--single:after {
+            content: '\f279';
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            top: 16px;
+            right: 36px;
         }
-        i {
-          font-size: 1.4rem;
-          vertical-align: middle;
-          line-height: 0rem !important;
-        }
-      }
-      h4 {
-        font-size: 0.85rem;
-        vertical-align: middle;
-        margin: 15px 0 0;
-      }
-      .baaqmd-maps-zone-forecast {
-        thead {
-          th {
-            cursor: pointer;
-            color: $primary-color;
-            &.baaqmd-maps-no-link {
-              cursor: default;
-              color: rgba(black, 0.6);
+
+        .baaqmd-maps-details-links {
+            margin: 6px 14px;
+            font-size: 0.92rem;
+
+            a {
+                text-decoration: none;
             }
-          }
         }
-      }
-      table {
+
+        h3 {
+            margin: 0;
+            background-color: $mid-color;
+            border: 0px solid transparent;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
+            font-size: 1rem;
+            vertical-align: middle;
+            letter-spacing: 2px;
+            padding: 10px 20px 8px 20px;
+
+            i {
+                padding-right: 6px;
+                font-size: 1.8rem;
+                line-height: 1.7rem;
+                vertical-align: middle;
+            }
+        }
+
+        h4 {
+            margin: 0;
+            padding: 10px;
+            color: rgba(0, 10, 20, 0.65);
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 1.2em;
+
+            i {
+                font-size: 2.5rem;
+                margin-right: 5px;
+                vertical-align: middle;
+            }
+        }
+
+        .information-link {
+            cursor: pointer;
+            text-align: center;
+            background: $primary-color;
+            color: white;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            padding: 6px 0;
+            display: inline-block;
+            width: 100%;
+
+            i {
+                margin-right: 6px;
+                font-size: 1.4rem;
+                line-height: 1.2rem;
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+            &:hover,
+            &:focus {
+                background: $secondary-color;
+                color: white !important;
+                box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+            }
+        }
+
+        .baaqmd-maps-details-panel-content {
+            position: absolute;
+            width: $side-panel-width;
+            top: 48px;
+            bottom: 0;
+            overflow-y: auto;
+
+            .baaqmd-maps-last-updated {
+                margin: 0 0 10px 13px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .baaqmd-maps-details-panel-expander {
+            position: absolute;
+            z-index: 100;
+            padding: 0;
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            text-align: center;
+            line-height: 2.4rem !important;
+            border-radius: 6px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 6px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 6px;
+            background: $primary-color;
+            color: white;
+            top: 0;
+            right: -48px;
+            background: #008eb8 !important;
+
+            &:hover,
+            &:focus {
+                box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+                background: #ee8301;
+                background-color: #ee8301 !important;
+            }
+
+            i {
+                font-size: 2rem;
+                vertical-align: middle;
+                padding: 14px 2px 5px;
+            }
+
+            &.baaqmd-maps-expanded i {
+                padding: 14px 2px 4px;
+                display: inline-block;
+            }
+
+            &.baaqmd-maps-share-buttons {
+                top: 60px;
+                text-align: left;
+                overflow: hidden;
+
+                a {
+                    display: block;
+                    float: left;
+                    color: white;
+                }
+
+                div {
+                    padding-top: 4px;
+                    float: left;
+                    text-align: center;
+                    width: 48px;
+                    height: 48px;
+
+                    &:hover,
+                    &:focus {
+                        background: $secondary-color !important;
+                    }
+                }
+
+                i {
+                    font-size: 2.5rem;
+                    padding: 9px 2px 4px;
+                    color: white !important;
+                    display: inline-block;
+                }
+
+                &:hover,
+                &:focus {
+                    box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+                    background: $primary-color !important;
+                    width: 192px;
+                    right: -192px;
+                }
+            }
+        }
+
+        .baaqmd-maps-type-selector {
+            .choices.no-select {
+                cursor: default;
+
+                .choices__inner {
+                    padding-bottom: 8px;
+                }
+
+                div {
+                    cursor: default;
+                }
+            }
+
+            .choices.no-select::after {
+                border-color: transparent;
+            }
+
+            .choices[data-type*=select-one]:after {
+                border-color: $light-color transparent transparent transparent;
+                right: 16px;
+            }
+
+            .choices[data-type*=select-one].is-open:after {
+                border-color: transparent transparent $light-color transparent;
+                right: 16px;
+            }
+
+            .choices__inner {
+                display: block;
+                width: auto;
+                min-height: 28px;
+                padding-top: 10px;
+                padding-right: 30px;
+                font-weight: 300;
+                font-size: 16px;
+                border-radius: 0;
+                background-color: transparent;
+                color: $dark-color;
+                border-color: transparent;
+            }
+
+            .choices.is-focused .choices__inner {
+                color: $secondary-color;
+            }
+
+            .choices__item.choices__item--selectable {
+                font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial;
+                font-size: 1.5rem;
+                line-height: 1.6rem !important;
+                font-weight: 400;
+                letter-spacing: 1px;
+                font-family: Garamond, Georgia1, Georgia, serif;
+            }
+
+            .choices__list--dropdown {
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+
+            .choices__list--dropdown .choices__item--selectable {
+                background-color: rgb(250, 250, 250);
+                font-size: 1.3rem;
+                text-transform: uppercase;
+                letter-spacing: 0;
+                font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
+            }
+
+            .choices__list--dropdown .choices__item--selectable.is-highlighted {
+                background-color: rgba(238, 131, 1, 0.2);
+            }
+
+            .choices[data-type*=select-one]:after {
+                border-color: $primary-color transparent transparent transparent;
+                border-width: 6px;
+                top: 52%;
+            }
+
+            .choices[data-type*=select-one].is-focused:after {
+                border-color: $secondary-color transparent transparent transparent;
+            }
+
+            .choices[data-type*=select-one].is-focused.is-open:after {
+                border-color: transparent transparent $secondary-color transparent;
+            }
+        }
+
+        .baaqmd-maps-popup {
+            display: none;
+        }
+    }
+
+    .baaqmd-maps-details-panel.baaqmd-maps-expanded {
+        border-right: 1px solid rgba(0, 60, 120, 0.3);
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+    }
+
+    .baaqmd-maps-details-panel.baaqmd-maps-expanded {
+        border-right: 1px solid $mid-color;
+        width: $side-panel-width;
+    }
+
+    .baaqmd-maps-print-button {
+        font-size: 18px;
+    }
+
+    .baaqmd-maps-help-button {}
+
+    .baaqmd-maps-aqi-forecast-dates {
+        padding-inline-start: 0;
+        margin: 0px 10px 5px 10px;
+
+        li {
+            display: inline-block;
+            border-bottom: solid transparent 2px;
+
+            a {
+                text-decoration: none;
+                margin: 0 2px;
+                background: white;
+                color: rgba(black, 0.67);
+                font-size: 1rem !important;
+                padding: 4px 6px;
+                border-radius: 6px;
+                box-shadow: rgba(black, 0.19) 0px 1px 3px 0px;
+            }
+
+            a:hover,
+            li a:focus {
+                background: #ee8301 !important;
+                color: white !important;
+                box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+            }
+        }
+
+        li.active {
+            border-bottom: solid white 0px;
+
+            a {
+                background: $primary-color;
+                color: white;
+                box-shadow: rgba(black, 0.19) 0px 1px 3px 0px;
+            }
+        }
+
+        li:before {
+            content: none;
+        }
+    }
+
+    .mapboxgl-popup-content {
+        padding: 0px;
+        max-width: 250px;
+        height: 275px;
+        border-radius: 6px;
+        box-shadow: 0 1px 2px rgba(black, 0.1);
+        box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
+
+        .baaqmd-maps-scroll-for-more {
+            color: $primary-color;
+            position: absolute;
+            bottom: -4px;
+            padding: 2px;
+            margin: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 238px;
+            -webkit-transition: opacity 300ms ease-in-out;
+            -moz-transition: opacity 300ms ease-in-out;
+            -ms-transition: opacity 300ms ease-in-out;
+            -o-transition: opacity 300ms ease-in-out;
+            opacity: 1;
+
+            &.scrolled-to-bottom {
+                opacity: 0;
+            }
+
+            i {
+                margin-right: 4px;
+            }
+        }
+
+        .mapboxgl-popup-close-button,
+        .mapboxgl-popup-expand-button {
+            position: absolute;
+            border: 0;
+            cursor: pointer;
+            border-radius: 50%;
+            right: 10px;
+            top: 5px;
+            color: $primary-color;
+            width: 28px;
+            height: 28px;
+            font-size: 2rem;
+            text-align: center;
+            border-radius: 50%;
+            background-color: transparent;
+            padding: 0 !important;
+            line-height: 0rem !important;
+
+            &:hover,
+            &:focus {
+                top: 6px;
+                color: $secondary-color;
+                font-size: 2.3rem;
+                background-color: transparent;
+            }
+        }
+
+        .mapboxgl-popup-expand-button {
+            font-size: 1rem;
+            right: 34px;
+            top: 8px;
+
+            &:hover,
+            &:focus {
+                top: 9px;
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .baaqmd-maps-popup {
+        overflow-y: auto;
+        height: 100%;
+
+        .baaqmd-maps-popup-content {
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            padding: 10px 30px 25px 10px;
+
+            h3 {
+                margin: 0 30px 10px 0;
+
+                span {
+                    font-size: 2rem;
+                    vertical-align: middle;
+                    line-height: 0rem !important;
+                }
+
+                i {
+                    font-size: 1.9rem;
+                    vertical-align: middle;
+                    line-height: 0rem !important;
+                }
+            }
+
+            h4 {
+                font-size: 1.7rem;
+                line-height: 2.1rem;
+                vertical-align: middle;
+                margin: 15px 0 0;
+            }
+
+            .baaqmd-maps-zone-forecast {
+                thead {
+                    th {
+                        cursor: pointer;
+                        color: $primary-color;
+                        padding-bottom: 5px;
+
+                        &.baaqmd-maps-no-link {
+                            cursor: default;
+                            color: rgba(black, 0.6);
+                        }
+                    }
+                }
+            }
+
+            table {
+                margin-top: 5px;
+                width: 100%;
+
+                td {
+                    text-align: center;
+                    font-size: 0.65rem;
+
+                    .baaqmd-maps-zone-forecast-zone-item {
+                        margin-bottom: 4px;
+                        border-style: solid;
+                        border-width: 0;
+                        font-size: 1.2rem;
+                        line-height: 1.8rem;
+                        padding: 4px;
+                        font-weight: 700;
+                        border-radius: 6px;
+                        width: 100%;
+                        display: inline-block;
+                    }
+                }
+
+                .baaqmd-maps-zone-forecast-date {
+                    a {
+                        color: rgba(black, 0.4);
+                        text-decoration: none;
+                    }
+                }
+
+                .baaqmd-maps-zone-forecast-date.active {
+                    a {
+                        color: $primary-color;
+                    }
+
+                    a:hover {
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .baaqmd-maps-legend {
+        color: darken($dark-color, 10%);
+        margin: 0;
+        padding: 0;
+
+        li {
+            position: relative;
+            display: block;
+            padding-left: 36px;
+            min-height: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            line-height: 1.1rem;
+            background-color: transparent;
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.7);
+
+            .facilities-layer-icon {
+                position: relative;
+                top: 5px;
+            }
+        }
+    }
+
+    .baaqmd-maps-boundaries {
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        li {
+            padding-left: 10px;
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative;
+
+            input {
+                margin-top: 0;
+                vertical-align: top !important;
+                height: 20px;
+                width: 20px;
+            }
+
+            &:after {
+                content: " ";
+                width: 80px;
+                display: block;
+                height: 0px;
+                background-color: transparent;
+                position: absolute;
+                margin: 7px 10px 19px 10px;
+                right: 0;
+                top: 0;
+            }
+        }
+
+        &.baaqmd-maps-lines {
+            li {
+                line-height: 1.3rem;
+                display: inline-block;
+                width: 100%;
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+
+            li:after {
+                box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.05), 0px 1px 1px 2px rgba(0, 0, 0, 0.05), 0px 1px 1px -1px rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        .legend-display {
+            width: 14px;
+            height: 24px;
+            color: rgba(black, 0.6);
+            font-size: 1.6rem;
+            border: 0 solid transparent;
+
+            i {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                box-sizing: border-box;
+                position: relative;
+                margin: 0px 5px 0 5px;
+                top: 2px;
+                left: -4px;
+                font-family: 'icomoon' !important;
+                font-style: normal;
+            }
+        }
+
+        .aqi-reporting-zones {
+            .legend-display {
+                color: $dark-color;
+
+                i:before {
+                    content: "\e917";
+                }
+            }
+
+            &:after {
+                height: 2px;
+                background-color: white;
+            }
+        }
+
+        .district-boundary {
+            .legend-display {
+                color: $primary-color;
+
+                i:before {
+                    content: "\e918";
+                }
+            }
+
+            &:after {
+                height: 2px;
+                background-color: black;
+            }
+        }
+
+        .counties {
+            .legend-display {
+                color: #5e5e5e;
+
+                i:before {
+                    content: "\e919";
+                }
+            }
+
+            &:after {
+                height: 1px;
+                background-color: #5e5e5e;
+            }
+        }
+    }
+
+    .air-quality {
+        position: relative;
+
+        .legend-display {
+            line-height: 20px;
+
+            i:before {
+                content: '';
+                display: block;
+                position: absolute;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+                border: solid 0px transparent;
+                left: 5px;
+                top: -2px;
+            }
+        }
+    }
+
+    .air-monitoring {
+        i:before {
+            background-color: #10649F;
+        }
+    }
+
+    li.closed-sites {
+        padding-left: 37px;
+    }
+
+    .facility-glm-stations {
+        i:before {
+            background-color: #068A47;
+        }
+    }
+
+    li.closed-sites.facility-glm-stations {
+        label {
+            color: #9a9a9a;
+        }
+    }
+
+    .meteorological-sites {
+        i:before {
+            background-color: #D28F60;
+        }
+    }
+
+    .air-monitoring-attribute-data {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .impacted-communities {
+        position: relative;
+
+        .legend-display {
+            line-height: 20px;
+
+            i:before {
+                content: '';
+                display: block;
+                position: absolute;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+                border: solid 0px transparent;
+                left: 5px;
+                top: -2px;
+            }
+        }
+    }
+
+    .cumulative-impact-areas {
+        i:before {
+            background-color: #609;
+        }
+    }
+
+    .pm25-impact-areas {
+        i:before {
+            background-color: #ff9933;
+        }
+    }
+
+    .ozone-impact-areas {
+        i:before {
+            background-color: #11c086;
+        }
+    }
+
+    .baaqmd-maps-last-updated {
+        color: rgba(black, 0.5);
+        font-size: 1.1rem;
+        font-style: italic;
+    }
+
+    .good,
+    .good:before {
+        border-color: $good-color;
+        background-color: $good-color;
+        color: white;
+    }
+
+    .moderate,
+    .moderate:before {
+        border-color: $moderate-color;
+        background-color: $moderate-color;
+        color: #222222;
+    }
+
+    .unhealthy-for-sensitive-groups,
+    .unhealthy-for-sensitive-groups:before {
+        border-color: $unhealthy-for-sensitive-groups-color;
+        background-color: $unhealthy-for-sensitive-groups-color;
+        color: #222222;
+    }
+
+    .unhealthy,
+    .unhealthy:before {
+        border-color: $unhealthy-color;
+        background-color: $unhealthy-color;
+        color: white;
+    }
+
+    .very-unhealthy,
+    .very-unhealthy:before {
+        border-color: $very-unhealthy-color;
+        background-color: $very-unhealthy-color;
+        color: white;
+    }
+
+    .hazardous,
+    .hazardous:before {
+        border-color: $hazardous-color;
+        background-color: $hazardous-color;
+        color: white;
+    }
+
+    .yes,
+    .yes:before {
+        border-color: $yes-color;
+        background-color: $yes-color;
+        color: white;
+    }
+
+    .nobelow2k,
+    .nobelow2k:before {
+        border-color: $nobelow2k-color;
+        background-color: $nobelow2k-color;
+        color: #222222;
+    }
+
+    .no,
+    .no:before {
+        border-color: $no-color;
+        background-color: $no-color;
+        color: white;
+    }
+
+    .five-day-forecast-table {
         margin-top: 5px;
         width: 100%;
+        border-spacing: 16px 4px;
+
+        th {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .baaqmd-maps-zone-forecast-name {
+            max-width: 100px;
+        }
+
         td {
-          text-align: center;
-          font-size: 0.65rem;
-          .baaqmd-maps-zone-forecast-zone-item {
-            margin-bottom: 4px;
-            border-style: solid;
-            border-width: 0;
+            text-align: center;
             font-size: 0.65rem;
-            font-weight: 700;
-            border-radius: 6px;
-            width: 100%;
-            display: inline-block;
-          }
+            width: 15%;
+            padding: 0 0.5% !important;
+
+            .baaqmd-maps-legend {
+                padding: 5px;
+                margin-bottom: 4px;
+                border-style: solid;
+                border-width: 0;
+                font-size: 1rem;
+                font-weight: 700;
+                border-radius: 6px;
+                width: 100%;
+                display: inline-block;
+
+                .baaqmd-maps-pollutant {
+                    font-weight: 500;
+                }
+            }
         }
+
         .baaqmd-maps-zone-forecast-date {
-          a {
-            color: rgba(black, 0.4);
-            text-decoration: none;
-          }
+            a {
+                color: rgba(black, 0.4);
+                text-decoration: none;
+            }
         }
+
         .baaqmd-maps-zone-forecast-date.active {
-          a {
+            a {
+                color: $primary-color;
+            }
+
+            a:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .aqi-forecast-legend {
+        position: relative;
+
+        li::before {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            border: solid 0px transparent;
+            left: 13px;
+        }
+    }
+
+    .geocoder-icon-search {
+        background-image: none;
+
+        &:after {
             color: $primary-color;
-          }
-          a:hover {
-            color: $secondary-color;
-          }
+            content: '\e907';
+            font-family: "icomoon";
+            position: absolute;
+            top: 0;
+            left: -3px;
+            font-size: 2em;
         }
-      }
     }
-  }
-  .baaqmd-maps-legend {
-    color: darken($dark-color, 10%);
-    margin: 0;
-    padding: 0;
-    li {
-      display: block;
-      padding-left: 36px;
-      min-height: 20px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      font-size: 0.8rem;
-      line-height: 1.1rem;
-      background-color: transparent;
-      color: darken($dark-color, 10%);
-      .facilities-layer-icon {
-        position: relative;
-        top: 5px;
-      }
-    }
-  }
-  .baaqmd-maps-boundaries {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    li {
-      padding-left: 10px;
-      margin-top: 0;
-      margin-bottom: 0;
-      position: relative;
-      input {
-        margin-top: 7px;
-        vertical-align: top !important;
-        height: 20px;
-        width: 20px;
-      }
-      &:after {
-        content: " ";
-        width: 80px;
-        display: block;
-        height: 0px;
-        background-color: transparent;
+
+    .baaqmd-maps-scroll-mask {
         position: absolute;
-        margin: 14px 10px;
-        right: 0;
-        top: 0;
-      }
+        z-index: 1000;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: rgba(134, 134, 134, 0.75);
+
+        .baaqmd-maps-scroll-mask-message {
+            color: rgb(236, 236, 236);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
-    &.baaqmd-maps-lines {
-      li:after {
-        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.05), 0px 1px 1px 2px rgba(0, 0, 0, 0.05), 0px 1px 1px -1px rgba(0, 0, 0, 0.05);
-      }
+
+    .modal-title-icon.icomoon.icon-SpareAirHoriz {
+        font-size: 2rem;
+        line-height: 3rem;
+        float: left;
     }
-    .legend-display {
-      width: 14px;
-      height: 24px;
-      color: rgba(black, 0.6);
-      font-size: 1.6rem;
-      border: 0 solid transparent;
-      i {
+
+    .modal-title-icon.icomoon.icon-SpareAirWinterHoriz {
+        font-size: 3rem;
+        line-height: 3rem;
+        float: left;
+    }
+
+    .modal-title-icon.icomoon.icon-AlertTextHorizontal {
+        font-size: 1.5rem;
+        line-height: 2.9rem;
+        float: left;
+        text-indent: 5px;
+        color: #ffe560 !important;
+    }
+
+    span.icomoon.white-close {
+        color: white;
+        font-size: 1.4rem;
+        line-height: 2.5rem !important;
+        opacity: 0.8 !important;
         display: inline-block;
-        width: 16px;
-        height: 16px;
-        box-sizing: border-box;
-        position: relative;
-        margin: 0 5px;
-        left: -4px;
-        font-family: 'icomoon' !important;
-        font-style: normal;
-      }
+        margin-right: 15px;
+        margin-top: 3px;
     }
-    .aqi-reporting-zones {
-      .legend-display {
-        color: $dark-color;
-        i:before {
-          content: "\e917";
-        }
-      }
-      &:after {
-        height: 2px;
-        background-color: white;
-      }
-    }
-    .district-boundary {
-      .legend-display {
-        color: $primary-color;
-        i:before {
-          content: "\e918";
-        }
-      }
-      &:after {
-        height: 2px;
-        background-color: black;
-      }
-    }
-    .counties {
-      .legend-display {
-        color: #5e5e5e;
-        i:before {
-          content: "\e919";
-        }
-      }
-      &:after {
-        height: 1px;
-        background-color: #5e5e5e;
-      }
-    }
-  }
-  .air-quality{
-    position: relative;
-    .legend-display {
-      line-height: 20px;
-      i:before {
-        content: '';
-        display: block;
-        position:absolute;
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-        border: solid 0px transparent;
-        left: 5px;
-        top: -2px;
-      }
-    }
-  }
-  .air-monitoring {
-    i:before {
-      background-color: #10649F;
-    }
-  }
-  li.closed-sites {
-    padding-left: 37px;
-  }
-  .facility-glm-stations{
-    i:before {
-      background-color: #068A47;
-    }
-  }
-  li.closed-sites.facility-glm-stations{
-    label {
-      color: #9a9a9a;
-    }
-  }
-  .meteorological-sites{
-    i:before {
-      background-color: #D28F60;
-    }
-  }
 
-  .air-monitoring-attribute-data {
-    font-weight: bold;
-    text-align: left;
-  }
+    .modal-icon.icomoon {
+        float: left;
+        color: white;
+        font-size: 3.8rem;
+        line-height: 2.2rem !important;
+        margin-right: 10px;
+    }
 
-  .impacted-communities{
-    position: relative;
-    .legend-display {
-      line-height: 20px;
-      i:before {
-        content: '';
-        display: block;
-        position:absolute;
-        height: 16px;
-        width: 16px;
-        border-radius: 50%;
-        border: solid 0px transparent;
-        left: 5px;
-        top: -2px;
-      }
+    .modal .modal-dialog .modal-content .modal-body .comment-form input[type="text"],
+    .modal .modal-dialog .modal-content .modal-body .comment-form textarea {
+        border-radius: 4px;
     }
-  }
-  .cumulative-impact-areas{
-    i:before {
-      background-color: #609;
-    }
-  }
-  .pm25-impact-areas{
-    i:before {
-      background-color: #ff9933;
-    }
-  }
-  .ozone-impact-areas{
-    i:before {
-      background-color: #11c086;
-    }
-  }
-  .baaqmd-maps-last-updated {
-    color: rgba(black, 0.5);
-    font-size: 0.72rem;
-    font-style: italic;
-  }
-  .good, .good:before {
-    border-color: $good-color;
-    background-color: $good-color;
-    color: white;
-  }
-  .moderate, .moderate:before {
-    border-color: $moderate-color;
-    background-color: $moderate-color;
-    color: #222222;
-  }
-  .unhealthy-for-sensitive-groups, .unhealthy-for-sensitive-groups:before {
-    border-color: $unhealthy-for-sensitive-groups-color;
-    background-color: $unhealthy-for-sensitive-groups-color;
-    color: #222222;
-  }
-  .unhealthy, .unhealthy:before {
-    border-color: $unhealthy-color;
-    background-color: $unhealthy-color;
-    color: white;
-  }
-  .very-unhealthy, .very-unhealthy:before {
-    border-color: $very-unhealthy-color;
-    background-color: $very-unhealthy-color;
-    color: white;
-  }
-  .hazardous, .hazardous:before {
-    border-color: $hazardous-color;
-    background-color: $hazardous-color;
-    color: white;
-  }
-  .yes, .yes:before {
-    border-color: $yes-color;
-    background-color: $yes-color;
-    color: white;
-  }
-  .nobelow2k, .nobelow2k:before {
-    border-color: $nobelow2k-color;
-    background-color: $nobelow2k-color;
-    color: #222222;
-  }
-  .no, .no:before {
-    border-color: $no-color;
-    background-color: $no-color;
-    color: white;
-  }
-  .five-day-forecast-table {
-    margin-top: 5px;
-    width: 100%;
-    border-spacing: 16px 4px;
-    th {
-      font-size: 0.9rem;
-    }
-    .baaqmd-maps-zone-forecast-name{
-      max-width: 100px;
-    }
-    td {
-      text-align: center;
-      font-size: 0.65rem;
-      width: 15%;
-      .baaqmd-maps-legend {
-        padding: 5px;
-        margin-bottom: 4px;
-        border-style: solid;
-        border-width: 0;
-        font-size: 0.65rem;
-        font-weight: 700;
+
+    .modal .modal-dialog .modal-content .modal-footer input[type="submit"] {
+        border: 1px solid rgb(0, 142, 184);
+        background-color: rgb(0, 142, 184);
+        color: white;
         border-radius: 6px;
+        text-transform: uppercase;
+    }
+
+    .modal .modal-dialog .modal-content .modal-footer input[type="submit"]:hover,
+    .modal .modal-dialog .modal-content .modal-footer input[type="submit"]:focus {
+        border: 1px solid rgb(238, 131, 1);
+        background-color: rgb(238, 131, 1);
+        color: white;
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3), 0px 2px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 6px -6px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal .modal-dialog .modal-content .modal-body {
+        padding: 25px 40px 10px 40px;
+    }
+
+    .modal .modal-dialog .modal-content .modal-footer {
+        padding: 0 40px 25px 40px;
+    }
+
+    img.required.text-only {
+        margin-right: 5px;
+    }
+
+    em.req-text {
+        color: rgba(116, 116, 121, 0.7);
+    }
+
+    .modal-backdrop.in {
+        filter: alpha(opacity=60);
+        opacity: .6;
+        background-color: rgb(50, 70, 90);
+    }
+
+
+    .alert-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        background-image: none !important;
+        border-color: #ebccd1;
+    }
+
+    .modal-content {
+        position: relative;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border-radius: 6px;
+        border: 0px solid rgb(0, 142, 184);
+        outline: 0;
+        -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .close {
+        float: right;
+        font-size: 21px;
+        font-weight: bold;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        filter: alpha(opacity=20);
+        opacity: .4;
+        text-decoration: none !important;
+    }
+
+    button.close {
+        -webkit-appearance: none;
+        padding: 0;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+    }
+
+    .modal .modal-dialog .modal-content .modal-header .close:hover {
+        opacity: 1;
+    }
+
+    .space-1px {
         width: 100%;
         display: inline-block;
-        .baaqmd-maps-pollutant{
-          font-weight: 500;
-        }
-      }
+        height: 1px;
     }
-    .baaqmd-maps-zone-forecast-date {
-      a {
-        color: rgba(black, 0.4);
-        text-decoration: none;
-      }
-    }
-    .baaqmd-maps-zone-forecast-date.active {
-      a {
-        color: $primary-color;
-      }
-      a:hover {
-        color: $secondary-color;
-      }
-    }
-  }
-  .aqi-forecast-legend {
-    position: relative;
-    li::before {
-      content: '';
-      display: block;
-      position:absolute;
-      height: 16px;
-      width: 16px;
-      border-radius: 50%;
-      border: solid 0px transparent;
-      left: 13px;
-    }
-  }
-  .geocoder-icon-search {
-    background-image: none;
-    &:after{
-      color: $primary-color;
-      content: '\e907';
-      font-family: "icomoon";
-      position: absolute;
-      top: 0;
-      left: -3px;
-      font-size: 2em;
-    }
-  }
-  .baaqmd-maps-scroll-mask {
-    position: absolute;
-    z-index: 1000;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    vertical-align: middle;
-    background-color: rgba(134, 134, 134, 0.75);
-    .baaqmd-maps-scroll-mask-message {
-      color: rgb(236, 236, 236);
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-  .modal-title-icon.icomoon.icon-SpareAirHoriz {
-    font-size: 2rem;
-    line-height: 3rem;
-    float: left;
-  }
-  .modal-title-icon.icomoon.icon-SpareAirWinterHoriz {
-    font-size: 3rem;
-    line-height: 3rem;
-    float: left;
-  }
-  .modal-title-icon.icomoon.icon-AlertTextHorizontal {
-    font-size: 1.5rem;
-    line-height: 2.9rem;
-    float: left;
-    text-indent: 5px;
-    color: #ffe560 !important;
-  }
-  span.icomoon.white-close {
-    color: white;
-    font-size: 1.4rem;
-    line-height: 2.5rem !important;
-    opacity: 0.8 !important;
-    display: inline-block;
-    margin-right: 15px;
-    margin-top: 3px;
-  }
-  .modal-icon.icomoon {
-    float: left;
-    color: white;
-    font-size: 3.8rem;
-    line-height: 2.2rem !important;
-    margin-right: 10px;
-  }
-  .modal .modal-dialog .modal-content .modal-body .comment-form input[type="text"], .modal .modal-dialog .modal-content .modal-body .comment-form textarea {
-    border-radius: 4px;
-  }
-  .modal .modal-dialog .modal-content .modal-footer input[type="submit"] {
-    border: 1px solid rgb(0,142,184);
-    background-color: rgb(0,142,184);
-    color: white;
-    border-radius: 6px;
-    text-transform: uppercase;
-  }
-  .modal .modal-dialog .modal-content .modal-footer input[type="submit"]:hover, .modal .modal-dialog .modal-content .modal-footer input[type="submit"]:focus {
-    border: 1px solid rgb(238, 131, 1);
-    background-color: rgb(238, 131, 1);
-    color: white;
-    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3), 0px 2px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 6px -6px rgba(0, 0, 0, 0.2);
-  }
-  .modal .modal-dialog .modal-content .modal-body {
-    padding: 25px 40px 10px 40px;
-  }
-  .modal .modal-dialog .modal-content .modal-footer {
-    padding: 0 40px 25px 40px;
-  }
-  img.required.text-only {
-    margin-right: 5px;
-  }
-  em.req-text {
-    color: rgba(116, 116, 121, 0.7);
-  }
-  .modal-backdrop.in{filter:alpha(opacity=60);opacity:.6;background-color:rgb(50,70,90);}
 
+    .space-5px {
+        width: 100%;
+        display: inline-block;
+        height: 5px;
+    }
 
-  .alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    background-image: none !important;
-    border-color: #ebccd1;
-  }
-  .modal-content {
-    position: relative;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border-radius: 6px;
-    border: 0px solid rgb(0,142,184);
-    outline: 0;
-    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.5);
-    box-shadow: 0 3px 9px rgba(0,0,0,0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+    .space-10px {
+        width: 100%;
+        display: inline-block;
+        height: 10px;
+    }
 
-  .close {
-    float: right;
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    filter: alpha(opacity=20);
-    opacity: .4;
-    text-decoration: none !important;
-  }
-  button.close {
-    -webkit-appearance: none;
-    padding: 0;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-  }
-  .modal .modal-dialog .modal-content .modal-header .close:hover {
-    opacity: 1;
-  }
-  .space-1px {width:100%; display:inline-block; height:1px;}
-  .space-5px {width:100%; display:inline-block; height:5px;}
-  .space-10px {width:100%; display:inline-block; height:10px;}
-  .left-date {
-    float: left;
-    max-width: 190px;
-  }
-  .left-date {
-    font-family: "adobe-garamond-pro","Palatino Linotype","Times New Roman",Times;
-    font-size: 1.1rem;
-  }
-  span.date-day {
-    color: #876130;
-  }
-  span.date-date {
-    color: #c97d02;
-  }
-  .right-button {
-    float: right;
-  }
-  .centered-cntnt {
-    display: inline-block;
-    width: 680px;
-  }
-  .spare-air-alert-text {
-    text-transform: uppercase;
-    font-size: 1.4rem !important;
-    line-height: 1.5rem !important;
-    letter-spacing: 6.5px;
-    font-weight: 600;
-    color: #c97d02;
-    color: rgb(238, 131, 1);
-    text-align: center;
-  }
-  .spare-air-alert-text.summer {
-    text-align: center !important;
-    width: 100%;
-    font-size: 1.6rem !important;
-  }
-  .alert-area.no-burn .spare-air-alert-text {
-    text-align: left;
-  }
-  .spare-alert-icon.icomoon.icon-WalkBikeLonger {
-    font-size: 3.95rem;
-    color: #d6bba1;
-    color: rgb(238, 131, 1);
-    color: #E0CE75;
-    text-align: center;
-
-  }
-  .no-burn-txt {
-    color: rgb(191,67,67);
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 2rem;
-    letter-spacing: 16px;
-  }
-  .no-burn-icon.icon-NoBurn {
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    float: left;
-    margin-right: 20px;
-    margin-left: 17px;
-    font-size: 5rem;
-    color: rgb(191,67,67);
-  }
-  .no-burn-icon.icon-NoBurn::before {
-    content: "\e925";
-  }
-  .icon-SpareAirWinterHoriz:before {
-    float: left;
-    font-size: 3rem;
-    line-height: 1.9rem !important;
-    margin-left: 6px;
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    content: "\e926";
-  }
-  .icon-AlertTextHoriz:before {
-    float: left;
-    font-size: 3.9rem;
-    line-height: 1.9rem !important;
-    margin-left: 3px;
-    color: #ffe560;
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    content: "\e923";
-  }
-  .no-burn-icon.icon-NoBurnAlert {
-    font-size: 4.28rem;
-    line-height: 1.6rem;
-    width: 100%;
-    text-align: center;
-    color: rgb(191,67,67);
-  }
-  .icon-NoBurnAlert:before {
-    font-family: 'icomoon' !important;
-    content: "\e927";
-  }
-  .spare-air-burn-text {
-    color: #876130;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    line-height: 1.1rem;
-    font-weight: 600;
-    text-align:center
-  }
-  .alert-main-text {
-    font-size: 1rem;
-  }
-  .modal-control {
-    cursor: pointer;
-  }
-  @media (max-width: 800px) {
-    .no-burn-icon.icon-NoBurnAlert {
-      font-size: 3.5rem;
-    }
-    .spare-air-alert-text {
-      letter-spacing: 5.4px;
-      font-size: 1.3rem !important;
-    }
-    .spare-air-alert-text.winter-no-burn {
-      font-size: 1.2rem !important;
-      letter-spacing: 4.5px;
-    }
-    .spare-air-alert-text.summer {
-      font-size: 1.3rem !important;
-      letter-spacing: 5.3px;
-    }
-    .no-burn-txt {
-      font-size: 1.5rem;
-      letter-spacing: 14px;
-      line-height: 2.5rem;
-    }
-    .no-burn-icon.icon-NoBurn {
-      line-height: 4.5rem;
-    }
-    .spare-alert-icon.icomoon.icon-WalkBikeLonger {
-      font-size: 3.5rem;
-    }
-  }
-
-  @media (max-width: 680px) {
-    .no-burn-icon.icon-NoBurnAlert {
-      font-size: 3rem;
-    }
-    .spare-air-alert-text {
-      letter-spacing: 4px;
-      font-size: 1.2rem !important;
-    }
-    .spare-air-alert-text.winter-no-burn {
-      font-size: 1rem !important;
-      letter-spacing: 2.3px;
-    }
-    .spare-air-alert-text.summer {
-      font-size: 1.2rem !important;
-      letter-spacing: 4px;
-    }
-    .no-burn-txt {
-      font-size: 1.35rem;
-      letter-spacing: 8px;
-    }
-    .spare-alert-icon.icomoon.icon-WalkBikeLonger {
-      font-size: 3rem;
-    }
-  }
-  @media (max-width: 550px) {
-    .no-burn-icon.icon-NoBurnAlert {
-      font-size: 2.5rem;
-      line-height: 2.8rem;
-    }
-    .centered-cntnt {
-      width: 370px;
-    }
-    .spare-air-alert-text {
-      letter-spacing: 2px;
-      font-size: 1.19rem !important;
-    }
-    .spare-air-alert-text.winter-no-burn {
-      font-size: 0.95rem !important;
-      letter-spacing: 1px;
-    }
-    .spare-air-alert-text.summer {
-      font-size: 1.1rem !important;
-      letter-spacing: 2.3px;
-    }
-    .no-burn-txt {
-      font-size: 1.3rem;
-      letter-spacing: 5px;
-    }
-    .no-burn-icon.icon-NoBurn {
-      line-height: 4.3rem;
-      margin-left: 0px;
-      margin-right: 10px;
-    }
-    .spare-alert-icon.icomoon.icon-WalkBikeLonger {
-      font-size: 2.6rem;
-    }
-  }
-  @media (max-width: 410px) {
-    .no-burn-icon.icon-NoBurnAlert {
-      font-size: 2.4rem;
-    }
-    .centered-cntnt {
-      width: 345px;
-    }
-    .spare-air-alert-text {
-      font-size: 1rem !important;
-    }
-    .spare-air-alert-text.winter-no-burn {
-      font-size: 0.86rem !important;
-    }
-    .spare-air-alert-text.summer {
-      letter-spacing: 1.5px;
-    }
-    .no-burn-txt {
-      font-size: 1.2rem;
-      letter-spacing: 4.8px;
-      line-height: 1.8rem;
-    }
-    .no-burn-icon.icon-NoBurn {
-      line-height: 3.3rem;
-      font-size: 4.5rem;
-    }
-    .spare-alert-icon.icomoon.icon-WalkBikeLonger {
-      font-size: 2.3rem;
-    }
-  }
-  @media (max-width: 374px) {
-    .modal-title-icon.icomoon.icon-SpareAirWinterHoriz {
-      font-size: 2.7rem;
-    }
-    .modal-title-icon.icomoon.icon-AlertTextHorizontal {
-      font-size: 1.36rem;
-      line-height: 2.95rem;
-    }
-    .no-burn-icon.icon-NoBurnAlert {
-      font-size: 2.26rem;
-    }
-    .centered-cntnt {
-      width: 325px;
-    }
-    .spare-air-alert-text {
-      letter-spacing: 1.6px;
-    }
-    .spare-air-alert-text.winter-no-burn {
-      font-size: 0.91rem !important;
-      letter-spacing: 0;
-    }
-    .spare-air-alert-text.summer {
-      letter-spacing: 1px;
-    }
-    .no-burn-txt {
-      letter-spacing: 3.5px;
-    }
-    .no-burn-icon.icon-NoBurn {
-      line-height: 3.3rem;
-      font-size: 4.5rem;
-    }
-    .spare-alert-icon.icomoon.icon-WalkBikeLonger {
-      font-size: 2.2rem;
-    }
-  }
-  @media (max-width: 355px) {
-    .modal .modal-dialog .modal-content .modal-header h4 {
-      text-indent: 20px;
-    }
-    .modal-title-icon.icomoon.icon-SpareAirWinterHoriz {
-      font-size: 2.7rem;
-    }
-    .modal-title-icon.icomoon.icon-AlertTextHorizontal {
-      font-size: 1.3rem;
-    }
     .left-date {
-      font-size: 1rem;
+        float: left;
+        max-width: 190px;
     }
-    .no-burn-icon.icon-NoBurnAlert {
-      font-size: 2rem;
+
+    .left-date {
+        font-family: "adobe-garamond-pro", "Palatino Linotype", "Times New Roman", Times;
+        font-size: 1.1rem;
     }
+
+    span.date-day {
+        color: #876130;
+    }
+
+    span.date-date {
+        color: #c97d02;
+    }
+
+    .right-button {
+        float: right;
+    }
+
     .centered-cntnt {
-      width: 290px;
+        display: inline-block;
+        width: 680px;
     }
+
     .spare-air-alert-text {
-      letter-spacing: 0.8px;
+        text-transform: uppercase;
+        font-size: 1.4rem !important;
+        line-height: 1.5rem !important;
+        letter-spacing: 6.5px;
+        font-weight: 600;
+        color: #c97d02;
+        color: rgb(238, 131, 1);
+        text-align: center;
     }
-    .spare-air-alert-text.winter-no-burn {
-      font-size: 0.8rem !important;
-    }
+
     .spare-air-alert-text.summer {
-      letter-spacing: 1.2px;
-      font-size: 0.9rem !important;
+        text-align: center !important;
+        width: 100%;
+        font-size: 1.6rem !important;
     }
-    .no-burn-txt {
-      letter-spacing: 1.6px;
+
+    .alert-area.no-burn .spare-air-alert-text {
+        text-align: left;
     }
-    .no-burn-icon.icon-NoBurn {
-      line-height: 3.1rem;
-      font-size: 4rem;
-    }
+
     .spare-alert-icon.icomoon.icon-WalkBikeLonger {
-      font-size: 2rem;
+        font-size: 3.95rem;
+        color: #d6bba1;
+        color: rgb(238, 131, 1);
+        color: #E0CE75;
+        text-align: center;
+
     }
-  }
-  .baaqmd-maps-main .baaqmd-maps-details-panel .choices__list--single:after {
-    content: "\e909";
-    font-family: icomoon;
-  }
-  i.icomoon.icon-Menu2 {
-    font-size: 2rem !important;
-    line-height: 2.9rem !important;
-  }
 
-  .spare-air-alert {
-    display: inline-block;
-    width: 100%;
-    background-color: #fd7808;
-    color: white;
-    min-height: 60px;
-    padding: 6px 10px;
-    box-sizing: border-box;
-  }
-  .spare-icon.icon-SpareAirHorizontal {
-    float: left;
-    font-size: 9rem;
-    line-height: 2rem !important;
-    margin-left: 40px;
-  }
-  .icon-SpareAirHorizontal:before {
-    font-family: 'icomoon' !important;
-    content: "\e924";
-  }
-  .spare-icon.icon-SpareAirWinterHoriz {
-    float: left;
-    font-size: 3rem;
-    line-height: 2rem !important;
-    margin-left: 10px;
-  }
-  .spare-logo {
-    width: 100%;
-    text-align: center;
-  }
-  .spare-icon.icon-AlertTextHoriz {
-    float: left;
-    font-size: 3.9rem;
-    line-height: 1.9rem !important;
-    margin-left: 3px;
-    color: #ffe560;
-  }
-  .no-burn-icon.icon-NoBurnAlert {
-    text-align: center;
-    width: 100%;
-    display: inline-block;
-    font-size: 2.1rem;
-    color: #ffe560;
-  }
-  .clear {clear: both;}
-  .spare-title {
-    color: #fff !important;
-    font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial !important;
-    font-size: 0.7rem !important;
-    font-weight: 600 !important;
-    text-align: center;
-    line-height: 1.5rem !important;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-  }
-  .spare-date {
-    text-align: center;
+    .no-burn-txt {
+        color: rgb(191, 67, 67);
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 2rem;
+        letter-spacing: 16px;
+    }
+
+    .no-burn-icon.icon-NoBurn {
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        float: left;
+        margin-right: 20px;
+        margin-left: 17px;
+        font-size: 5rem;
+        color: rgb(191, 67, 67);
+    }
+
+    .no-burn-icon.icon-NoBurn::before {
+        content: "\e925";
+    }
+
+    .icon-SpareAirWinterHoriz:before {
+        float: left;
+        font-size: 3rem;
+        line-height: 1.9rem !important;
+        margin-left: 6px;
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        content: "\e926";
+    }
+
+    .icon-AlertTextHoriz:before {
+        float: left;
+        font-size: 5.7rem;
+        line-height: 2.3rem !important;
+        margin-left: 0px;
+        color: #ffe560;
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        content: "\e923";
+    }
+
+    .no-burn-icon.icon-NoBurnAlert {
+        font-size: 4.28rem;
+        line-height: 1.6rem;
+        width: 100%;
+        text-align: center;
+        color: rgb(191, 67, 67);
+    }
+
+    .icon-NoBurnAlert:before {
+        font-family: 'icomoon' !important;
+        content: "\e927";
+    }
+
+    .spare-air-burn-text {
+        color: #876130;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        line-height: 1.1rem;
+        font-weight: 600;
+        text-align: center
+    }
+
+    .alert-main-text {
+        font-size: 1rem;
+    }
+
+    .modal-control {
+        cursor: pointer;
+    }
+
+    @media (max-width: 800px) {
+        .no-burn-icon.icon-NoBurnAlert {
+            font-size: 3.5rem;
+        }
+
+        .spare-air-alert-text {
+            letter-spacing: 5.4px;
+            font-size: 1.3rem !important;
+        }
+
+        .spare-air-alert-text.winter-no-burn {
+            font-size: 1.2rem !important;
+            letter-spacing: 4.5px;
+        }
+
+        .spare-air-alert-text.summer {
+            font-size: 1.3rem !important;
+            letter-spacing: 5.3px;
+        }
+
+        .no-burn-txt {
+            font-size: 1.5rem;
+            letter-spacing: 14px;
+            line-height: 2.5rem;
+        }
+
+        .no-burn-icon.icon-NoBurn {
+            line-height: 4.5rem;
+        }
+
+        .spare-alert-icon.icomoon.icon-WalkBikeLonger {
+            font-size: 3.5rem;
+        }
+    }
+
+    @media (max-width: 680px) {
+        .no-burn-icon.icon-NoBurnAlert {
+            font-size: 3rem;
+        }
+
+        .spare-air-alert-text {
+            letter-spacing: 4px;
+            font-size: 1.2rem !important;
+        }
+
+        .spare-air-alert-text.winter-no-burn {
+            font-size: 1rem !important;
+            letter-spacing: 2.3px;
+        }
+
+        .spare-air-alert-text.summer {
+            font-size: 1.2rem !important;
+            letter-spacing: 4px;
+        }
+
+        .no-burn-txt {
+            font-size: 1.35rem;
+            letter-spacing: 8px;
+        }
+
+        .spare-alert-icon.icomoon.icon-WalkBikeLonger {
+            font-size: 3rem;
+        }
+    }
+
+    @media (max-width: 550px) {
+        .no-burn-icon.icon-NoBurnAlert {
+            font-size: 2.5rem;
+            line-height: 2.8rem;
+        }
+
+        .centered-cntnt {
+            width: 370px;
+        }
+
+        .spare-air-alert-text {
+            letter-spacing: 2px;
+            font-size: 1.19rem !important;
+        }
+
+        .spare-air-alert-text.winter-no-burn {
+            font-size: 0.95rem !important;
+            letter-spacing: 1px;
+        }
+
+        .spare-air-alert-text.summer {
+            font-size: 1.1rem !important;
+            letter-spacing: 2.3px;
+        }
+
+        .no-burn-txt {
+            font-size: 1.3rem;
+            letter-spacing: 5px;
+        }
+
+        .no-burn-icon.icon-NoBurn {
+            line-height: 4.3rem;
+            margin-left: 0px;
+            margin-right: 10px;
+        }
+
+        .spare-alert-icon.icomoon.icon-WalkBikeLonger {
+            font-size: 2.6rem;
+        }
+    }
+
+    @media (max-width: 410px) {
+        .no-burn-icon.icon-NoBurnAlert {
+            font-size: 2.4rem;
+        }
+
+        .centered-cntnt {
+            width: 345px;
+        }
+
+        .spare-air-alert-text {
+            font-size: 1rem !important;
+        }
+
+        .spare-air-alert-text.winter-no-burn {
+            font-size: 0.86rem !important;
+        }
+
+        .spare-air-alert-text.summer {
+            letter-spacing: 1.5px;
+        }
+
+        .no-burn-txt {
+            font-size: 1.2rem;
+            letter-spacing: 4.8px;
+            line-height: 1.8rem;
+        }
+
+        .no-burn-icon.icon-NoBurn {
+            line-height: 3.3rem;
+            font-size: 4.5rem;
+        }
+
+        .spare-alert-icon.icomoon.icon-WalkBikeLonger {
+            font-size: 2.3rem;
+        }
+    }
+
+    @media (max-width: 374px) {
+        .modal-title-icon.icomoon.icon-SpareAirWinterHoriz {
+            font-size: 2.7rem;
+        }
+
+        .modal-title-icon.icomoon.icon-AlertTextHorizontal {
+            font-size: 1.36rem;
+            line-height: 2.95rem;
+        }
+
+        .no-burn-icon.icon-NoBurnAlert {
+            font-size: 2.26rem;
+        }
+
+        .centered-cntnt {
+            width: 325px;
+        }
+
+        .spare-air-alert-text {
+            letter-spacing: 1.6px;
+        }
+
+        .spare-air-alert-text.winter-no-burn {
+            font-size: 0.91rem !important;
+            letter-spacing: 0;
+        }
+
+        .spare-air-alert-text.summer {
+            letter-spacing: 1px;
+        }
+
+        .no-burn-txt {
+            letter-spacing: 3.5px;
+        }
+
+        .no-burn-icon.icon-NoBurn {
+            line-height: 3.3rem;
+            font-size: 4.5rem;
+        }
+
+        .spare-alert-icon.icomoon.icon-WalkBikeLonger {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 355px) {
+        .modal .modal-dialog .modal-content .modal-header h4 {
+            text-indent: 20px;
+        }
+
+        .modal-title-icon.icomoon.icon-SpareAirWinterHoriz {
+            font-size: 2.7rem;
+        }
+
+        .modal-title-icon.icomoon.icon-AlertTextHorizontal {
+            font-size: 1.3rem;
+        }
+
+        .left-date {
+            font-size: 1rem;
+        }
+
+        .no-burn-icon.icon-NoBurnAlert {
+            font-size: 2rem;
+        }
+
+        .centered-cntnt {
+            width: 290px;
+        }
+
+        .spare-air-alert-text {
+            letter-spacing: 0.8px;
+        }
+
+        .spare-air-alert-text.winter-no-burn {
+            font-size: 0.8rem !important;
+        }
+
+        .spare-air-alert-text.summer {
+            letter-spacing: 1.2px;
+            font-size: 0.9rem !important;
+        }
+
+        .no-burn-txt {
+            letter-spacing: 1.6px;
+        }
+
+        .no-burn-icon.icon-NoBurn {
+            line-height: 3.1rem;
+            font-size: 4rem;
+        }
+
+        .spare-alert-icon.icomoon.icon-WalkBikeLonger {
+            font-size: 2rem;
+        }
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-details-panel .choices__list--single:after {
+        content: "\e909";
+        font-family: icomoon;
+    }
+
+    i.icomoon.icon-Menu2 {
+        font-size: 2rem !important;
+        line-height: 2.9rem !important;
+    }
+
+    .spare-air-alert {
+        display: inline-block;
+        width: 100%;
+        background-color: #fd7808;
+        color: white;
+        min-height: 60px;
+        padding: 6px 10px;
+        box-sizing: border-box;
+    }
+
+    .spare-icon.icon-SpareAirHorizontal {
+        float: left;
+        font-size: 13rem;
+        line-height: 2.4rem !important;
+        margin-left: 55px;
+    }
+
+    .icon-SpareAirHorizontal:before {
+        font-family: 'icomoon' !important;
+        content: "\e924";
+    }
+
+    .spare-icon.icon-SpareAirWinterHoriz {
+        float: left;
+        font-size: 3rem;
+        line-height: 2rem !important;
+        margin-left: 10px;
+    }
+
+    .spare-logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .spare-icon.icon-AlertTextHoriz {
+        float: left;
+        font-size: 3.9rem;
+        line-height: 1.9rem !important;
+        margin-left: 3px;
+        color: #ffe560;
+    }
+
+    .no-burn-icon.icon-NoBurnAlert {
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        font-size: 2.1rem;
+        color: #ffe560;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .spare-title {
+        color: #fff !important;
+        font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        text-align: center;
+        line-height: 2.5rem !important;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+    }
+
+    .spare-date {
+        text-align: center;
+        font-size: 1.4rem;
+        line-height: 1.5rem !important;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: "adobe-garamond-pro", "Palatino Linotype", "Times New Roman", Times;
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-details-panel h3 i {
+        font-size: 1.5rem;
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-details-panel .information-link i.icomoon.icon-WindSpeed {
+        font-size: 1.2rem;
+        line-height: 1rem !important;
+        vertical-align: middle;
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-details-panel .choices__list--single:after {
+        font-size: 1.6rem;
+        margin-top: -6px;
+    }
+
+    .no-burn-area {
+        display: inline-block;
+        height: 30px;
+        background-color: transparent;
+    }
+
+    .baaqmd-maps-details-panel-content .no-burn-area {
+        background-color: transparent !important;
+    }
+
+    .no-burn-icon.icon-NoBurn {
+        font-size: 2.4rem;
+        color: #ffe560;
+        margin-left: 6px;
+        width: 20px;
+        height: 40px;
+        line-height: 2rem;
+        display: inline-block;
+        float: left;
+    }
+
+    .no-burn-icon.icon-WalkBikeLonger {
+        color: #ffe560;
+        font-size: 3.2rem;
+        line-height: 2rem !important;
+        margin-left: -3px;
+    }
+
+    .icon-WalkBikeLonger:before {
+        font-family: 'icomoon' !important;
+        content: "\e929";
+    }
+
+    .no-burn-text {
+        color: #ffe560;
+        float: left;
+        margin-left: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 4.5px;
+        line-height: 2rem;
+    }
+
+    .alert-divider {
+        height: 5px;
+        width: 100%;
+        background-color: rgb(0, 142, 184);
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert a,
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert.active a {
+        background: #ee8301;
+        color: white;
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li a:hover,
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li li a:focus {
+        background: rgb(45, 187, 229);
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert a:hover,
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert a:focus {
+        background: #ffc107;
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.active a:hover,
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.active a:focus {
+        background: rgb(0, 142, 184);
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert.active a:hover,
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert.active a:focus {
+        background: #ee8301;
+    }
+
+    table.historical-site-data {
+        width: 100%;
+
+        th {
+            text-align: center !important;
+        }
+
+        td {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+        }
+
+        td:first-child {
+            font-weight: bold;
+        }
+    }
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl-geocoder mapboxgl-ctrl {
+    background: #eff6f7;
+    border-radius: 4px;
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl-geocoder {
+    border-radius: 4px;
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl-geocoder * {}
+
+.baaqmd-maps-main .mapboxgl-ctrl-geocoder .geocoder-pin-right * {
+    background: rgba(255, 255, 255, 0) !important;
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl-group {
+    background: transparent !important;
+}
+
+.baaqmd-maps-main .baaqmd-maps-details-panel .information-link:hover,
+.baaqmd-maps-main .baaqmd-maps-details-panel .information-link:focus {
+    color: white !important;
+}
+
+.baaqmd-maps-popup-content .baaqmd-maps-last-updated {
     font-size: 1.1rem;
-    line-height: 1.2rem !important;
-    color: rgba(255,255,255,0.9);
-    font-family: "adobe-garamond-pro","Palatino Linotype","Times New Roman",Times;
-  }
+}
 
-  .baaqmd-maps-main .baaqmd-maps-details-panel h3 i {
-    font-size: 1.5rem;
-  }
-  .baaqmd-maps-main .baaqmd-maps-details-panel .information-link i.icomoon.icon-WindSpeed {
+table.baaqmd-maps-zone-forecast {
+    max-width: 240px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-popup .baaqmd-maps-popup-content .baaqmd-maps-zone-forecast thead th.baaqmd-maps-no-link {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.baaqmd-maps-main .baaqmd-maps-popup .baaqmd-maps-popup-content .baaqmd-maps-zone-forecast thead th {
+    cursor: pointer;
+    text-align: center;
+}
+
+.baaqmd-maps-main .baaqmd-maps-popup .baaqmd-maps-popup-content .baaqmd-maps-zone-forecast thead th:hover {
+    color: #ee8301;
+}
+
+li.air-monitoring.closed-sites input,
+li.facility-glm-stations input,
+li.meteorological-sites input,
+li.meteorological-sites.closed-sites input {
+    margin-top: 7px !important;
+}
+
+.baaqmd-maps-main .baaqmd-maps-info-panel-component .baaqmd-maps-last-updated {
     font-size: 1.2rem;
-    line-height: 1rem !important;
-    vertical-align: middle;
-  }
-  .baaqmd-maps-main .baaqmd-maps-details-panel .choices__list--single:after {
-    font-size: 1.6rem;
-    margin-top: -6px;
-  }
-  .no-burn-area {
-    display: inline-block;
-    height: 30px;
-  }
-  .no-burn-icon.icon-NoBurn {
-    font-size: 2.4rem;
-    color: #ffe560;
-    margin-left:6px;
-    width: 20px;
-    height: 40px;
-    line-height: 2rem;
-    display: inline-block;
-    float:left;
-  }
-  .no-burn-icon.icon-WalkBikeLonger {
-    font-size: 2rem;
-    margin-left: 5px;
-    color: #ffe560;
-  }
-  .icon-WalkBikeLonger:before {
-    font-family: 'icomoon' !important;
-    content: "\e929";
-  }
-  .no-burn-text {
-    color: #ffe560;
-    float: left;
-    margin-left: 8px;
-    font-size: 1.1rem;
-    font-weight:600;
-    text-transform: uppercase;
-    letter-spacing: 4.5px;
-    line-height: 2rem;
-  }
-  .alert-divider {
-    height: 5px;
-    width: 100%;
-    background-color: rgb(0,142,184);
-  }
-  .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert a, .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert.active a {
-    background: #ee8301; color:white;
-  }
-  .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li a:hover, .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li li a:focus {
-    background: rgb(45,187,229);
-  }
-  .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert a:hover, .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert a:focus {
-    background: #ffc107;
-  }
-  .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.active a:hover, .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.active a:focus {
-    background: rgb(0,142,184);
-  }
-  .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert.active a:hover, .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li.alert.active a:focus {
-    background: #ee8301;
-  }
-  table.historical-site-data {
-    width: 100%;
-    td {
-      text-align: center;
-      font-size: 0.8rem;
-    }
-    td:first-child {
-      font-weight: bold;
-    }
-  }
+    font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
+}
+
+td.air-monitoring-attribute-data-title,
+td.air-monitoring-attribute-data {
+    text-align: left !important;
+}
+
+td.air-monitoring-attribute-data-title {
+    max-width: 120px !important;
+    width: 120px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-legend li.air-monitoring input {
+    margin-top: 7px;
+}
+
+#map {
+    border: 1px solid #999999;
+}
+
+.baaqmd-maps-main .baaqmd-maps-popup .baaqmd-maps-popup-content table td {
+    font-size: 1.25rem;
+    line-height: 1.6rem;
 }
 
 @media (max-width: 400px) {
     .baaqmd-maps-main .baaqmd-maps-details-panel.baaqmd-maps-expanded {
         width: 80%;
     }
+
     .baaqmd-maps-main .baaqmd-maps-details-panel-wrapper {
         width: 100%;
     }
+
     .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-content {
         width: 100%;
     }
+
     .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-type-selector .choices__item.choices__item--selectable {
-        letter-spacing: 0;    font-size: 0.95rem;
+        letter-spacing: 0;
+        font-size: 1.4rem;
     }
+
     .baaqmd-maps-main .baaqmd-maps-details-panel h3 {
         letter-spacing: 1px;
     }
+
     .baaqmd-maps-main .baaqmd-maps-boundaries li:after {
         width: 50px;
     }
+
     .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li {
         margin-bottom: 8px;
     }
+
+    .baaqmd-maps-main .baaqmd-maps-boundaries .legend-display i {
+        top: 4px;
+    }
 }
+
 @media (max-width: 350px) {
     .baaqmd-maps-main .baaqmd-maps-details-panel h3 {
         letter-spacing: 0;
     }
+
     .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-type-selector .choices__item.choices__item--selectable {
-        font-size: 0.85rem;
+        font-size: 1.2rem;
     }
+
     .baaqmd-maps-main .baaqmd-maps-boundaries li:after {
         width: 20px;
     }
+
     .baaqmd-maps-main .baaqmd-maps-legend li {
         font-size: .75rem;
     }
