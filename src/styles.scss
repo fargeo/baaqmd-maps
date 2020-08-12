@@ -123,6 +123,7 @@ $no-color: #b10318;
             width: 28px;
             height: 28px;
             font-size: 3rem;
+            font-weight: bold;
             text-align: center;
             border-color: transparent;
             background-color: transparent;
@@ -437,7 +438,7 @@ $no-color: #b10318;
     .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 1.6rem;
-        padding-top: 0 !important;
+        padding-top: 5px !important;
         background-image: none !important;
     }
 
@@ -569,7 +570,7 @@ $no-color: #b10318;
             font-weight: 600;
             text-transform: uppercase;
             font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             vertical-align: middle;
             letter-spacing: 2px;
             padding: 10px 20px 8px 20px;
@@ -589,6 +590,7 @@ $no-color: #b10318;
             font-weight: 600;
             font-size: 1.4rem;
             line-height: 1.2em;
+            font-family: proxima-nova-n4, proxima-nova, Open Sans, Corbel, Helvetica, Arial, sans-serif;
 
             i {
                 font-size: 2.5rem;
@@ -604,7 +606,7 @@ $no-color: #b10318;
             color: white;
             border-radius: 6px;
             margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             padding: 6px 0;
             display: inline-block;
             width: 100%;
@@ -837,7 +839,7 @@ $no-color: #b10318;
                 margin: 0 2px;
                 background: white;
                 color: rgba(black, 0.67);
-                font-size: 1rem !important;
+                font-size: 1.1rem !important;
                 padding: 4px 6px;
                 border-radius: 6px;
                 box-shadow: rgba(black, 0.19) 0px 1px 3px 0px;
@@ -1040,12 +1042,15 @@ $no-color: #b10318;
             margin-bottom: 5px;
             line-height: 1.1rem;
             background-color: transparent;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: rgba(0, 0, 0, 0.7);
 
             .facilities-layer-icon {
                 position: relative;
                 top: 5px;
+                transform: scale(1.5);
+                margin-right: 3px;
+                margin-left: 3px;
             }
         }
     }
@@ -1059,6 +1064,7 @@ $no-color: #b10318;
             margin-top: 0;
             margin-bottom: 0;
             position: relative;
+            font-size: 1.2rem;
 
             input {
                 margin-top: 0;
@@ -1082,11 +1088,12 @@ $no-color: #b10318;
 
         &.baaqmd-maps-lines {
             li {
-                line-height: 1.3rem;
+                line-height: 1.4rem;
                 display: inline-block;
                 width: 100%;
                 margin-top: 2px;
                 margin-bottom: 2px;
+                font-size: 1.2rem;
             }
 
             li:after {
@@ -1100,6 +1107,7 @@ $no-color: #b10318;
             color: rgba(black, 0.6);
             font-size: 1.6rem;
             border: 0 solid transparent;
+            margin-right: 3px;
 
             i {
                 display: inline-block;
@@ -1108,10 +1116,11 @@ $no-color: #b10318;
                 box-sizing: border-box;
                 position: relative;
                 margin: 0px 5px 0 5px;
-                top: 2px;
+                top: 4px;
                 left: -4px;
                 font-family: 'icomoon' !important;
                 font-style: normal;
+                font-size: 2.5rem;
             }
         }
 
