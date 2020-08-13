@@ -2235,6 +2235,10 @@ td.air-monitoring-attribute-data-title {
     line-height: 1.6rem;
 }
 
+.content-block ul.baaqmd-maps-boundaries li:before {
+    content: "";
+}
+
 @media (max-width: 400px) {
     .baaqmd-maps-main .baaqmd-maps-details-panel.baaqmd-maps-expanded {
         width: 80%;
