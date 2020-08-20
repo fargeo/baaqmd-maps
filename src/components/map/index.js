@@ -42,7 +42,7 @@ export default ko.components.register('map', {
                 unit: 'imperial'
             }));
             if (!detectIE()) map.addControl(new PrintControl());
-            map.addControl(new HelpControl(params.showInfoPanel));
+            map.addControl(new HelpControl(params.showInfoPanel, params.rootURL));
             params.map(map);
 
             params.mapType.subscribe((mapType) => {

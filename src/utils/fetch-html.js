@@ -29,12 +29,14 @@ export default function fetchHTML(url, content) {
     else content(undefined);
     fetch(url)
         .then((response) => {
-            return response.text();
+            if (response.status === 200) return response.text();
         })
         .then((text) => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(text, 'text/html');
-            return content(doc.querySelector('body').innerHTML);
+            if (text) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                return content(doc.querySelector('body').innerHTML);
+            }
         });
     return content;
 }

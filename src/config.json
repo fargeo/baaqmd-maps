@@ -12,6 +12,7 @@
     "aqiRSSFeed": "Feeds/Air-Forecast-Map",
     "spaRSSFeed": "Feeds/TwoDayMapAlertRSS",
     "openBurnRSSFeed": "Feeds/OpenBurnRSS",
+    "helpContentURL": "Utils/Interactive-Map-Content/Help",
     "aqiInfoURL": "Utils/Interactive-Map-Content/AQI",
     "aboutForecastURL": "Utils/Interactive-Map-Content/About-Forecast",
     "pollutantInfoURL": "Utils/Interactive-Map-Content/Pollutant",
