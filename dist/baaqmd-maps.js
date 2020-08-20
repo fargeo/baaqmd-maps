@@ -22872,13 +22872,17 @@ knockout_latest["components"].register('PollutantInfoPanel', {
 
     this.popupTemplate = aqi_forecast_popup;
     this.day.subscribe(function (day) {
+      var map = _this.map();
+
+      var alertOpacity = alertStatus() ? 1 : 0;
+
       if (typeof day === 'number') {
         zones.forEach(function (zone, i) {
           var aqi = _this.aqiData().dates[day].zones.find(function (z) {
             return z.title === zone;
           });
 
-          _this.map().setFeatureState({
+          map.setFeatureState({
             id: i + 1,
             source: 'composite',
             sourceLayer: 'reportingzones'
@@ -22887,6 +22891,8 @@ knockout_latest["components"].register('PollutantInfoPanel', {
           });
         });
       }
+
+      map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', alertOpacity);
     }, this);
 
     this.setupMap = function (map) {
@@ -22898,10 +22904,6 @@ knockout_latest["components"].register('PollutantInfoPanel', {
 
           updateOnFetch.dispose();
         });
-      }
-
-      if (alertStatus()) {
-        map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', 1);
       }
 
       _this.layers.counties.flag(false);
