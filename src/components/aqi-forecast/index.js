@@ -216,12 +216,14 @@ export default ko.components.register('AQIForecast', {
         this.popupTemplate = popupTemplate;
 
         this.day.subscribe((day) => {
+            const map = this.map();
+            const alertOpacity = alertStatus() ? 1 : 0;
             if (typeof day === 'number') {
                 zones.forEach((zone, i) => {
                     const aqi = this.aqiData().dates[day].zones.find((z) => {
                         return z.title === zone;
                     });
-                    this.map().setFeatureState({
+                    map.setFeatureState({
                         id: i + 1,
                         source: 'composite',
                         sourceLayer: 'reportingzones'
@@ -230,6 +232,8 @@ export default ko.components.register('AQIForecast', {
                     });
                 });
             }
+
+            map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', alertOpacity);
         }, this);
 
         this.setupMap = (map) => {
@@ -240,10 +244,6 @@ export default ko.components.register('AQIForecast', {
                     this.day(0);
                     updateOnFetch.dispose();
                 });
-            }
-
-            if (alertStatus()) {
-                map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', 1);
             }
             this.layers.counties.flag(false);
         };
