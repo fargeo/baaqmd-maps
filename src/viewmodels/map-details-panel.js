@@ -10,6 +10,8 @@ export default function MapDetailsPanel(params) {
     this.mapType = params.mapType;
     this.map = params.map;
     this.showInfoPanel = params.showInfoPanel;
+    this.mainExpanded = ko.observable(true);
+    this.boundariesExpanded = ko.observable(true);
     var setupMap = (map) => {
         if (this.getPopupData && this.popupLayers) {
             if (this.popupTemplate && !popupComponents.includes(popupComponent)) {
@@ -39,7 +41,7 @@ export default function MapDetailsPanel(params) {
                             data-bind="click: function() {
                                 showInfoPanel('${popupComponent}');
                             }">
-                                <i class="fas fa-window-maximize"></i>
+                                <i class="icon-Expand"></i>
                         </button>`;
                         popup = new mapboxgl.Popup()
                             .setLngLat(e.lngLat)

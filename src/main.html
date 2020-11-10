@@ -33,7 +33,9 @@
     <!-- ko if: showInfoPanel -->
         <div class="baaqmd-maps-info-panel-mask" data-bind="click: function() { showInfoPanel(false); }"></div>
         <div class="baaqmd-maps-info-panel">
-            <button class="close-information-panel" data-bind="click: function() { showInfoPanel(false); }">×</button>
+            <button class="close-information-panel" data-bind="click: function() { showInfoPanel(false); }">
+                <i class="icon-Contract"></i>
+            </button>
             <div class="baaqmd-maps-info-panel-content">
                 <div class="baaqmd-maps-info-panel-component" data-bind="component: {
                    name: showInfoPanel(),

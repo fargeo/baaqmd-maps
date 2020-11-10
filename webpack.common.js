@@ -30,6 +30,15 @@ module.exports = {
                     outputPath: 'fonts/'
                 }
             }]
+        }, {
+            test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'images/'
+                }
+            }]
         }]
     }
 };

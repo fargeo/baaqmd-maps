@@ -1,114 +1,125 @@
 <!-- ko if: alertStatus() -->
 <div class="spare-air-alert" data-bind="css: {'modal-control': alertMode() !== 'none' }, click: showSTAModal">
-      <div class="spare-logo">
-        <!-- ko if: alertMode() !== 'winter' -->
-            <div class="spare-icon icon-SpareAirHorizontal"></div>
-        <!-- /ko -->
-        <!-- ko if: alertMode() === 'winter' -->
-            <div class="spare-icon icon-SpareAirWinterHoriz"></div>
-        <!-- /ko -->
-        <div class="spare-icon icon-AlertTextHoriz"></div>
-      </div>
-      <div class="clear"></div>
-      <div class="spare-title">Spare the Air Alert in Effect</div>
-      <div class="no-burn-area">
-          <!-- ko if: alertMode() === 'none' -->
-          <div class="no-burn-icon icon-NoBurnAlert"></div>
-          <!-- /ko -->
-          <!-- ko if: alertMode() === 'winter' -->
-          <div class="no-burn-icon icon-NoBurn"></div>
-          <div class="no-burn-text">No Wood Burning</div>
-          <!-- /ko -->
-          <!-- ko if: alertMode() === 'summer' -->
-          <div class="no-burn-icon icon-WalkBikeLonger"></div>
-          <!-- /ko -->
-      </div>
-      <div class="clear"></div>
-      <div class="spare-date">
-          <span data-bind="text: new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric' }).format(new Date())"></span>
-      </div>
+    <div class="spare-logo">
+        <div class="spare-icon icon-SpareAirHorizontal"></div>
+    </div>
+    <div class="alrt-main-cntnt">
+        <div class="lft-key">
+            <div class="spare-zone">Region Wide</div>
+            <div class="spare-key"></div>
+        </div>
+        <div class="mid-date">
+            <div class="spare-day" data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(new Date())"></div>
+            <div class="spare-date" data-bind="text: new Intl.DateTimeFormat('en-US', { month: 'numeric', day: 'numeric' }).format(new Date())"></div>
+        </div>
+        <div class="rt-alert">
+            <!-- ko if: alertMode() === 'none' -->
+            <div class="alert-icon icon-AlertOne"></div>
+            <!-- /ko -->
+            <!-- ko if: alertMode() === 'winter' -->
+            <div class="alert-icon icon-AlertTwo"></div>
+            <!-- /ko -->
+            <!-- ko if: alertMode() === 'summer' -->
+            <div class="alert-icon icon-AlertThree"></div>
+            <!-- /ko -->
+            <div class="alert-text">Alert</div>
+        </div>
+    </div>
+    <div class="clear"></div>
 </div>
 <!-- /ko -->
+<!-- ko if: aqiData -->
 <h3>
     <i class="fas fa-wind"></i>
     Air Quality Forecast
+    <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }"></div>
 </h3>
-<h4><i class="icomoon im-forecast"></i> Daily Forecast</h4>
-<!-- ko if: aqiData -->
-<div class="baaqmd-maps-last-updated">
-    Last Updated:
-    <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)"></span>,
-    <span data-bind="text: aqiData().lastUpdated.toLocaleDateString()"></span>
-    at
-    <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
-</div>
-<ul class="baaqmd-maps-aqi-forecast-dates">
-    <!-- ko foreach: aqiData().dates -->
-    <li data-bind="css: {
-        active: $index() === $parent.day()
-    }">
-        <a href="#" data-bind="click: function() {
-            $parent.day($index());
-        }, text: date"></a>
-    </li>
-    <!-- /ko -->
-</ul>
-<h4><i class="icomoon im-aqi-index"></i> Air Quality Index</h4>
-<ul class="baaqmd-maps-legend aqi-forecast-legend">
-    <li class="good">
-        Good (0-50)
-    </li>
-    <li class="moderate">
-        Moderate (51-100)
-    </li>
-    <li class="unhealthy-for-sensitive-groups">
-        Unhealthy for Sensitive Groups (101-150)
-    </li>
-    <li class="unhealthy">
-        Unhealthy (151-200)
-    </li>
-    <li class="very-unhealthy">
-        Very Unhealthy (201-300)
-    </li>
-    <li class="hazardous">
-        Hazardous (301-500)
-    </li>
-</ul>
-<div class="baaqmd-maps-details-links">
-    <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('AQIForecastPanel'); }">
-        <i class="fas fa-wind"></i>
-        Five Day Forecast
-    </a>
-    <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('AQIInfoPanel'); }">
-        <i class="im im-info"></i>
-        More AQI Information
-    </a>
+<div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}">
+    <h4><i class="icomoon im-forecast"></i> Daily Forecast</h4>
+    <div class="baaqmd-maps-last-updated">
+        Last Updated:
+        <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)"></span>,
+        <span data-bind="text: aqiData().lastUpdated.toLocaleDateString()"></span>
+        at
+        <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
+    </div>
+    <ul class="baaqmd-maps-aqi-forecast-dates">
+        <!-- ko foreach: aqiData().dates -->
+        <li data-bind="css: {
+            active: $index() === $parent.day()
+        }">
+            <a href="#" data-bind="click: function() {
+                $parent.day($index());
+            }, text: date"></a>
+        </li>
+        <!-- /ko -->
+    </ul>
+    <h4><i class="icomoon im-aqi-index"></i> Air Quality Index</h4>
+    <ul class="baaqmd-maps-legend aqi-forecast-legend">
+        <li class="good">
+            <div class="aqi-no">(0-50)</div>
+            <div class="aqi-txt">Good</div>
+        </li>
+        <li class="moderate">
+            <div class="aqi-no">(51-100)</div>
+            <div class="aqi-txt">Moderate</div>
+        </li>
+        <li class="unhealthy-for-sensitive-groups">
+            <div class="aqi-no">(101-150)</div>
+            <div class="aqi-txt">Unhealthy for Sensitive Groups</div>
+        </li>
+        <li class="unhealthy">
+            <div class="aqi-no">(151-200)</div>
+            <div class="aqi-txt">Unhealthy</div>
+        </li>
+        <li class="very-unhealthy">
+            <div class="aqi-no">(201-300)</div>
+            <div class="aqi-txt">Very Unhealthy</div>
+        </li>
+        <li class="hazardous">
+            <div class="aqi-no">(301-500)</div>
+            <div class="aqi-txt">Hazardous</div>
+        </li>
+    </ul>
+    <div class="baaqmd-maps-details-links">
+        <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('AQIForecastPanel'); }">
+            <i class="fas fa-wind"></i>
+            Five Day Forecast
+        </a>
+        <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('AQIInfoPanel'); }">
+            <i class="im im-info"></i>
+            More AQI Information
+        </a>
+    </div>
 </div>
 <h3>
     <i class="im im-boundaries"></i>
     Boundaries
+    <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }"></div>
 </h3>
-<ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
-    <li class="aqi-reporting-zones">
-        <input type="checkbox" data-bind="checked: layers.aqi.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        AQI Reporting Zones
-    </li>
-    <li class="counties">
-        <input type="checkbox" data-bind="checked: layers.counties.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        Counties
-    </li>
-    <li class="district-boundary">
-        <input type="checkbox" data-bind="checked: layers.district.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        District Boundary
-    </li>
-</ul>
+<div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}">
+    <ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
+        <li class="aqi-reporting-zones">
+            <input type="checkbox" data-bind="checked: layers.aqi.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            AQI Reporting Zones
+        </li>
+        <li class="counties">
+            <input type="checkbox" data-bind="checked: layers.counties.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            Counties
+        </li>
+        <li class="district-boundary">
+            <input type="checkbox" data-bind="checked: layers.district.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            District Boundary
+        </li>
+    </ul>
+</div>
 <!-- /ko -->

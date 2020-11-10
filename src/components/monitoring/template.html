@@ -1,172 +1,178 @@
 <h3>
     <i class="fas fa-broadcast-tower"></i>
     Air Monitoring
+    <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }"></div>
 </h3>
-<ul class="baaqmd-maps-legend baaqmd-maps-boundaries air-quality">
-    <li class="air-monitoring">
-        <input type="checkbox" data-bind="checked: layers.airMonitoring.flag" id="air-monitoring-toggle">
-        <label for="air-monitoring-toggle">
-            <svg class="air-monitoring-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
-              <title>square-15.svg</title>
-              <rect fill="none" x="0" y="0" width="21" height="21"></rect>
-              <path fill="#ffffff" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff"
-                stroke-width="2"></path>
-              <path fill="#10649f" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"></path>
-            </svg>
-            Air District Stations
-        </label>
-    </li>
-    <li class="air-monitoring closed-sites">
-        <input type="checkbox" data-bind="checked: layers.airMonitoringHistorical.flag" id="air-monitoring-historical-toggle">
-        <label for="air-monitoring-historical-toggle">
-            <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" xmlns:svg="http://www.w3.org/2000/svg" class="air-monitoring-icon">
-             <title>square-15.svg</title>
-             <g class="layer">
-              <title>Layer 1</title>
-              <rect fill="none" height="21" id="svg_1" width="21" x="0" y="0"/>
-              <path d="m13,14l-11,0c-0.5523,0 -1,-0.4477 -1,-1l0,-11c0,-0.5523 0.4477,-1 1,-1l11,0c0.5523,0 1,0.4477 1,1l0,11c0,0.5523 -0.4477,1 -1,1z" fill="#ffffff" id="svg_2" stroke="#ffffff" stroke-linejoin="round" stroke-miterlimit="4" stroke-width="2" transform="translate(3 3)"/>
-              <path d="m13,14l-11,0c-0.5523,0 -1,-0.4477 -1,-1l0,-11c0,-0.5523 0.4477,-1 1,-1l11,0c0.5523,0 1,0.4477 1,1l0,11c0,0.5523 -0.4477,1 -1,1z" fill="#10649f" id="svg_3" transform="translate(3 3)"/>
-             </g>
-             <g class="layer">
-              <title>Layer 2</title>
-              <g id="svg_4">
-               <polygon fill="#dddddd" id="svg_5" points="7.19818271324084,3.999999183462478 3.9999992130337887,7.198182683669529 3.9999992130337887,8.367887894069554 8.367887923640865,3.999999183462478 "/>
-               <polygon fill="#dddddd" id="svg_6" points="10.223624004969224,3.999999183462478 3.9999992130337887,10.223625897532202 3.9999992130337887,11.432813668345716 11.432813697917027,3.999999183462478 "/>
-               <polygon fill="#dddddd" id="svg_7" points="7.66705181335783,17.000024795532227 17.00002098083496,7.667052264320091 17.00002098083496,6.4825394118975055 6.482539922002388,17.000024795532227 "/>
-               <polygon fill="#dddddd" id="svg_8" points="16.31892615075867,3.999999183462478 3.9999992130337887,16.31892612118736 3.9999992130337887,17.000024795532227 4.626803360140457,17.000024795532227 17.00002098083496,4.62680429163629 17.00002098083496,3.999999183462478 "/>
-               <polygon fill="#dddddd" id="svg_9" points="13.29348582009743,3.999999183462478 3.9999992130337887,13.293484829458976 3.9999992130337887,14.458256882208389 14.458255950712555,3.999999183462478 "/>
-               <polygon fill="#dddddd" id="svg_10" points="17.00002098083496,17.000024795532227 17.00002098083496,15.662510534304147 15.66250864174117,17.000024795532227 "/>
-               <polygon fill="#dddddd" id="svg_11" points="3.9999992130337887,3.999999183462478 3.9999992130337887,5.3375115225562695 5.33751155212758,3.999999183462478 "/>
-               <polygon fill="#dddddd" id="svg_12" points="13.806773521479954,17.000024795532227 17.00002098083496,13.806775414042932 17.00002098083496,12.637067320441474 12.637067350012785,17.000024795532227 "/>
-               <polygon fill="#dddddd" id="svg_13" points="10.776396188899525,17.000024795532227 17.00002098083496,10.776397120395359 17.00002098083496,9.522788826182023 9.522786933619045,17.000024795532227 "/>
-              </g>
-             </g>
-            </svg>
-            Closed
-        </label>
-    </li>
-    <li class="facility-glm-stations">
-        <input type="checkbox" data-bind="checked: layers.facilityGLMStations.flag" id="facility-glm-stations">
-        <label for="facility-glm-stations">
-            <svg class="facility-glm-stations-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
-              <title>circle-15.svg</title>
-              <rect fill="none" x="0" y="0" width="21" height="21"></rect>
-              <path fill="#ffffff" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
-              <path fill="#068a47" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z"></path>
-            </svg>
-            Facility GLM Stations
-        </label>
-    </li>
-    <li class="facility-glm-stations closed-sites">
-        <input type="checkbox" disabled id="facility-glm-stations closed-sites">
-        <label for="facility-glm-stations closed-sites">
-            <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="facility-glm-stations-icon">
-             <title>circle-15.svg</title>
-             <defs>
-              <symbol id="svg_5" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-               <g id="svg_4">
-                <path d="m181.7,45.5l-136.2,136.2c0.1,7.4 0.8,14.7 2,21.9l156,-156c-7.1,-1.4 -14.4,-2 -21.8,-2.1z" id="svg_8"/>
-                <path d="m232,55.9l-176.1,176.1c2.2,5.3 4.8,10.5 7.7,15.4l183.8,-183.9c-5,-2.8 -10.1,-5.4 -15.4,-7.6z" id="svg_9"/>
-                <path d="m312.7,157.7l-155,155c7.3,1.2 14.7,1.9 22.3,1.9c0.2,0 0.4,0 0.6,0l133.9,-133.9c0,-0.2 0,-0.4 0,-0.6c0.1,-7.7 -0.6,-15.2 -1.8,-22.4z" id="svg_10"/>
-                <path d="m268.8,78.9l-189.9,189.9c4,4.6 8.3,8.9 12.9,12.9l189.8,-189.9c-4,-4.6 -8.3,-8.9 -12.8,-12.9z" id="svg_11"/>
-                <path d="m308.7,219.2l-89.5,89.5c42.8,-13 76.5,-46.7 89.5,-89.5z" id="svg_12"/>
-                <path d="m296.9,113.3l-183.6,183.6c5,2.9 10.3,5.4 15.7,7.7l175.6,-175.6c-2.3,-5.4 -4.8,-10.6 -7.7,-15.7z" id="svg_13"/>
-                <path d="m50.3,144.1l93.8,-93.8c-45.5,12.6 -81.2,48.3 -93.8,93.8z" id="svg_14"/>
-               </g>
-              </symbol>
-             </defs>
-             <g class="layer">
-              <title>Layer 1</title>
-              <rect fill="none" height="21" id="svg_1" width="21" x="0" y="0"/>
-              <path d="m14,7.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z" fill="#ffffff" id="svg_2" stroke="#ffffff" stroke-linejoin="round" stroke-miterlimit="4" stroke-width="2" transform="translate(3 3)"/>
-              <path d="m14,7.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z" fill="#068a47" id="svg_3" transform="translate(3 3)"/>
-              <use id="svg_6" transform="rotate(139.777 0.204172 0.204223) matrix(0.0194444 0 0 0.0194444 0 0)" xlink:href="#svg_5"/>
-              <g id="svg_7"/>
-             </g>
-             <g class="layer">
-              <title>Layer 2</title>
-              <g id="svg_15">
-               <path d="m10.58671,4l-6.58671,6.57971c0.00484,0.35749 0.03869,0.71015 0.09672,1.05797l7.54426,-7.53623c-0.34336,-0.06763 -0.6964,-0.09662 -1.05427,-0.10145l0,0l0,0z" fill="#dddddd" id="svg_16"/>
-               <path d="m13.01925,4.50242l-8.5163,8.50725c0.1064,0.25603 0.23213,0.50724 0.37238,0.74396l8.88868,-8.88406c-0.24181,-0.13527 -0.48845,-0.26087 -0.74476,-0.36715l0,0l0,0z" fill="#dddddd" id="svg_17"/>
-               <path d="m16.92195,9.42029l-7.49589,7.48793c0.35303,0.05797 0.7109,0.09178 1.07844,0.09178c0.00967,0 0.01935,0 0.02902,0l6.47548,-6.4686c0,-0.00966 0,-0.01932 0,-0.02898c0.00484,-0.37198 -0.02901,-0.7343 -0.08705,-1.08213l0,0z" fill="#dddddd" id="svg_18"/>
-               <path d="m14.79892,5.61353l-9.18368,9.17391c0.19345,0.22223 0.4014,0.42996 0.62385,0.62319l9.17885,-9.17391c-0.19345,-0.22223 -0.4014,-0.42996 -0.61902,-0.62319l0,0z" fill="#dddddd" id="svg_19"/>
-               <path d="m16.72851,12.39131l-4.32827,4.32367c2.06983,-0.62802 3.69958,-2.25604 4.32827,-4.32367z" fill="#dddddd" id="svg_20"/>
-               <path d="m16.15786,7.27536l-8.87901,8.86957c0.2418,0.1401 0.49811,0.26087 0.75926,0.37198l8.49212,-8.48309c-0.11123,-0.26087 -0.23213,-0.51208 -0.37237,-0.75846z" fill="#dddddd" id="svg_21"/>
-               <path d="m4.23213,8.76329l4.53622,-4.53141c-2.2004,0.6087 -3.92688,2.33334 -4.53622,4.53141z" fill="#dddddd" id="svg_22"/>
-              </g>
-             </g>
-             <g class="layer">
-              <title>Layer 3</title>
-              <rect fill="none" height="21" id="svg_16" width="21" x="0" y="0"/>
-              <path d="m17,10.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z" fill="rgba(256, 256, 256, 0.7)" id="svg_18"/>
-              <use id="svg_16" transform="rotate(139.777 0.204172 0.204223) matrix(0.0194444 0 0 0.0194444 0 0)" xlink:href="#svg_5"/>
-              <g id="svg_17"/>
-             </g>
-            </svg>
-            Closed
-        </label>
-    </li>
-    <li class="meteorological-sites">
-        <input type="checkbox" data-bind="checked: layers.meteorologicalSites.flag" id="meteorological-sites">
-        <label for="meteorological-sites">
-            <svg class="meteorological-sites-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
-            	<title>triangle-15.svg</title>
-            	<rect fill="none" x="0" y="0" width="21" height="21"></rect>
-            	<path fill="#ffffff" transform="translate(3 3)" d="M7.5385,2
-            	C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
-            	C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
-            	<path fill="#d28f60" transform="translate(3 3)" d="M7.5385,2
-            	C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
-            	C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z"></path>
-            </svg>
-            Meteorological Sites
-        </label>
-    </li>
-    <li class="meteorological-sites closed-sites">
-        <input type="checkbox" data-bind="checked: layers.meteorologicalSitesHistorical.flag" id="meteorological-sites closed-sites">
-        <label for="meteorological-sites closed-sites">
-            <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" xmlns:svg="http://www.w3.org/2000/svg" class="meteorological-sites-icon">
-             <title>triangle-15.svg</title>
-             <g class="layer">
-              <title>Layer 1</title>
-              <rect fill="none" height="21" id="svg_1" width="21" x="0" y="0"/>
-              <path d="m7.5385,2c-0.2948,0 -0.4883,0.1772 -0.6154,0.3846l-5.8462,9.5385c-0.0769,0.0769 -0.0769,0.2307 -0.0769,0.3846c0,0.5385 0.3846,0.6923 0.6923,0.6923l11.6154,0c0.3846,0 0.6923,-0.1538 0.6923,-0.6923c0,-0.1538 0,-0.2308 -0.0769,-0.3846l-5.7693,-9.5385c-0.1258,-0.2081 -0.3656,-0.3846 -0.6153,-0.3846z" fill="#ffffff" id="svg_2" stroke="#ffffff" stroke-linejoin="round" stroke-miterlimit="4" stroke-width="2" transform="translate(3 3)"/>
-              <path d="m7.5385,2c-0.2948,0 -0.4883,0.1772 -0.6154,0.3846l-5.8462,9.5385c-0.0769,0.0769 -0.0769,0.2307 -0.0769,0.3846c0,0.5385 0.3846,0.6923 0.6923,0.6923l11.6154,0c0.3846,0 0.6923,-0.1538 0.6923,-0.6923c0,-0.1538 0,-0.2308 -0.0769,-0.3846l-5.7693,-9.5385c-0.1258,-0.2081 -0.3656,-0.3846 -0.6153,-0.3846z" fill="#d28f60" id="svg_3" transform="translate(3 3)"/>
-             </g>
-             <g class="layer">
-              <title>Layer 2</title>
-              <g id="svg_4">
-               <polygon fill="#dddddd" id="svg_5" points="11.652202203834122,6.303565979003906 6.158950522252098,11.507827758789062 4.64404591463483,13.996442794799805 12.057404689469877,6.967196941375732 "/>
-               <polygon fill="#dddddd" id="svg_6" points="12.702044706383731,8.028133392333984 4.400003433227539,15.900014877319336 5.63863232820745,15.900014877319336 13.15329385396285,8.770352363586426 "/>
-               <polygon fill="#dddddd" id="svg_7" points="13.80253740133162,9.831286430358887 7.397579417232009,15.900014877319336 8.521094496702062,15.900014877319336 14.212341524523254,10.503649711608887 "/>
-               <polygon fill="#dddddd" id="svg_8" points="14.856983434336144,11.56458568572998 10.284645116181537,15.900014877319336 11.472624765212686,15.900014877319336 15.289811834948978,12.27624225616455 "/>
-               <polygon fill="#dddddd" id="svg_9" points="16.98890072421591,15.061745643615723 16.104822229574438,15.900014877319336 17.500008071552656,15.900014877319336 "/>
-               <polygon fill="#dddddd" id="svg_10" points="15.939053489418711,13.337179183959961 13.236172545343607,15.900014877319336 14.345877033448915,15.900014877319336 16.344260707302055,14.000810623168945 "/>
-               <polygon fill="#dddddd" id="svg_11" points="10.491852255578124,4.399993896484375 8.115892957515825,8.298823356628418 11.127282372233594,5.443466663360596 "/>
-              </g>
-             </g>
-            </svg>
-            Closed
-        </label>
-    </li>
-</ul>
+<div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}">
+    <ul class="baaqmd-maps-legend baaqmd-maps-boundaries air-quality">
+        <li class="air-monitoring">
+            <input type="checkbox" data-bind="checked: layers.airMonitoring.flag" id="air-monitoring-toggle">
+            <label for="air-monitoring-toggle">
+                <svg class="air-monitoring-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+                <title>square-15.svg</title>
+                <rect fill="none" x="0" y="0" width="21" height="21"></rect>
+                <path fill="#ffffff" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff"
+                    stroke-width="2"></path>
+                <path fill="#10649f" transform="translate(3 3)" d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"></path>
+                </svg>
+                Air District Stations
+            </label>
+        </li>
+        <li class="air-monitoring closed-sites">
+            <input type="checkbox" data-bind="checked: layers.airMonitoringHistorical.flag" id="air-monitoring-historical-toggle">
+            <label for="air-monitoring-historical-toggle">
+                <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" xmlns:svg="http://www.w3.org/2000/svg" class="air-monitoring-icon">
+                <title>square-15.svg</title>
+                <g class="layer">
+                <title>Layer 1</title>
+                <rect fill="none" height="21" id="svg_1" width="21" x="0" y="0"/>
+                <path d="m13,14l-11,0c-0.5523,0 -1,-0.4477 -1,-1l0,-11c0,-0.5523 0.4477,-1 1,-1l11,0c0.5523,0 1,0.4477 1,1l0,11c0,0.5523 -0.4477,1 -1,1z" fill="#ffffff" id="svg_2" stroke="#ffffff" stroke-linejoin="round" stroke-miterlimit="4" stroke-width="2" transform="translate(3 3)"/>
+                <path d="m13,14l-11,0c-0.5523,0 -1,-0.4477 -1,-1l0,-11c0,-0.5523 0.4477,-1 1,-1l11,0c0.5523,0 1,0.4477 1,1l0,11c0,0.5523 -0.4477,1 -1,1z" fill="#10649f" id="svg_3" transform="translate(3 3)"/>
+                </g>
+                <g class="layer">
+                <title>Layer 2</title>
+                <g id="svg_4">
+                <polygon fill="#dddddd" id="svg_5" points="7.19818271324084,3.999999183462478 3.9999992130337887,7.198182683669529 3.9999992130337887,8.367887894069554 8.367887923640865,3.999999183462478 "/>
+                <polygon fill="#dddddd" id="svg_6" points="10.223624004969224,3.999999183462478 3.9999992130337887,10.223625897532202 3.9999992130337887,11.432813668345716 11.432813697917027,3.999999183462478 "/>
+                <polygon fill="#dddddd" id="svg_7" points="7.66705181335783,17.000024795532227 17.00002098083496,7.667052264320091 17.00002098083496,6.4825394118975055 6.482539922002388,17.000024795532227 "/>
+                <polygon fill="#dddddd" id="svg_8" points="16.31892615075867,3.999999183462478 3.9999992130337887,16.31892612118736 3.9999992130337887,17.000024795532227 4.626803360140457,17.000024795532227 17.00002098083496,4.62680429163629 17.00002098083496,3.999999183462478 "/>
+                <polygon fill="#dddddd" id="svg_9" points="13.29348582009743,3.999999183462478 3.9999992130337887,13.293484829458976 3.9999992130337887,14.458256882208389 14.458255950712555,3.999999183462478 "/>
+                <polygon fill="#dddddd" id="svg_10" points="17.00002098083496,17.000024795532227 17.00002098083496,15.662510534304147 15.66250864174117,17.000024795532227 "/>
+                <polygon fill="#dddddd" id="svg_11" points="3.9999992130337887,3.999999183462478 3.9999992130337887,5.3375115225562695 5.33751155212758,3.999999183462478 "/>
+                <polygon fill="#dddddd" id="svg_12" points="13.806773521479954,17.000024795532227 17.00002098083496,13.806775414042932 17.00002098083496,12.637067320441474 12.637067350012785,17.000024795532227 "/>
+                <polygon fill="#dddddd" id="svg_13" points="10.776396188899525,17.000024795532227 17.00002098083496,10.776397120395359 17.00002098083496,9.522788826182023 9.522786933619045,17.000024795532227 "/>
+                </g>
+                </g>
+                </svg>
+                Closed
+            </label>
+        </li>
+        <li class="facility-glm-stations">
+            <input type="checkbox" data-bind="checked: layers.facilityGLMStations.flag" id="facility-glm-stations">
+            <label for="facility-glm-stations">
+                <svg class="facility-glm-stations-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+                <title>circle-15.svg</title>
+                <rect fill="none" x="0" y="0" width="21" height="21"></rect>
+                <path fill="#ffffff" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
+                <path fill="#068a47" transform="translate(3 3)" d="M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z"></path>
+                </svg>
+                Facility GLM Stations
+            </label>
+        </li>
+        <li class="facility-glm-stations closed-sites">
+            <input type="checkbox" disabled id="facility-glm-stations closed-sites">
+            <label for="facility-glm-stations closed-sites">
+                <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="facility-glm-stations-icon">
+                <title>circle-15.svg</title>
+                <defs>
+                <symbol id="svg_5" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="svg_4">
+                    <path d="m181.7,45.5l-136.2,136.2c0.1,7.4 0.8,14.7 2,21.9l156,-156c-7.1,-1.4 -14.4,-2 -21.8,-2.1z" id="svg_8"/>
+                    <path d="m232,55.9l-176.1,176.1c2.2,5.3 4.8,10.5 7.7,15.4l183.8,-183.9c-5,-2.8 -10.1,-5.4 -15.4,-7.6z" id="svg_9"/>
+                    <path d="m312.7,157.7l-155,155c7.3,1.2 14.7,1.9 22.3,1.9c0.2,0 0.4,0 0.6,0l133.9,-133.9c0,-0.2 0,-0.4 0,-0.6c0.1,-7.7 -0.6,-15.2 -1.8,-22.4z" id="svg_10"/>
+                    <path d="m268.8,78.9l-189.9,189.9c4,4.6 8.3,8.9 12.9,12.9l189.8,-189.9c-4,-4.6 -8.3,-8.9 -12.8,-12.9z" id="svg_11"/>
+                    <path d="m308.7,219.2l-89.5,89.5c42.8,-13 76.5,-46.7 89.5,-89.5z" id="svg_12"/>
+                    <path d="m296.9,113.3l-183.6,183.6c5,2.9 10.3,5.4 15.7,7.7l175.6,-175.6c-2.3,-5.4 -4.8,-10.6 -7.7,-15.7z" id="svg_13"/>
+                    <path d="m50.3,144.1l93.8,-93.8c-45.5,12.6 -81.2,48.3 -93.8,93.8z" id="svg_14"/>
+                </g>
+                </symbol>
+                </defs>
+                <g class="layer">
+                <title>Layer 1</title>
+                <rect fill="none" height="21" id="svg_1" width="21" x="0" y="0"/>
+                <path d="m14,7.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z" fill="#ffffff" id="svg_2" stroke="#ffffff" stroke-linejoin="round" stroke-miterlimit="4" stroke-width="2" transform="translate(3 3)"/>
+                <path d="m14,7.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z" fill="#068a47" id="svg_3" transform="translate(3 3)"/>
+                <use id="svg_6" transform="rotate(139.777 0.204172 0.204223) matrix(0.0194444 0 0 0.0194444 0 0)" xlink:href="#svg_5"/>
+                <g id="svg_7"/>
+                </g>
+                <g class="layer">
+                <title>Layer 2</title>
+                <g id="svg_15">
+                <path d="m10.58671,4l-6.58671,6.57971c0.00484,0.35749 0.03869,0.71015 0.09672,1.05797l7.54426,-7.53623c-0.34336,-0.06763 -0.6964,-0.09662 -1.05427,-0.10145l0,0l0,0z" fill="#dddddd" id="svg_16"/>
+                <path d="m13.01925,4.50242l-8.5163,8.50725c0.1064,0.25603 0.23213,0.50724 0.37238,0.74396l8.88868,-8.88406c-0.24181,-0.13527 -0.48845,-0.26087 -0.74476,-0.36715l0,0l0,0z" fill="#dddddd" id="svg_17"/>
+                <path d="m16.92195,9.42029l-7.49589,7.48793c0.35303,0.05797 0.7109,0.09178 1.07844,0.09178c0.00967,0 0.01935,0 0.02902,0l6.47548,-6.4686c0,-0.00966 0,-0.01932 0,-0.02898c0.00484,-0.37198 -0.02901,-0.7343 -0.08705,-1.08213l0,0z" fill="#dddddd" id="svg_18"/>
+                <path d="m14.79892,5.61353l-9.18368,9.17391c0.19345,0.22223 0.4014,0.42996 0.62385,0.62319l9.17885,-9.17391c-0.19345,-0.22223 -0.4014,-0.42996 -0.61902,-0.62319l0,0z" fill="#dddddd" id="svg_19"/>
+                <path d="m16.72851,12.39131l-4.32827,4.32367c2.06983,-0.62802 3.69958,-2.25604 4.32827,-4.32367z" fill="#dddddd" id="svg_20"/>
+                <path d="m16.15786,7.27536l-8.87901,8.86957c0.2418,0.1401 0.49811,0.26087 0.75926,0.37198l8.49212,-8.48309c-0.11123,-0.26087 -0.23213,-0.51208 -0.37237,-0.75846z" fill="#dddddd" id="svg_21"/>
+                <path d="m4.23213,8.76329l4.53622,-4.53141c-2.2004,0.6087 -3.92688,2.33334 -4.53622,4.53141z" fill="#dddddd" id="svg_22"/>
+                </g>
+                </g>
+                <g class="layer">
+                <title>Layer 3</title>
+                <rect fill="none" height="21" id="svg_16" width="21" x="0" y="0"/>
+                <path d="m17,10.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z" fill="rgba(256, 256, 256, 0.7)" id="svg_18"/>
+                <use id="svg_16" transform="rotate(139.777 0.204172 0.204223) matrix(0.0194444 0 0 0.0194444 0 0)" xlink:href="#svg_5"/>
+                <g id="svg_17"/>
+                </g>
+                </svg>
+                Closed
+            </label>
+        </li>
+        <li class="meteorological-sites">
+            <input type="checkbox" data-bind="checked: layers.meteorologicalSites.flag" id="meteorological-sites">
+            <label for="meteorological-sites">
+                <svg class="meteorological-sites-icon" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" viewBox="0 0 21 21" height="21" width="21">
+                    <title>triangle-15.svg</title>
+                    <rect fill="none" x="0" y="0" width="21" height="21"></rect>
+                    <path fill="#ffffff" transform="translate(3 3)" d="M7.5385,2
+                    C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
+                    C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="2"></path>
+                    <path fill="#d28f60" transform="translate(3 3)" d="M7.5385,2
+                    C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154
+                    C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z"></path>
+                </svg>
+                Meteorological Sites
+            </label>
+        </li>
+        <li class="meteorological-sites closed-sites">
+            <input type="checkbox" data-bind="checked: layers.meteorologicalSitesHistorical.flag" id="meteorological-sites closed-sites">
+            <label for="meteorological-sites closed-sites">
+                <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg" transform="translate(0,6)" xmlns:svg="http://www.w3.org/2000/svg" class="meteorological-sites-icon">
+                <title>triangle-15.svg</title>
+                <g class="layer">
+                <title>Layer 1</title>
+                <rect fill="none" height="21" id="svg_1" width="21" x="0" y="0"/>
+                <path d="m7.5385,2c-0.2948,0 -0.4883,0.1772 -0.6154,0.3846l-5.8462,9.5385c-0.0769,0.0769 -0.0769,0.2307 -0.0769,0.3846c0,0.5385 0.3846,0.6923 0.6923,0.6923l11.6154,0c0.3846,0 0.6923,-0.1538 0.6923,-0.6923c0,-0.1538 0,-0.2308 -0.0769,-0.3846l-5.7693,-9.5385c-0.1258,-0.2081 -0.3656,-0.3846 -0.6153,-0.3846z" fill="#ffffff" id="svg_2" stroke="#ffffff" stroke-linejoin="round" stroke-miterlimit="4" stroke-width="2" transform="translate(3 3)"/>
+                <path d="m7.5385,2c-0.2948,0 -0.4883,0.1772 -0.6154,0.3846l-5.8462,9.5385c-0.0769,0.0769 -0.0769,0.2307 -0.0769,0.3846c0,0.5385 0.3846,0.6923 0.6923,0.6923l11.6154,0c0.3846,0 0.6923,-0.1538 0.6923,-0.6923c0,-0.1538 0,-0.2308 -0.0769,-0.3846l-5.7693,-9.5385c-0.1258,-0.2081 -0.3656,-0.3846 -0.6153,-0.3846z" fill="#d28f60" id="svg_3" transform="translate(3 3)"/>
+                </g>
+                <g class="layer">
+                <title>Layer 2</title>
+                <g id="svg_4">
+                <polygon fill="#dddddd" id="svg_5" points="11.652202203834122,6.303565979003906 6.158950522252098,11.507827758789062 4.64404591463483,13.996442794799805 12.057404689469877,6.967196941375732 "/>
+                <polygon fill="#dddddd" id="svg_6" points="12.702044706383731,8.028133392333984 4.400003433227539,15.900014877319336 5.63863232820745,15.900014877319336 13.15329385396285,8.770352363586426 "/>
+                <polygon fill="#dddddd" id="svg_7" points="13.80253740133162,9.831286430358887 7.397579417232009,15.900014877319336 8.521094496702062,15.900014877319336 14.212341524523254,10.503649711608887 "/>
+                <polygon fill="#dddddd" id="svg_8" points="14.856983434336144,11.56458568572998 10.284645116181537,15.900014877319336 11.472624765212686,15.900014877319336 15.289811834948978,12.27624225616455 "/>
+                <polygon fill="#dddddd" id="svg_9" points="16.98890072421591,15.061745643615723 16.104822229574438,15.900014877319336 17.500008071552656,15.900014877319336 "/>
+                <polygon fill="#dddddd" id="svg_10" points="15.939053489418711,13.337179183959961 13.236172545343607,15.900014877319336 14.345877033448915,15.900014877319336 16.344260707302055,14.000810623168945 "/>
+                <polygon fill="#dddddd" id="svg_11" points="10.491852255578124,4.399993896484375 8.115892957515825,8.298823356628418 11.127282372233594,5.443466663360596 "/>
+                </g>
+                </g>
+                </svg>
+                Closed
+            </label>
+        </li>
+    </ul>
+</div>
 <h3>
     <i class="im im-boundaries"></i>
     Boundaries
+    <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }"></div>
 </h3>
-<ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
-    <li class="counties">
-        <input type="checkbox" data-bind="checked: layers.counties.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        Counties
-    </li>
-    <li class="district-boundary">
-        <input type="checkbox" data-bind="checked: layers.district.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        District Boundary
-    </li>
-</ul>
+<div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}">
+    <ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
+        <li class="counties">
+            <input type="checkbox" data-bind="checked: layers.counties.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            Counties
+        </li>
+        <li class="district-boundary">
+            <input type="checkbox" data-bind="checked: layers.district.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            District Boundary
+        </li>
+    </ul>
+</div>

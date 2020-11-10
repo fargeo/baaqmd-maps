@@ -3,7 +3,7 @@
         <div class="baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group" data-bind="
             click: toggleExpanded,
             css: {'baaqmd-maps-expanded': expanded}">
-            <i class="fas fa-bars"></i>
+            <i class="icomoon" data-bind="css: {'icon-MenuClose': expanded, 'icon-MenuOpen': !expanded()}"></i>
         </div>
         <div class="baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons" data-bind="
             css: {
@@ -24,6 +24,9 @@
                 'href': 'mailto:?body=' + mapLink().split('&').join('%26')
             }">
                 <div><i class="im im-email"></i></div>
+            </a>
+            <a href="javascript: void(0)" data-bind="click: print">
+                <div><i class="im im-print"></i></div>
             </a>
         </div>
         <div class="baaqmd-maps-type-selector">
@@ -54,5 +57,8 @@
              name: mapType,
              params: $data
          }"></div>
+         <div class="scroll-hint">
+            <div class="hint-arrow icomoon icon-ArrowDown"></div>
+        </div>
     </div>
 </div>

@@ -1,63 +1,69 @@
 <h3>
     <i class="fas fa-fire"></i>
     Open Burn Status
+    <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }"></div>
 </h3>
-<h4><i class="icomoon im-forecast"></i> Daily Status</h4>
 <!-- ko if: openBurnData -->
-<div class="baaqmd-maps-last-updated">
-    Last Updated:
-    <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(openBurnData().lastUpdated)"></span>,
-    <span data-bind="text: openBurnData().lastUpdated.toLocaleDateString()"></span>
-    at
-    <span data-bind="text: openBurnData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
-</div>
-<ul class="baaqmd-maps-aqi-forecast-dates">
-    <!-- ko foreach: openBurnData().dates -->
-    <li data-bind="css: {
-        active: $index() === $parent.day()
-    }">
-        <a href="#" data-bind="click: function() {
-            $parent.day($index());
-        }, text: date.toLocaleDateString('en-US',{day: '2-digit', month: '2-digit'})"></a>
-    </li>
-    <!-- /ko -->
-</ul>
-<h4><i class="icomoon im-aqi-index"></i> Open Burn Status</h4>
-<ul class="baaqmd-maps-legend aqi-forecast-legend">
-    <li class="yes">
-        Allowed
-    </li>
-    <li class="nobelow2k">
-        Prohibited < 2k
-    </li>
-    <li class="no">
-        Prohibited
-    </li>
-</ul>
-<div class="baaqmd-maps-details-links">
-    <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('OpenBurnInfoPanel'); }">
-        <i class="im im-info"></i>
-        More Information
-    </a>
+<div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}">
+    <h4><i class="icomoon im-forecast"></i> Daily Status</h4>
+    <div class="baaqmd-maps-last-updated">
+        Last Updated:
+        <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(openBurnData().lastUpdated)"></span>,
+        <span data-bind="text: openBurnData().lastUpdated.toLocaleDateString()"></span>
+        at
+        <span data-bind="text: openBurnData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
+    </div>
+    <ul class="baaqmd-maps-aqi-forecast-dates">
+        <!-- ko foreach: openBurnData().dates -->
+        <li data-bind="css: {
+            active: $index() === $parent.day()
+        }">
+            <a href="#" data-bind="click: function() {
+                $parent.day($index());
+            }, text: date.toLocaleDateString('en-US',{day: '2-digit', month: '2-digit'})"></a>
+        </li>
+        <!-- /ko -->
+    </ul>
+    <h4><i class="icomoon im-aqi-index"></i> Open Burn Status</h4>
+    <ul class="baaqmd-maps-legend aqi-forecast-legend">
+        <li class="yes">
+            Allowed
+        </li>
+        <li class="nobelow2k">
+            Prohibited < 2k
+        </li>
+        <li class="no">
+            Prohibited
+        </li>
+    </ul>
+    <div class="baaqmd-maps-details-links">
+        <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('OpenBurnInfoPanel'); }">
+            <i class="im im-info"></i>
+            More Information
+        </a>
+    </div>
 </div>
 <h3>
     <i class="im im-boundaries"></i>
     Boundaries
+    <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }"></div>
 </h3>
-<ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
-    <li class="counties">
-        <input type="checkbox" data-bind="checked: layers.counties.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        Counties
-    </li>
-    <li class="district-boundary">
-        <input type="checkbox" data-bind="checked: layers.district.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        District Boundary
-    </li>
-</ul>
+<div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}">
+    <ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
+        <li class="counties">
+            <input type="checkbox" data-bind="checked: layers.counties.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            Counties
+        </li>
+        <li class="district-boundary">
+            <input type="checkbox" data-bind="checked: layers.district.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            District Boundary
+        </li>
+    </ul>
+</div>
 <!-- /ko -->

@@ -1,35 +1,41 @@
 <h3>
     <i class="fas fa-city"></i>
     Facilities
+    <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }"></div>
 </h3>
-<ul class="baaqmd-maps-legend baaqmd-maps-boundaries air-quality">
-    <li class="air-monitoring">
-        <input type="checkbox" data-bind="checked: layers.facilities.flag">
+<div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}">
+    <ul class="baaqmd-maps-legend baaqmd-maps-boundaries air-quality">
+        <li class="air-monitoring">
+            <input type="checkbox" data-bind="checked: layers.facilities.flag">
 
-        <svg class="facilities-layer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" height="22" width="22">
-            <title>building-15.svg</title>
-            <rect fill="none" x="0" y="0" width="22" height="22"></rect><path fill="#ffffff" transform="translate(3 3)" d="M3,2v11h5v-3h3v3h1V2H3z M7,12H4v-2h3V12z M7,9H4V7h3V9z M7,6H4V4h3V6z M11,9H8V7h3V9z M11,6H8V4h3V6z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="3"></path><path fill="#719843" transform="translate(3 3)" d="M3,2v11h5v-3h3v3h1V2H3z M7,12H4v-2h3V12z M7,9H4V7h3V9z M7,6H4V4h3V6z M11,9H8V7h3V9z M11,6H8V4h3V6z"></path>
-        </svg>
-        Facilities
-    </li>
-</ul>
+            <svg class="facilities-layer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" height="22" width="22">
+                <title>building-15.svg</title>
+                <rect fill="none" x="0" y="0" width="22" height="22"></rect><path fill="#ffffff" transform="translate(3 3)" d="M3,2v11h5v-3h3v3h1V2H3z M7,12H4v-2h3V12z M7,9H4V7h3V9z M7,6H4V4h3V6z M11,9H8V7h3V9z M11,6H8V4h3V6z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="3"></path><path fill="#719843" transform="translate(3 3)" d="M3,2v11h5v-3h3v3h1V2H3z M7,12H4v-2h3V12z M7,9H4V7h3V9z M7,6H4V4h3V6z M11,9H8V7h3V9z M11,6H8V4h3V6z"></path>
+            </svg>
+            Facilities
+        </li>
+    </ul>
+</div>
 <h3>
     <i class="im im-boundaries"></i>
     Boundaries
+    <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }"></div>
 </h3>
-<ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
-    <li class="counties">
-        <input type="checkbox" data-bind="checked: layers.counties.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        Counties
-    </li>
-    <li class="district-boundary">
-        <input type="checkbox" data-bind="checked: layers.district.flag">
-        <span class="legend-display">
-            <i></i>
-        </span>
-        District Boundary
-    </li>
-</ul>
+<div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}">
+    <ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
+        <li class="counties">
+            <input type="checkbox" data-bind="checked: layers.counties.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            Counties
+        </li>
+        <li class="district-boundary">
+            <input type="checkbox" data-bind="checked: layers.district.flag">
+            <span class="legend-display">
+                <i></i>
+            </span>
+            District Boundary
+        </li>
+    </ul>
+</div>
