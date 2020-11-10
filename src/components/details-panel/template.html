@@ -37,9 +37,15 @@
                 options: mapTypes,
                 value: mapType,
                 choices: {
-                    searchEnabled: false
+                    searchEnabled: false,
+                    selector: mapTypeSelector,
+                    selectorExpanded: mapTypeSelectorExpanded
                 }
             "></select>
+            <a class="choices-btn" data-bind="click: toggleMapTypeSelector, css: {'map-selector-expanded': mapTypeSelectorExpanded}">
+                <div class="icomoon icon-MapMenu"></div>
+                <div class="icomoon icon-ArrowDown"></div>
+            </a>
             <!-- /ko -->
             <!-- ko ifnot: enableMapTypeSelector -->
             <div class="choices no-select">

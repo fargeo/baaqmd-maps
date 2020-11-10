@@ -1,4 +1,5 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import '~mapbox-gl/dist/mapbox-gl.css';
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700");
 
 @font-face {
@@ -223,6 +224,7 @@ $no-color: #b10318;
         * .geocoder-icon-search,
         .geocoder-icon-search {
             background-color: transparent;
+            background-image: none;
         }
 
         ul>li>a {
@@ -503,7 +505,6 @@ $no-color: #b10318;
     .mapboxgl-ctrl button.mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 2rem;
-        padding-top: 4px;
     }
 
     .mapboxgl-ctrl-fullscreen:hover .mapboxgl-ctrl-icon,
@@ -512,7 +513,7 @@ $no-color: #b10318;
     }
 
     .mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon:before {
-        padding-top: 0px;
+        padding-top: 4px;
         display: inline-block;
         content: "\e932";
     }
@@ -1042,9 +1043,7 @@ $no-color: #b10318;
             margin-top: 5px;
             margin-bottom: 5px;
             line-height: 1.1rem;
-            background-color: transparent;
             font-size: 1.2rem;
-            color: rgba(0, 0, 0, 0.7);
 
             .facilities-layer-icon {
                 position: relative;
@@ -1968,7 +1967,8 @@ a.choices-btn {
 }
 
 a.choices-btn:hover,
-a.choices-btn:focus {
+a.choices-btn:focus,
+a.choices-btn.map-selector-expanded {
     background-color: #ee8301;
     color: white !important;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
@@ -1976,9 +1976,9 @@ a.choices-btn:focus {
 
 a.choices-btn .icomoon.icon-MapMenu {
     float: left;
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-    margin-left: 2px;
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    margin-left: 4px;
 }
 
 .icon-MapMenu:before {
@@ -1987,8 +1987,8 @@ a.choices-btn .icomoon.icon-MapMenu {
 
 a.choices-btn .icomoon.icon-ArrowDown {
     float: left;
-    font-size: 1rem;
-    line-height: 2.4rem;
+    font-size: 1.5rem;
+    line-height: 3.6rem;
 }
 
 .icon-ArrowDown:before {
@@ -2146,6 +2146,55 @@ a.choices-btn .icomoon.icon-ArrowDown {
     color: #fff !important;
     border: none !important;
 }
+.zoom-hover {
+    background-color: rgb(0, 142, 184);
+    display: none;
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:focus .zoom-hover,
+.baaqmd-maps-main .mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:hover .zoom-hover {
+    display: inline-block;
+}
+
+.mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:hover,
+.mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:focus {
+    width: 90px;
+}
+
+.mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:hover button.mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    float: right;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out,
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    background-color: #008eb8 !important;
+    background-image: none;
+    width: 30px;
+    height: 30px;
+    color: #fff !important;
+    border: none !important;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:before {
+    content: "\e900";
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+    font-size: 1rem;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    font-size: 1rem;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:hover {
+    background-color: #ee8301 !important;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover {
+    background-color: #ee8301 !important;
+}
+
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
     font-size: 1rem;
@@ -2214,4 +2263,703 @@ a.choices-btn .icomoon.icon-ArrowDown {
     .baaqmd-maps-main .baaqmd-maps-legend li {
         font-size: .75rem;
     }
+}
+
+.modal-block-out {
+    position: absolute;
+    filter: alpha(opacity=60);
+    opacity: 1;
+    background-color: rgba(50, 70, 90, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
+.fade {
+    opacity: 1;
+}
+
+.modal-dialog {
+    width: 760px !important;
+    margin: 30px auto;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    color: rgba(0, 0, 0, 0.67);
+}
+
+.modal .modal-dialog .modal-content {
+    border-radius: 6px;
+    border: 0px solid rgb(0, 142, 184);
+}
+
+.modal .modal-dialog .modal-content .modal-header {
+    background-color: #de2b2e;
+    border-bottom: 0px solid #de2b2e;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.modal .modal-dialog .modal-content .modal-header h4 {
+    color: white;
+    font-family: Garamond, Georgia1, Georgia, serif;
+    font-weight: 500;
+    text-transform: none;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-indent: 30px;
+    height: 48px;
+}
+
+.modal-title-icon.icomoon.icon-SpareAirHoriz {
+    font-size: 2rem;
+    line-height: 3rem;
+    width: 100%;
+    text-align: center;
+}
+
+span.icomoon.white-close {
+    color: white;
+    font-size: 1.4rem;
+    line-height: 2.5rem !important;
+    opacity: 0.8 !important;
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 3px;
+}
+
+.modal .modal-dialog .modal-content .modal-header .close:hover span.icomoon.white-close,
+.modal .modal-dialog .modal-content .modal-header .close:focus span.icomoon.white-close {
+    opacity: 1 !important;
+}
+
+.modal-icon.icomoon {
+    float: left;
+    color: white;
+    font-size: 3.8rem;
+    line-height: 2.2rem !important;
+    margin-right: 10px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .comment-form input[type="text"],
+.modal .modal-dialog .modal-content .modal-body .comment-form textarea {
+    border-radius: 4px;
+}
+
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"] {
+    border: 1px solid #00a7e0;
+    background-color: white;
+    color: #00a7e0;
+    border-radius: 6px;
+    text-transform: uppercase;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:hover,
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:focus {
+    border: 1px solid #00a7e0;
+    outline-width: 0px;
+    background-color: #00a7e0;
+    outline-color: #00a7e0;
+    color: white;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3), 0px 2px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 6px -6px rgba(0, 0, 0, 0.2);
+}
+
+.modal .modal-dialog .modal-content .modal-body {
+    padding: 25px 40px 10px 40px;
+}
+
+.modal .modal-dialog .modal-content .modal-footer {
+    padding: 0 40px 25px 40px;
+}
+
+img.required.text-only {
+    margin-right: 5px;
+}
+
+em.req-text {
+    color: rgba(116, 116, 121, 0.7);
+}
+
+.modal-backdrop.in {
+    filter: alpha(opacity=60);
+    opacity: .6;
+    background-color: rgb(50, 70, 90);
+}
+
+.clear {
+    clear: both;
+}
+
+a.close-btn {
+    font-family: Whitney, Helvetica, Verdana, Arial, sans-serif;
+    position: absolute;
+    color: white;
+    right: 15px;
+    top: 5px;
+    font-size: 1.5rem;
+    font-weight: 300 !important;
+    text-transform: none;
+}
+
+a.close-btn:hover,
+a.close-btn:focus {
+    color: rgba(0, 0, 0, 0.75);
+    top: 3px;
+    right: 13px;
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: 400 !important;
+}
+
+.alrt-centered-cntnt {
+    width: 120px;
+    margin: 0 auto 10px auto;
+    display: inline-block;
+}
+
+.alert-txt {
+    font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
+    color: #de2b2e;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    float: left;
+    text-align: center;
+    line-height: 2.5rem !important;
+}
+
+.alert-ttl {
+    font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
+    color: #333;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    width: 100%;
+    text-align: center;
+}
+
+.alert-icon.icomoon.icon-AlertOne,
+.alert-icon.icomoon.icon-AlertTwo,
+.alert-icon.icomoon.icon-AlertThree {
+    color: #de2b2e;
+    font-size: 2.5rem;
+    float: right;
+    line-height: 2.5rem !important;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 6px;
+    border: 0px solid rgb(0, 142, 184);
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .4;
+    text-decoration: none !important;
+}
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+}
+
+.modal .modal-dialog .modal-content .modal-header .close:hover {
+    opacity: 1;
+}
+
+.space-1px {
+    width: 100%;
+    display: inline-block;
+    height: 1px;
+}
+
+.space-5px {
+    width: 100%;
+    display: inline-block;
+    height: 5px;
+}
+
+.space-10px {
+    width: 100%;
+    display: inline-block;
+    height: 10px;
+}
+
+.centered-cntnt {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.alert-main-text {
+    font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
+    margin-top: 6px;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    width: 84%;
+    margin-left: 8%;
+    margin-bottom: 3px;
+}
+
+@media (max-width: 800px) {
+    .modal-dialog {
+        width: 660px !important;
+    }
+}
+
+@media (max-width: 680px) {
+    .modal-dialog {
+        width: 540px !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .modal-dialog {
+        width: 410px !important;
+    }
+
+    .modal .modal-dialog .modal-content .modal-body {
+        padding: 25px 20px 10px 20px;
+    }
+
+    .modal .modal-dialog .modal-content .modal-footer {
+        padding: 0 20px 25px 20px;
+    }
+}
+
+@media (max-width: 410px) {
+    .modal-dialog {
+        width: 375px !important;
+    }
+
+    .modal .modal-dialog .modal-content .modal-body {
+        padding: 25px 15px 10px 15px;
+    }
+
+    .modal .modal-dialog .modal-content .modal-footer {
+        padding: 0 15px 25px 15px;
+    }
+}
+
+@media (max-width: 374px) {
+    .modal-dialog {
+        width: 355px !important;
+    }
+}
+
+@media (max-width: 355px) {
+    .modal-dialog {
+        width: 320px !important;
+    }
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?cevo2q');
+    src: url('fonts/icomoon.eot?cevo2q#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.woff2?cevo2q') format('woff2'),
+        url('fonts/icomoon.ttf?cevo2q') format('truetype'),
+        url('fonts/icomoon.woff?cevo2q') format('woff'),
+        url('fonts/icomoon.svg?cevo2q#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-AlertTextHorizontal:before {
+    content: "\e92b";
+}
+
+.icon-WalkBikeLonger:before {
+    content: "\e929";
+}
+
+.icon-NoBurnAlert:before {
+    content: "\e927";
+}
+
+.icon-SpareAirHoriz:before {
+    content: "\e92a";
+}
+
+.icon-SpareAirWinterHoriz:before {
+    content: "\e926";
+}
+
+.icon-KeyArea:before {
+    content: "\e93d";
+}
+
+.icon-AlertOne:before {
+    content: "\e93e";
+}
+
+.icon-AlertThree:before {
+    content: "\e93f";
+}
+
+.icon-AlertTwo:before {
+    content: "\e940";
+}
+
+.icon-Print2:before {
+    content: "\e937";
+}
+
+.icon-ArrowDown3:before {
+    content: "\e93a";
+}
+
+.icon-ArrowDown2:before {
+    content: "\e93b";
+}
+
+.icon-MenuClose:before {
+    content: "\e93c";
+}
+
+.icon-Contract:before {
+    content: "\e915";
+}
+
+.icon-Expand:before {
+    content: "\e932";
+}
+
+.icon-WindSpeed:before {
+    content: "\e933";
+}
+
+.icon-ArrowDown:before {
+    content: "\e934";
+}
+
+.icon-ZoomAll:before {
+    content: "\e935";
+}
+
+.icon-Email2:before {
+    content: "\e936";
+}
+
+.icon-MenuOpen:before {
+    content: "\e938";
+}
+
+.icon-MapMenu:before {
+    content: "\e939";
+}
+
+.icon-TriangleSlash:before {
+    content: "\e92c";
+}
+
+.icon-CircleSlash:before {
+    content: "\e92d";
+}
+
+.icon-SquareSlash:before {
+    content: "\e92e";
+}
+
+.icon-Circle:before {
+    content: "\e92f";
+}
+
+.icon-Square:before {
+    content: "\e930";
+}
+
+.icon-Triangle:before {
+    content: "\e931";
+}
+
+.icon-SpareFire:before {
+    content: "\e928";
+}
+
+.icon-NoBurn:before {
+    content: "\e925";
+}
+
+.icon-AlertTextHoriz:before {
+    content: "\e923";
+}
+
+.icon-SpareAirHorizontal:before {
+    content: "\e924";
+}
+
+.icon-Menu2:before {
+    content: "\e922";
+}
+
+.icon-Share:before {
+    content: "\e91c";
+}
+
+.icon-Forecast:before {
+    content: "\e921";
+}
+
+.icon-Email:before {
+    content: "\e91a";
+}
+
+.icon-AQIndex:before {
+    content: "\e91e";
+}
+
+.icon-Boundaries:before {
+    content: "\e91f";
+}
+
+.icon-Info:before {
+    content: "\e920";
+}
+
+.icon-Twitter:before {
+    content: "\e91b";
+}
+
+.icon-Facebook:before {
+    content: "\e91d";
+}
+
+.icon-FullscreenB:before {
+    content: "\e916";
+}
+
+.icon-AQIZones:before {
+    content: "\e917";
+}
+
+.icon-DistrictBoundary:before {
+    content: "\e918";
+}
+
+.icon-County:before {
+    content: "\e919";
+}
+
+.icon-Add2:before {
+    content: "\e900";
+}
+
+.icon-AQI:before {
+    content: "\e901";
+}
+
+.icon-AreaAssign2:before {
+    content: "\e902";
+}
+
+.icon-Compass:before {
+    content: "\e903";
+}
+
+.icon-E:before {
+    content: "\e904";
+}
+
+.icon-Fullscreen:before {
+    content: "\e905";
+}
+
+.icon-Help2:before {
+    content: "\e906";
+}
+
+.icon-Location:before {
+    content: "\e907";
+}
+
+.icon-Location2:before {
+    content: "\e908";
+}
+
+.icon-Map:before {
+    content: "\e909";
+}
+
+.icon-Meteorology:before {
+    content: "\e90a";
+}
+
+.icon-N:before {
+    content: "\e90b";
+}
+
+.icon-Print:before {
+    content: "\e90c";
+}
+
+.icon-S:before {
+    content: "\e90d";
+}
+
+.icon-SetNorth:before {
+    content: "\e90e";
+}
+
+.icon-Subtract:before {
+    content: "\e90f";
+}
+
+.icon-Temperature:before {
+    content: "\e910";
+}
+
+.icon-W:before {
+    content: "\e911";
+}
+
+.icon-Weather:before {
+    content: "\e912";
+}
+
+.icon-WindDirection:before {
+    content: "\e913";
+}
+
+.icon-WindGust:before {
+    content: "\e914";
+}
+
+
+.space-15pxno {
+    height: 15px;
+    width: 100%;
+    display: inline-block;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    border-radius: 6px;
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:before {
+    content: "\e935";
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    font-size: 1.2rem;
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:focus,
+.baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover {
+    font-size: 1.4rem;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    margin: 6px 10px 0 0;
+}
+
+.zoom-hover {
+    background-color: rgb(0, 142, 184);
+    display: none;
+}
+
+.baaqmd-maps-main .mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:focus .zoom-hover,
+.baaqmd-maps-main .mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:hover .zoom-hover {
+    display: inline-block;
+}
+
+.mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:hover,
+.mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:focus {
+    width: 90px;
+}
+
+.mapboxgl-ctrl.mapboxgl-ctrl-group.act-zoom-hover:hover button.mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    float: right;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out,
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    background-color: #008eb8 !important;
+    background-image: none;
+    width: 30px;
+    height: 30px;
+    color: #fff !important;
+    border: none !important;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:before {
+    content: "\e900";
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+    font-size: 1rem;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    font-size: 1rem;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:hover {
+    background-color: #ee8301 !important;
+}
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover {
+    background-color: #ee8301 !important;
 }

@@ -11,6 +11,12 @@ export default ko.components.register('details-panel', {
         this.enableMapTypeSelector = params.enableMapTypeSelector;
         this.rootURL = params.rootURL;
         this.detailsActive = params.detailsActive;
+        this.mapTypeSelector = ko.observable();
+        this.mapTypeSelectorExpanded = ko.observable();
+        this.toggleMapTypeSelector = () => {
+            window.mapTypeSelector = this.mapTypeSelector();
+            window.mapTypeSelector.showDropdown();
+        };
         this.showInfoPanel = params.showInfoPanel;
         if (typeof params.enableMapTypeSelector !== 'boolean') {
             this.enableMapTypeSelector = true;

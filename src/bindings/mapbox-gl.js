@@ -1,6 +1,5 @@
 import * as config from '../config.json';
 import * as ko from 'knockout';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import * as mapboxgl from 'mapbox-gl';
 
 ko.bindingHandlers.mapboxgl = {

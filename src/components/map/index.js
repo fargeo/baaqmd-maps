@@ -5,6 +5,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import * as template from './template.html';
 import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
+import ZoomControl from '../zoom-control';
 import HelpControl from '../help-control';
 let mapboxQuery = process.env.NODE_ENV === 'production' ? '' : '&fresh=true';
 
@@ -26,7 +27,8 @@ export default ko.components.register('map', {
                 accessToken: mapboxgl.accessToken,
                 placeholder: "Enter address..."
             }));
-            map.addControl(new mapboxgl.NavigationControl());
+            map.addControl(new ZoomControl());
+            map.addControl(new mapboxgl.NavigationControl({showZoom: false}));
             map.addControl(new mapboxgl.GeolocateControl({
                 positionOptions: {
                     enableHighAccuracy: true
