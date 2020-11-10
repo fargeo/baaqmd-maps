@@ -40,7 +40,7 @@
     "mainMapPage": "https://baaqmd.fargeo-dev.com/dist/",
     "mapTypes": {
         "AQIForecast": {
-            "style": "baaqmd-publicmaps/cjvflbtpp0pz41fn39zurkou4",
+            "style": "baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh",
             "label": "Air Quality Forecast Map"
         },
         "Facilities": {
