@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 585);
+/******/ 	return __webpack_require__(__webpack_require__.s = 584);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -7319,13 +7319,13 @@ module.exports = {
 /* 182 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            enableMapTypeSelector: enableMapTypeSelector,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            detailsActive: detailsActive\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            accessToken: accessToken\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { showInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"close-information-panel\" data-bind=\"click: function() { showInfoPanel(false); }\">×</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n               }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            enableMapTypeSelector: enableMapTypeSelector,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            detailsActive: detailsActive\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            accessToken: accessToken\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { showInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"close-information-panel\" data-bind=\"click: function() { showInfoPanel(false); }\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n               }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
 
 /***/ }),
 /* 183 */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- ko if: alertStatus() -->\n<div class=\"spare-air-alert\" data-bind=\"css: {'modal-control': alertMode() !== 'none' }, click: showSTAModal\">\n      <div class=\"spare-logo\">\n        <!-- ko if: alertMode() !== 'winter' -->\n            <div class=\"spare-icon icon-SpareAirHorizontal\"></div>\n        <!-- /ko -->\n        <!-- ko if: alertMode() === 'winter' -->\n            <div class=\"spare-icon icon-SpareAirWinterHoriz\"></div>\n        <!-- /ko -->\n        <div class=\"spare-icon icon-AlertTextHoriz\"></div>\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"spare-title\">Spare the Air Alert in Effect</div>\n      <div class=\"no-burn-area\">\n          <!-- ko if: alertMode() === 'none' -->\n          <div class=\"no-burn-icon icon-NoBurnAlert\"></div>\n          <!-- /ko -->\n          <!-- ko if: alertMode() === 'winter' -->\n          <div class=\"no-burn-icon icon-NoBurn\"></div>\n          <div class=\"no-burn-text\">No Wood Burning</div>\n          <!-- /ko -->\n          <!-- ko if: alertMode() === 'summer' -->\n          <div class=\"no-burn-icon icon-WalkBikeLonger\"></div>\n          <!-- /ko -->\n      </div>\n      <div class=\"clear\"></div>\n      <div class=\"spare-date\">\n          <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric' }).format(new Date())\"></span>\n      </div>\n</div>\n<!-- /ko -->\n<h3>\n    <i class=\"fas fa-wind\"></i>\n    Air Quality Forecast\n</h3>\n<h4><i class=\"icomoon im-forecast\"></i> Daily Forecast</h4>\n<!-- ko if: aqiData -->\n<div class=\"baaqmd-maps-last-updated\">\n    Last Updated:\n    <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)\"></span>,\n    <span data-bind=\"text: aqiData().lastUpdated.toLocaleDateString()\"></span>\n    at\n    <span data-bind=\"text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n</div>\n<ul class=\"baaqmd-maps-aqi-forecast-dates\">\n    <!-- ko foreach: aqiData().dates -->\n    <li data-bind=\"css: {\n        active: $index() === $parent.day()\n    }\">\n        <a href=\"#\" data-bind=\"click: function() {\n            $parent.day($index());\n        }, text: date\"></a>\n    </li>\n    <!-- /ko -->\n</ul>\n<h4><i class=\"icomoon im-aqi-index\"></i> Air Quality Index</h4>\n<ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n    <li class=\"good\">\n        Good (0-50)\n    </li>\n    <li class=\"moderate\">\n        Moderate (51-100)\n    </li>\n    <li class=\"unhealthy-for-sensitive-groups\">\n        Unhealthy for Sensitive Groups (101-150)\n    </li>\n    <li class=\"unhealthy\">\n        Unhealthy (151-200)\n    </li>\n    <li class=\"very-unhealthy\">\n        Very Unhealthy (201-300)\n    </li>\n    <li class=\"hazardous\">\n        Hazardous (301-500)\n    </li>\n</ul>\n<div class=\"baaqmd-maps-details-links\">\n    <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIForecastPanel'); }\">\n        <i class=\"fas fa-wind\"></i>\n        Five Day Forecast\n    </a>\n    <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIInfoPanel'); }\">\n        <i class=\"im im-info\"></i>\n        More AQI Information\n    </a>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n    <li class=\"aqi-reporting-zones\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.aqi.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        AQI Reporting Zones\n    </li>\n    <li class=\"counties\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        Counties\n    </li>\n    <li class=\"district-boundary\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        District Boundary\n    </li>\n</ul>\n<!-- /ko -->\n";
+module.exports = "<!-- ko if: alertStatus() -->\n<div class=\"spare-air-alert\" data-bind=\"css: {'modal-control': alertMode() !== 'none' }, click: showSTAModal\">\n    <div class=\"spare-logo\">\n        <div class=\"spare-icon icon-SpareAirHorizontal\"></div>\n    </div>\n    <div class=\"alrt-main-cntnt\">\n        <div class=\"lft-key\">\n            <div class=\"spare-zone\">Region Wide</div>\n            <div class=\"spare-key\"></div>\n        </div>\n        <div class=\"mid-date\">\n            <div class=\"spare-day\" data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(new Date())\"></div>\n            <div class=\"spare-date\" data-bind=\"text: new Intl.DateTimeFormat('en-US', { month: 'numeric', day: 'numeric' }).format(new Date())\"></div>\n        </div>\n        <div class=\"rt-alert\">\n            <!-- ko if: alertMode() === 'none' -->\n            <div class=\"alert-icon icon-AlertOne\"></div>\n            <!-- /ko -->\n            <!-- ko if: alertMode() === 'winter' -->\n            <div class=\"alert-icon icon-AlertTwo\"></div>\n            <!-- /ko -->\n            <!-- ko if: alertMode() === 'summer' -->\n            <div class=\"alert-icon icon-AlertThree\"></div>\n            <!-- /ko -->\n            <div class=\"alert-text\">Alert</div>\n        </div>\n    </div>\n    <div class=\"clear\"></div>\n</div>\n<!-- /ko -->\n<!-- ko if: aqiData -->\n<h3>\n    <i class=\"fas fa-wind\"></i>\n    Air Quality Forecast\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <h4><i class=\"icomoon im-forecast\"></i> Daily Forecast</h4>\n    <div class=\"baaqmd-maps-last-updated\">\n        Last Updated:\n        <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)\"></span>,\n        <span data-bind=\"text: aqiData().lastUpdated.toLocaleDateString()\"></span>\n        at\n        <span data-bind=\"text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n    </div>\n    <ul class=\"baaqmd-maps-aqi-forecast-dates\">\n        <!-- ko foreach: aqiData().dates -->\n        <li data-bind=\"css: {\n            active: $index() === $parent.day()\n        }\">\n            <a href=\"#\" data-bind=\"click: function() {\n                $parent.day($index());\n            }, text: date\"></a>\n        </li>\n        <!-- /ko -->\n    </ul>\n    <h4><i class=\"icomoon im-aqi-index\"></i> Air Quality Index</h4>\n    <ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n        <li class=\"good\">\n            <div class=\"aqi-no\">(0-50)</div>\n            <div class=\"aqi-txt\">Good</div>\n        </li>\n        <li class=\"moderate\">\n            <div class=\"aqi-no\">(51-100)</div>\n            <div class=\"aqi-txt\">Moderate</div>\n        </li>\n        <li class=\"unhealthy-for-sensitive-groups\">\n            <div class=\"aqi-no\">(101-150)</div>\n            <div class=\"aqi-txt\">Unhealthy for Sensitive Groups</div>\n        </li>\n        <li class=\"unhealthy\">\n            <div class=\"aqi-no\">(151-200)</div>\n            <div class=\"aqi-txt\">Unhealthy</div>\n        </li>\n        <li class=\"very-unhealthy\">\n            <div class=\"aqi-no\">(201-300)</div>\n            <div class=\"aqi-txt\">Very Unhealthy</div>\n        </li>\n        <li class=\"hazardous\">\n            <div class=\"aqi-no\">(301-500)</div>\n            <div class=\"aqi-txt\">Hazardous</div>\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIForecastPanel'); }\">\n            <i class=\"fas fa-wind\"></i>\n            Five Day Forecast\n        </a>\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIInfoPanel'); }\">\n            <i class=\"im im-info\"></i>\n            More AQI Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"aqi-reporting-zones\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.aqi.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            AQI Reporting Zones\n        </li>\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n<!-- /ko -->\n";
 
 /***/ }),
 /* 184 */
@@ -7373,7 +7373,7 @@ module.exports = "<div class=\"baaqmd-maps-scroll-for-more\" data-bind=\"css: {\
 /* 191 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n    <i class=\"fas fa-city\"></i>\n    Facilities\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries air-quality\">\n    <li class=\"air-monitoring\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.facilities.flag\">\n\n        <svg class=\"facilities-layer-icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 22 22\" height=\"22\" width=\"22\">\n            <title>building-15.svg</title>\n            <rect fill=\"none\" x=\"0\" y=\"0\" width=\"22\" height=\"22\"></rect><path fill=\"#ffffff\" transform=\"translate(3 3)\" d=\"M3,2v11h5v-3h3v3h1V2H3z M7,12H4v-2h3V12z M7,9H4V7h3V9z M7,6H4V4h3V6z M11,9H8V7h3V9z M11,6H8V4h3V6z\" style=\"stroke-linejoin:round;stroke-miterlimit:4;\" stroke=\"#ffffff\" stroke-width=\"3\"></path><path fill=\"#719843\" transform=\"translate(3 3)\" d=\"M3,2v11h5v-3h3v3h1V2H3z M7,12H4v-2h3V12z M7,9H4V7h3V9z M7,6H4V4h3V6z M11,9H8V7h3V9z M11,6H8V4h3V6z\"></path>\n        </svg>\n        Facilities\n    </li>\n</ul>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n    <li class=\"counties\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        Counties\n    </li>\n    <li class=\"district-boundary\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        District Boundary\n    </li>\n</ul>\n";
+module.exports = "<h3>\n    <i class=\"fas fa-city\"></i>\n    Facilities\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries air-quality\">\n        <li class=\"air-monitoring\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.facilities.flag\">\n\n            <svg class=\"facilities-layer-icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 22 22\" height=\"22\" width=\"22\">\n                <title>building-15.svg</title>\n                <rect fill=\"none\" x=\"0\" y=\"0\" width=\"22\" height=\"22\"></rect><path fill=\"#ffffff\" transform=\"translate(3 3)\" d=\"M3,2v11h5v-3h3v3h1V2H3z M7,12H4v-2h3V12z M7,9H4V7h3V9z M7,6H4V4h3V6z M11,9H8V7h3V9z M11,6H8V4h3V6z\" style=\"stroke-linejoin:round;stroke-miterlimit:4;\" stroke=\"#ffffff\" stroke-width=\"3\"></path><path fill=\"#719843\" transform=\"translate(3 3)\" d=\"M3,2v11h5v-3h3v3h1V2H3z M7,12H4v-2h3V12z M7,9H4V7h3V9z M7,6H4V4h3V6z M11,9H8V7h3V9z M11,6H8V4h3V6z\"></path>\n            </svg>\n            Facilities\n        </li>\n    </ul>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n";
 
 /***/ }),
 /* 192 */
@@ -7385,7 +7385,7 @@ module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-map
 /* 193 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Impacted Communities\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n    <li class=\"cumulative-impact-areas\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.impacted.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        2013 Cumulative Impact Areas\n    </li>\n    <li class=\"pm25-impact-areas\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.pm25.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        24 Hour P2.5 Exceedance Areas\n    </li>\n    <li class=\"ozone-impact-areas\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.ozone.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        8 Hour Ozone Exceedance Areas\n    </li>\n</ul>\n<div class=\"baaqmd-maps-details-links\">\n    <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('ImpactedCommunitiesInfoPanel'); }\">\n        <i class=\"fas fa-info-circle\"></i>\n        More Information\n    </a>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n    <li class=\"counties\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        Counties\n    </li>\n    <li class=\"district-boundary\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        District Boundary\n    </li>\n</ul>\n";
+module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Impacted Communities\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n        <li class=\"cumulative-impact-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.impacted.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            2013 Cumulative Impact Areas\n        </li>\n        <li class=\"pm25-impact-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.pm25.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            24 Hour P2.5 Exceedance Areas\n        </li>\n        <li class=\"ozone-impact-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.ozone.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            8 Hour Ozone Exceedance Areas\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('ImpactedCommunitiesInfoPanel'); }\">\n            <i class=\"fas fa-info-circle\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n";
 
 /***/ }),
 /* 194 */
@@ -7403,7 +7403,7 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 /* 196 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n    <i class=\"fas fa-broadcast-tower\"></i>\n    Air Monitoring\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries air-quality\">\n    <li class=\"air-monitoring\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.airMonitoring.flag\" id=\"air-monitoring-toggle\">\n        <label for=\"air-monitoring-toggle\">\n            <svg class=\"air-monitoring-icon\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" viewBox=\"0 0 21 21\" height=\"21\" width=\"21\">\n              <title>square-15.svg</title>\n              <rect fill=\"none\" x=\"0\" y=\"0\" width=\"21\" height=\"21\"></rect>\n              <path fill=\"#ffffff\" transform=\"translate(3 3)\" d=\"M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z\" style=\"stroke-linejoin:round;stroke-miterlimit:4;\" stroke=\"#ffffff\"\n                stroke-width=\"2\"></path>\n              <path fill=\"#10649f\" transform=\"translate(3 3)\" d=\"M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z\"></path>\n            </svg>\n            Air District Stations\n        </label>\n    </li>\n    <li class=\"air-monitoring closed-sites\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.airMonitoringHistorical.flag\" id=\"air-monitoring-historical-toggle\">\n        <label for=\"air-monitoring-historical-toggle\">\n            <svg width=\"21\" height=\"21\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" xmlns:svg=\"http://www.w3.org/2000/svg\" class=\"air-monitoring-icon\">\n             <title>square-15.svg</title>\n             <g class=\"layer\">\n              <title>Layer 1</title>\n              <rect fill=\"none\" height=\"21\" id=\"svg_1\" width=\"21\" x=\"0\" y=\"0\"/>\n              <path d=\"m13,14l-11,0c-0.5523,0 -1,-0.4477 -1,-1l0,-11c0,-0.5523 0.4477,-1 1,-1l11,0c0.5523,0 1,0.4477 1,1l0,11c0,0.5523 -0.4477,1 -1,1z\" fill=\"#ffffff\" id=\"svg_2\" stroke=\"#ffffff\" stroke-linejoin=\"round\" stroke-miterlimit=\"4\" stroke-width=\"2\" transform=\"translate(3 3)\"/>\n              <path d=\"m13,14l-11,0c-0.5523,0 -1,-0.4477 -1,-1l0,-11c0,-0.5523 0.4477,-1 1,-1l11,0c0.5523,0 1,0.4477 1,1l0,11c0,0.5523 -0.4477,1 -1,1z\" fill=\"#10649f\" id=\"svg_3\" transform=\"translate(3 3)\"/>\n             </g>\n             <g class=\"layer\">\n              <title>Layer 2</title>\n              <g id=\"svg_4\">\n               <polygon fill=\"#dddddd\" id=\"svg_5\" points=\"7.19818271324084,3.999999183462478 3.9999992130337887,7.198182683669529 3.9999992130337887,8.367887894069554 8.367887923640865,3.999999183462478 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_6\" points=\"10.223624004969224,3.999999183462478 3.9999992130337887,10.223625897532202 3.9999992130337887,11.432813668345716 11.432813697917027,3.999999183462478 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_7\" points=\"7.66705181335783,17.000024795532227 17.00002098083496,7.667052264320091 17.00002098083496,6.4825394118975055 6.482539922002388,17.000024795532227 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_8\" points=\"16.31892615075867,3.999999183462478 3.9999992130337887,16.31892612118736 3.9999992130337887,17.000024795532227 4.626803360140457,17.000024795532227 17.00002098083496,4.62680429163629 17.00002098083496,3.999999183462478 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_9\" points=\"13.29348582009743,3.999999183462478 3.9999992130337887,13.293484829458976 3.9999992130337887,14.458256882208389 14.458255950712555,3.999999183462478 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_10\" points=\"17.00002098083496,17.000024795532227 17.00002098083496,15.662510534304147 15.66250864174117,17.000024795532227 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_11\" points=\"3.9999992130337887,3.999999183462478 3.9999992130337887,5.3375115225562695 5.33751155212758,3.999999183462478 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_12\" points=\"13.806773521479954,17.000024795532227 17.00002098083496,13.806775414042932 17.00002098083496,12.637067320441474 12.637067350012785,17.000024795532227 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_13\" points=\"10.776396188899525,17.000024795532227 17.00002098083496,10.776397120395359 17.00002098083496,9.522788826182023 9.522786933619045,17.000024795532227 \"/>\n              </g>\n             </g>\n            </svg>\n            Closed\n        </label>\n    </li>\n    <li class=\"facility-glm-stations\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.facilityGLMStations.flag\" id=\"facility-glm-stations\">\n        <label for=\"facility-glm-stations\">\n            <svg class=\"facility-glm-stations-icon\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" viewBox=\"0 0 21 21\" height=\"21\" width=\"21\">\n              <title>circle-15.svg</title>\n              <rect fill=\"none\" x=\"0\" y=\"0\" width=\"21\" height=\"21\"></rect>\n              <path fill=\"#ffffff\" transform=\"translate(3 3)\" d=\"M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z\" style=\"stroke-linejoin:round;stroke-miterlimit:4;\" stroke=\"#ffffff\" stroke-width=\"2\"></path>\n              <path fill=\"#068a47\" transform=\"translate(3 3)\" d=\"M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z\"></path>\n            </svg>\n            Facility GLM Stations\n        </label>\n    </li>\n    <li class=\"facility-glm-stations closed-sites\">\n        <input type=\"checkbox\" disabled id=\"facility-glm-stations closed-sites\">\n        <label for=\"facility-glm-stations closed-sites\">\n            <svg width=\"21\" height=\"21\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" class=\"facility-glm-stations-icon\">\n             <title>circle-15.svg</title>\n             <defs>\n              <symbol id=\"svg_5\" viewBox=\"0 0 360 360\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n               <g id=\"svg_4\">\n                <path d=\"m181.7,45.5l-136.2,136.2c0.1,7.4 0.8,14.7 2,21.9l156,-156c-7.1,-1.4 -14.4,-2 -21.8,-2.1z\" id=\"svg_8\"/>\n                <path d=\"m232,55.9l-176.1,176.1c2.2,5.3 4.8,10.5 7.7,15.4l183.8,-183.9c-5,-2.8 -10.1,-5.4 -15.4,-7.6z\" id=\"svg_9\"/>\n                <path d=\"m312.7,157.7l-155,155c7.3,1.2 14.7,1.9 22.3,1.9c0.2,0 0.4,0 0.6,0l133.9,-133.9c0,-0.2 0,-0.4 0,-0.6c0.1,-7.7 -0.6,-15.2 -1.8,-22.4z\" id=\"svg_10\"/>\n                <path d=\"m268.8,78.9l-189.9,189.9c4,4.6 8.3,8.9 12.9,12.9l189.8,-189.9c-4,-4.6 -8.3,-8.9 -12.8,-12.9z\" id=\"svg_11\"/>\n                <path d=\"m308.7,219.2l-89.5,89.5c42.8,-13 76.5,-46.7 89.5,-89.5z\" id=\"svg_12\"/>\n                <path d=\"m296.9,113.3l-183.6,183.6c5,2.9 10.3,5.4 15.7,7.7l175.6,-175.6c-2.3,-5.4 -4.8,-10.6 -7.7,-15.7z\" id=\"svg_13\"/>\n                <path d=\"m50.3,144.1l93.8,-93.8c-45.5,12.6 -81.2,48.3 -93.8,93.8z\" id=\"svg_14\"/>\n               </g>\n              </symbol>\n             </defs>\n             <g class=\"layer\">\n              <title>Layer 1</title>\n              <rect fill=\"none\" height=\"21\" id=\"svg_1\" width=\"21\" x=\"0\" y=\"0\"/>\n              <path d=\"m14,7.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z\" fill=\"#ffffff\" id=\"svg_2\" stroke=\"#ffffff\" stroke-linejoin=\"round\" stroke-miterlimit=\"4\" stroke-width=\"2\" transform=\"translate(3 3)\"/>\n              <path d=\"m14,7.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z\" fill=\"#068a47\" id=\"svg_3\" transform=\"translate(3 3)\"/>\n              <use id=\"svg_6\" transform=\"rotate(139.777 0.204172 0.204223) matrix(0.0194444 0 0 0.0194444 0 0)\" xlink:href=\"#svg_5\"/>\n              <g id=\"svg_7\"/>\n             </g>\n             <g class=\"layer\">\n              <title>Layer 2</title>\n              <g id=\"svg_15\">\n               <path d=\"m10.58671,4l-6.58671,6.57971c0.00484,0.35749 0.03869,0.71015 0.09672,1.05797l7.54426,-7.53623c-0.34336,-0.06763 -0.6964,-0.09662 -1.05427,-0.10145l0,0l0,0z\" fill=\"#dddddd\" id=\"svg_16\"/>\n               <path d=\"m13.01925,4.50242l-8.5163,8.50725c0.1064,0.25603 0.23213,0.50724 0.37238,0.74396l8.88868,-8.88406c-0.24181,-0.13527 -0.48845,-0.26087 -0.74476,-0.36715l0,0l0,0z\" fill=\"#dddddd\" id=\"svg_17\"/>\n               <path d=\"m16.92195,9.42029l-7.49589,7.48793c0.35303,0.05797 0.7109,0.09178 1.07844,0.09178c0.00967,0 0.01935,0 0.02902,0l6.47548,-6.4686c0,-0.00966 0,-0.01932 0,-0.02898c0.00484,-0.37198 -0.02901,-0.7343 -0.08705,-1.08213l0,0z\" fill=\"#dddddd\" id=\"svg_18\"/>\n               <path d=\"m14.79892,5.61353l-9.18368,9.17391c0.19345,0.22223 0.4014,0.42996 0.62385,0.62319l9.17885,-9.17391c-0.19345,-0.22223 -0.4014,-0.42996 -0.61902,-0.62319l0,0z\" fill=\"#dddddd\" id=\"svg_19\"/>\n               <path d=\"m16.72851,12.39131l-4.32827,4.32367c2.06983,-0.62802 3.69958,-2.25604 4.32827,-4.32367z\" fill=\"#dddddd\" id=\"svg_20\"/>\n               <path d=\"m16.15786,7.27536l-8.87901,8.86957c0.2418,0.1401 0.49811,0.26087 0.75926,0.37198l8.49212,-8.48309c-0.11123,-0.26087 -0.23213,-0.51208 -0.37237,-0.75846z\" fill=\"#dddddd\" id=\"svg_21\"/>\n               <path d=\"m4.23213,8.76329l4.53622,-4.53141c-2.2004,0.6087 -3.92688,2.33334 -4.53622,4.53141z\" fill=\"#dddddd\" id=\"svg_22\"/>\n              </g>\n             </g>\n             <g class=\"layer\">\n              <title>Layer 3</title>\n              <rect fill=\"none\" height=\"21\" id=\"svg_16\" width=\"21\" x=\"0\" y=\"0\"/>\n              <path d=\"m17,10.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z\" fill=\"rgba(256, 256, 256, 0.7)\" id=\"svg_18\"/>\n              <use id=\"svg_16\" transform=\"rotate(139.777 0.204172 0.204223) matrix(0.0194444 0 0 0.0194444 0 0)\" xlink:href=\"#svg_5\"/>\n              <g id=\"svg_17\"/>\n             </g>\n            </svg>\n            Closed\n        </label>\n    </li>\n    <li class=\"meteorological-sites\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.meteorologicalSites.flag\" id=\"meteorological-sites\">\n        <label for=\"meteorological-sites\">\n            <svg class=\"meteorological-sites-icon\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" viewBox=\"0 0 21 21\" height=\"21\" width=\"21\">\n            \t<title>triangle-15.svg</title>\n            \t<rect fill=\"none\" x=\"0\" y=\"0\" width=\"21\" height=\"21\"></rect>\n            \t<path fill=\"#ffffff\" transform=\"translate(3 3)\" d=\"M7.5385,2\n            \tC7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154\n            \tC13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z\" style=\"stroke-linejoin:round;stroke-miterlimit:4;\" stroke=\"#ffffff\" stroke-width=\"2\"></path>\n            \t<path fill=\"#d28f60\" transform=\"translate(3 3)\" d=\"M7.5385,2\n            \tC7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154\n            \tC13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z\"></path>\n            </svg>\n            Meteorological Sites\n        </label>\n    </li>\n    <li class=\"meteorological-sites closed-sites\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.meteorologicalSitesHistorical.flag\" id=\"meteorological-sites closed-sites\">\n        <label for=\"meteorological-sites closed-sites\">\n            <svg width=\"21\" height=\"21\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" xmlns:svg=\"http://www.w3.org/2000/svg\" class=\"meteorological-sites-icon\">\n             <title>triangle-15.svg</title>\n             <g class=\"layer\">\n              <title>Layer 1</title>\n              <rect fill=\"none\" height=\"21\" id=\"svg_1\" width=\"21\" x=\"0\" y=\"0\"/>\n              <path d=\"m7.5385,2c-0.2948,0 -0.4883,0.1772 -0.6154,0.3846l-5.8462,9.5385c-0.0769,0.0769 -0.0769,0.2307 -0.0769,0.3846c0,0.5385 0.3846,0.6923 0.6923,0.6923l11.6154,0c0.3846,0 0.6923,-0.1538 0.6923,-0.6923c0,-0.1538 0,-0.2308 -0.0769,-0.3846l-5.7693,-9.5385c-0.1258,-0.2081 -0.3656,-0.3846 -0.6153,-0.3846z\" fill=\"#ffffff\" id=\"svg_2\" stroke=\"#ffffff\" stroke-linejoin=\"round\" stroke-miterlimit=\"4\" stroke-width=\"2\" transform=\"translate(3 3)\"/>\n              <path d=\"m7.5385,2c-0.2948,0 -0.4883,0.1772 -0.6154,0.3846l-5.8462,9.5385c-0.0769,0.0769 -0.0769,0.2307 -0.0769,0.3846c0,0.5385 0.3846,0.6923 0.6923,0.6923l11.6154,0c0.3846,0 0.6923,-0.1538 0.6923,-0.6923c0,-0.1538 0,-0.2308 -0.0769,-0.3846l-5.7693,-9.5385c-0.1258,-0.2081 -0.3656,-0.3846 -0.6153,-0.3846z\" fill=\"#d28f60\" id=\"svg_3\" transform=\"translate(3 3)\"/>\n             </g>\n             <g class=\"layer\">\n              <title>Layer 2</title>\n              <g id=\"svg_4\">\n               <polygon fill=\"#dddddd\" id=\"svg_5\" points=\"11.652202203834122,6.303565979003906 6.158950522252098,11.507827758789062 4.64404591463483,13.996442794799805 12.057404689469877,6.967196941375732 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_6\" points=\"12.702044706383731,8.028133392333984 4.400003433227539,15.900014877319336 5.63863232820745,15.900014877319336 13.15329385396285,8.770352363586426 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_7\" points=\"13.80253740133162,9.831286430358887 7.397579417232009,15.900014877319336 8.521094496702062,15.900014877319336 14.212341524523254,10.503649711608887 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_8\" points=\"14.856983434336144,11.56458568572998 10.284645116181537,15.900014877319336 11.472624765212686,15.900014877319336 15.289811834948978,12.27624225616455 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_9\" points=\"16.98890072421591,15.061745643615723 16.104822229574438,15.900014877319336 17.500008071552656,15.900014877319336 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_10\" points=\"15.939053489418711,13.337179183959961 13.236172545343607,15.900014877319336 14.345877033448915,15.900014877319336 16.344260707302055,14.000810623168945 \"/>\n               <polygon fill=\"#dddddd\" id=\"svg_11\" points=\"10.491852255578124,4.399993896484375 8.115892957515825,8.298823356628418 11.127282372233594,5.443466663360596 \"/>\n              </g>\n             </g>\n            </svg>\n            Closed\n        </label>\n    </li>\n</ul>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n    <li class=\"counties\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        Counties\n    </li>\n    <li class=\"district-boundary\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        District Boundary\n    </li>\n</ul>\n";
+module.exports = "<h3>\n    <i class=\"fas fa-broadcast-tower\"></i>\n    Air Monitoring\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries air-quality\">\n        <li class=\"air-monitoring\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.airMonitoring.flag\" id=\"air-monitoring-toggle\">\n            <label for=\"air-monitoring-toggle\">\n                <svg class=\"air-monitoring-icon\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" viewBox=\"0 0 21 21\" height=\"21\" width=\"21\">\n                <title>square-15.svg</title>\n                <rect fill=\"none\" x=\"0\" y=\"0\" width=\"21\" height=\"21\"></rect>\n                <path fill=\"#ffffff\" transform=\"translate(3 3)\" d=\"M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z\" style=\"stroke-linejoin:round;stroke-miterlimit:4;\" stroke=\"#ffffff\"\n                    stroke-width=\"2\"></path>\n                <path fill=\"#10649f\" transform=\"translate(3 3)\" d=\"M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z\"></path>\n                </svg>\n                Air District Stations\n            </label>\n        </li>\n        <li class=\"air-monitoring closed-sites\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.airMonitoringHistorical.flag\" id=\"air-monitoring-historical-toggle\">\n            <label for=\"air-monitoring-historical-toggle\">\n                <svg width=\"21\" height=\"21\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" xmlns:svg=\"http://www.w3.org/2000/svg\" class=\"air-monitoring-icon\">\n                <title>square-15.svg</title>\n                <g class=\"layer\">\n                <title>Layer 1</title>\n                <rect fill=\"none\" height=\"21\" id=\"svg_1\" width=\"21\" x=\"0\" y=\"0\"/>\n                <path d=\"m13,14l-11,0c-0.5523,0 -1,-0.4477 -1,-1l0,-11c0,-0.5523 0.4477,-1 1,-1l11,0c0.5523,0 1,0.4477 1,1l0,11c0,0.5523 -0.4477,1 -1,1z\" fill=\"#ffffff\" id=\"svg_2\" stroke=\"#ffffff\" stroke-linejoin=\"round\" stroke-miterlimit=\"4\" stroke-width=\"2\" transform=\"translate(3 3)\"/>\n                <path d=\"m13,14l-11,0c-0.5523,0 -1,-0.4477 -1,-1l0,-11c0,-0.5523 0.4477,-1 1,-1l11,0c0.5523,0 1,0.4477 1,1l0,11c0,0.5523 -0.4477,1 -1,1z\" fill=\"#10649f\" id=\"svg_3\" transform=\"translate(3 3)\"/>\n                </g>\n                <g class=\"layer\">\n                <title>Layer 2</title>\n                <g id=\"svg_4\">\n                <polygon fill=\"#dddddd\" id=\"svg_5\" points=\"7.19818271324084,3.999999183462478 3.9999992130337887,7.198182683669529 3.9999992130337887,8.367887894069554 8.367887923640865,3.999999183462478 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_6\" points=\"10.223624004969224,3.999999183462478 3.9999992130337887,10.223625897532202 3.9999992130337887,11.432813668345716 11.432813697917027,3.999999183462478 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_7\" points=\"7.66705181335783,17.000024795532227 17.00002098083496,7.667052264320091 17.00002098083496,6.4825394118975055 6.482539922002388,17.000024795532227 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_8\" points=\"16.31892615075867,3.999999183462478 3.9999992130337887,16.31892612118736 3.9999992130337887,17.000024795532227 4.626803360140457,17.000024795532227 17.00002098083496,4.62680429163629 17.00002098083496,3.999999183462478 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_9\" points=\"13.29348582009743,3.999999183462478 3.9999992130337887,13.293484829458976 3.9999992130337887,14.458256882208389 14.458255950712555,3.999999183462478 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_10\" points=\"17.00002098083496,17.000024795532227 17.00002098083496,15.662510534304147 15.66250864174117,17.000024795532227 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_11\" points=\"3.9999992130337887,3.999999183462478 3.9999992130337887,5.3375115225562695 5.33751155212758,3.999999183462478 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_12\" points=\"13.806773521479954,17.000024795532227 17.00002098083496,13.806775414042932 17.00002098083496,12.637067320441474 12.637067350012785,17.000024795532227 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_13\" points=\"10.776396188899525,17.000024795532227 17.00002098083496,10.776397120395359 17.00002098083496,9.522788826182023 9.522786933619045,17.000024795532227 \"/>\n                </g>\n                </g>\n                </svg>\n                Closed\n            </label>\n        </li>\n        <li class=\"facility-glm-stations\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.facilityGLMStations.flag\" id=\"facility-glm-stations\">\n            <label for=\"facility-glm-stations\">\n                <svg class=\"facility-glm-stations-icon\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" viewBox=\"0 0 21 21\" height=\"21\" width=\"21\">\n                <title>circle-15.svg</title>\n                <rect fill=\"none\" x=\"0\" y=\"0\" width=\"21\" height=\"21\"></rect>\n                <path fill=\"#ffffff\" transform=\"translate(3 3)\" d=\"M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z\" style=\"stroke-linejoin:round;stroke-miterlimit:4;\" stroke=\"#ffffff\" stroke-width=\"2\"></path>\n                <path fill=\"#068a47\" transform=\"translate(3 3)\" d=\"M14,7.5c0,3.5899-2.9101,6.5-6.5,6.5S1,11.0899,1,7.5S3.9101,1,7.5,1S14,3.9101,14,7.5z\"></path>\n                </svg>\n                Facility GLM Stations\n            </label>\n        </li>\n        <li class=\"facility-glm-stations closed-sites\">\n            <input type=\"checkbox\" disabled id=\"facility-glm-stations closed-sites\">\n            <label for=\"facility-glm-stations closed-sites\">\n                <svg width=\"21\" height=\"21\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" class=\"facility-glm-stations-icon\">\n                <title>circle-15.svg</title>\n                <defs>\n                <symbol id=\"svg_5\" viewBox=\"0 0 360 360\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n                <g id=\"svg_4\">\n                    <path d=\"m181.7,45.5l-136.2,136.2c0.1,7.4 0.8,14.7 2,21.9l156,-156c-7.1,-1.4 -14.4,-2 -21.8,-2.1z\" id=\"svg_8\"/>\n                    <path d=\"m232,55.9l-176.1,176.1c2.2,5.3 4.8,10.5 7.7,15.4l183.8,-183.9c-5,-2.8 -10.1,-5.4 -15.4,-7.6z\" id=\"svg_9\"/>\n                    <path d=\"m312.7,157.7l-155,155c7.3,1.2 14.7,1.9 22.3,1.9c0.2,0 0.4,0 0.6,0l133.9,-133.9c0,-0.2 0,-0.4 0,-0.6c0.1,-7.7 -0.6,-15.2 -1.8,-22.4z\" id=\"svg_10\"/>\n                    <path d=\"m268.8,78.9l-189.9,189.9c4,4.6 8.3,8.9 12.9,12.9l189.8,-189.9c-4,-4.6 -8.3,-8.9 -12.8,-12.9z\" id=\"svg_11\"/>\n                    <path d=\"m308.7,219.2l-89.5,89.5c42.8,-13 76.5,-46.7 89.5,-89.5z\" id=\"svg_12\"/>\n                    <path d=\"m296.9,113.3l-183.6,183.6c5,2.9 10.3,5.4 15.7,7.7l175.6,-175.6c-2.3,-5.4 -4.8,-10.6 -7.7,-15.7z\" id=\"svg_13\"/>\n                    <path d=\"m50.3,144.1l93.8,-93.8c-45.5,12.6 -81.2,48.3 -93.8,93.8z\" id=\"svg_14\"/>\n                </g>\n                </symbol>\n                </defs>\n                <g class=\"layer\">\n                <title>Layer 1</title>\n                <rect fill=\"none\" height=\"21\" id=\"svg_1\" width=\"21\" x=\"0\" y=\"0\"/>\n                <path d=\"m14,7.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z\" fill=\"#ffffff\" id=\"svg_2\" stroke=\"#ffffff\" stroke-linejoin=\"round\" stroke-miterlimit=\"4\" stroke-width=\"2\" transform=\"translate(3 3)\"/>\n                <path d=\"m14,7.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z\" fill=\"#068a47\" id=\"svg_3\" transform=\"translate(3 3)\"/>\n                <use id=\"svg_6\" transform=\"rotate(139.777 0.204172 0.204223) matrix(0.0194444 0 0 0.0194444 0 0)\" xlink:href=\"#svg_5\"/>\n                <g id=\"svg_7\"/>\n                </g>\n                <g class=\"layer\">\n                <title>Layer 2</title>\n                <g id=\"svg_15\">\n                <path d=\"m10.58671,4l-6.58671,6.57971c0.00484,0.35749 0.03869,0.71015 0.09672,1.05797l7.54426,-7.53623c-0.34336,-0.06763 -0.6964,-0.09662 -1.05427,-0.10145l0,0l0,0z\" fill=\"#dddddd\" id=\"svg_16\"/>\n                <path d=\"m13.01925,4.50242l-8.5163,8.50725c0.1064,0.25603 0.23213,0.50724 0.37238,0.74396l8.88868,-8.88406c-0.24181,-0.13527 -0.48845,-0.26087 -0.74476,-0.36715l0,0l0,0z\" fill=\"#dddddd\" id=\"svg_17\"/>\n                <path d=\"m16.92195,9.42029l-7.49589,7.48793c0.35303,0.05797 0.7109,0.09178 1.07844,0.09178c0.00967,0 0.01935,0 0.02902,0l6.47548,-6.4686c0,-0.00966 0,-0.01932 0,-0.02898c0.00484,-0.37198 -0.02901,-0.7343 -0.08705,-1.08213l0,0z\" fill=\"#dddddd\" id=\"svg_18\"/>\n                <path d=\"m14.79892,5.61353l-9.18368,9.17391c0.19345,0.22223 0.4014,0.42996 0.62385,0.62319l9.17885,-9.17391c-0.19345,-0.22223 -0.4014,-0.42996 -0.61902,-0.62319l0,0z\" fill=\"#dddddd\" id=\"svg_19\"/>\n                <path d=\"m16.72851,12.39131l-4.32827,4.32367c2.06983,-0.62802 3.69958,-2.25604 4.32827,-4.32367z\" fill=\"#dddddd\" id=\"svg_20\"/>\n                <path d=\"m16.15786,7.27536l-8.87901,8.86957c0.2418,0.1401 0.49811,0.26087 0.75926,0.37198l8.49212,-8.48309c-0.11123,-0.26087 -0.23213,-0.51208 -0.37237,-0.75846z\" fill=\"#dddddd\" id=\"svg_21\"/>\n                <path d=\"m4.23213,8.76329l4.53622,-4.53141c-2.2004,0.6087 -3.92688,2.33334 -4.53622,4.53141z\" fill=\"#dddddd\" id=\"svg_22\"/>\n                </g>\n                </g>\n                <g class=\"layer\">\n                <title>Layer 3</title>\n                <rect fill=\"none\" height=\"21\" id=\"svg_16\" width=\"21\" x=\"0\" y=\"0\"/>\n                <path d=\"m17,10.5c0,3.5899 -2.9101,6.5 -6.5,6.5s-6.5,-2.9101 -6.5,-6.5s2.9101,-6.5 6.5,-6.5s6.5,2.9101 6.5,6.5z\" fill=\"rgba(256, 256, 256, 0.7)\" id=\"svg_18\"/>\n                <use id=\"svg_16\" transform=\"rotate(139.777 0.204172 0.204223) matrix(0.0194444 0 0 0.0194444 0 0)\" xlink:href=\"#svg_5\"/>\n                <g id=\"svg_17\"/>\n                </g>\n                </svg>\n                Closed\n            </label>\n        </li>\n        <li class=\"meteorological-sites\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.meteorologicalSites.flag\" id=\"meteorological-sites\">\n            <label for=\"meteorological-sites\">\n                <svg class=\"meteorological-sites-icon\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" viewBox=\"0 0 21 21\" height=\"21\" width=\"21\">\n                    <title>triangle-15.svg</title>\n                    <rect fill=\"none\" x=\"0\" y=\"0\" width=\"21\" height=\"21\"></rect>\n                    <path fill=\"#ffffff\" transform=\"translate(3 3)\" d=\"M7.5385,2\n                    C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154\n                    C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z\" style=\"stroke-linejoin:round;stroke-miterlimit:4;\" stroke=\"#ffffff\" stroke-width=\"2\"></path>\n                    <path fill=\"#d28f60\" transform=\"translate(3 3)\" d=\"M7.5385,2\n                    C7.2437,2,7.0502,2.1772,6.9231,2.3846l-5.8462,9.5385C1,12,1,12.1538,1,12.3077C1,12.8462,1.3846,13,1.6923,13h11.6154\n                    C13.6923,13,14,12.8462,14,12.3077c0-0.1538,0-0.2308-0.0769-0.3846L8.1538,2.3846C8.028,2.1765,7.7882,2,7.5385,2z\"></path>\n                </svg>\n                Meteorological Sites\n            </label>\n        </li>\n        <li class=\"meteorological-sites closed-sites\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.meteorologicalSitesHistorical.flag\" id=\"meteorological-sites closed-sites\">\n            <label for=\"meteorological-sites closed-sites\">\n                <svg width=\"21\" height=\"21\" xmlns=\"http://www.w3.org/2000/svg\" transform=\"translate(0,6)\" xmlns:svg=\"http://www.w3.org/2000/svg\" class=\"meteorological-sites-icon\">\n                <title>triangle-15.svg</title>\n                <g class=\"layer\">\n                <title>Layer 1</title>\n                <rect fill=\"none\" height=\"21\" id=\"svg_1\" width=\"21\" x=\"0\" y=\"0\"/>\n                <path d=\"m7.5385,2c-0.2948,0 -0.4883,0.1772 -0.6154,0.3846l-5.8462,9.5385c-0.0769,0.0769 -0.0769,0.2307 -0.0769,0.3846c0,0.5385 0.3846,0.6923 0.6923,0.6923l11.6154,0c0.3846,0 0.6923,-0.1538 0.6923,-0.6923c0,-0.1538 0,-0.2308 -0.0769,-0.3846l-5.7693,-9.5385c-0.1258,-0.2081 -0.3656,-0.3846 -0.6153,-0.3846z\" fill=\"#ffffff\" id=\"svg_2\" stroke=\"#ffffff\" stroke-linejoin=\"round\" stroke-miterlimit=\"4\" stroke-width=\"2\" transform=\"translate(3 3)\"/>\n                <path d=\"m7.5385,2c-0.2948,0 -0.4883,0.1772 -0.6154,0.3846l-5.8462,9.5385c-0.0769,0.0769 -0.0769,0.2307 -0.0769,0.3846c0,0.5385 0.3846,0.6923 0.6923,0.6923l11.6154,0c0.3846,0 0.6923,-0.1538 0.6923,-0.6923c0,-0.1538 0,-0.2308 -0.0769,-0.3846l-5.7693,-9.5385c-0.1258,-0.2081 -0.3656,-0.3846 -0.6153,-0.3846z\" fill=\"#d28f60\" id=\"svg_3\" transform=\"translate(3 3)\"/>\n                </g>\n                <g class=\"layer\">\n                <title>Layer 2</title>\n                <g id=\"svg_4\">\n                <polygon fill=\"#dddddd\" id=\"svg_5\" points=\"11.652202203834122,6.303565979003906 6.158950522252098,11.507827758789062 4.64404591463483,13.996442794799805 12.057404689469877,6.967196941375732 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_6\" points=\"12.702044706383731,8.028133392333984 4.400003433227539,15.900014877319336 5.63863232820745,15.900014877319336 13.15329385396285,8.770352363586426 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_7\" points=\"13.80253740133162,9.831286430358887 7.397579417232009,15.900014877319336 8.521094496702062,15.900014877319336 14.212341524523254,10.503649711608887 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_8\" points=\"14.856983434336144,11.56458568572998 10.284645116181537,15.900014877319336 11.472624765212686,15.900014877319336 15.289811834948978,12.27624225616455 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_9\" points=\"16.98890072421591,15.061745643615723 16.104822229574438,15.900014877319336 17.500008071552656,15.900014877319336 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_10\" points=\"15.939053489418711,13.337179183959961 13.236172545343607,15.900014877319336 14.345877033448915,15.900014877319336 16.344260707302055,14.000810623168945 \"/>\n                <polygon fill=\"#dddddd\" id=\"svg_11\" points=\"10.491852255578124,4.399993896484375 8.115892957515825,8.298823356628418 11.127282372233594,5.443466663360596 \"/>\n                </g>\n                </g>\n                </svg>\n                Closed\n            </label>\n        </li>\n    </ul>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n";
 
 /***/ }),
 /* 197 */
@@ -7427,7 +7427,7 @@ module.exports = "<!--ko let: {\n    historicalDocRootURL: historicalDocRootURL,
 /* 200 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n    <i class=\"fas fa-fire\"></i>\n    Open Burn Status\n</h3>\n<h4><i class=\"icomoon im-forecast\"></i> Daily Status</h4>\n<!-- ko if: openBurnData -->\n<div class=\"baaqmd-maps-last-updated\">\n    Last Updated:\n    <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(openBurnData().lastUpdated)\"></span>,\n    <span data-bind=\"text: openBurnData().lastUpdated.toLocaleDateString()\"></span>\n    at\n    <span data-bind=\"text: openBurnData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n</div>\n<ul class=\"baaqmd-maps-aqi-forecast-dates\">\n    <!-- ko foreach: openBurnData().dates -->\n    <li data-bind=\"css: {\n        active: $index() === $parent.day()\n    }\">\n        <a href=\"#\" data-bind=\"click: function() {\n            $parent.day($index());\n        }, text: date.toLocaleDateString('en-US',{day: '2-digit', month: '2-digit'})\"></a>\n    </li>\n    <!-- /ko -->\n</ul>\n<h4><i class=\"icomoon im-aqi-index\"></i> Open Burn Status</h4>\n<ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n    <li class=\"yes\">\n        Allowed\n    </li>\n    <li class=\"nobelow2k\">\n        Prohibited < 2k\n    </li>\n    <li class=\"no\">\n        Prohibited\n    </li>\n</ul>\n<div class=\"baaqmd-maps-details-links\">\n    <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('OpenBurnInfoPanel'); }\">\n        <i class=\"im im-info\"></i>\n        More Information\n    </a>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n</h3>\n<ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n    <li class=\"counties\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        Counties\n    </li>\n    <li class=\"district-boundary\">\n        <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n        <span class=\"legend-display\">\n            <i></i>\n        </span>\n        District Boundary\n    </li>\n</ul>\n<!-- /ko -->\n";
+module.exports = "<h3>\n    <i class=\"fas fa-fire\"></i>\n    Open Burn Status\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<!-- ko if: openBurnData -->\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <h4><i class=\"icomoon im-forecast\"></i> Daily Status</h4>\n    <div class=\"baaqmd-maps-last-updated\">\n        Last Updated:\n        <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(openBurnData().lastUpdated)\"></span>,\n        <span data-bind=\"text: openBurnData().lastUpdated.toLocaleDateString()\"></span>\n        at\n        <span data-bind=\"text: openBurnData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n    </div>\n    <ul class=\"baaqmd-maps-aqi-forecast-dates\">\n        <!-- ko foreach: openBurnData().dates -->\n        <li data-bind=\"css: {\n            active: $index() === $parent.day()\n        }\">\n            <a href=\"#\" data-bind=\"click: function() {\n                $parent.day($index());\n            }, text: date.toLocaleDateString('en-US',{day: '2-digit', month: '2-digit'})\"></a>\n        </li>\n        <!-- /ko -->\n    </ul>\n    <h4><i class=\"icomoon im-aqi-index\"></i> Open Burn Status</h4>\n    <ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n        <li class=\"yes\">\n            Allowed\n        </li>\n        <li class=\"nobelow2k\">\n            Prohibited < 2k\n        </li>\n        <li class=\"no\">\n            Prohibited\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('OpenBurnInfoPanel'); }\">\n            <i class=\"im im-info\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n<!-- /ko -->\n";
 
 /***/ }),
 /* 201 */
@@ -7461,10 +7461,28 @@ module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig
 /* 205 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-icon baaqmd-maps-print-button\" type=\"button\">\n    </button>\n</div>\n";
+module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group act-zoom-hover\">\n    <button class=\"mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-in\" type=\"button\" title=\"Zoom in\" aria-label=\"Zoom in\"></button>\n    <div class=\"zoom-hover\">\n        <button class=\"mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-out\" type=\"button\" title=\"Zoom out\" aria-label=\"Zoom out\"></button>\n        <button class=\"mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-in\" type=\"button\" title=\"Zoom in\" aria-label=\"Zoom in\"></button>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 206 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-icon baaqmd-maps-help-button\" type=\"button\">\n    </button>\n</div>\n";
+
+/***/ }),
+/* 207 */
+/***/ (function(module, exports) {
+
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"far fa-question-circle\"></i>\n    Help\n</h3>\n<hr>\n<div data-bind=\"html: helpContent\"></div>\n";
+
+/***/ }),
+/* 208 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"baaqmd-maps-details-panel\" data-bind=\"css: {'baaqmd-maps-expanded': expanded }, visible: detailsActive\">\n    <div class=\"baaqmd-maps-details-panel-wrapper\" data-bind=\"if: map\">\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group\" data-bind=\"\n            click: toggleExpanded,\n            css: {'baaqmd-maps-expanded': expanded}\">\n            <i class=\"icomoon\" data-bind=\"css: {'icon-MenuClose': expanded, 'icon-MenuOpen': !expanded()}\"></i>\n        </div>\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons\" data-bind=\"\n            css: {\n                'baaqmd-maps-expanded': expanded\n            }\">\n            <div><i class=\"im im-share\"></i></div>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-facebook\"></i></div>\n            </a>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-twitter\"></i></div>\n            </a>\n            <a data-bind=\"attr: {\n                'href': 'mailto:?body=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-email\"></i></div>\n            </a>\n            <a href=\"javascript: void(0)\" data-bind=\"click: print\">\n                <div><i class=\"im im-print\"></i></div>\n            </a>\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n            <!-- ko if: enableMapTypeSelector -->\n            <select data-bind=\"\n                optionsText: 'text',\n                optionsValue: 'id',\n                options: mapTypes,\n                value: mapType,\n                choices: {\n                    searchEnabled: false,\n                    selector: mapTypeSelector,\n                    selectorExpanded: mapTypeSelectorExpanded\n                }\n            \"></select>\n            <a class=\"choices-btn\" data-bind=\"click: toggleMapTypeSelector, css: {'map-selector-expanded': mapTypeSelectorExpanded}\">\n                <div class=\"icomoon icon-MapMenu\"></div>\n                <div class=\"icomoon icon-ArrowDown\"></div>\n            </a>\n            <!-- /ko -->\n            <!-- ko ifnot: enableMapTypeSelector -->\n            <div class=\"choices no-select\">\n                <div class=\"choices__inner\">\n                    <div class=\"choices__list choices__list--single\">\n                        <div class=\"choices__item choices__item--selectable\" data-bind=\"text: mapTypesObj[mapType()].label\"></div>\n                    </div>\n                </div>\n            </div>\n            <!-- /ko -->\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n        </div>\n         <div class=\"baaqmd-maps-details-panel-content\" data-bind=\"component: {\n             name: mapType,\n             params: $data\n         }\"></div>\n         <div class=\"scroll-hint\">\n            <div class=\"hint-arrow icomoon icon-ArrowDown\"></div>\n        </div>\n    </div>\n</div>\n";
+
+/***/ }),
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
@@ -7505,24 +7523,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
   module.exports = computedStyleToInlineStyle;
 });
-
-/***/ }),
-/* 207 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-icon baaqmd-maps-help-button\" type=\"button\">\n    </button>\n</div>\n";
-
-/***/ }),
-/* 208 */
-/***/ (function(module, exports) {
-
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"far fa-question-circle\"></i>\n    Help\n</h3>\n<hr>\n<div data-bind=\"html: helpContent\"></div>\n";
-
-/***/ }),
-/* 209 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"baaqmd-maps-details-panel\" data-bind=\"css: {'baaqmd-maps-expanded': expanded }, visible: detailsActive\">\n    <div class=\"baaqmd-maps-details-panel-wrapper\" data-bind=\"if: map\">\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group\" data-bind=\"\n            click: toggleExpanded,\n            css: {'baaqmd-maps-expanded': expanded}\">\n            <i class=\"fas fa-bars\"></i>\n        </div>\n        <div class=\"baaqmd-maps-details-panel-expander mapboxgl-ctrl mapboxgl-ctrl-group baaqmd-maps-share-buttons\" data-bind=\"\n            css: {\n                'baaqmd-maps-expanded': expanded\n            }\">\n            <div><i class=\"im im-share\"></i></div>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-facebook\"></i></div>\n            </a>\n            <a target=\"_blank\" data-bind=\"attr: {\n                'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-twitter\"></i></div>\n            </a>\n            <a data-bind=\"attr: {\n                'href': 'mailto:?body=' + mapLink().split('&').join('%26')\n            }\">\n                <div><i class=\"im im-email\"></i></div>\n            </a>\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n            <!-- ko if: enableMapTypeSelector -->\n            <select data-bind=\"\n                optionsText: 'text',\n                optionsValue: 'id',\n                options: mapTypes,\n                value: mapType,\n                choices: {\n                    searchEnabled: false\n                }\n            \"></select>\n            <!-- /ko -->\n            <!-- ko ifnot: enableMapTypeSelector -->\n            <div class=\"choices no-select\">\n                <div class=\"choices__inner\">\n                    <div class=\"choices__list choices__list--single\">\n                        <div class=\"choices__item choices__item--selectable\" data-bind=\"text: mapTypesObj[mapType()].label\"></div>\n                    </div>\n                </div>\n            </div>\n            <!-- /ko -->\n        </div>\n        <div class=\"baaqmd-maps-type-selector\">\n        </div>\n         <div class=\"baaqmd-maps-details-panel-content\" data-bind=\"component: {\n             name: mapType,\n             params: $data\n         }\"></div>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 210 */
@@ -21923,12 +21923,6 @@ $({ global: true, bind: true, forced: MSIE }, {
 
 /***/ }),
 /* 584 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 585 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22469,7 +22463,7 @@ var knockout_latest = __webpack_require__(2);
 var styles = __webpack_require__(581);
 
 // EXTERNAL MODULE: ./src/config.json
-var config = __webpack_require__(6);
+var src_config = __webpack_require__(6);
 
 // EXTERNAL MODULE: ./src/main.html
 var main = __webpack_require__(182);
@@ -22515,6 +22509,8 @@ function MapDetailsPanel(params) {
   this.mapType = params.mapType;
   this.map = params.map;
   this.showInfoPanel = params.showInfoPanel;
+  this.mainExpanded = knockout_latest["observable"](true);
+  this.boundariesExpanded = knockout_latest["observable"](true);
 
   var setupMap = function setupMap(map) {
     if (_this.getPopupData && _this.popupLayers) {
@@ -22540,7 +22536,7 @@ function MapDetailsPanel(params) {
 
           if (popupData) {
             popupData.showInfoPanel = params.showInfoPanel;
-            var expandButton = "<button\n                            class=\"mapboxgl-popup-expand-button\"\n                            type=\"button\"\n                            data-bind=\"click: function() {\n                                showInfoPanel('".concat(popupComponent, "');\n                            }\">\n                                <i class=\"fas fa-window-maximize\"></i>\n                        </button>");
+            var expandButton = "<button\n                            class=\"mapboxgl-popup-expand-button\"\n                            type=\"button\"\n                            data-bind=\"click: function() {\n                                showInfoPanel('".concat(popupComponent, "');\n                            }\">\n                                <i class=\"icon-Expand\"></i>\n                        </button>");
             popup = new mapbox_gl["Popup"]().setLngLat(e.lngLat).setHTML(expandButton + _this.popupTemplate).addTo(map);
 
             var popupBody = popup._content.querySelector('.baaqmd-maps-popup');
@@ -22690,7 +22686,7 @@ var alertMode = knockout_latest["observable"]('none');
 var alertStatus = knockout_latest["observable"]();
 
 var _fetchData = function fetchData(rootURL) {
-  fetch(rootURL + config["spaRSSFeed"], {
+  fetch(rootURL + src_config["spaRSSFeed"], {
     cache: "no-store"
   }).then(function (response) {
     return response.text();
@@ -22717,7 +22713,7 @@ var _fetchData = function fetchData(rootURL) {
       }
     });
     alertStatus(xmlDoc.querySelector('item description').textContent.toLowerCase() !== "no alert");
-    return fetch(rootURL + config["aqiRSSFeed"], {
+    return fetch(rootURL + src_config["aqiRSSFeed"], {
       cache: "no-store"
     });
   }).then(function (response) {
@@ -22776,11 +22772,11 @@ var _fetchData = function fetchData(rootURL) {
       lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').textContent)
     });
   });
-  fetchHTML(rootURL + config["aqiInfoURL"], aqiInfo);
-  fetchHTML(rootURL + config["pollutantInfoURL"], pollutantInfo);
-  fetchHTML(rootURL + config["aboutForecastURL"], aboutForecast);
-  fetchHTML(rootURL + config["summerModalURL"], summerModal);
-  fetchHTML(rootURL + config["winterModalURL"], winterModal);
+  fetchHTML(rootURL + src_config["aqiInfoURL"], aqiInfo);
+  fetchHTML(rootURL + src_config["pollutantInfoURL"], pollutantInfo);
+  fetchHTML(rootURL + src_config["aboutForecastURL"], aboutForecast);
+  fetchHTML(rootURL + src_config["summerModalURL"], summerModal);
+  fetchHTML(rootURL + src_config["winterModalURL"], winterModal);
   _fetchData = false;
 };
 
@@ -22837,7 +22833,7 @@ knockout_latest["components"].register('PollutantInfoPanel', {
   viewModel: function viewModel(params) {
     var _this = this;
 
-    var rootUrl = params.rootURL || config["prodRoot"];
+    var rootUrl = params.rootURL || src_config["prodRoot"];
     if (_fetchData) _fetchData(rootUrl);
     var zones = ['Eastern Zone', 'Coastal and Central Bay', 'Northern Zone', 'South Central Bay', 'Santa Clara Valley'];
     this.aqiData = aqiData;
@@ -22939,7 +22935,7 @@ var facilities_popup = __webpack_require__(192);
 var aboutFacilities = knockout_latest["observable"]();
 
 var facilities_fetchData = function fetchData(rootURL) {
-  fetchHTML(rootURL + config["aboutFacilitiesURL"], aboutFacilities);
+  fetchHTML(rootURL + src_config["aboutFacilitiesURL"], aboutFacilities);
   facilities_fetchData = false;
 };
 
@@ -22947,7 +22943,7 @@ var facilities_fetchData = function fetchData(rootURL) {
   viewModel: function viewModel(params) {
     var _this = this;
 
-    var rootUrl = params.rootURL || config["prodRoot"];
+    var rootUrl = params.rootURL || src_config["prodRoot"];
     if (facilities_fetchData) facilities_fetchData(rootUrl);
     this.layers = {
       facilities: {
@@ -23019,7 +23015,7 @@ var impacted_communities_info_panel = __webpack_require__(195);
 var aboutImpactedCommunities = knockout_latest["observable"]();
 
 var impacted_communities_fetchData = function fetchData(rootURL) {
-  fetchHTML(rootURL + config["aboutImpactedCommunitiesURL"], aboutImpactedCommunities);
+  fetchHTML(rootURL + src_config["aboutImpactedCommunitiesURL"], aboutImpactedCommunities);
   impacted_communities_fetchData = false;
 };
 
@@ -23034,7 +23030,7 @@ knockout_latest["components"].register('ImpactedCommunitiesInfoPanel', {
   viewModel: function viewModel(params) {
     var _this = this;
 
-    var rootUrl = params.rootURL || config["prodRoot"];
+    var rootUrl = params.rootURL || src_config["prodRoot"];
     if (impacted_communities_fetchData) impacted_communities_fetchData(rootUrl);
     this.layers = {
       impacted: {
@@ -23125,9 +23121,9 @@ var facilityGLMStationData = knockout_latest["observable"]();
 var meteorologicalSiteData = knockout_latest["observable"]();
 
 var monitoring_fetchData = function fetchData(rootURL) {
-  fetchHTML(rootURL + config["airDistrictStationDataURL"], airDistrictStationData);
-  fetchHTML(rootURL + config["facilityGLMStationDataURL"], facilityGLMStationData);
-  fetchHTML(rootURL + config["meteorologicalSiteDataURL"], meteorologicalSiteData);
+  fetchHTML(rootURL + src_config["airDistrictStationDataURL"], airDistrictStationData);
+  fetchHTML(rootURL + src_config["facilityGLMStationDataURL"], facilityGLMStationData);
+  fetchHTML(rootURL + src_config["meteorologicalSiteDataURL"], meteorologicalSiteData);
   monitoring_fetchData = false;
 };
 
@@ -23136,7 +23132,7 @@ knockout_latest["components"].register('HistoricalDataPanel', {
   viewModel: function viewModel(params) {
     this.showInfoPanel = params.showInfoPanel;
     this.historicalData = historicalData;
-    this.historicalDocRootURL = config["historicalDocRootURL"];
+    this.historicalDocRootURL = src_config["historicalDocRootURL"];
     this.docTypes = ['ascii', '300', '600'];
   },
   template: historical_site_info
@@ -23145,7 +23141,7 @@ knockout_latest["components"].register('HistoricalDataPanel', {
   viewModel: function viewModel(params) {
     var _this = this;
 
-    var rootUrl = params.rootURL || config["prodRoot"];
+    var rootUrl = params.rootURL || src_config["prodRoot"];
     if (monitoring_fetchData) monitoring_fetchData(rootUrl);
     this.layers = {
       airMonitoring: {
@@ -23265,7 +23261,7 @@ var openBurnData = knockout_latest["observable"]();
 var openBurnStatusInfo = knockout_latest["observable"]();
 
 var open_burning_fetchData = function fetchData(rootURL) {
-  fetch(rootURL + config["openBurnRSSFeed"], {
+  fetch(rootURL + src_config["openBurnRSSFeed"], {
     cache: "no-store"
   }).then(function (response) {
     return response.text();
@@ -23305,7 +23301,7 @@ var open_burning_fetchData = function fetchData(rootURL) {
       lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
     });
   });
-  fetchHTML(rootURL + config["openBurnStatusInfoURL"], openBurnStatusInfo);
+  fetchHTML(rootURL + src_config["openBurnStatusInfoURL"], openBurnStatusInfo);
   open_burning_fetchData = false;
 };
 
@@ -23314,7 +23310,7 @@ var open_burning_fetchData = function fetchData(rootURL) {
     var _this = this;
 
     var sections = ['South Section', 'Coastal Section', 'North Section'];
-    var rootUrl = params.rootURL || config["prodRoot"];
+    var rootUrl = params.rootURL || src_config["prodRoot"];
     if (open_burning_fetchData) open_burning_fetchData(rootUrl);
     this.openBurnData = openBurnData;
     this.day = knockout_latest["observable"]();
@@ -23388,21 +23384,17 @@ var mapbox_gl_geocoder = __webpack_require__(582);
 // EXTERNAL MODULE: ./src/components/map/template.html
 var map_template = __webpack_require__(204);
 
-// EXTERNAL MODULE: ./node_modules/mapbox-gl/dist/mapbox-gl.css
-var dist_mapbox_gl = __webpack_require__(583);
-
 // CONCATENATED MODULE: ./src/bindings/mapbox-gl.js
-
 
 
 
 knockout_latest["bindingHandlers"].mapboxgl = {
   init: function init(element, valueAccessor) {
-    var options = Object.assign({}, config, knockout_latest["unwrap"](valueAccessor()) || {}, {
+    var options = Object.assign({}, src_config, knockout_latest["unwrap"](valueAccessor()) || {}, {
       container: element,
       preserveDrawingBuffer: true
     });
-    mapbox_gl["accessToken"] = options.accessToken || config["accessToken"];
+    mapbox_gl["accessToken"] = options.accessToken || src_config["accessToken"];
     var map = new mapbox_gl["Map"](options);
     map.on('load', function () {
       if (typeof options.afterRender === 'function') {
@@ -23412,13 +23404,10 @@ knockout_latest["bindingHandlers"].mapboxgl = {
   }
 };
 /* harmony default export */ var bindings_mapbox_gl = (knockout_latest["bindingHandlers"].mapboxgl);
-// EXTERNAL MODULE: ./src/components/print-control/template.html
-var print_control_template = __webpack_require__(205);
+// EXTERNAL MODULE: ./src/components/zoom-control/template.html
+var zoom_control_template = __webpack_require__(205);
 
-// EXTERNAL MODULE: ./node_modules/computed-style-to-inline-style/dist/index.js
-var dist = __webpack_require__(206);
-
-// CONCATENATED MODULE: ./src/components/print-control/index.js
+// CONCATENATED MODULE: ./src/components/zoom-control/index.js
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -23427,60 +23416,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
-
-var print_control_PrintControl = /*#__PURE__*/function () {
-  function PrintControl() {
-    _classCallCheck(this, PrintControl);
+var zoom_control_ZoomControl = /*#__PURE__*/function () {
+  function ZoomControl() {
+    _classCallCheck(this, ZoomControl);
   }
 
-  _createClass(PrintControl, [{
+  _createClass(ZoomControl, [{
     key: "onAdd",
     value: function onAdd(map) {
       var parser = new DOMParser();
-      var doc = parser.parseFromString(print_control_template, "text/html");
+      var doc = parser.parseFromString(zoom_control_template, "text/html");
       var el = doc.body.removeChild(doc.body.firstChild);
       this.map = map;
       this.container = el;
 
-      var mapboxLogo = map._container.querySelector('.mapboxgl-ctrl-logo');
-
-      dist(mapboxLogo, {
-        recursive: true
-      });
-      var printData;
-
-      this.container.onclick = function () {
-        var printWindow = window.open('', 'BAAQMD Maps', 'height=600,width=800');
-        var img = new Image();
-        var logo = new Image();
-        logo.src = mapboxLogo.style.backgroundImage.slice(5, mapboxLogo.style.backgroundImage.length - 2);
-
-        if (!printData) {
-          printData = map.getCanvas().toDataURL("image/jpeg");
-        }
-
-        img.src = printData;
-        img.style.width = '100%';
-        logo.style.width = '100px';
-        printWindow.document.write('<html><head><title>BAAQMD Maps</title>');
-        printWindow.document.write('</head><body>');
-        printWindow.document.write(img.outerHTML);
-        printWindow.document.write('<div style="position:absolute;bottom:10px;left:15px;z-index:200">' + logo.outerHTML + '</div>' + '<div style="float:right;font-family:sans-serif;position:absolute;bottom:0;right:0;z-index:200;background-color:white;padding:10px;">' + '<span>© Mapbox</span>&nbsp;<span>© OpenStreetMap</span>' + '</div>');
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-        printWindow.focus();
-        setTimeout(function () {
-          printWindow.print();
-          printWindow.close();
-        }, 150);
+      this.container.querySelector('.zoom-hover .mapboxgl-ctrl-zoom-out').onclick = function () {
+        map.zoomOut();
       };
 
-      map.on('moveend', function () {
-        printData = map.getCanvas().toDataURL("image/jpeg");
-      });
-      map.on('resize', function () {
-        printData = map.getCanvas().toDataURL("image/jpeg");
-      });
+      this.container.querySelector('.zoom-hover .mapboxgl-ctrl-zoom-in').onclick = function () {
+        map.zoomIn();
+      };
+
       return this.container;
     }
   }, {
@@ -23491,15 +23448,15 @@ var print_control_PrintControl = /*#__PURE__*/function () {
     }
   }]);
 
-  return PrintControl;
+  return ZoomControl;
 }();
 
 
 // EXTERNAL MODULE: ./src/components/help-control/template.html
-var help_control_template = __webpack_require__(207);
+var help_control_template = __webpack_require__(206);
 
 // EXTERNAL MODULE: ./src/components/help-control/help.html
-var help = __webpack_require__(208);
+var help = __webpack_require__(207);
 
 // CONCATENATED MODULE: ./src/components/help-control/index.js
 function help_control_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23526,9 +23483,9 @@ var help_control_HelpControl = /*#__PURE__*/function () {
   function HelpControl(showInfoPanel, rootURL) {
     help_control_classCallCheck(this, HelpControl);
 
-    rootURL = rootURL || config["prodRoot"];
+    rootURL = rootURL || src_config["prodRoot"];
     this.showInfoPanel = showInfoPanel;
-    fetchHTML(rootURL + config["helpContentURL"], helpContent);
+    fetchHTML(rootURL + src_config["helpContentURL"], helpContent);
   }
 
   help_control_createClass(HelpControl, [{
@@ -23559,18 +23516,7 @@ var help_control_HelpControl = /*#__PURE__*/function () {
 }();
 
 
-// CONCATENATED MODULE: ./src/utils/detect-ie.js
-function GetIEVersion() {
-  var sAgent = window.navigator.userAgent;
-  var Idx = sAgent.indexOf("MSIE");
-  if (Idx > 0) return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));else if (!!navigator.userAgent.match(/Trident\/7\./)) return 11;else return 0;
-}
-
-function detectIE() {
-  return GetIEVersion() > 0;
-}
 // CONCATENATED MODULE: ./src/components/map/index.js
-
 
 
 
@@ -23587,19 +23533,22 @@ var mapboxQuery =  true ? '' : undefined;
 
     var duration;
     this.detailsExpanded = params.detailsExpanded || knockout_latest["observable"](false);
-    this.accessToken = params.accessToken || config["accessToken"];
+    this.accessToken = params.accessToken || src_config["accessToken"];
     mapboxQuery = '?access_token=' + this.accessToken + mapboxQuery;
-    this.style = config["apiURI"] + config["mapTypes"][params.mapType()].style + mapboxQuery;
+    this.style = src_config["apiURI"] + src_config["mapTypes"][params.mapType()].style + mapboxQuery;
     this.customAttribution = '<a href="http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
 
     this.setupMap = function (map) {
       _this.map = map;
       map.addControl(new mapbox_gl_geocoder_min({
-        bbox: config["bounds"],
+        bbox: src_config["bounds"],
         accessToken: mapbox_gl["accessToken"],
         placeholder: "Enter address..."
       }));
-      map.addControl(new mapbox_gl["NavigationControl"]());
+      map.addControl(new zoom_control_ZoomControl());
+      map.addControl(new mapbox_gl["NavigationControl"]({
+        showZoom: false
+      }));
       map.addControl(new mapbox_gl["GeolocateControl"]({
         positionOptions: {
           enableHighAccuracy: true
@@ -23612,25 +23561,24 @@ var mapboxQuery =  true ? '' : undefined;
       map.addControl(new mapbox_gl["ScaleControl"]({
         unit: 'imperial'
       }));
-      if (!detectIE()) map.addControl(new print_control_PrintControl());
       map.addControl(new help_control_HelpControl(params.showInfoPanel, params.rootURL));
       params.map(map);
       params.mapType.subscribe(function (mapType) {
-        map.setStyle(config["mapTypes"][mapType].style);
+        map.setStyle(src_config["mapTypes"][mapType].style);
       });
-      config["mapTypes"][params.mapType()].style = map.getStyle();
+      src_config["mapTypes"][params.mapType()].style = map.getStyle();
 
       var _loop = function _loop(mapType) {
         if (mapType !== params.mapType()) {
-          fetch(config["apiURI"] + config["mapTypes"][mapType].style + mapboxQuery).then(function (response) {
+          fetch(src_config["apiURI"] + src_config["mapTypes"][mapType].style + mapboxQuery).then(function (response) {
             return response.json();
           }).then(function (json) {
-            config["mapTypes"][mapType].style = json;
+            src_config["mapTypes"][mapType].style = json;
           });
         }
       };
 
-      for (var mapType in config["mapTypes"]) {
+      for (var mapType in src_config["mapTypes"]) {
         _loop(mapType);
       }
 
@@ -23689,13 +23637,26 @@ var mapboxQuery =  true ? '' : undefined;
   template: map_template
 }));
 // EXTERNAL MODULE: ./src/components/details-panel/template.html
-var details_panel_template = __webpack_require__(209);
+var details_panel_template = __webpack_require__(208);
 
+// EXTERNAL MODULE: ./node_modules/computed-style-to-inline-style/dist/index.js
+var dist = __webpack_require__(209);
+
+// CONCATENATED MODULE: ./src/utils/detect-ie.js
+function GetIEVersion() {
+  var sAgent = window.navigator.userAgent;
+  var Idx = sAgent.indexOf("MSIE");
+  if (Idx > 0) return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));else if (!!navigator.userAgent.match(/Trident\/7\./)) return 11;else return 0;
+}
+
+function detectIE() {
+  return GetIEVersion() > 0;
+}
 // EXTERNAL MODULE: ./node_modules/choices.js/public/assets/scripts/choices.min.js
 var choices_min = __webpack_require__(210);
 
 // EXTERNAL MODULE: ./node_modules/choices.js/public/assets/styles/choices.min.css
-var styles_choices_min = __webpack_require__(584);
+var styles_choices_min = __webpack_require__(583);
 
 // CONCATENATED MODULE: ./src/bindings/choices.js
 
@@ -23703,11 +23664,24 @@ var styles_choices_min = __webpack_require__(584);
 
 knockout_latest["bindingHandlers"].choices = {
   init: function init(element, valueAccessor) {
-    new choices_min(element, valueAccessor());
+    var config = valueAccessor();
+    var choices = new choices_min(element, config);
+    if (knockout_latest["isObservable"](config.selector)) config.selector(choices);
+
+    if (knockout_latest["isObservable"](config.selectorExpanded)) {
+      element.addEventListener('showDropdown', function () {
+        config.selectorExpanded(true);
+      });
+      element.addEventListener('hideDropdown', function () {
+        config.selectorExpanded(false);
+      });
+    }
   }
 };
-/* harmony default export */ var choices = (knockout_latest["bindingHandlers"].choices);
+/* harmony default export */ var bindings_choices = (knockout_latest["bindingHandlers"].choices);
 // CONCATENATED MODULE: ./src/components/details-panel/index.js
+
+
 
 
 
@@ -23720,6 +23694,14 @@ knockout_latest["bindingHandlers"].choices = {
     this.enableMapTypeSelector = params.enableMapTypeSelector;
     this.rootURL = params.rootURL;
     this.detailsActive = params.detailsActive;
+    this.mapTypeSelector = knockout_latest["observable"]();
+    this.mapTypeSelectorExpanded = knockout_latest["observable"]();
+
+    this.toggleMapTypeSelector = function () {
+      window.mapTypeSelector = _this.mapTypeSelector();
+      window.mapTypeSelector.showDropdown();
+    };
+
     this.showInfoPanel = params.showInfoPanel;
 
     if (typeof params.enableMapTypeSelector !== 'boolean') {
@@ -23734,7 +23716,7 @@ knockout_latest["bindingHandlers"].choices = {
       _this.expanded(!_this.expanded());
     };
 
-    this.mapTypesObj = config.mapTypes;
+    this.mapTypesObj = src_config.mapTypes;
     this.mapTypes = [];
 
     for (var key in this.mapTypesObj) {
@@ -23759,7 +23741,40 @@ knockout_latest["bindingHandlers"].choices = {
       }
 
       searchParams.set('mapType', params.mapType());
-      return config["mainMapPage"] + "?".concat(searchParams.toString());
+      return src_config["mainMapPage"] + "?".concat(searchParams.toString());
+    };
+
+    var printData;
+    var mapboxLogo;
+
+    this.print = function () {
+      var map = this.map();
+
+      if (map && !detectIE()) {
+        var printWindow = window.open('', 'BAAQMD Maps', 'height=600,width=800');
+        var img = new Image();
+        var logo = new Image();
+        logo.src = mapboxLogo.style.backgroundImage.slice(5, mapboxLogo.style.backgroundImage.length - 2);
+
+        if (!printData) {
+          printData = map.getCanvas().toDataURL("image/jpeg");
+        }
+
+        img.src = printData;
+        img.style.width = '100%';
+        logo.style.width = '100px';
+        printWindow.document.write('<html><head><title>BAAQMD Maps</title>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(img.outerHTML);
+        printWindow.document.write('<div style="position:absolute;bottom:10px;left:15px;z-index:200">' + logo.outerHTML + '</div>' + '<div style="float:right;font-family:sans-serif;position:absolute;bottom:0;right:0;z-index:200;background-color:white;padding:10px;">' + '<span>© Mapbox</span>&nbsp;<span>© OpenStreetMap</span>' + '</div>');
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.focus();
+        setTimeout(function () {
+          printWindow.print();
+          printWindow.close();
+        }, 150);
+      }
     };
 
     this.map.subscribe(function (map) {
@@ -23768,6 +23783,16 @@ knockout_latest["bindingHandlers"].choices = {
 
         map.on('moveend', function () {
           _this.mapLink(getMapLink());
+        });
+        mapboxLogo = map._container.querySelector('.mapboxgl-ctrl-logo');
+        dist(mapboxLogo, {
+          recursive: true
+        });
+        map.on('moveend', function () {
+          printData = map.getCanvas().toDataURL("image/jpeg");
+        });
+        map.on('resize', function () {
+          printData = map.getCanvas().toDataURL("image/jpeg");
         });
       }
     });
@@ -23810,7 +23835,7 @@ function Map(opts) {
   this.detailsExpanded = knockout_latest["observable"](opts.sidePanelExpanded);
   this.detailsActive = knockout_latest["observable"](opts.sidePanel);
   this.enableMapTypeSelector = opts.enableMapTypeSelector;
-  this.mapTypes = Object.keys(config["mapTypes"]);
+  this.mapTypes = Object.keys(src_config["mapTypes"]);
 
   if (this.enableMapTypeSelector !== false) {
     var searchParams = new URLSearchParams(window.location.search);
