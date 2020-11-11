@@ -112,7 +112,7 @@ $no-color: #b10318;
         }
 
         hr {
-            margin-bottom: 18px;
+            margin-bottom: 10px;
         }
 
         .close-information-panel {
@@ -135,7 +135,6 @@ $no-color: #b10318;
             &:hover,
             &:focus {
                 color: $secondary-color;
-                font-size: 3.3rem;
                 background-color: transparent;
             }
         }
@@ -157,7 +156,7 @@ $no-color: #b10318;
         }
 
         p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             line-height: 1.6rem;
         }
 
@@ -334,10 +333,11 @@ $no-color: #b10318;
         background-image: none !important;
     }
 
-    .mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon:before {
+    .mapboxgl-ctrl-zoom-out.mapboxgl-ctrl-icon:before {
         display: inline-block;
         padding-top: 1px;
         content: "\e90f";
+        font-family: icomoon;
     }
 
     .baaqmd-maps-print-button:hover .mapboxgl-ctrl-icon,
@@ -504,7 +504,9 @@ $no-color: #b10318;
     .mapboxgl-ctrl button.mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon,
     .mapboxgl-ctrl button.mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon {
         background-image: none;
-        font-size: 2rem;
+        font-size: 1.6rem;
+        margin-top: 2px;
+        margin-left: 1px;
     }
 
     .mapboxgl-ctrl-fullscreen:hover .mapboxgl-ctrl-icon,
@@ -587,7 +589,7 @@ $no-color: #b10318;
 
         h4 {
             margin: 0;
-            padding: 10px;
+            padding: 10px 10px 5px 10px;
             color: rgba(0, 10, 20, 0.65);
             font-weight: 600;
             font-size: 1.4rem;
@@ -616,7 +618,7 @@ $no-color: #b10318;
             i {
                 margin-right: 6px;
                 font-size: 1.4rem;
-                line-height: 1.2rem;
+                line-height: 1.7rem;
                 display: inline-block;
                 vertical-align: bottom;
             }
@@ -686,9 +688,11 @@ $no-color: #b10318;
                 overflow: hidden;
 
                 a {
-                    display: block;
+                    display: none;
                     float: left;
                     color: white;
+                    max-height: 48px;
+                    box-sizing: border-box;
                 }
 
                 div {
@@ -697,6 +701,8 @@ $no-color: #b10318;
                     text-align: center;
                     width: 48px;
                     height: 48px;
+                    max-height: 48px;
+                    box-sizing: border-box;
 
                     &:hover,
                     &:focus {
@@ -709,6 +715,7 @@ $no-color: #b10318;
                     padding: 9px 2px 4px;
                     color: white !important;
                     display: inline-block;
+                    max-height: 48px;
                 }
 
                 &:hover,
@@ -717,6 +724,7 @@ $no-color: #b10318;
                     background: $primary-color !important;
                     width: 240px;
                     right: -240px;
+                    overflow-y: hidden;
                 }
             }
         }
@@ -841,7 +849,8 @@ $no-color: #b10318;
                 margin: 0 2px;
                 background: white;
                 color: rgba(black, 0.67);
-                font-size: 1.1rem !important;
+                font-size: 1rem !important;
+                font-weight: 600;
                 padding: 4px 6px;
                 border-radius: 6px;
                 box-shadow: rgba(black, 0.19) 0px 1px 3px 0px;
@@ -921,7 +930,7 @@ $no-color: #b10318;
 
             &:hover,
             &:focus {
-                top: 6px;
+                top: 4px;
                 color: $secondary-color;
                 font-size: 2.3rem;
                 background-color: transparent;
@@ -954,7 +963,7 @@ $no-color: #b10318;
                 margin: 0 30px 10px 0;
 
                 span {
-                    font-size: 2rem;
+                    font-size: 1.7rem;
                     vertical-align: middle;
                     line-height: 0rem !important;
                 }
@@ -1094,6 +1103,7 @@ $no-color: #b10318;
                 margin-top: 2px;
                 margin-bottom: 2px;
                 font-size: 1.2rem;
+                box-sizing: border-box;
             }
 
             li:after {
@@ -1635,6 +1645,35 @@ span.date-date {
     }
 }
 
+.baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel i.icon-Contract {
+    top: -7px;
+    position: relative;
+}
+
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li {
+    height: 105px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend h3 {
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+}
+
+.baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend li p {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    margin-top: 0;
+}
+
+.baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:focus a,
+.baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:hover a {
+    display: block;
+}
+
+.mapboxgl-popup.mapboxgl-popup-anchor-bottom {
+    z-index: 100;
+}
+
 .baaqmd-maps-main .baaqmd-maps-details-panel .choices__list--single:after {
     content: "\e909";
     font-family: icomoon;
@@ -1801,8 +1840,16 @@ i.icomoon.icon-Menu2 {
 .accordion-icon.icon-Subtract.icomoon,
 .accordion-icon.icon-Add2.icomoon {
     float: right;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     line-height: 1.4rem;
+    cursor: pointer;
+}
+
+.accordion-icon.icon-Subtract.icomoon:hover,
+.accordion-icon.icon-Add2.icomoon:hover,
+.accordion-icon.icon-Subtract.icomoon:focus,
+.accordion-icon.icon-Add2.icomoon:focus {
+    color: #ffde33;
 }
 
 .icon-Subtract:before {
@@ -1814,10 +1861,10 @@ i.icomoon.icon-Menu2 {
 }
 
 .accordion-panel {
-    overflow:hidden;
-    transition:max-height 0.5s ease-out; // note that we're transitioning max-height, not height!
-    height:auto;
-    max-height:1000px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out; // note that we're transitioning max-height, not height!
+    height: auto;
+    max-height: 1000px;
 }
 
 .accordion-panel-collapsed {
@@ -1942,6 +1989,7 @@ td.air-monitoring-attribute-data-title {
 
 #map {
     border: 1px solid #999999;
+    overflow: hidden;
 }
 
 .baaqmd-maps-main .baaqmd-maps-popup .baaqmd-maps-popup-content table td {
@@ -2000,6 +2048,7 @@ a.choices-btn .icomoon.icon-ArrowDown {
     padding-right: 9px;
     width: 100%;
     box-sizing: border-box;
+    display: inline-block;
 }
 
 .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li {
@@ -2049,14 +2098,14 @@ a.choices-btn .icomoon.icon-ArrowDown {
 
 .aqi-no {
     font-weight: 700;
-    font-size: 0.75rem;
-    line-height: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 .aqi-txt {
     font-weight: 600;
-    font-size: 0.7rem;
-    line-height: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.08rem;
 }
 
 .scroll-hint {
@@ -2074,8 +2123,8 @@ a.choices-btn .icomoon.icon-ArrowDown {
 }
 
 .hint-arrow.icomoon.icon-ArrowDown {
-    font-size: 1.3rem;
-    line-height: 1.9rem;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
 }
 
 .icon-ArrowDown:before {
@@ -2091,8 +2140,14 @@ a.choices-btn .icomoon.icon-ArrowDown {
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-expanded i.icomoon.icon-MenuClose {
     padding: 0;
     line-height: 3rem;
-    font-size: 1.9rem;
+    font-size: 2.6rem;
     margin-left: -2px;
+    margin-top: 6px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander i.icon-MenuOpen {
+    font-size: 2.6rem;
+    line-height: 4.2rem;
 }
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander:focus,
@@ -2120,21 +2175,24 @@ a.choices-btn .icomoon.icon-ArrowDown {
 }
 
 .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
+    line-height: 1.5rem;
 }
 
 .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:before {
     content: "\e935";
 }
 
-.baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:focus,
-.baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover {
-    font-size: 1.4rem;
-}
-
 .zoom-hover {
     background-color: rgb(0, 142, 184);
     display: none;
+    position: absolute;
+    left: 0px;
+    width: 61px;
+    top: 0px;
+    height: 30px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out,
@@ -2146,6 +2204,12 @@ a.choices-btn .icomoon.icon-ArrowDown {
     color: #fff !important;
     border: none !important;
 }
+
+.baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
 .zoom-hover {
     background-color: rgb(0, 142, 184);
     display: none;
@@ -2544,6 +2608,10 @@ button.close {
     width: 84%;
     margin-left: 8%;
     margin-bottom: 3px;
+}
+
+.mapboxgl-ctrl-group.act-zoom-hover:hover button:first-child {
+    border-radius: 0 6px 6px 0;
 }
 
 @media (max-width: 800px) {
@@ -2949,11 +3017,13 @@ button.close {
 }
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
-    font-size: 1rem;
+    font-size: 1.4rem;
+    float: right;
 }
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
-    font-size: 1rem;
+    font-size: 1.4rem;
+    float: right;
 }
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out:hover {
