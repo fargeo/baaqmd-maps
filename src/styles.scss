@@ -1466,12 +1466,12 @@ span.icomoon.white-close {
     margin-right: 10px;
 }
 
-.modal .modal-dialog .modal-content .modal-body .comment-form input[type="text"],
-.modal .modal-dialog .modal-content .modal-body .comment-form textarea {
+.modal-body .comment-form input[type="text"],
+.modal-body .comment-form textarea {
     border-radius: 4px;
 }
 
-.modal .modal-dialog .modal-content .modal-footer input[type="submit"] {
+.modal-footer input[type="submit"] {
     border: 1px solid rgb(0, 142, 184);
     background-color: rgb(0, 142, 184);
     color: white;
@@ -1479,19 +1479,19 @@ span.icomoon.white-close {
     text-transform: uppercase;
 }
 
-.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:hover,
-.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:focus {
+.modal-footer input[type="submit"]:hover,
+.modal-footer input[type="submit"]:focus {
     border: 1px solid rgb(238, 131, 1);
     background-color: rgb(238, 131, 1);
     color: white;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3), 0px 2px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 6px -6px rgba(0, 0, 0, 0.2);
 }
 
-.modal .modal-dialog .modal-content .modal-body {
+.modal-body {
     padding: 25px 40px 10px 40px;
 }
 
-.modal .modal-dialog .modal-content .modal-footer {
+.modal-footer {
     padding: 0 40px 25px 40px;
 }
 
@@ -1552,7 +1552,7 @@ button.close {
     border: 0;
 }
 
-.modal .modal-dialog .modal-content .modal-header .close:hover {
+.modal-header .close:hover {
     opacity: 1;
 }
 
@@ -1632,7 +1632,7 @@ span.date-date {
 }
 
 @media (max-width: 355px) {
-    .modal .modal-dialog .modal-content .modal-header h4 {
+    .modal-header h4 {
         text-indent: 20px;
     }
 
@@ -2374,19 +2374,17 @@ body {
     color: rgba(0, 0, 0, 0.67);
 }
 
-.modal .modal-dialog .modal-content {
+.modal-content {
     border-radius: 6px;
     border: 0px solid rgb(0, 142, 184);
 }
 
-.modal .modal-dialog .modal-content .modal-header {
+.modal-header {
     background-color: #de2b2e;
     border-bottom: 0px solid #de2b2e;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
 }
 
-.modal .modal-dialog .modal-content .modal-header h4 {
+.modal-header h4 {
     color: white;
     font-family: Garamond, Georgia1, Georgia, serif;
     font-weight: 500;
@@ -2414,8 +2412,8 @@ span.icomoon.white-close {
     margin-top: 3px;
 }
 
-.modal .modal-dialog .modal-content .modal-header .close:hover span.icomoon.white-close,
-.modal .modal-dialog .modal-content .modal-header .close:focus span.icomoon.white-close {
+.modal-header .close:hover span.icomoon.white-close,
+.modal-header .close:focus span.icomoon.white-close {
     opacity: 1 !important;
 }
 
@@ -2427,12 +2425,12 @@ span.icomoon.white-close {
     margin-right: 10px;
 }
 
-.modal .modal-dialog .modal-content .modal-body .comment-form input[type="text"],
-.modal .modal-dialog .modal-content .modal-body .comment-form textarea {
+.modal-body .comment-form input[type="text"],
+.modal-body .comment-form textarea {
     border-radius: 4px;
 }
 
-.modal .modal-dialog .modal-content .modal-footer input[type="submit"] {
+.modal-footer input[type="submit"] {
     border: 1px solid #00a7e0;
     background-color: white;
     color: #00a7e0;
@@ -2443,8 +2441,8 @@ span.icomoon.white-close {
     margin-right: auto;
 }
 
-.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:hover,
-.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:focus {
+.modal-footer input[type="submit"]:hover,
+.modal-footer input[type="submit"]:focus {
     border: 1px solid #00a7e0;
     outline-width: 0px;
     background-color: #00a7e0;
@@ -2453,11 +2451,11 @@ span.icomoon.white-close {
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3), 0px 2px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 6px -6px rgba(0, 0, 0, 0.2);
 }
 
-.modal .modal-dialog .modal-content .modal-body {
+.modal-body {
     padding: 25px 40px 10px 40px;
 }
 
-.modal .modal-dialog .modal-content .modal-footer {
+.modal-footer {
     padding: 0 40px 25px 40px;
 }
 
@@ -2571,7 +2569,7 @@ button.close {
     border: 0;
 }
 
-.modal .modal-dialog .modal-content .modal-header .close:hover {
+.modal-header .close:hover {
     opacity: 1;
 }
 
@@ -2631,11 +2629,11 @@ button.close {
         width: 410px !important;
     }
 
-    .modal .modal-dialog .modal-content .modal-body {
+    .modal-body {
         padding: 25px 20px 10px 20px;
     }
 
-    .modal .modal-dialog .modal-content .modal-footer {
+    .modal-footer {
         padding: 0 20px 25px 20px;
     }
 }
@@ -2645,11 +2643,11 @@ button.close {
         width: 375px !important;
     }
 
-    .modal .modal-dialog .modal-content .modal-body {
+    .modal-body {
         padding: 25px 15px 10px 15px;
     }
 
-    .modal .modal-dialog .modal-content .modal-footer {
+    .modal-footer {
         padding: 0 15px 25px 15px;
     }
 }

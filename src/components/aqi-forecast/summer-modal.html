@@ -3,4 +3,32 @@
     Spare the Air Alert
 </h3>
 <hr>
-<div data-bind="html: summerModal"></div>
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title" id="x">
+            <div class="modal-title-icon icomoon icon-SpareAirHoriz"></div>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="centered-cntnt">
+            <div class="alert-area">
+                <div class="alert-text-area">
+                    <div class="alrt-centered-cntnt">
+                        <div class="alert-txt">ALERT</div>
+                        <div class="alert-icon icomoon icon-AlertThree"></div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="alert-ttl">Limit Driving</div>
+                </div>
+            </div>
+        </div>
+        <div class="centered-cntnt">
+            <div class="alert-main-text" data-bind="html: summerModal"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="centered-cntnt">
+            <input type="submit" value="Learn More">
+        </div>
+    </div>
+</div>
