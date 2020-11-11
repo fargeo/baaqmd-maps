@@ -7343,13 +7343,13 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 /* 186 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Spare the Air Alert\n</h3>\n<hr>\n<div data-bind=\"html: summerModal\"></div>\n";
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Spare the Air Alert\n</h3>\n<hr>\n<div>\n    <div class=\"modal-header\">\n        <h4 class=\"modal-title\" id=\"x\">\n            <div class=\"modal-title-icon icomoon icon-SpareAirHoriz\"></div>\n        </h4>\n    </div>\n    <div class=\"modal-body\">\n        <div class=\"centered-cntnt\">\n            <div class=\"alert-area\">\n                <div class=\"alert-text-area\">\n                    <div class=\"alrt-centered-cntnt\">\n                        <div class=\"alert-txt\">ALERT</div>\n                        <div class=\"alert-icon icomoon icon-AlertThree\"></div>\n                    </div>\n                    <div class=\"clear\"></div>\n                    <div class=\"alert-ttl\">Limit Driving</div>\n                </div>\n            </div>\n        </div>\n        <div class=\"centered-cntnt\">\n            <div class=\"alert-main-text\" data-bind=\"html: summerModal\"></div>\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <div class=\"centered-cntnt\">\n            <input type=\"submit\" value=\"Learn More\">\n        </div>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 187 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Winter Spare the Air Alert\n</h3>\n<hr>\n<div data-bind=\"html: winterModal\"></div>\n";
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Winter Spare the Air Alert\n</h3>\n<hr>\n<div>\n    <div class=\"modal-header\">\n        <h4 class=\"modal-title\" id=\"x\">\n            <div class=\"modal-title-icon icomoon icon-SpareAirHoriz\"></div>\n        </h4>\n    </div>\n    <div class=\"modal-body\">\n        <div class=\"centered-cntnt\">\n            <div class=\"alert-area\">\n                <div class=\"alert-text-area\">\n                    <div class=\"alrt-centered-cntnt\">\n                        <div class=\"alert-txt\">ALERT</div>\n                        <div class=\"alert-icon icomoon icon-AlertTwo\"></div>\n                    </div>\n                    <div class=\"clear\"></div>\n                    <div class=\"alert-ttl\">No Wood Burning</div>\n                </div>\n            </div>\n        </div>\n        <div class=\"centered-cntnt\">\n            <div class=\"alert-main-text\" data-bind=\"html: winterModal\"></div>\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <div class=\"centered-cntnt\">\n            <input type=\"submit\" value=\"Learn More\">\n        </div>\n    </div>\n</div>\n\n";
 
 /***/ }),
 /* 188 */
