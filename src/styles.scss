@@ -51,6 +51,7 @@ $no-color: #b10318;
     font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
     color: rgba(black, 0.67);
     position: relative;
+    overflow: hidden;
 
     a {
         color: $primary-color;
@@ -156,8 +157,8 @@ $no-color: #b10318;
         }
 
         p {
-            font-size: 1.2rem;
-            line-height: 1.6rem;
+            font-size: 1.4rem;
+            line-height: 1.7rem;
         }
 
         .impacted-communities {
@@ -337,7 +338,6 @@ $no-color: #b10318;
         display: inline-block;
         padding-top: 1px;
         content: "\e90f";
-        font-family: icomoon;
     }
 
     .baaqmd-maps-print-button:hover .mapboxgl-ctrl-icon,
@@ -577,7 +577,7 @@ $no-color: #b10318;
             font-size: 1.1rem;
             vertical-align: middle;
             letter-spacing: 2px;
-            padding: 10px 20px 8px 20px;
+            padding: 10px 15px 8px 20px;
 
             i {
                 padding-right: 6px;
@@ -611,6 +611,7 @@ $no-color: #b10318;
             border-radius: 6px;
             margin-bottom: 10px;
             font-size: 1.3rem;
+            line-height: 1.6rem;
             padding: 6px 0;
             display: inline-block;
             width: 100%;
@@ -637,7 +638,6 @@ $no-color: #b10318;
             top: 48px;
             bottom: 0;
             overflow-y: auto;
-            padding-bottom: 30px;
 
             .baaqmd-maps-last-updated {
                 margin: 0 0 10px 13px;
@@ -850,7 +850,7 @@ $no-color: #b10318;
                 margin: 0 2px;
                 background: white;
                 color: rgba(black, 0.67);
-                font-size: 1rem !important;
+                font-size: 1.2rem !important;
                 font-weight: 600;
                 padding: 4px 6px;
                 border-radius: 6px;
@@ -964,7 +964,7 @@ $no-color: #b10318;
                 margin: 0 30px 10px 0;
 
                 span {
-                    font-size: 1.7rem;
+                    font-size: 2.2rem;
                     vertical-align: middle;
                     line-height: 0rem !important;
                 }
@@ -974,6 +974,11 @@ $no-color: #b10318;
                     vertical-align: middle;
                     line-height: 0rem !important;
                 }
+            }
+
+            p {
+                font-size: 1.4rem;
+                line-height: 1.7rem;
             }
 
             h4 {
@@ -1325,6 +1330,7 @@ $no-color: #b10318;
         border-color: $yes-color;
         background-color: $yes-color;
         color: white;
+        padding-top: 20px;
     }
 
     .nobelow2k,
@@ -1332,6 +1338,7 @@ $no-color: #b10318;
         border-color: $nobelow2k-color;
         background-color: $nobelow2k-color;
         color: #222222;
+        padding-top: 20px;
     }
 
     .no,
@@ -1339,6 +1346,7 @@ $no-color: #b10318;
         border-color: $no-color;
         background-color: $no-color;
         color: white;
+        padding-top: 20px;
     }
 
     .five-day-forecast-table {
@@ -1467,12 +1475,12 @@ span.icomoon.white-close {
     margin-right: 10px;
 }
 
-.modal-body .comment-form input[type="text"],
-.modal-body .comment-form textarea {
+.modal .modal-dialog .modal-content .modal-body .comment-form input[type="text"],
+.modal .modal-dialog .modal-content .modal-body .comment-form textarea {
     border-radius: 4px;
 }
 
-.modal-footer input[type="submit"] {
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"] {
     border: 1px solid rgb(0, 142, 184);
     background-color: rgb(0, 142, 184);
     color: white;
@@ -1480,19 +1488,19 @@ span.icomoon.white-close {
     text-transform: uppercase;
 }
 
-.modal-footer input[type="submit"]:hover,
-.modal-footer input[type="submit"]:focus {
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:hover,
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:focus {
     border: 1px solid rgb(238, 131, 1);
     background-color: rgb(238, 131, 1);
     color: white;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3), 0px 2px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 6px -6px rgba(0, 0, 0, 0.2);
 }
 
-.modal-body {
+.modal .modal-dialog .modal-content .modal-body {
     padding: 25px 40px 10px 40px;
 }
 
-.modal-footer {
+.modal .modal-dialog .modal-content .modal-footer {
     padding: 0 40px 25px 40px;
 }
 
@@ -1553,7 +1561,7 @@ button.close {
     border: 0;
 }
 
-.modal-header .close:hover {
+.modal .modal-dialog .modal-content .modal-header .close:hover {
     opacity: 1;
 }
 
@@ -1633,7 +1641,7 @@ span.date-date {
 }
 
 @media (max-width: 355px) {
-    .modal-header h4 {
+    .modal .modal-dialog .modal-content .modal-header h4 {
         text-indent: 20px;
     }
 
@@ -1656,14 +1664,26 @@ span.date-date {
 }
 
 .baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend h3 {
-    font-size: 1.1rem;
+    font-size: 1.7rem;
+    color: white;
     line-height: 1.3rem;
+    font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
+}
+
+.baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend li.nobelow2k h3 {
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend li p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.3rem;
     margin-top: 0;
+    font-weight: 600;
+    color: white;
+}
+
+.baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend li.nobelow2k p {
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:focus a,
@@ -1841,7 +1861,7 @@ i.icomoon.icon-Menu2 {
 .accordion-icon.icon-Subtract.icomoon,
 .accordion-icon.icon-Add2.icomoon {
     float: right;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     line-height: 1.4rem;
     cursor: pointer;
 }
@@ -2063,8 +2083,13 @@ a.choices-btn .icomoon.icon-ArrowDown {
     text-align: center;
     display: block;
     min-height: 20px;
-    font-size: .8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
     line-height: 1.1rem;
+}
+
+.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li:before {
+    content: "";
 }
 
 .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.good {
@@ -2099,14 +2124,14 @@ a.choices-btn .icomoon.icon-ArrowDown {
 
 .aqi-no {
     font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
 }
 
 .aqi-txt {
     font-weight: 600;
-    font-size: 0.9rem;
-    line-height: 1.08rem;
+    font-size: 1.1rem;
+    line-height: 1.15rem;
 }
 
 .scroll-hint {
@@ -2125,7 +2150,7 @@ a.choices-btn .icomoon.icon-ArrowDown {
 
 .hint-arrow.icomoon.icon-ArrowDown {
     font-size: 1.6rem;
-    line-height: 2.5rem;
+    line-height: 2.8rem;
 }
 
 .icon-ArrowDown:before {
@@ -2143,12 +2168,12 @@ a.choices-btn .icomoon.icon-ArrowDown {
     line-height: 3rem;
     font-size: 2.6rem;
     margin-left: -2px;
-    margin-top: 6px;
+    margin-top: 9px;
 }
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander i.icon-MenuOpen {
     font-size: 2.6rem;
-    line-height: 4.2rem;
+    line-height: 4.8rem;
 }
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander:focus,
@@ -2375,17 +2400,19 @@ body {
     color: rgba(0, 0, 0, 0.67);
 }
 
-.modal-content {
+.modal .modal-dialog .modal-content {
     border-radius: 6px;
     border: 0px solid rgb(0, 142, 184);
 }
 
-.modal-header {
+.modal .modal-dialog .modal-content .modal-header {
     background-color: #de2b2e;
     border-bottom: 0px solid #de2b2e;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
-.modal-header h4 {
+.modal .modal-dialog .modal-content .modal-header h4 {
     color: white;
     font-family: Garamond, Georgia1, Georgia, serif;
     font-weight: 500;
@@ -2413,8 +2440,8 @@ span.icomoon.white-close {
     margin-top: 3px;
 }
 
-.modal-header .close:hover span.icomoon.white-close,
-.modal-header .close:focus span.icomoon.white-close {
+.modal .modal-dialog .modal-content .modal-header .close:hover span.icomoon.white-close,
+.modal .modal-dialog .modal-content .modal-header .close:focus span.icomoon.white-close {
     opacity: 1 !important;
 }
 
@@ -2426,12 +2453,12 @@ span.icomoon.white-close {
     margin-right: 10px;
 }
 
-.modal-body .comment-form input[type="text"],
-.modal-body .comment-form textarea {
+.modal .modal-dialog .modal-content .modal-body .comment-form input[type="text"],
+.modal .modal-dialog .modal-content .modal-body .comment-form textarea {
     border-radius: 4px;
 }
 
-.modal-footer input[type="submit"] {
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"] {
     border: 1px solid #00a7e0;
     background-color: white;
     color: #00a7e0;
@@ -2442,8 +2469,8 @@ span.icomoon.white-close {
     margin-right: auto;
 }
 
-.modal-footer input[type="submit"]:hover,
-.modal-footer input[type="submit"]:focus {
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:hover,
+.modal .modal-dialog .modal-content .modal-footer input[type="submit"]:focus {
     border: 1px solid #00a7e0;
     outline-width: 0px;
     background-color: #00a7e0;
@@ -2452,11 +2479,11 @@ span.icomoon.white-close {
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3), 0px 2px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 6px -6px rgba(0, 0, 0, 0.2);
 }
 
-.modal-body {
+.modal .modal-dialog .modal-content .modal-body {
     padding: 25px 40px 10px 40px;
 }
 
-.modal-footer {
+.modal .modal-dialog .modal-content .modal-footer {
     padding: 0 40px 25px 40px;
 }
 
@@ -2570,7 +2597,7 @@ button.close {
     border: 0;
 }
 
-.modal-header .close:hover {
+.modal .modal-dialog .modal-content .modal-header .close:hover {
     opacity: 1;
 }
 
@@ -2609,7 +2636,7 @@ button.close {
     margin-bottom: 3px;
 }
 
-.mapboxgl-ctrl-group.act-zoom-hover:hover button:first-child {
+.mapboxgl-ctrl-group:hover button:first-child {
     border-radius: 0 6px 6px 0;
 }
 
@@ -2630,11 +2657,11 @@ button.close {
         width: 410px !important;
     }
 
-    .modal-body {
+    .modal .modal-dialog .modal-content .modal-body {
         padding: 25px 20px 10px 20px;
     }
 
-    .modal-footer {
+    .modal .modal-dialog .modal-content .modal-footer {
         padding: 0 20px 25px 20px;
     }
 }
@@ -2644,11 +2671,11 @@ button.close {
         width: 375px !important;
     }
 
-    .modal-body {
+    .modal .modal-dialog .modal-content .modal-body {
         padding: 25px 15px 10px 15px;
     }
 
-    .modal-footer {
+    .modal .modal-dialog .modal-content .modal-footer {
         padding: 0 15px 25px 15px;
     }
 }
@@ -2961,6 +2988,15 @@ button.close {
     display: inline-block;
 }
 
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.yes,
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.yes:before,
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.nobelow2k,
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.nobelow2k:before,
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.no,
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.no:before {
+    padding-top: 5px !important;
+}
+
 .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
     border-radius: 6px;
 }
@@ -2970,12 +3006,12 @@ button.close {
 }
 
 .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 
 .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:focus,
 .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
 }
 
 .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
@@ -3017,11 +3053,13 @@ button.close {
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
     font-size: 1.4rem;
+    line-height: 1.7rem;
     float: right;
 }
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
     font-size: 1.4rem;
+    line-height: 1.7rem;
     float: right;
 }
 
