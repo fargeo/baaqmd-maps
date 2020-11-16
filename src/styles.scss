@@ -592,7 +592,7 @@ $no-color: #b10318;
             padding: 10px 10px 5px 10px;
             color: rgba(0, 10, 20, 0.65);
             font-weight: 600;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             line-height: 1.2em;
             font-family: proxima-nova-n4, proxima-nova, Open Sans, Corbel, Helvetica, Arial, sans-serif;
 
@@ -611,7 +611,7 @@ $no-color: #b10318;
             border-radius: 6px;
             margin-bottom: 10px;
             font-size: 1.3rem;
-            line-height: 1.6rem;
+            line-height: 1.7rem;
             padding: 6px 0;
             display: inline-block;
             width: 100%;
@@ -641,7 +641,7 @@ $no-color: #b10318;
 
             .baaqmd-maps-last-updated {
                 margin: 0 0 10px 13px;
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
         }
 
@@ -850,7 +850,7 @@ $no-color: #b10318;
                 margin: 0 2px;
                 background: white;
                 color: rgba(black, 0.67);
-                font-size: 1.2rem !important;
+                font-size: 1.4rem !important;
                 font-weight: 600;
                 padding: 4px 6px;
                 border-radius: 6px;
@@ -1108,7 +1108,7 @@ $no-color: #b10318;
                 width: 100%;
                 margin-top: 2px;
                 margin-bottom: 2px;
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 box-sizing: border-box;
             }
 
@@ -1355,7 +1355,8 @@ $no-color: #b10318;
         border-spacing: 16px 4px;
 
         th {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
             text-align: center;
         }
 
@@ -1382,6 +1383,8 @@ $no-color: #b10318;
 
                 .baaqmd-maps-pollutant {
                     font-weight: 500;
+                    font-size: 1.1rem;
+                    line-height: 2rem;
                 }
             }
         }
@@ -1518,6 +1521,10 @@ em.req-text {
     background-color: rgb(50, 70, 90);
 }
 
+.baaqmd-maps-main .five-day-forecast-table td .baaqmd-maps-legend .baaqmd-maps-zone-forecast-measurement {
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
 
 .alert-danger {
     color: #a94442;
@@ -1664,9 +1671,10 @@ span.date-date {
 }
 
 .baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend h3 {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     color: white;
-    line-height: 1.3rem;
+    line-height: 1.5rem;
+    font-weight: 600;
     font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
 }
 
@@ -1675,8 +1683,8 @@ span.date-date {
 }
 
 .baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend li p {
-    font-size: 1.2rem;
-    line-height: 1.3rem;
+    font-size: 1.1rem;
+    line-height: 1.2rem;
     margin-top: 0;
     font-weight: 600;
     color: white;
@@ -2099,12 +2107,19 @@ a.choices-btn .icomoon.icon-ArrowDown {
 
 .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.moderate {
     background-color: #ffde33;
-    color: #444;
+    color: #333;
+}
+
+.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.moderate h3,
+.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.moderate p,
+.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy-for-sensitive-groups h3,
+.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy-for-sensitive-groups p {
+    color: #333 !important;
 }
 
 .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy-for-sensitive-groups {
     background-color: #f93;
-    color: #444;
+    color: #333;
 }
 
 .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy {
