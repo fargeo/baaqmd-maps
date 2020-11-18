@@ -52,7 +52,8 @@ $no-color: #b10318;
     color: rgba(black, 0.67);
     position: relative;
     overflow: hidden;
-
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+    border-radius: 6px;
     a {
         color: $primary-color;
         text-decoration: underline;
@@ -505,8 +506,8 @@ $no-color: #b10318;
     .mapboxgl-ctrl button.mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 1.6rem;
-        margin-top: 2px;
-        margin-left: 1px;
+     	margin-top: 2px;
+    	margin-left: 1px;
     }
 
     .mapboxgl-ctrl-fullscreen:hover .mapboxgl-ctrl-icon,
@@ -611,7 +612,7 @@ $no-color: #b10318;
             border-radius: 6px;
             margin-bottom: 10px;
             font-size: 1.3rem;
-            line-height: 1.7rem;
+			line-height: 1.7rem;
             padding: 6px 0;
             display: inline-block;
             width: 100%;
@@ -638,10 +639,11 @@ $no-color: #b10318;
             top: 48px;
             bottom: 0;
             overflow-y: auto;
+            padding-bottom: 20px;
 
             .baaqmd-maps-last-updated {
                 margin: 0 0 10px 13px;
-                font-size: 1.3rem;
+                font-size: 1.05rem;
             }
         }
 
@@ -662,7 +664,7 @@ $no-color: #b10318;
             background: $primary-color;
             color: white;
             top: 0;
-            right: -48px;
+            right: -49px;
             background: #008eb8 !important;
 
             &:hover,
@@ -692,8 +694,8 @@ $no-color: #b10318;
                     display: none;
                     float: left;
                     color: white;
-                    max-height: 48px;
-                    box-sizing: border-box;
+					max-height: 48px;
+    				box-sizing: border-box;
                 }
 
                 div {
@@ -702,8 +704,8 @@ $no-color: #b10318;
                     text-align: center;
                     width: 48px;
                     height: 48px;
-                    max-height: 48px;
-                    box-sizing: border-box;
+					max-height: 48px;
+    				box-sizing: border-box;
 
                     &:hover,
                     &:focus {
@@ -716,7 +718,7 @@ $no-color: #b10318;
                     padding: 9px 2px 4px;
                     color: white !important;
                     display: inline-block;
-                    max-height: 48px;
+					max-height: 48px;
                 }
 
                 &:hover,
@@ -725,7 +727,7 @@ $no-color: #b10318;
                     background: $primary-color !important;
                     width: 240px;
                     right: -240px;
-                    overflow-y: hidden;
+					overflow-y: hidden;
                 }
             }
         }
@@ -850,9 +852,9 @@ $no-color: #b10318;
                 margin: 0 2px;
                 background: white;
                 color: rgba(black, 0.67);
-                font-size: 1.4rem !important;
-                font-weight: 600;
-                padding: 4px 6px;
+                font-size: 1.1rem!important;
+    			font-weight: 500;
+                padding: 4px 8px;
                 border-radius: 6px;
                 box-shadow: rgba(black, 0.19) 0px 1px 3px 0px;
             }
@@ -975,12 +977,10 @@ $no-color: #b10318;
                     line-height: 0rem !important;
                 }
             }
-
-            p {
-                font-size: 1.4rem;
-                line-height: 1.7rem;
-            }
-
+			p {
+				font-size: 1.4rem;
+    			line-height: 1.7rem;
+			}
             h4 {
                 font-size: 1.7rem;
                 line-height: 2.1rem;
@@ -1109,7 +1109,7 @@ $no-color: #b10318;
                 margin-top: 2px;
                 margin-bottom: 2px;
                 font-size: 1.3rem;
-                box-sizing: border-box;
+				box-sizing: border-box;
             }
 
             li:after {
@@ -1279,7 +1279,7 @@ $no-color: #b10318;
 
     .baaqmd-maps-last-updated {
         color: rgba(black, 0.5);
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-style: italic;
     }
 
@@ -1330,7 +1330,7 @@ $no-color: #b10318;
         border-color: $yes-color;
         background-color: $yes-color;
         color: white;
-        padding-top: 20px;
+		padding-top: 20px;
     }
 
     .nobelow2k,
@@ -1338,7 +1338,7 @@ $no-color: #b10318;
         border-color: $nobelow2k-color;
         background-color: $nobelow2k-color;
         color: #222222;
-        padding-top: 20px;
+		padding-top: 20px;
     }
 
     .no,
@@ -1346,7 +1346,7 @@ $no-color: #b10318;
         border-color: $no-color;
         background-color: $no-color;
         color: white;
-        padding-top: 20px;
+		padding-top: 20px;
     }
 
     .five-day-forecast-table {
@@ -1356,7 +1356,7 @@ $no-color: #b10318;
 
         th {
             font-size: 1.4rem;
-            font-weight: 600;
+			font-weight: 600;
             text-align: center;
         }
 
@@ -1383,8 +1383,8 @@ $no-color: #b10318;
 
                 .baaqmd-maps-pollutant {
                     font-weight: 500;
-                    font-size: 1.1rem;
-                    line-height: 2rem;
+					font-size: 1.1rem;
+					line-height: 2rem;
                 }
             }
         }
@@ -1525,7 +1525,6 @@ em.req-text {
     font-size: 1.3rem;
     line-height: 2rem;
 }
-
 .alert-danger {
     color: #a94442;
     background-color: #f2dede;
@@ -1660,49 +1659,51 @@ span.date-date {
         width: 290px;
     }
 }
-
 .baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel i.icon-Contract {
     top: -7px;
+	right: 7px;
     position: relative;
 }
-
-.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li {
-    height: 105px;
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -2px;
+    margin-right: -10px;
+    margin-bottom: 15px;
+	width: 101%;
 }
-
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li {
+    height: auto;
+    padding: 12px 8px 5px 8px;
+	width: 32%;
+}
 .baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend h3 {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     color: white;
     line-height: 1.5rem;
-    font-weight: 600;
-    font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial, Helvetica, Arial, sans-serif;
+	margin-bottom: 5px;
+	font-weight: 600;
+	font-family: "proxima-nova-n4","proxima-nova","Open Sans",Corbel,Helvetica,Arial,Helvetica,Arial,sans-serif;
 }
-
 .baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend li.nobelow2k h3 {
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0,0,0,0.8);
 }
-
 .baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend li p {
-    font-size: 1.1rem;
-    line-height: 1.2rem;
+        font-size: 1.25rem;
+    line-height: 1.5rem;
     margin-top: 0;
-    font-weight: 600;
-    color: white;
+    font-weight: 500;
+	color: white;
 }
-
 .baaqmd-maps-main .baaqmd-maps-info-panel ul.baaqmd-maps-legend.aqi-forecast-legend li.nobelow2k p {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0,0,0,0.7);
 }
-
-.baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:focus a,
-.baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:hover a {
+.baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:focus a, .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander.baaqmd-maps-share-buttons:hover a {
     display: block;
 }
-
 .mapboxgl-popup.mapboxgl-popup-anchor-bottom {
     z-index: 100;
 }
-
 .baaqmd-maps-main .baaqmd-maps-details-panel .choices__list--single:after {
     content: "\e909";
     font-family: icomoon;
@@ -1871,16 +1872,12 @@ i.icomoon.icon-Menu2 {
     float: right;
     font-size: 1.8rem;
     line-height: 1.4rem;
-    cursor: pointer;
+	cursor: pointer;
 }
-
-.accordion-icon.icon-Subtract.icomoon:hover,
-.accordion-icon.icon-Add2.icomoon:hover,
-.accordion-icon.icon-Subtract.icomoon:focus,
-.accordion-icon.icon-Add2.icomoon:focus {
+.accordion-icon.icon-Subtract.icomoon:hover, .accordion-icon.icon-Add2.icomoon:hover,
+.accordion-icon.icon-Subtract.icomoon:focus, .accordion-icon.icon-Add2.icomoon:focus {
     color: #ffde33;
 }
-
 .icon-Subtract:before {
     content: "\e90f";
 }
@@ -1890,10 +1887,10 @@ i.icomoon.icon-Menu2 {
 }
 
 .accordion-panel {
-    overflow: hidden;
-    transition: max-height 0.5s ease-out; // note that we're transitioning max-height, not height!
-    height: auto;
-    max-height: 1000px;
+    overflow:hidden;
+    transition:max-height 0.5s ease-out; // note that we're transitioning max-height, not height!
+    height:auto;
+    max-height:1000px;
 }
 
 .accordion-panel-collapsed {
@@ -1969,7 +1966,7 @@ table.historical-site-data {
 }
 
 .baaqmd-maps-popup-content .baaqmd-maps-last-updated {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 table.baaqmd-maps-zone-forecast {
@@ -2018,7 +2015,7 @@ td.air-monitoring-attribute-data-title {
 
 #map {
     border: 1px solid #999999;
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .baaqmd-maps-main .baaqmd-maps-popup .baaqmd-maps-popup-content table td {
@@ -2077,7 +2074,9 @@ a.choices-btn .icomoon.icon-ArrowDown {
     padding-right: 9px;
     width: 100%;
     box-sizing: border-box;
-    display: inline-block;
+	display: inline-block;
+	display: flex;
+    flex-flow: wrap;
 }
 
 .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li {
@@ -2092,14 +2091,10 @@ a.choices-btn .icomoon.icon-ArrowDown {
     display: block;
     min-height: 20px;
     font-size: 1.2rem;
-    font-weight: 600;
+	font-weight: 600;
     line-height: 1.1rem;
 }
-
-.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li:before {
-    content: "";
-}
-
+.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li:before { content: "";}
 .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.good {
     background-color: #096;
     color: white;
@@ -2109,14 +2104,9 @@ a.choices-btn .icomoon.icon-ArrowDown {
     background-color: #ffde33;
     color: #333;
 }
-
-.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.moderate h3,
-.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.moderate p,
-.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy-for-sensitive-groups h3,
-.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy-for-sensitive-groups p {
+.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.moderate h3, .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.moderate p, .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy-for-sensitive-groups h3, .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy-for-sensitive-groups p {
     color: #333 !important;
 }
-
 .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li.unhealthy-for-sensitive-groups {
     background-color: #f93;
     color: #333;
@@ -2145,7 +2135,7 @@ a.choices-btn .icomoon.icon-ArrowDown {
 
 .aqi-txt {
     font-weight: 600;
-    font-size: 1.1rem;
+ 	font-size: 1.1rem;
     line-height: 1.15rem;
 }
 
@@ -2185,12 +2175,10 @@ a.choices-btn .icomoon.icon-ArrowDown {
     margin-left: -2px;
     margin-top: 9px;
 }
-
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander i.icon-MenuOpen {
     font-size: 2.6rem;
     line-height: 4.8rem;
 }
-
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander:focus,
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander:hover {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
@@ -2227,12 +2215,12 @@ a.choices-btn .icomoon.icon-ArrowDown {
 .zoom-hover {
     background-color: rgb(0, 142, 184);
     display: none;
-    position: absolute;
+	position: absolute;
     left: 0px;
     width: 61px;
     top: 0px;
     height: 30px;
-    border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
 }
 
@@ -2245,12 +2233,10 @@ a.choices-btn .icomoon.icon-ArrowDown {
     color: #fff !important;
     border: none !important;
 }
-
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
 }
-
 .zoom-hover {
     background-color: rgb(0, 142, 184);
     display: none;
@@ -2650,7 +2636,6 @@ button.close {
     margin-left: 8%;
     margin-bottom: 3px;
 }
-
 .mapboxgl-ctrl-group:hover button:first-child {
     border-radius: 0 6px 6px 0;
 }
@@ -2665,6 +2650,9 @@ button.close {
     .modal-dialog {
         width: 540px !important;
     }
+	.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li {
+    	width: 48.4%;
+	}
 }
 
 @media (max-width: 550px) {
@@ -2679,6 +2667,18 @@ button.close {
     .modal .modal-dialog .modal-content .modal-footer {
         padding: 0 20px 25px 20px;
     }
+	.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li {
+    	width: 48%;
+	}
+	.baaqmd-maps-main .baaqmd-maps-info-panel {
+  	  top: 0;
+   	  bottom: 0px;
+   	  right: 0px;
+   	  left: 0px;
+	}
+	.baaqmd-maps-main .baaqmd-maps-info-panel h3 {
+    	font-size: 2.2rem;
+	}
 }
 
 @media (max-width: 410px) {
@@ -2693,12 +2693,29 @@ button.close {
     .modal .modal-dialog .modal-content .modal-footer {
         padding: 0 15px 25px 15px;
     }
+	.baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li {
+    width: 30%;
+	}
+	.aqi-txt {font-size: 1.05rem;}
 }
 
 @media (max-width: 374px) {
     .modal-dialog {
         width: 355px !important;
     }
+	.aqi-txt {
+    	font-size: 1.0rem;
+    	line-height: 0.9rem;
+	}
+	.baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li a {
+    	font-size: 1.1rem!important;
+	}
+	.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li {
+    	width: 47%;
+	}
+	.baaqmd-maps-main .baaqmd-maps-info-panel h3 {
+    	font-size: 1.8rem;
+	}
 }
 
 @media (max-width: 355px) {
@@ -3002,7 +3019,6 @@ button.close {
     width: 100%;
     display: inline-block;
 }
-
 .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.yes,
 .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.yes:before,
 .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.nobelow2k,
@@ -3011,7 +3027,6 @@ button.close {
 .baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-legend.aqi-forecast-legend li.no:before {
     padding-top: 5px !important;
 }
-
 .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
     border-radius: 6px;
 }
@@ -3068,13 +3083,13 @@ button.close {
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
     font-size: 1.4rem;
-    line-height: 1.7rem;
+	line-height: 1.7rem;
     float: right;
 }
 
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
     font-size: 1.4rem;
-    line-height: 1.7rem;
+	line-height: 1.7rem;
     float: right;
 }
 
