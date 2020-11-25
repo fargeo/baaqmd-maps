@@ -920,7 +920,7 @@ $no-color: #b10318;
             cursor: pointer;
             border-radius: 50%;
             right: 10px;
-            top: 5px;
+            top: 8px;
             color: $primary-color;
             width: 28px;
             height: 28px;
@@ -933,7 +933,7 @@ $no-color: #b10318;
 
             &:hover,
             &:focus {
-                top: 4px;
+                top: 8px;
                 color: $secondary-color;
                 font-size: 2.3rem;
                 background-color: transparent;
@@ -947,7 +947,7 @@ $no-color: #b10318;
 
             &:hover,
             &:focus {
-                top: 9px;
+                top: 8px;
                 font-size: 1.3rem;
             }
         }
@@ -966,15 +966,19 @@ $no-color: #b10318;
                 margin: 0 30px 10px 0;
 
                 span {
-                    font-size: 2.2rem;
+                    font-size: 2rem;
+                    font-weight: 600;
                     vertical-align: middle;
                     line-height: 0rem !important;
+                    font-family: proxima-nova-n4, proxima-nova, Open Sans, Corbel, Helvetica, Arial, sans-serif;
+                    color: rgba(0, 0, 0, .67);
                 }
 
                 i {
                     font-size: 1.9rem;
                     vertical-align: middle;
                     line-height: 0rem !important;
+                    color: rgba(0, 0, 0, .67);
                 }
             }
 
@@ -984,10 +988,13 @@ $no-color: #b10318;
             }
 
             h4 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
+                font-weight: 600;
                 line-height: 2.1rem;
                 vertical-align: middle;
-                margin: 15px 0 0;
+                margin: 15px 0 2px 0;
+                font-family: proxima-nova-n4, proxima-nova, Open Sans, Corbel, Helvetica, Arial, sans-serif;
+                color: rgba(0, 0, 0, .67);
             }
 
             .baaqmd-maps-zone-forecast {
@@ -2670,6 +2677,15 @@ button.close {
 
 .mapboxgl-ctrl-group:hover button:first-child {
     border-radius: 0 6px 6px 0;
+}
+
+.baaqmd-maps-main .baaqmd-maps-info-panel h3 {
+    font-family: proxima-nova-n4, proxima-nova, Open Sans, Corbel, Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.67);
+    width: 100%;
+    display: inline-block;
 }
 
 @media (max-width: 800px) {
