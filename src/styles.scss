@@ -637,7 +637,8 @@ $no-color: #b10318;
         .baaqmd-maps-details-panel-content {
             position: absolute;
             width: $side-panel-width;
-            top: 48px;
+            padding-bottom: 25px;
+            top: 45px;
             bottom: 0;
             overflow-y: auto;
 
@@ -2688,6 +2689,10 @@ button.close {
     display: inline-block;
 }
 
+.choices {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 800px) {
     .modal-dialog {
         width: 660px !important;
@@ -2786,12 +2791,12 @@ button.close {
 
 @font-face {
     font-family: 'icomoon';
-    src: url('fonts/icomoon.eot?cevo2q');
-    src: url('fonts/icomoon.eot?cevo2q#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.woff2?cevo2q') format('woff2'),
-        url('fonts/icomoon.ttf?cevo2q') format('truetype'),
-        url('fonts/icomoon.woff?cevo2q') format('woff'),
-        url('fonts/icomoon.svg?cevo2q#icomoon') format('svg');
+    src: url('fonts/icomoon.eot?qub7eo');
+    src: url('fonts/icomoon.eot?qub7eo#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.woff2?qub7eo') format('woff2'),
+        url('fonts/icomoon.ttf?qub7eo') format('truetype'),
+        url('fonts/icomoon.woff?qub7eo') format('woff'),
+        url('fonts/icomoon.svg?qub7eo#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -2813,28 +2818,20 @@ button.close {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-AlertTextHorizontal:before {
-    content: "\e92b";
-}
-
-.icon-WalkBikeLonger:before {
-    content: "\e929";
-}
-
-.icon-NoBurnAlert:before {
-    content: "\e927";
-}
-
 .icon-SpareAirHoriz:before {
     content: "\e92a";
 }
 
-.icon-SpareAirWinterHoriz:before {
+.icon-ArrowLeft:before {
+    content: "\e923";
+}
+
+.icon-ArrowRight:before {
     content: "\e926";
 }
 
-.icon-KeyArea:before {
-    content: "\e93d";
+.icon-ArrowUp:before {
+    content: "\e927";
 }
 
 .icon-AlertOne:before {
@@ -2927,10 +2924,6 @@ button.close {
 
 .icon-NoBurn:before {
     content: "\e925";
-}
-
-.icon-AlertTextHoriz:before {
-    content: "\e923";
 }
 
 .icon-SpareAirHorizontal:before {
@@ -3072,6 +3065,7 @@ button.close {
 .icon-WindGust:before {
     content: "\e914";
 }
+
 
 
 .space-15pxno {
