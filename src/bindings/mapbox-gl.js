@@ -15,6 +15,15 @@ ko.bindingHandlers.mapboxgl = {
         );
         mapboxgl.accessToken = options.accessToken || config.accessToken;
         let map = new mapboxgl.Map(options);
+        let fsEvents = [
+            'webkitfullscreenchange',
+            'fullscreenchange',
+            'mozfullscreenchange',
+            'MSFullscreenChange'
+        ];
+        fsEvents.forEach((event) => {
+            document.addEventListener(event, () => map.resize());
+        });
         map.on('load', function() {
             if (typeof options.afterRender === 'function') {
                 options.afterRender(map);

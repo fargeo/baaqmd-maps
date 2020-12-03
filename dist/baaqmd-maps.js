@@ -23396,6 +23396,12 @@ knockout_latest["bindingHandlers"].mapboxgl = {
     });
     mapbox_gl["accessToken"] = options.accessToken || src_config["accessToken"];
     var map = new mapbox_gl["Map"](options);
+    var fsEvents = ['webkitfullscreenchange', 'fullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'];
+    fsEvents.forEach(function (event) {
+      document.addEventListener(event, function () {
+        return map.resize();
+      });
+    });
     map.on('load', function () {
       if (typeof options.afterRender === 'function') {
         options.afterRender(map);
