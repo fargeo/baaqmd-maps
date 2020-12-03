@@ -2734,7 +2734,21 @@ button.close {
     }
 
     .baaqmd-maps-main .baaqmd-maps-info-panel h3 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+
+    .baaqmd-maps-main .five-day-forecast-table th {
+        font-size: 1.1rem;
+    }
+
+    .baaqmd-maps-main .five-day-forecast-table td .baaqmd-maps-legend .baaqmd-maps-zone-forecast-measurement {
+        font-size: 1rem;
+        line-height: 1.2rem;
+        margin-bottom: 4px;
+    }
+
+    .baaqmd-maps-main .five-day-forecast-table td .baaqmd-maps-legend .baaqmd-maps-pollutant {
+        font-size: 0.9rem;
     }
 }
 
@@ -2756,7 +2770,27 @@ button.close {
     }
 
     .aqi-txt {
-        font-size: 1.05rem;
+        font-size: 1rem;
+    }
+
+    .baaqmd-maps-main .five-day-forecast-table th {
+        font-size: 0.9rem;
+    }
+
+    .baaqmd-maps-main .five-day-forecast-table td .baaqmd-maps-legend .baaqmd-maps-zone-forecast-measurement {
+        font-size: 0.9rem;
+    }
+
+    .baaqmd-maps-main .five-day-forecast-table td .baaqmd-maps-legend .baaqmd-maps-pollutant {
+        font-size: 0.8rem;
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li a {
+        padding: 4px 4px;
+    }
+
+    .baaqmd-maps-main .baaqmd-maps-info-panel h3 {
+        font-size: 1.8rem;
     }
 }
 
@@ -2770,6 +2804,10 @@ button.close {
         line-height: 0.9rem;
     }
 
+    .aqi-no {
+        font-size: 1rem;
+    }
+
     .baaqmd-maps-main .baaqmd-maps-aqi-forecast-dates li a {
         font-size: 1.1rem !important;
     }
@@ -2779,7 +2817,11 @@ button.close {
     }
 
     .baaqmd-maps-main .baaqmd-maps-info-panel h3 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+
+    .baaqmd-maps-main .five-day-forecast-table td .baaqmd-maps-legend {
+        padding: 5px 2px;
     }
 }
 
