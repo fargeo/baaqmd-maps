@@ -22893,12 +22893,27 @@ knockout_latest["components"].register('PollutantInfoPanel', {
       map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', alertOpacity);
     }, this);
 
+    var getTodaysDay = function getTodaysDay() {
+      var aqiData = _this.aqiData();
+
+      var today = new Date();
+      var day = 0;
+      today = today.toLocaleDateString('en-US', {
+        day: '2-digit',
+        month: '2-digit'
+      });
+      aqiData.dates.forEach(function (date, i) {
+        if (today === date.date) day = i;
+      });
+      return day;
+    };
+
     this.setupMap = function (map) {
       if (_this.aqiData()) {
-        _this.day(0);
+        _this.day(getTodaysDay());
       } else {
         var updateOnFetch = _this.aqiData.subscribe(function () {
-          _this.day(0);
+          _this.day(getTodaysDay());
 
           updateOnFetch.dispose();
         });
@@ -23357,12 +23372,31 @@ var open_burning_fetchData = function fetchData(rootURL) {
       }
     }, this);
 
+    var getTodaysDay = function getTodaysDay() {
+      var openBurnData = _this.openBurnData();
+
+      var today = new Date();
+      var day = 0;
+      today = today.toLocaleDateString('en-US', {
+        day: '2-digit',
+        month: '2-digit'
+      });
+      openBurnData.dates.forEach(function (date, i) {
+        var dateString = date.date.toLocaleDateString('en-US', {
+          day: '2-digit',
+          month: '2-digit'
+        });
+        if (today === dateString) day = i;
+      });
+      return day;
+    };
+
     this.setupMap = function () {
       if (_this.openBurnData()) {
-        _this.day(0);
+        _this.day(getTodaysDay());
       } else {
         var updateOnFetch = _this.openBurnData.subscribe(function () {
-          _this.day(0);
+          _this.day(getTodaysDay());
 
           updateOnFetch.dispose();
         });

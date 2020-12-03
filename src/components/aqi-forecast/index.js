@@ -236,12 +236,22 @@ export default ko.components.register('AQIForecast', {
             map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', alertOpacity);
         }, this);
 
+        var getTodaysDay = () => {
+            let aqiData = this.aqiData();
+            let today = new Date();
+            let day = 0;
+            today = today.toLocaleDateString('en-US', { day: '2-digit', month: '2-digit' });
+            aqiData.dates.forEach((date, i) => {
+                if (today === date.date) day = i;
+            });
+            return day;
+        };
         this.setupMap = (map) => {
             if (this.aqiData()) {
-                this.day(0);
+                this.day(getTodaysDay());
             } else {
                 let updateOnFetch = this.aqiData.subscribe(() => {
-                    this.day(0);
+                    this.day(getTodaysDay());
                     updateOnFetch.dispose();
                 });
             }

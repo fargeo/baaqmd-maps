@@ -122,12 +122,24 @@ export default ko.components.register('OpenBurning', {
             }
         }, this);
 
+        var getTodaysDay = () => {
+            let openBurnData = this.openBurnData();
+            let today = new Date();
+            let day = 0;
+            today = today.toLocaleDateString('en-US', { day: '2-digit', month: '2-digit' });
+            openBurnData.dates.forEach((date, i) => {
+                let dateString = date.date.toLocaleDateString('en-US', { day: '2-digit', month: '2-digit' });
+                if (today === dateString) day = i;
+            });
+            return day;
+        };
+
         this.setupMap = () => {
             if (this.openBurnData()) {
-                this.day(0);
+                this.day(getTodaysDay());
             } else {
                 let updateOnFetch = this.openBurnData.subscribe(() => {
-                    this.day(0);
+                    this.day(getTodaysDay());
                     updateOnFetch.dispose();
                 });
             }
