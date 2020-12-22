@@ -1,10 +1,5 @@
 <!-- ko if: canScroll -->
 <div class="scroll-hint" data-bind="click: scroll">
-    <!-- ko if: scrolledToBottom -->
-    <div class="hint-arrow icomoon icon-ArrowUp"></div>
-    <!-- /ko -->
-    <!-- ko ifnot: scrolledToBottom -->
-    <div class="hint-arrow icomoon icon-ArrowDown"></div>
-    <!-- /ko -->
+    <div class="hint-arrow icomoon icon-ArrowUp" data-bind="css: scrolledToBottom() ? 'icon-ArrowUp' : 'icon-ArrowDown'"></div>
 </div>
 <!-- /ko -->

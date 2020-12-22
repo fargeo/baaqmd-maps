@@ -7953,7 +7953,7 @@ var n;n=function(){return function(e){var t={};function i(n){if(t[n])return t[n]
 /* 218 */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- ko if: canScroll -->\n<div class=\"scroll-hint\" data-bind=\"click: scroll\">\n    <!-- ko if: scrolledToBottom -->\n    <div class=\"hint-arrow icomoon icon-ArrowUp\"></div>\n    <!-- /ko -->\n    <!-- ko ifnot: scrolledToBottom -->\n    <div class=\"hint-arrow icomoon icon-ArrowDown\"></div>\n    <!-- /ko -->\n</div>\n<!-- /ko -->\n";
+module.exports = "<!-- ko if: canScroll -->\n<div class=\"scroll-hint\" data-bind=\"click: scroll\">\n    <div class=\"hint-arrow icomoon icon-ArrowUp\" data-bind=\"css: scrolledToBottom() ? 'icon-ArrowUp' : 'icon-ArrowDown'\"></div>\n</div>\n<!-- /ko -->\n";
 
 /***/ }),
 /* 219 */
