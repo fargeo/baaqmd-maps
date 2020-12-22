@@ -4,26 +4,31 @@
             <span data-bind="text: name"></span>
         </h3>
         <hr>
-        <table class="air-monitoring-table" style="margin-left: 5px;" >
-          <tbody>
-            <!-- ko foreach: attributeList -->
-            <!-- ko if: name && value !== undefined -->
-            <tr>
-                <td class="air-monitoring-attribute-data-title" data-bind="text: name"></td>
-                <td class="air-monitoring-attribute-data" data-bind="text: value"></td>
-            </tr>
-            <!-- /ko -->
-            <!-- /ko -->
-            <tr>
-              <td class="air-monitoring-attribute-data-title" data-bind="text: 'State'"></td>
-              <td class="air-monitoring-attribute-data" data-bind="text: 'CA'"></td>
-            </tr>
 
-            </tbody>
-        </table>
-        <br>
-        <h3>About Facilities</h3>
+        <div class="modal-content-block-one">
+            <table class="air-monitoring-table" style="margin-left: 5px;" >
+            <tbody>
+                <!-- ko foreach: attributeList -->
+                <!-- ko if: name && value !== undefined -->
+                <tr>
+                    <td class="air-monitoring-attribute-data-title" data-bind="text: name"></td>
+                    <td class="air-monitoring-attribute-data" data-bind="text: value"></td>
+                </tr>
+                <!-- /ko -->
+                <!-- /ko -->
+                <tr>
+                <td class="air-monitoring-attribute-data-title" data-bind="text: 'State'"></td>
+                <td class="air-monitoring-attribute-data" data-bind="text: 'CA'"></td>
+                </tr>
 
-        <div data-bind="html: aboutFacilities"></div>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-content-block-two">
+            <br>
+            <h3>About Facilities</h3>
+
+            <div data-bind="html: aboutFacilities"></div>
+        </div>
     </div>
 </div>

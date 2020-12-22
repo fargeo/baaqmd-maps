@@ -12,48 +12,51 @@
             <span data-bind="text: lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
         </div>
         <hr>
-        <table class="baaqmd-maps-zone-forecast">
-            <thead>
-                <tr>
-                    <th>&nbsp;</th>
-                    <th data-bind="click: function() { showInfoPanel('AQIInfoPanel')}">AQI</th>
-                    <th data-bind="click: function() { showInfoPanel('PollutantInfoPanel')}">Pollutant</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- ko foreach: aqiData -->
-                <tr>
-                    <th data-bind="css: {
-                        active: $index() === $parent.day()
-                    }" class="baaqmd-maps-zone-forecast-date">
-                        <a href="#" data-bind="click: function() {
-                            $parent.day($index());
-                        }, text: date"></a>
-                    </th>
-                    <td>
-                        <span class="baaqmd-maps-zone-forecast-zone-item" data-bind="
-                            text: measurement || forecast,
-                            css: {
-                                'good': forecast === 'Good',
-                                'moderate': forecast === 'Moderate',
-                                'unhealthy-for-sensitive-groups': forecast === 'Unhealthy for Sensitive Groups',
-                                'unhealthy': forecast === 'Unhealthy',
-                                'very-unhealthy': forecast === 'Very Unhealthy',
-                                'hazardous': forecast === 'Hazardous'
-                            }
-                            "></span>
-                    </td>
-                    <td data-bind="text: pollutant"></td>
-                </tr>
-                <!-- /ko -->
-            </tbody>
-        </table>
+        <div class="modal-content-block-one">
+            <table class="baaqmd-maps-zone-forecast">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th data-bind="click: function() { showInfoPanel('AQIInfoPanel')}">AQI</th>
+                        <th data-bind="click: function() { showInfoPanel('PollutantInfoPanel')}">Pollutant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ko foreach: aqiData -->
+                    <tr>
+                        <th data-bind="css: {
+                            active: $index() === $parent.day()
+                        }" class="baaqmd-maps-zone-forecast-date">
+                            <a href="#" data-bind="click: function() {
+                                $parent.day($index());
+                            }, text: date"></a>
+                        </th>
+                        <td>
+                            <span class="baaqmd-maps-zone-forecast-zone-item" data-bind="
+                                text: measurement || forecast,
+                                css: {
+                                    'good': forecast === 'Good',
+                                    'moderate': forecast === 'Moderate',
+                                    'unhealthy-for-sensitive-groups': forecast === 'Unhealthy for Sensitive Groups',
+                                    'unhealthy': forecast === 'Unhealthy',
+                                    'very-unhealthy': forecast === 'Very Unhealthy',
+                                    'hazardous': forecast === 'Hazardous'
+                                }
+                                "></span>
+                        </td>
+                        <td data-bind="text: pollutant"></td>
+                    </tr>
+                    <!-- /ko -->
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-content-block-two">
+            <h4>About the Five Day Forecast</h4>
 
-        <h4>About the Five Day Forecast</h4>
+            <div data-bind="html: aboutForecast"></div>
 
-        <div data-bind="html: aboutForecast"></div>
-
-        <p><a target="_blank" href="http://www.baaqmd.gov/rtaqd-data">Real Time Air Monitoring Data (Data View)</a></p>
-        <p><a target="_blank" href="http://www.baaqmd.gov/forecast">Additional Information</a></p>
+            <p><a target="_blank" href="http://www.baaqmd.gov/rtaqd-data">Real Time Air Monitoring Data (Data View)</a></p>
+            <p><a target="_blank" href="http://www.baaqmd.gov/forecast">Additional Information</a></p>
+        </div>
     </div>
 </div>
