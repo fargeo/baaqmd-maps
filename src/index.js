@@ -39,6 +39,13 @@ export function Map(opts) {
     this.mapType = ko.observable(opts.mapType);
     this.map = ko.observable();
     this.showInfoPanel = ko.observable(false);
+    this.popup = ko.observable(false);
+    this.closeInfoPanel = (closePopup) => {
+        var popup = this.popup();
+        if (closePopup && popup) popup.remove();
+        this.popup(false);
+        this.showInfoPanel(false);
+    };
     this.rootURL = opts.rootURL;
     this.scrolling = ko.observable(false);
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {

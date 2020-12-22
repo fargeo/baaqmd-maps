@@ -47,6 +47,11 @@ export default function MapDetailsPanel(params) {
                             .setLngLat(e.lngLat)
                             .setHTML(expandButton + this.popupTemplate)
                             .addTo(map);
+                        this.showInfoPanel.subscribe((panelComponent) => {
+                            if (panelComponent === popupComponent && popup) {
+                                params.popup(popup);
+                            }
+                        });
                         let popupBody = popup._content.querySelector('.baaqmd-maps-popup');
                         popupData.scrolledToBottom = ko.observable(false);
                         if (popupBody) {

@@ -5,6 +5,7 @@
             expanded: detailsExpanded,
             mapType: mapType,
             map: map,
+            popup: popup,
             enableMapTypeSelector: enableMapTypeSelector,
             showInfoPanel: showInfoPanel,
             rootURL: rootURL,
@@ -24,6 +25,7 @@
             detailsExpanded: detailsExpanded,
             mapType: mapType,
             map: map,
+            popup: popup,
             showInfoPanel: showInfoPanel,
             rootURL: rootURL,
             accessToken: accessToken
@@ -31,11 +33,12 @@
     } -->
     <!-- /ko -->
     <!-- ko if: showInfoPanel -->
-        <div class="baaqmd-maps-info-panel-mask" data-bind="click: function() { showInfoPanel(false); }"></div>
+        <div class="baaqmd-maps-info-panel-mask" data-bind="click: function() { closeInfoPanel(false); }"></div>
         <div class="baaqmd-maps-info-panel">
-            <button class="close-information-panel" data-bind="click: function() { showInfoPanel(false); }">
+            <button class="collapse-information-panel" data-bind="click: function() { closeInfoPanel(false); }, visible: popup()">
                 <i class="icon-Contract"></i>
             </button>
+            <button class="close-information-panel" data-bind="click: function() { closeInfoPanel(true); }">x</button>
             <div class="baaqmd-maps-info-panel-content">
                 <div class="baaqmd-maps-info-panel-component" data-bind="component: {
                    name: showInfoPanel(),

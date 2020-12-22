@@ -118,7 +118,7 @@ $no-color: #b10318;
             margin-bottom: 10px;
         }
 
-        .close-information-panel {
+        .close-information-panel, .collapse-information-panel {
             cursor: pointer;
             position: absolute;
             border-radius: 50%;
@@ -127,8 +127,7 @@ $no-color: #b10318;
             color: $primary-color;
             width: 28px;
             height: 28px;
-            font-size: 3rem;
-            font-weight: bold;
+            font-size: 1.8rem;
             text-align: center;
             border-color: transparent;
             background-color: transparent;
@@ -140,6 +139,12 @@ $no-color: #b10318;
                 color: $secondary-color;
                 background-color: transparent;
             }
+        }
+        .collapse-information-panel {
+            font-weight: bold;
+            font-size: 3rem;
+            top: 2px;
+            right: 26px;
         }
 
         .baaqmd-maps-info-panel-content {
@@ -1671,7 +1676,7 @@ span.date-date {
     }
 }
 
-.baaqmd-maps-main .baaqmd-maps-info-panel .close-information-panel i.icon-Contract {
+.baaqmd-maps-main .baaqmd-maps-info-panel .collapse-information-panel i.icon-Contract {
     top: -7px;
     right: 7px;
     position: relative;

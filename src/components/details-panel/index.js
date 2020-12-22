@@ -7,6 +7,7 @@ import '../../bindings/choices';
 
 export default ko.components.register('details-panel', {
     viewModel: function(params) {
+        this.popup = params.popup;
         this.expanded = params.expanded || ko.observable(false);
         this.enableMapTypeSelector = params.enableMapTypeSelector;
         this.rootURL = params.rootURL;
