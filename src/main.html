@@ -43,7 +43,13 @@
                 <div class="baaqmd-maps-info-panel-component" data-bind="component: {
                    name: showInfoPanel(),
                    params: $data
-               }"></div>
+                }"></div>
+                <div data-bind="component: {
+                    name: 'scroll-hint',
+                    params: {
+                        getScrollContent: getScrollContent
+                    }
+                }"></div>
             </div>
         </div>
     <!-- /ko -->

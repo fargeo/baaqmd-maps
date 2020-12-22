@@ -12,6 +12,7 @@ import './components/monitoring/';
 import './components/open-burning/';
 import './components/map/';
 import './components/details-panel/';
+import './components/scroll-hint/';
 
 export function Map(opts) {
     const parser = new DOMParser();
@@ -39,6 +40,9 @@ export function Map(opts) {
     this.mapType = ko.observable(opts.mapType);
     this.map = ko.observable();
     this.showInfoPanel = ko.observable(false);
+    this.getScrollContent = function(e) {
+        return e.closest('.baaqmd-maps-info-panel-content');
+    };
     this.popup = ko.observable(false);
     this.closeInfoPanel = (closePopup) => {
         var popup = this.popup();

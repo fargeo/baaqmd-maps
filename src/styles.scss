@@ -93,6 +93,7 @@ $no-color: #b10318;
     }
 
     .baaqmd-maps-info-panel {
+        overflow: hidden;
         position: absolute;
         margin: auto;
         top: 32px;
@@ -895,6 +896,7 @@ $no-color: #b10318;
     }
 
     .mapboxgl-popup-content {
+        overflow: hidden;
         padding: 0px;
         max-width: 250px;
         height: 275px;

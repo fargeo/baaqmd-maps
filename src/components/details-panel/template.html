@@ -59,12 +59,15 @@
         </div>
         <div class="baaqmd-maps-type-selector">
         </div>
-         <div class="baaqmd-maps-details-panel-content" data-bind="component: {
-             name: mapType,
-             params: $data
-         }"></div>
-         <div class="scroll-hint" data-bind="click: scrollContent">
-            <div class="hint-arrow icomoon icon-ArrowDown"></div>
-        </div>
+        <div class="baaqmd-maps-details-panel-content" data-bind="component: {
+            name: mapType,
+            params: $data
+        }"></div>
+        <div data-bind="component: {
+            name: 'scroll-hint',
+            params: {
+                getScrollContent: getScrollContent
+            }
+        }"></div>
     </div>
 </div>

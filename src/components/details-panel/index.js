@@ -18,10 +18,9 @@ export default ko.components.register('details-panel', {
             window.mapTypeSelector = this.mapTypeSelector();
             window.mapTypeSelector.showDropdown();
         };
-        this.scrollContent = function(vm, e) {
-            const content = e.target.closest('.baaqmd-maps-details-panel')
+        this.getScrollContent = function(e) {
+            return e.closest('.baaqmd-maps-details-panel')
                 .querySelector('.baaqmd-maps-details-panel-content');
-            content.scrollBy({ top: 100, behavior: "smooth" });
         };
         this.showInfoPanel = params.showInfoPanel;
         if (typeof params.enableMapTypeSelector !== 'boolean') {

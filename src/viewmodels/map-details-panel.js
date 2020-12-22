@@ -53,14 +53,9 @@ export default function MapDetailsPanel(params) {
                             }
                         });
                         let popupBody = popup._content.querySelector('.baaqmd-maps-popup');
-                        popupData.scrolledToBottom = ko.observable(false);
-                        if (popupBody) {
-                            popupBody.onscroll = () => {
-                                popupData.scrolledToBottom(
-                                    popupBody.scrollTop + popupBody.offsetHeight === popupBody.scrollHeight
-                                );
-                            };
-                        }
+                        popupData.getScrollContent = () => {
+                            return popupBody;
+                        };
                         popup.on('close', () => { popup = undefined; });
                         ko.applyBindingsToDescendants(popupData, popup._content);
                     }
