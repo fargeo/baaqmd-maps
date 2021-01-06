@@ -125,7 +125,8 @@ $no-color: #b10318;
             margin-bottom: 10px;
         }
 
-        .close-information-panel, .collapse-information-panel {
+        .close-information-panel,
+        .collapse-information-panel {
             cursor: pointer;
             position: absolute;
             border-radius: 50%;
@@ -147,10 +148,11 @@ $no-color: #b10318;
                 background-color: transparent;
             }
         }
+
         .collapse-information-panel {
             font-weight: bold;
             font-size: 3rem;
-            top: 2px;
+            top: 0px;
             right: 26px;
         }
 
@@ -542,6 +544,7 @@ $no-color: #b10318;
 
     .baaqmd-maps-details-panel-wrapper {
         width: $side-panel-width;
+        background: #e6edee;
     }
 
     .baaqmd-maps-map,
@@ -653,6 +656,7 @@ $no-color: #b10318;
             top: 45px;
             bottom: 0;
             overflow-y: auto;
+            background-color: #eff6f7;
 
             .baaqmd-maps-last-updated {
                 margin: 0 0 10px 13px;
@@ -739,7 +743,7 @@ $no-color: #b10318;
                     box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
                     background: $primary-color !important;
                     width: 240px;
-                    right: -240px;
+                    right: -241px;
                     overflow-y: hidden;
                 }
             }
@@ -837,12 +841,10 @@ $no-color: #b10318;
     }
 
     .baaqmd-maps-details-panel.baaqmd-maps-expanded {
-        border-right: 1px solid rgba(0, 60, 120, 0.3);
         box-shadow: 0px 1px 3px 0px rgba(black, 0.2), 0px 1px 1px 0px rgba(black, 0.14), 0px 2px 1px -1px rgba(black, 0.12);
     }
 
     .baaqmd-maps-details-panel.baaqmd-maps-expanded {
-        border-right: 1px solid $mid-color;
         width: $side-panel-width;
     }
 
@@ -974,10 +976,10 @@ $no-color: #b10318;
         .baaqmd-maps-popup-content {
             font-size: 1.4rem;
             line-height: 1.8rem;
-            padding: 10px 30px 25px 10px;
+            padding: 10px 10px 25px 10px;
 
             h3 {
-                margin: 0 30px 10px 0;
+                margin: 0 30px 3px 0;
 
                 span {
                     font-size: 2rem;
@@ -1685,7 +1687,7 @@ span.date-date {
 }
 
 .baaqmd-maps-main .baaqmd-maps-info-panel .collapse-information-panel i.icon-Contract {
-    top: -7px;
+    top: 0px;
     right: 7px;
     position: relative;
 }
@@ -2707,6 +2709,73 @@ button.close {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+.baaqmd-maps-info-panel .modal-content-block-one {
+    width: 50%;
+    float: left;
+}
+
+.baaqmd-maps-info-panel .modal-content-block-two {
+    width: 46%;
+    padding-left: 4%;
+    float: left;
+    border-left: solid 1px #ddd;
+}
+
+table.striped-rows.air-monitoring-table {
+    margin-left: 0 !important;
+}
+
+.baaqmd-maps-info-panel table.striped-rows.air-monitoring-table {
+    margin-left: 0 !important;
+    margin-right: 8% !important;
+    width: 92% !important;
+}
+
+.baaqmd-maps-main .baaqmd-maps-popup .baaqmd-maps-popup-content table td.air-monitoring-attribute-data-title {
+    font-size: 1.15rem;
+    line-height: 1.8rem;
+    text-indent: 8px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-popup .baaqmd-maps-popup-content table td.air-monitoring-attribute-data {
+    font-size: 1.15rem;
+}
+
+.baaqmd-maps-main .mapboxgl-popup-content .mapboxgl-popup-expand-button {
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=1);
+    border-radius: 6px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-info-panel .baaqmd-maps-popup .baaqmd-maps-popup-content h3 {
+    margin: 0 10px 0px 0;
+}
+
+.baaqmd-maps-info-panel .modal-content-block-two h4,
+.baaqmd-maps-info-panel .modal-content-block-one h4,
+.baaqmd-maps-info-panel .modal-content-block-two h3,
+.baaqmd-maps-info-panel .modal-content-block-one h3 {
+    margin-top: 0 !important;
+}
+
+.baaqmd-maps-type-selector {
+    background-color: #eff6f7;
+}
+
+.baaqmd-maps-info-panel .scroll-hint {
+    left: 45%;
+}
+
+.baaqmd-maps-info-panel h3.modal-title {
+    margin-bottom: 0px;
+}
+
+.mapboxgl-popup {
+    z-index: 100;
+}
+
 @media (max-width: 800px) {
     .modal-dialog {
         width: 660px !important;
@@ -2763,6 +2832,24 @@ button.close {
 
     .baaqmd-maps-main .five-day-forecast-table td .baaqmd-maps-legend .baaqmd-maps-pollutant {
         font-size: 0.9rem;
+    }
+
+    .baaqmd-maps-info-panel .modal-content-block-one {
+        width: 100%;
+    }
+
+    .baaqmd-maps-info-panel .modal-content-block-two {
+        width: 100%;
+        padding-left: 0%;
+        border-left: none;
+    }
+
+    .baaqmd-maps-info-panel .modal-content-block-two h4 {
+        margin-top: 15px !important;
+    }
+
+    .baaqmd-maps-info-panel .scroll-hint {
+        left: 40%;
     }
 }
 

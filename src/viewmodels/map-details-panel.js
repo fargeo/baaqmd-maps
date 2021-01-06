@@ -27,10 +27,9 @@ export default function MapDetailsPanel(params) {
                 });
                 popupComponents.push(popupComponent);
             }
-
+            if (this.popupTemplate) this.popupTemplate += scrollForMoreTemplate;
             let click = (e) => {
                 if (this.popupTemplate) {
-                    this.popupTemplate += scrollForMoreTemplate;
                     const feature = e.features[0];
                     popupData = this.getPopupData(feature);
                     if (popupData) {

@@ -23169,9 +23169,10 @@ function MapDetailsPanel(params) {
         popupComponents.push(popupComponent);
       }
 
+      if (_this.popupTemplate) _this.popupTemplate += scroll_for_more;
+
       var click = function click(e) {
         if (_this.popupTemplate) {
-          _this.popupTemplate += scroll_for_more;
           var feature = e.features[0];
           popupData = _this.getPopupData(feature);
 
