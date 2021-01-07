@@ -1762,8 +1762,8 @@ i.icomoon.icon-Menu2 {
 }
 
 .spare-icon.icon-SpareAirHorizontal {
-    font-size: 8rem;
-    line-height: 2.6rem !important;
+    font-size: 12rem;
+    line-height: 4rem !important;
 }
 
 .icon-SpareAirHorizontal:before {
@@ -1774,7 +1774,7 @@ i.icomoon.icon-Menu2 {
 .alrt-main-cntnt {
     font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
     color: #333;
-    padding: 15px 15px 5px 15px;
+    padding: 15px 0px 6px 0px;
     display: inline-block;
     width: 100%;
 }
@@ -1786,7 +1786,8 @@ i.icomoon.icon-Menu2 {
 }
 
 .lft-key {
-    width: 20%;
+    width: 22%;
+    padding: 0 2%;
     float: left;
     border-right: solid 1px #333;
 }
@@ -1794,13 +1795,14 @@ i.icomoon.icon-Menu2 {
 .mid-date {
     width: 23%;
     float: left;
-    margin-left: 5%;
+    margin-left: 1%;
 }
 
 .rt-alert {
     width: 48%;
     float: left;
     margin-left: 2%;
+    margin-top: 4px;
 }
 
 .clear {
@@ -1822,8 +1824,8 @@ i.icomoon.icon-Menu2 {
     font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
     font-weight: 600;
     text-align: center;
-    font-size: 1.4rem;
-    line-height: 1.8rem !important;
+    font-size: 2.3rem;
+    line-height: 3.6rem !important;
 }
 
 .alert-icon.icon-AlertThree,
@@ -1832,8 +1834,8 @@ i.icomoon.icon-Menu2 {
     font-family: icomoon;
     color: #de2b2e;
     float: left;
-    font-size: 2.7rem;
-    line-height: 3.1rem;
+    font-size: 4.4rem;
+    line-height: 4rem;
     margin-right: 3px;
 }
 
@@ -1853,23 +1855,26 @@ i.icomoon.icon-Menu2 {
     font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
     font-weight: 500;
     text-align: center;
-    font-size: 0.75rem;
-    line-height: 0.85rem !important;
+    font-size: 1.2rem;
+    line-height: 1.4rem !important;
+    margin-top: -2px;
 }
 
 .spare-day {
     font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
     color: #333;
-    font-size: 0.85rem;
+    font-size: 1.4rem;
     font-weight: 400;
     margin-bottom: 2px;
+    text-align: center;
 }
 
 .alert-text {
     color: #de2b2e;
     float: left;
-    font-size: 1.8rem;
-    line-height: 3.1rem;
+    font-size: 2.8rem;
+    line-height: 4rem;
+    margin-left: 4px;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -2391,6 +2396,25 @@ a.choices-btn .icomoon.icon-ArrowDown {
     .baaqmd-maps-main .baaqmd-maps-boundaries .legend-display i {
         top: 4px;
     }
+
+    .spare-zone {
+        font-size: 1.1rem;
+        line-height: 1.3rem !important;
+    }
+
+    .spare-day {
+        font-size: 1.3rem;
+    }
+
+    .alert-icon.icon-AlertOne,
+    .alert-icon.icon-AlertThree,
+    .alert-icon.icon-AlertTwo {
+        font-size: 3.8rem;
+    }
+
+    .alert-text {
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 350px) {
@@ -2408,6 +2432,26 @@ a.choices-btn .icomoon.icon-ArrowDown {
 
     .baaqmd-maps-main .baaqmd-maps-legend li {
         font-size: .75rem;
+    }
+
+    .spare-zone {
+        font-size: 1rem;
+        line-height: 1.2rem !important;
+    }
+
+    .spare-day {
+        font-size: 1.2rem;
+    }
+
+    .alert-icon.icon-AlertOne,
+    .alert-icon.icon-AlertThree,
+    .alert-icon.icon-AlertTwo {
+        font-size: 3.5rem;
+    }
+
+    .alert-text {
+        font-size: 2.3rem;
+        margin-left: 2px;
     }
 }
 
