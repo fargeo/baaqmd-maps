@@ -36,6 +36,7 @@ export default function MapDetailsPanel(params) {
                         popupData.showInfoPanel = params.showInfoPanel;
                         var expandButton = `<button
                             class="mapboxgl-popup-expand-button"
+                            title="Expand"
                             type="button"
                             data-bind="click: function() {
                                 showInfoPanel('${popupComponent}');
@@ -52,6 +53,7 @@ export default function MapDetailsPanel(params) {
                             }
                         });
                         let popupBody = popup._content.querySelector('.baaqmd-maps-popup');
+                        popup._content.querySelector('.mapboxgl-popup-close-button').setAttribute('title', 'Close');
                         popupData.getScrollContent = () => {
                             return popupBody;
                         };
