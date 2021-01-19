@@ -11,7 +11,7 @@
     "apiURI": "https://api.mapbox.com/styles/v1/",
     "aqiRSSFeed": "Feeds/Air-Forecast-Map",
     "spaRSSFeed": "Feeds/TwoDayMapAlertRSS",
-    "openBurnRSSFeed": "Feeds/OpenBurnRSS",
+    "openBurnRSSFeed": "Feeds/Open-Burn-Map",
     "helpContentURL": "Utils/Interactive-Map-Content/Help",
     "aqiInfoURL": "Utils/Interactive-Map-Content/AQI",
     "aboutForecastURL": "Utils/Interactive-Map-Content/About-Forecast",

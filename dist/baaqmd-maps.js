@@ -370,7 +370,7 @@ module.exports =
 /* 7 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"prodRoot\":\"https://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Feeds/Air-Forecast-Map\",\"spaRSSFeed\":\"Feeds/TwoDayMapAlertRSS\",\"openBurnRSSFeed\":\"Feeds/OpenBurnRSS\",\"helpContentURL\":\"Utils/Interactive-Map-Content/Help\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"openBurnStatusInfoURL\":\"Utils/Interactive-Map-Content/OBS-Info\",\"aboutImpactedCommunitiesURL\":\"Utils/Interactive-Map-Content/CARE-Info\",\"aboutFacilitiesURL\":\"Utils/Interactive-Map-Content/About-Facility\",\"summerModalURL\":\"Utils/Interactive-Map-Content/Summer-Modal-Content\",\"winterModalURL\":\"Utils/Interactive-Map-Content/Winter-Modal-Content\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalDocRootURL\":\"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/\",\"zoom\":7,\"center\":[-122.11157519531474,37.900063508510144],\"districtBounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"https://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb\",\"label\":\"Open Burning Map\"}}}");
+module.exports = JSON.parse("{\"prodRoot\":\"https://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D\",\"facilityTilesetId\":\"dht7c8iz\",\"clusteredFacilityTilesetId\":\"4nmcglky\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Feeds/Air-Forecast-Map\",\"spaRSSFeed\":\"Feeds/TwoDayMapAlertRSS\",\"openBurnRSSFeed\":\"Feeds/Open-Burn-Map\",\"helpContentURL\":\"Utils/Interactive-Map-Content/Help\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"openBurnStatusInfoURL\":\"Utils/Interactive-Map-Content/OBS-Info\",\"aboutImpactedCommunitiesURL\":\"Utils/Interactive-Map-Content/CARE-Info\",\"aboutFacilitiesURL\":\"Utils/Interactive-Map-Content/About-Facility\",\"summerModalURL\":\"Utils/Interactive-Map-Content/Summer-Modal-Content\",\"winterModalURL\":\"Utils/Interactive-Map-Content/Winter-Modal-Content\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalDocRootURL\":\"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/\",\"zoom\":7,\"center\":[-122.11157519531474,37.900063508510144],\"districtBounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"https://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb\",\"label\":\"Open Burning Map\"}}}");
 
 /***/ }),
 /* 8 */
@@ -23920,6 +23920,11 @@ knockout_latest["components"].register('OpenBurnInfoPanel', {
 var open_burning_parser = new DOMParser();
 var openBurnData = knockout_latest["observable"]();
 var openBurnStatusInfo = knockout_latest["observable"]();
+var sectionNames = {
+  'South': 'South Section',
+  'Coast': 'Coastal Section',
+  'North': 'North Section'
+};
 
 var open_burning_fetchData = function fetchData(rootURL) {
   fetch(rootURL + src_config["openBurnRSSFeed"], {
@@ -23931,35 +23936,35 @@ var open_burning_fetchData = function fetchData(rootURL) {
     var dates = [];
     var sections = {};
     xmlDoc.querySelectorAll('item').forEach(function (item) {
-      var date = new Date(item.querySelector('title').textContent.replace("Spare the Air Status for ", ""));
-      var status = item.querySelector('description').textContent.split('\n').reduce(function (statusList, item) {
-        if (item) statusList.push(item.split(": "));
-        return statusList;
-      }, []).map(function (item) {
-        var name = item[0].replace('ern', '');
-        var status = item[1] === 'Burn' ? "yes" : "no";
-        var statusLabel = item[1] === 'Burn' ? "Allowed" : "Prohibited";
+      var date = new Date(item.querySelector('date').textContent);
+      var zones = item.querySelectorAll('zone');
+      var statuses = item.querySelectorAll('status');
+      var dateStatus = [];
+      zones.forEach(function (zone, i) {
+        var name = sectionNames[zone.textContent];
+        var status = statuses[i].textContent === "Burn Allowed" ? "yes" : "no";
+        var statusLabel = status === "yes" ? "Allowed" : "Prohibited";
         if (!sections[name]) sections[name] = [];
         sections[name].push({
           date: date,
           status: status,
           statusLabel: statusLabel
         });
-        return {
+        dateStatus.push({
           name: name,
           status: status,
           statusLabel: statusLabel
-        };
+        });
       });
       dates.push({
         date: date,
-        status: status
+        status: dateStatus
       });
     });
     openBurnData({
       dates: dates,
       sections: sections,
-      lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
+      lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').textContent)
     });
   });
   fetchHTML(rootURL + src_config["openBurnStatusInfoURL"], openBurnStatusInfo);

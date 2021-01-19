@@ -16,6 +16,11 @@ ko.components.register('OpenBurnInfoPanel', {
 const parser = new DOMParser();
 const openBurnData = ko.observable();
 const openBurnStatusInfo = ko.observable();
+const sectionNames = {
+    'South': 'South Section',
+    'Coast': 'Coastal Section',
+    'North': 'North Section'
+};
 let fetchData = (rootURL) => {
     fetch(rootURL + config.openBurnRSSFeed, {cache: "no-store"})
         .then((response) => {
@@ -26,39 +31,35 @@ let fetchData = (rootURL) => {
             const dates = [];
             const sections = {};
             xmlDoc.querySelectorAll('item').forEach((item) => {
-                const date = new Date(item.querySelector('title').textContent.replace("Spare the Air Status for ", ""));
-                const status = item.querySelector('description').textContent
-                    .split('\n')
-                    .reduce((statusList, item) => {
-                        if (item) statusList.push(item.split(": "));
-                        return statusList;
-                    }, [])
-                    .map((item) => {
-                        const name = item[0].replace('ern', '');
-                        const status = item[1] === 'Burn' ? "yes" : "no";
-                        const statusLabel = item[1] === 'Burn' ? "Allowed" : "Prohibited";
-
-                        if (!sections[name]) sections[name] = [];
-                        sections[name].push({
-                            date: date,
-                            status: status,
-                            statusLabel: statusLabel
-                        });
-                        return {
-                            name: name,
-                            status: status,
-                            statusLabel: statusLabel
-                        };
+                const date = new Date(item.querySelector('date').textContent);
+                const zones = item.querySelectorAll('zone');
+                const statuses = item.querySelectorAll('status');
+                const dateStatus = [];
+                zones.forEach(function(zone, i) {
+                    const name = sectionNames[zone.textContent];
+                    const status = statuses[i].textContent === "Burn Allowed" ? "yes" : "no";
+                    const statusLabel = status === "yes" ? "Allowed" : "Prohibited";
+                    if (!sections[name]) sections[name] = [];
+                    sections[name].push({
+                        date: date,
+                        status: status,
+                        statusLabel: statusLabel
                     });
+                    dateStatus.push({
+                        name: name,
+                        status: status,
+                        statusLabel: statusLabel
+                    });
+                });
                 dates.push({
                     date: date,
-                    status: status
+                    status: dateStatus
                 });
             });
             openBurnData({
                 dates: dates,
                 sections: sections,
-                lastUpdated: new Date(xmlDoc.querySelector('lastBuildDate').textContent)
+                lastUpdated: new Date(xmlDoc.querySelector('lastUpdated').textContent)
             });
         });
     fetchHTML(rootURL + config.openBurnStatusInfoURL, openBurnStatusInfo);
