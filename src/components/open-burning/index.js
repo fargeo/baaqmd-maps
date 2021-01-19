@@ -32,29 +32,31 @@ let fetchData = (rootURL) => {
             const sections = {};
             xmlDoc.querySelectorAll('item').forEach((item) => {
                 const date = new Date(item.querySelector('date').textContent);
-                const zones = item.querySelectorAll('zone');
-                const statuses = item.querySelectorAll('status');
-                const dateStatus = [];
-                zones.forEach(function(zone, i) {
-                    const name = sectionNames[zone.textContent];
-                    const status = statuses[i].textContent === "Burn Allowed" ? "yes" : "no";
-                    const statusLabel = status === "yes" ? "Allowed" : "Prohibited";
-                    if (!sections[name]) sections[name] = [];
-                    sections[name].push({
+                if (date >= new Date().setHours(0, 0, 0, 0)) {
+                    const zones = item.querySelectorAll('zone');
+                    const statuses = item.querySelectorAll('status');
+                    const dateStatus = [];
+                    zones.forEach(function(zone, i) {
+                        const name = sectionNames[zone.textContent];
+                        const status = statuses[i].textContent === "Burn Allowed" ? "yes" : "no";
+                        const statusLabel = status === "yes" ? "Allowed" : "Prohibited";
+                        if (!sections[name]) sections[name] = [];
+                        sections[name].push({
+                            date: date,
+                            status: status,
+                            statusLabel: statusLabel
+                        });
+                        dateStatus.push({
+                            name: name,
+                            status: status,
+                            statusLabel: statusLabel
+                        });
+                    });
+                    dates.push({
                         date: date,
-                        status: status,
-                        statusLabel: statusLabel
+                        status: dateStatus
                     });
-                    dateStatus.push({
-                        name: name,
-                        status: status,
-                        statusLabel: statusLabel
-                    });
-                });
-                dates.push({
-                    date: date,
-                    status: dateStatus
-                });
+                }
             });
             openBurnData({
                 dates: dates,
