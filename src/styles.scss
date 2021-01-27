@@ -2939,13 +2939,18 @@ table.striped-rows.air-monitoring-table {
     }
 }
 
-@media (max-width: 374px) {
+@media (max-width: 376px) {
     .modal-dialog {
         width: 355px !important;
     }
 
+    .baaqmd-maps-main .baaqmd-maps-legend.aqi-forecast-legend li {
+        padding: 2px 8px;
+        height: 62px;
+    }
+
     .aqi-txt {
-        font-size: 1.0rem;
+        font-size: 0.95rem;
         line-height: 0.9rem;
     }
 
