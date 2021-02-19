@@ -124,7 +124,7 @@ if (!mapboxKey) {
                 './data/facilities/facilities-clustered.mbtiles',
                 {
                     output: './data/facilities/facilities-clustered.mbtiles',
-                    maximumZoom: 20,
+                    maximumZoom: 16,
                     clusterDistance: config.facilitiesClusterDistance,
                     accumulateAttribute: JSON.stringify({
                         "X_MAX":"max",
@@ -149,7 +149,7 @@ if (!mapboxKey) {
                         './data/facilities/facilities.mbtiles',
                         {
                             output: './data/facilities/facilities.mbtiles',
-                            maximumZoom: 20,
+                            maximumZoom: 16,
                             minimumZoom: 10,
                             dropRate: 1
                         },

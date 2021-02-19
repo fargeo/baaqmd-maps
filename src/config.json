@@ -3,9 +3,9 @@
     "accessToken": "pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw",
     "userName": "baaqmd-publicmaps",
     "tilesetId": "c3867v6s",
-    "facilitiesJSONURL": "https://baaqmdpsprod.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2018-03-28&si=external-ro&sr=b&sig=P1GRNrMe0fA8n%2FqbdT9eKg1R3cQHwjZvrxuD1fzpCeM%3D",
-    "facilityTilesetId": "dht7c8iz",
-    "clusteredFacilityTilesetId": "4nmcglky",
+    "facilitiesJSONURL": "https://baaqmdpsuat.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2019-12-12&st=2021-02-18T20:16:09Z&se=2022-02-19T20:16:00Z&sr=b&sp=r&sig=KHAE1u%2BwFe7qa4ItImKXLIkpAID9CeMPP4Omt1D9k1c%3D",
+    "facilityTilesetId": "8hovmgli",
+    "clusteredFacilityTilesetId": "8q4j3kqu",
     "facilitiesClusterDistance": 30,
     "facilitiesJSONPath": "./data/facilities/facilities.json",
     "apiURI": "https://api.mapbox.com/styles/v1/",
@@ -44,7 +44,7 @@
             "label": "Air Quality Forecast Map"
         },
         "Facilities": {
-            "style": "baaqmd-publicmaps/cjzswuvek0ezp1cnowoqi1be2",
+            "style": "baaqmd-publicmaps/cklcnrb7g2hwq17notzudstpy",
             "label": "Facilities Map"
         },
         "ImpactedCommunities": {
