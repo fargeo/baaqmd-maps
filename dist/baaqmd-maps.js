@@ -158,19 +158,6 @@ module.exports = function (options, source) {
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(10);
-
-module.exports = function (it) {
-  if (!isObject(it)) {
-    throw TypeError(String(it) + ' is not an object');
-  } return it;
-};
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * Knockout JavaScript library v3.5.1
  * (c) The Knockout.js team - http://knockoutjs.com/
@@ -316,6 +303,19 @@ a+" })()) }}"};this.addTemplate=function(a,b){w.write("<script type='text/html' 
 
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(10);
+
+module.exports = function (it) {
+  if (!isObject(it)) {
+    throw TypeError(String(it) + ' is not an object');
+  } return it;
+};
+
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
@@ -376,7 +376,7 @@ module.exports = JSON.parse("{\"prodRoot\":\"https://www.baaqmd.gov/\",\"accessT
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var isArrayIteratorMethod = __webpack_require__(115);
 var toLength = __webpack_require__(12);
 var bind = __webpack_require__(20);
@@ -688,7 +688,7 @@ module.exports = function (argument) {
 
 var DESCRIPTORS = __webpack_require__(11);
 var IE8_DOM_DEFINE = __webpack_require__(136);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toPrimitive = __webpack_require__(35);
 
 var nativeDefineProperty = Object.defineProperty;
@@ -951,7 +951,7 @@ module.exports = {
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var wellKnownSymbol = __webpack_require__(9);
 
@@ -1091,7 +1091,7 @@ module.exports = function (argument) {
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var defineProperties = __webpack_require__(85);
 var enumBugKeys = __webpack_require__(111);
 var hiddenKeys = __webpack_require__(67);
@@ -1779,7 +1779,7 @@ module.exports = Array.isArray || function isArray(arg) {
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aPossiblePrototype = __webpack_require__(145);
 
 // `Object.setPrototypeOf` method
@@ -1992,7 +1992,7 @@ module.exports = IS_PURE ? getIterator : function (it) {
 
 var path = __webpack_require__(39);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var create = __webpack_require__(29);
 var createNonEnumerableProperty = __webpack_require__(18);
 var redefineAll = __webpack_require__(44);
@@ -2060,7 +2060,7 @@ module.exports = function (nextHandler, IS_ITERATOR) {
 
 var path = __webpack_require__(39);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var create = __webpack_require__(29);
 var createNonEnumerableProperty = __webpack_require__(18);
 var redefineAll = __webpack_require__(44);
@@ -2199,7 +2199,7 @@ module.exports = {
 
 "use strict";
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 // `RegExp.prototype.flags` getter implementation
 // https://tc39.github.io/ecma262/#sec-get-regexp.prototype.flags
@@ -2514,7 +2514,7 @@ module.exports = function (it) {
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getIteratorMethod = __webpack_require__(50);
 
 module.exports = function (it) {
@@ -2533,7 +2533,7 @@ module.exports = function (it) {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getBuiltIn = __webpack_require__(16);
 
 var Promise = getBuiltIn('Promise');
@@ -2707,7 +2707,7 @@ var store = __webpack_require__(82);
 
 var DESCRIPTORS = __webpack_require__(11);
 var definePropertyModule = __webpack_require__(15);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var objectKeys = __webpack_require__(59);
 
 // `Object.defineProperties` method
@@ -2727,7 +2727,7 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
 /* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 module.exports = function (iterator) {
   var returnMethod = iterator['return'];
@@ -3640,7 +3640,7 @@ module.exports = {
 
 "use strict";
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 
 // https://github.com/tc39/collection-methods
@@ -3762,7 +3762,7 @@ module.exports = store.inspectSource;
 var getBuiltIn = __webpack_require__(16);
 var getOwnPropertyNamesModule = __webpack_require__(51);
 var getOwnPropertySymbolsModule = __webpack_require__(112);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 // all object keys, includes non-enumerable and symbols
 module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
@@ -3855,7 +3855,7 @@ module.exports = String(test) === '[object z]';
 /* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var iteratorClose = __webpack_require__(86);
 
 // call something on iterator step with safe closing on error
@@ -4433,7 +4433,7 @@ var anInstance = __webpack_require__(37);
 var hasOwn = __webpack_require__(17);
 var bind = __webpack_require__(20);
 var classof = __webpack_require__(71);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var isObject = __webpack_require__(10);
 var create = __webpack_require__(29);
 var createPropertyDescriptor = __webpack_require__(41);
@@ -4817,7 +4817,7 @@ module.exports = createIteratorConstructor(function ObjectIterator(source, mode)
 
 "use strict";
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 // `Map.prototype.upsert` method
 // https://github.com/thumbsupep/proposal-upsert
@@ -5368,7 +5368,7 @@ var createIteratorConstructor = __webpack_require__(54);
 var requireObjectCoercible = __webpack_require__(24);
 var toLength = __webpack_require__(12);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var classof = __webpack_require__(42);
 var isRegExp = __webpack_require__(75);
 var getRegExpFlags = __webpack_require__(63);
@@ -5794,7 +5794,7 @@ module.exports = queueMicrotask || function (fn) {
 /* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var isObject = __webpack_require__(10);
 var newPromiseCapability = __webpack_require__(76);
 
@@ -6142,7 +6142,7 @@ module.exports = collection('Set', function (init) {
 
 var redefineAll = __webpack_require__(44);
 var getWeakData = __webpack_require__(55).getWeakData;
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var isObject = __webpack_require__(10);
 var anInstance = __webpack_require__(37);
 var iterate = __webpack_require__(8);
@@ -7407,7 +7407,7 @@ $({ target: 'URL', proto: true, enumerable: true }, {
 
 "use strict";
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 
 // https://github.com/tc39/collection-methods
@@ -7622,7 +7622,7 @@ module.exports = function (it) {
 
 "use strict";
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 // `Map.prototype.emplace` method
 // https://github.com/thumbsupep/proposal-upsert
@@ -7687,7 +7687,7 @@ module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko component: {\n  
 /* 190 */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- ko if: alertStatus() -->\n<div class=\"spare-air-alert\" data-bind=\"css: {'modal-control': alertMode() !== 'none' }, click: showSTAModal\">\n    <div class=\"spare-logo\">\n        <div class=\"spare-icon icon-SpareAirHorizontal\"></div>\n    </div>\n    <div class=\"alrt-main-cntnt\">\n        <div class=\"lft-key\">\n            <div class=\"spare-zone\">Region Wide</div>\n            <div class=\"spare-key\"></div>\n        </div>\n        <div class=\"mid-date\">\n            <div class=\"spare-day\" data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(new Date())\"></div>\n            <div class=\"spare-date\" data-bind=\"text: new Intl.DateTimeFormat('en-US', { month: 'numeric', day: 'numeric' }).format(new Date())\"></div>\n        </div>\n        <div class=\"rt-alert\">\n            <!-- ko if: alertMode() === 'none' -->\n            <div class=\"alert-icon icon-AlertOne\"></div>\n            <!-- /ko -->\n            <!-- ko if: alertMode() === 'winter' -->\n            <div class=\"alert-icon icon-AlertTwo\"></div>\n            <!-- /ko -->\n            <!-- ko if: alertMode() === 'summer' -->\n            <div class=\"alert-icon icon-AlertThree\"></div>\n            <!-- /ko -->\n            <div class=\"alert-text\">Alert</div>\n        </div>\n    </div>\n    <div class=\"clear\"></div>\n</div>\n<!-- /ko -->\n<!-- ko if: aqiData -->\n<h3>\n    <i class=\"fas fa-wind\"></i>\n    Air Quality Forecast\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <h4><i class=\"icomoon im-forecast\"></i> Daily Forecast</h4>\n    <div class=\"baaqmd-maps-last-updated\">\n        Last Updated:\n        <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)\"></span>,\n        <span data-bind=\"text: aqiData().lastUpdated.toLocaleDateString()\"></span>\n        at\n        <span data-bind=\"text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n    </div>\n    <ul class=\"baaqmd-maps-aqi-forecast-dates\">\n        <!-- ko foreach: aqiData().dates -->\n        <li data-bind=\"css: {\n            active: $index() === $parent.day()\n        }\">\n            <a href=\"#\" data-bind=\"click: function() {\n                $parent.day($index());\n            }, text: date\"></a>\n        </li>\n        <!-- /ko -->\n    </ul>\n    <h4><i class=\"icomoon im-aqi-index\"></i> Air Quality Index</h4>\n    <ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n        <li class=\"good\">\n            <div class=\"aqi-no\">(0-50)</div>\n            <div class=\"aqi-txt\">Good</div>\n        </li>\n        <li class=\"moderate\">\n            <div class=\"aqi-no\">(51-100)</div>\n            <div class=\"aqi-txt\">Moderate</div>\n        </li>\n        <li class=\"unhealthy-for-sensitive-groups\">\n            <div class=\"aqi-no\">(101-150)</div>\n            <div class=\"aqi-txt\">Unhealthy for Sensitive Groups</div>\n        </li>\n        <li class=\"unhealthy\">\n            <div class=\"aqi-no\">(151-200)</div>\n            <div class=\"aqi-txt\">Unhealthy</div>\n        </li>\n        <li class=\"very-unhealthy\">\n            <div class=\"aqi-no\">(201-300)</div>\n            <div class=\"aqi-txt\">Very Unhealthy</div>\n        </li>\n        <li class=\"hazardous\">\n            <div class=\"aqi-no\">(301-500)</div>\n            <div class=\"aqi-txt\">Hazardous</div>\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIForecastPanel'); }\">\n            <i class=\"fas fa-wind\"></i>\n            Five Day Forecast\n        </a>\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIInfoPanel'); }\">\n            <i class=\"im im-info\"></i>\n            More AQI Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"aqi-reporting-zones\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.aqi.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            AQI Reporting Zones\n        </li>\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n<!-- /ko -->\n";
+module.exports = "<!-- ko if: alertStatus() -->\n<div class=\"spare-air-alert\" data-bind=\"css: {'modal-control': alertMode() !== 'none' }, click: showSTAModal\">\n    <div class=\"spare-logo\">\n        <div class=\"spare-icon icon-SpareAirHorizontal\"></div>\n    </div>\n    <div class=\"alrt-main-cntnt\">\n        <div class=\"lft-key\">\n            <div class=\"spare-zone\">Region Wide</div>\n            <div class=\"spare-key\"></div>\n        </div>\n        <div class=\"mid-date\">\n            <div class=\"spare-day\" data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(new Date())\"></div>\n            <div class=\"spare-date\" data-bind=\"text: new Intl.DateTimeFormat('en-US', { month: 'numeric', day: 'numeric' }).format(new Date())\"></div>\n        </div>\n        <div class=\"rt-alert\">\n            <div class=\"alert-icon\" data-bind=\"css: alertIcon\"></div>\n            <div class=\"alert-text\">Alert</div>\n        </div>\n    </div>\n    <div class=\"clear\"></div>\n</div>\n<!-- /ko -->\n<!-- ko if: aqiData -->\n<h3>\n    <i class=\"fas fa-wind\"></i>\n    Air Quality Forecast\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <h4><i class=\"icomoon im-forecast\"></i> Daily Forecast</h4>\n    <div class=\"baaqmd-maps-last-updated\">\n        Last Updated:\n        <span data-bind=\"text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)\"></span>,\n        <span data-bind=\"text: aqiData().lastUpdated.toLocaleDateString()\"></span>\n        at\n        <span data-bind=\"text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})\"></span>\n    </div>\n    <ul class=\"baaqmd-maps-aqi-forecast-dates\">\n        <!-- ko foreach: aqiData().dates -->\n        <li data-bind=\"css: {\n            active: $index() === $parent.day()\n        }\">\n            <a href=\"#\" data-bind=\"click: function() {\n                $parent.day($index());\n            }, text: date\"></a>\n        </li>\n        <!-- /ko -->\n    </ul>\n    <h4><i class=\"icomoon im-aqi-index\"></i> Air Quality Index</h4>\n    <ul class=\"baaqmd-maps-legend aqi-forecast-legend\">\n        <li class=\"good\">\n            <div class=\"aqi-no\">(0-50)</div>\n            <div class=\"aqi-txt\">Good</div>\n        </li>\n        <li class=\"moderate\">\n            <div class=\"aqi-no\">(51-100)</div>\n            <div class=\"aqi-txt\">Moderate</div>\n        </li>\n        <li class=\"unhealthy-for-sensitive-groups\">\n            <div class=\"aqi-no\">(101-150)</div>\n            <div class=\"aqi-txt\">Unhealthy for Sensitive Groups</div>\n        </li>\n        <li class=\"unhealthy\">\n            <div class=\"aqi-no\">(151-200)</div>\n            <div class=\"aqi-txt\">Unhealthy</div>\n        </li>\n        <li class=\"very-unhealthy\">\n            <div class=\"aqi-no\">(201-300)</div>\n            <div class=\"aqi-txt\">Very Unhealthy</div>\n        </li>\n        <li class=\"hazardous\">\n            <div class=\"aqi-no\">(301-500)</div>\n            <div class=\"aqi-txt\">Hazardous</div>\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIForecastPanel'); }\">\n            <i class=\"fas fa-wind\"></i>\n            Five Day Forecast\n        </a>\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('AQIInfoPanel'); }\">\n            <i class=\"im im-info\"></i>\n            More AQI Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\" data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"aqi-reporting-zones\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.aqi.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            AQI Reporting Zones\n        </li>\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n<!-- /ko -->\n";
 
 /***/ }),
 /* 191 */
@@ -12590,7 +12590,7 @@ var fails = __webpack_require__(3);
 var has = __webpack_require__(17);
 var isArray = __webpack_require__(48);
 var isObject = __webpack_require__(10);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toObject = __webpack_require__(14);
 var toIndexedObject = __webpack_require__(31);
 var toPrimitive = __webpack_require__(35);
@@ -14595,7 +14595,7 @@ $({ target: 'String', proto: true, forced: !correctIsRegExpLogic('includes') }, 
 "use strict";
 
 var fixRegExpWellKnownSymbolLogic = __webpack_require__(92);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toLength = __webpack_require__(12);
 var requireObjectCoercible = __webpack_require__(24);
 var advanceStringIndex = __webpack_require__(95);
@@ -14698,7 +14698,7 @@ $({ target: 'String', proto: true }, {
 "use strict";
 
 var fixRegExpWellKnownSymbolLogic = __webpack_require__(92);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toObject = __webpack_require__(14);
 var toLength = __webpack_require__(12);
 var toInteger = __webpack_require__(28);
@@ -14840,7 +14840,7 @@ fixRegExpWellKnownSymbolLogic('replace', 2, function (REPLACE, nativeReplace, ma
 "use strict";
 
 var fixRegExpWellKnownSymbolLogic = __webpack_require__(92);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var requireObjectCoercible = __webpack_require__(24);
 var sameValue = __webpack_require__(155);
 var regExpExec = __webpack_require__(96);
@@ -14882,7 +14882,7 @@ fixRegExpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybe
 
 var fixRegExpWellKnownSymbolLogic = __webpack_require__(92);
 var isRegExp = __webpack_require__(75);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var requireObjectCoercible = __webpack_require__(24);
 var speciesConstructor = __webpack_require__(23);
 var advanceStringIndex = __webpack_require__(95);
@@ -15548,7 +15548,7 @@ $({ target: 'RegExp', proto: true, forced: !DELEGATES_TO_EXEC }, {
 "use strict";
 
 var redefine = __webpack_require__(26);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var fails = __webpack_require__(3);
 var flags = __webpack_require__(63);
 
@@ -16479,7 +16479,7 @@ if (!(TO_PRIMITIVE in DatePrototype)) {
 
 "use strict";
 
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toPrimitive = __webpack_require__(35);
 
 module.exports = function (hint) {
@@ -17129,7 +17129,7 @@ $({ target: 'ArrayBuffer', stat: true, forced: !NATIVE_ARRAY_BUFFER_VIEWS }, {
 var $ = __webpack_require__(0);
 var fails = __webpack_require__(3);
 var ArrayBufferModule = __webpack_require__(103);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toAbsoluteIndex = __webpack_require__(47);
 var toLength = __webpack_require__(12);
 var speciesConstructor = __webpack_require__(23);
@@ -17907,7 +17907,7 @@ exportTypedArrayMethod('toString', arrayToString, IS_NOT_ARRAY_METHOD);
 var $ = __webpack_require__(0);
 var getBuiltIn = __webpack_require__(16);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var fails = __webpack_require__(3);
 
 var nativeApply = getBuiltIn('Reflect', 'apply');
@@ -17938,7 +17938,7 @@ $({ target: 'Reflect', stat: true, forced: OPTIONAL_ARGUMENTS_LIST }, {
 var $ = __webpack_require__(0);
 var getBuiltIn = __webpack_require__(16);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var isObject = __webpack_require__(10);
 var create = __webpack_require__(29);
 var bind = __webpack_require__(151);
@@ -17994,7 +17994,7 @@ $({ target: 'Reflect', stat: true, forced: FORCED, sham: FORCED }, {
 
 var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(11);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toPrimitive = __webpack_require__(35);
 var definePropertyModule = __webpack_require__(15);
 var fails = __webpack_require__(3);
@@ -18027,7 +18027,7 @@ $({ target: 'Reflect', stat: true, forced: ERROR_INSTEAD_OF_FALSE, sham: !DESCRI
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getOwnPropertyDescriptor = __webpack_require__(25).f;
 
 // `Reflect.deleteProperty` method
@@ -18046,7 +18046,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var isObject = __webpack_require__(10);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var has = __webpack_require__(17);
 var getOwnPropertyDescriptorModule = __webpack_require__(25);
 var getPrototypeOf = __webpack_require__(27);
@@ -18076,7 +18076,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(11);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getOwnPropertyDescriptorModule = __webpack_require__(25);
 
 // `Reflect.getOwnPropertyDescriptor` method
@@ -18093,7 +18093,7 @@ $({ target: 'Reflect', stat: true, sham: !DESCRIPTORS }, {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var objectGetPrototypeOf = __webpack_require__(27);
 var CORRECT_PROTOTYPE_GETTER = __webpack_require__(114);
 
@@ -18126,7 +18126,7 @@ $({ target: 'Reflect', stat: true }, {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 var objectIsExtensible = Object.isExtensible;
 
@@ -18160,7 +18160,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var FREEZING = __webpack_require__(74);
 
 // `Reflect.preventExtensions` method
@@ -18184,7 +18184,7 @@ $({ target: 'Reflect', stat: true, sham: !FREEZING }, {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var isObject = __webpack_require__(10);
 var has = __webpack_require__(17);
 var fails = __webpack_require__(3);
@@ -18236,7 +18236,7 @@ $({ target: 'Reflect', stat: true, forced: MS_EDGE_BUG }, {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aPossiblePrototype = __webpack_require__(145);
 var objectSetPrototypeOf = __webpack_require__(49);
 
@@ -18318,7 +18318,7 @@ __webpack_require__(439);
 
 var $ = __webpack_require__(0);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 var toMetadataKey = ReflectMetadataModule.toKey;
 var ordinaryDefineOwnMetadata = ReflectMetadataModule.set;
@@ -18339,7 +18339,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 var toMetadataKey = ReflectMetadataModule.toKey;
 var getOrCreateMetadataMap = ReflectMetadataModule.getMap;
@@ -18366,7 +18366,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getPrototypeOf = __webpack_require__(27);
 
 var ordinaryHasOwnMetadata = ReflectMetadataModule.has;
@@ -18398,7 +18398,7 @@ var $ = __webpack_require__(0);
 // TODO: in core-js@4, move /modules/ dependencies to public entries for better optimization by tools like `preset-env`
 var Set = __webpack_require__(174);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getPrototypeOf = __webpack_require__(27);
 var iterate = __webpack_require__(8);
 
@@ -18435,7 +18435,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 var ordinaryGetOwnMetadata = ReflectMetadataModule.get;
 var toMetadataKey = ReflectMetadataModule.toKey;
@@ -18456,7 +18456,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 var ordinaryOwnMetadataKeys = ReflectMetadataModule.keys;
 var toMetadataKey = ReflectMetadataModule.toKey;
@@ -18477,7 +18477,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getPrototypeOf = __webpack_require__(27);
 
 var ordinaryHasOwnMetadata = ReflectMetadataModule.has;
@@ -18506,7 +18506,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 var ordinaryHasOwnMetadata = ReflectMetadataModule.has;
 var toMetadataKey = ReflectMetadataModule.toKey;
@@ -18527,7 +18527,7 @@ $({ target: 'Reflect', stat: true }, {
 
 var $ = __webpack_require__(0);
 var ReflectMetadataModule = __webpack_require__(46);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 var toMetadataKey = ReflectMetadataModule.toKey;
 var ordinaryDefineOwnMetadata = ReflectMetadataModule.set;
@@ -19185,7 +19185,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var bind = __webpack_require__(20);
 var getMapIterator = __webpack_require__(40);
 var iterate = __webpack_require__(8);
@@ -19213,7 +19213,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(23);
@@ -19245,7 +19245,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var bind = __webpack_require__(20);
 var getMapIterator = __webpack_require__(40);
 var iterate = __webpack_require__(8);
@@ -19272,7 +19272,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var bind = __webpack_require__(20);
 var getMapIterator = __webpack_require__(40);
 var iterate = __webpack_require__(8);
@@ -19299,7 +19299,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getMapIterator = __webpack_require__(40);
 var sameValueZero = __webpack_require__(468);
 var iterate = __webpack_require__(8);
@@ -19335,7 +19335,7 @@ module.exports = function (x, y) {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getMapIterator = __webpack_require__(40);
 var iterate = __webpack_require__(8);
 
@@ -19359,7 +19359,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(23);
@@ -19392,7 +19392,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(23);
@@ -19424,7 +19424,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var iterate = __webpack_require__(8);
 
@@ -19452,7 +19452,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var getMapIterator = __webpack_require__(40);
 var iterate = __webpack_require__(8);
@@ -19488,7 +19488,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var bind = __webpack_require__(20);
 var getMapIterator = __webpack_require__(40);
 var iterate = __webpack_require__(8);
@@ -19515,7 +19515,7 @@ $({ target: 'Map', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 
 // `Set.prototype.update` method
@@ -19582,7 +19582,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var bind = __webpack_require__(20);
 var getSetIterator = __webpack_require__(56);
 var iterate = __webpack_require__(8);
@@ -19610,7 +19610,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(23);
@@ -19642,7 +19642,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var bind = __webpack_require__(20);
 var getSetIterator = __webpack_require__(56);
 var iterate = __webpack_require__(8);
@@ -19669,7 +19669,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getSetIterator = __webpack_require__(56);
 var iterate = __webpack_require__(8);
 
@@ -19696,7 +19696,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var bind = __webpack_require__(20);
 var speciesConstructor = __webpack_require__(23);
@@ -19728,7 +19728,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var getSetIterator = __webpack_require__(56);
 var iterate = __webpack_require__(8);
@@ -19764,7 +19764,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var bind = __webpack_require__(20);
 var getSetIterator = __webpack_require__(56);
 var iterate = __webpack_require__(8);
@@ -20333,7 +20333,7 @@ var $ = __webpack_require__(0);
 var DESCRIPTORS = __webpack_require__(11);
 var setSpecies = __webpack_require__(53);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var isObject = __webpack_require__(10);
 var anInstance = __webpack_require__(37);
 var defineProperty = __webpack_require__(15).f;
@@ -20606,7 +20606,7 @@ __webpack_require__(527);
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var numberIsFinite = __webpack_require__(161);
 var createIteratorConstructor = __webpack_require__(54);
 var InternalStateModule = __webpack_require__(19);
@@ -20868,7 +20868,7 @@ module.exports = AsyncIteratorPrototype;
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var createAsyncIteratorProxy = __webpack_require__(57);
 
 var AsyncIteratorProxy = createAsyncIteratorProxy(function (arg, Promise) {
@@ -20902,7 +20902,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toPositiveInteger = __webpack_require__(77);
 var createAsyncIteratorProxy = __webpack_require__(57);
 
@@ -20968,7 +20968,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var createAsyncIteratorProxy = __webpack_require__(57);
 
 var AsyncIteratorProxy = createAsyncIteratorProxy(function (arg, Promise) {
@@ -21034,7 +21034,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var createAsyncIteratorProxy = __webpack_require__(57);
 var getAsyncIteratorMethod = __webpack_require__(186);
 
@@ -21124,7 +21124,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 var $ = __webpack_require__(0);
 var path = __webpack_require__(39);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toObject = __webpack_require__(14);
 var createAsyncIteratorProxy = __webpack_require__(57);
 var getAsyncIteratorMethod = __webpack_require__(186);
@@ -21161,7 +21161,7 @@ $({ target: 'AsyncIterator', stat: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var createAsyncIteratorProxy = __webpack_require__(57);
 
 var AsyncIteratorProxy = createAsyncIteratorProxy(function (arg, Promise) {
@@ -21198,7 +21198,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getBuiltIn = __webpack_require__(16);
 
 var Promise = getBuiltIn('Promise');
@@ -21267,7 +21267,7 @@ $({ target: 'AsyncIterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toPositiveInteger = __webpack_require__(77);
 var createAsyncIteratorProxy = __webpack_require__(57);
 
@@ -21377,7 +21377,7 @@ $({ global: true, forced: FORCED }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var createIteratorProxy = __webpack_require__(58);
 
 var IteratorProxy = createIteratorProxy(function (arg) {
@@ -21404,7 +21404,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toPositiveInteger = __webpack_require__(77);
 var createIteratorProxy = __webpack_require__(58);
 
@@ -21443,7 +21443,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 var $ = __webpack_require__(0);
 var iterate = __webpack_require__(8);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 $({ target: 'Iterator', proto: true, real: true }, {
   every: function every(fn) {
@@ -21465,7 +21465,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var createIteratorProxy = __webpack_require__(58);
 var callWithSafeIterationClosing = __webpack_require__(117);
 
@@ -21503,7 +21503,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 var $ = __webpack_require__(0);
 var iterate = __webpack_require__(8);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 $({ target: 'Iterator', proto: true, real: true }, {
   find: function find(fn) {
@@ -21525,7 +21525,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var getIteratorMethod = __webpack_require__(50);
 var createIteratorProxy = __webpack_require__(58);
 var iteratorClose = __webpack_require__(86);
@@ -21584,7 +21584,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var iterate = __webpack_require__(8);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 $({ target: 'Iterator', proto: true, real: true }, {
   forEach: function forEach(fn) {
@@ -21601,7 +21601,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 var $ = __webpack_require__(0);
 var path = __webpack_require__(39);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toObject = __webpack_require__(14);
 var createIteratorProxy = __webpack_require__(58);
 var getIteratorMethod = __webpack_require__(50);
@@ -21640,7 +21640,7 @@ $({ target: 'Iterator', stat: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var createIteratorProxy = __webpack_require__(58);
 var callWithSafeIterationClosing = __webpack_require__(117);
 
@@ -21671,7 +21671,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 var $ = __webpack_require__(0);
 var iterate = __webpack_require__(8);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 $({ target: 'Iterator', proto: true, real: true }, {
   reduce: function reduce(reducer /* , initialValue */) {
@@ -21703,7 +21703,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 var $ = __webpack_require__(0);
 var iterate = __webpack_require__(8);
 var aFunction = __webpack_require__(5);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 $({ target: 'Iterator', proto: true, real: true }, {
   some: function some(fn) {
@@ -21724,7 +21724,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var toPositiveInteger = __webpack_require__(77);
 var createIteratorProxy = __webpack_require__(58);
 var iteratorClose = __webpack_require__(86);
@@ -21759,7 +21759,7 @@ $({ target: 'Iterator', proto: true, real: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(0);
 var iterate = __webpack_require__(8);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 
 var push = [].push;
 
@@ -21897,7 +21897,7 @@ __webpack_require__(576);
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var speciesConstructor = __webpack_require__(23);
 var iterate = __webpack_require__(8);
@@ -21926,7 +21926,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var speciesConstructor = __webpack_require__(23);
 var iterate = __webpack_require__(8);
@@ -21955,7 +21955,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var iterate = __webpack_require__(8);
 
@@ -21981,7 +21981,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var getIterator = __webpack_require__(78);
 var iterate = __webpack_require__(8);
@@ -22012,7 +22012,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var iterate = __webpack_require__(8);
 
@@ -22038,7 +22038,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var speciesConstructor = __webpack_require__(23);
 var iterate = __webpack_require__(8);
@@ -22064,7 +22064,7 @@ $({ target: 'Set', proto: true, real: true, forced: IS_PURE }, {
 var $ = __webpack_require__(0);
 var IS_PURE = __webpack_require__(4);
 var getBuiltIn = __webpack_require__(16);
-var anObject = __webpack_require__(1);
+var anObject = __webpack_require__(2);
 var aFunction = __webpack_require__(5);
 var speciesConstructor = __webpack_require__(23);
 var iterate = __webpack_require__(8);
@@ -23098,7 +23098,7 @@ if (!global.fetch) {
 var core_js = __webpack_require__(222);
 
 // EXTERNAL MODULE: ./node_modules/knockout/build/output/knockout-latest.js
-var knockout_latest = __webpack_require__(2);
+var knockout_latest = __webpack_require__(1);
 
 // EXTERNAL MODULE: ./src/styles.scss
 var styles = __webpack_require__(603);
@@ -23330,6 +23330,7 @@ var summerModal = knockout_latest["observable"]();
 var winterModal = knockout_latest["observable"]();
 var alertMode = knockout_latest["observable"]('none');
 var alertStatus = knockout_latest["observable"]();
+var alertIcon = knockout_latest["observable"]();
 
 var _fetchData = function fetchData(rootURL) {
   fetch(rootURL + src_config["spaRSSFeed"], {
@@ -23358,7 +23359,8 @@ var _fetchData = function fetchData(rootURL) {
         alertMode(mode);
       }
     });
-    alertStatus(xmlDoc.querySelector('item description').textContent.toLowerCase() !== "no alert");
+    alertStatus(xmlDoc.querySelector('item isAlert').textContent.toLowerCase() !== "false");
+    alertIcon(xmlDoc.querySelector('item alertIconCssClass').textContent);
     return fetch(rootURL + src_config["aqiRSSFeed"], {
       cache: "no-store"
     });
@@ -23485,6 +23487,7 @@ knockout_latest["components"].register('PollutantInfoPanel', {
     this.aqiData = aqiData;
     this.alertMode = alertMode;
     this.alertStatus = alertStatus;
+    this.alertIcon = alertIcon;
     this.day = knockout_latest["observable"]();
     this.layers = {
       aqi: {
