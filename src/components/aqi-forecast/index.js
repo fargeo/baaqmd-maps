@@ -19,6 +19,7 @@ const summerModal = ko.observable();
 const winterModal = ko.observable();
 const alertMode = ko.observable('none');
 const alertStatus = ko.observable();
+const alertIcon = ko.observable();
 let fetchData = (rootURL) => {
     fetch(rootURL + config.spaRSSFeed, {cache: "no-store"})
         .then((response) => {
@@ -42,7 +43,8 @@ let fetchData = (rootURL) => {
                     alertMode(mode);
                 }
             });
-            alertStatus(xmlDoc.querySelector('item description').textContent.toLowerCase() !== "no alert");
+            alertStatus(xmlDoc.querySelector('item isAlert').textContent.toLowerCase() !== "false");
+            alertIcon(xmlDoc.querySelector('item alertIconCssClass').textContent);
             return fetch(rootURL + config.aqiRSSFeed, {cache: "no-store"});
         })
         .then((response) => {
@@ -175,6 +177,7 @@ export default ko.components.register('AQIForecast', {
         this.aqiData = aqiData;
         this.alertMode = alertMode;
         this.alertStatus = alertStatus;
+        this.alertIcon = alertIcon;
         this.day = ko.observable();
         this.layers = {
             aqi: {

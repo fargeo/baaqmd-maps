@@ -13,15 +13,7 @@
             <div class="spare-date" data-bind="text: new Intl.DateTimeFormat('en-US', { month: 'numeric', day: 'numeric' }).format(new Date())"></div>
         </div>
         <div class="rt-alert">
-            <!-- ko if: alertMode() === 'none' -->
-            <div class="alert-icon icon-AlertOne"></div>
-            <!-- /ko -->
-            <!-- ko if: alertMode() === 'winter' -->
-            <div class="alert-icon icon-AlertTwo"></div>
-            <!-- /ko -->
-            <!-- ko if: alertMode() === 'summer' -->
-            <div class="alert-icon icon-AlertThree"></div>
-            <!-- /ko -->
+            <div class="alert-icon" data-bind="css: alertIcon"></div>
             <div class="alert-text">Alert</div>
         </div>
     </div>
