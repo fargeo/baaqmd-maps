@@ -3350,3 +3350,104 @@ table.striped-rows.air-monitoring-table {
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover {
     background-color: #ee8301 !important;
 }
+
+.expand-popup.mbl-map {
+    max-width: 300px;
+    background-color: #0f9d58;
+    position: absolute;
+    padding: 10px 20px 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+.hint-header {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 5px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.7);
+}
+
+.expand-popup.mbl-map .hint-header h5 {
+    font-size: 1.45rem;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    color: white;
+    text-transform: uppercase;
+    font-family: "proxima-nova-n4", "proxima-nova", "Open Sans", Corbel, Helvetica, Arial;
+    letter-spacing: 2px;
+}
+
+.hint-text {
+    color: white;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+}
+
+.hint-check {
+    margin-top: 12px;
+}
+
+.hint-lbl {
+    color: white;
+    font-size: 1.2rem;
+    line-height: 0.8rem;
+}
+
+.expand-popup.mbl-map a.white-link {
+    background-color: white;
+    padding: 6px 30px 4px 30px;
+    border-radius: 6px;
+    text-decoration: none !important;
+    font-size: 1.3rem !important;
+    font-weight: 600;
+}
+
+.expand-popup.mbl-map a.white-link:hover,
+.expand-popup.mbl-map a.white-link:focus {
+    background-color: #ee8301;
+    color: white !important;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+a.white-link.flt-right {
+    float: right;
+}
+
+.expand-popup.mbl-map::after {
+    position: absolute;
+    content: '';
+    top: 56px;
+    right: -18px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid #0f9d58;
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid transparent;
+}
+
+.expand-popup.mbl-map .hint-header a.icon-Close {
+    float: right;
+    margin-left: 15px;
+    right: 10px;
+    top: 9px;
+    color: white;
+    font-size: 1.4rem;
+    position: absolute;
+    text-decoration: none !important;
+    font-weight: 800;
+}
+
+.expand-popup.mbl-map .hint-header a.icon-Close:hover,
+.expand-popup.mbl-map .hint-header a.icon-Close:focus {
+    color: rgb(250, 210, 0) !important;
+}
+
+.mapboxgl-control-container .mapboxgl-ctrl-help {
+    display: inline-block;
+    top: -129px;
+    right: 221px;
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+}

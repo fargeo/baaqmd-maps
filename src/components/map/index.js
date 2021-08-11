@@ -7,6 +7,7 @@ import * as config from '../../config.json';
 import '../../bindings/mapbox-gl';
 import ZoomControl from '../zoom-control';
 import HelpControl from '../help-control';
+import FullscreenHelp from '../fullscreen-help';
 let mapboxQuery = process.env.NODE_ENV === 'production' ? '' : '&fresh=true';
 
 export default ko.components.register('map', {
@@ -35,13 +36,15 @@ export default ko.components.register('map', {
                 },
                 trackUserLocation: true
             }));
-            map.addControl(new mapboxgl.FullscreenControl({
+            const fullscreenControl = new mapboxgl.FullscreenControl({
                 container: params.container
-            }));
+            })
+            map.addControl(fullscreenControl);
             map.addControl(new mapboxgl.ScaleControl({
                 unit: 'imperial'
             }));
             map.addControl(new HelpControl(params.showInfoPanel, params.rootURL));
+            map.addControl(new FullscreenHelp(fullscreenControl));
             params.map(map);
 
             params.mapType.subscribe((mapType) => {
