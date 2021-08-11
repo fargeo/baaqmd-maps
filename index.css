@@ -1,0 +1,19 @@
+html {
+    font-size: 11px;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+#map {
+    border: 1px solid black;
+    height: 500px;
+}
