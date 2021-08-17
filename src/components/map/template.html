@@ -1,1 +1,15 @@
-<div class="baaqmd-maps-map" data-bind="mapboxgl: mapConfig"></div>
+<div class="baaqmd-maps-map" data-bind="mapboxgl: mapConfig, css: {
+    'fullscreen': isFullscreen,
+    'no-fullscreen': !isFullscreen()
+}">
+    <div class="mapboxgl-ctrl-fullscreen-btn">
+        <a class="flscrn-btn" data-bind="click: function () {
+                isFullscreen(true);
+            }">
+            <div class="center-btn-cntnt">
+                <div class="flscrn-btn-txt">Tap to Expand</div>
+                <div class="flscrn-btn-icon icomoon icon-Expand"></div>
+            </div>
+        </a>
+    </div>
+</div>

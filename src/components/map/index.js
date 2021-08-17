@@ -19,6 +19,14 @@ export default ko.components.register('map', {
 
         this.style = config.apiURI + config.mapTypes[params.mapType()].style + mapboxQuery;
         this.customAttribution = '<a href="http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
+        this.isFullscreen = ko.observable(false);
+        this.isFullscreen.subscribe((isFullscreen) => {
+            if (this.map && this.fullscreenControl) {
+                if (this.fullscreenControl._fullscreen !== isFullscreen) {
+                    this.fullscreenControl._onClickFullscreen();
+                }
+            }
+        });
 
         this.setupMap = (map) => {
             this.map = map;
@@ -36,15 +44,18 @@ export default ko.components.register('map', {
                 },
                 trackUserLocation: true
             }));
-            const fullscreenControl = new mapboxgl.FullscreenControl({
+            this.fullscreenControl = new mapboxgl.FullscreenControl({
                 container: params.container
-            })
-            map.addControl(fullscreenControl);
+            });
+            map.addControl(this.fullscreenControl);
             map.addControl(new mapboxgl.ScaleControl({
                 unit: 'imperial'
             }));
             map.addControl(new HelpControl(params.showInfoPanel, params.rootURL));
-            map.addControl(new FullscreenHelp(fullscreenControl));
+            map.addControl(new FullscreenHelp(this.fullscreenControl));
+            window.document.addEventListener(this.fullscreenControl._fullscreenchange, () => {
+                this.isFullscreen(this.fullscreenControl._fullscreen);
+            });
             params.map(map);
 
             params.mapType.subscribe((mapType) => {
