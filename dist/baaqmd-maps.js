@@ -7817,7 +7817,7 @@ var f=t("inherits"),c=t("./hash"),l=t("safe-buffer").Buffer,p=[1116352408,189944
 /* 211 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig\"></div>\n";
+module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig, css: {\n    'fullscreen': isFullscreen,\n    'no-fullscreen': !isFullscreen()\n}\">\n    <div class=\"mapboxgl-ctrl-fullscreen-btn\">\n        <a class=\"flscrn-btn\" data-bind=\"click: function () {\n                isFullscreen(true);\n            }\">\n            <div class=\"center-btn-cntnt\">\n                <div class=\"flscrn-btn-txt\">Tap to Expand</div>\n                <div class=\"flscrn-btn-icon icomoon icon-Expand\"></div>\n            </div>\n        </a>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 212 */
@@ -24301,6 +24301,14 @@ var mapboxQuery =  true ? '' : undefined;
     mapboxQuery = '?access_token=' + this.accessToken + mapboxQuery;
     this.style = src_config["apiURI"] + src_config["mapTypes"][params.mapType()].style + mapboxQuery;
     this.customAttribution = '<a href="http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
+    this.isFullscreen = knockout_latest["observable"](false);
+    this.isFullscreen.subscribe(function (isFullscreen) {
+      if (_this.map && _this.fullscreenControl) {
+        if (_this.fullscreenControl._fullscreen !== isFullscreen) {
+          _this.fullscreenControl._onClickFullscreen();
+        }
+      }
+    });
 
     this.setupMap = function (map) {
       _this.map = map;
@@ -24319,15 +24327,18 @@ var mapboxQuery =  true ? '' : undefined;
         },
         trackUserLocation: true
       }));
-      var fullscreenControl = new mapbox_gl["FullscreenControl"]({
+      _this.fullscreenControl = new mapbox_gl["FullscreenControl"]({
         container: params.container
       });
-      map.addControl(fullscreenControl);
+      map.addControl(_this.fullscreenControl);
       map.addControl(new mapbox_gl["ScaleControl"]({
         unit: 'imperial'
       }));
       map.addControl(new help_control_HelpControl(params.showInfoPanel, params.rootURL));
-      map.addControl(new fullscreen_help_FullscreenHelp(fullscreenControl));
+      map.addControl(new fullscreen_help_FullscreenHelp(_this.fullscreenControl));
+      window.document.addEventListener(_this.fullscreenControl._fullscreenchange, function () {
+        _this.isFullscreen(_this.fullscreenControl._fullscreen);
+      });
       params.map(map);
       params.mapType.subscribe(function (mapType) {
         map.setStyle(src_config["mapTypes"][mapType].style);
