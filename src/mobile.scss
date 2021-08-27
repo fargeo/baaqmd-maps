@@ -742,11 +742,22 @@
     .mapboxgl-control-container .mapboxgl-ctrl-help {
         right: -50px;
     }
+
+    .expand-popup.mbl-map {
+        min-width: 300px;
+        margin-left: -170px;
+    }
 }
 
 @media (max-width: 400px) {
     .mapboxgl-control-container .mapboxgl-ctrl-help {
         right: -13px;
+    }
+
+    .expand-popup.mbl-map {
+        min-width: 260px;
+        max-width: 260px;
+        margin-left: -130px;
     }
 }
 
@@ -756,12 +767,15 @@
     }
 
     .expand-popup.mbl-map {
-        max-width: 285px;
         padding: 10px 17px 15px 17px;
+        min-width: 210px;
+        max-width: 210px;
+        margin-left: -80px;
     }
 
     .expand-popup.mbl-map .hint-header h5 {
-        font-size: 1.4rem;
+        font-size: 1.15rem;
+        letter-spacing: 0px;
     }
 }
 
@@ -780,3 +794,5 @@
         font-size: 1.35rem;
     }
 }
+
+// Scss Document
