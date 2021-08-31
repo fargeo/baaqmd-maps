@@ -107,4 +107,12 @@ Requires [tippecanoe](https://github.com/mapbox/tippecanoe) to be installed loca
 yarn tiles
 ```
 
-This will create an `.mbtiles` file (`data/baaqmd.mbtiles`) containing all layers, which is ready for upload to [Mapbox](https://studio.mapbox.com/tilesets/).
+This will create an `.mbtiles` file (`data/baaqmd.mbtiles`) containing all layers (except for facilities), and then upload those tilesets to [Mapbox](https://studio.mapbox.com/tilesets/).
+
+## Facilities Data
+
+Facilities data are pulled from a JSON feed, converted to a tileset and then uploaded to Mapbox via another script, which also requires [tippecanoe](https://github.com/mapbox/tippecanoe):
+
+```sh
+yarn facilities
+```
