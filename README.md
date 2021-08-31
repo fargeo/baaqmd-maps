@@ -116,3 +116,30 @@ Facilities data are pulled from a JSON feed, converted to a tileset and then upl
 ```sh
 yarn facilities
 ```
+
+## Secret Keys
+
+The `tiles` and `facilities` scripts require a secret Mapbox access token for the district account with all public scopes and the following secret scopes:
+```
+UPLOADS:READ
+UPLOADS:LIST
+UPLOADS:WRITE
+STYLES:WRITE
+STYLES:LIST
+TOKENS:READ
+TOKENS:WRITE
+DATASETS:LIST
+DATASETS:WRITE
+TILESETS:LIST
+TILESETS:READ
+TILESETS:WRITE
+```
+
+This key should be put in a file in the project root directory called `secret.json` with the following content (replacing your secret key in the value):
+```
+{
+    "mapboxKey": "{YOUR SECRET KEY HERE}"
+}
+```
+
+Make sure to **never** share your secret key.
