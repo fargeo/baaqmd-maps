@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('icomoon.eot?zgs72f');
-  src:  url('icomoon.eot?zgs72f#iefix') format('embedded-opentype'),
-    url('icomoon.woff2?zgs72f') format('woff2'),
-    url('icomoon.ttf?zgs72f') format('truetype'),
-    url('icomoon.woff?zgs72f') format('woff'),
-    url('icomoon.svg?zgs72f#icomoon') format('svg');
+  src:  url('icomoon.eot?r8uclr');
+  src:  url('icomoon.eot?r8uclr#iefix') format('embedded-opentype'),
+    url('icomoon.woff2?r8uclr') format('woff2'),
+    url('icomoon.ttf?r8uclr') format('truetype'),
+    url('icomoon.woff?r8uclr') format('woff'),
+    url('icomoon.svg?r8uclr#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -28,6 +28,12 @@
 
 .icon-SpareAirHoriz:before {
   content: "\e92a";
+}
+.icon-Expand:before {
+  content: "\e915";
+}
+.icon-Contract:before {
+  content: "\e932";
 }
 .icon-Info2:before {
   content: "\e943";
@@ -88,12 +94,6 @@
 }
 .icon-MenuClose:before {
   content: "\e93c";
-}
-.icon-Contract:before {
-  content: "\e915";
-}
-.icon-Expand:before {
-  content: "\e932";
 }
 .icon-WindSpeed:before {
   content: "\e933";
