@@ -16,16 +16,16 @@
 }
 
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?r8uclr');
-  src:  url('fonts/icomoon.eot?r8uclr#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?r8uclr') format('woff2'),
-    url('fonts/icomoon.ttf?r8uclr') format('truetype'),
-    url('fonts/icomoon.woff?r8uclr') format('woff'),
-    url('fonts/icomoon.svg?r8uclr#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?r8uclr');
+    src: url('fonts/icomoon.eot?r8uclr#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.woff2?r8uclr') format('woff2'),
+        url('fonts/icomoon.ttf?r8uclr') format('truetype'),
+        url('fonts/icomoon.woff?r8uclr') format('woff'),
+        url('fonts/icomoon.svg?r8uclr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
 }
 
 $side-panel-width: 335px;
@@ -2237,7 +2237,7 @@ a.choices-btn .icomoon.icon-ArrowDown {
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander i.icon-MenuOpen {
     font-size: 2.6rem;
-    line-height: 4.8rem;
+    line-height: 2rem;
 }
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-panel-expander:focus,
@@ -2365,6 +2365,7 @@ a.choices-btn .icomoon.icon-ArrowDown {
 .baaqmd-maps-main .zoom-hover .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:hover {
     background-color: #ee8301 !important;
 }
+
 .center-btn-cntnt {
     display: inline-block;
     text-align: center;
@@ -2991,248 +2992,320 @@ table.striped-rows.air-monitoring-table {
 }
 
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?r8uclr');
-  src:  url('fonts/icomoon.eot?r8uclr#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?r8uclr') format('woff2'),
-    url('fonts/icomoon.ttf?r8uclr') format('truetype'),
-    url('fonts/icomoon.woff?r8uclr') format('woff'),
-    url('fonts/icomoon.svg?r8uclr#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?r8uclr');
+    src: url('fonts/icomoon.eot?r8uclr#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.woff2?r8uclr') format('woff2'),
+        url('fonts/icomoon.ttf?r8uclr') format('truetype'),
+        url('fonts/icomoon.woff?r8uclr') format('woff'),
+        url('fonts/icomoon.svg?r8uclr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-SpareAirHoriz:before {
-  content: "\e92a";
+    content: "\e92a";
 }
+
 .icon-Expand:before {
-  content: "\e915";
+    content: "\e915";
 }
+
 .icon-Contract:before {
-  content: "\e932";
+    content: "\e932";
 }
+
 .icon-Info2:before {
-  content: "\e943";
+    content: "\e943";
 }
+
 .icon-Monitoring:before {
-  content: "\e944";
+    content: "\e944";
 }
+
 .icon-Impacted:before {
-  content: "\e945";
+    content: "\e945";
 }
+
 .icon-Facilities:before {
-  content: "\e946";
+    content: "\e946";
 }
+
 .icon-OpenBurn:before {
-  content: "\e947";
+    content: "\e947";
 }
+
 .icon-Close:before {
-  content: "\e942";
+    content: "\e942";
 }
+
 .icon-AdvisoryNew:before {
-  content: "\e941";
+    content: "\e941";
 }
+
 .icon-SlideDown:before {
-  content: "\e92b";
+    content: "\e92b";
 }
+
 .icon-SlideUp:before {
-  content: "\e93d";
+    content: "\e93d";
 }
+
 .icon-Search:before {
-  content: "\e929";
+    content: "\e929";
 }
+
 .icon-ArrowLeft:before {
-  content: "\e923";
+    content: "\e923";
 }
+
 .icon-ArrowRight:before {
-  content: "\e926";
+    content: "\e926";
 }
+
 .icon-ArrowUp:before {
-  content: "\e927";
+    content: "\e927";
 }
+
 .icon-AlertOne:before {
-  content: "\e93e";
+    content: "\e93e";
 }
+
 .icon-AlertThree:before {
-  content: "\e93f";
+    content: "\e93f";
 }
+
 .icon-AlertTwo:before {
-  content: "\e940";
+    content: "\e940";
 }
+
 .icon-Print2:before {
-  content: "\e937";
+    content: "\e937";
 }
+
 .icon-ArrowDown3:before {
-  content: "\e93a";
+    content: "\e93a";
 }
+
 .icon-ArrowDown2:before {
-  content: "\e93b";
+    content: "\e93b";
 }
+
 .icon-MenuClose:before {
-  content: "\e93c";
+    content: "\e93c";
 }
+
 .icon-WindSpeed:before {
-  content: "\e933";
+    content: "\e933";
 }
+
 .icon-ArrowDown:before {
-  content: "\e934";
+    content: "\e934";
 }
+
 .icon-ZoomAll:before {
-  content: "\e935";
+    content: "\e935";
 }
+
 .icon-Email2:before {
-  content: "\e936";
+    content: "\e936";
 }
+
 .icon-MenuOpen:before {
-  content: "\e938";
+    content: "\e938";
 }
+
 .icon-MapMenu:before {
-  content: "\e939";
+    content: "\e939";
 }
+
 .icon-TriangleSlash:before {
-  content: "\e92c";
+    content: "\e92c";
 }
+
 .icon-CircleSlash:before {
-  content: "\e92d";
+    content: "\e92d";
 }
+
 .icon-SquareSlash:before {
-  content: "\e92e";
+    content: "\e92e";
 }
+
 .icon-Circle:before {
-  content: "\e92f";
+    content: "\e92f";
 }
+
 .icon-Square:before {
-  content: "\e930";
+    content: "\e930";
 }
+
 .icon-Triangle:before {
-  content: "\e931";
+    content: "\e931";
 }
+
 .icon-SpareFire:before {
-  content: "\e928";
+    content: "\e928";
 }
+
 .icon-NoBurn:before {
-  content: "\e925";
+    content: "\e925";
 }
+
 .icon-SpareAirHorizontal:before {
-  content: "\e924";
+    content: "\e924";
 }
+
 .icon-Menu2:before {
-  content: "\e922";
+    content: "\e922";
 }
+
 .icon-Share:before {
-  content: "\e91c";
+    content: "\e91c";
 }
+
 .icon-Forecast:before {
-  content: "\e921";
+    content: "\e921";
 }
+
 .icon-Email:before {
-  content: "\e91a";
+    content: "\e91a";
 }
+
 .icon-AQIndex:before {
-  content: "\e91e";
+    content: "\e91e";
 }
+
 .icon-Boundaries:before {
-  content: "\e91f";
+    content: "\e91f";
 }
+
 .icon-Info:before {
-  content: "\e920";
+    content: "\e920";
 }
+
 .icon-Twitter:before {
-  content: "\e91b";
+    content: "\e91b";
 }
+
 .icon-Facebook:before {
-  content: "\e91d";
+    content: "\e91d";
 }
+
 .icon-FullscreenB:before {
-  content: "\e916";
+    content: "\e916";
 }
+
 .icon-AQIZones:before {
-  content: "\e917";
+    content: "\e917";
 }
+
 .icon-DistrictBoundary:before {
-  content: "\e918";
+    content: "\e918";
 }
+
 .icon-County:before {
-  content: "\e919";
+    content: "\e919";
 }
+
 .icon-Add2:before {
-  content: "\e900";
+    content: "\e900";
 }
+
 .icon-AQI:before {
-  content: "\e901";
+    content: "\e901";
 }
+
 .icon-AreaAssign2:before {
-  content: "\e902";
+    content: "\e902";
 }
+
 .icon-Compass:before {
-  content: "\e903";
+    content: "\e903";
 }
+
 .icon-E:before {
-  content: "\e904";
+    content: "\e904";
 }
+
 .icon-Fullscreen:before {
-  content: "\e905";
+    content: "\e905";
 }
+
 .icon-Help2:before {
-  content: "\e906";
+    content: "\e906";
 }
+
 .icon-Location:before {
-  content: "\e907";
+    content: "\e907";
 }
+
 .icon-Location2:before {
-  content: "\e908";
+    content: "\e908";
 }
+
 .icon-Map:before {
-  content: "\e909";
+    content: "\e909";
 }
+
 .icon-Meteorology:before {
-  content: "\e90a";
+    content: "\e90a";
 }
+
 .icon-N:before {
-  content: "\e90b";
+    content: "\e90b";
 }
+
 .icon-Print:before {
-  content: "\e90c";
+    content: "\e90c";
 }
+
 .icon-S:before {
-  content: "\e90d";
+    content: "\e90d";
 }
+
 .icon-SetNorth:before {
-  content: "\e90e";
+    content: "\e90e";
 }
+
 .icon-Subtract:before {
-  content: "\e90f";
+    content: "\e90f";
 }
+
 .icon-Temperature:before {
-  content: "\e910";
+    content: "\e910";
 }
+
 .icon-W:before {
-  content: "\e911";
+    content: "\e911";
 }
+
 .icon-Weather:before {
-  content: "\e912";
+    content: "\e912";
 }
+
 .icon-WindDirection:before {
-  content: "\e913";
+    content: "\e913";
 }
+
 .icon-WindGust:before {
-  content: "\e914";
+    content: "\e914";
 }
 
 .space-15pxno {
