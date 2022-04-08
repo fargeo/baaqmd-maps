@@ -51,6 +51,10 @@
             "style": "baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w",
             "label": "Impacted Communities Map"
         },
+        "OverburdenedCommunities": {
+            "style": "baaqmd-publicmaps/cl006clik000515mz90nlghgc",
+            "label": "Overburdened Areas Map"
+        },
         "Monitoring": {
             "style": "baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47",
             "label": "Air Quality Monitoring Map"

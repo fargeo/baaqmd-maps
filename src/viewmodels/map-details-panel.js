@@ -12,6 +12,41 @@ export default function MapDetailsPanel(params) {
     this.showInfoPanel = params.showInfoPanel;
     this.mainExpanded = ko.observable(true);
     this.boundariesExpanded = ko.observable(true);
+    this.showPopup = (feature, lngLat) => {
+        let map = this.map();
+        if (map && this.popupTemplate) {
+            popupData = this.getPopupData(feature);
+            if (popupData) {
+                popupData.showInfoPanel = params.showInfoPanel;
+                var expandButton = `<button
+                    class="mapboxgl-popup-expand-button"
+                    title="Expand"
+                    type="button"
+                    data-bind="click: function() {
+                        showInfoPanel('${popupComponent}');
+                    }">
+                        <i class="icon-Expand"></i>
+                </button>`;
+                popup = new mapboxgl.Popup()
+                    .setLngLat(lngLat)
+                    .setOffset([0, 40])
+                    .setHTML(expandButton + this.popupTemplate)
+                    .addTo(map);
+                this.showInfoPanel.subscribe((panelComponent) => {
+                    if (panelComponent === popupComponent && popup) {
+                        params.popup(popup);
+                    }
+                });
+                let popupBody = popup._content.querySelector('.baaqmd-maps-popup');
+                popup._content.querySelector('.mapboxgl-popup-close-button').setAttribute('title', 'Close');
+                popupData.getScrollContent = () => {
+                    return popupBody;
+                };
+                popup.on('close', () => { popup = undefined; });
+                ko.applyBindingsToDescendants(popupData, popup._content);
+            }
+        }
+    };
     var setupMap = (map) => {
         if (this.getPopupData && this.popupLayers) {
             if (this.popupTemplate && !popupComponents.includes(popupComponent)) {
@@ -29,38 +64,7 @@ export default function MapDetailsPanel(params) {
             }
             if (this.popupTemplate) this.popupTemplate += scrollForMoreTemplate;
             let click = (e) => {
-                if (this.popupTemplate) {
-                    const feature = e.features[0];
-                    popupData = this.getPopupData(feature);
-                    if (popupData) {
-                        popupData.showInfoPanel = params.showInfoPanel;
-                        var expandButton = `<button
-                            class="mapboxgl-popup-expand-button"
-                            title="Expand"
-                            type="button"
-                            data-bind="click: function() {
-                                showInfoPanel('${popupComponent}');
-                            }">
-                                <i class="icon-Expand"></i>
-                        </button>`;
-                        popup = new mapboxgl.Popup()
-                            .setLngLat(e.lngLat)
-                            .setHTML(expandButton + this.popupTemplate)
-                            .addTo(map);
-                        this.showInfoPanel.subscribe((panelComponent) => {
-                            if (panelComponent === popupComponent && popup) {
-                                params.popup(popup);
-                            }
-                        });
-                        let popupBody = popup._content.querySelector('.baaqmd-maps-popup');
-                        popup._content.querySelector('.mapboxgl-popup-close-button').setAttribute('title', 'Close');
-                        popupData.getScrollContent = () => {
-                            return popupBody;
-                        };
-                        popup.on('close', () => { popup = undefined; });
-                        ko.applyBindingsToDescendants(popupData, popup._content);
-                    }
-                }
+                this.showPopup(e.features[0], e.lngLat);
             };
             let mouseenter = () => {
                 map.getCanvas().style.cursor = 'pointer';
