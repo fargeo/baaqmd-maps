@@ -14,10 +14,30 @@ ko.components.register('OverburdenedCommunitiesInfoPanel', {
 export default ko.components.register('OverburdenedCommunities', {
     viewModel: function(params) {
         this.layers = {
+            overburdened: {
+                flag: ko.observable(true),
+                names: [
+                    'overburdened-communities',
+                    'overburdened-communities-outline'
+                ]
+            },
+            buffer: {
+                flag: ko.observable(true),
+                names: [
+                    'overburdened-communities-1000-ft'
+                ]
+            },
             district: {
                 flag: ko.observable(true),
                 names: [
                     'district-boundary'
+                ]
+            },
+            counties: {
+                flag: ko.observable(true),
+                names: [
+                    'counties',
+                    'counties-labels'
                 ]
             }
         };
@@ -32,7 +52,7 @@ export default ko.components.register('OverburdenedCommunities', {
         this.popupTemplate = popupTemplate;
 
         this.setupMap = () => {
-            // this.layers.counties.flag(false);
+            this.layers.counties.flag(false);
         };
 
         MapDetailsPanel.default.apply(this, [params]);

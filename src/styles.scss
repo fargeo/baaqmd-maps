@@ -1305,6 +1305,18 @@ $no-color: #b10318;
         }
     }
 
+    .overburdened-areas {
+        i:before {
+            background-color: #e0a4b6;
+        }
+    }
+
+    .overburdened-buffer {
+        i:before {
+            background-color: #a0c2fd;
+        }
+    }
+
     .baaqmd-maps-last-updated {
         color: rgba(black, 0.5);
         font-size: 1.1rem;
