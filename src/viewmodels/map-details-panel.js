@@ -29,7 +29,6 @@ export default function MapDetailsPanel(params) {
                 </button>`;
                 popup = new mapboxgl.Popup()
                     .setLngLat(lngLat)
-                    .setOffset([0, 40])
                     .setHTML(expandButton + this.popupTemplate)
                     .addTo(map);
                 this.showInfoPanel.subscribe((panelComponent) => {

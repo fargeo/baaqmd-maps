@@ -584,6 +584,20 @@ $no-color: #b10318;
             a {
                 text-decoration: none;
             }
+
+            .coordinate-entry-input {
+                margin-bottom: 10px;
+                span {
+                    display: inline-block;
+                    width: 50px;
+                    margin-right: 2px;
+                }
+                input {
+                    display: inline-block;
+                    width: 80px;
+                    margin-right: 6px;
+                }
+            }
         }
 
         h3 {

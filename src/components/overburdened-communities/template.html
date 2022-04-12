@@ -1,6 +1,6 @@
 <h3>
     <i class="fas fa-users"></i>
-    Impacted Communities
+    Overburdened Communities
     <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }"></div>
 </h3>
 <div class="accordion-panel"
@@ -20,8 +20,33 @@
             </span>
             1000 foot buffer zone
         </li>
+        <li>
+            <input type="checkbox" data-bind="checked: layers.markers.flag">
+            <i class="fas fa-map-marker-alt"></i>
+            Markers (<span data-bind="text: markers().length"></span>)
+        </li>
     </ul>
     <div class="baaqmd-maps-details-links">
+        <div class="coordinate-entry-input">
+            <span>Longitude:</span> <input type="number" data-bind="value: xCoord">
+            <span>Latitude:</span><input type="number" data-bind="value: yCoord">
+        </div>
+        <a href="javascript: void(0);" class="information-link" data-bind="click: addMarkerFromCoordinates">
+            <i class="fas fa-plus"></i>
+            Add Marker From Coodinates
+        </a>
+        <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
+            addMarkerOnClick(!addMarkerOnClick());
+        }">
+            <i class="fas fa-map-marker-alt"></i>
+            Click to add Marker
+        </a>
+        <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
+                    markers([]);
+                }">
+            <i class="fas fa-times-circle"></i>
+            Clear Markers
+        </a>
         <a href="javascript: void(0);" class="information-link"
             data-bind="click: function() { showInfoPanel('OverburdenedCommunitiesInfoPanel'); }">
             <i class="fas fa-info-circle"></i>
