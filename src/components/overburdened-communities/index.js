@@ -101,25 +101,16 @@ export default ko.components.register('OverburdenedCommunities', {
             });
 
             map.addLayer({
-                id: 'overburdened-communities-markers-stroke',
-                type: 'symbol',
-                source: 'overburdened-communities-markers',
-                layout: {
-                    'icon-image': 'black-marker-stroked',
-                    'icon-allow-overlap': true,
-                    'icon-ignore-placement': true,
-                    'icon-anchor': 'bottom',
-                    'icon-size': 2.4,
-                    'icon-offset': [0, 2]
-                }
-            });
-
-            map.addLayer({
                 id: 'overburdened-communities-markers',
                 type: 'symbol',
                 source: 'overburdened-communities-markers',
                 layout: {
-                    'icon-image': ['case', ['==', ['get', 'overburdened'], true], 'pink-marker', 'green-marker'],
+                    'icon-image': [
+                        'case',
+                        ['==', ['get', 'overburdened'], true],
+                        'pink-marker-stroked',
+                        'green-marker-stroked'
+                    ],
                     'icon-allow-overlap': true,
                     'icon-ignore-placement': true,
                     'icon-anchor': 'bottom',
