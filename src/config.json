@@ -39,10 +39,6 @@
     "boundsPadding": 20,
     "mainMapPage": "https://baaqmd.fargeo-dev.com/dist/",
     "mapTypes": {
-        "OverburdenedCommunities": {
-            "style": "baaqmd-publicmaps/cl1uz2h47000415qsdkln1ze2",
-            "label": "Overburdened Areas Map"
-        },
         "AQIForecast": {
             "style": "baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh",
             "label": "Air Quality Forecast Map"
@@ -54,6 +50,10 @@
         "ImpactedCommunities": {
             "style": "baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w",
             "label": "Impacted Communities Map"
+        },
+        "OverburdenedCommunities": {
+            "style": "baaqmd-publicmaps/cl1uz2h47000415qsdkln1ze2",
+            "label": "Overburdened Areas Map"
         },
         "Monitoring": {
             "style": "baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47",
