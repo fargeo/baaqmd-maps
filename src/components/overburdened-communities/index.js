@@ -28,8 +28,7 @@ export default ko.components.register('OverburdenedCommunities', {
             markers: {
                 flag: ko.observable(true),
                 names: [
-                    'overburdened-communities-markers',
-                    'overburdened-communities-markers-stroke'
+                    'overburdened-communities-markers'
                 ]
             },
             buffer: {
@@ -54,12 +53,17 @@ export default ko.components.register('OverburdenedCommunities', {
         };
 
         this.popupLayers = [
-            'overburdened-communities-markers',
-            'overburdened-communities-markers-stroke'
+            'overburdened-communities-markers'
         ];
 
         this.getPopupData = (feature) => {
-            return feature.properties;
+            return {
+                removeMarker: () => {
+                    this.popup.remove();
+                    this.markers.splice(feature.properties.index, 1);
+                },
+                ...feature.properties
+            };
         };
 
         this.popupTemplate = popupTemplate;
@@ -75,7 +79,9 @@ export default ko.components.register('OverburdenedCommunities', {
                     return response.json();
                 })
                 .then((data) => {
+                    console.log(properties);
                     properties.overburdened = data.features.length > 0;
+                    properties.name = properties.text || `${Math.round(coords[0] * 1000) / 1000}, ${Math.round(coords[1] * 1000) / 1000}`;
                     this.markers.push({
                         coords: coords,
                         properties: properties
@@ -148,7 +154,8 @@ export default ko.components.register('OverburdenedCommunities', {
             this.markers.subscribe((markers) => {
                 map.getSource('overburdened-communities-markers').setData({
                     type: 'FeatureCollection',
-                    features: markers.map((marker) => {
+                    features: markers.map((marker, index) => {
+                        marker.properties.index = index;
                         return {
                             type: 'Feature',
                             geometry: {

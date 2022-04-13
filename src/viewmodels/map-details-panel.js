@@ -6,7 +6,7 @@ let popupComponents = [];
 let popupData;
 export default function MapDetailsPanel(params) {
     const popupComponent = params.mapType() + 'Popup';
-    let popup;
+    this.popup;
     this.mapType = params.mapType;
     this.map = params.map;
     this.showInfoPanel = params.showInfoPanel;
@@ -27,22 +27,22 @@ export default function MapDetailsPanel(params) {
                     }">
                         <i class="icon-Expand"></i>
                 </button>`;
-                popup = new mapboxgl.Popup()
+                this.popup = new mapboxgl.Popup()
                     .setLngLat(lngLat)
                     .setHTML(expandButton + this.popupTemplate)
                     .addTo(map);
                 this.showInfoPanel.subscribe((panelComponent) => {
-                    if (panelComponent === popupComponent && popup) {
-                        params.popup(popup);
+                    if (panelComponent === popupComponent && this.popup) {
+                        params.popup(this.popup);
                     }
                 });
-                let popupBody = popup._content.querySelector('.baaqmd-maps-popup');
-                popup._content.querySelector('.mapboxgl-popup-close-button').setAttribute('title', 'Close');
+                let popupBody = this.popup._content.querySelector('.baaqmd-maps-popup');
+                this.popup._content.querySelector('.mapboxgl-popup-close-button').setAttribute('title', 'Close');
                 popupData.getScrollContent = () => {
                     return popupBody;
                 };
-                popup.on('close', () => { popup = undefined; });
-                ko.applyBindingsToDescendants(popupData, popup._content);
+                this.popup.on('close', () => { this.popup = undefined; });
+                ko.applyBindingsToDescendants(popupData, this.popup._content);
             }
         }
     };
@@ -105,8 +105,8 @@ export default function MapDetailsPanel(params) {
         }
 
         this.mapType.subscribe(() => {
-            if (popup) popup.remove();
-            popup = undefined;
+            if (this.popup) this.popup.remove();
+            this.popup = undefined;
         });
     };
     if (this.map()){
