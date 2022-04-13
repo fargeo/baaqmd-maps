@@ -119,7 +119,7 @@ export default ko.components.register('OverburdenedCommunities', {
                 type: 'symbol',
                 source: 'overburdened-communities-markers',
                 layout: {
-                    'icon-image': ['case', ['==', ['get', 'overburdened'], true], 'green-marker', 'pink-marker'],
+                    'icon-image': ['case', ['==', ['get', 'overburdened'], true], 'pink-marker', 'green-marker'],
                     'icon-allow-overlap': true,
                     'icon-ignore-placement': true,
                     'icon-anchor': 'bottom',
