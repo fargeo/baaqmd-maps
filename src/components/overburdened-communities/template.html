@@ -28,8 +28,8 @@
     </ul>
     <div class="baaqmd-maps-details-links">
         <div class="coordinate-entry-input">
-            <span>Longitude:</span> <input type="number" data-bind="value: xCoord">
-            <span>Latitude:</span><input type="number" data-bind="value: yCoord">
+            <span>Longitude:</span> <input type="number" min="-180" max="180" data-bind="value: xCoord">
+            <span>Latitude:</span><input type="number" min="-90" max="90" data-bind="value: yCoord">
         </div>
         <a href="javascript: void(0);" class="information-link" data-bind="click: addMarkerFromCoordinates">
             <i class="fas fa-plus"></i>
