@@ -1,0 +1,22 @@
+<div class="baaqmd-maps-popup">
+    <div class="baaqmd-maps-popup-content">
+        <h3>
+            <i class="fas fa-map-marker-alt"></i>
+            Marked Location
+        </h3>
+        <hr>
+
+        <h4 data-bind="text: name"></h4>
+
+        <p data-bind="if: overburdened">
+            This location <strong>falls within</strong> the <strong>Overburdened Communities</strong> area.
+        </p>
+
+        <p data-bind="if: !overburdened">
+            This location <strong>does not</strong> fall within the <strong>Overburdened Communities</strong> area.
+        </p>
+
+        <a href="javascript:void(0)" data-bind="click: removeMarker">Remove this marker</a>
+
+    </div>
+</div>

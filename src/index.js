@@ -8,6 +8,7 @@ import * as content from './main.html';
 import './components/aqi-forecast/';
 import './components/facilities/';
 import './components/impacted-communities/';
+import './components/overburdened-communities/';
 import './components/monitoring/';
 import './components/open-burning/';
 import './components/map/';
