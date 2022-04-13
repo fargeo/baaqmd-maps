@@ -28,7 +28,8 @@ export default ko.components.register('OverburdenedCommunities', {
             markers: {
                 flag: ko.observable(true),
                 names: [
-                    'overburdened-communities-markers'
+                    'overburdened-communities-markers',
+                    'overburdened-communities-markers-stroke'
                 ]
             },
             buffer: {
@@ -53,6 +54,8 @@ export default ko.components.register('OverburdenedCommunities', {
         };
 
         this.popupLayers = [
+            'overburdened-communities-markers',
+            'overburdened-communities-markers-stroke'
         ];
 
         this.getPopupData = (feature) => {
@@ -62,10 +65,22 @@ export default ko.components.register('OverburdenedCommunities', {
         this.popupTemplate = popupTemplate;
 
         this.addMarker = (coords, properties) => {
-            this.markers.push({
-                coords: coords,
-                properties: properties
-            });
+            const url = `${mapboxgl.baseApiUrl}/v4/baaqmd-publicmaps.cl005bu79383k28tfhgqz6cm2-9y5k2,baaqmd-publicmaps.cl005jo3b5xsw20n5km6mdn7a-29w8w/tilequery/${coords[0]},${coords[1]}.json?limit=1&access_token=${mapboxgl.accessToken}`;
+            fetch(url)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+
+                    return response.json();
+                })
+                .then((data) => {
+                    properties.overburdened = data.features.length > 0;
+                    this.markers.push({
+                        coords: coords,
+                        properties: properties
+                    });
+                });
         };
 
         this.addMarkerFromCoordinates = () => {
@@ -86,13 +101,29 @@ export default ko.components.register('OverburdenedCommunities', {
             });
 
             map.addLayer({
+                id: 'overburdened-communities-markers-stroke',
+                type: 'symbol',
+                source: 'overburdened-communities-markers',
+                layout: {
+                    'icon-image': 'black-marker-stroked',
+                    'icon-allow-overlap': true,
+                    'icon-ignore-placement': true,
+                    'icon-anchor': 'bottom',
+                    'icon-size': 2.4,
+                    'icon-offset': [0, 2]
+                }
+            });
+
+            map.addLayer({
                 id: 'overburdened-communities-markers',
                 type: 'symbol',
                 source: 'overburdened-communities-markers',
                 layout: {
-                    'icon-image': 'airport-15',
+                    'icon-image': ['case', ['==', ['get', 'overburdened'], true], 'green-marker', 'pink-marker'],
                     'icon-allow-overlap': true,
-                    'icon-ignore-placement': true
+                    'icon-ignore-placement': true,
+                    'icon-anchor': 'bottom',
+                    'icon-size': 2
                 }
             });
 
