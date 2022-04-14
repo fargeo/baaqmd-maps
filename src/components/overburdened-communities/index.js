@@ -79,7 +79,6 @@ export default ko.components.register('OverburdenedCommunities', {
                     return response.json();
                 })
                 .then((data) => {
-                    console.log(properties);
                     properties.overburdened = data.features.length > 0;
                     properties.name = properties.text || `${Math.round(coords[0] * 1000) / 1000}, ${Math.round(coords[1] * 1000) / 1000}`;
                     this.markers.push({

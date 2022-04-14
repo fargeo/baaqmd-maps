@@ -28115,7 +28115,6 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
 
         return response.json();
       }).then(function (data) {
-        console.log(properties);
         properties.overburdened = data.features.length > 0;
         properties.name = properties.text || "".concat(Math.round(coords[0] * 1000) / 1000, ", ").concat(Math.round(coords[1] * 1000) / 1000);
 
