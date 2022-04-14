@@ -95,6 +95,13 @@ export default ko.components.register('OverburdenedCommunities', {
         };
 
         this.addMarkerOnClick = ko.observable(false);
+        this.addMarkerOnClick.subscribe((addMarkerOnClick) => {
+            if (addMarkerOnClick) {
+                this.map().getCanvas().style.cursor = 'crosshair';
+            } else {
+                this.map().getCanvas().style.cursor = '';
+            }
+        });
 
         this.setupMap = (map) => {
             map.addSource('overburdened-communities-markers', {

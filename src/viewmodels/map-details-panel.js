@@ -65,11 +65,13 @@ export default function MapDetailsPanel(params) {
             let click = (e) => {
                 this.showPopup(e.features[0], e.lngLat);
             };
+            let cursor = '';
             let mouseenter = () => {
+                cursor = map.getCanvas().style.cursor;
                 map.getCanvas().style.cursor = 'pointer';
             };
             let mouseleave = () => {
-                map.getCanvas().style.cursor = '';
+                map.getCanvas().style.cursor = cursor;
             };
 
             this.popupLayers.forEach((layerName) => {
