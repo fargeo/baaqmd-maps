@@ -27479,12 +27479,15 @@ function MapDetailsPanel(params) {
         _this.showPopup(e.features[0], e.lngLat);
       };
 
+      var cursor = '';
+
       var mouseenter = function mouseenter() {
+        cursor = map.getCanvas().style.cursor;
         map.getCanvas().style.cursor = 'pointer';
       };
 
       var mouseleave = function mouseleave() {
-        map.getCanvas().style.cursor = '';
+        map.getCanvas().style.cursor = cursor;
       };
 
       _this.popupLayers.forEach(function (layerName) {
@@ -28132,6 +28135,13 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
     };
 
     this.addMarkerOnClick = knockout_latest["observable"](false);
+    this.addMarkerOnClick.subscribe(function (addMarkerOnClick) {
+      if (addMarkerOnClick) {
+        _this.map().getCanvas().style.cursor = 'crosshair';
+      } else {
+        _this.map().getCanvas().style.cursor = '';
+      }
+    });
 
     this.setupMap = function (map) {
       map.addSource('overburdened-communities-markers', {
