@@ -14,7 +14,18 @@ ko.components.register('OverburdenedCommunitiesInfoPanel', {
 
 export default ko.components.register('OverburdenedCommunities', {
     viewModel: function(params) {
+        this.markersExpanded = ko.observable(true);
         this.markers = ko.observableArray();
+        this.overburdenedMarkersCount = ko.computed(() => {
+            return this.markers().filter((marker) => {
+                return marker.properties.overburdened;
+            }).length;
+        });
+        this.notOverburdenedMarkersCount = ko.computed(() => {
+            return this.markers().filter((marker) => {
+                return !marker.properties.overburdened;
+            }).length;
+        });
         this.xCoord = ko.observable();
         this.yCoord = ko.observable();
         this.layers = {
@@ -25,10 +36,16 @@ export default ko.components.register('OverburdenedCommunities', {
                     'overburdened-communities-outline'
                 ]
             },
-            markers: {
+            overburdenedMarkers: {
                 flag: ko.observable(true),
                 names: [
                     'overburdened-communities-markers'
+                ]
+            },
+            notOverburdenedMarkers: {
+                flag: ko.observable(true),
+                names: [
+                    'not-overburdened-communities-markers'
                 ]
             },
             buffer: {
@@ -116,13 +133,23 @@ export default ko.components.register('OverburdenedCommunities', {
                 id: 'overburdened-communities-markers',
                 type: 'symbol',
                 source: 'overburdened-communities-markers',
+                filter: ['==', ['get', 'overburdened'], true],
                 layout: {
-                    'icon-image': [
-                        'case',
-                        ['==', ['get', 'overburdened'], true],
-                        'pink-marker-stroked',
-                        'green-marker-stroked'
-                    ],
+                    'icon-image': 'pink-marker-stroked',
+                    'icon-allow-overlap': true,
+                    'icon-ignore-placement': true,
+                    'icon-anchor': 'bottom',
+                    'icon-size': 2
+                }
+            });
+
+            map.addLayer({
+                id: 'not-overburdened-communities-markers',
+                type: 'symbol',
+                source: 'overburdened-communities-markers',
+                filter: ['==', ['get', 'overburdened'], false],
+                layout: {
+                    'icon-image': 'green-marker-stroked',
                     'icon-allow-overlap': true,
                     'icon-ignore-placement': true,
                     'icon-anchor': 'bottom',

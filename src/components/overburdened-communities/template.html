@@ -21,36 +21,66 @@
             1000 foot buffer zone
         </li>
         <li>
-            <input type="checkbox" data-bind="checked: layers.markers.flag">
-            <i class="fas fa-map-marker-alt overburdened-marker-icon"></i>
-            Markers (<span data-bind="text: markers().length"></span>)
+            <input type="checkbox" data-bind="checked: layers.overburdenedMarkers.flag" checked="checked">
+            <i class="icomoon icon-LocationOverburdened"></i>
+            <div class="list-text">Overburdened Markers (<span data-bind="text: overburdenedMarkersCount"></span>)</div>
+        </li>
+        <li>
+            <input type="checkbox" data-bind="checked: layers.notOverburdenedMarkers.flag" checked="checked">
+            <i class="icomoon icon-LocationNotOverburdened"></i>
+            <div class="list-text">
+                Not Overburdened Markers (<span data-bind="text: notOverburdenedMarkersCount"></span>)</div>
         </li>
     </ul>
     <div class="baaqmd-maps-details-links">
-        <div class="coordinate-entry-input">
-            <span>Longitude:</span> <input type="number" min="-180" max="180" data-bind="value: xCoord">
-            <span>Latitude:</span><input type="number" min="-90" max="90" data-bind="value: yCoord">
-        </div>
-        <a href="javascript: void(0);" class="information-link" data-bind="click: addMarkerFromCoordinates">
-            <i class="fas fa-plus"></i>
-            Add Marker From Coodinates
-        </a>
-        <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
-            addMarkerOnClick(!addMarkerOnClick());
-        }">
-            <i class="fas fa-map-marker-alt"></i>
-            Click to add Marker
-        </a>
-        <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
-                    markers([]);
-                }">
-            <i class="fas fa-times-circle"></i>
-            Clear Markers
-        </a>
         <a href="javascript: void(0);" class="information-link"
             data-bind="click: function() { showInfoPanel('OverburdenedCommunitiesInfoPanel'); }">
             <i class="fas fa-info-circle"></i>
             More Information
+        </a>
+    </div>
+</div>
+<h3>
+    <i class="icomoon icon-Location"></i>
+    Markers
+    <div class="accordion-icon icomoon icon-Subtract"
+        data-bind="css: {'icon-Subtract': markersExpanded, 'icon-Add2': !markersExpanded()}, click: function() { markersExpanded(!markersExpanded()); }">
+    </div>
+</h3>
+<div class="accordion-panel accordion-panel-expanded"
+    data-bind="css: {'accordion-panel-expanded': markersExpanded, 'accordion-panel-collapsed': !markersExpanded()}">
+    <div class="baaqmd-maps-details-links">
+        <div class="marker-section">
+            <div class="marker-text extra-top-marg">Click to add a marker to the map</div>
+            <a href="javascript: void(0);" class="information-link small-button" data-bind="click: function() {
+                addMarkerOnClick(!addMarkerOnClick());
+            }">
+                <i class="icomoon icon-AddMarker"></i>
+            </a>
+        </div>
+        <div class="or-text">- - OR - -</div>
+        <div class="marker-section extra-btm-marg">
+            <div class="marker-text">Enter the latitude and longitude</div>
+            <div class="clear"></div>
+            <div class="coordinate-entry-input">
+                <div class="lat-area">
+                    <span>Latitude:</span><input type="number" min="-90" max="90" data-bind="value: yCoord">
+                </div>
+                <div class="long-area">
+                    <span>Longitude:</span> <input type="number" min="-180" max="180" data-bind="value: xCoord">
+                </div>
+            </div>
+            <a href="javascript: void(0);" class="information-link small-button"
+                data-bind="click: addMarkerFromCoordinates">
+                <i class="icomoon icon-AddMarker"></i>
+            </a>
+        </div>
+        <div class="space-3pxblk"></div>
+        <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
+                        markers([]);
+                    }">
+            <i class="icomoon icon-Clear"></i>
+            Clear Markers
         </a>
     </div>
 </div>
