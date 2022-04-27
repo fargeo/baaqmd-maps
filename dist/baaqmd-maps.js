@@ -28110,7 +28110,7 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
         names: ['counties', 'counties-labels']
       }
     };
-    this.popupLayers = ['overburdened-communities-markers'];
+    this.popupLayers = ['overburdened-communities-markers', 'not-overburdened-communities-markers'];
 
     this.getPopupData = function (feature) {
       return _objectSpread({
@@ -28172,11 +28172,11 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
         source: 'overburdened-communities-markers',
         filter: ['==', ['get', 'overburdened'], true],
         layout: {
-          'icon-image': 'pink-marker-stroked',
+          'icon-image': 'LocationOverburdened',
           'icon-allow-overlap': true,
           'icon-ignore-placement': true,
           'icon-anchor': 'bottom',
-          'icon-size': 2
+          'icon-size': 0.1
         }
       });
       map.addLayer({
@@ -28185,11 +28185,11 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
         source: 'overburdened-communities-markers',
         filter: ['==', ['get', 'overburdened'], false],
         layout: {
-          'icon-image': 'green-marker-stroked',
+          'icon-image': 'LocationNotOverburdened',
           'icon-allow-overlap': true,
           'icon-ignore-placement': true,
           'icon-anchor': 'bottom',
-          'icon-size': 2
+          'icon-size': 0.1
         }
       });
 
