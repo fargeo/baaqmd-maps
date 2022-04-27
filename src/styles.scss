@@ -17,12 +17,12 @@
 
 @font-face {
     font-family: 'icomoon';
-    src: url('fonts/icomoon.eot?r8uclr');
-    src: url('fonts/icomoon.eot?r8uclr#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.woff2?r8uclr') format('woff2'),
-        url('fonts/icomoon.ttf?r8uclr') format('truetype'),
-        url('fonts/icomoon.woff?r8uclr') format('woff'),
-        url('fonts/icomoon.svg?r8uclr#icomoon') format('svg');
+    src: url('fonts/icomoon.eot?n8vee1');
+    src: url('fonts/icomoon.eot?n8vee1#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.woff2?n8vee1') format('woff2'),
+        url('fonts/icomoon.ttf?n8vee1') format('truetype'),
+        url('fonts/icomoon.woff?n8vee1') format('woff'),
+        url('fonts/icomoon.svg?n8vee1#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -312,7 +312,7 @@ $no-color: #b10318;
         }
 
         &.im-boundaries:before {
-            content: "\e91f";
+            content: "\ea40";
         }
 
         &.im-share:before {
@@ -356,7 +356,7 @@ $no-color: #b10318;
     .mapboxgl-ctrl-zoom-out.mapboxgl-ctrl-icon:before {
         display: inline-block;
         padding-top: 1px;
-        content: "\e90f";
+        content: "\e935";
     }
 
     .baaqmd-maps-print-button:hover .mapboxgl-ctrl-icon,
@@ -379,7 +379,7 @@ $no-color: #b10318;
     }
 
     .mapboxgl-ctrl-icon.baaqmd-maps-help-button:before {
-        content: "\e906";
+        content: "\e921";
         font-size: 2.2rem;
     }
 
@@ -398,7 +398,7 @@ $no-color: #b10318;
 
     .mapboxgl-ctrl-compass .mapboxgl-ctrl-icon:before {
         margin-top: -2px;
-        content: "\e90e";
+        content: "\ea4d";
     }
 
     .mapboxgl-ctrl-compass:hover .mapboxgl-ctrl-icon,
@@ -455,8 +455,6 @@ $no-color: #b10318;
         -moz-osx-font-smoothing: grayscale;
     }
 
-    .mapboxgl-ctrl button .mapboxgl-ctrl-icon:before {}
-
     .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
         background-image: none;
         font-size: 1.6rem;
@@ -511,7 +509,7 @@ $no-color: #b10318;
     }
 
     .mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon::before {
-        content: "\e903";
+        content: "\ea3d";
     }
 
     .mapboxgl-ctrl-geolocate:hover .mapboxgl-ctrl-icon,
@@ -536,7 +534,7 @@ $no-color: #b10318;
     .mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon:before {
         padding-top: 4px;
         display: inline-block;
-        content: "\e932";
+        content: "\ea1f";
     }
 
     .mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon:before {
@@ -587,10 +585,12 @@ $no-color: #b10318;
 
             .coordinate-entry-input {
                 margin-bottom: 10px;
+
                 span {
                     display: inline-block;
                     margin-right: 2px;
                 }
+
                 input {
                     display: inline-block;
                     width: 75px;
@@ -1108,6 +1108,7 @@ $no-color: #b10318;
                 margin-right: 3px;
                 margin-left: 3px;
             }
+
             .overburdened-marker-icon {
                 height: 24px;
                 line-height: 20px;
@@ -1130,6 +1131,7 @@ $no-color: #b10318;
             margin-bottom: 0;
             position: relative;
             font-size: 1.2rem;
+            overflow: auto;
 
             input {
                 margin-top: 0;
@@ -1195,7 +1197,7 @@ $no-color: #b10318;
                 color: $dark-color;
 
                 i:before {
-                    content: "\e917";
+                    content: "\ea38";
                 }
             }
 
@@ -1210,7 +1212,7 @@ $no-color: #b10318;
                 color: $primary-color;
 
                 i:before {
-                    content: "\e918";
+                    content: "\ea39";
                 }
             }
 
@@ -1225,7 +1227,7 @@ $no-color: #b10318;
                 color: #5e5e5e;
 
                 i:before {
-                    content: "\e919";
+                    content: "\ea3a";
                 }
             }
 
@@ -1490,7 +1492,7 @@ $no-color: #b10318;
 
     &:after {
         color: $primary-color;
-        content: '\e907';
+        content: '\e924';
         font-family: "icomoon";
         position: absolute;
         top: 0;
@@ -2139,7 +2141,7 @@ a.choices-btn .icomoon.icon-MapMenu {
 }
 
 .icon-MapMenu:before {
-    content: "\e939";
+    content: "\ea4a";
 }
 
 a.choices-btn .icomoon.icon-ArrowDown {
@@ -2281,11 +2283,11 @@ a.choices-btn .icomoon.icon-ArrowDown {
 }
 
 .icon-MenuClose:before {
-    content: "\e93c";
+    content: "\ea4c";
 }
 
 .icon-MenuOpen:before {
-    content: "\e938";
+    content: "\ea4b";
 }
 
 .baaqmd-maps-main .icomoon.im-print:before,
@@ -2304,7 +2306,7 @@ a.choices-btn .icomoon.icon-ArrowDown {
 }
 
 .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:before {
-    content: "\e935";
+    content: "\ea44";
 }
 
 .zoom-hover {
@@ -2780,7 +2782,7 @@ button.close {
     margin-bottom: 3px;
 }
 
-.mapboxgl-ctrl-group:hover button:first-child {
+.mapboxgl-ctrl-group.act-zoom-hover:hover button:first-child {
     border-radius: 0 6px 6px 0;
 }
 
@@ -3027,12 +3029,12 @@ table.striped-rows.air-monitoring-table {
 
 @font-face {
     font-family: 'icomoon';
-    src: url('fonts/icomoon.eot?r8uclr');
-    src: url('fonts/icomoon.eot?r8uclr#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.woff2?r8uclr') format('woff2'),
-        url('fonts/icomoon.ttf?r8uclr') format('truetype'),
-        url('fonts/icomoon.woff?r8uclr') format('woff'),
-        url('fonts/icomoon.svg?r8uclr#icomoon') format('svg');
+    src: url('fonts/icomoon.eot?n8vee1');
+    src: url('fonts/icomoon.eot?n8vee1#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.woff2?n8vee1') format('woff2'),
+        url('fonts/icomoon.ttf?n8vee1') format('truetype'),
+        url('fonts/icomoon.woff?n8vee1') format('woff'),
+        url('fonts/icomoon.svg?n8vee1#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -3054,292 +3056,1356 @@ table.striped-rows.air-monitoring-table {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-SpareAirHoriz:before {
-    content: "\e92a";
+.icon-CleanCarsAll:before {
+    content: "\e95e";
 }
 
-.icon-Expand:before {
-    content: "\e915";
-}
-
-.icon-Contract:before {
-    content: "\e932";
-}
-
-.icon-Info2:before {
-    content: "\e943";
-}
-
-.icon-Monitoring:before {
-    content: "\e944";
-}
-
-.icon-Impacted:before {
-    content: "\e945";
-}
-
-.icon-Facilities:before {
-    content: "\e946";
-}
-
-.icon-OpenBurn:before {
-    content: "\e947";
-}
-
-.icon-Close:before {
-    content: "\e942";
-}
-
-.icon-AdvisoryNew:before {
-    content: "\e941";
-}
-
-.icon-SlideDown:before {
-    content: "\e92b";
-}
-
-.icon-SlideUp:before {
-    content: "\e93d";
-}
-
-.icon-Search:before {
-    content: "\e929";
-}
-
-.icon-ArrowLeft:before {
-    content: "\e923";
-}
-
-.icon-ArrowRight:before {
-    content: "\e926";
-}
-
-.icon-ArrowUp:before {
-    content: "\e927";
-}
-
-.icon-AlertOne:before {
-    content: "\e93e";
-}
-
-.icon-AlertThree:before {
-    content: "\e93f";
-}
-
-.icon-AlertTwo:before {
-    content: "\e940";
-}
-
-.icon-Print2:before {
-    content: "\e937";
-}
-
-.icon-ArrowDown3:before {
-    content: "\e93a";
-}
-
-.icon-ArrowDown2:before {
-    content: "\e93b";
-}
-
-.icon-MenuClose:before {
-    content: "\e93c";
-}
-
-.icon-WindSpeed:before {
-    content: "\e933";
-}
-
-.icon-ArrowDown:before {
-    content: "\e934";
-}
-
-.icon-ZoomAll:before {
-    content: "\e935";
-}
-
-.icon-Email2:before {
-    content: "\e936";
-}
-
-.icon-MenuOpen:before {
-    content: "\e938";
-}
-
-.icon-MapMenu:before {
-    content: "\e939";
-}
-
-.icon-TriangleSlash:before {
-    content: "\e92c";
-}
-
-.icon-CircleSlash:before {
-    content: "\e92d";
-}
-
-.icon-SquareSlash:before {
-    content: "\e92e";
-}
-
-.icon-Circle:before {
-    content: "\e92f";
-}
-
-.icon-Square:before {
-    content: "\e930";
-}
-
-.icon-Triangle:before {
-    content: "\e931";
-}
-
-.icon-SpareFire:before {
-    content: "\e928";
+.icon-NoBurnLockup:before {
+    content: "\e956";
 }
 
 .icon-NoBurn:before {
-    content: "\e925";
+    content: "\e957";
 }
 
-.icon-SpareAirHorizontal:before {
-    content: "\e924";
+.icon-NoBurnAlert:before {
+    content: "\e958";
 }
 
-.icon-Menu2:before {
-    content: "\e922";
+.icon-EligibleShape:before {
+    content: "\e96f";
 }
 
-.icon-Share:before {
-    content: "\e91c";
+.icon-SpareAirWinterHoriz:before {
+    content: "\e953";
 }
 
-.icon-Forecast:before {
-    content: "\e921";
+.icon-AlertTextHorizontal:before {
+    content: "\e950";
 }
 
-.icon-Email:before {
-    content: "\e91a";
+.icon-SpareAirHoriz:before {
+    content: "\e951";
 }
 
-.icon-AQIndex:before {
-    content: "\e91e";
+.icon-Clear:before {
+    content: "\ea50";
 }
 
-.icon-Boundaries:before {
-    content: "\e91f";
+.icon-AddMarker:before {
+    content: "\ea51";
+}
+
+.icon-LocationOverburdened:before {
+    content: "\ea4e";
+}
+
+.icon-LocationNotOverburdened:before {
+    content: "\ea4f";
+}
+
+.icon-SetNorth:before {
+    content: "\ea4d";
+}
+
+.icon-Location2:before {
+    content: "\ea3c";
+}
+
+.icon-Compass:before {
+    content: "\ea3d";
+}
+
+.icon-AreaAssign2:before {
+    content: "\ea3e";
 }
 
 .icon-Info:before {
-    content: "\e920";
+    content: "\ea3f";
 }
 
-.icon-Twitter:before {
-    content: "\e91b";
+.icon-Boundaries:before {
+    content: "\ea40";
 }
 
-.icon-Facebook:before {
-    content: "\e91d";
+.icon-AQIndex:before {
+    content: "\ea41";
 }
 
-.icon-FullscreenB:before {
-    content: "\e916";
+.icon-Forecast:before {
+    content: "\ea42";
+}
+
+.icon-Share:before {
+    content: "\ea43";
+}
+
+.icon-ZoomAll:before {
+    content: "\ea44";
+}
+
+.icon-ArrowDown2:before {
+    content: "\ea45";
+}
+
+.icon-OpenBurn:before {
+    content: "\ea46";
+}
+
+.icon-Facilities:before {
+    content: "\ea47";
+}
+
+.icon-Impacted:before {
+    content: "\ea48";
+}
+
+.icon-Monitoring:before {
+    content: "\ea49";
+}
+
+.icon-MapMenu:before {
+    content: "\ea4a";
+}
+
+.icon-MenuOpen:before {
+    content: "\ea4b";
+}
+
+.icon-MenuClose:before {
+    content: "\ea4c";
+}
+
+.icon-Overburdened:before {
+    content: "\ea3b";
 }
 
 .icon-AQIZones:before {
-    content: "\e917";
+    content: "\ea38";
 }
 
 .icon-DistrictBoundary:before {
-    content: "\e918";
+    content: "\ea39";
 }
 
 .icon-County:before {
-    content: "\e919";
+    content: "\ea3a";
+}
+
+.icon-SignOut:before {
+    content: "\ea37";
+}
+
+.icon-Key:before {
+    content: "\ea36";
+}
+
+.icon-Trash:before {
+    content: "\ea35";
+}
+
+.icon-HintLight:before {
+    content: "\ea32";
+}
+
+.icon-LightBulb:before {
+    content: "\ea33";
+}
+
+.icon-NotificationBell:before {
+    content: "\ea34";
+}
+
+.icon-SearchResults:before {
+    content: "\ea31";
+}
+
+.icon-TermsYears:before {
+    content: "\ea2f";
+}
+
+.icon-LoanGuarantee:before {
+    content: "\ea30";
+}
+
+.icon-Permit1:before {
+    content: "\ea2e";
+}
+
+.icon-CleanAirLogoFull:before {
+    content: "\ea2b";
+}
+
+.icon-CleanAirLogoFullGreen:before {
+    content: "\ea2d";
+}
+
+.icon-CleanAirLogoBugBlue:before {
+    content: "\ea28";
+}
+
+.icon-CleanAirLogoBugGreen:before {
+    content: "\ea29";
+}
+
+.icon-CleanAirLogoFullBlue:before {
+    content: "\ea2a";
+}
+
+.icon-CleanAirLogoBug:before {
+    content: "\ea2c";
+}
+
+.icon-JobsBadge:before {
+    content: "\ea20";
+}
+
+.icon-GuaranteesBadge:before {
+    content: "\ea21";
+}
+
+.icon-GrantsBadge:before {
+    content: "\ea22";
+}
+
+.icon-CO2ImpactBadge:before {
+    content: "\ea23";
+}
+
+.icon-TermsBadge:before {
+    content: "\ea24";
+}
+
+.icon-Guarantees:before {
+    content: "\ea25";
+}
+
+.icon-Jobs:before {
+    content: "\ea26";
+}
+
+.icon-CO2Impact:before {
+    content: "\ea27";
+}
+
+.icon-Fullscreen:before {
+    content: "\ea1e";
+}
+
+.icon-FullscreenB:before {
+    content: "\ea1f";
+}
+
+.icon-CTFMetro:before {
+    content: "\ea18";
+}
+
+.icon-CTFBicycle:before {
+    content: "\ea19";
+}
+
+.icon-CTFCommute:before {
+    content: "\ea1a";
+}
+
+.icon-CTFRemoteWork:before {
+    content: "\ea1b";
+}
+
+.icon-CTFBus:before {
+    content: "\ea1c";
+}
+
+.icon-CTFWalk:before {
+    content: "\ea1d";
+}
+
+.icon-ExternalLink5:before {
+    content: "\ea0e";
+}
+
+.icon-InternalLink5:before {
+    content: "\ea13";
+}
+
+.icon-ExternalLink4:before {
+    content: "\ea0f";
+}
+
+.icon-ExternalLink3:before {
+    content: "\ea10";
+}
+
+.icon-ExternalLink2:before {
+    content: "\ea11";
+}
+
+.icon-ExternalLink1:before {
+    content: "\ea12";
+}
+
+.icon-InternalLink4:before {
+    content: "\ea14";
+}
+
+.icon-InternalLink3:before {
+    content: "\ea15";
+}
+
+.icon-InternalLink2:before {
+    content: "\ea16";
+}
+
+.icon-InternalLink1:before {
+    content: "\ea17";
+}
+
+.icon-Link:before {
+    content: "\ea0c";
+}
+
+.icon-Document:before {
+    content: "\ea0d";
+}
+
+.icon-BAAQMDEmployee:before {
+    content: "\ea0b";
+}
+
+.icon-Data:before {
+    content: "\ea0a";
+}
+
+.icon-Notify31:before {
+    content: "\e9fc";
+}
+
+.icon-Maintenance21:before {
+    content: "\e9fd";
+}
+
+.icon-StationDown31:before {
+    content: "\e9fe";
+}
+
+.icon-StationDown21:before {
+    content: "\e9ff";
+}
+
+.icon-StationDown41:before {
+    content: "\ea00";
+}
+
+.icon-NoData1:before {
+    content: "\ea01";
+}
+
+.icon-Delayed1:before {
+    content: "\ea02";
+}
+
+.icon-Notify21:before {
+    content: "\ea03";
+}
+
+.icon-Point21:before {
+    content: "\ea04";
+}
+
+.icon-Warn11:before {
+    content: "\ea05";
+}
+
+.icon-Information1:before {
+    content: "\ea06";
+}
+
+.icon-PointUp1:before {
+    content: "\ea07";
+}
+
+.icon-Point1:before {
+    content: "\ea08";
+}
+
+.icon-Notify11:before {
+    content: "\ea09";
+}
+
+.icon-Flag:before {
+    content: "\e9fb";
+}
+
+.icon-StationOut5:before {
+    content: "\e9e7";
+}
+
+.icon-StationOut3:before {
+    content: "\e9f1";
+}
+
+.icon-StationOut4:before {
+    content: "\e9f2";
+}
+
+.icon-StationOut7:before {
+    content: "\e9f3";
+}
+
+.icon-StationOut6:before {
+    content: "\e9f4";
+}
+
+.icon-StationDown:before {
+    content: "\e9f5";
+}
+
+.icon-ReportDelay:before {
+    content: "\e9f6";
+}
+
+.icon-Maintenance:before {
+    content: "\e9f7";
+}
+
+.icon-PowerOut:before {
+    content: "\e9f8";
+}
+
+.icon-Alert3:before {
+    content: "\e9f9";
+}
+
+.icon-StationDown4:before {
+    content: "\e9fa";
+}
+
+.icon-Notify3:before {
+    content: "\e9e3";
+}
+
+.icon-Maintenance2:before {
+    content: "\e9e4";
+}
+
+.icon-StationDown3:before {
+    content: "\e9e5";
+}
+
+.icon-StationDown2:before {
+    content: "\e9e6";
+}
+
+.icon-NoData:before {
+    content: "\e9e8";
+}
+
+.icon-Delayed:before {
+    content: "\e9e9";
+}
+
+.icon-Notify2:before {
+    content: "\e9ea";
+}
+
+.icon-Point2:before {
+    content: "\e9eb";
+}
+
+.icon-Warn1:before {
+    content: "\e9ec";
+}
+
+.icon-Information:before {
+    content: "\e9ed";
+}
+
+.icon-PointUp:before {
+    content: "\e9ee";
+}
+
+.icon-Point:before {
+    content: "\e9ef";
+}
+
+.icon-Notify1:before {
+    content: "\e9f0";
+}
+
+.icon-HybridElectric:before {
+    content: "\e9e2";
+}
+
+.icon-VidStart:before {
+    content: "\e9e1";
+}
+
+.icon-ClosedCaption:before {
+    content: "\e9df";
+}
+
+.icon-VideoSettings:before {
+    content: "\e9e0";
+}
+
+.icon-Mute:before {
+    content: "\e9dc";
+}
+
+.icon-ProfileSettings:before {
+    content: "\e9d6";
+}
+
+.icon-News:before {
+    content: "\e9d3";
+}
+
+.icon-Edit:before {
+    content: "\e9dd";
+}
+
+.icon-PageAlert:before {
+    content: "\e9de";
+}
+
+.icon-Notifications:before {
+    content: "\e9d7";
+}
+
+.icon-Profile:before {
+    content: "\e9d8";
+}
+
+.icon-Subscribe:before {
+    content: "\e9d9";
+}
+
+.icon-Topics:before {
+    content: "\e9da";
+}
+
+.icon-User:before {
+    content: "\e9db";
+}
+
+.icon-EmailNotif:before {
+    content: "\e9d4";
+}
+
+.icon-PhoneNotif:before {
+    content: "\e9d5";
+}
+
+.icon-Settings:before {
+    content: "\e9d2";
+}
+
+.icon-NA:before {
+    content: "\e9d1";
+}
+
+.icon-Report:before {
+    content: "\e9cf";
+}
+
+.icon-Report2:before {
+    content: "\e9d0";
+}
+
+.icon-GoToPage:before {
+    content: "\e9ce";
+}
+
+.icon-FireSmoke:before {
+    content: "\e9ca";
+}
+
+.icon-FireSmoke2:before {
+    content: "\e9cb";
+}
+
+.icon-FireSmoke3:before {
+    content: "\e9cc";
+}
+
+.icon-FireSmoke4:before {
+    content: "\e9cd";
+}
+
+.icon-SlideDown:before {
+    content: "\e9c8";
+}
+
+.icon-SlideUp:before {
+    content: "\e9c9";
+}
+
+.icon-HybridCar2:before {
+    content: "\e9c7";
+}
+
+.icon-HomeCharger:before {
+    content: "\e9c5";
+}
+
+.icon-PluginHybrid:before {
+    content: "\e9c6";
+}
+
+.icon-LanguageAlert:before {
+    content: "\e9c4";
+}
+
+.icon-Pin:before {
+    content: "\e9c3";
+}
+
+.icon-General:before {
+    content: "\e9c1";
+}
+
+.icon-Misc:before {
+    content: "\e9c2";
+}
+
+.icon-Asterisk:before {
+    content: "\e9c0";
+}
+
+.icon-Dispatcher:before {
+    content: "\e9b9";
+}
+
+.icon-Emissions:before {
+    content: "\e9ba";
+}
+
+.icon-InspectForm:before {
+    content: "\e9bb";
+}
+
+.icon-Inspector2:before {
+    content: "\e9bc";
+}
+
+.icon-Notify:before {
+    content: "\e9bd";
+}
+
+.icon-SmokingVehicle2:before {
+    content: "\e9be";
+}
+
+.icon-WSLocation:before {
+    content: "\e9bf";
+}
+
+.icon-Video4:before {
+    content: "\e9b5";
+}
+
+.icon-Video3:before {
+    content: "\e9b6";
+}
+
+.icon-Video2:before {
+    content: "\e9b7";
+}
+
+.icon-Video5:before {
+    content: "\e9b8";
+}
+
+.icon-CreateAccount:before {
+    content: "\e9b3";
+}
+
+.icon-Login:before {
+    content: "\e9b4";
+}
+
+.icon-Stop:before {
+    content: "\e9b1";
+}
+
+.icon-Pause:before {
+    content: "\e9b2";
+}
+
+.icon-VideoSize:before {
+    content: "\e9ac";
+}
+
+.icon-Expand:before {
+    content: "\e9ad";
+}
+
+.icon-Download1:before {
+    content: "\e9ae";
+}
+
+.icon-AudioSpeaker:before {
+    content: "\e9af";
+}
+
+.icon-PlayVid:before {
+    content: "\e9b0";
+}
+
+.icon-OzonePollutant:before {
+    content: "\e9aa";
+}
+
+.icon-PM25Pollutant:before {
+    content: "\e9ab";
+}
+
+.icon-Map:before {
+    content: "\e9a6";
+}
+
+.icon-Language:before {
+    content: "\e9a9";
+}
+
+.icon-Language2:before {
+    content: "\e9a5";
+}
+
+.icon-LatestNews:before {
+    content: "\e9a7";
+}
+
+.icon-CellPhone:before {
+    content: "\e9a8";
+}
+
+.icon-ShareAlert:before {
+    content: "\e99a";
+}
+
+.icon-HealthEffects:before {
+    content: "\e99b";
+}
+
+.icon-ReviewAQI:before {
+    content: "\e99c";
+}
+
+.icon-ForecastMap:before {
+    content: "\e99d";
+}
+
+.icon-RemoteWork:before {
+    content: "\e99e";
+}
+
+.icon-Clouds:before {
+    content: "\e99f";
+}
+
+.icon-Bus:before {
+    content: "\e9a0";
+}
+
+.icon-Walk:before {
+    content: "\e9a1";
+}
+
+.icon-Metro:before {
+    content: "\e9a2";
+}
+
+.icon-Fireplaces:before {
+    content: "\e9a3";
+}
+
+.icon-Bicycle:before {
+    content: "\e9a4";
+}
+
+.icon-Widget:before {
+    content: "\e992";
+}
+
+.icon-Commute:before {
+    content: "\e993";
+}
+
+.icon-PressRelease:before {
+    content: "\e994";
+}
+
+.icon-Email3:before {
+    content: "\e995";
+}
+
+.icon-Links:before {
+    content: "\e996";
+}
+
+.icon-Android:before {
+    content: "\e997";
+}
+
+.icon-Iphone:before {
+    content: "\e998";
+}
+
+.icon-Text:before {
+    content: "\e999";
+}
+
+.icon-Wildfire:before {
+    content: "\e991";
+}
+
+.icon-AdvisoryNew:before {
+    content: "\e990";
+}
+
+.icon-AlertOne:before {
+    content: "\e98c";
+}
+
+.icon-AlertThree:before {
+    content: "\e98d";
+}
+
+.icon-AlertTwo:before {
+    content: "\e98e";
+}
+
+.icon-NoAlert:before {
+    content: "\e98f";
+}
+
+.icon-Ebike:before {
+    content: "\e988";
+}
+
+.icon-CarShare:before {
+    content: "\e989";
+}
+
+.icon-PublicTransit:before {
+    content: "\e98a";
+}
+
+.icon-ComboRide:before {
+    content: "\e98b";
+}
+
+.icon-PlayAudio:before {
+    content: "\e987";
+}
+
+.icon-MeetingDetails:before {
+    content: "\e986";
+}
+
+.icon-Messages:before {
+    content: "\e985";
+}
+
+.icon-Division:before {
+    content: "\e984";
+}
+
+.icon-ContactCard:before {
+    content: "\e980";
+}
+
+.icon-FinanceApproved:before {
+    content: "\e981";
+}
+
+.icon-Lender:before {
+    content: "\e982";
+}
+
+.icon-Meeting:before {
+    content: "\e983";
+}
+
+.icon-Address:before {
+    content: "\e97e";
+}
+
+.icon-Website:before {
+    content: "\e915";
+}
+
+.icon-Phone1:before {
+    content: "\e97f";
+}
+
+.icon-HydrogenFuel:before {
+    content: "\e97d";
+}
+
+.icon-Video1:before {
+    content: "\e97b";
+}
+
+.icon-Play:before {
+    content: "\e97c";
+}
+
+.icon-AccessData:before {
+    content: "\e97a";
+}
+
+.icon-ApplyForm:before {
+    content: "\e965";
+}
+
+.icon-AwardLetter:before {
+    content: "\e966";
+}
+
+.icon-Battery:before {
+    content: "\e967";
+}
+
+.icon-Car:before {
+    content: "\e968";
+}
+
+.icon-CarClipper:before {
+    content: "\e969";
+}
+
+.icon-Circle:before {
+    content: "\e96a";
+}
+
+.icon-Clipper:before {
+    content: "\e96b";
+}
+
+.icon-DismantleCar:before {
+    content: "\e96c";
+}
+
+.icon-ElectricCar:before {
+    content: "\e96d";
+}
+
+.icon-EligApplicant:before {
+    content: "\e96e";
+}
+
+.icon-EligIncome:before {
+    content: "\e970";
+}
+
+.icon-EligLocation:before {
+    content: "\e971";
+}
+
+.icon-EligVehicle:before {
+    content: "\e972";
+}
+
+.icon-GasNozzle:before {
+    content: "\e973";
+}
+
+.icon-GasPump:before {
+    content: "\e974";
+}
+
+.icon-GreenPump:before {
+    content: "\e975";
+}
+
+.icon-HybridCar:before {
+    content: "\e976";
+}
+
+.icon-InspectCar:before {
+    content: "\e977";
+}
+
+.icon-People:before {
+    content: "\e978";
+}
+
+.icon-Plug:before {
+    content: "\e979";
+}
+
+.icon-EligibleVehicles:before {
+    content: "\e961";
+}
+
+.icon-Dealerships:before {
+    content: "\e962";
+}
+
+.icon-Insurance:before {
+    content: "\e963";
+}
+
+.icon-ChargerTypes:before {
+    content: "\e964";
+}
+
+.icon-Grants:before {
+    content: "\e959";
+}
+
+.icon-Apply:before {
+    content: "\e95a";
+}
+
+.icon-Resources:before {
+    content: "\e95b";
+}
+
+.icon-Eligibility:before {
+    content: "\e95c";
+}
+
+.icon-FAQs:before {
+    content: "\e95d";
+}
+
+.icon-CleanCarsText:before {
+    content: "\e95f";
+}
+
+.icon-CleanCarsBug:before {
+    content: "\e960";
+}
+
+.icon-WindSpeed:before {
+    content: "\e93f";
+}
+
+.icon-SpareAirVert:before {
+    content: "\e954";
+}
+
+.icon-SpareAirWinterVert:before {
+    content: "\e955";
+}
+
+.icon-AQAdvisory:before {
+    content: "\e943";
+}
+
+.icon-NoExhaust:before {
+    content: "\e952";
+}
+
+.icon-SpareFire:before {
+    content: "\e94f";
+}
+
+.icon-Woodsmoke:before {
+    content: "\e94d";
+}
+
+.icon-WalkBikeLonger:before {
+    content: "\e94e";
+}
+
+.icon-WalkBikeSmCircle:before {
+    content: "\e94c";
+}
+
+.icon-WalkBikeCircle:before {
+    content: "\e94b";
+}
+
+.icon-AQIAdvise:before {
+    content: "\e945";
+}
+
+.icon-WalkBikeCircles:before {
+    content: "\e946";
+}
+
+.icon-WalkBikeLong:before {
+    content: "\e947";
+}
+
+.icon-WalkBike:before {
+    content: "\e948";
+}
+
+.icon-SpareAirVertical:before {
+    content: "\e949";
+}
+
+.icon-SpareAirHorizontal:before {
+    content: "\e94a";
+}
+
+.icon-AlertTextHoriz:before {
+    content: "\e942";
+}
+
+.icon-AlertText:before {
+    content: "\e944";
+}
+
+.icon-Signup:before {
+    content: "\e941";
 }
 
 .icon-Add2:before {
     content: "\e900";
 }
 
-.icon-AQI:before {
+.icon-Agency:before {
     content: "\e901";
 }
 
-.icon-AreaAssign2:before {
+.icon-Alert:before {
     content: "\e902";
 }
 
-.icon-Compass:before {
+.icon-AmExpress:before {
     content: "\e903";
 }
 
-.icon-E:before {
+.icon-AQI:before {
     content: "\e904";
 }
 
-.icon-Fullscreen:before {
+.icon-ArrowDown:before {
     content: "\e905";
 }
 
-.icon-Help2:before {
+.icon-ArrowLeft:before {
     content: "\e906";
 }
 
-.icon-Location:before {
+.icon-ArrowLeft2:before {
     content: "\e907";
 }
 
-.icon-Location2:before {
+.icon-ArrowRight:before {
     content: "\e908";
 }
 
-.icon-Map:before {
+.icon-ArrowRight2:before {
     content: "\e909";
 }
 
-.icon-Meteorology:before {
+.icon-ArrowUp:before {
     content: "\e90a";
 }
 
-.icon-N:before {
+.icon-Audio:before {
     content: "\e90b";
 }
 
-.icon-Print:before {
+.icon-BAAQMDLogo:before {
     content: "\e90c";
 }
 
-.icon-S:before {
+.icon-BAAQMDRegistration:before {
     content: "\e90d";
 }
 
-.icon-SetNorth:before {
+.icon-Book:before {
     content: "\e90e";
 }
 
-.icon-Subtract:before {
+.icon-Calendar:before {
     content: "\e90f";
 }
 
-.icon-Temperature:before {
+.icon-Charts:before {
     content: "\e910";
 }
 
-.icon-W:before {
+.icon-Checkmark:before {
     content: "\e911";
 }
 
-.icon-Weather:before {
+.icon-Close:before {
     content: "\e912";
 }
 
-.icon-WindDirection:before {
+.icon-Close2:before {
     content: "\e913";
 }
 
-.icon-WindGust:before {
+.icon-Contact:before {
     content: "\e914";
+}
+
+.icon-Copy2:before {
+    content: "\e916";
+}
+
+.icon-CreditCard:before {
+    content: "\e917";
+}
+
+.icon-Discover:before {
+    content: "\e918";
+}
+
+.icon-Download:before {
+    content: "\e919";
+}
+
+.icon-Echeck:before {
+    content: "\e91a";
+}
+
+.icon-Email:before {
+    content: "\e91b";
+}
+
+.icon-ExcelDoc:before {
+    content: "\e91c";
+}
+
+.icon-Facebook:before {
+    content: "\e91d";
+}
+
+.icon-Filter:before {
+    content: "\e91e";
+}
+
+.icon-HeavySmoke:before {
+    content: "\e91f";
+}
+
+.icon-Help:before {
+    content: "\e920";
+}
+
+.icon-Help2:before {
+    content: "\e921";
+}
+
+.icon-Info2:before {
+    content: "\e922";
+}
+
+.icon-Library:before {
+    content: "\e923";
+}
+
+.icon-Location:before {
+    content: "\e924";
+}
+
+.icon-Mastercard:before {
+    content: "\e925";
+}
+
+.icon-Menu2:before {
+    content: "\e926";
+}
+
+.icon-Meteorology:before {
+    content: "\e927";
+}
+
+.icon-More:before {
+    content: "\e928";
+}
+
+.icon-PDF:before {
+    content: "\e929";
+}
+
+.icon-Permit:before {
+    content: "\e92a";
+}
+
+.icon-Phone:before {
+    content: "\e92b";
+}
+
+.icon-PlayVideo:before {
+    content: "\e92c";
+}
+
+.icon-Print:before {
+    content: "\e92d";
+}
+
+.icon-Rss:before {
+    content: "\e92e";
+}
+
+.icon-Save:before {
+    content: "\e92f";
+}
+
+.icon-Search:before {
+    content: "\e930";
+}
+
+.icon-SpareAir:before {
+    content: "\e931";
+}
+
+.icon-SpareAirFull:before {
+    content: "\e932";
+}
+
+.icon-SpareAirWinter:before {
+    content: "\e933";
+}
+
+.icon-Submit:before {
+    content: "\e934";
+}
+
+.icon-Subtract:before {
+    content: "\e935";
+}
+
+.icon-Terms:before {
+    content: "\e936";
+}
+
+.icon-ThankYou:before {
+    content: "\e937";
+}
+
+.icon-Tools:before {
+    content: "\e938";
+}
+
+.icon-Twitter:before {
+    content: "\e939";
+}
+
+.icon-Video:before {
+    content: "\e93a";
+}
+
+.icon-Visa:before {
+    content: "\e93b";
+}
+
+.icon-Wifi:before {
+    content: "\e93c";
+}
+
+.icon-WindDirection:before {
+    content: "\e93d";
+}
+
+.icon-WindGust:before {
+    content: "\e93e";
+}
+
+.icon-YouTube:before {
+    content: "\e940";
 }
 
 .space-15pxno {
@@ -3362,7 +4428,7 @@ table.striped-rows.air-monitoring-table {
 }
 
 .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in:before {
-    content: "\e935";
+    content: "\ea44";
 }
 
 .baaqmd-maps-main .mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
@@ -3530,4 +4596,117 @@ a.white-link.flt-right {
     width: 100%;
     position: absolute;
     box-sizing: border-box;
+}
+
+/*  Overburdened Map Styles  */
+.baaqmd-maps-main .baaqmd-maps-details-panel h3 i.icomoon.icon-Overburdened {
+    font-size: 2.2rem;
+    padding-right: 1px;
+    margin-left: -5px;
+}
+
+i.icomoon.icon-LocationOverburdened:before {
+    font-size: 2rem;
+    color: #3c16ff;
+    line-height: 1.9rem;
+    margin-left: 3px;
+    float: left;
+}
+
+i.icomoon.icon-LocationNotOverburdened:before {
+    font-size: 2rem;
+    color: #0f9d58;
+    line-height: 1.9rem;
+    margin-left: 3px;
+    float: left;
+}
+
+.list-text {
+    float: left;
+    line-height: 2rem;
+    margin-left: 9px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-boundaries li input[type="checkbox"] {
+    float: left;
+}
+
+i.icomoon.icon-Location:before {
+    font-size: 2.5rem;
+    line-height: 1rem;
+    vertical-align: top;
+}
+
+.marker-section {
+    background-color: #cbe5ee;
+    border-radius: 8px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 12px 4px 12px;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+
+.marker-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    float: left;
+    line-height: 2.5rem;
+}
+
+.marker-text.extra-top-marg {
+    margin-top: 4px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-details-panel a.information-link.small-button {
+    margin-top: 3px;
+    float: left;
+    width: 32px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.baaqmd-maps-main .baaqmd-maps-details-panel .information-link i.icomoon.icon-AddMarker {
+    font-size: 2.1rem;
+}
+
+.or-text {
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.lat-area {
+    width: 42%;
+    display: inline-block;
+    float: left;
+}
+
+.long-area {
+    width: 42%;
+    display: inline-block;
+    float: left;
+}
+
+.marker-section.extra-btm-marg {
+    margin-bottom: 13px;
+}
+
+.more-btn {
+    margin: 0 14px;
+}
+
+.baaqmd-maps-main .baaqmd-maps-details-panel a.information-link.over-more {
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+.baaqmd-maps-main .baaqmd-maps-details-panel a.information-link.over-more i.icomoon.icon-Info2 {
+    font-size: 2rem;
+}
+
+.baaqmd-maps-main .baaqmd-maps-details-panel .information-link i.icomoon.icon-Clear {
+    font-size: 2rem;
 }

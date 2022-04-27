@@ -27,7 +27,7 @@
     <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }"></div>
 </h3>
 <div class="accordion-panel" data-bind="css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}">
-    <h4><i class="icomoon im-forecast"></i> Daily Forecast</h4>
+    <h4><i class="icomoon icon-Forecast"></i> Daily Forecast</h4>
     <div class="baaqmd-maps-last-updated">
         Last Updated:
         <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)"></span>,
@@ -46,7 +46,7 @@
         </li>
         <!-- /ko -->
     </ul>
-    <h4><i class="icomoon im-aqi-index"></i> Air Quality Index</h4>
+    <h4><i class="icomoon icon-AQI"></i> Air Quality Index</h4>
     <ul class="baaqmd-maps-legend aqi-forecast-legend">
         <li class="good">
             <div class="aqi-no">(0-50)</div>
