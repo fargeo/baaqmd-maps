@@ -8536,7 +8536,7 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 /* 255 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Overburdened Communities\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n        <li class=\"overburdened-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.overburdened.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Overburdened communities\n        </li>\n        <li class=\"overburdened-buffer\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.buffer.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            1000 foot buffer zone\n        </li>\n        <li>\n            <input type=\"checkbox\" data-bind=\"checked: layers.markers.flag\">\n            <i class=\"fas fa-map-marker-alt overburdened-marker-icon\"></i>\n            Markers (<span data-bind=\"text: markers().length\"></span>)\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <div class=\"coordinate-entry-input\">\n            <span>Longitude:</span> <input type=\"number\" min=\"-180\" max=\"180\" data-bind=\"value: xCoord\">\n            <span>Latitude:</span><input type=\"number\" min=\"-90\" max=\"90\" data-bind=\"value: yCoord\">\n        </div>\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: addMarkerFromCoordinates\">\n            <i class=\"fas fa-plus\"></i>\n            Add Marker From Coodinates\n        </a>\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() {\n            addMarkerOnClick(!addMarkerOnClick());\n        }\">\n            <i class=\"fas fa-map-marker-alt\"></i>\n            Click to add Marker\n        </a>\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() {\n                    markers([]);\n                }\">\n            <i class=\"fas fa-times-circle\"></i>\n            Clear Markers\n        </a>\n        <a href=\"javascript: void(0);\" class=\"information-link\"\n            data-bind=\"click: function() { showInfoPanel('OverburdenedCommunitiesInfoPanel'); }\">\n            <i class=\"fas fa-info-circle\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\"\n        data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n";
+module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Overburdened Communities\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n        <li class=\"overburdened-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.overburdened.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Overburdened communities\n        </li>\n        <li class=\"overburdened-buffer\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.buffer.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            1000 foot buffer zone\n        </li>\n        <li>\n            <input type=\"checkbox\" data-bind=\"checked: layers.overburdenedMarkers.flag\" checked=\"checked\">\n            <i class=\"icomoon icon-LocationOverburdened\"></i>\n            <div class=\"list-text\">Overburdened Markers (<span data-bind=\"text: overburdenedMarkersCount\"></span>)</div>\n        </li>\n        <li>\n            <input type=\"checkbox\" data-bind=\"checked: layers.notOverburdenedMarkers.flag\" checked=\"checked\">\n            <i class=\"icomoon icon-LocationNotOverburdened\"></i>\n            <div class=\"list-text\">\n                Not Overburdened Markers (<span data-bind=\"text: notOverburdenedMarkersCount\"></span>)</div>\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\"\n            data-bind=\"click: function() { showInfoPanel('OverburdenedCommunitiesInfoPanel'); }\">\n            <i class=\"fas fa-info-circle\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"icomoon icon-Location\"></i>\n    Markers\n    <div class=\"accordion-icon icomoon icon-Subtract\"\n        data-bind=\"css: {'icon-Subtract': markersExpanded, 'icon-Add2': !markersExpanded()}, click: function() { markersExpanded(!markersExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel accordion-panel-expanded\"\n    data-bind=\"css: {'accordion-panel-expanded': markersExpanded, 'accordion-panel-collapsed': !markersExpanded()}\">\n    <div class=\"baaqmd-maps-details-links\">\n        <div class=\"marker-section\">\n            <div class=\"marker-text extra-top-marg\">Click to add a marker to the map</div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\" data-bind=\"click: function() {\n                addMarkerOnClick(!addMarkerOnClick());\n            }\">\n                <i class=\"icomoon icon-AddMarker\"></i>\n            </a>\n        </div>\n        <div class=\"or-text\">- - OR - -</div>\n        <div class=\"marker-section extra-btm-marg\">\n            <div class=\"marker-text\">Enter the latitude and longitude</div>\n            <div class=\"clear\"></div>\n            <div class=\"coordinate-entry-input\">\n                <div class=\"lat-area\">\n                    <span>Latitude:</span><input type=\"number\" min=\"-90\" max=\"90\" data-bind=\"value: yCoord\">\n                </div>\n                <div class=\"long-area\">\n                    <span>Longitude:</span> <input type=\"number\" min=\"-180\" max=\"180\" data-bind=\"value: xCoord\">\n                </div>\n            </div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\"\n                data-bind=\"click: addMarkerFromCoordinates\">\n                <i class=\"icomoon icon-AddMarker\"></i>\n            </a>\n        </div>\n        <div class=\"space-3pxblk\"></div>\n        <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() {\n                        markers([]);\n                    }\">\n            <i class=\"icomoon icon-Clear\"></i>\n            Clear Markers\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\"\n        data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n";
 
 /***/ }),
 /* 256 */
@@ -28070,7 +28070,18 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
   viewModel: function viewModel(params) {
     var _this = this;
 
+    this.markersExpanded = knockout_latest["observable"](true);
     this.markers = knockout_latest["observableArray"]();
+    this.overburdenedMarkersCount = knockout_latest["computed"](function () {
+      return _this.markers().filter(function (marker) {
+        return marker.properties.overburdened;
+      }).length;
+    });
+    this.notOverburdenedMarkersCount = knockout_latest["computed"](function () {
+      return _this.markers().filter(function (marker) {
+        return !marker.properties.overburdened;
+      }).length;
+    });
     this.xCoord = knockout_latest["observable"]();
     this.yCoord = knockout_latest["observable"]();
     this.layers = {
@@ -28078,9 +28089,13 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
         flag: knockout_latest["observable"](true),
         names: ['overburdened-communities', 'overburdened-communities-outline']
       },
-      markers: {
+      overburdenedMarkers: {
         flag: knockout_latest["observable"](true),
         names: ['overburdened-communities-markers']
+      },
+      notOverburdenedMarkers: {
+        flag: knockout_latest["observable"](true),
+        names: ['not-overburdened-communities-markers']
       },
       buffer: {
         flag: knockout_latest["observable"](true),
@@ -28155,8 +28170,22 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
         id: 'overburdened-communities-markers',
         type: 'symbol',
         source: 'overburdened-communities-markers',
+        filter: ['==', ['get', 'overburdened'], true],
         layout: {
-          'icon-image': ['case', ['==', ['get', 'overburdened'], true], 'pink-marker-stroked', 'green-marker-stroked'],
+          'icon-image': 'pink-marker-stroked',
+          'icon-allow-overlap': true,
+          'icon-ignore-placement': true,
+          'icon-anchor': 'bottom',
+          'icon-size': 2
+        }
+      });
+      map.addLayer({
+        id: 'not-overburdened-communities-markers',
+        type: 'symbol',
+        source: 'overburdened-communities-markers',
+        filter: ['==', ['get', 'overburdened'], false],
+        layout: {
+          'icon-image': 'green-marker-stroked',
           'icon-allow-overlap': true,
           'icon-ignore-placement': true,
           'icon-anchor': 'bottom',
