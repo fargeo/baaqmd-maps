@@ -1331,13 +1331,13 @@ $no-color: #b10318;
 
     .overburdened-areas {
         i:before {
-            background-color: #e0a4b6;
+            background-color: rgba(123, 97, 255, 0.5);
         }
     }
 
     .overburdened-buffer {
         i:before {
-            background-color: #a0c2fd;
+            background-color: rgba(0, 84, 255, 0.5);
         }
     }
 
