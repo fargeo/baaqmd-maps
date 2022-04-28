@@ -18,6 +18,7 @@
     "pollutantInfoURL": "Utils/Interactive-Map-Content/Pollutant",
     "openBurnStatusInfoURL": "Utils/Interactive-Map-Content/OBS-Info",
     "aboutImpactedCommunitiesURL": "Utils/Interactive-Map-Content/CARE-Info",
+    "aboutOverburdenedCommunitiesURL": "Utils/Interactive-Map-Content/Overburdened-Info",
     "aboutFacilitiesURL": "Utils/Interactive-Map-Content/About-Facility",
     "summerModalURL": "Utils/Interactive-Map-Content/Summer-Modal-Content",
     "winterModalURL": "Utils/Interactive-Map-Content/Winter-Modal-Content",

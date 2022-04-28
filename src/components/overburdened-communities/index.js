@@ -1,19 +1,30 @@
 import * as ko from 'knockout';
 import * as mapboxgl from 'mapbox-gl';
+import * as config from '../../config.json';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
+import fetchHTML from '../../utils/fetch-html';
+
+const aboutOverburdenedCommunities = ko.observable();
+let fetchData = (rootURL) => {
+    fetchHTML(rootURL + config.aboutOverburdenedCommunitiesURL, aboutOverburdenedCommunities);
+    fetchData = false;
+};
 
 ko.components.register('OverburdenedCommunitiesInfoPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
+        this.aboutOverburdenedCommunities = aboutOverburdenedCommunities;
     },
     template: infoPanelTemplate
 });
 
 export default ko.components.register('OverburdenedCommunities', {
     viewModel: function(params) {
+        const rootUrl = params.rootURL || config.prodRoot;
+        if (fetchData) fetchData(rootUrl);
         this.markersExpanded = ko.observable(true);
         this.markers = ko.observableArray();
         this.overburdenedMarkersCount = ko.computed(() => {
