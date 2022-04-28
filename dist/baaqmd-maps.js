@@ -408,7 +408,7 @@ module.exports = function (argument) {
 /* 8 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"prodRoot\":\"https://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsuat.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2019-12-12&st=2021-02-18T20:16:09Z&se=2022-02-19T20:16:00Z&sr=b&sp=r&sig=KHAE1u%2BwFe7qa4ItImKXLIkpAID9CeMPP4Omt1D9k1c%3D\",\"facilityTilesetId\":\"8hovmgli\",\"clusteredFacilityTilesetId\":\"8q4j3kqu\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Feeds/Air-Forecast-Map\",\"spaRSSFeed\":\"Feeds/TwoDayMapAlertRSS\",\"openBurnRSSFeed\":\"Feeds/Open-Burn-Map\",\"helpContentURL\":\"Utils/Interactive-Map-Content/Help\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"openBurnStatusInfoURL\":\"Utils/Interactive-Map-Content/OBS-Info\",\"aboutImpactedCommunitiesURL\":\"Utils/Interactive-Map-Content/CARE-Info\",\"aboutFacilitiesURL\":\"Utils/Interactive-Map-Content/About-Facility\",\"summerModalURL\":\"Utils/Interactive-Map-Content/Summer-Modal-Content\",\"winterModalURL\":\"Utils/Interactive-Map-Content/Winter-Modal-Content\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalDocRootURL\":\"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/\",\"zoom\":7,\"center\":[-122.11157519531474,37.900063508510144],\"districtBounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"https://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cklcnrb7g2hwq17notzudstpy\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"OverburdenedCommunities\":{\"style\":\"baaqmd-publicmaps/cl1uz2h47000415qsdkln1ze2\",\"label\":\"Overburdened Areas Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb\",\"label\":\"Open Burning Map\"}}}");
+module.exports = JSON.parse("{\"prodRoot\":\"https://www.baaqmd.gov/\",\"accessToken\":\"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw\",\"userName\":\"baaqmd-publicmaps\",\"tilesetId\":\"c3867v6s\",\"facilitiesJSONURL\":\"https://baaqmdpsuat.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2019-12-12&st=2021-02-18T20:16:09Z&se=2022-02-19T20:16:00Z&sr=b&sp=r&sig=KHAE1u%2BwFe7qa4ItImKXLIkpAID9CeMPP4Omt1D9k1c%3D\",\"facilityTilesetId\":\"8hovmgli\",\"clusteredFacilityTilesetId\":\"8q4j3kqu\",\"facilitiesClusterDistance\":30,\"facilitiesJSONPath\":\"./data/facilities/facilities.json\",\"apiURI\":\"https://api.mapbox.com/styles/v1/\",\"aqiRSSFeed\":\"Feeds/Air-Forecast-Map\",\"spaRSSFeed\":\"Feeds/TwoDayMapAlertRSS\",\"openBurnRSSFeed\":\"Feeds/Open-Burn-Map\",\"helpContentURL\":\"Utils/Interactive-Map-Content/Help\",\"aqiInfoURL\":\"Utils/Interactive-Map-Content/AQI\",\"aboutForecastURL\":\"Utils/Interactive-Map-Content/About-Forecast\",\"pollutantInfoURL\":\"Utils/Interactive-Map-Content/Pollutant\",\"openBurnStatusInfoURL\":\"Utils/Interactive-Map-Content/OBS-Info\",\"aboutImpactedCommunitiesURL\":\"Utils/Interactive-Map-Content/CARE-Info\",\"aboutOverburdenedCommunitiesURL\":\"Utils/Interactive-Map-Content/Overburdened-Info\",\"aboutFacilitiesURL\":\"Utils/Interactive-Map-Content/About-Facility\",\"summerModalURL\":\"Utils/Interactive-Map-Content/Summer-Modal-Content\",\"winterModalURL\":\"Utils/Interactive-Map-Content/Winter-Modal-Content\",\"airDistrictStationDataURL\":\"Utils/Interactive-Map-Content/Air-District-Stations\",\"facilityGLMStationDataURL\":\"Utils/Interactive-Map-Content/Facility-GLM-Stations\",\"meteorologicalSiteDataURL\":\"Utils/Interactive-Map-Content/Meteorological-Sites\",\"historicalDocRootURL\":\"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/\",\"zoom\":7,\"center\":[-122.11157519531474,37.900063508510144],\"districtBounds\":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],\"boundsPadding\":20,\"mainMapPage\":\"https://baaqmd.fargeo-dev.com/dist/\",\"mapTypes\":{\"AQIForecast\":{\"style\":\"baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh\",\"label\":\"Air Quality Forecast Map\"},\"Facilities\":{\"style\":\"baaqmd-publicmaps/cklcnrb7g2hwq17notzudstpy\",\"label\":\"Facilities Map\"},\"ImpactedCommunities\":{\"style\":\"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w\",\"label\":\"Impacted Communities Map\"},\"OverburdenedCommunities\":{\"style\":\"baaqmd-publicmaps/cl1uz2h47000415qsdkln1ze2\",\"label\":\"Overburdened Areas Map\"},\"Monitoring\":{\"style\":\"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47\",\"label\":\"Air Quality Monitoring Map\"},\"OpenBurning\":{\"style\":\"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb\",\"label\":\"Open Burning Map\"}}}");
 
 /***/ }),
 /* 9 */
@@ -8548,7 +8548,7 @@ module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-map
 /* 257 */
 /***/ (function(module, exports) {
 
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Overburdened Communities Details\n</h3>\n<hr>\n";
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Overburdened Communities Details\n</h3>\n<hr>\n<div data-bind=\"html: aboutOverburdenedCommunities\"></div>\n";
 
 /***/ }),
 /* 258 */
@@ -28060,9 +28060,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
+var aboutOverburdenedCommunities = knockout_latest["observable"]();
+
+var overburdened_communities_fetchData = function fetchData(rootURL) {
+  fetchHTML(rootURL + src_config["aboutOverburdenedCommunitiesURL"], aboutOverburdenedCommunities);
+  overburdened_communities_fetchData = false;
+};
+
 knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
   viewModel: function viewModel(params) {
     this.showInfoPanel = params.showInfoPanel;
+    this.aboutOverburdenedCommunities = aboutOverburdenedCommunities;
   },
   template: overburdened_communities_info_panel
 });
@@ -28070,6 +28080,8 @@ knockout_latest["components"].register('OverburdenedCommunitiesInfoPanel', {
   viewModel: function viewModel(params) {
     var _this = this;
 
+    var rootUrl = params.rootURL || src_config["prodRoot"];
+    if (overburdened_communities_fetchData) overburdened_communities_fetchData(rootUrl);
     this.markersExpanded = knockout_latest["observable"](true);
     this.markers = knockout_latest["observableArray"]();
     this.overburdenedMarkersCount = knockout_latest["computed"](function () {
