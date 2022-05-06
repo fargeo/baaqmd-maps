@@ -1109,7 +1109,7 @@ $no-color: #b10318;
                 margin-left: 3px;
             }
 
-            .overburdened-marker-icon {
+            .overburdened-pin-icon {
                 height: 24px;
                 line-height: 20px;
                 list-style-type: disc;
@@ -4637,7 +4637,7 @@ i.icomoon.icon-Location:before {
     vertical-align: top;
 }
 
-.marker-section {
+.pin-section {
     background-color: #cbe5ee;
     border-radius: 8px;
     display: inline-block;
@@ -4648,14 +4648,14 @@ i.icomoon.icon-Location:before {
     margin-top: 6px;
 }
 
-.marker-text {
+.pin-text {
     font-size: 1.25rem;
     font-weight: 600;
     float: left;
     line-height: 2.5rem;
 }
 
-.marker-text.extra-top-marg {
+.pin-text.extra-top-marg {
     margin-top: 4px;
 }
 
@@ -4663,7 +4663,7 @@ i.icomoon.icon-Location:before {
     margin-top: 3px;
     float: left;
     width: 32px;
-    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
 }
 
@@ -4690,7 +4690,7 @@ i.icomoon.icon-Location:before {
     float: left;
 }
 
-.marker-section.extra-btm-marg {
+.pin-section.extra-btm-marg {
     margin-bottom: 13px;
 }
 

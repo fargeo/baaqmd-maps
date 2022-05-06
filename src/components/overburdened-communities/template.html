@@ -20,17 +20,6 @@
             </span>
             1000 Foot Buffer Zone
         </li>
-        <li>
-            <input type="checkbox" data-bind="checked: layers.overburdenedMarkers.flag" checked="checked">
-            <i class="icomoon icon-LocationOverburdened"></i>
-            <div class="list-text">Overburdened Markers (<span data-bind="text: overburdenedMarkersCount"></span>)</div>
-        </li>
-        <li>
-            <input type="checkbox" data-bind="checked: layers.notOverburdenedMarkers.flag" checked="checked">
-            <i class="icomoon icon-LocationNotOverburdened"></i>
-            <div class="list-text">
-                Not Overburdened Markers (<span data-bind="text: notOverburdenedMarkersCount"></span>)</div>
-        </li>
     </ul>
     <div class="baaqmd-maps-details-links">
         <a href="javascript: void(0);" class="information-link"
@@ -42,25 +31,38 @@
 </div>
 <h3>
     <i class="icomoon icon-Location"></i>
-    Markers
+    Pin Locations
     <div class="accordion-icon icomoon icon-Subtract"
-        data-bind="css: {'icon-Subtract': markersExpanded, 'icon-Add2': !markersExpanded()}, click: function() { markersExpanded(!markersExpanded()); }">
+        data-bind="css: {'icon-Subtract': pinsExpanded, 'icon-Add2': !pinsExpanded()}, click: function() { pinsExpanded(!pinsExpanded()); }">
     </div>
 </h3>
 <div class="accordion-panel accordion-panel-expanded"
-    data-bind="css: {'accordion-panel-expanded': markersExpanded, 'accordion-panel-collapsed': !markersExpanded()}">
+    data-bind="css: {'accordion-panel-expanded': pinsExpanded, 'accordion-panel-collapsed': !pinsExpanded()}">
+        <ul class="baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities">
+            <li>
+                <input type="checkbox" data-bind="checked: layers.overburdenedPins.flag" checked="checked">
+                <i class="icomoon icon-LocationOverburdened"></i>
+                <div class="list-text">Overburdened Pins (<span data-bind="text: overburdenedPinsCount"></span>)</div>
+            </li>
+            <li>
+                <input type="checkbox" data-bind="checked: layers.notOverburdenedPins.flag" checked="checked">
+                <i class="icomoon icon-LocationNotOverburdened"></i>
+                <div class="list-text">
+                    Not Overburdened Pins (<span data-bind="text: notOverburdenedPinsCount"></span>)</div>
+            </li>
+        </ul>
     <div class="baaqmd-maps-details-links">
-        <div class="marker-section">
-            <div class="marker-text extra-top-marg">Click to add a marker to the map</div>
+        <div class="pin-section">
             <a href="javascript: void(0);" class="information-link small-button" data-bind="click: function() {
-                addMarkerOnClick(!addMarkerOnClick());
+                addPinOnClick(!addPinOnClick());
             }">
                 <i class="icomoon icon-AddMarker"></i>
             </a>
+            <div class="pin-text extra-top-marg">Click to add a pin to the map</div>
         </div>
         <div class="or-text">- - OR - -</div>
-        <div class="marker-section extra-btm-marg">
-            <div class="marker-text">Enter the latitude and longitude</div>
+        <div class="pin-section extra-btm-marg">
+            <div class="pin-text">Enter the latitude and longitude</div>
             <div class="clear"></div>
             <div class="coordinate-entry-input">
                 <div class="lat-area">
@@ -71,16 +73,16 @@
                 </div>
             </div>
             <a href="javascript: void(0);" class="information-link small-button"
-                data-bind="click: addMarkerFromCoordinates">
+                data-bind="click: addPinFromCoordinates">
                 <i class="icomoon icon-AddMarker"></i>
             </a>
         </div>
         <div class="space-3pxblk"></div>
         <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
-                        markers([]);
+                        pins([]);
                     }">
             <i class="icomoon icon-Clear"></i>
-            Clear Markers
+            Clear Pins
         </a>
     </div>
 </div>

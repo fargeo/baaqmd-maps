@@ -25,16 +25,16 @@ export default ko.components.register('OverburdenedCommunities', {
     viewModel: function(params) {
         const rootUrl = params.rootURL || config.prodRoot;
         if (fetchData) fetchData(rootUrl);
-        this.markersExpanded = ko.observable(true);
-        this.markers = ko.observableArray();
-        this.overburdenedMarkersCount = ko.computed(() => {
-            return this.markers().filter((marker) => {
-                return marker.properties.overburdened;
+        this.pinsExpanded = ko.observable(true);
+        this.pins = ko.observableArray();
+        this.overburdenedPinsCount = ko.computed(() => {
+            return this.pins().filter((pin) => {
+                return pin.properties.overburdened;
             }).length;
         });
-        this.notOverburdenedMarkersCount = ko.computed(() => {
-            return this.markers().filter((marker) => {
-                return !marker.properties.overburdened;
+        this.notOverburdenedPinsCount = ko.computed(() => {
+            return this.pins().filter((pin) => {
+                return !pin.properties.overburdened;
             }).length;
         });
         this.xCoord = ko.observable();
@@ -47,16 +47,16 @@ export default ko.components.register('OverburdenedCommunities', {
                     'overburdened-communities-outline'
                 ]
             },
-            overburdenedMarkers: {
+            overburdenedPins: {
                 flag: ko.observable(true),
                 names: [
-                    'overburdened-communities-markers'
+                    'overburdened-communities-pins'
                 ]
             },
-            notOverburdenedMarkers: {
+            notOverburdenedPins: {
                 flag: ko.observable(true),
                 names: [
-                    'not-overburdened-communities-markers'
+                    'not-overburdened-communities-pins'
                 ]
             },
             buffer: {
@@ -81,15 +81,15 @@ export default ko.components.register('OverburdenedCommunities', {
         };
 
         this.popupLayers = [
-            'overburdened-communities-markers',
-            'not-overburdened-communities-markers'
+            'overburdened-communities-pins',
+            'not-overburdened-communities-pins'
         ];
 
         this.getPopupData = (feature) => {
             return {
-                removeMarker: () => {
+                removePin: () => {
                     this.popup.remove();
-                    this.markers.splice(feature.properties.index, 1);
+                    this.pins.splice(feature.properties.index, 1);
                 },
                 ...feature.properties
             };
@@ -97,7 +97,7 @@ export default ko.components.register('OverburdenedCommunities', {
 
         this.popupTemplate = popupTemplate;
 
-        this.addMarker = (coords, properties) => {
+        this.addPin = (coords, properties) => {
             const url = `${mapboxgl.baseApiUrl}/v4/baaqmd-publicmaps.cl005bu79383k28tfhgqz6cm2-9y5k2,baaqmd-publicmaps.cl005jo3b5xsw20n5km6mdn7a-29w8w/tilequery/${coords[0]},${coords[1]}.json?limit=1&access_token=${mapboxgl.accessToken}`;
             fetch(url)
                 .then((response) => {
@@ -110,22 +110,22 @@ export default ko.components.register('OverburdenedCommunities', {
                 .then((data) => {
                     properties.overburdened = data.features.length > 0;
                     properties.name = properties.text || `${Math.round(coords[0] * 1000) / 1000}, ${Math.round(coords[1] * 1000) / 1000}`;
-                    this.markers.push({
+                    this.pins.push({
                         coords: coords,
                         properties: properties
                     });
                 });
         };
 
-        this.addMarkerFromCoordinates = () => {
+        this.addPinFromCoordinates = () => {
             if (this.xCoord() && this.yCoord()) {
-                this.addMarker([this.xCoord(), this.yCoord()], {});
+                this.addPin([this.xCoord(), this.yCoord()], {});
             }
         };
 
-        this.addMarkerOnClick = ko.observable(false);
-        this.addMarkerOnClick.subscribe((addMarkerOnClick) => {
-            if (addMarkerOnClick) {
+        this.addPinOnClick = ko.observable(false);
+        this.addPinOnClick.subscribe((addPinOnClick) => {
+            if (addPinOnClick) {
                 this.map().getCanvas().style.cursor = 'crosshair';
             } else {
                 this.map().getCanvas().style.cursor = '';
@@ -133,7 +133,7 @@ export default ko.components.register('OverburdenedCommunities', {
         });
 
         this.setupMap = (map) => {
-            map.addSource('overburdened-communities-markers', {
+            map.addSource('overburdened-communities-pins', {
                 type: 'geojson',
                 data: {
                     type: 'FeatureCollection',
@@ -142,9 +142,9 @@ export default ko.components.register('OverburdenedCommunities', {
             });
 
             map.addLayer({
-                id: 'overburdened-communities-markers',
+                id: 'overburdened-communities-pins',
                 type: 'symbol',
-                source: 'overburdened-communities-markers',
+                source: 'overburdened-communities-pins',
                 filter: ['==', ['get', 'overburdened'], true],
                 layout: {
                     'icon-image': 'LocationOverburdened',
@@ -156,9 +156,9 @@ export default ko.components.register('OverburdenedCommunities', {
             });
 
             map.addLayer({
-                id: 'not-overburdened-communities-markers',
+                id: 'not-overburdened-communities-pins',
                 type: 'symbol',
-                source: 'overburdened-communities-markers',
+                source: 'overburdened-communities-pins',
                 filter: ['==', ['get', 'overburdened'], false],
                 layout: {
                     'icon-image': 'LocationNotOverburdened',
@@ -172,42 +172,42 @@ export default ko.components.register('OverburdenedCommunities', {
             this.layers.counties.flag(false);
 
             const onClick = (e) => {
-                if (this.addMarkerOnClick()) {
-                    this.addMarker([e.lngLat.lng, e.lngLat.lat], {});
-                    this.addMarkerOnClick(false);
+                if (this.addPinOnClick()) {
+                    this.addPin([e.lngLat.lng, e.lngLat.lat], {});
+                    this.addPinOnClick(false);
                 }
             };
 
             map.on('click', onClick);
 
-            const addResultMarker = (e) => {
-                this.addMarker(e.result.center, e.result);
+            const addResultPin = (e) => {
+                this.addPin(e.result.center, e.result);
             };
 
             const geocoderControl = map._controls.find((control) => {
                 const container = control.container || control._container;
                 return container.classList.contains('mapboxgl-ctrl-geocoder');
             });
-            geocoderControl.on('result', addResultMarker);
+            geocoderControl.on('result', addResultPin);
 
             var teardown = this.mapType.subscribe(() => {
                 map.off('click', onClick);
-                geocoderControl.off('result', addResultMarker);
+                geocoderControl.off('result', addResultPin);
                 teardown.dispose();
             });
 
-            this.markers.subscribe((markers) => {
-                map.getSource('overburdened-communities-markers').setData({
+            this.pins.subscribe((pins) => {
+                map.getSource('overburdened-communities-pins').setData({
                     type: 'FeatureCollection',
-                    features: markers.map((marker, index) => {
-                        marker.properties.index = index;
+                    features: pins.map((pin, index) => {
+                        pin.properties.index = index;
                         return {
                             type: 'Feature',
                             geometry: {
                                 type: 'Point',
-                                coordinates: marker.coords
+                                coordinates: pin.coords
                             },
-                            properties: marker.properties
+                            properties: pin.properties
                         };
                     })
                 });
