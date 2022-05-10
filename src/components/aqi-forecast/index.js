@@ -6,7 +6,7 @@ import * as summerModalTemplate from './summer-modal.html';
 import * as winterModalTemplate from './winter-modal.html';
 import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html';
 import * as forecastPanelTemplate from './forecast-panel.html';
-import * as config from '../../config.json';
+import config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import fetchHTML from '../../utils/fetch-html';
 

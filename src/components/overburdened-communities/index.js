@@ -1,6 +1,6 @@
 import * as ko from 'knockout';
 import * as mapboxgl from 'mapbox-gl';
-import * as config from '../../config.json';
+import config from '../../config.json';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html';

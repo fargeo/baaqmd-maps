@@ -1,4 +1,4 @@
-import * as config from '../config.json';
+import config from '../config.json';
 import * as ko from 'knockout';
 import * as mapboxgl from 'mapbox-gl';
 
@@ -6,7 +6,7 @@ ko.bindingHandlers.mapboxgl = {
     init: function(element, valueAccessor) {
         const options = Object.assign(
             {},
-            config.default,
+            config,
             ko.unwrap(valueAccessor()) || {},
             {
                 container: element,

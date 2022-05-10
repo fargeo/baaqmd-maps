@@ -3,7 +3,7 @@ import * as mapboxgl from 'mapbox-gl';
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.min';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import * as template from './template.html';
-import * as config from '../../config.json';
+import config from '../../config.json';
 import '../../bindings/mapbox-gl';
 import ZoomControl from '../zoom-control';
 import HelpControl from '../help-control';

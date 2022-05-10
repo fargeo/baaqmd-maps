@@ -2,7 +2,7 @@ import * as ko from 'knockout';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
-import * as config from '../../config.json';
+import config from '../../config.json';
 import * as siteDocs from '../../../data/sites/docs.json';
 import * as historicalSiteInfoTemplate from './historical-site-info.html';
 import fetchHTML from '../../utils/fetch-html';

@@ -1,7 +1,7 @@
 import * as ko from 'knockout';
 import * as template from './template.html';
 import * as helpTemplate from './help.html';
-import * as config from '../../config.json';
+import config from '../../config.json';
 import fetchHTML from '../../utils/fetch-html';
 
 const helpContent = ko.observable();

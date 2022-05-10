@@ -1,5 +1,5 @@
 import * as ko from 'knockout';
-import * as config from '../../config.json';
+import config from '../../config.json';
 import * as template from './template.html';
 import * as computedStyleToInlineStyle from 'computed-style-to-inline-style';
 import detectIE from '../../utils/detect-ie';
@@ -32,7 +32,7 @@ export default ko.components.register('details-panel', {
         this.toggleExpanded = () => {
             this.expanded(!this.expanded());
         };
-        this.mapTypesObj = config.default.mapTypes;
+        this.mapTypesObj = config.mapTypes;
         this.mapTypes = [];
         for (let key in this.mapTypesObj) {
             this.mapTypes.push({
