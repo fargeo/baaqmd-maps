@@ -1484,7 +1484,7 @@ $no-color: #b10318;
 }
 
 .icon-Contract:before {
-    content: "\e932";
+    content: "\ea1f;
 }
 
 .geocoder-icon-search {
@@ -4710,3 +4710,34 @@ i.icomoon.icon-Location:before {
 .baaqmd-maps-main .baaqmd-maps-details-panel .information-link i.icomoon.icon-Clear {
     font-size: 2rem;
 }
+ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li i.icomoon.icon-LocationOverburdened, ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li i.icomoon.icon-LocationNotOverburdened {
+    float: left;
+    margin-left: 1px;
+    margin-right: -1px;
+}
+.baaqmd-maps-main .baaqmd-maps-boundaries.impacted-communities li.overburdened-areas, .baaqmd-maps-main .baaqmd-maps-boundaries.impacted-communities li.overburdened-buffer {
+    overflow-y: hidden;
+}
+ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li input[type="checkbox"] {
+    margin-bottom: 3px;
+}
+.baaqmd-maps-main .baaqmd-maps-boundaries.impacted-communities li {
+    padding-left: 15px;
+}
+ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li.cumulative-impact-areas, ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li.pm25-impact-areas, ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li.ozone-impact-areas {
+    overflow-x: hidden;
+}
+ul.baaqmd-maps-legend.baaqmd-maps-boundaries.air-quality li.air-monitoring {
+    overflow-y: hidden;
+}
+ul.baaqmd-maps-legend.baaqmd-maps-boundaries.baaqmd-maps-lines li.counties, ul.baaqmd-maps-legend.baaqmd-maps-boundaries.baaqmd-maps-lines li.district-boundary, ul.baaqmd-maps-legend.baaqmd-maps-boundaries.baaqmd-maps-lines li.aqi-reporting-zones {
+    overflow-y: hidden;
+}
+
+
+
+
+
+
+
+
