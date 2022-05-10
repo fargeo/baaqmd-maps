@@ -32,7 +32,7 @@ export default ko.components.register('map', {
             this.map = map;
 
             map.addControl(new MapboxGeocoder({
-                bbox: config.bounds,
+                bbox: config.districtBounds,
                 accessToken: mapboxgl.accessToken,
                 placeholder: "Enter address..."
             }));
