@@ -5,6 +5,7 @@ import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
+import '../../bindings/geocoder';
 import fetchHTML from '../../utils/fetch-html';
 
 const aboutOverburdenedCommunities = ko.observable();
@@ -25,6 +26,7 @@ export default ko.components.register('OverburdenedCommunities', {
     viewModel: function(params) {
         const rootUrl = params.rootURL || config.prodRoot;
         if (fetchData) fetchData(rootUrl);
+        this.geocoder = ko.observable();
         this.pinsExpanded = ko.observable(true);
         this.pins = ko.observableArray();
         this.overburdenedPinsCount = ko.computed(() => {
@@ -132,6 +134,12 @@ export default ko.components.register('OverburdenedCommunities', {
             }
         });
 
+        this.geocoder.subscribe((geocoder) => {
+            geocoder.on('result', (e) => {
+                this.addPin(e.result.center, e.result);
+            });
+        });
+
         this.setupMap = (map) => {
             map.addSource('overburdened-communities-pins', {
                 type: 'geojson',
@@ -180,19 +188,8 @@ export default ko.components.register('OverburdenedCommunities', {
 
             map.on('click', onClick);
 
-            const addResultPin = (e) => {
-                this.addPin(e.result.center, e.result);
-            };
-
-            const geocoderControl = map._controls.find((control) => {
-                const container = control.container || control._container;
-                return container.classList.contains('mapboxgl-ctrl-geocoder');
-            });
-            geocoderControl.on('result', addResultPin);
-
             var teardown = this.mapType.subscribe(() => {
                 map.off('click', onClick);
-                geocoderControl.off('result', addResultPin);
                 teardown.dispose();
             });
 

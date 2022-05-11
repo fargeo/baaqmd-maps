@@ -58,6 +58,13 @@ $no-color: #b10318;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
     border-radius: 6px;
 
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
     table.striped-rows {
         tr:nth-child(odd) {
             background: rgb(238, 238, 238);
@@ -4692,6 +4699,13 @@ i.icomoon.icon-Location:before {
 
 .pin-section.extra-btm-marg {
     margin-bottom: 13px;
+}
+
+.pin-section.address-pin-section {
+    padding-bottom: 20px;
+    .mapboxgl-ctrl-geocoder {
+        min-width: 100%;
+    }
 }
 
 .more-btn {
