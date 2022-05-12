@@ -1,6 +1,6 @@
 <h3>
     <i class="icomoon icon-Overburdened"></i>
-    Overburdened Communities
+    Overburdened Areas
     <div class="accordion-icon icomoon" data-bind="css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }"></div>
 </h3>
 <div class="accordion-panel"
@@ -52,46 +52,56 @@
             </li>
         </ul>
     <div class="baaqmd-maps-details-links">
-        <div class="pin-section address-pin-section">
-            <div class="pin-text">Enter an address</div>
-            <div data-bind="geocoder: {
-                map: map,
-                geocoder: geocoder
-            }"></div>
+        <div class="pin-section">
+            <a href="javascript: void(0);" class="information-link full-button" data-bind="click: function() {
+                    addPinOnClick(!addPinOnClick());
+                },
+                css: {
+                    active: addPinOnClick
+                }">
+                <i class="icomoon icon-AddMarker"></i>
+                Add pin
+            </a>
         </div>
         <div class="or-text">- - OR - -</div>
-        <div class="pin-section">
-            <a href="javascript: void(0);" class="information-link small-button" data-bind="click: function() {
-                addPinOnClick(!addPinOnClick());
+        <div class="pin-section address-pin-section">
+            <div class="search-area" data-bind="geocoder: {
+                map: map,
+                geocoder: geocoder
             }">
-                <i class="icomoon icon-AddMarker"></i>
+            <div class="mixed-marker"></div>
+            </div>
+            <a href="javascript: void(0);" class="information-link small-button" data-bind="click: addPinFromAddress">
+                Pin
             </a>
-            <div class="pin-text extra-top-marg">Click to add a pin to the map</div>
         </div>
         <div class="or-text">- - OR - -</div>
         <div class="pin-section extra-btm-marg">
-            <div class="pin-text">Enter the latitude and longitude</div>
-            <div class="clear"></div>
             <div class="coordinate-entry-input">
                 <div class="lat-area">
-                    <span>Latitude:</span><input type="number" min="-90" max="90" data-bind="value: yCoord">
+                    <input type="text" placeholder=" Latitude..." min="-90" max="90" data-bind="value: yCoord">
                 </div>
                 <div class="long-area">
-                    <span>Longitude:</span> <input type="number" min="-180" max="180" data-bind="value: xCoord">
+                    <input type="text" placeholder=" Longitude..." min="-180" max="180" data-bind="value: xCoord">
                 </div>
             </div>
-            <a href="javascript: void(0);" class="information-link small-button"
-                data-bind="click: addPinFromCoordinates">
-                <i class="icomoon icon-AddMarker"></i>
+            <a href="javascript: void(0);" class="information-link small-button" data-bind="click: addPinFromCoordinates">
+                Pin
             </a>
         </div>
         <div class="space-3pxblk"></div>
-        <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
-                        pins([]);
-                    }">
-            <i class="icomoon icon-Clear"></i>
-            Clear Pins
-        </a>
+        <div class="buttons-area">
+            <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
+                    pins([]);
+                }">
+                <i class="icomoon icon-Clear"></i>
+                Clear Pins
+            </a>
+            <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('PinLocationsHelpPanel'); }">
+                <i class="icomoon icon-Help2"></i>
+                Help
+            </a>
+        </div>
     </div>
 </div>
 <h3>

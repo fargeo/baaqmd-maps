@@ -4,13 +4,16 @@ import config from '../../config.json';
 import * as template from './template.html';
 import * as popupTemplate from './popup.html';
 import * as infoPanelTemplate from './info-panel.html';
+import * as helpPanelTemplate from './help-panel.html';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import '../../bindings/geocoder';
 import fetchHTML from '../../utils/fetch-html';
 
+const pinLocationsHelp = ko.observable();
 const aboutOverburdenedCommunities = ko.observable();
 let fetchData = (rootURL) => {
     fetchHTML(rootURL + config.aboutOverburdenedCommunitiesURL, aboutOverburdenedCommunities);
+    fetchHTML(rootURL + config.pinLocationsHelpURL, pinLocationsHelp);
     fetchData = false;
 };
 
@@ -20,6 +23,14 @@ ko.components.register('OverburdenedCommunitiesInfoPanel', {
         this.aboutOverburdenedCommunities = aboutOverburdenedCommunities;
     },
     template: infoPanelTemplate
+});
+
+ko.components.register('PinLocationsHelpPanel', {
+    viewModel: function(params) {
+        this.showInfoPanel = params.showInfoPanel;
+        this.pinLocationsHelp = pinLocationsHelp;
+    },
+    template: helpPanelTemplate
 });
 
 export default ko.components.register('OverburdenedCommunities', {
@@ -134,11 +145,21 @@ export default ko.components.register('OverburdenedCommunities', {
             }
         });
 
+        let geocoderResult;
         this.geocoder.subscribe((geocoder) => {
+            geocoder.on('loading', (e) => {
+                geocoderResult = undefined;
+            });
             geocoder.on('result', (e) => {
-                this.addPin(e.result.center, e.result);
+                geocoderResult = e.result;
             });
         });
+
+        this.addPinFromAddress = () => {
+            if (geocoderResult) {
+                this.addPin(geocoderResult.center, geocoderResult);
+            }
+        };
 
         this.setupMap = (map) => {
             map.addSource('overburdened-communities-pins', {

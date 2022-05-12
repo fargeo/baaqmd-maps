@@ -14,7 +14,7 @@ ko.bindingHandlers.geocoder = {
             geocoder = new MapboxGeocoder({
                 bbox: config.districtBounds,
                 accessToken: mapboxgl.accessToken,
-                placeholder: "Enter address to add pin...",
+                placeholder: "Enter address to pin...",
                 mapboxgl: mapboxgl
             });
             value.geocoder(geocoder);
