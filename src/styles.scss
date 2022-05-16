@@ -16,18 +16,17 @@
 }
 
 @font-face {
-    font-family: 'icomoon';
-    src: url('fonts/icomoon.eot?n8vee1');
-    src: url('fonts/icomoon.eot?n8vee1#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.woff2?n8vee1') format('woff2'),
-        url('fonts/icomoon.ttf?n8vee1') format('truetype'),
-        url('fonts/icomoon.woff?n8vee1') format('woff'),
-        url('fonts/icomoon.svg?n8vee1#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?14we6b');
+  src:  url('fonts/icomoon.eot?14we6b#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?14we6b') format('woff2'),
+    url('fonts/icomoon.ttf?14we6b') format('truetype'),
+    url('fonts/icomoon.woff?14we6b') format('woff'),
+    url('fonts/icomoon.svg?14we6b#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
-
 $side-panel-width: 335px;
 
 $light-color: rgb(239, 246, 247);
@@ -3038,1385 +3037,1054 @@ table.striped-rows.air-monitoring-table {
 }
 
 @font-face {
-    font-family: 'icomoon';
-    src: url('fonts/icomoon.eot?n8vee1');
-    src: url('fonts/icomoon.eot?n8vee1#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.woff2?n8vee1') format('woff2'),
-        url('fonts/icomoon.ttf?n8vee1') format('truetype'),
-        url('fonts/icomoon.woff?n8vee1') format('woff'),
-        url('fonts/icomoon.svg?n8vee1#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?14we6b');
+  src:  url('fonts/icomoon.eot?14we6b#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?14we6b') format('woff2'),
+    url('fonts/icomoon.ttf?14we6b') format('truetype'),
+    url('fonts/icomoon.woff?14we6b') format('woff'),
+    url('fonts/icomoon.svg?14we6b#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: never;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-CleanCarsAll:before {
-    content: "\e95e";
+  content: "\e95e";
 }
-
 .icon-NoBurnLockup:before {
-    content: "\e956";
+  content: "\e956";
 }
-
 .icon-NoBurn:before {
-    content: "\e957";
+  content: "\e957";
 }
-
 .icon-NoBurnAlert:before {
-    content: "\e958";
+  content: "\e958";
 }
-
 .icon-EligibleShape:before {
-    content: "\e96f";
+  content: "\e96f";
 }
-
 .icon-SpareAirWinterHoriz:before {
-    content: "\e953";
+  content: "\e953";
 }
-
 .icon-AlertTextHorizontal:before {
-    content: "\e950";
+  content: "\e950";
 }
-
 .icon-SpareAirHoriz:before {
-    content: "\e951";
+  content: "\e951";
 }
-
+.icon-MixedPin:before {
+  content: "\ea53";
+}
+.icon-ComingSoon:before {
+  content: "\ea52";
+}
 .icon-Clear:before {
-    content: "\ea50";
+  content: "\ea50";
 }
-
 .icon-AddMarker:before {
-    content: "\ea51";
+  content: "\ea51";
 }
-
 .icon-LocationOverburdened:before {
-    content: "\ea4e";
+  content: "\ea4e";
 }
-
 .icon-LocationNotOverburdened:before {
-    content: "\ea4f";
+  content: "\ea4f";
 }
-
 .icon-SetNorth:before {
-    content: "\ea4d";
+  content: "\ea4d";
 }
-
 .icon-Location2:before {
-    content: "\ea3c";
+  content: "\ea3c";
 }
-
 .icon-Compass:before {
-    content: "\ea3d";
+  content: "\ea3d";
 }
-
 .icon-AreaAssign2:before {
-    content: "\ea3e";
+  content: "\ea3e";
 }
-
 .icon-Info:before {
-    content: "\ea3f";
+  content: "\ea3f";
 }
-
 .icon-Boundaries:before {
-    content: "\ea40";
+  content: "\ea40";
 }
-
 .icon-AQIndex:before {
-    content: "\ea41";
+  content: "\ea41";
 }
-
 .icon-Forecast:before {
-    content: "\ea42";
+  content: "\ea42";
 }
-
 .icon-Share:before {
-    content: "\ea43";
+  content: "\ea43";
 }
-
 .icon-ZoomAll:before {
-    content: "\ea44";
+  content: "\ea44";
 }
-
 .icon-ArrowDown2:before {
-    content: "\ea45";
+  content: "\ea45";
 }
-
 .icon-OpenBurn:before {
-    content: "\ea46";
+  content: "\ea46";
 }
-
 .icon-Facilities:before {
-    content: "\ea47";
+  content: "\ea47";
 }
-
 .icon-Impacted:before {
-    content: "\ea48";
+  content: "\ea48";
 }
-
 .icon-Monitoring:before {
-    content: "\ea49";
+  content: "\ea49";
 }
-
 .icon-MapMenu:before {
-    content: "\ea4a";
+  content: "\ea4a";
 }
-
 .icon-MenuOpen:before {
-    content: "\ea4b";
+  content: "\ea4b";
 }
-
 .icon-MenuClose:before {
-    content: "\ea4c";
+  content: "\ea4c";
 }
-
 .icon-Overburdened:before {
-    content: "\ea3b";
+  content: "\ea3b";
 }
-
 .icon-AQIZones:before {
-    content: "\ea38";
+  content: "\ea38";
 }
-
 .icon-DistrictBoundary:before {
-    content: "\ea39";
+  content: "\ea39";
 }
-
 .icon-County:before {
-    content: "\ea3a";
+  content: "\ea3a";
 }
-
 .icon-SignOut:before {
-    content: "\ea37";
+  content: "\ea37";
 }
-
 .icon-Key:before {
-    content: "\ea36";
+  content: "\ea36";
 }
-
 .icon-Trash:before {
-    content: "\ea35";
+  content: "\ea35";
 }
-
 .icon-HintLight:before {
-    content: "\ea32";
+  content: "\ea32";
 }
-
 .icon-LightBulb:before {
-    content: "\ea33";
+  content: "\ea33";
 }
-
 .icon-NotificationBell:before {
-    content: "\ea34";
+  content: "\ea34";
 }
-
 .icon-SearchResults:before {
-    content: "\ea31";
+  content: "\ea31";
 }
-
 .icon-TermsYears:before {
-    content: "\ea2f";
+  content: "\ea2f";
 }
-
 .icon-LoanGuarantee:before {
-    content: "\ea30";
+  content: "\ea30";
 }
-
 .icon-Permit1:before {
-    content: "\ea2e";
+  content: "\ea2e";
 }
-
 .icon-CleanAirLogoFull:before {
-    content: "\ea2b";
+  content: "\ea2b";
 }
-
 .icon-CleanAirLogoFullGreen:before {
-    content: "\ea2d";
+  content: "\ea2d";
 }
-
 .icon-CleanAirLogoBugBlue:before {
-    content: "\ea28";
+  content: "\ea28";
 }
-
 .icon-CleanAirLogoBugGreen:before {
-    content: "\ea29";
+  content: "\ea29";
 }
-
 .icon-CleanAirLogoFullBlue:before {
-    content: "\ea2a";
+  content: "\ea2a";
 }
-
 .icon-CleanAirLogoBug:before {
-    content: "\ea2c";
+  content: "\ea2c";
 }
-
 .icon-JobsBadge:before {
-    content: "\ea20";
+  content: "\ea20";
 }
-
 .icon-GuaranteesBadge:before {
-    content: "\ea21";
+  content: "\ea21";
 }
-
 .icon-GrantsBadge:before {
-    content: "\ea22";
+  content: "\ea22";
 }
-
 .icon-CO2ImpactBadge:before {
-    content: "\ea23";
+  content: "\ea23";
 }
-
 .icon-TermsBadge:before {
-    content: "\ea24";
+  content: "\ea24";
 }
-
 .icon-Guarantees:before {
-    content: "\ea25";
+  content: "\ea25";
 }
-
 .icon-Jobs:before {
-    content: "\ea26";
+  content: "\ea26";
 }
-
 .icon-CO2Impact:before {
-    content: "\ea27";
+  content: "\ea27";
 }
-
 .icon-Fullscreen:before {
-    content: "\ea1e";
+  content: "\ea1e";
 }
-
 .icon-FullscreenB:before {
-    content: "\ea1f";
+  content: "\ea1f";
 }
-
 .icon-CTFMetro:before {
-    content: "\ea18";
+  content: "\ea18";
 }
-
 .icon-CTFBicycle:before {
-    content: "\ea19";
+  content: "\ea19";
 }
-
 .icon-CTFCommute:before {
-    content: "\ea1a";
+  content: "\ea1a";
 }
-
 .icon-CTFRemoteWork:before {
-    content: "\ea1b";
+  content: "\ea1b";
 }
-
 .icon-CTFBus:before {
-    content: "\ea1c";
+  content: "\ea1c";
 }
-
 .icon-CTFWalk:before {
-    content: "\ea1d";
+  content: "\ea1d";
 }
-
 .icon-ExternalLink5:before {
-    content: "\ea0e";
+  content: "\ea0e";
 }
-
 .icon-InternalLink5:before {
-    content: "\ea13";
+  content: "\ea13";
 }
-
 .icon-ExternalLink4:before {
-    content: "\ea0f";
+  content: "\ea0f";
 }
-
 .icon-ExternalLink3:before {
-    content: "\ea10";
+  content: "\ea10";
 }
-
 .icon-ExternalLink2:before {
-    content: "\ea11";
+  content: "\ea11";
 }
-
 .icon-ExternalLink1:before {
-    content: "\ea12";
+  content: "\ea12";
 }
-
 .icon-InternalLink4:before {
-    content: "\ea14";
+  content: "\ea14";
 }
-
 .icon-InternalLink3:before {
-    content: "\ea15";
+  content: "\ea15";
 }
-
 .icon-InternalLink2:before {
-    content: "\ea16";
+  content: "\ea16";
 }
-
 .icon-InternalLink1:before {
-    content: "\ea17";
+  content: "\ea17";
 }
-
 .icon-Link:before {
-    content: "\ea0c";
+  content: "\ea0c";
 }
-
 .icon-Document:before {
-    content: "\ea0d";
+  content: "\ea0d";
 }
-
 .icon-BAAQMDEmployee:before {
-    content: "\ea0b";
+  content: "\ea0b";
 }
-
 .icon-Data:before {
-    content: "\ea0a";
+  content: "\ea0a";
 }
-
 .icon-Notify31:before {
-    content: "\e9fc";
+  content: "\e9fc";
 }
-
 .icon-Maintenance21:before {
-    content: "\e9fd";
+  content: "\e9fd";
 }
-
 .icon-StationDown31:before {
-    content: "\e9fe";
+  content: "\e9fe";
 }
-
 .icon-StationDown21:before {
-    content: "\e9ff";
+  content: "\e9ff";
 }
-
 .icon-StationDown41:before {
-    content: "\ea00";
+  content: "\ea00";
 }
-
 .icon-NoData1:before {
-    content: "\ea01";
+  content: "\ea01";
 }
-
 .icon-Delayed1:before {
-    content: "\ea02";
+  content: "\ea02";
 }
-
 .icon-Notify21:before {
-    content: "\ea03";
+  content: "\ea03";
 }
-
 .icon-Point21:before {
-    content: "\ea04";
+  content: "\ea04";
 }
-
 .icon-Warn11:before {
-    content: "\ea05";
+  content: "\ea05";
 }
-
 .icon-Information1:before {
-    content: "\ea06";
+  content: "\ea06";
 }
-
 .icon-PointUp1:before {
-    content: "\ea07";
+  content: "\ea07";
 }
-
 .icon-Point1:before {
-    content: "\ea08";
+  content: "\ea08";
 }
-
 .icon-Notify11:before {
-    content: "\ea09";
+  content: "\ea09";
 }
-
 .icon-Flag:before {
-    content: "\e9fb";
+  content: "\e9fb";
 }
-
 .icon-StationOut5:before {
-    content: "\e9e7";
+  content: "\e9e7";
 }
-
 .icon-StationOut3:before {
-    content: "\e9f1";
+  content: "\e9f1";
 }
-
 .icon-StationOut4:before {
-    content: "\e9f2";
+  content: "\e9f2";
 }
-
 .icon-StationOut7:before {
-    content: "\e9f3";
+  content: "\e9f3";
 }
-
 .icon-StationOut6:before {
-    content: "\e9f4";
+  content: "\e9f4";
 }
-
 .icon-StationDown:before {
-    content: "\e9f5";
+  content: "\e9f5";
 }
-
 .icon-ReportDelay:before {
-    content: "\e9f6";
+  content: "\e9f6";
 }
-
 .icon-Maintenance:before {
-    content: "\e9f7";
+  content: "\e9f7";
 }
-
 .icon-PowerOut:before {
-    content: "\e9f8";
+  content: "\e9f8";
 }
-
 .icon-Alert3:before {
-    content: "\e9f9";
+  content: "\e9f9";
 }
-
 .icon-StationDown4:before {
-    content: "\e9fa";
+  content: "\e9fa";
 }
-
 .icon-Notify3:before {
-    content: "\e9e3";
+  content: "\e9e3";
 }
-
 .icon-Maintenance2:before {
-    content: "\e9e4";
+  content: "\e9e4";
 }
-
 .icon-StationDown3:before {
-    content: "\e9e5";
+  content: "\e9e5";
 }
-
 .icon-StationDown2:before {
-    content: "\e9e6";
+  content: "\e9e6";
 }
-
 .icon-NoData:before {
-    content: "\e9e8";
+  content: "\e9e8";
 }
-
 .icon-Delayed:before {
-    content: "\e9e9";
+  content: "\e9e9";
 }
-
 .icon-Notify2:before {
-    content: "\e9ea";
+  content: "\e9ea";
 }
-
 .icon-Point2:before {
-    content: "\e9eb";
+  content: "\e9eb";
 }
-
 .icon-Warn1:before {
-    content: "\e9ec";
+  content: "\e9ec";
 }
-
 .icon-Information:before {
-    content: "\e9ed";
+  content: "\e9ed";
 }
-
 .icon-PointUp:before {
-    content: "\e9ee";
+  content: "\e9ee";
 }
-
 .icon-Point:before {
-    content: "\e9ef";
+  content: "\e9ef";
 }
-
 .icon-Notify1:before {
-    content: "\e9f0";
+  content: "\e9f0";
 }
-
 .icon-HybridElectric:before {
-    content: "\e9e2";
+  content: "\e9e2";
 }
-
 .icon-VidStart:before {
-    content: "\e9e1";
+  content: "\e9e1";
 }
-
 .icon-ClosedCaption:before {
-    content: "\e9df";
+  content: "\e9df";
 }
-
 .icon-VideoSettings:before {
-    content: "\e9e0";
+  content: "\e9e0";
 }
-
 .icon-Mute:before {
-    content: "\e9dc";
+  content: "\e9dc";
 }
-
 .icon-ProfileSettings:before {
-    content: "\e9d6";
+  content: "\e9d6";
 }
-
 .icon-News:before {
-    content: "\e9d3";
+  content: "\e9d3";
 }
-
 .icon-Edit:before {
-    content: "\e9dd";
+  content: "\e9dd";
 }
-
 .icon-PageAlert:before {
-    content: "\e9de";
+  content: "\e9de";
 }
-
 .icon-Notifications:before {
-    content: "\e9d7";
+  content: "\e9d7";
 }
-
 .icon-Profile:before {
-    content: "\e9d8";
+  content: "\e9d8";
 }
-
 .icon-Subscribe:before {
-    content: "\e9d9";
+  content: "\e9d9";
 }
-
 .icon-Topics:before {
-    content: "\e9da";
+  content: "\e9da";
 }
-
 .icon-User:before {
-    content: "\e9db";
+  content: "\e9db";
 }
-
 .icon-EmailNotif:before {
-    content: "\e9d4";
+  content: "\e9d4";
 }
-
 .icon-PhoneNotif:before {
-    content: "\e9d5";
+  content: "\e9d5";
 }
-
 .icon-Settings:before {
-    content: "\e9d2";
+  content: "\e9d2";
 }
-
 .icon-NA:before {
-    content: "\e9d1";
+  content: "\e9d1";
 }
-
 .icon-Report:before {
-    content: "\e9cf";
+  content: "\e9cf";
 }
-
 .icon-Report2:before {
-    content: "\e9d0";
+  content: "\e9d0";
 }
-
 .icon-GoToPage:before {
-    content: "\e9ce";
+  content: "\e9ce";
 }
-
 .icon-FireSmoke:before {
-    content: "\e9ca";
+  content: "\e9ca";
 }
-
 .icon-FireSmoke2:before {
-    content: "\e9cb";
+  content: "\e9cb";
 }
-
 .icon-FireSmoke3:before {
-    content: "\e9cc";
+  content: "\e9cc";
 }
-
 .icon-FireSmoke4:before {
-    content: "\e9cd";
+  content: "\e9cd";
 }
-
 .icon-SlideDown:before {
-    content: "\e9c8";
+  content: "\e9c8";
 }
-
 .icon-SlideUp:before {
-    content: "\e9c9";
+  content: "\e9c9";
 }
-
 .icon-HybridCar2:before {
-    content: "\e9c7";
+  content: "\e9c7";
 }
-
 .icon-HomeCharger:before {
-    content: "\e9c5";
+  content: "\e9c5";
 }
-
 .icon-PluginHybrid:before {
-    content: "\e9c6";
+  content: "\e9c6";
 }
-
 .icon-LanguageAlert:before {
-    content: "\e9c4";
+  content: "\e9c4";
 }
-
 .icon-Pin:before {
-    content: "\e9c3";
+  content: "\e9c3";
 }
-
 .icon-General:before {
-    content: "\e9c1";
+  content: "\e9c1";
 }
-
 .icon-Misc:before {
-    content: "\e9c2";
+  content: "\e9c2";
 }
-
 .icon-Asterisk:before {
-    content: "\e9c0";
+  content: "\e9c0";
 }
-
 .icon-Dispatcher:before {
-    content: "\e9b9";
+  content: "\e9b9";
 }
-
 .icon-Emissions:before {
-    content: "\e9ba";
+  content: "\e9ba";
 }
-
 .icon-InspectForm:before {
-    content: "\e9bb";
+  content: "\e9bb";
 }
-
 .icon-Inspector2:before {
-    content: "\e9bc";
+  content: "\e9bc";
 }
-
 .icon-Notify:before {
-    content: "\e9bd";
+  content: "\e9bd";
 }
-
 .icon-SmokingVehicle2:before {
-    content: "\e9be";
+  content: "\e9be";
 }
-
 .icon-WSLocation:before {
-    content: "\e9bf";
+  content: "\e9bf";
 }
-
 .icon-Video4:before {
-    content: "\e9b5";
+  content: "\e9b5";
 }
-
 .icon-Video3:before {
-    content: "\e9b6";
+  content: "\e9b6";
 }
-
 .icon-Video2:before {
-    content: "\e9b7";
+  content: "\e9b7";
 }
-
 .icon-Video5:before {
-    content: "\e9b8";
+  content: "\e9b8";
 }
-
 .icon-CreateAccount:before {
-    content: "\e9b3";
+  content: "\e9b3";
 }
-
 .icon-Login:before {
-    content: "\e9b4";
+  content: "\e9b4";
 }
-
 .icon-Stop:before {
-    content: "\e9b1";
+  content: "\e9b1";
 }
-
 .icon-Pause:before {
-    content: "\e9b2";
+  content: "\e9b2";
 }
-
 .icon-VideoSize:before {
-    content: "\e9ac";
+  content: "\e9ac";
 }
-
 .icon-Expand:before {
-    content: "\e9ad";
+  content: "\e9ad";
 }
-
 .icon-Download1:before {
-    content: "\e9ae";
+  content: "\e9ae";
 }
-
 .icon-AudioSpeaker:before {
-    content: "\e9af";
+  content: "\e9af";
 }
-
 .icon-PlayVid:before {
-    content: "\e9b0";
+  content: "\e9b0";
 }
-
 .icon-OzonePollutant:before {
-    content: "\e9aa";
+  content: "\e9aa";
 }
-
 .icon-PM25Pollutant:before {
-    content: "\e9ab";
+  content: "\e9ab";
 }
-
 .icon-Map:before {
-    content: "\e9a6";
+  content: "\e9a6";
 }
-
 .icon-Language:before {
-    content: "\e9a9";
+  content: "\e9a9";
 }
-
 .icon-Language2:before {
-    content: "\e9a5";
+  content: "\e9a5";
 }
-
 .icon-LatestNews:before {
-    content: "\e9a7";
+  content: "\e9a7";
 }
-
 .icon-CellPhone:before {
-    content: "\e9a8";
+  content: "\e9a8";
 }
-
 .icon-ShareAlert:before {
-    content: "\e99a";
+  content: "\e99a";
 }
-
 .icon-HealthEffects:before {
-    content: "\e99b";
+  content: "\e99b";
 }
-
 .icon-ReviewAQI:before {
-    content: "\e99c";
+  content: "\e99c";
 }
-
 .icon-ForecastMap:before {
-    content: "\e99d";
+  content: "\e99d";
 }
-
 .icon-RemoteWork:before {
-    content: "\e99e";
+  content: "\e99e";
 }
-
 .icon-Clouds:before {
-    content: "\e99f";
+  content: "\e99f";
 }
-
 .icon-Bus:before {
-    content: "\e9a0";
+  content: "\e9a0";
 }
-
 .icon-Walk:before {
-    content: "\e9a1";
+  content: "\e9a1";
 }
-
 .icon-Metro:before {
-    content: "\e9a2";
+  content: "\e9a2";
 }
-
 .icon-Fireplaces:before {
-    content: "\e9a3";
+  content: "\e9a3";
 }
-
 .icon-Bicycle:before {
-    content: "\e9a4";
+  content: "\e9a4";
 }
-
 .icon-Widget:before {
-    content: "\e992";
+  content: "\e992";
 }
-
 .icon-Commute:before {
-    content: "\e993";
+  content: "\e993";
 }
-
 .icon-PressRelease:before {
-    content: "\e994";
+  content: "\e994";
 }
-
 .icon-Email3:before {
-    content: "\e995";
+  content: "\e995";
 }
-
 .icon-Links:before {
-    content: "\e996";
+  content: "\e996";
 }
-
 .icon-Android:before {
-    content: "\e997";
+  content: "\e997";
 }
-
 .icon-Iphone:before {
-    content: "\e998";
+  content: "\e998";
 }
-
 .icon-Text:before {
-    content: "\e999";
+  content: "\e999";
 }
-
 .icon-Wildfire:before {
-    content: "\e991";
+  content: "\e991";
 }
-
 .icon-AdvisoryNew:before {
-    content: "\e990";
+  content: "\e990";
 }
-
 .icon-AlertOne:before {
-    content: "\e98c";
+  content: "\e98c";
 }
-
 .icon-AlertThree:before {
-    content: "\e98d";
+  content: "\e98d";
 }
-
 .icon-AlertTwo:before {
-    content: "\e98e";
+  content: "\e98e";
 }
-
 .icon-NoAlert:before {
-    content: "\e98f";
+  content: "\e98f";
 }
-
 .icon-Ebike:before {
-    content: "\e988";
+  content: "\e988";
 }
-
 .icon-CarShare:before {
-    content: "\e989";
+  content: "\e989";
 }
-
 .icon-PublicTransit:before {
-    content: "\e98a";
+  content: "\e98a";
 }
-
 .icon-ComboRide:before {
-    content: "\e98b";
+  content: "\e98b";
 }
-
 .icon-PlayAudio:before {
-    content: "\e987";
+  content: "\e987";
 }
-
 .icon-MeetingDetails:before {
-    content: "\e986";
+  content: "\e986";
 }
-
 .icon-Messages:before {
-    content: "\e985";
+  content: "\e985";
 }
-
 .icon-Division:before {
-    content: "\e984";
+  content: "\e984";
 }
-
 .icon-ContactCard:before {
-    content: "\e980";
+  content: "\e980";
 }
-
 .icon-FinanceApproved:before {
-    content: "\e981";
+  content: "\e981";
 }
-
 .icon-Lender:before {
-    content: "\e982";
+  content: "\e982";
 }
-
 .icon-Meeting:before {
-    content: "\e983";
+  content: "\e983";
 }
-
 .icon-Address:before {
-    content: "\e97e";
+  content: "\e97e";
 }
-
 .icon-Website:before {
-    content: "\e915";
+  content: "\e915";
 }
-
 .icon-Phone1:before {
-    content: "\e97f";
+  content: "\e97f";
 }
-
 .icon-HydrogenFuel:before {
-    content: "\e97d";
+  content: "\e97d";
 }
-
 .icon-Video1:before {
-    content: "\e97b";
+  content: "\e97b";
 }
-
 .icon-Play:before {
-    content: "\e97c";
+  content: "\e97c";
 }
-
 .icon-AccessData:before {
-    content: "\e97a";
+  content: "\e97a";
 }
-
 .icon-ApplyForm:before {
-    content: "\e965";
+  content: "\e965";
 }
-
 .icon-AwardLetter:before {
-    content: "\e966";
+  content: "\e966";
 }
-
 .icon-Battery:before {
-    content: "\e967";
+  content: "\e967";
 }
-
 .icon-Car:before {
-    content: "\e968";
+  content: "\e968";
 }
-
 .icon-CarClipper:before {
-    content: "\e969";
+  content: "\e969";
 }
-
 .icon-Circle:before {
-    content: "\e96a";
+  content: "\e96a";
 }
-
 .icon-Clipper:before {
-    content: "\e96b";
+  content: "\e96b";
 }
-
 .icon-DismantleCar:before {
-    content: "\e96c";
+  content: "\e96c";
 }
-
 .icon-ElectricCar:before {
-    content: "\e96d";
+  content: "\e96d";
 }
-
 .icon-EligApplicant:before {
-    content: "\e96e";
+  content: "\e96e";
 }
-
 .icon-EligIncome:before {
-    content: "\e970";
+  content: "\e970";
 }
-
 .icon-EligLocation:before {
-    content: "\e971";
+  content: "\e971";
 }
-
 .icon-EligVehicle:before {
-    content: "\e972";
+  content: "\e972";
 }
-
 .icon-GasNozzle:before {
-    content: "\e973";
+  content: "\e973";
 }
-
 .icon-GasPump:before {
-    content: "\e974";
+  content: "\e974";
 }
-
 .icon-GreenPump:before {
-    content: "\e975";
+  content: "\e975";
 }
-
 .icon-HybridCar:before {
-    content: "\e976";
+  content: "\e976";
 }
-
 .icon-InspectCar:before {
-    content: "\e977";
+  content: "\e977";
 }
-
 .icon-People:before {
-    content: "\e978";
+  content: "\e978";
 }
-
 .icon-Plug:before {
-    content: "\e979";
+  content: "\e979";
 }
-
 .icon-EligibleVehicles:before {
-    content: "\e961";
+  content: "\e961";
 }
-
 .icon-Dealerships:before {
-    content: "\e962";
+  content: "\e962";
 }
-
 .icon-Insurance:before {
-    content: "\e963";
+  content: "\e963";
 }
-
 .icon-ChargerTypes:before {
-    content: "\e964";
+  content: "\e964";
 }
-
 .icon-Grants:before {
-    content: "\e959";
+  content: "\e959";
 }
-
 .icon-Apply:before {
-    content: "\e95a";
+  content: "\e95a";
 }
-
 .icon-Resources:before {
-    content: "\e95b";
+  content: "\e95b";
 }
-
 .icon-Eligibility:before {
-    content: "\e95c";
+  content: "\e95c";
 }
-
 .icon-FAQs:before {
-    content: "\e95d";
+  content: "\e95d";
 }
-
 .icon-CleanCarsText:before {
-    content: "\e95f";
+  content: "\e95f";
 }
-
 .icon-CleanCarsBug:before {
-    content: "\e960";
+  content: "\e960";
 }
-
 .icon-WindSpeed:before {
-    content: "\e93f";
+  content: "\e93f";
 }
-
 .icon-SpareAirVert:before {
-    content: "\e954";
+  content: "\e954";
 }
-
 .icon-SpareAirWinterVert:before {
-    content: "\e955";
+  content: "\e955";
 }
-
 .icon-AQAdvisory:before {
-    content: "\e943";
+  content: "\e943";
 }
-
 .icon-NoExhaust:before {
-    content: "\e952";
+  content: "\e952";
 }
-
 .icon-SpareFire:before {
-    content: "\e94f";
+  content: "\e94f";
 }
-
 .icon-Woodsmoke:before {
-    content: "\e94d";
+  content: "\e94d";
 }
-
 .icon-WalkBikeLonger:before {
-    content: "\e94e";
+  content: "\e94e";
 }
-
 .icon-WalkBikeSmCircle:before {
-    content: "\e94c";
+  content: "\e94c";
 }
-
 .icon-WalkBikeCircle:before {
-    content: "\e94b";
+  content: "\e94b";
 }
-
 .icon-AQIAdvise:before {
-    content: "\e945";
+  content: "\e945";
 }
-
 .icon-WalkBikeCircles:before {
-    content: "\e946";
+  content: "\e946";
 }
-
 .icon-WalkBikeLong:before {
-    content: "\e947";
+  content: "\e947";
 }
-
 .icon-WalkBike:before {
-    content: "\e948";
+  content: "\e948";
 }
-
 .icon-SpareAirVertical:before {
-    content: "\e949";
+  content: "\e949";
 }
-
 .icon-SpareAirHorizontal:before {
-    content: "\e94a";
+  content: "\e94a";
 }
-
 .icon-AlertTextHoriz:before {
-    content: "\e942";
+  content: "\e942";
 }
-
 .icon-AlertText:before {
-    content: "\e944";
+  content: "\e944";
 }
-
 .icon-Signup:before {
-    content: "\e941";
+  content: "\e941";
 }
-
 .icon-Add2:before {
-    content: "\e900";
+  content: "\e900";
 }
-
 .icon-Agency:before {
-    content: "\e901";
+  content: "\e901";
 }
-
 .icon-Alert:before {
-    content: "\e902";
+  content: "\e902";
 }
-
 .icon-AmExpress:before {
-    content: "\e903";
+  content: "\e903";
 }
-
 .icon-AQI:before {
-    content: "\e904";
+  content: "\e904";
 }
-
 .icon-ArrowDown:before {
-    content: "\e905";
+  content: "\e905";
 }
-
 .icon-ArrowLeft:before {
-    content: "\e906";
+  content: "\e906";
 }
-
 .icon-ArrowLeft2:before {
-    content: "\e907";
+  content: "\e907";
 }
-
 .icon-ArrowRight:before {
-    content: "\e908";
+  content: "\e908";
 }
-
 .icon-ArrowRight2:before {
-    content: "\e909";
+  content: "\e909";
 }
-
 .icon-ArrowUp:before {
-    content: "\e90a";
+  content: "\e90a";
 }
-
 .icon-Audio:before {
-    content: "\e90b";
+  content: "\e90b";
 }
-
 .icon-BAAQMDLogo:before {
-    content: "\e90c";
+  content: "\e90c";
 }
-
 .icon-BAAQMDRegistration:before {
-    content: "\e90d";
+  content: "\e90d";
 }
-
 .icon-Book:before {
-    content: "\e90e";
+  content: "\e90e";
 }
-
 .icon-Calendar:before {
-    content: "\e90f";
+  content: "\e90f";
 }
-
 .icon-Charts:before {
-    content: "\e910";
+  content: "\e910";
 }
-
 .icon-Checkmark:before {
-    content: "\e911";
+  content: "\e911";
 }
-
 .icon-Close:before {
-    content: "\e912";
+  content: "\e912";
 }
-
 .icon-Close2:before {
-    content: "\e913";
+  content: "\e913";
 }
-
 .icon-Contact:before {
-    content: "\e914";
+  content: "\e914";
 }
-
 .icon-Copy2:before {
-    content: "\e916";
+  content: "\e916";
 }
-
 .icon-CreditCard:before {
-    content: "\e917";
+  content: "\e917";
 }
-
 .icon-Discover:before {
-    content: "\e918";
+  content: "\e918";
 }
-
 .icon-Download:before {
-    content: "\e919";
+  content: "\e919";
 }
-
 .icon-Echeck:before {
-    content: "\e91a";
+  content: "\e91a";
 }
-
 .icon-Email:before {
-    content: "\e91b";
+  content: "\e91b";
 }
-
 .icon-ExcelDoc:before {
-    content: "\e91c";
+  content: "\e91c";
 }
-
 .icon-Facebook:before {
-    content: "\e91d";
+  content: "\e91d";
 }
-
 .icon-Filter:before {
-    content: "\e91e";
+  content: "\e91e";
 }
-
 .icon-HeavySmoke:before {
-    content: "\e91f";
+  content: "\e91f";
 }
-
 .icon-Help:before {
-    content: "\e920";
+  content: "\e920";
 }
-
 .icon-Help2:before {
-    content: "\e921";
+  content: "\e921";
 }
-
 .icon-Info2:before {
-    content: "\e922";
+  content: "\e922";
 }
-
 .icon-Library:before {
-    content: "\e923";
+  content: "\e923";
 }
-
 .icon-Location:before {
-    content: "\e924";
+  content: "\e924";
 }
-
 .icon-Mastercard:before {
-    content: "\e925";
+  content: "\e925";
 }
-
 .icon-Menu2:before {
-    content: "\e926";
+  content: "\e926";
 }
-
 .icon-Meteorology:before {
-    content: "\e927";
+  content: "\e927";
 }
-
 .icon-More:before {
-    content: "\e928";
+  content: "\e928";
 }
-
 .icon-PDF:before {
-    content: "\e929";
+  content: "\e929";
 }
-
 .icon-Permit:before {
-    content: "\e92a";
+  content: "\e92a";
 }
-
 .icon-Phone:before {
-    content: "\e92b";
+  content: "\e92b";
 }
-
 .icon-PlayVideo:before {
-    content: "\e92c";
+  content: "\e92c";
 }
-
 .icon-Print:before {
-    content: "\e92d";
+  content: "\e92d";
 }
-
 .icon-Rss:before {
-    content: "\e92e";
+  content: "\e92e";
 }
-
 .icon-Save:before {
-    content: "\e92f";
+  content: "\e92f";
 }
-
 .icon-Search:before {
-    content: "\e930";
+  content: "\e930";
 }
-
 .icon-SpareAir:before {
-    content: "\e931";
+  content: "\e931";
 }
-
 .icon-SpareAirFull:before {
-    content: "\e932";
+  content: "\e932";
 }
-
 .icon-SpareAirWinter:before {
-    content: "\e933";
+  content: "\e933";
 }
-
 .icon-Submit:before {
-    content: "\e934";
+  content: "\e934";
 }
-
 .icon-Subtract:before {
-    content: "\e935";
+  content: "\e935";
 }
-
 .icon-Terms:before {
-    content: "\e936";
+  content: "\e936";
 }
-
 .icon-ThankYou:before {
-    content: "\e937";
+  content: "\e937";
 }
-
 .icon-Tools:before {
-    content: "\e938";
+  content: "\e938";
 }
-
 .icon-Twitter:before {
-    content: "\e939";
+  content: "\e939";
 }
-
 .icon-Video:before {
-    content: "\e93a";
+  content: "\e93a";
 }
-
 .icon-Visa:before {
-    content: "\e93b";
+  content: "\e93b";
 }
-
 .icon-Wifi:before {
-    content: "\e93c";
+  content: "\e93c";
 }
-
 .icon-WindDirection:before {
-    content: "\e93d";
+  content: "\e93d";
 }
-
 .icon-WindGust:before {
-    content: "\e93e";
+  content: "\e93e";
+}
+.icon-YouTube:before {
+  content: "\e940";
 }
 
-.icon-YouTube:before {
-    content: "\e940";
-}
 
 .space-15pxno {
     height: 15px;
@@ -4704,19 +4372,34 @@ i.icomoon.icon-Location:before {
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-links .coordinate-entry-input .lat-area input[type="text"],
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-links .coordinate-entry-input .long-area input[type="text"] {
-    font-size: 12px;
+        font-size: 12px;
     height: 26px;
+    border-radius: 5px;
+    border-color: #b0cad3;
+    background-color: #eff6f7;
+    border-image: none !important;
+    outline: none !important;
+    resize: none !important;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+}
+.baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-links .coordinate-entry-input .lat-area input[type=text]:focus, .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-links .coordinate-entry-input .long-area input[type=text]:focus {
+    background-color: white;
 }
 
 .pin-section.extra-btm-marg {
     margin-bottom: 13px;
+    padding: 9px 12px 2px 12px;
 }
 
 .pin-section.address-pin-section {
-    padding-bottom: 20px;
+    padding-bottom: 13px;
 
     .mapboxgl-ctrl-geocoder {
         min-width: 100%;
+        margin-top: 4px;
 
         .geocoder-icon.geocoder-icon-search::after {
             content: '';
@@ -4839,4 +4522,8 @@ ul.baaqmd-maps-legend.baaqmd-maps-boundaries.baaqmd-maps-lines li.counties,
 ul.baaqmd-maps-legend.baaqmd-maps-boundaries.baaqmd-maps-lines li.district-boundary,
 ul.baaqmd-maps-legend.baaqmd-maps-boundaries.baaqmd-maps-lines li.aqi-reporting-zones {
     overflow-y: hidden;
+}
+.pin-section .mapboxgl-ctrl-geocoder input[type=text] {
+    padding: 5px 10px 5px 40px;
+    height: 30px;
 }
