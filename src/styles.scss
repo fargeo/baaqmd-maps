@@ -17,12 +17,12 @@
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?14we6b');
-  src:  url('fonts/icomoon.eot?14we6b#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?14we6b') format('woff2'),
-    url('fonts/icomoon.ttf?14we6b') format('truetype'),
-    url('fonts/icomoon.woff?14we6b') format('woff'),
-    url('fonts/icomoon.svg?14we6b#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?neovdl');
+  src:  url('fonts/icomoon.eot?neovdl#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?neovdl') format('woff2'),
+    url('fonts/icomoon.ttf?neovdl') format('truetype'),
+    url('fonts/icomoon.woff?neovdl') format('woff'),
+    url('fonts/icomoon.svg?neovdl#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -3038,12 +3038,12 @@ table.striped-rows.air-monitoring-table {
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?14we6b');
-  src:  url('fonts/icomoon.eot?14we6b#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?14we6b') format('woff2'),
-    url('fonts/icomoon.ttf?14we6b') format('truetype'),
-    url('fonts/icomoon.woff?14we6b') format('woff'),
-    url('fonts/icomoon.svg?14we6b#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?neovdl');
+  src:  url('fonts/icomoon.eot?neovdl#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?neovdl') format('woff2'),
+    url('fonts/icomoon.ttf?neovdl') format('truetype'),
+    url('fonts/icomoon.woff?neovdl') format('woff'),
+    url('fonts/icomoon.svg?neovdl#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -3088,9 +3088,11 @@ table.striped-rows.air-monitoring-table {
 .icon-SpareAirHoriz:before {
   content: "\e951";
 }
+.icon-AddMixedPin:before {
+  content: "\ea54";
+}
 .icon-MixedPin:before {
   content: "\ea53";
-  font-size: 2rem;
 }
 .icon-ComingSoon:before {
   content: "\ea52";
@@ -4087,6 +4089,7 @@ table.striped-rows.air-monitoring-table {
 }
 
 
+
 .space-15pxno {
     height: 15px;
     width: 100%;
@@ -4457,7 +4460,7 @@ i.icomoon.icon-Location:before {
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-links a.information-link.full-button.active {
     background-color: rgb(15, 157, 88);
-    box-shadow: 0 1px 3px 0 rgb(0, 0, 0, 0.2), 0 1px 1px 0 rgb(0, 0, 0, 0.14), 0 2px 1px -1px rgb(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
 .baaqmd-maps-main .baaqmd-maps-details-panel .baaqmd-maps-details-links a.information-link.full-button.active:hover {
@@ -4528,3 +4531,4 @@ ul.baaqmd-maps-legend.baaqmd-maps-boundaries.baaqmd-maps-lines li.aqi-reporting-
     padding: 5px 10px 5px 40px;
     height: 30px;
 }
+.baaqmd-maps-main .baaqmd-maps-details-panel .choices__list--single:after { content: "";}
