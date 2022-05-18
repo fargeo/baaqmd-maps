@@ -22968,7 +22968,7 @@ module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <div cl
 /***/ 62249:
 /***/ ((module) => {
 
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"far fa-question-circle\"></i>\n    Help\n</h3>\n<hr>\n<div data-bind=\"html: helpContent\"></div>\n";
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"icomoon icon-Info2\"></i>\n    Help\n</h3>\n<hr>\n<div data-bind=\"html: helpContent\"></div>\n";
 
 /***/ }),
 
@@ -23052,7 +23052,7 @@ module.exports = "<h3>\n    <i class=\"fas fa-fire\"></i>\n    Open Burn Status\
 /***/ 93494:
 /***/ ((module) => {
 
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Pin Locations Help\n</h3>\n<hr>\n<div data-bind=\"html: pinLocationsHelp\"></div>\n";
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"icomoon icon-Help2\"></i>\n    Pin Locations Help\n</h3>\n<hr>\n<div data-bind=\"html: pinLocationsHelp\"></div>\n";
 
 /***/ }),
 
