@@ -122,7 +122,9 @@ export default ko.components.register('OverburdenedCommunities', {
                 })
                 .then((data) => {
                     properties.overburdened = data.features.length > 0;
-                    properties.name = properties.place_name || `Latitude: ${Math.round(coords[1] * 1000) / 1000}\nLongitude: ${Math.round(coords[0] * 1000) / 1000}`;
+                    properties.name = properties.place_name || `Latitude: ${Math.round(coords[1] * 1000) / 1000}
+                        <br/>
+                        Longitude: ${Math.round(coords[0] * 1000) / 1000}`;
                     this.pins.push({
                         coords: coords,
                         properties: properties

@@ -79,10 +79,10 @@
         <div class="pin-section extra-btm-marg">
             <div class="coordinate-entry-input">
                 <div class="lat-area">
-                    <input type="text" placeholder=" Latitude..." min="-90" max="90" data-bind="value: yCoord, event: {keypress: coordsEnterKey}">
+                    <input type="text" placeholder=" Latitude..." min="-90" max="90" data-bind="textInput: yCoord, event: {keypress: coordsEnterKey}">
                 </div>
                 <div class="long-area">
-                    <input type="text" placeholder=" Longitude..." min="-180" max="180" data-bind="value: xCoord, event: {keypress: coordsEnterKey}">
+                    <input type="text" placeholder=" Longitude..." min="-180" max="180" data-bind="textInput: xCoord, event: {keypress: coordsEnterKey}">
                 </div>
             </div>
             <a href="javascript: void(0);" class="information-link small-button" data-bind="click: addPinFromCoordinates">
