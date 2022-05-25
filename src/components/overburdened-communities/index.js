@@ -122,7 +122,7 @@ export default ko.components.register('OverburdenedCommunities', {
                 })
                 .then((data) => {
                     properties.overburdened = data.features.length > 0;
-                    properties.name = properties.text || `${Math.round(coords[0] * 1000) / 1000}, ${Math.round(coords[1] * 1000) / 1000}`;
+                    properties.name = properties.place_name || `Latitude: ${Math.round(coords[1] * 1000) / 1000}\nLongitude: ${Math.round(coords[0] * 1000) / 1000}`;
                     this.pins.push({
                         coords: coords,
                         properties: properties
@@ -130,9 +130,16 @@ export default ko.components.register('OverburdenedCommunities', {
                 });
         };
 
+        this.coordsEnterKey = (data, event) => {
+            if (event.keyCode === 13) this.addPinFromCoordinates();
+            return true;
+        };
+
         this.addPinFromCoordinates = () => {
             if (this.xCoord() && this.yCoord()) {
-                this.addPin([this.xCoord(), this.yCoord()], {});
+                const coords = [this.xCoord(), this.yCoord()];
+                this.addPin(coords, {});
+                this.map().flyTo({center: coords, zoom: 16});
             }
         };
 
@@ -152,6 +159,7 @@ export default ko.components.register('OverburdenedCommunities', {
             });
             geocoder.on('result', (e) => {
                 geocoderResult = e.result;
+                this.addPin(geocoderResult.center, geocoderResult);
             });
         });
 
