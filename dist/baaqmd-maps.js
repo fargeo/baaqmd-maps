@@ -23003,7 +23003,7 @@ module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Impacted Communi
 /***/ 38275:
 /***/ ((module) => {
 
-module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig, css: {\n    'fullscreen': isFullscreen,\n    'no-fullscreen': !isFullscreen()\n}\">\n    <div class=\"mapboxgl-ctrl-fullscreen-btn\">\n        <a class=\"flscrn-btn\" data-bind=\"click: function () {\n                isFullscreen(true);\n            }\">\n            <div class=\"center-btn-cntnt\">\n                <div class=\"flscrn-btn-txt\">Tap to Expand</div>\n                <div class=\"flscrn-btn-icon icomoon icon-Expand\"></div>\n            </div>\n        </a>\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig, css: {\n    'fullscreen': isFullscreen,\n    'no-fullscreen': !isFullscreen()\n}\">\n    <div class=\"mapboxgl-ctrl-fullscreen-btn\">\n        <a class=\"flscrn-btn\" data-bind=\"click: function () {\n                isFullscreen(true);\n            }\">\n            <!-- <div class=\"center-btn-cntnt\">\n                <div class=\"flscrn-btn-txt\">Tap to Expand</div>\n                <div class=\"flscrn-btn-icon icomoon icon-Expand\"></div>\n            </div> -->\n        </a>\n    </div>\n</div>\n";
 
 /***/ }),
 
