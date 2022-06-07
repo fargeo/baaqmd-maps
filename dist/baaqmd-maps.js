@@ -23094,7 +23094,7 @@ module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group act-zoom-hover\
 /***/ 25215:
 /***/ ((module) => {
 
-module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            enableMapTypeSelector: enableMapTypeSelector,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            detailsActive: detailsActive\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            accessToken: accessToken\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { closeInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"collapse-information-panel\" title=\"Collapse\" data-bind=\"click: function() { closeInfoPanel(false); }, visible: popup()\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <button class=\"close-information-panel\" title=\"Close\" data-bind=\"click: function() { closeInfoPanel(true); }\">x</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n                }\"></div>\n                <div data-bind=\"component: {\n                    name: 'scroll-hint',\n                    params: {\n                        getScrollContent: getScrollContent\n                    }\n                }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            enableMapTypeSelector: enableMapTypeSelector,\n            mapTypes: mapTypes,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            detailsActive: detailsActive\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            accessToken: accessToken\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { closeInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"collapse-information-panel\" title=\"Collapse\" data-bind=\"click: function() { closeInfoPanel(false); }, visible: popup()\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <button class=\"close-information-panel\" title=\"Close\" data-bind=\"click: function() { closeInfoPanel(true); }\">x</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n                }\"></div>\n                <div data-bind=\"component: {\n                    name: 'scroll-hint',\n                    params: {\n                        getScrollContent: getScrollContent\n                    }\n                }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
 
 /***/ }),
 
@@ -30028,6 +30028,13 @@ knockout_latest.bindingHandlers.choices = {
     this.mapTypesObj = config_namespaceObject.mapTypes;
     this.mapTypes = [];
 
+    if (Array.isArray(params.mapTypes) && params.mapTypes.length > 0) {
+      this.mapTypesObj = {};
+      params.mapTypes.forEach(function (type) {
+        _this.mapTypesObj[type] = config_namespaceObject.mapTypes[type];
+      });
+    }
+
     for (var key in this.mapTypesObj) {
       this.mapTypes.push({
         id: key,
@@ -30212,7 +30219,14 @@ function Map(opts) {
   this.detailsExpanded = knockout_latest.observable(opts.sidePanelExpanded);
   this.detailsActive = knockout_latest.observable(opts.sidePanel);
   this.enableMapTypeSelector = opts.enableMapTypeSelector;
-  this.mapTypes = Object.keys(config_namespaceObject.mapTypes);
+  var mapTypes = Object.keys(config_namespaceObject.mapTypes);
+
+  if (Array.isArray(opts.mapType) && opts.mapType.length > 0) {
+    mapTypes = opts.mapType;
+    opts.mapType = opts.mapType[0];
+  }
+
+  this.mapTypes = mapTypes;
 
   if (this.enableMapTypeSelector !== false) {
     var searchParams = new URLSearchParams(window.location.search);
