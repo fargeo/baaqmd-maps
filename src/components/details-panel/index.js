@@ -34,6 +34,12 @@ export default ko.components.register('details-panel', {
         };
         this.mapTypesObj = config.mapTypes;
         this.mapTypes = [];
+        if (Array.isArray(params.mapTypes) && params.mapTypes.length > 0) {
+            this.mapTypesObj = {};
+            params.mapTypes.forEach((type) => {
+                this.mapTypesObj[type] = config.mapTypes[type];
+            });
+        }
         for (let key in this.mapTypesObj) {
             this.mapTypes.push({
                 id: key,
