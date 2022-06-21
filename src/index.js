@@ -26,6 +26,7 @@ export function Map(opts) {
 
     // private members
     this.accessToken = opts.accessToken;
+    this.mobileMode = opts.mobile;
     this.detailsExpanded = ko.observable(opts.sidePanelExpanded);
     this.detailsActive = ko.observable(opts.sidePanel);
     this.enableMapTypeSelector = opts.enableMapTypeSelector;
