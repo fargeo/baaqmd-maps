@@ -3,6 +3,10 @@
         display: none;
     }
 
+    .icomoon.icon-Weather:before {
+        content: "\ea42";
+    }
+
     @media (max-width: 768px) {
         .baaqmd-maps-details-panel {
             display: none;
@@ -138,7 +142,7 @@
             width: 100%;
             background-color: rgb(0, 142, 184);
             color: white;
-            padding: 3px 10px 3px 20px;
+            padding: 3px 10px 3px 3px;
             height: 25px;
         }
 
@@ -242,7 +246,7 @@
             float: right;
         }
 
-        .baaqmd-maps-main a.slider-btn {
+        a.slider-btn {
             color: white !important;
             float: right;
             line-height: 2rem;
@@ -402,11 +406,11 @@
         }
 
         .mapboxgl-ctrl-bottom-right {
-            bottom: 60px;
+            bottom: 70px;
         }
 
         .mapboxgl-ctrl-bottom-left {
-            bottom: 60px;
+            bottom: 70px;
         }
 
         .no-fullscreen .mapboxgl-control-container .mapboxgl-ctrl-bottom-right {
