@@ -7,6 +7,7 @@ import config from '../../config.json';
 import '../../bindings/mapbox-gl';
 import ZoomControl from '../zoom-control';
 import HelpControl from '../help-control';
+import MobileFullscreenControl from '../mobile-fullscreen-control';
 import FullscreenHelp from '../fullscreen-help';
 let mapboxQuery = process.env.NODE_ENV === 'production' ? '' : '&fresh=true';
 
@@ -17,12 +18,17 @@ export default ko.components.register('map', {
         this.accessToken = params.accessToken || config.accessToken;
         mapboxQuery = '?access_token=' + this.accessToken + mapboxQuery;
 
+        this.fullscreenURL = params.fullscreenURL || config.fullscreenURL;
+        this.mobileFullscreen = params.mobileFullscreen;
+        this.mobileMode = params.mobileMode;
         this.style = config.apiURI + config.mapTypes[params.mapType()].style + mapboxQuery;
         this.customAttribution = '<a href="http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
-        this.isFullscreen = ko.observable(false);
+        this.isFullscreen = ko.observable(this.mobileFullscreen);
         this.isFullscreen.subscribe((isFullscreen) => {
             if (this.map && this.fullscreenControl) {
-                if (this.fullscreenControl._fullscreen !== isFullscreen) {
+                if (this.mobileFullscreen) {
+                    history.back();
+                } else if (this.fullscreenControl._fullscreen !== isFullscreen) {
                     this.fullscreenControl._onClickFullscreen();
                 }
             }
@@ -47,7 +53,8 @@ export default ko.components.register('map', {
             this.fullscreenControl = new mapboxgl.FullscreenControl({
                 container: params.container
             });
-            map.addControl(this.fullscreenControl);
+            if (this.mobileFullscreen) map.addControl(new MobileFullscreenControl());
+            else map.addControl(this.fullscreenControl);
             map.addControl(new mapboxgl.ScaleControl({
                 unit: 'imperial'
             }));

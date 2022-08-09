@@ -446,9 +446,12 @@
             bottom: 0px;
         }
 
-        .no-fullscreen .mapboxgl-control-container .mapboxgl-ctrl-top-right {
-            display: none;
+        .no-fullscreen .mapboxgl-control-container {
+            .mapboxgl-ctrl-top-right, .mapboxgl-ctrl-top-left {
+                display: none;
+            }
         }
+
 
         /* Alert Popup */
         .alert-popup {
@@ -571,6 +574,18 @@
 
         .asterisk-txt {
             font-style: italic;
+        }
+
+        ul.circle-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 100%;
+            line-height: 1;
+            font-family: inherit;
         }
 
         /* Share Menu */

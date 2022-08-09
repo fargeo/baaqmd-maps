@@ -30,6 +30,8 @@ export function Map(opts) {
     this.detailsExpanded = ko.observable(opts.sidePanelExpanded);
     this.detailsActive = ko.observable(opts.sidePanel);
     this.enableMapTypeSelector = opts.enableMapTypeSelector;
+    this.fullscreenURL = opts.fullscreenURL || config.fullscreenURL;
+    this.mobileFullscreen = opts.mobileFullscreen || false;
     let mapTypes = Object.keys(config.mapTypes);
     if (Array.isArray(opts.mapType) && opts.mapType.length > 0) {
         mapTypes = opts.mapType;

@@ -2,14 +2,14 @@
     'fullscreen': isFullscreen,
     'no-fullscreen': !isFullscreen()
 }">
+    <!-- ko if: mobileMode && !mobileFullscreen -->
     <div class="mapboxgl-ctrl-fullscreen-btn">
-        <a class="flscrn-btn" data-bind="click: function () {
-                isFullscreen(true);
-            }">
-            <!-- <div class="center-btn-cntnt">
+        <a class="flscrn-btn" data-bind="attr: { href: fullscreenURL }" target="_self">
+            <div class="center-btn-cntnt">
                 <div class="flscrn-btn-txt">Tap to Expand</div>
                 <div class="flscrn-btn-icon icomoon icon-Expand"></div>
-            </div> -->
+            </div>
         </a>
     </div>
+    <!-- /ko -->
 </div>

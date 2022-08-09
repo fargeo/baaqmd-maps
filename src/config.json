@@ -39,6 +39,7 @@
         38.86425008600003
     ],
     "boundsPadding": 20,
+    "fullscreenURL": "/mobile-fullscreen.html",
     "mainMapPage": "https://baaqmd.fargeo-dev.com/dist/",
     "mapTypes": {
         "AQIForecast": {

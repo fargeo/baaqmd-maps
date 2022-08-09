@@ -12,6 +12,7 @@ export default ko.components.register('details-panel', {
         this.enableMapTypeSelector = params.enableMapTypeSelector;
         this.rootURL = params.rootURL;
         this.detailsActive = params.detailsActive;
+        this.mobileMode = params.mobileMode;
         this.mapTypeSelector = ko.observable();
         this.mapTypeSelectorExpanded = ko.observable();
         this.toggleMapTypeSelector = () => {

@@ -6,6 +6,7 @@ import * as summerModalTemplate from './summer-modal.html';
 import * as winterModalTemplate from './winter-modal.html';
 import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html';
 import * as forecastPanelTemplate from './forecast-panel.html';
+import * as mobileMenuTemplate from './mobile-menu.html';
 import config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import fetchHTML from '../../utils/fetch-html';
@@ -163,6 +164,24 @@ ko.components.register('PollutantInfoPanel', {
     template: pollutantInfoPanelTemplate
 });
 
+class AQIMobileMenu {
+    constructor() {
+    }
+    onAdd(map) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(mobileMenuTemplate, "text/html");
+        const el = doc.body.removeChild(doc.body.firstChild);
+        this.map = map;
+        this.container = el;
+
+        return this.container;
+    }
+    onRemove() {
+        this.container.parentNode.removeChild(this.container);
+        this.map = undefined;
+    }
+}
+
 export default ko.components.register('AQIForecast', {
     viewModel: function(params) {
         const rootUrl = params.rootURL || config.prodRoot;
@@ -259,6 +278,7 @@ export default ko.components.register('AQIForecast', {
                 });
             }
             this.layers.counties.flag(false);
+            if (this.mobileMode) map.addControl(new AQIMobileMenu(), 'top-left');
         };
 
         this.showSTAModal = () => {
