@@ -167,6 +167,8 @@ __webpack_require__(43290);
 __webpack_require__(57327);
 __webpack_require__(69826);
 __webpack_require__(34553);
+__webpack_require__(67635);
+__webpack_require__(77287);
 __webpack_require__(84944);
 __webpack_require__(86535);
 __webpack_require__(89554);
@@ -179,6 +181,7 @@ __webpack_require__(69600);
 __webpack_require__(94986);
 __webpack_require__(21249);
 __webpack_require__(26572);
+__webpack_require__(57658);
 __webpack_require__(85827);
 __webpack_require__(96644);
 __webpack_require__(65069);
@@ -189,6 +192,7 @@ __webpack_require__(38706);
 __webpack_require__(40561);
 __webpack_require__(33792);
 __webpack_require__(99244);
+__webpack_require__(30541);
 __webpack_require__(18264);
 __webpack_require__(76938);
 __webpack_require__(39575);
@@ -344,6 +348,8 @@ __webpack_require__(33105);
 __webpack_require__(35035);
 __webpack_require__(74345);
 __webpack_require__(7174);
+__webpack_require__(63408);
+__webpack_require__(14590);
 __webpack_require__(32846);
 __webpack_require__(98145);
 __webpack_require__(44731);
@@ -373,8 +379,10 @@ __webpack_require__(84811);
 __webpack_require__(34286);
 __webpack_require__(3048);
 __webpack_require__(77461);
+__webpack_require__(52550);
 __webpack_require__(1999);
 __webpack_require__(61886);
+__webpack_require__(59422);
 __webpack_require__(80000);
 __webpack_require__(83475);
 __webpack_require__(46273);
@@ -392,6 +400,7 @@ __webpack_require__(31672);
 __webpack_require__(74326);
 __webpack_require__(15581);
 __webpack_require__(78631);
+__webpack_require__(48746);
 __webpack_require__(57640);
 __webpack_require__(25387);
 __webpack_require__(64211);
@@ -413,6 +422,7 @@ __webpack_require__(59461);
 __webpack_require__(82499);
 __webpack_require__(34514);
 __webpack_require__(26877);
+__webpack_require__(64994);
 __webpack_require__(9924);
 __webpack_require__(72608);
 __webpack_require__(41874);
@@ -498,6 +508,7 @@ __webpack_require__(609);
 __webpack_require__(21568);
 __webpack_require__(54534);
 __webpack_require__(95090);
+__webpack_require__(34744);
 __webpack_require__(48824);
 __webpack_require__(44130);
 __webpack_require__(35954);
@@ -553,16 +564,15 @@ __webpack_require__(41637);
 /***/ 19662:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var isCallable = __webpack_require__(60614);
 var tryToString = __webpack_require__(66330);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `Assert: IsCallable(argument) is true`
 module.exports = function (argument) {
   if (isCallable(argument)) return argument;
-  throw TypeError(tryToString(argument) + ' is not a function');
+  throw $TypeError(tryToString(argument) + ' is not a function');
 };
 
 
@@ -571,16 +581,15 @@ module.exports = function (argument) {
 /***/ 39483:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var isConstructor = __webpack_require__(4411);
 var tryToString = __webpack_require__(66330);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `Assert: IsConstructor(argument) is true`
 module.exports = function (argument) {
   if (isConstructor(argument)) return argument;
-  throw TypeError(tryToString(argument) + ' is not a constructor');
+  throw $TypeError(tryToString(argument) + ' is not a constructor');
 };
 
 
@@ -589,15 +598,14 @@ module.exports = function (argument) {
 /***/ 96077:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var isCallable = __webpack_require__(60614);
 
-var String = global.String;
-var TypeError = global.TypeError;
+var $String = String;
+var $TypeError = TypeError;
 
 module.exports = function (argument) {
   if (typeof argument == 'object' || isCallable(argument)) return argument;
-  throw TypeError("Can't set " + String(argument) + ' as a prototype');
+  throw $TypeError("Can't set " + $String(argument) + ' as a prototype');
 };
 
 
@@ -608,7 +616,7 @@ module.exports = function (argument) {
 
 var wellKnownSymbol = __webpack_require__(5112);
 var create = __webpack_require__(70030);
-var definePropertyModule = __webpack_require__(3070);
+var defineProperty = (__webpack_require__(3070).f);
 
 var UNSCOPABLES = wellKnownSymbol('unscopables');
 var ArrayPrototype = Array.prototype;
@@ -616,7 +624,7 @@ var ArrayPrototype = Array.prototype;
 // Array.prototype[@@unscopables]
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
 if (ArrayPrototype[UNSCOPABLES] == undefined) {
-  definePropertyModule.f(ArrayPrototype, UNSCOPABLES, {
+  defineProperty(ArrayPrototype, UNSCOPABLES, {
     configurable: true,
     value: create(null)
   });
@@ -649,14 +657,13 @@ module.exports = function (S, index, unicode) {
 /***/ 25787:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var isPrototypeOf = __webpack_require__(47976);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 module.exports = function (it, Prototype) {
   if (isPrototypeOf(Prototype, it)) return it;
-  throw TypeError('Incorrect invocation');
+  throw $TypeError('Incorrect invocation');
 };
 
 
@@ -665,16 +672,15 @@ module.exports = function (it, Prototype) {
 /***/ 19670:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var isObject = __webpack_require__(70111);
 
-var String = global.String;
-var TypeError = global.TypeError;
+var $String = String;
+var $TypeError = TypeError;
 
 // `Assert: Type(argument) is Object`
 module.exports = function (argument) {
   if (isObject(argument)) return argument;
-  throw TypeError(String(argument) + ' is not an object');
+  throw $TypeError($String(argument) + ' is not an object');
 };
 
 
@@ -727,7 +733,10 @@ var getPrototypeOf = __webpack_require__(79518);
 var setPrototypeOf = __webpack_require__(27674);
 var wellKnownSymbol = __webpack_require__(5112);
 var uid = __webpack_require__(69711);
+var InternalStateModule = __webpack_require__(29909);
 
+var enforceInternalState = InternalStateModule.enforce;
+var getInternalState = InternalStateModule.get;
 var Int8Array = global.Int8Array;
 var Int8ArrayPrototype = Int8Array && Int8Array.prototype;
 var Uint8ClampedArray = global.Uint8ClampedArray;
@@ -739,7 +748,7 @@ var TypeError = global.TypeError;
 
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 var TYPED_ARRAY_TAG = uid('TYPED_ARRAY_TAG');
-var TYPED_ARRAY_CONSTRUCTOR = uid('TYPED_ARRAY_CONSTRUCTOR');
+var TYPED_ARRAY_CONSTRUCTOR = 'TypedArrayConstructor';
 // Fixing native typed arrays in Opera Presto crashes the browser, see #595
 var NATIVE_ARRAY_BUFFER_VIEWS = NATIVE_ARRAY_BUFFER && !!setPrototypeOf && classof(global.opera) !== 'Opera';
 var TYPED_ARRAY_TAG_REQUIRED = false;
@@ -768,6 +777,13 @@ var isView = function isView(it) {
   return klass === 'DataView'
     || hasOwn(TypedArrayConstructorsList, klass)
     || hasOwn(BigIntArrayConstructorsList, klass);
+};
+
+var getTypedArrayConstructor = function (it) {
+  var proto = getPrototypeOf(it);
+  if (!isObject(proto)) return;
+  var state = getInternalState(proto);
+  return (state && hasOwn(state, TYPED_ARRAY_CONSTRUCTOR)) ? state[TYPED_ARRAY_CONSTRUCTOR] : getTypedArrayConstructor(proto);
 };
 
 var isTypedArray = function (it) {
@@ -834,14 +850,14 @@ var exportTypedArrayStaticMethod = function (KEY, property, forced) {
 for (NAME in TypedArrayConstructorsList) {
   Constructor = global[NAME];
   Prototype = Constructor && Constructor.prototype;
-  if (Prototype) createNonEnumerableProperty(Prototype, TYPED_ARRAY_CONSTRUCTOR, Constructor);
+  if (Prototype) enforceInternalState(Prototype)[TYPED_ARRAY_CONSTRUCTOR] = Constructor;
   else NATIVE_ARRAY_BUFFER_VIEWS = false;
 }
 
 for (NAME in BigIntArrayConstructorsList) {
   Constructor = global[NAME];
   Prototype = Constructor && Constructor.prototype;
-  if (Prototype) createNonEnumerableProperty(Prototype, TYPED_ARRAY_CONSTRUCTOR, Constructor);
+  if (Prototype) enforceInternalState(Prototype)[TYPED_ARRAY_CONSTRUCTOR] = Constructor;
 }
 
 // WebKit bug - typed arrays constructors prototype is Object.prototype
@@ -879,12 +895,12 @@ if (DESCRIPTORS && !hasOwn(TypedArrayPrototype, TO_STRING_TAG)) {
 
 module.exports = {
   NATIVE_ARRAY_BUFFER_VIEWS: NATIVE_ARRAY_BUFFER_VIEWS,
-  TYPED_ARRAY_CONSTRUCTOR: TYPED_ARRAY_CONSTRUCTOR,
   TYPED_ARRAY_TAG: TYPED_ARRAY_TAG_REQUIRED && TYPED_ARRAY_TAG,
   aTypedArray: aTypedArray,
   aTypedArrayConstructor: aTypedArrayConstructor,
   exportTypedArrayMethod: exportTypedArrayMethod,
   exportTypedArrayStaticMethod: exportTypedArrayStaticMethod,
+  getTypedArrayConstructor: getTypedArrayConstructor,
   isView: isView,
   isTypedArray: isTypedArray,
   TypedArray: TypedArray,
@@ -1157,6 +1173,7 @@ module.exports = {
 var toObject = __webpack_require__(47908);
 var toAbsoluteIndex = __webpack_require__(51400);
 var lengthOfArrayLike = __webpack_require__(26244);
+var deletePropertyOrThrow = __webpack_require__(85117);
 
 var min = Math.min;
 
@@ -1178,7 +1195,7 @@ module.exports = [].copyWithin || function copyWithin(target /* = 0 */, start /*
   }
   while (count-- > 0) {
     if (from in O) O[to] = O[from];
-    else delete O[to];
+    else deletePropertyOrThrow(O, to);
     to += inc;
     from += inc;
   } return O;
@@ -1297,7 +1314,6 @@ module.exports = function (Constructor, list) {
 
 "use strict";
 
-var global = __webpack_require__(17854);
 var bind = __webpack_require__(49974);
 var call = __webpack_require__(46916);
 var toObject = __webpack_require__(47908);
@@ -1309,7 +1325,7 @@ var createProperty = __webpack_require__(86135);
 var getIterator = __webpack_require__(18554);
 var getIteratorMethod = __webpack_require__(71246);
 
-var Array = global.Array;
+var $Array = Array;
 
 // `Array.from` method implementation
 // https://tc39.es/ecma262/#sec-array.from
@@ -1324,7 +1340,7 @@ module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undef
   var index = 0;
   var length, result, step, iterator, next, value;
   // if the target is not iterable or it's an array with the default iterator - use a simple case
-  if (iteratorMethod && !(this == Array && isArrayIteratorMethod(iteratorMethod))) {
+  if (iteratorMethod && !(this === $Array && isArrayIteratorMethod(iteratorMethod))) {
     iterator = getIterator(O, iteratorMethod);
     next = iterator.next;
     result = IS_CONSTRUCTOR ? new this() : [];
@@ -1334,7 +1350,7 @@ module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undef
     }
   } else {
     length = lengthOfArrayLike(O);
-    result = IS_CONSTRUCTOR ? new this(length) : Array(length);
+    result = IS_CONSTRUCTOR ? new this(length) : $Array(length);
     for (;length > index; index++) {
       value = mapping ? mapfn(O[index], index) : O[index];
       createProperty(result, index, value);
@@ -1347,10 +1363,49 @@ module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undef
 
 /***/ }),
 
-/***/ 61386:
+/***/ 59921:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
+"use strict";
+
+var getBuiltIn = __webpack_require__(35005);
+var bind = __webpack_require__(49974);
+var uncurryThis = __webpack_require__(1702);
+var IndexedObject = __webpack_require__(68361);
+var toObject = __webpack_require__(47908);
+var lengthOfArrayLike = __webpack_require__(26244);
+
+var Map = getBuiltIn('Map');
+var MapPrototype = Map.prototype;
+var mapGet = uncurryThis(MapPrototype.get);
+var mapHas = uncurryThis(MapPrototype.has);
+var mapSet = uncurryThis(MapPrototype.set);
+var push = uncurryThis([].push);
+
+// `Array.prototype.groupToMap` method
+// https://github.com/tc39/proposal-array-grouping
+module.exports = function groupToMap(callbackfn /* , thisArg */) {
+  var O = toObject(this);
+  var self = IndexedObject(O);
+  var boundFunction = bind(callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  var map = new Map();
+  var length = lengthOfArrayLike(self);
+  var index = 0;
+  var key, value;
+  for (;length > index; index++) {
+    value = self[index];
+    key = boundFunction(value, index, O);
+    if (mapHas(map, key)) push(mapGet(map, key), value);
+    else mapSet(map, key, [value]);
+  } return map;
+};
+
+
+/***/ }),
+
+/***/ 21191:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
 var bind = __webpack_require__(49974);
 var uncurryThis = __webpack_require__(1702);
 var IndexedObject = __webpack_require__(68361);
@@ -1360,7 +1415,7 @@ var lengthOfArrayLike = __webpack_require__(26244);
 var objectCreate = __webpack_require__(70030);
 var arrayFromConstructorAndList = __webpack_require__(97745);
 
-var Array = global.Array;
+var $Array = Array;
 var push = uncurryThis([].push);
 
 module.exports = function ($this, callbackfn, that, specificConstructor) {
@@ -1382,7 +1437,7 @@ module.exports = function ($this, callbackfn, that, specificConstructor) {
   // TODO: Remove this block from `core-js@4`
   if (specificConstructor) {
     Constructor = specificConstructor(O);
-    if (Constructor !== Array) {
+    if (Constructor !== $Array) {
       for (key in target) target[key] = arrayFromConstructorAndList(Constructor, target[key]);
     }
   } return target;
@@ -1633,13 +1688,12 @@ module.exports = function (METHOD_NAME, argument) {
 /***/ 53671:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var aCallable = __webpack_require__(19662);
 var toObject = __webpack_require__(47908);
 var IndexedObject = __webpack_require__(68361);
 var lengthOfArrayLike = __webpack_require__(26244);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `Array.prototype.{ reduce, reduceRight }` methods implementation
 var createMethod = function (IS_RIGHT) {
@@ -1658,7 +1712,7 @@ var createMethod = function (IS_RIGHT) {
       }
       index += i;
       if (IS_RIGHT ? index < 0 : length <= index) {
-        throw TypeError('Reduce of empty array with no initial value');
+        throw $TypeError('Reduce of empty array with no initial value');
       }
     }
     for (;IS_RIGHT ? index >= 0 : length > index; index += i) if (index in self) {
@@ -1683,19 +1737,18 @@ module.exports = {
 /***/ 41589:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var toAbsoluteIndex = __webpack_require__(51400);
 var lengthOfArrayLike = __webpack_require__(26244);
 var createProperty = __webpack_require__(86135);
 
-var Array = global.Array;
+var $Array = Array;
 var max = Math.max;
 
 module.exports = function (O, start, end) {
   var length = lengthOfArrayLike(O);
   var k = toAbsoluteIndex(start, length);
   var fin = toAbsoluteIndex(end === undefined ? length : end, length);
-  var result = Array(max(fin - k, 0));
+  var result = $Array(max(fin - k, 0));
   for (var n = 0; k < fin; k++, n++) createProperty(result, n, O[k]);
   result.length = n;
   return result;
@@ -1768,14 +1821,13 @@ module.exports = mergeSort;
 /***/ 77475:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var isArray = __webpack_require__(43157);
 var isConstructor = __webpack_require__(4411);
 var isObject = __webpack_require__(70111);
 var wellKnownSymbol = __webpack_require__(5112);
 
 var SPECIES = wellKnownSymbol('species');
-var Array = global.Array;
+var $Array = Array;
 
 // a part of `ArraySpeciesCreate` abstract operation
 // https://tc39.es/ecma262/#sec-arrayspeciescreate
@@ -1784,12 +1836,12 @@ module.exports = function (originalArray) {
   if (isArray(originalArray)) {
     C = originalArray.constructor;
     // cross-realm fallback
-    if (isConstructor(C) && (C === Array || isArray(C.prototype))) C = undefined;
+    if (isConstructor(C) && (C === $Array || isArray(C.prototype))) C = undefined;
     else if (isObject(C)) {
       C = C[SPECIES];
       if (C === null) C = undefined;
     }
-  } return C === undefined ? Array : C;
+  } return C === undefined ? $Array : C;
 };
 
 
@@ -1821,51 +1873,6 @@ module.exports = function (O, C) {
   var A = new C(len);
   var k = 0;
   for (; k < len; k++) A[k] = O[len - k - 1];
-  return A;
-};
-
-
-/***/ }),
-
-/***/ 1654:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var lengthOfArrayLike = __webpack_require__(26244);
-var toAbsoluteIndex = __webpack_require__(51400);
-var toIntegerOrInfinity = __webpack_require__(19303);
-
-var $TypeError = TypeError;
-var max = Math.max;
-var min = Math.min;
-var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF;
-
-// https://tc39.es/proposal-change-array-by-copy/#sec-array.prototype.toSpliced
-// https://tc39.es/proposal-change-array-by-copy/#sec-%typedarray%.prototype.toSpliced
-module.exports = function (O, C, args) {
-  var start = args[0];
-  var deleteCount = args[1];
-  var len = lengthOfArrayLike(O);
-  var actualStart = toAbsoluteIndex(start, len);
-  var argumentsLength = args.length;
-  var k = 0;
-  var insertCount, actualDeleteCount, newLen, A;
-  if (argumentsLength === 0) {
-    insertCount = actualDeleteCount = 0;
-  } else if (argumentsLength === 1) {
-    insertCount = 0;
-    actualDeleteCount = len - actualStart;
-  } else {
-    insertCount = argumentsLength - 2;
-    actualDeleteCount = min(max(toIntegerOrInfinity(deleteCount), 0), len - actualStart);
-  }
-  newLen = len + insertCount - actualDeleteCount;
-  if (newLen > MAX_SAFE_INTEGER) throw $TypeError('Maximum allowed length exceeded');
-  A = new C(newLen);
-
-  for (; k < actualStart; k++) A[k] = O[k];
-  for (; k < actualStart + insertCount; k++) A[k] = args[k - actualStart + 2];
-  for (; k < newLen; k++) A[k] = O[k + actualDeleteCount - insertCount];
-
   return A;
 };
 
@@ -1919,11 +1926,10 @@ module.exports = function uniqueBy(resolver) {
 /***/ 11572:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var lengthOfArrayLike = __webpack_require__(26244);
 var toIntegerOrInfinity = __webpack_require__(19303);
 
-var RangeError = global.RangeError;
+var $RangeError = RangeError;
 
 // https://tc39.es/proposal-change-array-by-copy/#sec-array.prototype.with
 // https://tc39.es/proposal-change-array-by-copy/#sec-%typedarray%.prototype.with
@@ -1931,7 +1937,7 @@ module.exports = function (O, C, index, value) {
   var len = lengthOfArrayLike(O);
   var relativeIndex = toIntegerOrInfinity(index);
   var actualIndex = relativeIndex < 0 ? len + relativeIndex : relativeIndex;
-  if (actualIndex >= len || actualIndex < 0) throw RangeError('Incorrect index');
+  if (actualIndex >= len || actualIndex < 0) throw $RangeError('Incorrect index');
   var A = new C(len);
   var k = 0;
   for (; k < len; k++) A[k] = k === actualIndex ? value : O[k];
@@ -1946,7 +1952,7 @@ module.exports = function (O, C, index, value) {
 
 "use strict";
 
-var apply = __webpack_require__(22104);
+var call = __webpack_require__(46916);
 var anObject = __webpack_require__(19670);
 var create = __webpack_require__(70030);
 var getMethod = __webpack_require__(58173);
@@ -1977,31 +1983,19 @@ var AsyncFromSyncIterator = function AsyncIterator(iterator) {
 };
 
 AsyncFromSyncIterator.prototype = defineBuiltIns(create(AsyncIteratorPrototype), {
-  next: function next(arg) {
+  next: function next() {
     var state = getInternalState(this);
-    var hasArg = !!arguments.length;
     return new Promise(function (resolve, reject) {
-      var result = anObject(apply(state.next, state.iterator, hasArg ? [arg] : []));
+      var result = anObject(call(state.next, state.iterator));
       asyncFromSyncIteratorContinuation(result, resolve, reject);
     });
   },
-  'return': function (arg) {
+  'return': function () {
     var iterator = getInternalState(this).iterator;
-    var hasArg = !!arguments.length;
     return new Promise(function (resolve, reject) {
       var $return = getMethod(iterator, 'return');
-      if ($return === undefined) return resolve({ done: true, value: arg });
-      var result = anObject(apply($return, iterator, hasArg ? [arg] : []));
-      asyncFromSyncIteratorContinuation(result, resolve, reject);
-    });
-  },
-  'throw': function (arg) {
-    var iterator = getInternalState(this).iterator;
-    var hasArg = !!arguments.length;
-    return new Promise(function (resolve, reject) {
-      var $throw = getMethod(iterator, 'throw');
-      if ($throw === undefined) return reject(arg);
-      var result = anObject(apply($throw, iterator, hasArg ? [arg] : []));
+      if ($return === undefined) return resolve({ done: true, value: undefined });
+      var result = anObject(call($return, iterator));
       asyncFromSyncIteratorContinuation(result, resolve, reject);
     });
   }
@@ -2012,13 +2006,38 @@ module.exports = AsyncFromSyncIterator;
 
 /***/ }),
 
+/***/ 21753:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var call = __webpack_require__(46916);
+var getBuiltIn = __webpack_require__(35005);
+var getMethod = __webpack_require__(58173);
+
+module.exports = function (iterator, method, argument, reject) {
+  try {
+    var returnMethod = getMethod(iterator, 'return');
+    if (returnMethod) {
+      return getBuiltIn('Promise').resolve(call(returnMethod, iterator)).then(function () {
+        method(argument);
+      }, function (error) {
+        reject(error);
+      });
+    }
+  } catch (error2) {
+    return reject(error2);
+  } method(argument);
+};
+
+
+/***/ }),
+
 /***/ 45348:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 var call = __webpack_require__(46916);
-var aCallable = __webpack_require__(19662);
+var perform = __webpack_require__(12534);
 var anObject = __webpack_require__(19670);
 var create = __webpack_require__(70030);
 var createNonEnumerableProperty = __webpack_require__(68880);
@@ -2028,67 +2047,156 @@ var InternalStateModule = __webpack_require__(29909);
 var getBuiltIn = __webpack_require__(35005);
 var getMethod = __webpack_require__(58173);
 var AsyncIteratorPrototype = __webpack_require__(66462);
+var iteratorClose = __webpack_require__(99212);
 
 var Promise = getBuiltIn('Promise');
 
-var ASYNC_ITERATOR_PROXY = 'AsyncIteratorProxy';
+var ASYNC_ITERATOR_HELPER = 'AsyncIteratorHelper';
+var WRAP_FOR_VALID_ASYNC_ITERATOR = 'WrapForValidAsyncIterator';
 var setInternalState = InternalStateModule.set;
-var getInternalState = InternalStateModule.getterFor(ASYNC_ITERATOR_PROXY);
 
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 
-module.exports = function (nextHandler, IS_ITERATOR) {
-  var AsyncIteratorProxy = function AsyncIterator(state) {
-    state.type = ASYNC_ITERATOR_PROXY;
-    state.next = aCallable(state.iterator.next);
-    state.done = false;
-    state.ignoreArgument = !IS_ITERATOR;
-    setInternalState(this, state);
+var createAsyncIteratorProxyPrototype = function (IS_ITERATOR) {
+  var IS_GENERATOR = !IS_ITERATOR;
+  var ASYNC_ITERATOR_PROXY = IS_ITERATOR ? WRAP_FOR_VALID_ASYNC_ITERATOR : ASYNC_ITERATOR_HELPER;
+
+  var getInternalState = InternalStateModule.getterFor(ASYNC_ITERATOR_PROXY);
+
+  var getStateOrEarlyExit = function (that) {
+    var stateCompletion = perform(function () {
+      return getInternalState(that);
+    });
+
+    var stateError = stateCompletion.error;
+    var state = stateCompletion.value;
+
+    if (stateError || (IS_GENERATOR && state.done)) {
+      return { exit: true, value: stateError ? Promise.reject(state) : Promise.resolve({ done: true, value: undefined }) };
+    } return { exit: false, value: state };
   };
 
-  AsyncIteratorProxy.prototype = defineBuiltIns(create(AsyncIteratorPrototype), {
-    next: function next(arg) {
-      var that = this;
-      var hasArgument = !!arguments.length;
-      return new Promise(function (resolve) {
-        var state = getInternalState(that);
-        var args = hasArgument ? [state.ignoreArgument ? undefined : arg] : IS_ITERATOR ? [] : [undefined];
-        state.ignoreArgument = false;
-        resolve(state.done ? { done: true, value: undefined } : anObject(call(nextHandler, state, Promise, args)));
+  var enqueue = function (state, handler) {
+    var task = function () {
+      var promise = handler();
+      if (IS_GENERATOR) {
+        state.awaiting = promise;
+        var clean = function () {
+          if (state.awaiting === promise) state.awaiting = null;
+        };
+        promise.then(clean, clean);
+      } return promise;
+    };
+
+    return state.awaiting ? state.awaiting = state.awaiting.then(task, task) : task();
+  };
+
+  var AsyncIteratorProxyPrototype = defineBuiltIns(create(AsyncIteratorPrototype), {
+    next: function next() {
+      var stateCompletion = getStateOrEarlyExit(this);
+      var exit = stateCompletion.exit;
+      var state = stateCompletion.value;
+
+      return exit ? state : enqueue(state, function () {
+        var handlerCompletion = perform(function () {
+          return anObject(state.nextHandler(Promise));
+        });
+        var handlerError = handlerCompletion.error;
+        var value = handlerCompletion.value;
+        if (handlerError) state.done = true;
+        return handlerError ? Promise.reject(value) : Promise.resolve(value);
       });
     },
-    'return': function (value) {
-      var that = this;
-      return new Promise(function (resolve, reject) {
-        var state = getInternalState(that);
-        var iterator = state.iterator;
-        state.done = true;
-        var $$return = getMethod(iterator, 'return');
-        if ($$return === undefined) return resolve({ done: true, value: value });
-        Promise.resolve(call($$return, iterator, value)).then(function (result) {
-          anObject(result);
-          resolve({ done: true, value: value });
-        }, reject);
-      });
-    },
-    'throw': function (value) {
-      var that = this;
-      return new Promise(function (resolve, reject) {
-        var state = getInternalState(that);
-        var iterator = state.iterator;
-        state.done = true;
-        var $$throw = getMethod(iterator, 'throw');
-        if ($$throw === undefined) return reject(value);
-        resolve(call($$throw, iterator, value));
+    'return': function () {
+      var stateCompletion = getStateOrEarlyExit(this);
+      var exit = stateCompletion.exit;
+      var state = stateCompletion.value;
+
+      return exit ? state : enqueue(state, function () {
+        return new Promise(function (resolve, reject) {
+          var iterator = state.iterator;
+          var innerIterator = state.innerIterator;
+          state.done = true;
+          if (innerIterator) try {
+            iteratorClose(innerIterator, 'return');
+          } catch (error) {
+            return iteratorClose(iterator, 'throw', error);
+          }
+          var $$return = getMethod(iterator, 'return');
+          if ($$return === undefined) return resolve({ done: true, value: undefined });
+          Promise.resolve(call($$return, iterator)).then(function (result) {
+            anObject(result);
+            resolve({ done: true, value: undefined });
+          }, reject);
+        });
       });
     }
   });
 
-  if (!IS_ITERATOR) {
-    createNonEnumerableProperty(AsyncIteratorProxy.prototype, TO_STRING_TAG, 'Generator');
+  if (IS_GENERATOR) {
+    createNonEnumerableProperty(AsyncIteratorProxyPrototype, TO_STRING_TAG, 'Async Iterator Helper');
   }
 
+  return AsyncIteratorProxyPrototype;
+};
+
+var AsyncIteratorHelperPrototype = createAsyncIteratorProxyPrototype(false);
+var WrapForValidAsyncIteratorPrototype = createAsyncIteratorProxyPrototype(true);
+
+module.exports = function (nextHandler, IS_ITERATOR) {
+  var ASYNC_ITERATOR_PROXY = IS_ITERATOR ? WRAP_FOR_VALID_ASYNC_ITERATOR : ASYNC_ITERATOR_HELPER;
+
+  var AsyncIteratorProxy = function AsyncIterator(record, state) {
+    if (state) {
+      state.iterator = record.iterator;
+      state.next = record.next;
+    } else state = record;
+    state.type = ASYNC_ITERATOR_PROXY;
+    state.nextHandler = nextHandler;
+    state.done = false;
+    state.awaiting = null;
+    setInternalState(this, state);
+  };
+
+  AsyncIteratorProxy.prototype = IS_ITERATOR ? WrapForValidAsyncIteratorPrototype : AsyncIteratorHelperPrototype;
+
   return AsyncIteratorProxy;
+};
+
+
+/***/ }),
+
+/***/ 47520:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// https://github.com/tc39/proposal-iterator-helpers
+var call = __webpack_require__(46916);
+var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
+var createAsyncIteratorProxy = __webpack_require__(45348);
+
+var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise) {
+  var state = this;
+  var iterator = state.iterator;
+
+  return Promise.resolve(anObject(call(state.next, iterator))).then(function (step) {
+    if (anObject(step).done) {
+      state.done = true;
+      return { done: true, value: undefined };
+    }
+    return { done: false, value: [state.index++, step.value] };
+  }).then(null, function (error) {
+    state.done = true;
+    throw error;
+  });
+});
+
+module.exports = function indexed() {
+  return new AsyncIteratorProxy(getIteratorDirect(this), {
+    index: 0
+  });
 };
 
 
@@ -2101,54 +2209,38 @@ module.exports = function (nextHandler, IS_ITERATOR) {
 
 // https://github.com/tc39/proposal-iterator-helpers
 // https://github.com/tc39/proposal-array-from-async
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
 var getBuiltIn = __webpack_require__(35005);
-var getMethod = __webpack_require__(58173);
-
-var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF;
-var TypeError = global.TypeError;
+var getIteratorDirect = __webpack_require__(24942);
+var closeAsyncIteration = __webpack_require__(21753);
 
 var createMethod = function (TYPE) {
   var IS_TO_ARRAY = TYPE == 0;
   var IS_FOR_EACH = TYPE == 1;
   var IS_EVERY = TYPE == 2;
   var IS_SOME = TYPE == 3;
-  return function (iterator, fn, target) {
-    anObject(iterator);
+  return function (object, fn, target) {
+    var record = getIteratorDirect(object);
     var Promise = getBuiltIn('Promise');
-    var next = aCallable(iterator.next);
+    var iterator = record.iterator;
+    var next = record.next;
     var index = 0;
     var MAPPING = fn !== undefined;
     if (MAPPING || !IS_TO_ARRAY) aCallable(fn);
 
     return new Promise(function (resolve, reject) {
-      var closeIteration = function (method, argument) {
-        try {
-          var returnMethod = getMethod(iterator, 'return');
-          if (returnMethod) {
-            return Promise.resolve(call(returnMethod, iterator)).then(function () {
-              method(argument);
-            }, function (error) {
-              reject(error);
-            });
-          }
-        } catch (error2) {
-          return reject(error2);
-        } method(argument);
-      };
-
-      var onError = function (error) {
-        closeIteration(reject, error);
+      var ifAbruptCloseAsyncIterator = function (error) {
+        closeAsyncIteration(iterator, reject, error, reject);
       };
 
       var loop = function () {
         try {
-          if (IS_TO_ARRAY && (index > MAX_SAFE_INTEGER) && MAPPING) {
-            throw TypeError('The allowed number of iterations has been exceeded');
-          }
+          if (IS_TO_ARRAY && MAPPING) try {
+            doesNotExceedSafeInteger(index);
+          } catch (error5) { ifAbruptCloseAsyncIterator(error5); }
           Promise.resolve(anObject(call(next, iterator))).then(function (step) {
             try {
               if (anObject(step).done) {
@@ -2158,27 +2250,31 @@ var createMethod = function (TYPE) {
                 } else resolve(IS_SOME ? false : IS_EVERY || undefined);
               } else {
                 var value = step.value;
-                if (MAPPING) {
-                  Promise.resolve(IS_TO_ARRAY ? fn(value, index) : fn(value)).then(function (result) {
-                    if (IS_FOR_EACH) {
-                      loop();
-                    } else if (IS_EVERY) {
-                      result ? loop() : closeIteration(resolve, false);
-                    } else if (IS_TO_ARRAY) {
-                      target[index++] = result;
-                      loop();
-                    } else {
-                      result ? closeIteration(resolve, IS_SOME || value) : loop();
-                    }
-                  }, onError);
-                } else {
-                  target[index++] = value;
-                  loop();
-                }
+                try {
+                  if (MAPPING) {
+                    Promise.resolve(IS_TO_ARRAY ? fn(value, index) : fn(value)).then(function (result) {
+                      if (IS_FOR_EACH) {
+                        loop();
+                      } else if (IS_EVERY) {
+                        result ? loop() : closeAsyncIteration(iterator, resolve, false, reject);
+                      } else if (IS_TO_ARRAY) {
+                        try {
+                          target[index++] = result;
+                          loop();
+                        } catch (error4) { ifAbruptCloseAsyncIterator(error4); }
+                      } else {
+                        result ? closeAsyncIteration(iterator, resolve, IS_SOME || value, reject) : loop();
+                      }
+                    }, ifAbruptCloseAsyncIterator);
+                  } else {
+                    target[index++] = value;
+                    loop();
+                  }
+                } catch (error3) { ifAbruptCloseAsyncIterator(error3); }
               }
-            } catch (error) { onError(error); }
-          }, onError);
-        } catch (error2) { onError(error2); }
+            } catch (error2) { reject(error2); }
+          }, reject);
+        } catch (error) { reject(error); }
       };
 
       loop();
@@ -2237,6 +2333,19 @@ if (!isCallable(AsyncIteratorPrototype[ASYNC_ITERATOR])) {
 }
 
 module.exports = AsyncIteratorPrototype;
+
+
+/***/ }),
+
+/***/ 86221:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var call = __webpack_require__(46916);
+var createAsyncIteratorProxy = __webpack_require__(45348);
+
+module.exports = createAsyncIteratorProxy(function () {
+  return call(this.next, this.iterator);
+}, true);
 
 
 /***/ }),
@@ -2338,14 +2447,13 @@ module.exports = function (it) {
 /***/ 70648:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var TO_STRING_TAG_SUPPORT = __webpack_require__(51694);
 var isCallable = __webpack_require__(60614);
 var classofRaw = __webpack_require__(84326);
 var wellKnownSymbol = __webpack_require__(5112);
 
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
-var Object = global.Object;
+var $Object = Object;
 
 // ES3 wrong here
 var CORRECT_ARGUMENTS = classofRaw(function () { return arguments; }()) == 'Arguments';
@@ -2362,7 +2470,7 @@ module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {
   var O, tag, result;
   return it === undefined ? 'Undefined' : it === null ? 'Null'
     // @@toStringTag case
-    : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG)) == 'string' ? tag
+    : typeof (tag = tryGet(O = $Object(it), TO_STRING_TAG)) == 'string' ? tag
     // builtinTag case
     : CORRECT_ARGUMENTS ? classofRaw(O)
     // ES3 arguments fallback
@@ -2962,13 +3070,12 @@ module.exports = function (CONSTRUCTOR_NAME, wrapper, common) {
 // TODO: in core-js@4, move /modules/ dependencies to public entries for better optimization by tools like `preset-env`
 __webpack_require__(51532);
 __webpack_require__(4129);
-var global = __webpack_require__(17854);
 var getBuiltIn = __webpack_require__(35005);
 var create = __webpack_require__(70030);
 var isObject = __webpack_require__(70111);
 
-var Object = global.Object;
-var TypeError = global.TypeError;
+var $Object = Object;
+var $TypeError = TypeError;
 var Map = getBuiltIn('Map');
 var WeakMap = getBuiltIn('WeakMap');
 
@@ -3004,7 +3111,7 @@ module.exports = function () {
   for (i = 0; i < length; i++) {
     if (isObject(it = arguments[i])) active = active.next(i, it, true);
   }
-  if (this === Object && active === root) throw TypeError('Composite keys must contain a non-primitive component');
+  if (this === $Object && active === root) throw $TypeError('Composite keys must contain a non-primitive component');
   for (i = 0; i < length; i++) {
     if (!isObject(it = arguments[i])) active = active.next(i, it, false);
   } return active;
@@ -3174,12 +3281,11 @@ module.exports = function (object, key, value) {
 
 "use strict";
 
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var fails = __webpack_require__(47293);
 var padStart = (__webpack_require__(76650).start);
 
-var RangeError = global.RangeError;
+var $RangeError = RangeError;
 var abs = Math.abs;
 var DatePrototype = Date.prototype;
 var n$DateToISOString = DatePrototype.toISOString;
@@ -3200,7 +3306,7 @@ module.exports = (fails(function () {
 }) || !fails(function () {
   n$DateToISOString.call(new Date(NaN));
 })) ? function toISOString() {
-  if (!isFinite(getTime(this))) throw RangeError('Invalid time value');
+  if (!isFinite(getTime(this))) throw $RangeError('Invalid time value');
   var date = this;
   var year = getUTCFullYear(date);
   var milliseconds = getUTCMilliseconds(date);
@@ -3223,18 +3329,17 @@ module.exports = (fails(function () {
 
 "use strict";
 
-var global = __webpack_require__(17854);
 var anObject = __webpack_require__(19670);
 var ordinaryToPrimitive = __webpack_require__(92140);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `Date.prototype[@@toPrimitive](hint)` method implementation
 // https://tc39.es/ecma262/#sec-date.prototype-@@toprimitive
 module.exports = function (hint) {
   anObject(this);
   if (hint === 'string' || hint === 'default') hint = 'string';
-  else if (hint !== 'number') throw TypeError('Incorrect hint');
+  else if (hint !== 'number') throw $TypeError('Incorrect hint');
   return ordinaryToPrimitive(this, hint);
 };
 
@@ -3259,30 +3364,32 @@ module.exports = function (target, name, descriptor) {
 /***/ 98052:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var isCallable = __webpack_require__(60614);
-var createNonEnumerableProperty = __webpack_require__(68880);
+var definePropertyModule = __webpack_require__(3070);
 var makeBuiltIn = __webpack_require__(56339);
-var setGlobal = __webpack_require__(83505);
+var defineGlobalProperty = __webpack_require__(13072);
 
 module.exports = function (O, key, value, options) {
-  var unsafe = options ? !!options.unsafe : false;
-  var simple = options ? !!options.enumerable : false;
-  var noTargetGet = options ? !!options.noTargetGet : false;
-  var name = options && options.name !== undefined ? options.name : key;
+  if (!options) options = {};
+  var simple = options.enumerable;
+  var name = options.name !== undefined ? options.name : key;
   if (isCallable(value)) makeBuiltIn(value, name, options);
-  if (O === global) {
+  if (options.global) {
     if (simple) O[key] = value;
-    else setGlobal(key, value);
-    return O;
-  } else if (!unsafe) {
-    delete O[key];
-  } else if (!noTargetGet && O[key]) {
-    simple = true;
-  }
-  if (simple) O[key] = value;
-  else createNonEnumerableProperty(O, key, value);
-  return O;
+    else defineGlobalProperty(key, value);
+  } else {
+    try {
+      if (!options.unsafe) delete O[key];
+      else if (O[key]) simple = true;
+    } catch (error) { /* empty */ }
+    if (simple) O[key] = value;
+    else definePropertyModule.f(O, key, {
+      value: value,
+      enumerable: false,
+      configurable: !options.nonConfigurable,
+      writable: !options.nonWritable
+    });
+  } return O;
 };
 
 
@@ -3296,6 +3403,25 @@ var defineBuiltIn = __webpack_require__(98052);
 module.exports = function (target, src, options) {
   for (var key in src) defineBuiltIn(target, key, src[key], options);
   return target;
+};
+
+
+/***/ }),
+
+/***/ 13072:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(17854);
+
+// eslint-disable-next-line es-x/no-object-defineproperty -- safe
+var defineProperty = Object.defineProperty;
+
+module.exports = function (key, value) {
+  try {
+    defineProperty(global, key, { value: value, configurable: true, writable: true });
+  } catch (error) {
+    global[key] = value;
+  } return value;
 };
 
 
@@ -3426,6 +3552,22 @@ module.exports = function (NAME) {
 
 /***/ }),
 
+/***/ 85117:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var tryToString = __webpack_require__(66330);
+
+var $TypeError = TypeError;
+
+module.exports = function (O, P) {
+  if (!delete O[P]) throw $TypeError('Cannot delete property ' + tryToString(P) + ' of ' + tryToString(O));
+};
+
+
+/***/ }),
+
 /***/ 19781:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -3452,6 +3594,20 @@ var EXISTS = isObject(document) && isObject(document.createElement);
 
 module.exports = function (it) {
   return EXISTS ? document.createElement(it) : {};
+};
+
+
+/***/ }),
+
+/***/ 7207:
+/***/ ((module) => {
+
+var $TypeError = TypeError;
+var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF; // 2 ** 53 - 1 == 9007199254740991
+
+module.exports = function (it) {
+  if (it > MAX_SAFE_INTEGER) throw $TypeError('Maximum allowed index exceeded');
+  return it;
 };
 
 
@@ -3560,9 +3716,23 @@ module.exports = !!firefox && +firefox[1];
 /***/ }),
 
 /***/ 7871:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var IS_DENO = __webpack_require__(83823);
+var IS_NODE = __webpack_require__(35268);
+
+module.exports = !IS_DENO && !IS_NODE
+  && typeof window == 'object'
+  && typeof document == 'object';
+
+
+/***/ }),
+
+/***/ 83823:
 /***/ ((module) => {
 
-module.exports = typeof window == 'object' && typeof Deno != 'object';
+/* global Deno -- Deno case */
+module.exports = typeof Deno == 'object' && Deno && typeof Deno.version == 'object';
 
 
 /***/ }),
@@ -3766,24 +3936,24 @@ var global = __webpack_require__(17854);
 var getOwnPropertyDescriptor = (__webpack_require__(31236).f);
 var createNonEnumerableProperty = __webpack_require__(68880);
 var defineBuiltIn = __webpack_require__(98052);
-var setGlobal = __webpack_require__(83505);
+var defineGlobalProperty = __webpack_require__(13072);
 var copyConstructorProperties = __webpack_require__(99920);
 var isForced = __webpack_require__(54705);
 
 /*
-  options.target      - name of the target object
-  options.global      - target is the global object
-  options.stat        - export as static methods of target
-  options.proto       - export as prototype methods of target
-  options.real        - real prototype method for the `pure` version
-  options.forced      - export even if the native feature is available
-  options.bind        - bind methods to the target, required for the `pure` version
-  options.wrap        - wrap constructors to preventing global pollution, required for the `pure` version
-  options.unsafe      - use the simple assignment of property instead of delete + defineProperty
-  options.sham        - add a flag to not completely full polyfills
-  options.enumerable  - export as enumerable property
-  options.noTargetGet - prevent calling a getter on target
-  options.name        - the .name of the function if it does not match the key
+  options.target         - name of the target object
+  options.global         - target is the global object
+  options.stat           - export as static methods of target
+  options.proto          - export as prototype methods of target
+  options.real           - real prototype method for the `pure` version
+  options.forced         - export even if the native feature is available
+  options.bind           - bind methods to the target, required for the `pure` version
+  options.wrap           - wrap constructors to preventing global pollution, required for the `pure` version
+  options.unsafe         - use the simple assignment of property instead of delete + defineProperty
+  options.sham           - add a flag to not completely full polyfills
+  options.enumerable     - export as enumerable property
+  options.dontCallGetSet - prevent calling a getter on target
+  options.name           - the .name of the function if it does not match the key
 */
 module.exports = function (options, source) {
   var TARGET = options.target;
@@ -3793,13 +3963,13 @@ module.exports = function (options, source) {
   if (GLOBAL) {
     target = global;
   } else if (STATIC) {
-    target = global[TARGET] || setGlobal(TARGET, {});
+    target = global[TARGET] || defineGlobalProperty(TARGET, {});
   } else {
     target = (global[TARGET] || {}).prototype;
   }
   if (target) for (key in source) {
     sourceProperty = source[key];
-    if (options.noTargetGet) {
+    if (options.dontCallGetSet) {
       descriptor = getOwnPropertyDescriptor(target, key);
       targetProperty = descriptor && descriptor.value;
     } else targetProperty = target[key];
@@ -3921,12 +4091,10 @@ module.exports = function (KEY, exec, FORCED, SHAM) {
 
 "use strict";
 
-var global = __webpack_require__(17854);
 var isArray = __webpack_require__(43157);
 var lengthOfArrayLike = __webpack_require__(26244);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
 var bind = __webpack_require__(49974);
-
-var TypeError = global.TypeError;
 
 // `FlattenIntoArray` abstract operation
 // https://tc39.github.io/proposal-flatMap/#sec-FlattenIntoArray
@@ -3944,7 +4112,7 @@ var flattenIntoArray = function (target, original, source, sourceLen, start, dep
         elementLen = lengthOfArrayLike(element);
         targetIndex = flattenIntoArray(target, original, element, elementLen, targetIndex, depth - 1) - 1;
       } else {
-        if (targetIndex >= 0x1FFFFFFFFFFFFF) throw TypeError('Exceed the acceptable array length');
+        doesNotExceedSafeInteger(targetIndex + 1);
         target[targetIndex] = element;
       }
 
@@ -4030,7 +4198,6 @@ module.exports = !fails(function () {
 
 "use strict";
 
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var aCallable = __webpack_require__(19662);
 var isObject = __webpack_require__(70111);
@@ -4038,7 +4205,7 @@ var hasOwn = __webpack_require__(92597);
 var arraySlice = __webpack_require__(50206);
 var NATIVE_BIND = __webpack_require__(34374);
 
-var Function = global.Function;
+var $Function = Function;
 var concat = uncurryThis([].concat);
 var join = uncurryThis([].join);
 var factories = {};
@@ -4046,13 +4213,13 @@ var factories = {};
 var construct = function (C, argsLength, args) {
   if (!hasOwn(factories, argsLength)) {
     for (var list = [], i = 0; i < argsLength; i++) list[i] = 'a[' + i + ']';
-    factories[argsLength] = Function('C,a', 'return new C(' + join(list, ',') + ')');
+    factories[argsLength] = $Function('C,a', 'return new C(' + join(list, ',') + ')');
   } return factories[argsLength](C, args);
 };
 
 // `Function.prototype.bind` method implementation
 // https://tc39.es/ecma262/#sec-function.prototype.bind
-module.exports = NATIVE_BIND ? Function.bind : function bind(that /* , ...args */) {
+module.exports = NATIVE_BIND ? $Function.bind : function bind(that /* , ...args */) {
   var F = aCallable(this);
   var Prototype = F.prototype;
   var partArgs = arraySlice(arguments, 1);
@@ -4163,6 +4330,22 @@ module.exports = function (namespace, method) {
 
 /***/ }),
 
+/***/ 24942:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var aCallable = __webpack_require__(19662);
+var anObject = __webpack_require__(19670);
+
+module.exports = function (obj) {
+  return {
+    iterator: obj,
+    next: aCallable(anObject(obj).next)
+  };
+};
+
+
+/***/ }),
+
 /***/ 71246:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -4185,19 +4368,18 @@ module.exports = function (it) {
 /***/ 18554:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
 var tryToString = __webpack_require__(66330);
 var getIteratorMethod = __webpack_require__(71246);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 module.exports = function (argument, usingIterator) {
   var iteratorMethod = arguments.length < 2 ? getIteratorMethod(argument) : usingIterator;
   if (aCallable(iteratorMethod)) return anObject(call(iteratorMethod, argument));
-  throw TypeError(tryToString(argument) + ' is not iterable');
+  throw $TypeError(tryToString(argument) + ' is not iterable');
 };
 
 
@@ -4386,12 +4568,10 @@ module.exports = !DESCRIPTORS && !fails(function () {
 /***/ }),
 
 /***/ 11179:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((module) => {
 
 // IEEE754 conversions based on https://github.com/feross/ieee754
-var global = __webpack_require__(17854);
-
-var Array = global.Array;
+var $Array = Array;
 var abs = Math.abs;
 var pow = Math.pow;
 var floor = Math.floor;
@@ -4399,7 +4579,7 @@ var log = Math.log;
 var LN2 = Math.LN2;
 
 var pack = function (number, mantissaLength, bytes) {
-  var buffer = Array(bytes);
+  var buffer = $Array(bytes);
   var exponentLength = bytes * 8 - mantissaLength - 1;
   var eMax = (1 << exponentLength) - 1;
   var eBias = eMax >> 1;
@@ -4499,22 +4679,21 @@ module.exports = {
 /***/ 68361:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var fails = __webpack_require__(47293);
 var classof = __webpack_require__(84326);
 
-var Object = global.Object;
+var $Object = Object;
 var split = uncurryThis(''.split);
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 module.exports = fails(function () {
   // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
   // eslint-disable-next-line no-prototype-builtins -- safe
-  return !Object('z').propertyIsEnumerable(0);
+  return !$Object('z').propertyIsEnumerable(0);
 }) ? function (it) {
-  return classof(it) == 'String' ? split(it, '') : Object(it);
-} : Object;
+  return classof(it) == 'String' ? split(it, '') : $Object(it);
+} : $Object;
 
 
 /***/ }),
@@ -4786,6 +4965,21 @@ module.exports = Array.isArray || function isArray(argument) {
 
 /***/ }),
 
+/***/ 44067:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var classof = __webpack_require__(70648);
+var uncurryThis = __webpack_require__(1702);
+
+var slice = uncurryThis(''.slice);
+
+module.exports = function (it) {
+  return slice(classof(it), 0, 3) === 'Big';
+};
+
+
+/***/ }),
+
 /***/ 60614:
 /***/ ((module) => {
 
@@ -4957,19 +5151,18 @@ module.exports = function (it) {
 /***/ 52190:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var getBuiltIn = __webpack_require__(35005);
 var isCallable = __webpack_require__(60614);
 var isPrototypeOf = __webpack_require__(47976);
 var USE_SYMBOL_AS_UID = __webpack_require__(43307);
 
-var Object = global.Object;
+var $Object = Object;
 
 module.exports = USE_SYMBOL_AS_UID ? function (it) {
   return typeof it == 'symbol';
 } : function (it) {
   var $Symbol = getBuiltIn('Symbol');
-  return isCallable($Symbol) && isPrototypeOf($Symbol.prototype, Object(it));
+  return isCallable($Symbol) && isPrototypeOf($Symbol.prototype, $Object(it));
 };
 
 
@@ -4978,7 +5171,6 @@ module.exports = USE_SYMBOL_AS_UID ? function (it) {
 /***/ 20408:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var bind = __webpack_require__(49974);
 var call = __webpack_require__(46916);
 var anObject = __webpack_require__(19670);
@@ -4990,7 +5182,7 @@ var getIterator = __webpack_require__(18554);
 var getIteratorMethod = __webpack_require__(71246);
 var iteratorClose = __webpack_require__(99212);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 var Result = function (stopped, result) {
   this.stopped = stopped;
@@ -5002,6 +5194,7 @@ var ResultPrototype = Result.prototype;
 module.exports = function (iterable, unboundFunction, options) {
   var that = options && options.that;
   var AS_ENTRIES = !!(options && options.AS_ENTRIES);
+  var IS_RECORD = !!(options && options.IS_RECORD);
   var IS_ITERATOR = !!(options && options.IS_ITERATOR);
   var INTERRUPTED = !!(options && options.INTERRUPTED);
   var fn = bind(unboundFunction, that);
@@ -5019,11 +5212,13 @@ module.exports = function (iterable, unboundFunction, options) {
     } return INTERRUPTED ? fn(value, stop) : fn(value);
   };
 
-  if (IS_ITERATOR) {
+  if (IS_RECORD) {
+    iterator = iterable.iterator;
+  } else if (IS_ITERATOR) {
     iterator = iterable;
   } else {
     iterFn = getIteratorMethod(iterable);
-    if (!iterFn) throw TypeError(tryToString(iterable) + ' is not iterable');
+    if (!iterFn) throw $TypeError(tryToString(iterable) + ' is not iterable');
     // optimisation for array iterators
     if (isArrayIteratorMethod(iterFn)) {
       for (index = 0, length = lengthOfArrayLike(iterable); length > index; index++) {
@@ -5034,7 +5229,7 @@ module.exports = function (iterable, unboundFunction, options) {
     iterator = getIterator(iterable, iterFn);
   }
 
-  next = iterator.next;
+  next = IS_RECORD ? iterable.next : iterator.next;
   while (!(step = call(next, iterator)).done) {
     try {
       result = callFn(step.value);
@@ -5084,7 +5279,6 @@ module.exports = function (iterator, kind, value) {
 "use strict";
 
 var call = __webpack_require__(46916);
-var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
 var create = __webpack_require__(70030);
 var createNonEnumerableProperty = __webpack_require__(68880);
@@ -5093,52 +5287,102 @@ var wellKnownSymbol = __webpack_require__(5112);
 var InternalStateModule = __webpack_require__(29909);
 var getMethod = __webpack_require__(58173);
 var IteratorPrototype = (__webpack_require__(13383).IteratorPrototype);
+var iteratorClose = __webpack_require__(99212);
 
-var ITERATOR_PROXY = 'IteratorProxy';
+var ITERATOR_HELPER = 'IteratorHelper';
+var WRAP_FOR_VALID_ITERATOR = 'WrapForValidIterator';
 var setInternalState = InternalStateModule.set;
-var getInternalState = InternalStateModule.getterFor(ITERATOR_PROXY);
 
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 
-module.exports = function (nextHandler, IS_ITERATOR) {
-  var IteratorProxy = function Iterator(state) {
-    state.type = ITERATOR_PROXY;
-    state.next = aCallable(state.iterator.next);
-    state.done = false;
-    state.ignoreArg = !IS_ITERATOR;
-    setInternalState(this, state);
-  };
+var createIteratorProxyPrototype = function (IS_ITERATOR) {
+  var ITERATOR_PROXY = IS_ITERATOR ? WRAP_FOR_VALID_ITERATOR : ITERATOR_HELPER;
 
-  IteratorProxy.prototype = defineBuiltIns(create(IteratorPrototype), {
-    next: function next(arg) {
+  var getInternalState = InternalStateModule.getterFor(ITERATOR_PROXY);
+
+  var IteratorProxyPrototype = defineBuiltIns(create(IteratorPrototype), {
+    next: function next() {
       var state = getInternalState(this);
-      var args = arguments.length ? [state.ignoreArg ? undefined : arg] : IS_ITERATOR ? [] : [undefined];
-      state.ignoreArg = false;
-      var result = state.done ? undefined : call(nextHandler, state, args);
-      return { done: state.done, value: result };
+      // for simplification:
+      //   for `%WrapForValidIteratorPrototype%.next` our `nextHandler` returns `IterResultObject`
+      //   for `%IteratorHelperPrototype%.next` - just a value
+      if (IS_ITERATOR) return state.nextHandler();
+      try {
+        var result = state.done ? undefined : state.nextHandler();
+        return { done: state.done, value: result };
+      } catch (error) {
+        state.done = true;
+        throw error;
+      }
     },
-    'return': function (value) {
+    'return': function () {
       var state = getInternalState(this);
       var iterator = state.iterator;
+      var innerIterator = state.innerIterator;
       state.done = true;
+      if (innerIterator) try {
+        iteratorClose(innerIterator, 'return');
+      } catch (error) {
+        return iteratorClose(iterator, 'throw', error);
+      }
       var $$return = getMethod(iterator, 'return');
-      return { done: true, value: $$return ? anObject(call($$return, iterator, value)).value : value };
-    },
-    'throw': function (value) {
-      var state = getInternalState(this);
-      var iterator = state.iterator;
-      state.done = true;
-      var $$throw = getMethod(iterator, 'throw');
-      if ($$throw) return call($$throw, iterator, value);
-      throw value;
+      return { done: true, value: $$return ? anObject(call($$return, iterator)).value : undefined };
     }
   });
 
   if (!IS_ITERATOR) {
-    createNonEnumerableProperty(IteratorProxy.prototype, TO_STRING_TAG, 'Generator');
+    createNonEnumerableProperty(IteratorProxyPrototype, TO_STRING_TAG, 'Iterator Helper');
   }
 
+  return IteratorProxyPrototype;
+};
+
+var IteratorHelperPrototype = createIteratorProxyPrototype(false);
+var WrapForValidIteratorPrototype = createIteratorProxyPrototype(true);
+
+module.exports = function (nextHandler, IS_ITERATOR) {
+  var ITERATOR_PROXY = IS_ITERATOR ? WRAP_FOR_VALID_ITERATOR : ITERATOR_HELPER;
+
+  var IteratorProxy = function Iterator(record, state) {
+    if (state) {
+      state.iterator = record.iterator;
+      state.next = record.next;
+    } else state = record;
+    state.type = ITERATOR_PROXY;
+    state.nextHandler = nextHandler;
+    state.done = false;
+    setInternalState(this, state);
+  };
+
+  IteratorProxy.prototype = IS_ITERATOR ? WrapForValidIteratorPrototype : IteratorHelperPrototype;
+
   return IteratorProxy;
+};
+
+
+/***/ }),
+
+/***/ 14323:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// https://github.com/tc39/proposal-iterator-helpers
+var call = __webpack_require__(46916);
+var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
+var createIteratorProxy = __webpack_require__(54956);
+
+var IteratorProxy = createIteratorProxy(function () {
+  var result = anObject(call(this.next, this.iterator));
+  var done = this.done = !!result.done;
+  if (!done) return [this.index++, result.value];
+});
+
+module.exports = function indexed() {
+  return new IteratorProxy(getIteratorDirect(this), {
+    index: 0
+  });
 };
 
 
@@ -5251,16 +5495,18 @@ var makeBuiltIn = module.exports = function (value, name, options) {
   if (options && options.getter) name = 'get ' + name;
   if (options && options.setter) name = 'set ' + name;
   if (!hasOwn(value, 'name') || (CONFIGURABLE_FUNCTION_NAME && value.name !== name)) {
-    defineProperty(value, 'name', { value: name, configurable: true });
+    if (DESCRIPTORS) defineProperty(value, 'name', { value: name, configurable: true });
+    else value.name = name;
   }
   if (CONFIGURABLE_LENGTH && options && hasOwn(options, 'arity') && value.length !== options.arity) {
     defineProperty(value, 'length', { value: options.arity });
   }
-  if (options && hasOwn(options, 'constructor') && options.constructor) {
-    if (DESCRIPTORS) try {
-      defineProperty(value, 'prototype', { writable: false });
-    } catch (error) { /* empty */ }
-  } else value.prototype = undefined;
+  try {
+    if (options && hasOwn(options, 'constructor') && options.constructor) {
+      if (DESCRIPTORS) defineProperty(value, 'prototype', { writable: false });
+    // in V8 ~ Chrome 53, prototypes of some methods, like `Array.prototype.values`, are non-writable
+    } else if (value.prototype) value.prototype = undefined;
+  } catch (error) { /* empty */ }
   var state = enforceInternalState(value);
   if (!hasOwn(state, 'source')) {
     state.source = TEMPLATE.join(typeof name == 'string' ? name : '');
@@ -5292,11 +5538,17 @@ module.exports = function emplace(key, handler) {
   var get = aCallable(map.get);
   var has = aCallable(map.has);
   var set = aCallable(map.set);
-  var value = (call(has, map, key) && 'update' in handler)
-    ? handler.update(call(get, map, key), key, map)
-    : handler.insert(key, map);
-  call(set, map, key, value);
-  return value;
+  var value, inserted;
+  if (call(has, map, key)) {
+    value = call(get, map, key);
+    if ('update' in handler) {
+      value = handler.update(value, key, map);
+      call(set, map, key, value);
+    } return value;
+  }
+  inserted = handler.insert(key, map);
+  call(set, map, key, inserted);
+  return inserted;
 };
 
 
@@ -5307,13 +5559,12 @@ module.exports = function emplace(key, handler) {
 
 "use strict";
 
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var isCallable = __webpack_require__(60614);
 var anObject = __webpack_require__(19670);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `Map.prototype.upsert` method
 // https://github.com/thumbsupep/proposal-upsert
@@ -5325,7 +5576,7 @@ module.exports = function upsert(key, updateFn /* , insertFn */) {
   var insertFn = arguments.length > 2 ? arguments[2] : undefined;
   var value;
   if (!isCallable(updateFn) && !isCallable(insertFn)) {
-    throw TypeError('At least one callback required');
+    throw $TypeError('At least one callback required');
   }
   if (call(has, map, key)) {
     value = call(get, map, key);
@@ -5357,7 +5608,8 @@ module.exports = (!$expm1
   // Tor Browser bug
   || $expm1(-2e-17) != -2e-17
 ) ? function expm1(x) {
-  return (x = +x) == 0 ? x : x > -1e-6 && x < 1e-6 ? x + x * x / 2 : exp(x) - 1;
+  var n = +x;
+  return n == 0 ? n : n > -1e-6 && n < 1e-6 ? n + n * n / 2 : exp(n) - 1;
 } : $expm1;
 
 
@@ -5383,8 +5635,9 @@ var roundTiesToEven = function (n) {
 // https://tc39.es/ecma262/#sec-math.fround
 // eslint-disable-next-line es-x/no-math-fround -- safe
 module.exports = Math.fround || function fround(x) {
-  var $abs = abs(x);
-  var $sign = sign(x);
+  var n = +x;
+  var $abs = abs(n);
+  var $sign = sign(n);
   var a, result;
   if ($abs < MIN32) return $sign * roundTiesToEven($abs / MIN32 / EPSILON32) * MIN32 * EPSILON32;
   a = (1 + EPSILON32 / EPSILON) * $abs;
@@ -5420,7 +5673,8 @@ var log = Math.log;
 // https://tc39.es/ecma262/#sec-math.log1p
 // eslint-disable-next-line es-x/no-math-log1p -- safe
 module.exports = Math.log1p || function log1p(x) {
-  return (x = +x) > -1e-8 && x < 1e-8 ? x - x * x / 2 : log(1 + x);
+  var n = +x;
+  return n > -1e-8 && n < 1e-8 ? n - n * n / 2 : log(1 + n);
 };
 
 
@@ -5453,8 +5707,26 @@ module.exports = Math.scale || function scale(x, inLow, inHigh, outLow, outHigh)
 // https://tc39.es/ecma262/#sec-math.sign
 // eslint-disable-next-line es-x/no-math-sign -- safe
 module.exports = Math.sign || function sign(x) {
+  var n = +x;
   // eslint-disable-next-line no-self-compare -- NaN check
-  return (x = +x) == 0 || x != x ? x : x < 0 ? -1 : 1;
+  return n == 0 || n != n ? n : n < 0 ? -1 : 1;
+};
+
+
+/***/ }),
+
+/***/ 74758:
+/***/ ((module) => {
+
+var ceil = Math.ceil;
+var floor = Math.floor;
+
+// `Math.trunc` method
+// https://tc39.es/ecma262/#sec-math.trunc
+// eslint-disable-next-line es-x/no-math-trunc -- safe
+module.exports = Math.trunc || function trunc(x) {
+  var n = +x;
+  return (n > 0 ? floor : ceil)(n);
 };
 
 
@@ -5677,17 +5949,30 @@ module.exports = function (argument, $default) {
 
 /***/ }),
 
+/***/ 66336:
+/***/ ((module) => {
+
+var $RangeError = RangeError;
+
+module.exports = function (it) {
+  // eslint-disable-next-line no-self-compare -- NaN check
+  if (it === it) return it;
+  throw $RangeError('NaN is not allowed');
+};
+
+
+/***/ }),
+
 /***/ 3929:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var isRegExp = __webpack_require__(47850);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 module.exports = function (it) {
   if (isRegExp(it)) {
-    throw TypeError("The method doesn't accept regular expressions");
+    throw $TypeError("The method doesn't accept regular expressions");
   } return it;
 };
 
@@ -5774,7 +6059,6 @@ module.exports = FORCED ? function parseInt(string, radix) {
 
 "use strict";
 
-var global = __webpack_require__(17854);
 var InternalStateModule = __webpack_require__(29909);
 var createIteratorConstructor = __webpack_require__(24994);
 var isObject = __webpack_require__(70111);
@@ -5787,15 +6071,15 @@ var NUMERIC_RANGE_ITERATOR = 'NumericRangeIterator';
 var setInternalState = InternalStateModule.set;
 var getInternalState = InternalStateModule.getterFor(NUMERIC_RANGE_ITERATOR);
 
-var RangeError = global.RangeError;
-var TypeError = global.TypeError;
+var $RangeError = RangeError;
+var $TypeError = TypeError;
 
 var $RangeIterator = createIteratorConstructor(function NumericRangeIterator(start, end, option, type, zero, one) {
   if (typeof start != type || (end !== Infinity && end !== -Infinity && typeof end != type)) {
-    throw new TypeError(INCORRECT_RANGE);
+    throw new $TypeError(INCORRECT_RANGE);
   }
   if (start === Infinity || start === -Infinity) {
-    throw new RangeError(INCORRECT_RANGE);
+    throw new $RangeError(INCORRECT_RANGE);
   }
   var ifIncrease = end > start;
   var inclusiveEnd = false;
@@ -5808,16 +6092,16 @@ var $RangeIterator = createIteratorConstructor(function NumericRangeIterator(sta
   } else if (typeof option == type) {
     step = option;
   } else {
-    throw new TypeError(INCORRECT_RANGE);
+    throw new $TypeError(INCORRECT_RANGE);
   }
   if (step == null) {
     step = ifIncrease ? one : -one;
   }
   if (typeof step != type) {
-    throw new TypeError(INCORRECT_RANGE);
+    throw new $TypeError(INCORRECT_RANGE);
   }
   if (step === Infinity || step === -Infinity || (step === zero && start !== end)) {
-    throw new RangeError(INCORRECT_RANGE);
+    throw new $RangeError(INCORRECT_RANGE);
   }
   // eslint-disable-next-line no-self-compare -- NaN check
   var hitsEnd = start != start || end != end || step != step || (end > start) !== (step > zero);
@@ -6068,14 +6352,13 @@ exports.f = DESCRIPTORS && !V8_PROTOTYPE_DEFINE_BUG ? Object.defineProperties : 
 /***/ 3070:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var DESCRIPTORS = __webpack_require__(19781);
 var IE8_DOM_DEFINE = __webpack_require__(64664);
 var V8_PROTOTYPE_DEFINE_BUG = __webpack_require__(3353);
 var anObject = __webpack_require__(19670);
 var toPropertyKey = __webpack_require__(34948);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 // eslint-disable-next-line es-x/no-object-defineproperty -- safe
 var $defineProperty = Object.defineProperty;
 // eslint-disable-next-line es-x/no-object-getownpropertydescriptor -- safe
@@ -6108,7 +6391,7 @@ exports.f = DESCRIPTORS ? V8_PROTOTYPE_DEFINE_BUG ? function defineProperty(O, P
   if (IE8_DOM_DEFINE) try {
     return $defineProperty(O, P, Attributes);
   } catch (error) { /* empty */ }
-  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported');
+  if ('get' in Attributes || 'set' in Attributes) throw $TypeError('Accessors not supported');
   if ('value' in Attributes) O[P] = Attributes.value;
   return O;
 };
@@ -6205,7 +6488,6 @@ exports.f = Object.getOwnPropertySymbols;
 /***/ 79518:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var hasOwn = __webpack_require__(92597);
 var isCallable = __webpack_require__(60614);
 var toObject = __webpack_require__(47908);
@@ -6213,18 +6495,19 @@ var sharedKey = __webpack_require__(6200);
 var CORRECT_PROTOTYPE_GETTER = __webpack_require__(49920);
 
 var IE_PROTO = sharedKey('IE_PROTO');
-var Object = global.Object;
-var ObjectPrototype = Object.prototype;
+var $Object = Object;
+var ObjectPrototype = $Object.prototype;
 
 // `Object.getPrototypeOf` method
 // https://tc39.es/ecma262/#sec-object.getprototypeof
-module.exports = CORRECT_PROTOTYPE_GETTER ? Object.getPrototypeOf : function (O) {
+// eslint-disable-next-line es-x/no-object-getprototypeof -- safe
+module.exports = CORRECT_PROTOTYPE_GETTER ? $Object.getPrototypeOf : function (O) {
   var object = toObject(O);
   if (hasOwn(object, IE_PROTO)) return object[IE_PROTO];
   var constructor = object.constructor;
   if (isCallable(constructor) && object instanceof constructor) {
     return constructor.prototype;
-  } return object instanceof Object ? ObjectPrototype : null;
+  } return object instanceof $Object ? ObjectPrototype : null;
 };
 
 
@@ -6515,12 +6798,11 @@ module.exports = !isCallable(NativeObservable)
 /***/ 92140:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var isCallable = __webpack_require__(60614);
 var isObject = __webpack_require__(70111);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `OrdinaryToPrimitive` abstract operation
 // https://tc39.es/ecma262/#sec-ordinarytoprimitive
@@ -6529,7 +6811,7 @@ module.exports = function (input, pref) {
   if (pref === 'string' && isCallable(fn = input.toString) && !isObject(val = call(fn, input))) return val;
   if (isCallable(fn = input.valueOf) && !isObject(val = call(fn, input))) return val;
   if (pref !== 'string' && isCallable(fn = input.toString) && !isObject(val = call(fn, input))) return val;
-  throw TypeError("Can't convert object to primitive value");
+  throw $TypeError("Can't convert object to primitive value");
 };
 
 
@@ -6590,6 +6872,7 @@ var isForced = __webpack_require__(54705);
 var inspectSource = __webpack_require__(42788);
 var wellKnownSymbol = __webpack_require__(5112);
 var IS_BROWSER = __webpack_require__(7871);
+var IS_DENO = __webpack_require__(83823);
 var IS_PURE = __webpack_require__(31913);
 var V8_VERSION = __webpack_require__(7392);
 
@@ -6610,18 +6893,18 @@ var FORCED_PROMISE_CONSTRUCTOR = isForced('Promise', function () {
   // We can't use @@species feature detection in V8 since it causes
   // deoptimization and performance degradation
   // https://github.com/zloirock/core-js/issues/679
-  if (V8_VERSION >= 51 && /native code/.test(PROMISE_CONSTRUCTOR_SOURCE)) return false;
-  // Detect correctness of subclassing with @@species support
-  var promise = new NativePromiseConstructor(function (resolve) { resolve(1); });
-  var FakePromise = function (exec) {
-    exec(function () { /* empty */ }, function () { /* empty */ });
-  };
-  var constructor = promise.constructor = {};
-  constructor[SPECIES] = FakePromise;
-  SUBCLASSING = promise.then(function () { /* empty */ }) instanceof FakePromise;
-  if (!SUBCLASSING) return true;
+  if (!V8_VERSION || V8_VERSION < 51 || !/native code/.test(PROMISE_CONSTRUCTOR_SOURCE)) {
+    // Detect correctness of subclassing with @@species support
+    var promise = new NativePromiseConstructor(function (resolve) { resolve(1); });
+    var FakePromise = function (exec) {
+      exec(function () { /* empty */ }, function () { /* empty */ });
+    };
+    var constructor = promise.constructor = {};
+    constructor[SPECIES] = FakePromise;
+    SUBCLASSING = promise.then(function () { /* empty */ }) instanceof FakePromise;
+    if (!SUBCLASSING) return true;
   // Unhandled rejections tracking support, NodeJS Promise without it fails @@species test
-  return !GLOBAL_CORE_JS_PROMISE && IS_BROWSER && !NATIVE_PROMISE_REJECTION_EVENT;
+  } return !GLOBAL_CORE_JS_PROMISE && (IS_BROWSER || IS_DENO) && !NATIVE_PROMISE_REJECTION_EVENT;
 });
 
 module.exports = {
@@ -6793,14 +7076,13 @@ module.exports = {
 /***/ 97651:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var anObject = __webpack_require__(19670);
 var isCallable = __webpack_require__(60614);
 var classof = __webpack_require__(84326);
 var regexpExec = __webpack_require__(22261);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `RegExpExec` abstract operation
 // https://tc39.es/ecma262/#sec-regexpexec
@@ -6812,7 +7094,7 @@ module.exports = function (R, S) {
     return result;
   }
   if (classof(R) === 'RegExp') return call(regexpExec, R, S);
-  throw TypeError('RegExp#exec called on incompatible receiver');
+  throw $TypeError('RegExp#exec called on incompatible receiver');
 };
 
 
@@ -6918,7 +7200,7 @@ if (PATCH) {
     }
     if (NPCG_INCLUDED && match && match.length > 1) {
       // Fix browsers whose `exec` methods don't consistently return `undefined`
-      // for NPCG, like IE8. NOTE: This doesn' work for /(.?)?/
+      // for NPCG, like IE8. NOTE: This doesn't work for /(.?)?/
       call(nativeReplace, match[0], reCopy, function () {
         for (i = 1; i < arguments.length - 2; i++) {
           if (arguments[i] === undefined) match[i] = undefined;
@@ -6961,6 +7243,7 @@ module.exports = function () {
   if (that.multiline) result += 'm';
   if (that.dotAll) result += 's';
   if (that.unicode) result += 'u';
+  if (that.unicodeSets) result += 'v';
   if (that.sticky) result += 'y';
   return result;
 };
@@ -7060,16 +7343,14 @@ module.exports = fails(function () {
 /***/ }),
 
 /***/ 84488:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((module) => {
 
-var global = __webpack_require__(17854);
-
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `RequireObjectCoercible` abstract operation
 // https://tc39.es/ecma262/#sec-requireobjectcoercible
 module.exports = function (it) {
-  if (it == undefined) throw TypeError("Can't call method on " + it);
+  if (it == undefined) throw $TypeError("Can't call method on " + it);
   return it;
 };
 
@@ -7141,25 +7422,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ 83505:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var global = __webpack_require__(17854);
-
-// eslint-disable-next-line es-x/no-object-defineproperty -- safe
-var defineProperty = Object.defineProperty;
-
-module.exports = function (key, value) {
-  try {
-    defineProperty(global, key, { value: value, configurable: true, writable: true });
-  } catch (error) {
-    global[key] = value;
-  } return value;
-};
-
-
-/***/ }),
-
 /***/ 96340:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7225,10 +7487,10 @@ module.exports = function (key) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var global = __webpack_require__(17854);
-var setGlobal = __webpack_require__(83505);
+var defineGlobalProperty = __webpack_require__(13072);
 
 var SHARED = '__core-js_shared__';
-var store = global[SHARED] || setGlobal(SHARED, {});
+var store = global[SHARED] || defineGlobalProperty(SHARED, {});
 
 module.exports = store;
 
@@ -7244,10 +7506,10 @@ var store = __webpack_require__(5465);
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.22.5',
+  version: '3.24.1',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2014-2022 Denis Pushkarev (zloirock.ru)',
-  license: 'https://github.com/zloirock/core-js/blob/v3.22.5/LICENSE',
+  license: 'https://github.com/zloirock/core-js/blob/v3.24.1/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });
 
@@ -7393,7 +7655,6 @@ module.exports = {
 "use strict";
 
 // based on https://github.com/bestiejs/punycode.js/blob/master/punycode.js
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 
 var maxInt = 2147483647; // aka. 0x7FFFFFFF or 2^31-1
@@ -7410,7 +7671,7 @@ var regexSeparators = /[.\u3002\uFF0E\uFF61]/g; // RFC 3490 separators
 var OVERFLOW_ERROR = 'Overflow: input needs wider integers to process';
 var baseMinusTMin = base - tMin;
 
-var RangeError = global.RangeError;
+var $RangeError = RangeError;
 var exec = uncurryThis(regexSeparators.exec);
 var floor = Math.floor;
 var fromCharCode = String.fromCharCode;
@@ -7525,7 +7786,7 @@ var encode = function (input) {
     // Increase `delta` enough to advance the decoder's <n,i> state to <m,0>, but guard against overflow.
     var handledCPCountPlusOne = handledCPCount + 1;
     if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
-      throw RangeError(OVERFLOW_ERROR);
+      throw $RangeError(OVERFLOW_ERROR);
     }
 
     delta += (m - n) * handledCPCountPlusOne;
@@ -7534,7 +7795,7 @@ var encode = function (input) {
     for (i = 0; i < input.length; i++) {
       currentValue = input[i];
       if (currentValue < n && ++delta > maxInt) {
-        throw RangeError(OVERFLOW_ERROR);
+        throw $RangeError(OVERFLOW_ERROR);
       }
       if (currentValue == n) {
         // Represent delta as a generalized variable-length integer.
@@ -7582,12 +7843,11 @@ module.exports = function (input) {
 
 "use strict";
 
-var global = __webpack_require__(17854);
 var toIntegerOrInfinity = __webpack_require__(19303);
 var toString = __webpack_require__(41340);
 var requireObjectCoercible = __webpack_require__(84488);
 
-var RangeError = global.RangeError;
+var $RangeError = RangeError;
 
 // `String.prototype.repeat` method implementation
 // https://tc39.es/ecma262/#sec-string.prototype.repeat
@@ -7595,7 +7855,7 @@ module.exports = function repeat(count) {
   var str = toString(requireObjectCoercible(this));
   var result = '';
   var n = toIntegerOrInfinity(count);
-  if (n < 0 || n == Infinity) throw RangeError('Wrong number of repetitions');
+  if (n < 0 || n == Infinity) throw $RangeError('Wrong number of repetitions');
   for (;n > 0; (n >>>= 1) && (str += str)) if (n & 1) result += str;
   return result;
 };
@@ -7882,14 +8142,32 @@ module.exports = function (index, length) {
 
 /***/ }),
 
+/***/ 64599:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var toPrimitive = __webpack_require__(57593);
+
+var $TypeError = TypeError;
+
+// `ToBigInt` abstract operation
+// https://tc39.es/ecma262/#sec-tobigint
+module.exports = function (argument) {
+  var prim = toPrimitive(argument, 'number');
+  if (typeof prim == 'number') throw $TypeError("Can't convert number to bigint");
+  // eslint-disable-next-line es-x/no-bigint -- safe
+  return BigInt(prim);
+};
+
+
+/***/ }),
+
 /***/ 57067:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var toIntegerOrInfinity = __webpack_require__(19303);
 var toLength = __webpack_require__(17466);
 
-var RangeError = global.RangeError;
+var $RangeError = RangeError;
 
 // `ToIndex` abstract operation
 // https://tc39.es/ecma262/#sec-toindex
@@ -7897,7 +8175,7 @@ module.exports = function (it) {
   if (it === undefined) return 0;
   var number = toIntegerOrInfinity(it);
   var length = toLength(number);
-  if (number !== length) throw RangeError('Wrong length or index');
+  if (number !== length) throw $RangeError('Wrong length or index');
   return length;
 };
 
@@ -7919,17 +8197,16 @@ module.exports = function (it) {
 /***/ }),
 
 /***/ 19303:
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var ceil = Math.ceil;
-var floor = Math.floor;
+var trunc = __webpack_require__(74758);
 
 // `ToIntegerOrInfinity` abstract operation
 // https://tc39.es/ecma262/#sec-tointegerorinfinity
 module.exports = function (argument) {
   var number = +argument;
-  // eslint-disable-next-line no-self-compare -- safe
-  return number !== number || number === 0 ? 0 : (number > 0 ? floor : ceil)(number);
+  // eslint-disable-next-line no-self-compare -- NaN check
+  return number !== number || number === 0 ? 0 : trunc(number);
 };
 
 
@@ -7954,15 +8231,14 @@ module.exports = function (argument) {
 /***/ 47908:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var requireObjectCoercible = __webpack_require__(84488);
 
-var Object = global.Object;
+var $Object = Object;
 
 // `ToObject` abstract operation
 // https://tc39.es/ecma262/#sec-toobject
 module.exports = function (argument) {
-  return Object(requireObjectCoercible(argument));
+  return $Object(requireObjectCoercible(argument));
 };
 
 
@@ -7971,14 +8247,13 @@ module.exports = function (argument) {
 /***/ 84590:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var toPositiveInteger = __webpack_require__(73002);
 
-var RangeError = global.RangeError;
+var $RangeError = RangeError;
 
 module.exports = function (it, BYTES) {
   var offset = toPositiveInteger(it);
-  if (offset % BYTES) throw RangeError('Wrong offset');
+  if (offset % BYTES) throw $RangeError('Wrong offset');
   return offset;
 };
 
@@ -7988,14 +8263,13 @@ module.exports = function (it, BYTES) {
 /***/ 73002:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var toIntegerOrInfinity = __webpack_require__(19303);
 
-var RangeError = global.RangeError;
+var $RangeError = RangeError;
 
 module.exports = function (it) {
   var result = toIntegerOrInfinity(it);
-  if (result < 0) throw RangeError("The argument can't be less than 0");
+  if (result < 0) throw $RangeError("The argument can't be less than 0");
   return result;
 };
 
@@ -8005,7 +8279,6 @@ module.exports = function (it) {
 /***/ 57593:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var isObject = __webpack_require__(70111);
 var isSymbol = __webpack_require__(52190);
@@ -8013,7 +8286,7 @@ var getMethod = __webpack_require__(58173);
 var ordinaryToPrimitive = __webpack_require__(92140);
 var wellKnownSymbol = __webpack_require__(5112);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
 
 // `ToPrimitive` abstract operation
@@ -8026,7 +8299,7 @@ module.exports = function (input, pref) {
     if (pref === undefined) pref = 'default';
     result = call(exoticToPrim, input, pref);
     if (!isObject(result) || isSymbol(result)) return result;
-    throw TypeError("Can't convert object to primitive value");
+    throw $TypeError("Can't convert object to primitive value");
   }
   if (pref === undefined) pref = 'number';
   return ordinaryToPrimitive(input, pref);
@@ -8069,14 +8342,13 @@ module.exports = String(test) === '[object z]';
 /***/ 41340:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var classof = __webpack_require__(70648);
 
-var String = global.String;
+var $String = String;
 
 module.exports = function (argument) {
   if (classof(argument) === 'Symbol') throw TypeError('Cannot convert a Symbol value to a string');
-  return String(argument);
+  return $String(argument);
 };
 
 
@@ -8098,15 +8370,13 @@ module.exports = function (name) {
 /***/ }),
 
 /***/ 66330:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((module) => {
 
-var global = __webpack_require__(17854);
-
-var String = global.String;
+var $String = String;
 
 module.exports = function (argument) {
   try {
-    return String(argument);
+    return $String(argument);
   } catch (error) {
     return 'Object';
   }
@@ -8153,6 +8423,7 @@ var inheritIfRequired = __webpack_require__(79587);
 
 var getInternalState = InternalStateModule.get;
 var setInternalState = InternalStateModule.set;
+var enforceInternalState = InternalStateModule.enforce;
 var nativeDefineProperty = definePropertyModule.f;
 var nativeGetOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
 var round = Math.round;
@@ -8161,7 +8432,6 @@ var ArrayBuffer = ArrayBufferModule.ArrayBuffer;
 var ArrayBufferPrototype = ArrayBuffer.prototype;
 var DataView = ArrayBufferModule.DataView;
 var NATIVE_ARRAY_BUFFER_VIEWS = ArrayBufferViewCore.NATIVE_ARRAY_BUFFER_VIEWS;
-var TYPED_ARRAY_CONSTRUCTOR = ArrayBufferViewCore.TYPED_ARRAY_CONSTRUCTOR;
 var TYPED_ARRAY_TAG = ArrayBufferViewCore.TYPED_ARRAY_TAG;
 var TypedArray = ArrayBufferViewCore.TypedArray;
 var TypedArrayPrototype = ArrayBufferViewCore.TypedArrayPrototype;
@@ -8338,7 +8608,7 @@ if (DESCRIPTORS) {
       createNonEnumerableProperty(TypedArrayConstructorPrototype, 'constructor', TypedArrayConstructor);
     }
 
-    createNonEnumerableProperty(TypedArrayConstructorPrototype, TYPED_ARRAY_CONSTRUCTOR, TypedArrayConstructor);
+    enforceInternalState(TypedArrayConstructorPrototype).TypedArrayConstructor = TypedArrayConstructor;
 
     if (TYPED_ARRAY_TAG) {
       createNonEnumerableProperty(TypedArrayConstructorPrototype, TYPED_ARRAY_TAG, CONSTRUCTOR_NAME);
@@ -8456,13 +8726,13 @@ module.exports = function from(source /* , mapfn, thisArg */) {
 var ArrayBufferViewCore = __webpack_require__(90260);
 var speciesConstructor = __webpack_require__(36707);
 
-var TYPED_ARRAY_CONSTRUCTOR = ArrayBufferViewCore.TYPED_ARRAY_CONSTRUCTOR;
 var aTypedArrayConstructor = ArrayBufferViewCore.aTypedArrayConstructor;
+var getTypedArrayConstructor = ArrayBufferViewCore.getTypedArrayConstructor;
 
 // a part of `TypedArraySpeciesCreate` abstract operation
 // https://tc39.es/ecma262/#typedarray-species-create
 module.exports = function (originalArray) {
-  return aTypedArrayConstructor(speciesConstructor(originalArray, originalArray[TYPED_ARRAY_CONSTRUCTOR]));
+  return aTypedArrayConstructor(speciesConstructor(originalArray, getTypedArrayConstructor(originalArray)));
 };
 
 
@@ -8517,14 +8787,12 @@ module.exports = DESCRIPTORS && fails(function () {
 /***/ }),
 
 /***/ 48053:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((module) => {
 
-var global = __webpack_require__(17854);
-
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 module.exports = function (passed, required) {
-  if (passed < required) throw TypeError('Not enough arguments');
+  if (passed < required) throw $TypeError('Not enough arguments');
   return passed;
 };
 
@@ -8690,7 +8958,6 @@ $({ global: true, constructor: true, arity: 2, forced: FORCED }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var isPrototypeOf = __webpack_require__(47976);
 var getPrototypeOf = __webpack_require__(79518);
 var setPrototypeOf = __webpack_require__(27674);
@@ -8706,7 +8973,7 @@ var wellKnownSymbol = __webpack_require__(5112);
 var ERROR_STACK_INSTALLABLE = __webpack_require__(22914);
 
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
-var Error = global.Error;
+var $Error = Error;
 var push = [].push;
 
 var $AggregateError = function AggregateError(errors, message /* , options */) {
@@ -8714,7 +8981,7 @@ var $AggregateError = function AggregateError(errors, message /* , options */) {
   var isInstance = isPrototypeOf(AggregateErrorPrototype, this);
   var that;
   if (setPrototypeOf) {
-    that = setPrototypeOf(new Error(), isInstance ? getPrototypeOf(this) : AggregateErrorPrototype);
+    that = setPrototypeOf(new $Error(), isInstance ? getPrototypeOf(this) : AggregateErrorPrototype);
   } else {
     that = isInstance ? this : create(AggregateErrorPrototype);
     createNonEnumerableProperty(that, TO_STRING_TAG, 'Error');
@@ -8728,10 +8995,10 @@ var $AggregateError = function AggregateError(errors, message /* , options */) {
   return that;
 };
 
-if (setPrototypeOf) setPrototypeOf($AggregateError, Error);
-else copyConstructorProperties($AggregateError, Error, { name: true });
+if (setPrototypeOf) setPrototypeOf($AggregateError, $Error);
+else copyConstructorProperties($AggregateError, $Error, { name: true });
 
-var AggregateErrorPrototype = $AggregateError.prototype = create(Error.prototype, {
+var AggregateErrorPrototype = $AggregateError.prototype = create($Error.prototype, {
   constructor: createPropertyDescriptor(1, $AggregateError),
   message: createPropertyDescriptor(1, ''),
   name: createPropertyDescriptor(1, 'AggregateError')
@@ -8879,12 +9146,12 @@ addToUnscopables('at');
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var fails = __webpack_require__(47293);
 var isArray = __webpack_require__(43157);
 var isObject = __webpack_require__(70111);
 var toObject = __webpack_require__(47908);
 var lengthOfArrayLike = __webpack_require__(26244);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
 var createProperty = __webpack_require__(86135);
 var arraySpeciesCreate = __webpack_require__(65417);
 var arrayMethodHasSpeciesSupport = __webpack_require__(81194);
@@ -8892,9 +9159,6 @@ var wellKnownSymbol = __webpack_require__(5112);
 var V8_VERSION = __webpack_require__(7392);
 
 var IS_CONCAT_SPREADABLE = wellKnownSymbol('isConcatSpreadable');
-var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF;
-var MAXIMUM_ALLOWED_INDEX_EXCEEDED = 'Maximum allowed index exceeded';
-var TypeError = global.TypeError;
 
 // We can't use this feature detection in V8 since it causes
 // deoptimization and serious performance degradation
@@ -8929,10 +9193,10 @@ $({ target: 'Array', proto: true, arity: 1, forced: FORCED }, {
       E = i === -1 ? O : arguments[i];
       if (isConcatSpreadable(E)) {
         len = lengthOfArrayLike(E);
-        if (n + len > MAX_SAFE_INTEGER) throw TypeError(MAXIMUM_ALLOWED_INDEX_EXCEEDED);
+        doesNotExceedSafeInteger(n + len);
         for (k = 0; k < len; k++, n++) if (k in E) createProperty(A, n, E[k]);
       } else {
-        if (n >= MAX_SAFE_INTEGER) throw TypeError(MAXIMUM_ALLOWED_INDEX_EXCEEDED);
+        doesNotExceedSafeInteger(n + 1);
         createProperty(A, n++, E);
       }
     }
@@ -9052,6 +9316,50 @@ $({ target: 'Array', proto: true, forced: SKIPS_HOLES }, {
 
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
 addToUnscopables(FIND_INDEX);
+
+
+/***/ }),
+
+/***/ 77287:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var $findLastIndex = (__webpack_require__(9671).findLastIndex);
+var addToUnscopables = __webpack_require__(51223);
+
+// `Array.prototype.findLastIndex` method
+// https://github.com/tc39/proposal-array-find-from-last
+$({ target: 'Array', proto: true }, {
+  findLastIndex: function findLastIndex(callbackfn /* , that = undefined */) {
+    return $findLastIndex(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+addToUnscopables('findLastIndex');
+
+
+/***/ }),
+
+/***/ 67635:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var $findLast = (__webpack_require__(9671).findLast);
+var addToUnscopables = __webpack_require__(51223);
+
+// `Array.prototype.findLast` method
+// https://github.com/tc39/proposal-array-find-from-last
+$({ target: 'Array', proto: true }, {
+  findLast: function findLast(callbackfn /* , that = undefined */) {
+    return $findLast(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+addToUnscopables('findLast');
 
 
 /***/ }),
@@ -9397,16 +9705,16 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var fails = __webpack_require__(47293);
 var isConstructor = __webpack_require__(4411);
 var createProperty = __webpack_require__(86135);
 
-var Array = global.Array;
+var $Array = Array;
 
 var ISNT_GENERIC = fails(function () {
   function F() { /* empty */ }
-  return !(Array.of.call(F) instanceof F);
+  // eslint-disable-next-line es-x/no-array-of -- safe
+  return !($Array.of.call(F) instanceof F);
 });
 
 // `Array.of` method
@@ -9416,10 +9724,57 @@ $({ target: 'Array', stat: true, forced: ISNT_GENERIC }, {
   of: function of(/* ...args */) {
     var index = 0;
     var argumentsLength = arguments.length;
-    var result = new (isConstructor(this) ? this : Array)(argumentsLength);
+    var result = new (isConstructor(this) ? this : $Array)(argumentsLength);
     while (argumentsLength > index) createProperty(result, index, arguments[index++]);
     result.length = argumentsLength;
     return result;
+  }
+});
+
+
+/***/ }),
+
+/***/ 57658:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var toObject = __webpack_require__(47908);
+var lengthOfArrayLike = __webpack_require__(26244);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
+var fails = __webpack_require__(47293);
+
+var INCORRECT_TO_LENGTH = fails(function () {
+  return [].push.call({ length: 0x100000000 }, 1) !== 4294967297;
+});
+
+// V8 and Safari <= 15.4, FF < 23 throws InternalError
+// https://bugs.chromium.org/p/v8/issues/detail?id=12681
+var SILENT_ON_NON_WRITABLE_LENGTH = !function () {
+  try {
+    // eslint-disable-next-line es-x/no-object-defineproperty -- safe
+    Object.defineProperty([], 'length', { writable: false }).push();
+  } catch (error) {
+    return error instanceof TypeError;
+  }
+}();
+
+// `Array.prototype.push` method
+// https://tc39.es/ecma262/#sec-array.prototype.push
+$({ target: 'Array', proto: true, arity: 1, forced: INCORRECT_TO_LENGTH || SILENT_ON_NON_WRITABLE_LENGTH }, {
+  // eslint-disable-next-line no-unused-vars -- required for `.length`
+  push: function push(item) {
+    var O = toObject(this);
+    var len = lengthOfArrayLike(O);
+    var argCount = arguments.length;
+    doesNotExceedSafeInteger(len + argCount);
+    for (var i = 0; i < argCount; i++) {
+      O[len] = arguments[i];
+      len++;
+    }
+    O.length = len;
+    return len;
   }
 });
 
@@ -9514,7 +9869,6 @@ $({ target: 'Array', proto: true, forced: String(test) === String(test.reverse()
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var isArray = __webpack_require__(43157);
 var isConstructor = __webpack_require__(4411);
 var isObject = __webpack_require__(70111);
@@ -9529,7 +9883,7 @@ var un$Slice = __webpack_require__(50206);
 var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('slice');
 
 var SPECIES = wellKnownSymbol('species');
-var Array = global.Array;
+var $Array = Array;
 var max = Math.max;
 
 // `Array.prototype.slice` method
@@ -9546,17 +9900,17 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
     if (isArray(O)) {
       Constructor = O.constructor;
       // cross-realm fallback
-      if (isConstructor(Constructor) && (Constructor === Array || isArray(Constructor.prototype))) {
+      if (isConstructor(Constructor) && (Constructor === $Array || isArray(Constructor.prototype))) {
         Constructor = undefined;
       } else if (isObject(Constructor)) {
         Constructor = Constructor[SPECIES];
         if (Constructor === null) Constructor = undefined;
       }
-      if (Constructor === Array || Constructor === undefined) {
+      if (Constructor === $Array || Constructor === undefined) {
         return un$Slice(O, k, fin);
       }
     }
-    result = new (Constructor === undefined ? Array : Constructor)(max(fin - k, 0));
+    result = new (Constructor === undefined ? $Array : Constructor)(max(fin - k, 0));
     for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
     result.length = n;
     return result;
@@ -9598,6 +9952,7 @@ var uncurryThis = __webpack_require__(1702);
 var aCallable = __webpack_require__(19662);
 var toObject = __webpack_require__(47908);
 var lengthOfArrayLike = __webpack_require__(26244);
+var deletePropertyOrThrow = __webpack_require__(85117);
 var toString = __webpack_require__(41340);
 var fails = __webpack_require__(47293);
 var internalSort = __webpack_require__(94362);
@@ -9692,7 +10047,7 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
     index = 0;
 
     while (index < itemsLength) array[index] = items[index++];
-    while (index < arrayLength) delete array[index++];
+    while (index < arrayLength) deletePropertyOrThrow(array, index++);
 
     return array;
   }
@@ -9719,22 +10074,20 @@ setSpecies('Array');
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
+var toObject = __webpack_require__(47908);
 var toAbsoluteIndex = __webpack_require__(51400);
 var toIntegerOrInfinity = __webpack_require__(19303);
 var lengthOfArrayLike = __webpack_require__(26244);
-var toObject = __webpack_require__(47908);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
 var arraySpeciesCreate = __webpack_require__(65417);
 var createProperty = __webpack_require__(86135);
+var deletePropertyOrThrow = __webpack_require__(85117);
 var arrayMethodHasSpeciesSupport = __webpack_require__(81194);
 
 var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('splice');
 
-var TypeError = global.TypeError;
 var max = Math.max;
 var min = Math.min;
-var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF;
-var MAXIMUM_ALLOWED_LENGTH_EXCEEDED = 'Maximum allowed length exceeded';
 
 // `Array.prototype.splice` method
 // https://tc39.es/ecma262/#sec-array.prototype.splice
@@ -9755,9 +10108,7 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
       insertCount = argumentsLength - 2;
       actualDeleteCount = min(max(toIntegerOrInfinity(deleteCount), 0), len - actualStart);
     }
-    if (len + insertCount - actualDeleteCount > MAX_SAFE_INTEGER) {
-      throw TypeError(MAXIMUM_ALLOWED_LENGTH_EXCEEDED);
-    }
+    doesNotExceedSafeInteger(len + insertCount - actualDeleteCount);
     A = arraySpeciesCreate(O, actualDeleteCount);
     for (k = 0; k < actualDeleteCount; k++) {
       from = actualStart + k;
@@ -9769,15 +10120,15 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
         from = k + actualDeleteCount;
         to = k + insertCount;
         if (from in O) O[to] = O[from];
-        else delete O[to];
+        else deletePropertyOrThrow(O, to);
       }
-      for (k = len; k > len - actualDeleteCount + insertCount; k--) delete O[k - 1];
+      for (k = len; k > len - actualDeleteCount + insertCount; k--) deletePropertyOrThrow(O, k - 1);
     } else if (insertCount > actualDeleteCount) {
       for (k = len - actualDeleteCount; k > actualStart; k--) {
         from = k + actualDeleteCount - 1;
         to = k + insertCount - 1;
         if (from in O) O[to] = O[from];
-        else delete O[to];
+        else deletePropertyOrThrow(O, to);
       }
     }
     for (k = 0; k < insertCount; k++) {
@@ -9813,6 +10164,56 @@ var addToUnscopables = __webpack_require__(51223);
 
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
 addToUnscopables('flat');
+
+
+/***/ }),
+
+/***/ 30541:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var toObject = __webpack_require__(47908);
+var lengthOfArrayLike = __webpack_require__(26244);
+var deletePropertyOrThrow = __webpack_require__(85117);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
+
+// IE8-
+var INCORRECT_RESULT = [].unshift(0) !== 1;
+
+// V8 ~ Chrome < 71 and Safari <= 15.4, FF < 23 throws InternalError
+var SILENT_ON_NON_WRITABLE_LENGTH = !function () {
+  try {
+    // eslint-disable-next-line es-x/no-object-defineproperty -- safe
+    Object.defineProperty([], 'length', { writable: false }).unshift();
+  } catch (error) {
+    return error instanceof TypeError;
+  }
+}();
+
+// `Array.prototype.unshift` method
+// https://tc39.es/ecma262/#sec-array.prototype.unshift
+$({ target: 'Array', proto: true, arity: 1, forced: INCORRECT_RESULT || SILENT_ON_NON_WRITABLE_LENGTH }, {
+  // eslint-disable-next-line no-unused-vars -- required for `.length`
+  unshift: function unshift(item) {
+    var O = toObject(this);
+    var len = lengthOfArrayLike(O);
+    var argCount = arguments.length;
+    if (argCount) {
+      doesNotExceedSafeInteger(len + argCount);
+      var k = len;
+      while (k--) {
+        var to = k + argCount;
+        if (k in O) O[to] = O[k];
+        else deletePropertyOrThrow(O, to);
+      }
+      for (var j = 0; j < argCount; j++) {
+        O[j] = arguments[j];
+      }
+    } return O.length = len + argCount;
+  }
+});
 
 
 /***/ }),
@@ -9873,17 +10274,16 @@ $({ target: 'Date', proto: true, forced: FORCED }, {
 
 // TODO: Remove from `core-js@4`
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 
-var Date = global.Date;
-var getTime = uncurryThis(Date.prototype.getTime);
+var $Date = Date;
+var getTime = uncurryThis($Date.prototype.getTime);
 
 // `Date.now` method
 // https://tc39.es/ecma262/#sec-date.now
 $({ target: 'Date', stat: true }, {
   now: function now() {
-    return getTime(new Date());
+    return getTime(new $Date());
   }
 });
 
@@ -10388,9 +10788,10 @@ var FORCED = !$acosh
 // https://tc39.es/ecma262/#sec-math.acosh
 $({ target: 'Math', stat: true, forced: FORCED }, {
   acosh: function acosh(x) {
-    return (x = +x) < 1 ? NaN : x > 94906265.62425156
-      ? log(x) + LN2
-      : log1p(x - 1 + sqrt(x - 1) * sqrt(x + 1));
+    var n = +x;
+    return n < 1 ? NaN : n > 94906265.62425156
+      ? log(n) + LN2
+      : log1p(n - 1 + sqrt(n - 1) * sqrt(n + 1));
   }
 });
 
@@ -10408,7 +10809,8 @@ var log = Math.log;
 var sqrt = Math.sqrt;
 
 function asinh(x) {
-  return !isFinite(x = +x) || x == 0 ? x : x < 0 ? -asinh(-x) : log(x + sqrt(x * x + 1));
+  var n = +x;
+  return !isFinite(n) || n == 0 ? n : n < 0 ? -asinh(-n) : log(n + sqrt(n * n + 1));
 }
 
 // `Math.asinh` method
@@ -10435,7 +10837,8 @@ var log = Math.log;
 // Tor Browser bug: Math.atanh(-0) -> 0
 $({ target: 'Math', stat: true, forced: !($atanh && 1 / $atanh(-0) < 0) }, {
   atanh: function atanh(x) {
-    return (x = +x) == 0 ? x : log((1 + x) / (1 - x)) / 2;
+    var n = +x;
+    return n == 0 ? n : log((1 + n) / (1 - n)) / 2;
   }
 });
 
@@ -10455,7 +10858,8 @@ var pow = Math.pow;
 // https://tc39.es/ecma262/#sec-math.cbrt
 $({ target: 'Math', stat: true }, {
   cbrt: function cbrt(x) {
-    return sign(x = +x) * pow(abs(x), 1 / 3);
+    var n = +x;
+    return sign(n) * pow(abs(n), 1 / 3);
   }
 });
 
@@ -10475,7 +10879,8 @@ var LOG2E = Math.LOG2E;
 // https://tc39.es/ecma262/#sec-math.clz32
 $({ target: 'Math', stat: true }, {
   clz32: function clz32(x) {
-    return (x >>>= 0) ? 31 - floor(log(x + 0.5) * LOG2E) : 32;
+    var n = x >>> 0;
+    return n ? 31 - floor(log(n + 0.5) * LOG2E) : 32;
   }
 });
 
@@ -10687,7 +11092,8 @@ var FORCED = fails(function () {
 // V8 near Chromium 38 has a problem with very small numbers
 $({ target: 'Math', stat: true, forced: FORCED }, {
   sinh: function sinh(x) {
-    return abs(x = +x) < 1 ? (expm1(x) - expm1(-x)) / 2 : (exp(x - 1) - exp(-x - 1)) * (E / 2);
+    var n = +x;
+    return abs(n) < 1 ? (expm1(n) - expm1(-n)) / 2 : (exp(n - 1) - exp(-n - 1)) * (E / 2);
   }
 });
 
@@ -10706,9 +11112,10 @@ var exp = Math.exp;
 // https://tc39.es/ecma262/#sec-math.tanh
 $({ target: 'Math', stat: true }, {
   tanh: function tanh(x) {
-    var a = expm1(x = +x);
-    var b = expm1(-x);
-    return a == Infinity ? 1 : b == Infinity ? -1 : (a - b) / (exp(x) + exp(-x));
+    var n = +x;
+    var a = expm1(n);
+    var b = expm1(-n);
+    return a == Infinity ? 1 : b == Infinity ? -1 : (a - b) / (exp(n) + exp(-n));
   }
 });
 
@@ -10731,16 +11138,12 @@ setToStringTag(Math, 'Math', true);
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var $ = __webpack_require__(82109);
-
-var ceil = Math.ceil;
-var floor = Math.floor;
+var trunc = __webpack_require__(74758);
 
 // `Math.trunc` method
 // https://tc39.es/ecma262/#sec-math.trunc
 $({ target: 'Math', stat: true }, {
-  trunc: function trunc(it) {
-    return (it > 0 ? floor : ceil)(it);
-  }
+  trunc: trunc
 });
 
 
@@ -10849,7 +11252,7 @@ var $ = __webpack_require__(82109);
 
 // `Number.EPSILON` constant
 // https://tc39.es/ecma262/#sec-number.epsilon
-$({ target: 'Number', stat: true }, {
+$({ target: 'Number', stat: true, nonConfigurable: true, nonWritable: true }, {
   EPSILON: Math.pow(2, -52)
 });
 
@@ -10927,7 +11330,7 @@ var $ = __webpack_require__(82109);
 
 // `Number.MAX_SAFE_INTEGER` constant
 // https://tc39.es/ecma262/#sec-number.max_safe_integer
-$({ target: 'Number', stat: true }, {
+$({ target: 'Number', stat: true, nonConfigurable: true, nonWritable: true }, {
   MAX_SAFE_INTEGER: 0x1FFFFFFFFFFFFF
 });
 
@@ -10941,7 +11344,7 @@ var $ = __webpack_require__(82109);
 
 // `Number.MIN_SAFE_INTEGER` constant
 // https://tc39.es/ecma262/#sec-number.min_safe_integer
-$({ target: 'Number', stat: true }, {
+$({ target: 'Number', stat: true, nonConfigurable: true, nonWritable: true }, {
   MIN_SAFE_INTEGER: -0x1FFFFFFFFFFFFF
 });
 
@@ -10986,7 +11389,6 @@ $({ target: 'Number', stat: true, forced: Number.parseInt != parseInt }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var toIntegerOrInfinity = __webpack_require__(19303);
 var thisNumberValue = __webpack_require__(50863);
@@ -10994,9 +11396,9 @@ var $repeat = __webpack_require__(38415);
 var log10 = __webpack_require__(20403);
 var fails = __webpack_require__(47293);
 
-var RangeError = global.RangeError;
-var String = global.String;
-var isFinite = global.isFinite;
+var $RangeError = RangeError;
+var $String = String;
+var $isFinite = isFinite;
 var abs = Math.abs;
 var floor = Math.floor;
 var pow = Math.pow;
@@ -11037,9 +11439,9 @@ $({ target: 'Number', proto: true, forced: FORCED }, {
     var x = thisNumberValue(this);
     if (fractionDigits === undefined) return un$ToExponential(x);
     var f = toIntegerOrInfinity(fractionDigits);
-    if (!isFinite(x)) return String(x);
+    if (!$isFinite(x)) return String(x);
     // TODO: ES2018 increased the maximum number of fraction digits to 100, need to improve the implementation
-    if (f < 0 || f > 20) throw RangeError('Incorrect fraction digits');
+    if (f < 0 || f > 20) throw $RangeError('Incorrect fraction digits');
     if (ROUNDS_PROPERLY) return un$ToExponential(x, f);
     var s = '';
     var m = '';
@@ -11068,7 +11470,7 @@ $({ target: 'Number', proto: true, forced: FORCED }, {
         n /= 10;
         e += 1;
       }
-      m = String(n);
+      m = $String(n);
     }
     if (f !== 0) {
       m = stringSlice(m, 0, 1) + '.' + stringSlice(m, 1);
@@ -11078,7 +11480,7 @@ $({ target: 'Number', proto: true, forced: FORCED }, {
       d = '0';
     } else {
       c = e > 0 ? '+' : '-';
-      d = String(abs(e));
+      d = $String(abs(e));
     }
     m += 'e' + c + d;
     return s + m;
@@ -11094,15 +11496,14 @@ $({ target: 'Number', proto: true, forced: FORCED }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var toIntegerOrInfinity = __webpack_require__(19303);
 var thisNumberValue = __webpack_require__(50863);
 var $repeat = __webpack_require__(38415);
 var fails = __webpack_require__(47293);
 
-var RangeError = global.RangeError;
-var String = global.String;
+var $RangeError = RangeError;
+var $String = String;
 var floor = Math.floor;
 var repeat = uncurryThis($repeat);
 var stringSlice = uncurryThis(''.slice);
@@ -11150,7 +11551,7 @@ var dataToString = function (data) {
   var s = '';
   while (--index >= 0) {
     if (s !== '' || index === 0 || data[index] !== 0) {
-      var t = String(data[index]);
+      var t = $String(data[index]);
       s = s === '' ? t : s + repeat('0', 7 - t.length) + t;
     }
   } return s;
@@ -11178,10 +11579,10 @@ $({ target: 'Number', proto: true, forced: FORCED }, {
     var e, z, j, k;
 
     // TODO: ES2018 increased the maximum number of fraction digits to 100, need to improve the implementation
-    if (fractDigits < 0 || fractDigits > 20) throw RangeError('Incorrect fraction digits');
+    if (fractDigits < 0 || fractDigits > 20) throw $RangeError('Incorrect fraction digits');
     // eslint-disable-next-line no-self-compare -- NaN check
     if (number != number) return 'NaN';
-    if (number <= -1e21 || number >= 1e21) return String(number);
+    if (number <= -1e21 || number >= 1e21) return $String(number);
     if (number < 0) {
       sign = '-';
       number = -number;
@@ -12920,7 +13321,7 @@ var charAt = uncurryThis(''.charAt);
 var replace = uncurryThis(''.replace);
 var stringIndexOf = uncurryThis(''.indexOf);
 var stringSlice = uncurryThis(''.slice);
-// TODO: Use only propper RegExpIdentifierName
+// TODO: Use only proper RegExpIdentifierName
 var IS_NCG = /^\?<[^\s\d!#%&*+<=>@^][^\s!#%&*+<=>@^]*>/;
 var re1 = /a/g;
 var re2 = /a/g;
@@ -13086,7 +13487,6 @@ setSpecies('RegExp');
 /***/ 28450:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var DESCRIPTORS = __webpack_require__(19781);
 var UNSUPPORTED_DOT_ALL = __webpack_require__(9441);
 var classof = __webpack_require__(84326);
@@ -13094,7 +13494,7 @@ var defineBuiltInAccessor = __webpack_require__(47045);
 var getInternalState = (__webpack_require__(29909).get);
 
 var RegExpPrototype = RegExp.prototype;
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `RegExp.prototype.dotAll` getter
 // https://tc39.es/ecma262/#sec-get-regexp.prototype.dotall
@@ -13108,7 +13508,7 @@ if (DESCRIPTORS && UNSUPPORTED_DOT_ALL) {
       if (classof(this) === 'RegExp') {
         return !!getInternalState(this).dotAll;
       }
-      throw TypeError('Incompatible receiver, RegExp required');
+      throw $TypeError('Incompatible receiver, RegExp required');
     }
   });
 }
@@ -13136,16 +13536,53 @@ $({ target: 'RegExp', proto: true, forced: /./.exec !== exec }, {
 /***/ 92087:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+var global = __webpack_require__(17854);
 var DESCRIPTORS = __webpack_require__(19781);
 var defineBuiltInAccessor = __webpack_require__(47045);
 var regExpFlags = __webpack_require__(67066);
 var fails = __webpack_require__(47293);
 
+// babel-minify and Closure Compiler transpiles RegExp('.', 'd') -> /./d and it causes SyntaxError
+var RegExp = global.RegExp;
 var RegExpPrototype = RegExp.prototype;
 
 var FORCED = DESCRIPTORS && fails(function () {
+  var INDICES_SUPPORT = true;
+  try {
+    RegExp('.', 'd');
+  } catch (error) {
+    INDICES_SUPPORT = false;
+  }
+
+  var O = {};
+  // modern V8 bug
+  var calls = '';
+  var expected = INDICES_SUPPORT ? 'dgimsy' : 'gimsy';
+
+  var addGetter = function (key, chr) {
+    // eslint-disable-next-line es-x/no-object-defineproperty -- safe
+    Object.defineProperty(O, key, { get: function () {
+      calls += chr;
+      return true;
+    } });
+  };
+
+  var pairs = {
+    dotAll: 's',
+    global: 'g',
+    ignoreCase: 'i',
+    multiline: 'm',
+    sticky: 'y'
+  };
+
+  if (INDICES_SUPPORT) pairs.hasIndices = 'd';
+
+  for (var key in pairs) addGetter(key, pairs[key]);
+
   // eslint-disable-next-line es-x/no-object-getownpropertydescriptor -- safe
-  return Object.getOwnPropertyDescriptor(RegExpPrototype, 'flags').get.call({ dotAll: true, sticky: true }) !== 'sy';
+  var result = Object.getOwnPropertyDescriptor(RegExpPrototype, 'flags').get.call(O);
+
+  return result !== expected || calls !== expected;
 });
 
 // `RegExp.prototype.flags` getter
@@ -13161,7 +13598,6 @@ if (FORCED) defineBuiltInAccessor(RegExpPrototype, 'flags', {
 /***/ 88386:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(17854);
 var DESCRIPTORS = __webpack_require__(19781);
 var MISSED_STICKY = (__webpack_require__(52999).MISSED_STICKY);
 var classof = __webpack_require__(84326);
@@ -13169,7 +13605,7 @@ var defineBuiltInAccessor = __webpack_require__(47045);
 var getInternalState = (__webpack_require__(29909).get);
 
 var RegExpPrototype = RegExp.prototype;
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `RegExp.prototype.sticky` getter
 // https://tc39.es/ecma262/#sec-get-regexp.prototype.sticky
@@ -13183,7 +13619,7 @@ if (DESCRIPTORS && MISSED_STICKY) {
       if (classof(this) === 'RegExp') {
         return !!getInternalState(this).sticky;
       }
-      throw TypeError('Incompatible receiver, RegExp required');
+      throw $TypeError('Incompatible receiver, RegExp required');
     }
   });
 }
@@ -13199,7 +13635,6 @@ if (DESCRIPTORS && MISSED_STICKY) {
 // TODO: Remove from `core-js@4` since it's moved to entry points
 __webpack_require__(74916);
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var uncurryThis = __webpack_require__(1702);
 var isCallable = __webpack_require__(60614);
@@ -13215,7 +13650,7 @@ var DELEGATES_TO_EXEC = function () {
   return re.test('abc') === true && execCalled;
 }();
 
-var Error = global.Error;
+var $TypeError = TypeError;
 var un$Test = uncurryThis(/./.test);
 
 // `RegExp.prototype.test` method
@@ -13226,7 +13661,7 @@ $({ target: 'RegExp', proto: true, forced: !DELEGATES_TO_EXEC }, {
     if (!isCallable(exec)) return un$Test(this, str);
     var result = call(exec, this, str);
     if (result !== null && !isObject(result)) {
-      throw new Error('RegExp exec method returned something other than an Object or null');
+      throw new $TypeError('RegExp exec method returned something other than an Object or null');
     }
     return !!result;
   }
@@ -13538,11 +13973,10 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('fontsize') },
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var toAbsoluteIndex = __webpack_require__(51400);
 
-var RangeError = global.RangeError;
+var $RangeError = RangeError;
 var fromCharCode = String.fromCharCode;
 // eslint-disable-next-line es-x/no-string-fromcodepoint -- required for testing
 var $fromCodePoint = String.fromCodePoint;
@@ -13562,7 +13996,7 @@ $({ target: 'String', stat: true, arity: 1, forced: INCORRECT_LENGTH }, {
     var code;
     while (length > i) {
       code = +arguments[i++];
-      if (toAbsoluteIndex(code, 0x10FFFF) !== code) throw RangeError(code + ' is not a valid code point');
+      if (toAbsoluteIndex(code, 0x10FFFF) !== code) throw $RangeError(code + ' is not a valid code point');
       elements[i] = code < 0x10000
         ? fromCharCode(code)
         : fromCharCode(((code -= 0x10000) >> 10) + 0xD800, code % 0x400 + 0xDC00);
@@ -13687,7 +14121,6 @@ $({ target: 'String', proto: true, forced: forcedStringHTMLMethod('link') }, {
 
 /* eslint-disable es-x/no-string-prototype-matchall -- safe */
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var uncurryThis = __webpack_require__(1702);
 var createIteratorConstructor = __webpack_require__(24994);
@@ -13714,7 +14147,7 @@ var REGEXP_STRING_ITERATOR = REGEXP_STRING + ' Iterator';
 var setInternalState = InternalStateModule.set;
 var getInternalState = InternalStateModule.getterFor(REGEXP_STRING_ITERATOR);
 var RegExpPrototype = RegExp.prototype;
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 var stringIndexOf = uncurryThis(''.indexOf);
 var un$MatchAll = uncurryThis(''.matchAll);
 
@@ -13768,7 +14201,7 @@ $({ target: 'String', proto: true, forced: WORKS_WITH_NON_GLOBAL_REGEX }, {
     if (regexp != null) {
       if (isRegExp(regexp)) {
         flags = toString(requireObjectCoercible(getRegExpFlags(regexp)));
-        if (!~stringIndexOf(flags, 'g')) throw TypeError('`.matchAll` does not allow non-global regexes');
+        if (!~stringIndexOf(flags, 'g')) throw $TypeError('`.matchAll` does not allow non-global regexes');
       }
       if (WORKS_WITH_NON_GLOBAL_REGEX) return un$MatchAll(O, regexp);
       matcher = getMethod(regexp, MATCH_ALL);
@@ -13935,7 +14368,6 @@ $({ target: 'String', proto: true }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var uncurryThis = __webpack_require__(1702);
 var requireObjectCoercible = __webpack_require__(84488);
@@ -13949,7 +14381,7 @@ var wellKnownSymbol = __webpack_require__(5112);
 var IS_PURE = __webpack_require__(31913);
 
 var REPLACE = wellKnownSymbol('replace');
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 var indexOf = uncurryThis(''.indexOf);
 var replace = uncurryThis(''.replace);
 var stringSlice = uncurryThis(''.slice);
@@ -13974,7 +14406,7 @@ $({ target: 'String', proto: true }, {
       IS_REG_EXP = isRegExp(searchValue);
       if (IS_REG_EXP) {
         flags = toString(requireObjectCoercible(getRegExpFlags(searchValue)));
-        if (!~indexOf(flags, 'g')) throw TypeError('`.replaceAll` does not allow non-global regexes');
+        if (!~indexOf(flags, 'g')) throw $TypeError('`.replaceAll` does not allow non-global regexes');
       }
       replacer = getMethod(searchValue, REPLACE);
       if (replacer) {
@@ -15244,24 +15676,33 @@ exportTypedArrayMethod('every', function every(callbackfn /* , thisArg */) {
 "use strict";
 
 var ArrayBufferViewCore = __webpack_require__(90260);
-var call = __webpack_require__(46916);
 var $fill = __webpack_require__(21285);
+var toBigInt = __webpack_require__(64599);
+var classof = __webpack_require__(70648);
+var call = __webpack_require__(46916);
+var uncurryThis = __webpack_require__(1702);
+var fails = __webpack_require__(47293);
 
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
 var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
+var slice = uncurryThis(''.slice);
+
+// V8 ~ Chrome < 59, Safari < 14.1, FF < 55, Edge <=18
+var CONVERSION_BUG = fails(function () {
+  var count = 0;
+  // eslint-disable-next-line es-x/no-typed-arrays -- safe
+  new Int8Array(2).fill({ valueOf: function () { return count++; } });
+  return count !== 1;
+});
 
 // `%TypedArray%.prototype.fill` method
 // https://tc39.es/ecma262/#sec-%typedarray%.prototype.fill
 exportTypedArrayMethod('fill', function fill(value /* , start, end */) {
   var length = arguments.length;
-  return call(
-    $fill,
-    aTypedArray(this),
-    value,
-    length > 1 ? arguments[1] : undefined,
-    length > 2 ? arguments[2] : undefined
-  );
-});
+  aTypedArray(this);
+  var actualValue = slice(classof(this), 0, 3) === 'Big' ? toBigInt(value) : +value;
+  return call($fill, this, actualValue, length > 1 ? arguments[1] : undefined, length > 2 ? arguments[2] : undefined);
+}, CONVERSION_BUG);
 
 
 /***/ }),
@@ -15303,6 +15744,46 @@ var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
 // https://tc39.es/ecma262/#sec-%typedarray%.prototype.findindex
 exportTypedArrayMethod('findIndex', function findIndex(predicate /* , thisArg */) {
   return $findIndex(aTypedArray(this), predicate, arguments.length > 1 ? arguments[1] : undefined);
+});
+
+
+/***/ }),
+
+/***/ 14590:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var ArrayBufferViewCore = __webpack_require__(90260);
+var $findLastIndex = (__webpack_require__(9671).findLastIndex);
+
+var aTypedArray = ArrayBufferViewCore.aTypedArray;
+var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
+
+// `%TypedArray%.prototype.findLastIndex` method
+// https://github.com/tc39/proposal-array-find-from-last
+exportTypedArrayMethod('findLastIndex', function findLastIndex(predicate /* , thisArg */) {
+  return $findLastIndex(aTypedArray(this), predicate, arguments.length > 1 ? arguments[1] : undefined);
+});
+
+
+/***/ }),
+
+/***/ 63408:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var ArrayBufferViewCore = __webpack_require__(90260);
+var $findLast = (__webpack_require__(9671).findLast);
+
+var aTypedArray = ArrayBufferViewCore.aTypedArray;
+var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
+
+// `%TypedArray%.prototype.findLast` method
+// https://github.com/tc39/proposal-array-find-from-last
+exportTypedArrayMethod('findLast', function findLast(predicate /* , thisArg */) {
+  return $findLast(aTypedArray(this), predicate, arguments.length > 1 ? arguments[1] : undefined);
 });
 
 
@@ -15639,7 +16120,7 @@ var $reduceRight = (__webpack_require__(53671).right);
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
 var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
 
-// `%TypedArray%.prototype.reduceRicht` method
+// `%TypedArray%.prototype.reduceRight` method
 // https://tc39.es/ecma262/#sec-%typedarray%.prototype.reduceright
 exportTypedArrayMethod('reduceRight', function reduceRight(callbackfn /* , initialValue */) {
   var length = arguments.length;
@@ -16276,21 +16757,8 @@ addToUnscopables('filterReject');
 /***/ 77461:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
-var $ = __webpack_require__(82109);
-var $findLastIndex = (__webpack_require__(9671).findLastIndex);
-var addToUnscopables = __webpack_require__(51223);
-
-// `Array.prototype.findLastIndex` method
-// https://github.com/tc39/proposal-array-find-from-last
-$({ target: 'Array', proto: true }, {
-  findLastIndex: function findLastIndex(callbackfn /* , that = undefined */) {
-    return $findLastIndex(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
-  }
-});
-
-addToUnscopables('findLastIndex');
+// TODO: Remove from `core-js@4`
+__webpack_require__(77287);
 
 
 /***/ }),
@@ -16298,21 +16766,8 @@ addToUnscopables('findLastIndex');
 /***/ 3048:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
-var $ = __webpack_require__(82109);
-var $findLast = (__webpack_require__(9671).findLast);
-var addToUnscopables = __webpack_require__(51223);
-
-// `Array.prototype.findLast` method
-// https://github.com/tc39/proposal-array-find-from-last
-$({ target: 'Array', proto: true }, {
-  findLast: function findLast(callbackfn /* , that = undefined */) {
-    return $findLast(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
-  }
-});
-
-addToUnscopables('findLast');
+// TODO: Remove from `core-js@4`
+__webpack_require__(67635);
 
 
 /***/ }),
@@ -16335,44 +16790,17 @@ $({ target: 'Array', stat: true, forced: true }, {
 /***/ 61886:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
+// TODO: Remove from `core-js@4`
 var $ = __webpack_require__(82109);
-var getBuiltIn = __webpack_require__(35005);
-var bind = __webpack_require__(49974);
-var uncurryThis = __webpack_require__(1702);
-var IndexedObject = __webpack_require__(68361);
-var toObject = __webpack_require__(47908);
-var lengthOfArrayLike = __webpack_require__(26244);
 var arrayMethodIsStrict = __webpack_require__(9341);
 var addToUnscopables = __webpack_require__(51223);
-
-var Map = getBuiltIn('Map');
-var MapPrototype = Map.prototype;
-var mapGet = uncurryThis(MapPrototype.get);
-var mapHas = uncurryThis(MapPrototype.has);
-var mapSet = uncurryThis(MapPrototype.set);
-var push = uncurryThis([].push);
+var $groupToMap = __webpack_require__(59921);
 
 // `Array.prototype.groupByToMap` method
 // https://github.com/tc39/proposal-array-grouping
 // https://bugs.webkit.org/show_bug.cgi?id=236541
-$({ target: 'Array', proto: true, forced: !arrayMethodIsStrict('groupByToMap') }, {
-  groupByToMap: function groupByToMap(callbackfn /* , thisArg */) {
-    var O = toObject(this);
-    var self = IndexedObject(O);
-    var boundFunction = bind(callbackfn, arguments.length > 1 ? arguments[1] : undefined);
-    var map = new Map();
-    var length = lengthOfArrayLike(self);
-    var index = 0;
-    var key, value;
-    for (;length > index; index++) {
-      value = self[index];
-      key = boundFunction(value, index, O);
-      if (mapHas(map, key)) push(mapGet(map, key), value);
-      else mapSet(map, key, [value]);
-    } return map;
-  }
+$({ target: 'Array', proto: true, name: 'groupToMap', forced: !arrayMethodIsStrict('groupByToMap') }, {
+  groupByToMap: $groupToMap
 });
 
 addToUnscopables('groupByToMap');
@@ -16385,8 +16813,9 @@ addToUnscopables('groupByToMap');
 
 "use strict";
 
+// TODO: Remove from `core-js@4`
 var $ = __webpack_require__(82109);
-var $groupBy = __webpack_require__(61386);
+var $group = __webpack_require__(21191);
 var arrayMethodIsStrict = __webpack_require__(9341);
 var addToUnscopables = __webpack_require__(51223);
 
@@ -16396,11 +16825,52 @@ var addToUnscopables = __webpack_require__(51223);
 $({ target: 'Array', proto: true, forced: !arrayMethodIsStrict('groupBy') }, {
   groupBy: function groupBy(callbackfn /* , thisArg */) {
     var thisArg = arguments.length > 1 ? arguments[1] : undefined;
-    return $groupBy(this, callbackfn, thisArg);
+    return $group(this, callbackfn, thisArg);
   }
 });
 
 addToUnscopables('groupBy');
+
+
+/***/ }),
+
+/***/ 59422:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var addToUnscopables = __webpack_require__(51223);
+var $groupToMap = __webpack_require__(59921);
+
+// `Array.prototype.groupToMap` method
+// https://github.com/tc39/proposal-array-grouping
+$({ target: 'Array', proto: true }, {
+  groupToMap: $groupToMap
+});
+
+addToUnscopables('groupToMap');
+
+
+/***/ }),
+
+/***/ 52550:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var $group = __webpack_require__(21191);
+var addToUnscopables = __webpack_require__(51223);
+
+// `Array.prototype.group` method
+// https://github.com/tc39/proposal-array-grouping
+$({ target: 'Array', proto: true }, {
+  group: function group(callbackfn /* , thisArg */) {
+    var thisArg = arguments.length > 1 ? arguments[1] : undefined;
+    return $group(this, callbackfn, thisArg);
+  }
+});
+
+addToUnscopables('group');
 
 
 /***/ }),
@@ -16511,18 +16981,17 @@ if (DESCRIPTORS) {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var arrayToReversed = __webpack_require__(21843);
 var toIndexedObject = __webpack_require__(45656);
 var addToUnscopables = __webpack_require__(51223);
 
-var Array = global.Array;
+var $Array = Array;
 
 // `Array.prototype.toReversed` method
 // https://tc39.es/proposal-change-array-by-copy/#sec-array.prototype.toReversed
 $({ target: 'Array', proto: true }, {
   toReversed: function toReversed() {
-    return arrayToReversed(toIndexedObject(this), Array);
+    return arrayToReversed(toIndexedObject(this), $Array);
   }
 });
 
@@ -16537,7 +17006,6 @@ addToUnscopables('toReversed');
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var aCallable = __webpack_require__(19662);
 var toIndexedObject = __webpack_require__(45656);
@@ -16545,7 +17013,7 @@ var arrayFromConstructorAndList = __webpack_require__(97745);
 var getVirtual = __webpack_require__(98770);
 var addToUnscopables = __webpack_require__(51223);
 
-var Array = global.Array;
+var $Array = Array;
 var sort = uncurryThis(getVirtual('Array').sort);
 
 // `Array.prototype.toSorted` method
@@ -16554,7 +17022,7 @@ $({ target: 'Array', proto: true }, {
   toSorted: function toSorted(compareFn) {
     if (compareFn !== undefined) aCallable(compareFn);
     var O = toIndexedObject(this);
-    var A = arrayFromConstructorAndList(Array, O);
+    var A = arrayFromConstructorAndList($Array, O);
     return sort(A, compareFn);
   }
 });
@@ -16570,20 +17038,44 @@ addToUnscopables('toSorted');
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
-var toIndexedObject = __webpack_require__(45656);
-var arraySlice = __webpack_require__(50206);
-var arrayToSpliced = __webpack_require__(1654);
 var addToUnscopables = __webpack_require__(51223);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
+var lengthOfArrayLike = __webpack_require__(26244);
+var toAbsoluteIndex = __webpack_require__(51400);
+var toIndexedObject = __webpack_require__(45656);
+var toIntegerOrInfinity = __webpack_require__(19303);
 
-var Array = global.Array;
+var $Array = Array;
+var max = Math.max;
+var min = Math.min;
 
 // `Array.prototype.toSpliced` method
 // https://tc39.es/proposal-change-array-by-copy/#sec-array.prototype.toSpliced
-$({ target: 'Array', proto: true, arity: 2 }, {
-  // eslint-disable-next-line no-unused-vars -- required for .length
+$({ target: 'Array', proto: true }, {
   toSpliced: function toSpliced(start, deleteCount /* , ...items */) {
-    return arrayToSpliced(toIndexedObject(this), Array, arraySlice(arguments));
+    var O = toIndexedObject(this);
+    var len = lengthOfArrayLike(O);
+    var actualStart = toAbsoluteIndex(start, len);
+    var argumentsLength = arguments.length;
+    var k = 0;
+    var insertCount, actualDeleteCount, newLen, A;
+    if (argumentsLength === 0) {
+      insertCount = actualDeleteCount = 0;
+    } else if (argumentsLength === 1) {
+      insertCount = 0;
+      actualDeleteCount = len - actualStart;
+    } else {
+      insertCount = argumentsLength - 2;
+      actualDeleteCount = min(max(toIntegerOrInfinity(deleteCount), 0), len - actualStart);
+    }
+    newLen = doesNotExceedSafeInteger(len + insertCount - actualDeleteCount);
+    A = $Array(newLen);
+
+    for (; k < actualStart; k++) A[k] = O[k];
+    for (; k < actualStart + insertCount; k++) A[k] = arguments[k - actualStart + 2];
+    for (; k < newLen; k++) A[k] = O[k + actualDeleteCount - insertCount];
+
+    return A;
   }
 });
 
@@ -16618,17 +17110,16 @@ addToUnscopables('uniqueBy');
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var arrayWith = __webpack_require__(11572);
 var toIndexedObject = __webpack_require__(45656);
 
-var Array = global.Array;
+var $Array = Array;
 
 // `Array.prototype.with` method
 // https://tc39.es/proposal-change-array-by-copy/#sec-array.prototype.with
 $({ target: 'Array', proto: true }, {
   'with': function (index, value) {
-    return arrayWith(toIndexedObject(this), Array, index, value);
+    return arrayWith(toIndexedObject(this), $Array, index, value);
   }
 });
 
@@ -16638,34 +17129,13 @@ $({ target: 'Array', proto: true }, {
 /***/ 40787:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
+// TODO: Remove from `core-js@4`
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
-var anObject = __webpack_require__(19670);
-var createAsyncIteratorProxy = __webpack_require__(45348);
+var indexed = __webpack_require__(47520);
 
-var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
-  var state = this;
-  var iterator = state.iterator;
-
-  return Promise.resolve(anObject(apply(state.next, iterator, args))).then(function (step) {
-    if (anObject(step).done) {
-      state.done = true;
-      return { done: true, value: undefined };
-    }
-    return { done: false, value: [state.index++, step.value] };
-  });
-});
-
-$({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
-  asIndexedPairs: function asIndexedPairs() {
-    return new AsyncIteratorProxy({
-      iterator: anObject(this),
-      index: 0
-    });
-  }
+$({ target: 'AsyncIterator', name: 'indexed', proto: true, real: true, forced: true }, {
+  asIndexedPairs: indexed
 });
 
 
@@ -16715,20 +17185,25 @@ $({ global: true, constructor: true, forced: IS_PURE }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
+var call = __webpack_require__(46916);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
+var notANaN = __webpack_require__(66336);
 var toPositiveInteger = __webpack_require__(73002);
 var createAsyncIteratorProxy = __webpack_require__(45348);
 
-var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
+var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise) {
   var state = this;
 
   return new Promise(function (resolve, reject) {
+    var doneAndReject = function (error) {
+      state.done = true;
+      reject(error);
+    };
+
     var loop = function () {
       try {
-        Promise.resolve(
-          anObject(apply(state.next, state.iterator, state.remaining ? [] : args))
-        ).then(function (step) {
+        Promise.resolve(anObject(call(state.next, state.iterator))).then(function (step) {
           try {
             if (anObject(step).done) {
               state.done = true;
@@ -16737,9 +17212,9 @@ var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
               state.remaining--;
               loop();
             } else resolve({ done: false, value: step.value });
-          } catch (err) { reject(err); }
-        }, reject);
-      } catch (error) { reject(error); }
+          } catch (err) { doneAndReject(err); }
+        }, doneAndReject);
+      } catch (error) { doneAndReject(error); }
     };
 
     loop();
@@ -16748,9 +17223,8 @@ var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
 
 $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
   drop: function drop(limit) {
-    return new AsyncIteratorProxy({
-      iterator: anObject(this),
-      remaining: toPositiveInteger(limit)
+    return new AsyncIteratorProxy(getIteratorDirect(this), {
+      remaining: toPositiveInteger(notANaN(+limit))
     });
   }
 });
@@ -16783,32 +17257,46 @@ $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
+var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 var createAsyncIteratorProxy = __webpack_require__(45348);
+var closeAsyncIteration = __webpack_require__(21753);
 
-var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
+var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise) {
   var state = this;
+  var iterator = state.iterator;
   var filterer = state.filterer;
 
   return new Promise(function (resolve, reject) {
+    var doneAndReject = function (error) {
+      state.done = true;
+      reject(error);
+    };
+
+    var ifAbruptCloseAsyncIterator = function (error) {
+      closeAsyncIteration(iterator, doneAndReject, error, doneAndReject);
+    };
+
     var loop = function () {
       try {
-        Promise.resolve(anObject(apply(state.next, state.iterator, args))).then(function (step) {
+        Promise.resolve(anObject(call(state.next, iterator))).then(function (step) {
           try {
             if (anObject(step).done) {
               state.done = true;
               resolve({ done: true, value: undefined });
             } else {
               var value = step.value;
-              Promise.resolve(filterer(value)).then(function (selected) {
-                selected ? resolve({ done: false, value: value }) : loop();
-              }, reject);
+              try {
+                Promise.resolve(filterer(value)).then(function (selected) {
+                  selected ? resolve({ done: false, value: value }) : loop();
+                }, ifAbruptCloseAsyncIterator);
+              } catch (error3) { ifAbruptCloseAsyncIterator(error3); }
             }
-          } catch (err) { reject(err); }
-        }, reject);
-      } catch (error) { reject(error); }
+          } catch (error2) { doneAndReject(error2); }
+        }, doneAndReject);
+      } catch (error) { doneAndReject(error); }
     };
 
     loop();
@@ -16817,8 +17305,7 @@ var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
 
 $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
   filter: function filter(filterer) {
-    return new AsyncIteratorProxy({
-      iterator: anObject(this),
+    return new AsyncIteratorProxy(getIteratorDirect(this), {
       filterer: aCallable(filterer)
     });
   }
@@ -16855,34 +17342,49 @@ var $ = __webpack_require__(82109);
 var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 var createAsyncIteratorProxy = __webpack_require__(45348);
 var getAsyncIterator = __webpack_require__(54777);
+var closeAsyncIteration = __webpack_require__(21753);
 
 var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise) {
   var state = this;
+  var iterator = state.iterator;
   var mapper = state.mapper;
   var innerIterator;
 
   return new Promise(function (resolve, reject) {
+    var doneAndReject = function (error) {
+      state.done = true;
+      reject(error);
+    };
+
+    var ifAbruptCloseAsyncIterator = function (error) {
+      closeAsyncIteration(iterator, doneAndReject, error, doneAndReject);
+    };
+
     var outerLoop = function () {
       try {
-        Promise.resolve(anObject(call(state.next, state.iterator))).then(function (step) {
+        Promise.resolve(anObject(call(state.next, iterator))).then(function (step) {
           try {
             if (anObject(step).done) {
               state.done = true;
               resolve({ done: true, value: undefined });
             } else {
-              Promise.resolve(mapper(step.value)).then(function (mapped) {
-                try {
-                  state.innerIterator = innerIterator = getAsyncIterator(mapped);
-                  state.innerNext = aCallable(innerIterator.next);
-                  return innerLoop();
-                } catch (error2) { reject(error2); }
-              }, reject);
+              var value = step.value;
+              try {
+                Promise.resolve(mapper(value)).then(function (mapped) {
+                  try {
+                    state.innerIterator = innerIterator = getAsyncIterator(mapped);
+                    state.innerNext = aCallable(innerIterator.next);
+                    innerLoop();
+                  } catch (error4) { ifAbruptCloseAsyncIterator(error4); }
+                }, ifAbruptCloseAsyncIterator);
+              } catch (error3) { ifAbruptCloseAsyncIterator(error3); }
             }
-          } catch (error1) { reject(error1); }
-        }, reject);
-      } catch (error) { reject(error); }
+          } catch (error2) { doneAndReject(error2); }
+        }, doneAndReject);
+      } catch (error) { doneAndReject(error); }
     };
 
     var innerLoop = function () {
@@ -16894,9 +17396,9 @@ var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise) {
                 state.innerIterator = state.innerNext = null;
                 outerLoop();
               } else resolve({ done: false, value: result.value });
-            } catch (error1) { reject(error1); }
-          }, reject);
-        } catch (error) { reject(error); }
+            } catch (error1) { ifAbruptCloseAsyncIterator(error1); }
+          }, ifAbruptCloseAsyncIterator);
+        } catch (error) { ifAbruptCloseAsyncIterator(error); }
       } else outerLoop();
     };
 
@@ -16906,8 +17408,7 @@ var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise) {
 
 $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
   flatMap: function flatMap(mapper) {
-    return new AsyncIteratorProxy({
-      iterator: anObject(this),
+    return new AsyncIteratorProxy(getIteratorDirect(this), {
       mapper: aCallable(mapper),
       innerIterator: null,
       innerNext: null
@@ -16941,24 +17442,19 @@ $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
-var anObject = __webpack_require__(19670);
 var toObject = __webpack_require__(47908);
 var isPrototypeOf = __webpack_require__(47976);
 var AsyncIteratorPrototype = __webpack_require__(66462);
-var createAsyncIteratorProxy = __webpack_require__(45348);
 var getAsyncIterator = __webpack_require__(54777);
 var getIterator = __webpack_require__(18554);
+var getIteratorDirect = __webpack_require__(24942);
 var getIteratorMethod = __webpack_require__(71246);
 var getMethod = __webpack_require__(58173);
 var wellKnownSymbol = __webpack_require__(5112);
 var AsyncFromSyncIterator = __webpack_require__(28091);
+var WrapAsyncIterator = __webpack_require__(86221);
 
 var ASYNC_ITERATOR = wellKnownSymbol('asyncIterator');
-
-var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
-  return anObject(apply(this.next, this.iterator, args));
-}, true);
 
 $({ target: 'AsyncIterator', stat: true, forced: true }, {
   from: function from(O) {
@@ -16971,10 +17467,24 @@ $({ target: 'AsyncIterator', stat: true, forced: true }, {
     }
     if (iterator === undefined) {
       usingIterator = getIteratorMethod(object);
-      if (usingIterator) return new AsyncFromSyncIterator(getIterator(object, usingIterator));
+      if (usingIterator) iterator = new AsyncFromSyncIterator(getIterator(object, usingIterator));
     }
-    return new AsyncIteratorProxy({ iterator: iterator !== undefined ? iterator : object });
+    return new WrapAsyncIterator(getIteratorDirect(iterator !== undefined ? iterator : object));
   }
+});
+
+
+/***/ }),
+
+/***/ 48746:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// https://github.com/tc39/proposal-iterator-helpers
+var $ = __webpack_require__(82109);
+var indexed = __webpack_require__(47520);
+
+$({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
+  indexed: indexed
 });
 
 
@@ -16987,30 +17497,49 @@ $({ target: 'AsyncIterator', stat: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
+var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 var createAsyncIteratorProxy = __webpack_require__(45348);
+var closeAsyncIteration = __webpack_require__(21753);
 
-var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
+var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise) {
   var state = this;
+  var iterator = state.iterator;
   var mapper = state.mapper;
 
-  return Promise.resolve(anObject(apply(state.next, state.iterator, args))).then(function (step) {
-    if (anObject(step).done) {
+  return new Promise(function (resolve, reject) {
+    var doneAndReject = function (error) {
       state.done = true;
-      return { done: true, value: undefined };
-    }
-    return Promise.resolve(mapper(step.value)).then(function (value) {
-      return { done: false, value: value };
-    });
+      reject(error);
+    };
+
+    var ifAbruptCloseAsyncIterator = function (error) {
+      closeAsyncIteration(iterator, doneAndReject, error, doneAndReject);
+    };
+
+    Promise.resolve(anObject(call(state.next, iterator))).then(function (step) {
+      try {
+        if (anObject(step).done) {
+          state.done = true;
+          resolve({ done: true, value: undefined });
+        } else {
+          var value = step.value;
+          try {
+            Promise.resolve(mapper(value)).then(function (mapped) {
+              resolve({ done: false, value: mapped });
+            }, ifAbruptCloseAsyncIterator);
+          } catch (error2) { ifAbruptCloseAsyncIterator(error2); }
+        }
+      } catch (error) { doneAndReject(error); }
+    }, doneAndReject);
   });
 });
 
 $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
   map: function map(mapper) {
-    return new AsyncIteratorProxy({
-      iterator: anObject(this),
+    return new AsyncIteratorProxy(getIteratorDirect(this), {
       mapper: aCallable(mapper)
     });
   }
@@ -17026,44 +17555,50 @@ $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
 var getBuiltIn = __webpack_require__(35005);
+var getIteratorDirect = __webpack_require__(24942);
+var closeAsyncIteration = __webpack_require__(21753);
 
 var Promise = getBuiltIn('Promise');
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
   reduce: function reduce(reducer /* , initialValue */) {
-    var iterator = anObject(this);
-    var next = aCallable(iterator.next);
+    var record = getIteratorDirect(this);
+    var iterator = record.iterator;
+    var next = record.next;
     var noInitial = arguments.length < 2;
     var accumulator = noInitial ? undefined : arguments[1];
     aCallable(reducer);
 
     return new Promise(function (resolve, reject) {
+      var ifAbruptCloseAsyncIterator = function (error) {
+        closeAsyncIteration(iterator, reject, error, reject);
+      };
+
       var loop = function () {
         try {
           Promise.resolve(anObject(call(next, iterator))).then(function (step) {
             try {
               if (anObject(step).done) {
-                noInitial ? reject(TypeError('Reduce of empty iterator with no initial value')) : resolve(accumulator);
+                noInitial ? reject($TypeError('Reduce of empty iterator with no initial value')) : resolve(accumulator);
               } else {
                 var value = step.value;
                 if (noInitial) {
                   noInitial = false;
                   accumulator = value;
                   loop();
-                } else {
+                } else try {
                   Promise.resolve(reducer(accumulator, value)).then(function (result) {
                     accumulator = result;
                     loop();
-                  }, reject);
-                }
+                  }, ifAbruptCloseAsyncIterator);
+                } catch (error3) { ifAbruptCloseAsyncIterator(error3); }
               }
-            } catch (err) { reject(err); }
+            } catch (error2) { reject(error2); }
           }, reject);
         } catch (error) { reject(error); }
       };
@@ -17101,33 +17636,43 @@ $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
 var call = __webpack_require__(46916);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
+var notANaN = __webpack_require__(66336);
 var toPositiveInteger = __webpack_require__(73002);
 var createAsyncIteratorProxy = __webpack_require__(45348);
 
-var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise, args) {
-  var iterator = this.iterator;
-  var returnMethod, result;
-  if (!this.remaining--) {
-    result = { done: true, value: undefined };
-    this.done = true;
+var AsyncIteratorProxy = createAsyncIteratorProxy(function (Promise) {
+  var state = this;
+  var iterator = state.iterator;
+  var returnMethod;
+
+  if (!state.remaining--) {
+    var resultDone = { done: true, value: undefined };
+    state.done = true;
     returnMethod = iterator['return'];
     if (returnMethod !== undefined) {
-      return Promise.resolve(call(returnMethod, iterator)).then(function () {
-        return result;
+      return Promise.resolve(call(returnMethod, iterator, undefined)).then(function () {
+        return resultDone;
       });
     }
-    return result;
-  } return apply(this.next, iterator, args);
+    return resultDone;
+  } return Promise.resolve(call(state.next, iterator)).then(function (step) {
+    if (anObject(step).done) {
+      state.done = true;
+      return { done: true, value: undefined };
+    } return { done: false, value: step.value };
+  }).then(null, function (error) {
+    state.done = true;
+    throw error;
+  });
 });
 
 $({ target: 'AsyncIterator', proto: true, real: true, forced: true }, {
   take: function take(limit) {
-    return new AsyncIteratorProxy({
-      iterator: anObject(this),
-      remaining: toPositiveInteger(limit)
+    return new AsyncIteratorProxy(getIteratorDirect(this), {
+      remaining: toPositiveInteger(notANaN(+limit))
     });
   }
 });
@@ -17179,13 +17724,12 @@ if (typeof BigInt == 'function') {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var apply = __webpack_require__(22104);
 var getCompositeKeyNode = __webpack_require__(10313);
 var getBuiltIn = __webpack_require__(35005);
 var create = __webpack_require__(70030);
 
-var Object = global.Object;
+var $Object = Object;
 
 var initializer = function () {
   var freeze = getBuiltIn('Object', 'freeze');
@@ -17195,7 +17739,7 @@ var initializer = function () {
 // https://github.com/tc39/proposal-richer-keys/tree/master/compositeKey
 $({ global: true, forced: true }, {
   compositeKey: function compositeKey() {
-    return apply(getCompositeKeyNode, Object, arguments).get('object', initializer);
+    return apply(getCompositeKeyNode, $Object, arguments).get('object', initializer);
   }
 });
 
@@ -17302,27 +17846,13 @@ __webpack_require__(35837);
 /***/ 85567:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
+// TODO: Remove from `core-js@4`
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
-var anObject = __webpack_require__(19670);
-var createIteratorProxy = __webpack_require__(54956);
+var indexed = __webpack_require__(14323);
 
-var IteratorProxy = createIteratorProxy(function (args) {
-  var result = anObject(apply(this.next, this.iterator, args));
-  var done = this.done = !!result.done;
-  if (!done) return [this.index++, result.value];
-});
-
-$({ target: 'Iterator', proto: true, real: true, forced: true }, {
-  asIndexedPairs: function asIndexedPairs() {
-    return new IteratorProxy({
-      iterator: anObject(this),
-      index: 0
-    });
-  }
+$({ target: 'Iterator', name: 'indexed', proto: true, real: true, forced: true }, {
+  asIndexedPairs: indexed
 });
 
 
@@ -17384,13 +17914,14 @@ $({ global: true, constructor: true, forced: FORCED }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
 var call = __webpack_require__(46916);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
+var notANaN = __webpack_require__(66336);
 var toPositiveInteger = __webpack_require__(73002);
 var createIteratorProxy = __webpack_require__(54956);
 
-var IteratorProxy = createIteratorProxy(function (args) {
+var IteratorProxy = createIteratorProxy(function () {
   var iterator = this.iterator;
   var next = this.next;
   var result, done;
@@ -17400,16 +17931,15 @@ var IteratorProxy = createIteratorProxy(function (args) {
     done = this.done = !!result.done;
     if (done) return;
   }
-  result = anObject(apply(next, iterator, args));
+  result = anObject(call(next, iterator));
   done = this.done = !!result.done;
   if (!done) return result.value;
 });
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   drop: function drop(limit) {
-    return new IteratorProxy({
-      iterator: anObject(this),
-      remaining: toPositiveInteger(limit)
+    return new IteratorProxy(getIteratorDirect(this), {
+      remaining: toPositiveInteger(notANaN(+limit))
     });
   }
 });
@@ -17426,15 +17956,15 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 var $ = __webpack_require__(82109);
 var iterate = __webpack_require__(20408);
 var aCallable = __webpack_require__(19662);
-var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   every: function every(fn) {
-    anObject(this);
+    var record = getIteratorDirect(this);
     aCallable(fn);
-    return !iterate(this, function (value, stop) {
+    return !iterate(record, function (value, stop) {
       if (!fn(value)) return stop();
-    }, { IS_ITERATOR: true, INTERRUPTED: true }).stopped;
+    }, { IS_RECORD: true, INTERRUPTED: true }).stopped;
   }
 });
 
@@ -17448,19 +17978,20 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
+var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 var createIteratorProxy = __webpack_require__(54956);
 var callWithSafeIterationClosing = __webpack_require__(53411);
 
-var IteratorProxy = createIteratorProxy(function (args) {
+var IteratorProxy = createIteratorProxy(function () {
   var iterator = this.iterator;
   var filterer = this.filterer;
   var next = this.next;
   var result, done, value;
   while (true) {
-    result = anObject(apply(next, iterator, args));
+    result = anObject(call(next, iterator));
     done = this.done = !!result.done;
     if (done) return;
     value = result.value;
@@ -17470,8 +18001,7 @@ var IteratorProxy = createIteratorProxy(function (args) {
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   filter: function filter(filterer) {
-    return new IteratorProxy({
-      iterator: anObject(this),
+    return new IteratorProxy(getIteratorDirect(this), {
       filterer: aCallable(filterer)
     });
   }
@@ -17489,15 +18019,15 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 var $ = __webpack_require__(82109);
 var iterate = __webpack_require__(20408);
 var aCallable = __webpack_require__(19662);
-var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   find: function find(fn) {
-    anObject(this);
+    var record = getIteratorDirect(this);
     aCallable(fn);
-    return iterate(this, function (value, stop) {
+    return iterate(record, function (value, stop) {
       if (fn(value)) return stop(value);
-    }, { IS_ITERATOR: true, INTERRUPTED: true }).result;
+    }, { IS_RECORD: true, INTERRUPTED: true }).result;
   }
 });
 
@@ -17511,15 +18041,15 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 var getIteratorMethod = __webpack_require__(71246);
 var createIteratorProxy = __webpack_require__(54956);
 var iteratorClose = __webpack_require__(99212);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 var IteratorProxy = createIteratorProxy(function () {
   var iterator = this.iterator;
@@ -17527,36 +18057,33 @@ var IteratorProxy = createIteratorProxy(function () {
   var result, mapped, iteratorMethod, innerIterator;
 
   while (true) {
+    if (innerIterator = this.innerIterator) try {
+      result = anObject(call(this.innerNext, innerIterator));
+      if (!result.done) return result.value;
+      this.innerIterator = this.innerNext = null;
+    } catch (error) { iteratorClose(iterator, 'throw', error); }
+
+    result = anObject(call(this.next, iterator));
+
+    if (this.done = !!result.done) return;
+
     try {
-      if (innerIterator = this.innerIterator) {
-        result = anObject(call(this.innerNext, innerIterator));
-        if (!result.done) return result.value;
-        this.innerIterator = this.innerNext = null;
-      }
-
-      result = anObject(call(this.next, iterator));
-
-      if (this.done = !!result.done) return;
-
       mapped = mapper(result.value);
       iteratorMethod = getIteratorMethod(mapped);
 
       if (!iteratorMethod) {
-        throw TypeError('.flatMap callback should return an iterable object');
+        throw $TypeError('.flatMap callback should return an iterable object');
       }
 
       this.innerIterator = innerIterator = anObject(call(iteratorMethod, mapped));
       this.innerNext = aCallable(innerIterator.next);
-    } catch (error) {
-      iteratorClose(iterator, 'throw', error);
-    }
+    } catch (error) { iteratorClose(iterator, 'throw', error); }
   }
 });
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   flatMap: function flatMap(mapper) {
-    return new IteratorProxy({
-      iterator: anObject(this),
+    return new IteratorProxy(getIteratorDirect(this), {
       mapper: aCallable(mapper),
       innerIterator: null,
       innerNext: null
@@ -17575,11 +18102,11 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
 var iterate = __webpack_require__(20408);
-var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   forEach: function forEach(fn) {
-    iterate(anObject(this), fn, { IS_ITERATOR: true });
+    iterate(getIteratorDirect(this), fn, { IS_RECORD: true });
   }
 });
 
@@ -17591,19 +18118,17 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
-var anObject = __webpack_require__(19670);
+var call = __webpack_require__(46916);
 var toObject = __webpack_require__(47908);
 var isPrototypeOf = __webpack_require__(47976);
 var IteratorPrototype = (__webpack_require__(13383).IteratorPrototype);
 var createIteratorProxy = __webpack_require__(54956);
 var getIterator = __webpack_require__(18554);
+var getIteratorDirect = __webpack_require__(24942);
 var getIteratorMethod = __webpack_require__(71246);
 
-var IteratorProxy = createIteratorProxy(function (args) {
-  var result = anObject(apply(this.next, this.iterator, args));
-  var done = this.done = !!result.done;
-  if (!done) return result.value;
+var IteratorProxy = createIteratorProxy(function () {
+  return call(this.next, this.iterator);
 }, true);
 
 $({ target: 'Iterator', stat: true, forced: true }, {
@@ -17616,8 +18141,22 @@ $({ target: 'Iterator', stat: true, forced: true }, {
       if (isPrototypeOf(IteratorPrototype, iterator)) return iterator;
     } else {
       iterator = object;
-    } return new IteratorProxy({ iterator: iterator });
+    } return new IteratorProxy(getIteratorDirect(iterator));
   }
+});
+
+
+/***/ }),
+
+/***/ 64994:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// https://github.com/tc39/proposal-iterator-helpers
+var $ = __webpack_require__(82109);
+var indexed = __webpack_require__(14323);
+
+$({ target: 'Iterator', proto: true, real: true, forced: true }, {
+  indexed: indexed
 });
 
 
@@ -17630,23 +18169,23 @@ $({ target: 'Iterator', stat: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
+var call = __webpack_require__(46916);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 var createIteratorProxy = __webpack_require__(54956);
 var callWithSafeIterationClosing = __webpack_require__(53411);
 
-var IteratorProxy = createIteratorProxy(function (args) {
+var IteratorProxy = createIteratorProxy(function () {
   var iterator = this.iterator;
-  var result = anObject(apply(this.next, iterator, args));
+  var result = anObject(call(this.next, iterator));
   var done = this.done = !!result.done;
   if (!done) return callWithSafeIterationClosing(iterator, this.mapper, result.value);
 });
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   map: function map(mapper) {
-    return new IteratorProxy({
-      iterator: anObject(this),
+    return new IteratorProxy(getIteratorDirect(this), {
       mapper: aCallable(mapper)
     });
   }
@@ -17662,28 +18201,27 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var iterate = __webpack_require__(20408);
 var aCallable = __webpack_require__(19662);
-var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   reduce: function reduce(reducer /* , initialValue */) {
-    anObject(this);
+    var record = getIteratorDirect(this);
     aCallable(reducer);
     var noInitial = arguments.length < 2;
     var accumulator = noInitial ? undefined : arguments[1];
-    iterate(this, function (value) {
+    iterate(record, function (value) {
       if (noInitial) {
         noInitial = false;
         accumulator = value;
       } else {
         accumulator = reducer(accumulator, value);
       }
-    }, { IS_ITERATOR: true });
-    if (noInitial) throw TypeError('Reduce of empty iterator with no initial value');
+    }, { IS_RECORD: true });
+    if (noInitial) throw $TypeError('Reduce of empty iterator with no initial value');
     return accumulator;
   }
 });
@@ -17700,15 +18238,15 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 var $ = __webpack_require__(82109);
 var iterate = __webpack_require__(20408);
 var aCallable = __webpack_require__(19662);
-var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   some: function some(fn) {
-    anObject(this);
+    var record = getIteratorDirect(this);
     aCallable(fn);
-    return iterate(this, function (value, stop) {
+    return iterate(record, function (value, stop) {
       if (fn(value)) return stop();
-    }, { IS_ITERATOR: true, INTERRUPTED: true }).stopped;
+    }, { IS_RECORD: true, INTERRUPTED: true }).stopped;
   }
 });
 
@@ -17722,28 +18260,29 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
-var apply = __webpack_require__(22104);
+var call = __webpack_require__(46916);
 var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
+var notANaN = __webpack_require__(66336);
 var toPositiveInteger = __webpack_require__(73002);
 var createIteratorProxy = __webpack_require__(54956);
 var iteratorClose = __webpack_require__(99212);
 
-var IteratorProxy = createIteratorProxy(function (args) {
+var IteratorProxy = createIteratorProxy(function () {
   var iterator = this.iterator;
   if (!this.remaining--) {
     this.done = true;
     return iteratorClose(iterator, 'normal', undefined);
   }
-  var result = anObject(apply(this.next, iterator, args));
+  var result = anObject(call(this.next, iterator));
   var done = this.done = !!result.done;
   if (!done) return result.value;
 });
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   take: function take(limit) {
-    return new IteratorProxy({
-      iterator: anObject(this),
-      remaining: toPositiveInteger(limit)
+    return new IteratorProxy(getIteratorDirect(this), {
+      remaining: toPositiveInteger(notANaN(+limit))
     });
   }
 });
@@ -17759,14 +18298,14 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
 var iterate = __webpack_require__(20408);
-var anObject = __webpack_require__(19670);
+var getIteratorDirect = __webpack_require__(24942);
 
 var push = [].push;
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   toArray: function toArray() {
     var result = [];
-    iterate(anObject(this), push, { that: result, IS_ITERATOR: true });
+    iterate(getIteratorDirect(this), push, { that: result, IS_RECORD: true });
     return result;
   }
 });
@@ -17782,10 +18321,12 @@ $({ target: 'Iterator', proto: true, real: true, forced: true }, {
 // https://github.com/tc39/proposal-iterator-helpers
 var $ = __webpack_require__(82109);
 var AsyncFromSyncIterator = __webpack_require__(28091);
+var WrapAsyncIterator = __webpack_require__(86221);
+var getIteratorDirect = __webpack_require__(24942);
 
 $({ target: 'Iterator', proto: true, real: true, forced: true }, {
   toAsync: function toAsync() {
-    return new AsyncFromSyncIterator(this);
+    return new WrapAsyncIterator(getIteratorDirect(new AsyncFromSyncIterator(this)));
   }
 });
 
@@ -18184,13 +18725,12 @@ $({ target: 'Map', stat: true, forced: true }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var anObject = __webpack_require__(19670);
 var aCallable = __webpack_require__(19662);
 var getMapIterator = __webpack_require__(54647);
 var iterate = __webpack_require__(20408);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `Map.prototype.reduce` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18209,7 +18749,7 @@ $({ target: 'Map', proto: true, real: true, forced: true }, {
         accumulator = callbackfn(accumulator, value, key, map);
       }
     }, { AS_ENTRIES: true, IS_ITERATOR: true });
-    if (noInitial) throw TypeError('Reduce of empty map with no initial value');
+    if (noInitial) throw $TypeError('Reduce of empty map with no initial value');
     return accumulator;
   }
 });
@@ -18268,12 +18808,11 @@ $({ target: 'Map', proto: true, real: true, name: 'upsert', forced: true }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var call = __webpack_require__(46916);
 var anObject = __webpack_require__(19670);
 var aCallable = __webpack_require__(19662);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `Set.prototype.update` method
 // https://github.com/tc39/proposal-collection-methods
@@ -18287,7 +18826,7 @@ $({ target: 'Map', proto: true, real: true, forced: true }, {
     aCallable(callback);
     var isPresentInMap = call(has, map, key);
     if (!isPresentInMap && length < 3) {
-      throw TypeError('Updating absent value');
+      throw $TypeError('Updating absent value');
     }
     var value = isPresentInMap ? call(get, map, key) : aCallable(length > 2 ? arguments[2] : undefined)(key, map);
     call(set, map, key, callback(value, key, map));
@@ -18342,7 +18881,7 @@ var $ = __webpack_require__(82109);
 
 // `Math.DEG_PER_RAD` constant
 // https://rwaldron.github.io/proposal-math-extensions/
-$({ target: 'Math', stat: true, forced: true }, {
+$({ target: 'Math', stat: true, nonConfigurable: true, nonWritable: true }, {
   DEG_PER_RAD: Math.PI / 180
 });
 
@@ -18458,7 +18997,7 @@ var $ = __webpack_require__(82109);
 
 // `Math.RAD_PER_DEG` constant
 // https://rwaldron.github.io/proposal-math-extensions/
-$({ target: 'Math', stat: true, forced: true }, {
+$({ target: 'Math', stat: true, nonConfigurable: true, nonWritable: true }, {
   RAD_PER_DEG: 180 / Math.PI
 });
 
@@ -18502,7 +19041,6 @@ $({ target: 'Math', stat: true, forced: true }, {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var anObject = __webpack_require__(19670);
 var numberIsFinite = __webpack_require__(77023);
 var createIteratorConstructor = __webpack_require__(24994);
@@ -18513,7 +19051,7 @@ var SEEDED_RANDOM_GENERATOR = SEEDED_RANDOM + ' Generator';
 var SEED_TYPE_ERROR = 'Math.seededPRNG() argument should have a "seed" field with a finite value.';
 var setInternalState = InternalStateModule.set;
 var getInternalState = InternalStateModule.getterFor(SEEDED_RANDOM_GENERATOR);
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 var $SeededRandomGenerator = createIteratorConstructor(function SeededRandomGenerator(seed) {
   setInternalState(this, {
@@ -18532,7 +19070,7 @@ var $SeededRandomGenerator = createIteratorConstructor(function SeededRandomGene
 $({ target: 'Math', stat: true, forced: true }, {
   seededPRNG: function seededPRNG(it) {
     var seed = anObject(it).seed;
-    if (!numberIsFinite(seed)) throw TypeError(SEED_TYPE_ERROR);
+    if (!numberIsFinite(seed)) throw $TypeError(SEED_TYPE_ERROR);
     return new $SeededRandomGenerator(seed);
   }
 });
@@ -18549,7 +19087,9 @@ var $ = __webpack_require__(82109);
 // https://github.com/tc39/proposal-Math.signbit
 $({ target: 'Math', stat: true, forced: true }, {
   signbit: function signbit(x) {
-    return (x = +x) == x && x == 0 ? 1 / x == -Infinity : x < 0;
+    var n = +x;
+    // eslint-disable-next-line no-self-compare -- NaN check
+    return n == n && n == 0 ? 1 / n == -Infinity : n < 0;
   }
 });
 
@@ -18587,16 +19127,15 @@ $({ target: 'Math', stat: true, forced: true }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var toIntegerOrInfinity = __webpack_require__(19303);
 var parseInt = __webpack_require__(83009);
 
 var INVALID_NUMBER_REPRESENTATION = 'Invalid number representation';
 var INVALID_RADIX = 'Invalid radix';
-var RangeError = global.RangeError;
-var SyntaxError = global.SyntaxError;
-var TypeError = global.TypeError;
+var $RangeError = RangeError;
+var $SyntaxError = SyntaxError;
+var $TypeError = TypeError;
 var valid = /^[\da-z]+$/;
 var charAt = uncurryThis(''.charAt);
 var exec = uncurryThis(valid.exec);
@@ -18609,17 +19148,17 @@ $({ target: 'Number', stat: true, forced: true }, {
   fromString: function fromString(string, radix) {
     var sign = 1;
     var R, mathNum;
-    if (typeof string != 'string') throw TypeError(INVALID_NUMBER_REPRESENTATION);
-    if (!string.length) throw SyntaxError(INVALID_NUMBER_REPRESENTATION);
+    if (typeof string != 'string') throw $TypeError(INVALID_NUMBER_REPRESENTATION);
+    if (!string.length) throw $SyntaxError(INVALID_NUMBER_REPRESENTATION);
     if (charAt(string, 0) == '-') {
       sign = -1;
       string = stringSlice(string, 1);
-      if (!string.length) throw SyntaxError(INVALID_NUMBER_REPRESENTATION);
+      if (!string.length) throw $SyntaxError(INVALID_NUMBER_REPRESENTATION);
     }
     R = radix === undefined ? 10 : toIntegerOrInfinity(radix);
-    if (R < 2 || R > 36) throw RangeError(INVALID_RADIX);
+    if (R < 2 || R > 36) throw $RangeError(INVALID_RADIX);
     if (!exec(valid, string) || numberToString(mathNum = parseInt(string, R), R) !== string) {
-      throw SyntaxError(INVALID_NUMBER_REPRESENTATION);
+      throw $SyntaxError(INVALID_NUMBER_REPRESENTATION);
     }
     return sign * mathNum;
   }
@@ -19653,13 +20192,12 @@ $({ target: 'Set', stat: true, forced: true }, {
 "use strict";
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var aCallable = __webpack_require__(19662);
 var anObject = __webpack_require__(19670);
 var getSetIterator = __webpack_require__(96767);
 var iterate = __webpack_require__(20408);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 
 // `Set.prototype.reduce` method
 // https://github.com/tc39/proposal-collection-methods
@@ -19678,7 +20216,7 @@ $({ target: 'Set', proto: true, real: true, forced: true }, {
         accumulator = callbackfn(accumulator, value, value, set);
       }
     }, { IS_ITERATOR: true });
-    if (noInitial) throw TypeError('Reduce of empty set with no initial value');
+    if (noInitial) throw $TypeError('Reduce of empty set with no initial value');
     return accumulator;
   }
 });
@@ -19848,13 +20386,12 @@ $({ target: 'String', proto: true, forced: true }, {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var $ = __webpack_require__(82109);
-var global = __webpack_require__(17854);
 var uncurryThis = __webpack_require__(1702);
 var toIndexedObject = __webpack_require__(45656);
 var toString = __webpack_require__(41340);
 var lengthOfArrayLike = __webpack_require__(26244);
 
-var TypeError = global.TypeError;
+var $TypeError = TypeError;
 var ArrayPrototype = Array.prototype;
 var push = uncurryThis(ArrayPrototype.push);
 var join = uncurryThis(ArrayPrototype.join);
@@ -19870,7 +20407,7 @@ $({ target: 'String', stat: true, forced: true }, {
     var i = 0;
     while (literalSegments > i) {
       var nextVal = cookedTemplate[i++];
-      if (nextVal === undefined) throw TypeError('Incorrect template');
+      if (nextVal === undefined) throw $TypeError('Incorrect template');
       push(elements, toString(nextVal));
       if (i === literalSegments) return join(elements, '');
       if (i < argumentsLength) push(elements, toString(arguments[i]));
@@ -19935,9 +20472,22 @@ defineWellKnownSymbol('matcher');
 
 /***/ }),
 
+/***/ 34744:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(97235);
+
+// `Symbol.metadataKey` well-known symbol
+// https://github.com/tc39/proposal-decorator-metadata
+defineWellKnownSymbol('metadataKey');
+
+
+/***/ }),
+
 /***/ 95090:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+// TODO: Remove from `core-js@4`
 var defineWellKnownSymbol = __webpack_require__(97235);
 
 // `Symbol.metadata` well-known symbol
@@ -20040,19 +20590,8 @@ exportTypedArrayMethod('filterReject', function filterReject(callbackfn /* , thi
 /***/ 1118:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
-var ArrayBufferViewCore = __webpack_require__(90260);
-var $findLastIndex = (__webpack_require__(9671).findLastIndex);
-
-var aTypedArray = ArrayBufferViewCore.aTypedArray;
-var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
-
-// `%TypedArray%.prototype.findLastIndex` method
-// https://github.com/tc39/proposal-array-find-from-last
-exportTypedArrayMethod('findLastIndex', function findLastIndex(predicate /* , thisArg */) {
-  return $findLastIndex(aTypedArray(this), predicate, arguments.length > 1 ? arguments[1] : undefined);
-});
+// TODO: Remove from `core-js@4`
+__webpack_require__(14590);
 
 
 /***/ }),
@@ -20060,19 +20599,8 @@ exportTypedArrayMethod('findLastIndex', function findLastIndex(predicate /* , th
 /***/ 37380:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-
-var ArrayBufferViewCore = __webpack_require__(90260);
-var $findLast = (__webpack_require__(9671).findLast);
-
-var aTypedArray = ArrayBufferViewCore.aTypedArray;
-var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
-
-// `%TypedArray%.prototype.findLast` method
-// https://github.com/tc39/proposal-array-find-from-last
-exportTypedArrayMethod('findLast', function findLast(predicate /* , thisArg */) {
-  return $findLast(aTypedArray(this), predicate, arguments.length > 1 ? arguments[1] : undefined);
-});
+// TODO: Remove from `core-js@4`
+__webpack_require__(63408);
 
 
 /***/ }),
@@ -20117,7 +20645,7 @@ exportTypedArrayStaticMethod('fromAsync', function fromAsync(asyncItems /* , map
 
 // TODO: Remove from `core-js@4`
 var ArrayBufferViewCore = __webpack_require__(90260);
-var $groupBy = __webpack_require__(61386);
+var $group = __webpack_require__(21191);
 var typedArraySpeciesConstructor = __webpack_require__(66304);
 
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
@@ -20127,7 +20655,7 @@ var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
 // https://github.com/tc39/proposal-array-grouping
 exportTypedArrayMethod('groupBy', function groupBy(callbackfn /* , thisArg */) {
   var thisArg = arguments.length > 1 ? arguments[1] : undefined;
-  return $groupBy(aTypedArray(this), callbackfn, thisArg, typedArraySpeciesConstructor);
+  return $group(aTypedArray(this), callbackfn, thisArg, typedArraySpeciesConstructor);
 }, true);
 
 
@@ -20143,12 +20671,12 @@ var ArrayBufferViewCore = __webpack_require__(90260);
 
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
 var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
-var TYPED_ARRAY_CONSTRUCTOR = ArrayBufferViewCore.TYPED_ARRAY_CONSTRUCTOR;
+var getTypedArrayConstructor = ArrayBufferViewCore.getTypedArrayConstructor;
 
 // `%TypedArray%.prototype.toReversed` method
 // https://tc39.es/proposal-change-array-by-copy/#sec-%typedarray%.prototype.toReversed
 exportTypedArrayMethod('toReversed', function toReversed() {
-  return arrayToReversed(aTypedArray(this), this[TYPED_ARRAY_CONSTRUCTOR]);
+  return arrayToReversed(aTypedArray(this), getTypedArrayConstructor(this));
 });
 
 
@@ -20165,8 +20693,8 @@ var aCallable = __webpack_require__(19662);
 var arrayFromConstructorAndList = __webpack_require__(97745);
 
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
+var getTypedArrayConstructor = ArrayBufferViewCore.getTypedArrayConstructor;
 var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
-var TYPED_ARRAY_CONSTRUCTOR = ArrayBufferViewCore.TYPED_ARRAY_CONSTRUCTOR;
 var sort = uncurryThis(ArrayBufferViewCore.TypedArrayPrototype.sort);
 
 // `%TypedArray%.prototype.toSorted` method
@@ -20174,7 +20702,7 @@ var sort = uncurryThis(ArrayBufferViewCore.TypedArrayPrototype.sort);
 exportTypedArrayMethod('toSorted', function toSorted(compareFn) {
   if (compareFn !== undefined) aCallable(compareFn);
   var O = aTypedArray(this);
-  var A = arrayFromConstructorAndList(O[TYPED_ARRAY_CONSTRUCTOR], O);
+  var A = arrayFromConstructorAndList(getTypedArrayConstructor(O), O);
   return sort(A, compareFn);
 });
 
@@ -20186,20 +20714,68 @@ exportTypedArrayMethod('toSorted', function toSorted(compareFn) {
 
 "use strict";
 
+// TODO: Remove from `core-js@4`
 var ArrayBufferViewCore = __webpack_require__(90260);
-var arraySlice = __webpack_require__(50206);
-var arrayToSpliced = __webpack_require__(1654);
+var lengthOfArrayLike = __webpack_require__(26244);
+var toAbsoluteIndex = __webpack_require__(51400);
+var toIntegerOrInfinity = __webpack_require__(19303);
+var fails = __webpack_require__(47293);
 
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
+var getTypedArrayConstructor = ArrayBufferViewCore.getTypedArrayConstructor;
 var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
-var TYPED_ARRAY_CONSTRUCTOR = ArrayBufferViewCore.TYPED_ARRAY_CONSTRUCTOR;
+var max = Math.max;
+var min = Math.min;
+
+// some early implementations, like WebKit, does not follow the final semantic
+var PROPER_ORDER = !fails(function () {
+  // eslint-disable-next-line es-x/no-typed-arrays -- required for testing
+  var array = new Int8Array([1]);
+
+  var spliced = array.toSpliced(1, 0, {
+    valueOf: function () {
+      array[0] = 2;
+      return 3;
+    }
+  });
+
+  return spliced[0] !== 2 || spliced[1] !== 3;
+});
 
 // `%TypedArray%.prototype.toSpliced` method
 // https://tc39.es/proposal-change-array-by-copy/#sec-%typedarray%.prototype.toSpliced
-// eslint-disable-next-line no-unused-vars -- required for .length
 exportTypedArrayMethod('toSpliced', function toSpliced(start, deleteCount /* , ...items */) {
-  return arrayToSpliced(aTypedArray(this), this[TYPED_ARRAY_CONSTRUCTOR], arraySlice(arguments));
-}, { arity: 2 });
+  var O = aTypedArray(this);
+  var C = getTypedArrayConstructor(O);
+  var len = lengthOfArrayLike(O);
+  var actualStart = toAbsoluteIndex(start, len);
+  var argumentsLength = arguments.length;
+  var k = 0;
+  var insertCount, actualDeleteCount, convertedItems, newLen, A;
+  if (argumentsLength === 0) {
+    insertCount = actualDeleteCount = 0;
+  } else if (argumentsLength === 1) {
+    insertCount = 0;
+    actualDeleteCount = len - actualStart;
+  } else {
+    actualDeleteCount = min(max(toIntegerOrInfinity(deleteCount), 0), len - actualStart);
+    insertCount = argumentsLength - 2;
+    if (insertCount) {
+      convertedItems = new C(insertCount);
+      for (var i = 2; i < argumentsLength; i++) {
+        convertedItems[i - 2] = arguments[i];
+      }
+    }
+  }
+  newLen = len + insertCount - actualDeleteCount;
+  A = new C(newLen);
+
+  for (; k < actualStart; k++) A[k] = O[k];
+  for (; k < actualStart + insertCount; k++) A[k] = convertedItems[k - actualStart];
+  for (; k < newLen; k++) A[k] = O[k + actualDeleteCount - insertCount];
+
+  return A;
+}, !PROPER_ORDER);
 
 
 /***/ }),
@@ -20234,16 +20810,33 @@ exportTypedArrayMethod('uniqueBy', function uniqueBy(resolver) {
 
 var arrayWith = __webpack_require__(11572);
 var ArrayBufferViewCore = __webpack_require__(90260);
+var isBigIntArray = __webpack_require__(44067);
+var toIntegerOrInfinity = __webpack_require__(19303);
+var toBigInt = __webpack_require__(64599);
 
 var aTypedArray = ArrayBufferViewCore.aTypedArray;
+var getTypedArrayConstructor = ArrayBufferViewCore.getTypedArrayConstructor;
 var exportTypedArrayMethod = ArrayBufferViewCore.exportTypedArrayMethod;
-var TYPED_ARRAY_CONSTRUCTOR = ArrayBufferViewCore.TYPED_ARRAY_CONSTRUCTOR;
+
+var PROPER_ORDER = !!function () {
+  try {
+    // eslint-disable-next-line no-throw-literal, es-x/no-typed-arrays -- required for testing
+    new Int8Array(1)['with'](2, { valueOf: function () { throw 8; } });
+  } catch (error) {
+    // some early implementations, like WebKit, does not follow the final semantic
+    // https://github.com/tc39/proposal-change-array-by-copy/pull/86
+    return error === 8;
+  }
+}();
 
 // `%TypedArray%.prototype.with` method
 // https://tc39.es/proposal-change-array-by-copy/#sec-%typedarray%.prototype.with
 exportTypedArrayMethod('with', { 'with': function (index, value) {
-  return arrayWith(aTypedArray(this), this[TYPED_ARRAY_CONSTRUCTOR], index, value);
-} }['with']);
+  var O = aTypedArray(this);
+  var relativeIndex = toIntegerOrInfinity(index);
+  var actualValue = isBigIntArray(O) ? toBigInt(value) : +value;
+  return arrayWith(O, getTypedArrayConstructor(O), relativeIndex, actualValue);
+} }['with'], !PROPER_ORDER);
 
 
 /***/ }),
@@ -20754,6 +21347,7 @@ for (var key in DOMExceptionConstants) if (hasOwn(DOMExceptionConstants, key)) {
 "use strict";
 
 var $ = __webpack_require__(82109);
+var global = __webpack_require__(17854);
 var getBuiltIn = __webpack_require__(35005);
 var createPropertyDescriptor = __webpack_require__(79114);
 var defineProperty = (__webpack_require__(3070).f);
@@ -20763,6 +21357,7 @@ var inheritIfRequired = __webpack_require__(79587);
 var normalizeStringArgument = __webpack_require__(56277);
 var DOMExceptionConstants = __webpack_require__(93678);
 var clearErrorStack = __webpack_require__(77741);
+var DESCRIPTORS = __webpack_require__(19781);
 var IS_PURE = __webpack_require__(31913);
 
 var DOM_EXCEPTION = 'DOMException';
@@ -20786,7 +21381,15 @@ var DOMExceptionPrototype = $DOMException.prototype = NativeDOMException.prototy
 
 var ERROR_HAS_STACK = 'stack' in Error(DOM_EXCEPTION);
 var DOM_EXCEPTION_HAS_STACK = 'stack' in new NativeDOMException(1, 2);
-var FORCED_CONSTRUCTOR = ERROR_HAS_STACK && !DOM_EXCEPTION_HAS_STACK;
+
+// eslint-disable-next-line es-x/no-object-getownpropertydescriptor -- safe
+var descriptor = NativeDOMException && DESCRIPTORS && Object.getOwnPropertyDescriptor(global, DOM_EXCEPTION);
+
+// Bun ~ 0.1.1 DOMException have incorrect descriptor and we can't redefine it
+// https://github.com/Jarred-Sumner/bun/issues/399
+var BUGGY_DESCRIPTOR = !!descriptor && !(descriptor.writable && descriptor.configurable);
+
+var FORCED_CONSTRUCTOR = ERROR_HAS_STACK && !BUGGY_DESCRIPTOR && !DOM_EXCEPTION_HAS_STACK;
 
 // `DOMException` constructor patch for `.stack` where it's required
 // https://webidl.spec.whatwg.org/#es-DOMException-specialness
@@ -20851,7 +21454,7 @@ var process = global.process;
 
 // `queueMicrotask` method
 // https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-queuemicrotask
-$({ global: true, enumerable: true, noTargetGet: true }, {
+$({ global: true, enumerable: true, dontCallGetSet: true }, {
   queueMicrotask: function queueMicrotask(fn) {
     validateArgumentsLength(arguments.length, 1);
     aCallable(fn);
@@ -20935,6 +21538,10 @@ var lengthOfArrayLike = __webpack_require__(26244);
 var validateArgumentsLength = __webpack_require__(48053);
 var getRegExpFlags = __webpack_require__(34706);
 var ERROR_STACK_INSTALLABLE = __webpack_require__(22914);
+var V8 = __webpack_require__(7392);
+var IS_BROWSER = __webpack_require__(7871);
+var IS_DENO = __webpack_require__(83823);
+var IS_NODE = __webpack_require__(35268);
 
 var Object = global.Object;
 var Date = global.Date;
@@ -20977,11 +21584,11 @@ var checkBasicSemantic = function (structuredCloneImplementation) {
   }) && structuredCloneImplementation;
 };
 
-var checkErrorsCloning = function (structuredCloneImplementation) {
+var checkErrorsCloning = function (structuredCloneImplementation, $Error) {
   return !fails(function () {
-    var error = new Error();
+    var error = new $Error();
     var test = structuredCloneImplementation({ a: error, b: error });
-    return !(test && test.a === test.b && test.a instanceof Error);
+    return !(test && test.a === test.b && test.a instanceof $Error && test.a.stack === error.stack);
   });
 };
 
@@ -20994,14 +21601,23 @@ var checkNewErrorsCloningSemantic = function (structuredCloneImplementation) {
 };
 
 // FF94+, Safari 15.4+, Chrome 98+, NodeJS 17.0+, Deno 1.13+
-// FF and Safari implementations can't clone errors
+// FF<103 and Safari implementations can't clone errors
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1556604
-// Chrome <103 returns `null` if cloned object contains multiple references to one error
+// FF103 can clone errors, but `.stack` of clone is an empty string
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1778762
+// FF104+ fixed it on usual errors, but not on DOMExceptions
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1777321
+// Chrome <102 returns `null` if cloned object contains multiple references to one error
 // https://bugs.chromium.org/p/v8/issues/detail?id=12542
-// no one of current implementations supports new (html/5749) error cloning semantic
+// NodeJS implementation can't clone DOMExceptions
+// https://github.com/nodejs/node/issues/41038
+// only FF103+ supports new (html/5749) error cloning semantic
 var nativeStructuredClone = global.structuredClone;
 
-var FORCED_REPLACEMENT = IS_PURE || !checkErrorsCloning(nativeStructuredClone) || !checkNewErrorsCloningSemantic(nativeStructuredClone);
+var FORCED_REPLACEMENT = IS_PURE
+  || !checkErrorsCloning(nativeStructuredClone, Error)
+  || !checkErrorsCloning(nativeStructuredClone, DOMException)
+  || !checkNewErrorsCloningSemantic(nativeStructuredClone);
 
 // Chrome 82+, Safari 14.1+, Deno 1.11+
 // Chrome 78-81 implementation swaps `.name` and `.message` of cloned `DOMException`
@@ -21013,7 +21629,7 @@ var FORCED_REPLACEMENT = IS_PURE || !checkErrorsCloning(nativeStructuredClone) |
 // NodeJS <17.2 structured cloning implementation from `performance.mark` is too naive
 // and can't clone, for example, `RegExp` or some boxed primitives
 // https://github.com/nodejs/node/issues/40840
-// no one of current implementations supports new (html/5749) error cloning semantic
+// no one of those implementations supports new (html/5749) error cloning semantic
 var structuredCloneFromMark = !nativeStructuredClone && checkBasicSemantic(function (value) {
   return new PerformanceMark(PERFORMANCE_MARK, { detail: value }).detail;
 });
@@ -21313,6 +21929,9 @@ var structuredCloneInternal = function (value, map) {
 };
 
 var PROPER_TRANSFER = nativeStructuredClone && !fails(function () {
+  // prevent V8 ArrayBufferDetaching protector cell invalidation and performance degradation
+  // https://github.com/zloirock/core-js/issues/679
+  if ((IS_DENO && V8 > 92) || (IS_NODE && V8 > 94) || (IS_BROWSER && V8 > 97)) return false;
   var buffer = new ArrayBuffer(8);
   var clone = nativeStructuredClone(buffer, { transfer: [buffer] });
   return buffer.byteLength != 0 || clone.byteLength != 8;
@@ -21771,7 +22390,7 @@ if (!USE_NATIVE_URL && isCallable(Headers)) {
   };
 
   if (isCallable(nativeFetch)) {
-    $({ global: true, enumerable: true, noTargetGet: true, forced: true }, {
+    $({ global: true, enumerable: true, dontCallGetSet: true, forced: true }, {
       fetch: function fetch(input /* , init */) {
         return nativeFetch(input, arguments.length > 1 ? wrapRequestOptions(arguments[1]) : {});
       }
@@ -21787,7 +22406,7 @@ if (!USE_NATIVE_URL && isCallable(Headers)) {
     RequestPrototype.constructor = RequestConstructor;
     RequestConstructor.prototype = RequestPrototype;
 
-    $({ global: true, constructor: true, noTargetGet: true, forced: true }, {
+    $({ global: true, constructor: true, dontCallGetSet: true, forced: true }, {
       Request: RequestConstructor
     });
   }
@@ -22902,6 +23521,13 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 
 /***/ }),
 
+/***/ 89461:
+/***/ ((module) => {
+
+module.exports = "<div class=\"circle-nav-area mapboxgl-ctrl\">\n    <ul class=\"circle-nav\">\n        <li class=\"air-quality\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapForecastModal.html\"\n                target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Weather\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"boundaries-menu\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapAQIBoundaries.html\"\n                target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Boundaries\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"share-menu\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\" target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Share\"></div>\n            </a>\n            <ul class=\"circle-nav share-menu\">\n                <li class=\"facebook\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Facebook\"></div>\n                    </a>\n                </li>\n                <li class=\"twitter\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Twitter\"></div>\n                    </a>\n                </li>\n                <li class=\"email\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Email\"></div>\n                    </a>\n                </li>\n                <li class=\"print\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Print\"></div>\n                    </a>\n                </li>\n            </ul>\n        </li>\n    </ul>\n</div>\n";
+
+/***/ }),
+
 /***/ 49176:
 /***/ ((module) => {
 
@@ -23003,7 +23629,14 @@ module.exports = "<h3>\n    <i class=\"fas fa-users\"></i>\n    Impacted Communi
 /***/ 38275:
 /***/ ((module) => {
 
-module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig, css: {\n    'fullscreen': isFullscreen,\n    'no-fullscreen': !isFullscreen()\n}\">\n    <div class=\"mapboxgl-ctrl-fullscreen-btn\">\n        <a class=\"flscrn-btn\" data-bind=\"click: function () {\n                isFullscreen(true);\n            }\">\n            <!-- <div class=\"center-btn-cntnt\">\n                <div class=\"flscrn-btn-txt\">Tap to Expand</div>\n                <div class=\"flscrn-btn-icon icomoon icon-Expand\"></div>\n            </div> -->\n        </a>\n    </div>\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-map\" data-bind=\"mapboxgl: mapConfig, css: {\n    'fullscreen': isFullscreen,\n    'no-fullscreen': !isFullscreen()\n}\">\n    <!-- ko if: mobileMode && !mobileFullscreen -->\n    <div class=\"mapboxgl-ctrl-fullscreen-btn\">\n        <a class=\"flscrn-btn\" data-bind=\"attr: { href: fullscreenURL }\" target=\"_self\">\n            <div class=\"center-btn-cntnt\">\n                <div class=\"flscrn-btn-txt\">Tap to Expand</div>\n                <div class=\"flscrn-btn-icon icomoon icon-Expand\"></div>\n            </div>\n        </a>\n    </div>\n    <!-- /ko -->\n    <!-- ko if: mobileMode && mobileFullscreen -->\n    <div class=\"mapboxgl-ctrl-bottom\">\n        <div class=\"aqi-slide-up aqi-default-pos\">\n            <div class=\"sta-key-row\">\n                <div class=\"sta-label\">Region Wide Alert</div>\n                <div class=\"sta-key-area\">\n                    <div class=\"sta-key-box\"></div>\n                </div>\n            </div>\n            <div class=\"aqi-header\">\n                <div class=\"aqi-date\">Showing: May 5, 2021</div>\n                <div class=\"slider-btns\">\n                    <a class=\"slider-btn icomoon icon-SlideDown\"></a>\n                    <a class=\"slider-btn icomoon icon-SlideUp\"\n                        href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapAQIMid.html\"\n                        target=\"_self\"></a>\n                </div>\n            </div>\n            <div class=\"aqi-key-btn\">\n                <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapAQIMid.html\" target=\"_self\">\n                    <div class=\"aqi-key-btn-inner\">\n                        <div class=\"center-text\">\n                            <div class=\"aqi-key-btn-icon icomoon icon-AQI\"></div>\n                            <div class=\"aqi-key-btn-text\">Air Quality Index Key</div>\n                        </div>\n                    </div>\n                </a>\n            </div>\n            <div class=\"aqi-key-rows\">\n                <ul class=\"aqi-key-list\">\n                    <li class=\"good\">\n                        <div class=\"center-text\">\n                            <div class=\"aqi-key-name\">Good</div>\n                            <div class=\"aqi-key-number\">(0 - 50)</div>\n                        </div>\n                        <div class=\"aqi-descript\">No health impacts are expected when air quality is in this range.</div>\n                    </li>\n                    <li class=\"moderate\">\n                        <div class=\"center-text\">\n                            <div class=\"aqi-key-name\">Moderate</div>\n                            <div class=\"aqi-key-number\">(51 - 100)</div>\n                        </div>\n                        <div class=\"aqi-descript\">Unusually sensitive people should consider limiting prolonged outdoor\n                            exertion.</div>\n                    </li>\n                    <li class=\"unhealthy-for-sensitive-groups\">\n                        <div class=\"center-text\">\n                            <div class=\"aqi-key-name\">Unhealthy for Sensitive Groups</div>\n                            <div class=\"aqi-key-number\">(101 - 150)</div>\n                        </div>\n                        <div class=\"aqi-descript\">Active children and adults, and people with respiratory disease, such as\n                            asthma, should limit outdoor exertion.</div>\n                    </li>\n                    <li class=\"unhealthy\">\n                        <div class=\"center-text\">\n                            <div class=\"aqi-key-name\">Unhealthy</div>\n                            <div class=\"aqi-key-number\">(151 - 200)</div>\n                        </div>\n                        <div class=\"aqi-descript\">Active children and adults, and people with respiratory disease, such as\n                            asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should\n                            limit prolonged outdoor exertion.</div>\n                    </li>\n                    <li class=\"very-unhealthy\">\n                        <div class=\"center-text\">\n                            <div class=\"aqi-key-name\">Very Unhealthy</div>\n                            <div class=\"aqi-key-number\">(201 - 300)</div>\n                        </div>\n                        <div class=\"aqi-descript\">Active children and adults, and people with respiratory disease, such as\n                            asthma, should avoid all outdoor exertion; everyone else, especially children, should limit\n                            outdoor exertion.</div>\n                    </li>\n                    <li class=\"hazardous\">\n                        <div class=\"center-text\">\n                            <div class=\"aqi-key-name\">Hazardous</div>\n                            <div class=\"aqi-key-number\">(301 - 500)</div>\n                        </div>\n                        <div class=\"aqi-descript\">Pollution is hazardous at these levels. Everyone should take steps to\n                            reduce their exposure when particle pollution levels are in this range.</div>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"aqi-btn-area\">\n                <a class=\"aqi-more-info-btn\"\n                    href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapAQIFull.html\" target=\"_self\">\n                    <div class=\"center-text\">\n                        <div class=\"aqi-more-btn-icon icomoon icon-Info\"></div>\n                        <div class=\"aqi-more-btn-text\">More AQI Information</div>\n                    </div>\n\n                </a>\n            </div>\n        </div>\n    </div>\n    <!-- /ko -->\n</div>\n";
+
+/***/ }),
+
+/***/ 36363:
+/***/ ((module) => {
+
+module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group\">\n    <button class=\"mapboxgl-ctrl-shrink\" type=\"button\" aria-label=\"Exit fullscreen\">\n        <span class=\"mapboxgl-ctrl-icon\" aria-hidden=\"true\" title=\"Exit fullscreen\"></span>\n    </button>\n</div>\n";
 
 /***/ }),
 
@@ -23094,7 +23727,7 @@ module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group act-zoom-hover\
 /***/ 25215:
 /***/ ((module) => {
 
-module.exports = "<div class=\"baaqmd-maps-main\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            enableMapTypeSelector: enableMapTypeSelector,\n            mapTypes: mapTypes,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            detailsActive: detailsActive\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            accessToken: accessToken\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { closeInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"collapse-information-panel\" title=\"Collapse\" data-bind=\"click: function() { closeInfoPanel(false); }, visible: popup()\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <button class=\"close-information-panel\" title=\"Close\" data-bind=\"click: function() { closeInfoPanel(true); }\">x</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n                }\"></div>\n                <div data-bind=\"component: {\n                    name: 'scroll-hint',\n                    params: {\n                        getScrollContent: getScrollContent\n                    }\n                }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-main\" data-bind=\"css: {'baaqmd-maps-mobile': mobileMode}\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            enableMapTypeSelector: enableMapTypeSelector,\n            mapTypes: mapTypes,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            detailsActive: detailsActive,\n            mobileMode: mobileMode\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            accessToken: accessToken,\n            mobileMode: mobileMode,\n            mobileFullscreen: mobileFullscreen,\n            fullscreenURL: fullscreenURL\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { closeInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"collapse-information-panel\" title=\"Collapse\" data-bind=\"click: function() { closeInfoPanel(false); }, visible: popup()\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <button class=\"close-information-panel\" title=\"Close\" data-bind=\"click: function() { closeInfoPanel(true); }\">x</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n                }\"></div>\n                <div data-bind=\"component: {\n                    name: 'scroll-hint',\n                    params: {\n                        getScrollContent: getScrollContent\n                    }\n                }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
 
 /***/ }),
 
@@ -28385,7 +29018,7 @@ var core_js = __webpack_require__(81486);
 // EXTERNAL MODULE: ./node_modules/knockout/build/output/knockout-latest.js
 var knockout_latest = __webpack_require__(48527);
 ;// CONCATENATED MODULE: ./src/config.json
-const config_namespaceObject = JSON.parse('{"prodRoot":"https://www.baaqmd.gov/","accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","facilitiesJSONURL":"https://baaqmdpsuat.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2019-12-12&st=2021-02-18T20:16:09Z&se=2022-02-19T20:16:00Z&sr=b&sp=r&sig=KHAE1u%2BwFe7qa4ItImKXLIkpAID9CeMPP4Omt1D9k1c%3D","facilityTilesetId":"8hovmgli","clusteredFacilityTilesetId":"8q4j3kqu","facilitiesClusterDistance":30,"facilitiesJSONPath":"./data/facilities/facilities.json","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"Feeds/Air-Forecast-Map","spaRSSFeed":"Feeds/TwoDayMapAlertRSS","openBurnRSSFeed":"Feeds/Open-Burn-Map","helpContentURL":"Utils/Interactive-Map-Content/Help","aqiInfoURL":"Utils/Interactive-Map-Content/AQI","aboutForecastURL":"Utils/Interactive-Map-Content/About-Forecast","pollutantInfoURL":"Utils/Interactive-Map-Content/Pollutant","openBurnStatusInfoURL":"Utils/Interactive-Map-Content/OBS-Info","aboutImpactedCommunitiesURL":"Utils/Interactive-Map-Content/CARE-Info","aboutOverburdenedCommunitiesURL":"Utils/Interactive-Map-Content/Overburdened-Info","pinLocationsHelpURL":"Utils/Interactive-Map-Content/Pin-Locations-Help","aboutFacilitiesURL":"Utils/Interactive-Map-Content/About-Facility","summerModalURL":"Utils/Interactive-Map-Content/Summer-Modal-Content","winterModalURL":"Utils/Interactive-Map-Content/Winter-Modal-Content","airDistrictStationDataURL":"Utils/Interactive-Map-Content/Air-District-Stations","facilityGLMStationDataURL":"Utils/Interactive-Map-Content/Facility-GLM-Stations","meteorologicalSiteDataURL":"Utils/Interactive-Map-Content/Meteorological-Sites","historicalDocRootURL":"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/","zoom":7,"center":[-122.11157519531474,37.900063508510144],"districtBounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"mainMapPage":"https://baaqmd.fargeo-dev.com/dist/","mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh","label":"Air Quality Forecast Map"},"Monitoring":{"style":"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47","label":"Air Quality Monitoring Map"},"Facilities":{"style":"baaqmd-publicmaps/cklcnrb7g2hwq17notzudstpy","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"OpenBurning":{"style":"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb","label":"Open Burning Map"},"OverburdenedCommunities":{"style":"baaqmd-publicmaps/cl1uz2h47000415qsdkln1ze2","label":"Overburdened Areas Map"}}}');
+const config_namespaceObject = JSON.parse('{"prodRoot":"https://www.baaqmd.gov/","accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","facilitiesJSONURL":"https://baaqmdpsuat.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2019-12-12&st=2021-02-18T20:16:09Z&se=2022-02-19T20:16:00Z&sr=b&sp=r&sig=KHAE1u%2BwFe7qa4ItImKXLIkpAID9CeMPP4Omt1D9k1c%3D","facilityTilesetId":"8hovmgli","clusteredFacilityTilesetId":"8q4j3kqu","facilitiesClusterDistance":30,"facilitiesJSONPath":"./data/facilities/facilities.json","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"Feeds/Air-Forecast-Map","spaRSSFeed":"Feeds/TwoDayMapAlertRSS","openBurnRSSFeed":"Feeds/Open-Burn-Map","helpContentURL":"Utils/Interactive-Map-Content/Help","aqiInfoURL":"Utils/Interactive-Map-Content/AQI","aboutForecastURL":"Utils/Interactive-Map-Content/About-Forecast","pollutantInfoURL":"Utils/Interactive-Map-Content/Pollutant","openBurnStatusInfoURL":"Utils/Interactive-Map-Content/OBS-Info","aboutImpactedCommunitiesURL":"Utils/Interactive-Map-Content/CARE-Info","aboutOverburdenedCommunitiesURL":"Utils/Interactive-Map-Content/Overburdened-Info","pinLocationsHelpURL":"Utils/Interactive-Map-Content/Pin-Locations-Help","aboutFacilitiesURL":"Utils/Interactive-Map-Content/About-Facility","summerModalURL":"Utils/Interactive-Map-Content/Summer-Modal-Content","winterModalURL":"Utils/Interactive-Map-Content/Winter-Modal-Content","airDistrictStationDataURL":"Utils/Interactive-Map-Content/Air-District-Stations","facilityGLMStationDataURL":"Utils/Interactive-Map-Content/Facility-GLM-Stations","meteorologicalSiteDataURL":"Utils/Interactive-Map-Content/Meteorological-Sites","historicalDocRootURL":"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/","zoom":7,"center":[-122.11157519531474,37.900063508510144],"districtBounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"fullscreenURL":"/mobile-fullscreen.html","mainMapPage":"https://baaqmd.fargeo-dev.com/dist/","mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh","label":"Air Quality Forecast Map"},"Monitoring":{"style":"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47","label":"Air Quality Monitoring Map"},"Facilities":{"style":"baaqmd-publicmaps/cklcnrb7g2hwq17notzudstpy","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"OpenBurning":{"style":"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb","label":"Open Burning Map"},"OverburdenedCommunities":{"style":"baaqmd-publicmaps/cl1uz2h47000415qsdkln1ze2","label":"Overburdened Areas Map"}}}');
 // EXTERNAL MODULE: ./src/main.html
 var main = __webpack_require__(25215);
 // EXTERNAL MODULE: ./src/components/aqi-forecast/template.html
@@ -28402,6 +29035,8 @@ var winter_modal = __webpack_require__(95366);
 var pollutant_info_panel = __webpack_require__(49176);
 // EXTERNAL MODULE: ./src/components/aqi-forecast/forecast-panel.html
 var forecast_panel = __webpack_require__(85721);
+// EXTERNAL MODULE: ./src/components/aqi-forecast/mobile-menu.html
+var mobile_menu = __webpack_require__(89461);
 // EXTERNAL MODULE: ./node_modules/mapbox-gl/dist/mapbox-gl.js
 var mapbox_gl = __webpack_require__(6158);
 // EXTERNAL MODULE: ./src/templates/scroll-for-more.html
@@ -28420,6 +29055,7 @@ function MapDetailsPanel(params) {
   this.mapType = params.mapType;
   this.map = params.map;
   this.showInfoPanel = params.showInfoPanel;
+  this.mobileMode = params.mobileMode;
   this.mainExpanded = knockout_latest.observable(true);
   this.boundariesExpanded = knockout_latest.observable(true);
 
@@ -28589,6 +29225,13 @@ function fetchHTML(url, content) {
   return content;
 }
 ;// CONCATENATED MODULE: ./src/components/aqi-forecast/index.js
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+
 
 
 
@@ -28756,6 +29399,33 @@ knockout_latest.components.register('PollutantInfoPanel', {
   },
   template: pollutant_info_panel
 });
+
+var AQIMobileMenu = /*#__PURE__*/function () {
+  function AQIMobileMenu() {
+    _classCallCheck(this, AQIMobileMenu);
+  }
+
+  _createClass(AQIMobileMenu, [{
+    key: "onAdd",
+    value: function onAdd(map) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(mobile_menu, "text/html");
+      var el = doc.body.removeChild(doc.body.firstChild);
+      this.map = map;
+      this.container = el;
+      return this.container;
+    }
+  }, {
+    key: "onRemove",
+    value: function onRemove() {
+      this.container.parentNode.removeChild(this.container);
+      this.map = undefined;
+    }
+  }]);
+
+  return AQIMobileMenu;
+}();
+
 /* harmony default export */ const aqi_forecast = (knockout_latest.components.register('AQIForecast', {
   viewModel: function viewModel(params) {
     var _this = this;
@@ -28848,6 +29518,8 @@ knockout_latest.components.register('PollutantInfoPanel', {
       }
 
       _this.layers.counties.flag(false);
+
+      if (_this.mobileMode) map.addControl(new AQIMobileMenu(), 'top-left');
     };
 
     this.showSTAModal = function () {
@@ -29647,20 +30319,20 @@ knockout_latest.bindingHandlers.mapboxgl = {
 // EXTERNAL MODULE: ./src/components/zoom-control/template.html
 var zoom_control_template = __webpack_require__(16007);
 ;// CONCATENATED MODULE: ./src/components/zoom-control/index.js
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function zoom_control_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function zoom_control_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function zoom_control_createClass(Constructor, protoProps, staticProps) { if (protoProps) zoom_control_defineProperties(Constructor.prototype, protoProps); if (staticProps) zoom_control_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
 var ZoomControl = /*#__PURE__*/function () {
   function ZoomControl() {
-    _classCallCheck(this, ZoomControl);
+    zoom_control_classCallCheck(this, ZoomControl);
   }
 
-  _createClass(ZoomControl, [{
+  zoom_control_createClass(ZoomControl, [{
     key: "onAdd",
     value: function onAdd(map) {
       var parser = new DOMParser();
@@ -29753,6 +30425,49 @@ var HelpControl = /*#__PURE__*/function () {
 }();
 
 
+// EXTERNAL MODULE: ./src/components/mobile-fullscreen-control/template.html
+var mobile_fullscreen_control_template = __webpack_require__(36363);
+;// CONCATENATED MODULE: ./src/components/mobile-fullscreen-control/index.js
+function mobile_fullscreen_control_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function mobile_fullscreen_control_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function mobile_fullscreen_control_createClass(Constructor, protoProps, staticProps) { if (protoProps) mobile_fullscreen_control_defineProperties(Constructor.prototype, protoProps); if (staticProps) mobile_fullscreen_control_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+
+
+var MobileFullscreenControl = /*#__PURE__*/function () {
+  function MobileFullscreenControl() {
+    mobile_fullscreen_control_classCallCheck(this, MobileFullscreenControl);
+  }
+
+  mobile_fullscreen_control_createClass(MobileFullscreenControl, [{
+    key: "onAdd",
+    value: function onAdd(map) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(mobile_fullscreen_control_template, "text/html");
+      var el = doc.body.removeChild(doc.body.firstChild);
+      this.map = map;
+      this.container = el;
+
+      this.container.onclick = function () {
+        history.back();
+      };
+
+      return this.container;
+    }
+  }, {
+    key: "onRemove",
+    value: function onRemove() {
+      this.container.parentNode.removeChild(this.container);
+      this.map = undefined;
+    }
+  }]);
+
+  return MobileFullscreenControl;
+}();
+
+
 // EXTERNAL MODULE: ./src/components/fullscreen-help/template.html
 var fullscreen_help_template = __webpack_require__(81060);
 ;// CONCATENATED MODULE: ./src/components/fullscreen-help/index.js
@@ -29823,6 +30538,7 @@ var FullscreenHelp = /*#__PURE__*/function () {
 
 
 
+
 var mapboxQuery =  true ? '' : 0;
 /* harmony default export */ const map = (knockout_latest.components.register('map', {
   viewModel: function viewModel(params) {
@@ -29832,12 +30548,17 @@ var mapboxQuery =  true ? '' : 0;
     this.detailsExpanded = params.detailsExpanded || knockout_latest.observable(false);
     this.accessToken = params.accessToken || config_namespaceObject.accessToken;
     mapboxQuery = '?access_token=' + this.accessToken + mapboxQuery;
+    this.fullscreenURL = params.fullscreenURL || config_namespaceObject.fullscreenURL;
+    this.mobileFullscreen = params.mobileFullscreen;
+    this.mobileMode = params.mobileMode;
     this.style = config_namespaceObject.apiURI + config_namespaceObject.mapTypes[params.mapType()].style + mapboxQuery;
     this.customAttribution = '<a href="http://www.baaqmd.gov" target="_blank">© BAAQMD</a>';
-    this.isFullscreen = knockout_latest.observable(false);
+    this.isFullscreen = knockout_latest.observable(this.mobileFullscreen);
     this.isFullscreen.subscribe(function (isFullscreen) {
       if (_this.map && _this.fullscreenControl) {
-        if (_this.fullscreenControl._fullscreen !== isFullscreen) {
+        if (_this.mobileFullscreen) {
+          history.back();
+        } else if (_this.fullscreenControl._fullscreen !== isFullscreen) {
           _this.fullscreenControl._onClickFullscreen();
         }
       }
@@ -29863,7 +30584,7 @@ var mapboxQuery =  true ? '' : 0;
       _this.fullscreenControl = new mapbox_gl.FullscreenControl({
         container: params.container
       });
-      map.addControl(_this.fullscreenControl);
+      if (_this.mobileFullscreen) map.addControl(new MobileFullscreenControl());else map.addControl(_this.fullscreenControl);
       map.addControl(new mapbox_gl.ScaleControl({
         unit: 'imperial'
       }));
@@ -29999,6 +30720,7 @@ knockout_latest.bindingHandlers.choices = {
     this.enableMapTypeSelector = params.enableMapTypeSelector;
     this.rootURL = params.rootURL;
     this.detailsActive = params.detailsActive;
+    this.mobileMode = params.mobileMode;
     this.mapTypeSelector = knockout_latest.observable();
     this.mapTypeSelectorExpanded = knockout_latest.observable();
 
@@ -30216,9 +30938,12 @@ function Map(opts) {
   if (typeof opts.sidePanelExpanded !== 'boolean') opts.sidePanelExpanded = true; // private members
 
   this.accessToken = opts.accessToken;
+  this.mobileMode = opts.mobile;
   this.detailsExpanded = knockout_latest.observable(opts.sidePanelExpanded);
   this.detailsActive = knockout_latest.observable(opts.sidePanel);
   this.enableMapTypeSelector = opts.enableMapTypeSelector;
+  this.fullscreenURL = opts.fullscreenURL || config_namespaceObject.fullscreenURL;
+  this.mobileFullscreen = opts.mobileFullscreen || false;
   var mapTypes = Object.keys(config_namespaceObject.mapTypes);
 
   if (Array.isArray(opts.mapType) && opts.mapType.length > 0) {
