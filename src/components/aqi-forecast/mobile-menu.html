@@ -15,32 +15,50 @@
             </a>
         </li>
         <div class="clear"></div>
-        <li class="share-menu">
-            <a href="http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html" target="_self">
+        <li class="share-menu" data-bind="css: {
+            'active': showSocialButtons
+        }">
+            <a href="#" data-bind="click: function() {
+                showSocialButtons(!showSocialButtons());
+            }">
                 <div class="map-menu-icon icomoon icon-Share"></div>
             </a>
             <ul class="circle-nav share-menu">
                 <li class="facebook">
-                    <a href="http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html"
-                        target="_self">
+                    <a target="_blank" data-bind="attr: {
+                        'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')
+                    }, click: function() {
+                        showSocialButtons(false);
+                        return true;
+                    }">
                         <div class="map-menu-icon icomoon icon-Facebook"></div>
                     </a>
                 </li>
                 <li class="twitter">
-                    <a href="http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html"
-                        target="_self">
+                    <a target="_blank" data-bind="attr: {
+                        'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')
+                    }, click: function() {
+                        showSocialButtons(false);
+                        return true;
+                    }">
                         <div class="map-menu-icon icomoon icon-Twitter"></div>
                     </a>
                 </li>
                 <li class="email">
-                    <a href="http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html"
-                        target="_self">
+                    <a data-bind="attr: {
+                        'href': 'mailto:?body=' + mapLink().split('&').join('%26')
+                    }, click: function() {
+                        showSocialButtons(false);
+                        return true;
+                    }">
                         <div class="map-menu-icon icomoon icon-Email"></div>
                     </a>
                 </li>
                 <li class="print">
-                    <a href="http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html"
-                        target="_self">
+                    <a href="javascript: void(0)" data-bind=", click: function() {
+                        print();
+                        showSocialButtons(false);
+                    }">
                         <div class="map-menu-icon icomoon icon-Print"></div>
                     </a>
                 </li>

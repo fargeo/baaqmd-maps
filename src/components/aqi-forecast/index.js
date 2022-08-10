@@ -174,9 +174,13 @@ ko.components.register('PollutantInfoPanel', {
     template: pollutantInfoPanelTemplate
 });
 
+
 class AQIMobileMenu {
-    constructor(parent) {
+    constructor(parent, params) {
+        this.print = params.print;
+        this.mapLink = params.mapLink;
         this.showInfoPopup = parent.showInfoPopup;
+        this.showSocialButtons = ko.observable(false);
     }
     onAdd(map) {
         const parser = new DOMParser();
@@ -293,7 +297,7 @@ export default ko.components.register('AQIForecast', {
                 });
             }
             this.layers.counties.flag(false);
-            if (this.mobileMode) map.addControl(new AQIMobileMenu(this), 'top-left');
+            if (this.mobileMode) map.addControl(new AQIMobileMenu(this, params), 'top-left');
         };
 
         this.showSTAModal = () => {

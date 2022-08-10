@@ -63,7 +63,7 @@ export default ko.components.register('details-panel', {
         };
         let printData;
         let mapboxLogo;
-        this.print = function() {
+        this.print = () => {
             let map = this.map();
             if (map && !detectIE()) {
                 const printWindow = window.open('', 'BAAQMD Maps', 'height=600,width=800');
