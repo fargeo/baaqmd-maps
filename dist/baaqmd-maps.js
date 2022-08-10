@@ -23531,7 +23531,7 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 /***/ 89461:
 /***/ ((module) => {
 
-module.exports = "<div class=\"circle-nav-area mapboxgl-ctrl\">\n    <ul class=\"circle-nav\">\n        <li class=\"air-quality\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapForecastModal.html\"\n                target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Weather\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"boundaries-menu\">\n            <a href=\"#\" data-bind=\"click: function() {\n                    showInfoPopup('BoundariesPopup');\n                }\">\n                <div class=\"map-menu-icon icomoon icon-Boundaries\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"share-menu\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\" target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Share\"></div>\n            </a>\n            <ul class=\"circle-nav share-menu\">\n                <li class=\"facebook\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Facebook\"></div>\n                    </a>\n                </li>\n                <li class=\"twitter\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Twitter\"></div>\n                    </a>\n                </li>\n                <li class=\"email\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Email\"></div>\n                    </a>\n                </li>\n                <li class=\"print\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Print\"></div>\n                    </a>\n                </li>\n            </ul>\n        </li>\n    </ul>\n</div>\n";
+module.exports = "<div class=\"circle-nav-area mapboxgl-ctrl\">\n    <ul class=\"circle-nav\">\n        <li class=\"air-quality\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapForecastModal.html\"\n                target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Weather\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"boundaries-menu\">\n            <a href=\"#\" data-bind=\"click: function() {\n                    showInfoPopup('BoundariesPopup');\n                }\">\n                <div class=\"map-menu-icon icomoon icon-Boundaries\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"share-menu\" data-bind=\"css: {\n            'active': showSocialButtons\n        }\">\n            <a href=\"#\" data-bind=\"click: function() {\n                showSocialButtons(!showSocialButtons());\n            }\">\n                <div class=\"map-menu-icon icomoon icon-Share\"></div>\n            </a>\n            <ul class=\"circle-nav share-menu\">\n                <li class=\"facebook\">\n                    <a target=\"_blank\" data-bind=\"attr: {\n                        'href': 'https://www.facebook.com/sharer/sharer.php?u=' + mapLink().split('&').join('%26')\n                    }, click: function() {\n                        showSocialButtons(false);\n                        return true;\n                    }\">\n                        <div class=\"map-menu-icon icomoon icon-Facebook\"></div>\n                    </a>\n                </li>\n                <li class=\"twitter\">\n                    <a target=\"_blank\" data-bind=\"attr: {\n                        'href': 'https://twitter.com/intent/tweet?url=' + mapLink().split('&').join('%26')\n                    }, click: function() {\n                        showSocialButtons(false);\n                        return true;\n                    }\">\n                        <div class=\"map-menu-icon icomoon icon-Twitter\"></div>\n                    </a>\n                </li>\n                <li class=\"email\">\n                    <a data-bind=\"attr: {\n                        'href': 'mailto:?body=' + mapLink().split('&').join('%26')\n                    }, click: function() {\n                        showSocialButtons(false);\n                        return true;\n                    }\">\n                        <div class=\"map-menu-icon icomoon icon-Email\"></div>\n                    </a>\n                </li>\n                <li class=\"print\">\n                    <a href=\"javascript: void(0)\" data-bind=\", click: function() {\n                        print();\n                        showSocialButtons(false);\n                    }\">\n                        <div class=\"map-menu-icon icomoon icon-Print\"></div>\n                    </a>\n                </li>\n            </ul>\n        </li>\n    </ul>\n</div>\n";
 
 /***/ }),
 
@@ -29419,10 +29419,13 @@ knockout_latest.components.register('PollutantInfoPanel', {
 });
 
 var AQIMobileMenu = /*#__PURE__*/function () {
-  function AQIMobileMenu(parent) {
+  function AQIMobileMenu(parent, params) {
     _classCallCheck(this, AQIMobileMenu);
 
+    this.print = params.print;
+    this.mapLink = params.mapLink;
     this.showInfoPopup = parent.showInfoPopup;
+    this.showSocialButtons = knockout_latest.observable(false);
   }
 
   _createClass(AQIMobileMenu, [{
@@ -29542,7 +29545,7 @@ var AQIMobileMenu = /*#__PURE__*/function () {
 
       _this.layers.counties.flag(false);
 
-      if (_this.mobileMode) map.addControl(new AQIMobileMenu(_this), 'top-left');
+      if (_this.mobileMode) map.addControl(new AQIMobileMenu(_this, params), 'top-left');
     };
 
     this.showSTAModal = function () {
@@ -30810,7 +30813,7 @@ knockout_latest.bindingHandlers.choices = {
     var mapboxLogo;
 
     this.print = function () {
-      var map = this.map();
+      var map = _this.map();
 
       if (map && !detectIE()) {
         var printWindow = window.open('', 'BAAQMD Maps', 'height=600,width=800');
