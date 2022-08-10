@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <div class="hdr-icon icomoon icon-Boundaries"></div>
+        <div class="hdr-txt">Boundaries</div>
+        <a class="close-btn icomoon icon-Close" href="#" data-bind="click: function() {
+            showInfoPopup(null);
+        }"></a>
+    </h4>
+</div>
+<div class="modal-body gray-bkgrd">
+    <div class="centered-cntnt">
+        <ul class="baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines">
+            <li class="aqi-reporting-zones">
+                <input type="checkbox" data-bind="checked: layers.aqi.flag">
+                <span class="legend-display"><i></i></span>
+                AQI Reporting Zones
+            </li>
+            <li class="counties">
+                <input type="checkbox" data-bind="checked: layers.counties.flag">
+                <span class="legend-display"><i></i></span>
+                Counties
+            </li>
+            <li class="district-boundary">
+                <input type="checkbox" data-bind="checked: layers.district.flag">
+                <span class="legend-display"><i></i></span>
+                District Boundary
+            </li>
+        </ul>
+    </div>
+</div>

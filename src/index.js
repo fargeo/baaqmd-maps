@@ -49,6 +49,7 @@ export function Map(opts) {
     this.mapType = ko.observable(opts.mapType);
     this.map = ko.observable();
     this.showInfoPanel = ko.observable(false);
+    this.showInfoPopup = ko.observable(false);
     this.getScrollContent = function(e) {
         return e.closest('.baaqmd-maps-info-panel-content');
     };

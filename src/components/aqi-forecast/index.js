@@ -6,6 +6,7 @@ import * as summerModalTemplate from './summer-modal.html';
 import * as winterModalTemplate from './winter-modal.html';
 import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html';
 import * as forecastPanelTemplate from './forecast-panel.html';
+import * as boundariesPopupTemplate from './boundaries-popup.html';
 import * as mobileMenuTemplate from './mobile-menu.html';
 import config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
@@ -136,6 +137,15 @@ ko.components.register('WinterModal', {
     template: winterModalTemplate
 });
 
+var layers;
+ko.components.register('BoundariesPopup', {
+    viewModel: function(params) {
+        this.showInfoPopup = params.showInfoPopup;
+        this.layers = layers;
+    },
+    template: boundariesPopupTemplate
+});
+
 ko.components.register('AQIForecastPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
@@ -165,7 +175,8 @@ ko.components.register('PollutantInfoPanel', {
 });
 
 class AQIMobileMenu {
-    constructor() {
+    constructor(parent) {
+        this.showInfoPopup = parent.showInfoPopup;
     }
     onAdd(map) {
         const parser = new DOMParser();
@@ -173,6 +184,8 @@ class AQIMobileMenu {
         const el = doc.body.removeChild(doc.body.firstChild);
         this.map = map;
         this.container = el;
+
+        ko.applyBindingsToDescendants(this, this.container);
 
         return this.container;
     }
@@ -193,6 +206,7 @@ export default ko.components.register('AQIForecast', {
             'South Central Bay',
             'Santa Clara Valley'
         ];
+        this.showInfoPopup = params.showInfoPopup;
         this.aqiData = aqiData;
         this.alertMode = alertMode;
         this.alertStatus = alertStatus;
@@ -223,6 +237,7 @@ export default ko.components.register('AQIForecast', {
                 ]
             }
         };
+        layers = this.layers;
 
         this.popupLayers = ['aqi-forecast-zones-fill'];
         this.getPopupData = (feature) => {
@@ -278,7 +293,7 @@ export default ko.components.register('AQIForecast', {
                 });
             }
             this.layers.counties.flag(false);
-            if (this.mobileMode) map.addControl(new AQIMobileMenu(), 'top-left');
+            if (this.mobileMode) map.addControl(new AQIMobileMenu(this), 'top-left');
         };
 
         this.showSTAModal = () => {

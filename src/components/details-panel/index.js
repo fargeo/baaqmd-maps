@@ -24,6 +24,7 @@ export default ko.components.register('details-panel', {
                 .querySelector('.baaqmd-maps-details-panel-content');
         };
         this.showInfoPanel = params.showInfoPanel;
+        this.showInfoPopup = params.showInfoPopup;
         if (typeof params.enableMapTypeSelector !== 'boolean') {
             this.enableMapTypeSelector = true;
         }

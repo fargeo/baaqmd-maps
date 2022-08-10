@@ -9,6 +9,7 @@
             enableMapTypeSelector: enableMapTypeSelector,
             mapTypes: mapTypes,
             showInfoPanel: showInfoPanel,
+            showInfoPopup: showInfoPopup,
             rootURL: rootURL,
             detailsActive: detailsActive,
             mobileMode: mobileMode
@@ -29,6 +30,7 @@
             map: map,
             popup: popup,
             showInfoPanel: showInfoPanel,
+            showInfoPopup: showInfoPopup,
             rootURL: rootURL,
             accessToken: accessToken,
             mobileMode: mobileMode,
@@ -57,5 +59,14 @@
                 }"></div>
             </div>
         </div>
+    <!-- /ko -->
+    <!-- ko if: showInfoPopup -->
+    <div class="mapboxgl-ctrl-popup map-boundaries">
+        <div class="modal-popup" data-bind="component: {
+            name: showInfoPopup(),
+            params: $data
+        }">
+        </div>
+    </div>
     <!-- /ko -->
 </div>

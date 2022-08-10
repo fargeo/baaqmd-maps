@@ -438,6 +438,152 @@
             box-sizing: border-box;
         }
 
+        .modal-popup {
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3), 0px 2px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 6px -6px rgba(0, 0, 0, 0.2);
+        }
+
+        .mapboxgl-ctrl-popup.map-menu {
+            top: 10%;
+        }
+
+        .mapboxgl-ctrl-popup.map-forecast {
+            top: 15%;
+        }
+
+        .mapboxgl-ctrl-popup.map-monitor-modal {
+            top: 20%;
+        }
+
+        .mapboxgl-ctrl-popup.map-facilities {
+            top: 22%;
+        }
+
+        .mapboxgl-ctrl-popup.map-boundaries {
+            top: 30%;
+        }
+
+        .mapboxgl-ctrl-popup.map-impact-modal {
+            top: 20%;
+            width: 94%;
+            left: 3%;
+        }
+
+        .mapboxgl-ctrl-popup.map-five-forecast {
+            top: 15%;
+            width: 98%;
+            left: 1%;
+        }
+
+        .modal-popup .modal-header {
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .modal-popup h4.modal-title .hdr-icon.icomoon {
+            color: #555555;
+            font-size: 3rem;
+            float: left;
+            line-height: 2.5rem !important;
+        }
+
+        .modal-popup h4.modal-title .hdr-txt {
+            color: #555555;
+            font-size: 1.7rem;
+            margin-left: 8px;
+            float: left;
+            line-height: 2.5rem !important;
+            font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
+        }
+
+        .modal-popup h4.modal-title a.close-btn.icomoon.icon-Close {
+            color: rgb(0, 142, 184);
+            line-height: 3.4rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .modal-popup h4.modal-title a.close-btn.icomoon.icon-Close:hover,
+        .modal-popup h4.modal-title a.close-btn.icomoon.icon-Close:focus {
+            color: #ee8301;
+        }
+
+        .modal-popup ul.map-menu li {
+            text-align: left;
+            text-indent: 15px;
+            font-size: 1.4rem;
+            line-height: 3.8rem;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .modal-popup ul.map-menu li.selected {
+            background-color: #ffe2c6;
+        }
+
+        .modal-popup ul.map-menu li:hover,
+        .modal-popup ul.map-menu li:focus {
+            background-color: #ffe2c6;
+        }
+
+        .modal-popup ul.map-menu li:hover a,
+        .modal-popup ul.map-menu li:focus a {
+            color: #333;
+        }
+
+        .modal-popup ul.map-menu li a {
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .mapboxgl-ctrl-popup.map-menu .modal-body {
+            padding: 0;
+        }
+
+        .modal-popup .last-updated {
+            color: rgba(0, 0, 0, .5);
+            font-size: 1.1rem;
+            font-style: italic;
+            border-top: none !important;
+            margin-top: 0;
+            padding-top: 0;
+            text-align: left;
+            background: transparent !important;
+            height: auto;
+            margin-bottom: 10px;
+            padding-right: 0;
+            text-align: center;
+        }
+
+        .modal-popup .modal-body.gray-bkgrd {
+            background-color: #f0f6f7;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            padding: 20px;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 10px 20px;
+            height: 20px;
+        }
+
+        .modal-title {
+            margin: 0;
+            line-height: 1.42857143;
+        }
+
+        .baaqmd-maps-boundaries.baaqmd-maps-lines li {
+            text-align: initial;
+        }
+
+        .baaqmd-maps-boundaries li:after {
+            margin-top: 12px;
+        }
+
         .mapboxgl-control-container.other-map .mapboxgl-ctrl-bottom {
             display: none;
         }
@@ -451,7 +597,9 @@
         }
 
         .no-fullscreen .mapboxgl-control-container {
-            .mapboxgl-ctrl-top-right, .mapboxgl-ctrl-top-left {
+
+            .mapboxgl-ctrl-top-right,
+            .mapboxgl-ctrl-top-left {
                 display: none;
             }
         }
