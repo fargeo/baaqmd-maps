@@ -23507,6 +23507,13 @@ $({ target: 'URL', proto: true, enumerable: true }, {
 
 /***/ }),
 
+/***/ 61881:
+/***/ ((module) => {
+
+module.exports = "<div class=\"modal-header\">\n    <h4 class=\"modal-title\">\n        <div class=\"hdr-icon icomoon icon-Boundaries\"></div>\n        <div class=\"hdr-txt\">Boundaries</div>\n        <a class=\"close-btn icomoon icon-Close\" href=\"#\" data-bind=\"click: function() {\n            showInfoPopup(null);\n        }\"></a>\n    </h4>\n</div>\n<div class=\"modal-body gray-bkgrd\">\n    <div class=\"centered-cntnt\">\n        <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n            <li class=\"aqi-reporting-zones\">\n                <input type=\"checkbox\" data-bind=\"checked: layers.aqi.flag\">\n                <span class=\"legend-display\"><i></i></span>\n                AQI Reporting Zones\n            </li>\n            <li class=\"counties\">\n                <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n                <span class=\"legend-display\"><i></i></span>\n                Counties\n            </li>\n            <li class=\"district-boundary\">\n                <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n                <span class=\"legend-display\"><i></i></span>\n                District Boundary\n            </li>\n        </ul>\n    </div>\n</div>\n";
+
+/***/ }),
+
 /***/ 85721:
 /***/ ((module) => {
 
@@ -23524,7 +23531,7 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 /***/ 89461:
 /***/ ((module) => {
 
-module.exports = "<div class=\"circle-nav-area mapboxgl-ctrl\">\n    <ul class=\"circle-nav\">\n        <li class=\"air-quality\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapForecastModal.html\"\n                target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Weather\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"boundaries-menu\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapAQIBoundaries.html\"\n                target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Boundaries\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"share-menu\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\" target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Share\"></div>\n            </a>\n            <ul class=\"circle-nav share-menu\">\n                <li class=\"facebook\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Facebook\"></div>\n                    </a>\n                </li>\n                <li class=\"twitter\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Twitter\"></div>\n                    </a>\n                </li>\n                <li class=\"email\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Email\"></div>\n                    </a>\n                </li>\n                <li class=\"print\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Print\"></div>\n                    </a>\n                </li>\n            </ul>\n        </li>\n    </ul>\n</div>\n";
+module.exports = "<div class=\"circle-nav-area mapboxgl-ctrl\">\n    <ul class=\"circle-nav\">\n        <li class=\"air-quality\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapForecastModal.html\"\n                target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Weather\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"boundaries-menu\">\n            <a href=\"#\" data-bind=\"click: function() {\n                    showInfoPopup('BoundariesPopup');\n                }\">\n                <div class=\"map-menu-icon icomoon icon-Boundaries\"></div>\n            </a>\n        </li>\n        <div class=\"clear\"></div>\n        <li class=\"share-menu\">\n            <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\" target=\"_self\">\n                <div class=\"map-menu-icon icomoon icon-Share\"></div>\n            </a>\n            <ul class=\"circle-nav share-menu\">\n                <li class=\"facebook\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Facebook\"></div>\n                    </a>\n                </li>\n                <li class=\"twitter\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Twitter\"></div>\n                    </a>\n                </li>\n                <li class=\"email\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Email\"></div>\n                    </a>\n                </li>\n                <li class=\"print\">\n                    <a href=\"http://baaqmddesign.azurewebsites.net/Drawing_Tool/MobileMaps/MapDefault.html\"\n                        target=\"_self\">\n                        <div class=\"map-menu-icon icomoon icon-Print\"></div>\n                    </a>\n                </li>\n            </ul>\n        </li>\n    </ul>\n</div>\n";
 
 /***/ }),
 
@@ -23727,7 +23734,7 @@ module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group act-zoom-hover\
 /***/ 25215:
 /***/ ((module) => {
 
-module.exports = "<div class=\"baaqmd-maps-main\" data-bind=\"css: {'baaqmd-maps-mobile': mobileMode}\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            enableMapTypeSelector: enableMapTypeSelector,\n            mapTypes: mapTypes,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            detailsActive: detailsActive,\n            mobileMode: mobileMode\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            showInfoPanel: showInfoPanel,\n            rootURL: rootURL,\n            accessToken: accessToken,\n            mobileMode: mobileMode,\n            mobileFullscreen: mobileFullscreen,\n            fullscreenURL: fullscreenURL\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { closeInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"collapse-information-panel\" title=\"Collapse\" data-bind=\"click: function() { closeInfoPanel(false); }, visible: popup()\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <button class=\"close-information-panel\" title=\"Close\" data-bind=\"click: function() { closeInfoPanel(true); }\">x</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n                }\"></div>\n                <div data-bind=\"component: {\n                    name: 'scroll-hint',\n                    params: {\n                        getScrollContent: getScrollContent\n                    }\n                }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-main\" data-bind=\"css: {'baaqmd-maps-mobile': mobileMode}\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            enableMapTypeSelector: enableMapTypeSelector,\n            mapTypes: mapTypes,\n            showInfoPanel: showInfoPanel,\n            showInfoPopup: showInfoPopup,\n            rootURL: rootURL,\n            detailsActive: detailsActive,\n            mobileMode: mobileMode\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            showInfoPanel: showInfoPanel,\n            showInfoPopup: showInfoPopup,\n            rootURL: rootURL,\n            accessToken: accessToken,\n            mobileMode: mobileMode,\n            mobileFullscreen: mobileFullscreen,\n            fullscreenURL: fullscreenURL\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { closeInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"collapse-information-panel\" title=\"Collapse\" data-bind=\"click: function() { closeInfoPanel(false); }, visible: popup()\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <button class=\"close-information-panel\" title=\"Close\" data-bind=\"click: function() { closeInfoPanel(true); }\">x</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n                }\"></div>\n                <div data-bind=\"component: {\n                    name: 'scroll-hint',\n                    params: {\n                        getScrollContent: getScrollContent\n                    }\n                }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n    <!-- ko if: showInfoPopup -->\n    <div class=\"mapboxgl-ctrl-popup map-boundaries\">\n        <div class=\"modal-popup\" data-bind=\"component: {\n            name: showInfoPopup(),\n            params: $data\n        }\">\n        </div>\n    </div>\n    <!-- /ko -->\n</div>\n";
 
 /***/ }),
 
@@ -29035,6 +29042,8 @@ var winter_modal = __webpack_require__(95366);
 var pollutant_info_panel = __webpack_require__(49176);
 // EXTERNAL MODULE: ./src/components/aqi-forecast/forecast-panel.html
 var forecast_panel = __webpack_require__(85721);
+// EXTERNAL MODULE: ./src/components/aqi-forecast/boundaries-popup.html
+var boundaries_popup = __webpack_require__(61881);
 // EXTERNAL MODULE: ./src/components/aqi-forecast/mobile-menu.html
 var mobile_menu = __webpack_require__(89461);
 // EXTERNAL MODULE: ./node_modules/mapbox-gl/dist/mapbox-gl.js
@@ -29243,6 +29252,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
+
 var aqiData = knockout_latest.observable();
 var parser = new DOMParser();
 var aqiInfo = knockout_latest.observable();
@@ -29371,6 +29381,14 @@ knockout_latest.components.register('WinterModal', {
   },
   template: winter_modal
 });
+var aqi_forecast_layers;
+knockout_latest.components.register('BoundariesPopup', {
+  viewModel: function viewModel(params) {
+    this.showInfoPopup = params.showInfoPopup;
+    this.layers = aqi_forecast_layers;
+  },
+  template: boundaries_popup
+});
 knockout_latest.components.register('AQIForecastPanel', {
   viewModel: function viewModel(params) {
     this.showInfoPanel = params.showInfoPanel;
@@ -29401,8 +29419,10 @@ knockout_latest.components.register('PollutantInfoPanel', {
 });
 
 var AQIMobileMenu = /*#__PURE__*/function () {
-  function AQIMobileMenu() {
+  function AQIMobileMenu(parent) {
     _classCallCheck(this, AQIMobileMenu);
+
+    this.showInfoPopup = parent.showInfoPopup;
   }
 
   _createClass(AQIMobileMenu, [{
@@ -29413,6 +29433,7 @@ var AQIMobileMenu = /*#__PURE__*/function () {
       var el = doc.body.removeChild(doc.body.firstChild);
       this.map = map;
       this.container = el;
+      knockout_latest.applyBindingsToDescendants(this, this.container);
       return this.container;
     }
   }, {
@@ -29433,6 +29454,7 @@ var AQIMobileMenu = /*#__PURE__*/function () {
     var rootUrl = params.rootURL || config_namespaceObject.prodRoot;
     if (_fetchData) _fetchData(rootUrl);
     var zones = ['Eastern Zone', 'Coastal and Central Bay', 'Northern Zone', 'South Central Bay', 'Santa Clara Valley'];
+    this.showInfoPopup = params.showInfoPopup;
     this.aqiData = aqiData;
     this.alertMode = alertMode;
     this.alertStatus = alertStatus;
@@ -29453,6 +29475,7 @@ var AQIMobileMenu = /*#__PURE__*/function () {
         names: ['counties', 'counties-labels']
       }
     };
+    aqi_forecast_layers = this.layers;
     this.popupLayers = ['aqi-forecast-zones-fill'];
 
     this.getPopupData = function (feature) {
@@ -29519,7 +29542,7 @@ var AQIMobileMenu = /*#__PURE__*/function () {
 
       _this.layers.counties.flag(false);
 
-      if (_this.mobileMode) map.addControl(new AQIMobileMenu(), 'top-left');
+      if (_this.mobileMode) map.addControl(new AQIMobileMenu(_this), 'top-left');
     };
 
     this.showSTAModal = function () {
@@ -30734,6 +30757,7 @@ knockout_latest.bindingHandlers.choices = {
     };
 
     this.showInfoPanel = params.showInfoPanel;
+    this.showInfoPopup = params.showInfoPopup;
 
     if (typeof params.enableMapTypeSelector !== 'boolean') {
       this.enableMapTypeSelector = true;
@@ -30966,6 +30990,7 @@ function Map(opts) {
   this.mapType = knockout_latest.observable(opts.mapType);
   this.map = knockout_latest.observable();
   this.showInfoPanel = knockout_latest.observable(false);
+  this.showInfoPopup = knockout_latest.observable(false);
 
   this.getScrollContent = function (e) {
     return e.closest('.baaqmd-maps-info-panel-content');
