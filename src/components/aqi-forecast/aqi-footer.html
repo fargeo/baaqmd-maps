@@ -1,0 +1,93 @@
+<!-- ko if: aqiData() && aqiData().dates -->
+<div class="mapboxgl-ctrl-bottom">
+    <div class="aqi-slide-up" data-bind="css: aqiFooterClass">
+        <div class="sta-key-row">
+            <div class="sta-label">Region Wide Alert</div>
+            <div class="sta-key-area">
+                <div class="sta-key-box"></div>
+            </div>
+        </div>
+        <div class="aqi-header">
+            <div class="aqi-date">Showing:
+                <span data-bind="text: aqiData().dates[day()].fullDate"></span>
+            </div>
+            <div class="slider-btns">
+                <a class="slider-btn icomoon icon-SlideDown" data-bind="click: collapseAQIFooter"></a>
+                <a class="slider-btn icomoon icon-SlideUp"  data-bind="click: expandAQIFooter"></a>
+            </div>
+        </div>
+        <div class="aqi-key-btn">
+            <a data-bind="click: expandAQIFooter">
+                <div class="aqi-key-btn-inner">
+                    <div class="center-text">
+                        <div class="aqi-key-btn-icon icomoon icon-AQI"></div>
+                        <div class="aqi-key-btn-text">Air Quality Index Key</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="aqi-key-rows">
+            <ul class="aqi-key-list">
+                <li class="good">
+                    <div class="center-text">
+                        <div class="aqi-key-name">Good</div>
+                        <div class="aqi-key-number">(0 - 50)</div>
+                    </div>
+                    <div class="aqi-descript">No health impacts are expected when air quality is in this range.</div>
+                </li>
+                <li class="moderate">
+                    <div class="center-text">
+                        <div class="aqi-key-name">Moderate</div>
+                        <div class="aqi-key-number">(51 - 100)</div>
+                    </div>
+                    <div class="aqi-descript">Unusually sensitive people should consider limiting prolonged outdoor
+                        exertion.</div>
+                </li>
+                <li class="unhealthy-for-sensitive-groups">
+                    <div class="center-text">
+                        <div class="aqi-key-name">Unhealthy for Sensitive Groups</div>
+                        <div class="aqi-key-number">(101 - 150)</div>
+                    </div>
+                    <div class="aqi-descript">Active children and adults, and people with respiratory disease, such as
+                        asthma, should limit outdoor exertion.</div>
+                </li>
+                <li class="unhealthy">
+                    <div class="center-text">
+                        <div class="aqi-key-name">Unhealthy</div>
+                        <div class="aqi-key-number">(151 - 200)</div>
+                    </div>
+                    <div class="aqi-descript">Active children and adults, and people with respiratory disease, such as
+                        asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should
+                        limit prolonged outdoor exertion.</div>
+                </li>
+                <li class="very-unhealthy">
+                    <div class="center-text">
+                        <div class="aqi-key-name">Very Unhealthy</div>
+                        <div class="aqi-key-number">(201 - 300)</div>
+                    </div>
+                    <div class="aqi-descript">Active children and adults, and people with respiratory disease, such as
+                        asthma, should avoid all outdoor exertion; everyone else, especially children, should limit
+                        outdoor exertion.</div>
+                </li>
+                <li class="hazardous">
+                    <div class="center-text">
+                        <div class="aqi-key-name">Hazardous</div>
+                        <div class="aqi-key-number">(301 - 500)</div>
+                    </div>
+                    <div class="aqi-descript">Pollution is hazardous at these levels. Everyone should take steps to
+                        reduce their exposure when particle pollution levels are in this range.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="aqi-btn-area">
+            <a class="aqi-more-info-btn" data-bind="click: expandAQIFooter">
+                <div class="center-text">
+                    <div class="aqi-more-btn-icon icomoon icon-Info"></div>
+                    <div class="aqi-more-btn-text">More AQI Information</div>
+                </div>
+
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

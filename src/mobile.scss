@@ -204,7 +204,7 @@
             width: 100%;
             background-color: white;
             text-align: center;
-            padding: 10px 20px;
+            padding: 10px 0;
         }
 
         a.aqi-more-info-btn {
@@ -650,6 +650,26 @@
             padding: 6px 0 6px 0;
             display: inline-block;
             width: 100%;
+        }
+
+        ul.aqi-key-list {
+            margin-top: 1px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 100%;
+            line-height: 1;
+            font-family: inherit;
+        }
+
+        ul.aqi-key-list li {
+            padding: 1px 20px 0px 20px;
+            height: auto;
+            text-align: center;
+            width: calc(100% - 40px);
         }
 
         .baaqmd-maps-boundaries.baaqmd-maps-lines li {

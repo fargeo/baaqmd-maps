@@ -9,6 +9,7 @@ import * as forecastPanelTemplate from './forecast-panel.html';
 import * as boundariesPopupTemplate from './boundaries-popup.html';
 import * as dailyForecastPopupTemplate from './daily-forecast-popup.html';
 import * as mobileMenuTemplate from './mobile-menu.html';
+import * as aqiFooterTemplate from './aqi-footer.html';
 import config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import fetchHTML from '../../utils/fetch-html';
@@ -61,6 +62,8 @@ let fetchData = (rootURL) => {
             xmlDoc.querySelectorAll('item').forEach((item) => {
                 let day = {
                     date: item.querySelector('date').textContent.slice(0, -3),
+                    fullDate: new Date(item.querySelector('date').textContent)
+                        .toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"}),
                     zones: []
                 };
                 item.querySelectorAll('zone').forEach((zone) => {
@@ -195,7 +198,6 @@ class AQIMobileMenu {
         this.showSocialButtons = ko.observable(false);
     }
     onAdd(map) {
-        const parser = new DOMParser();
         const doc = parser.parseFromString(mobileMenuTemplate, "text/html");
         const el = doc.body.removeChild(doc.body.firstChild);
         this.map = map;
@@ -289,6 +291,21 @@ export default ko.components.register('AQIForecast', {
             map.setPaintProperty('aqi-forecast-sta-fill', 'fill-opacity', alertOpacity);
         }, this);
 
+        const aqiFooterPositions = [
+            'aqi-default-pos',
+            'aqi-mid-pos',
+            'aqi-full-pos'
+        ];
+        this.aqiFooterPosition = ko.observable(0);
+        this.aqiFooterClass = ko.computed(() => {
+            return aqiFooterPositions[this.aqiFooterPosition()];
+        });
+        this.expandAQIFooter = () => {
+            this.aqiFooterPosition(this.aqiFooterPosition() + 1);
+        };
+        this.collapseAQIFooter = () => {
+            this.aqiFooterPosition(this.aqiFooterPosition() - 1);
+        };
         var getTodaysDay = () => {
             let aqiData = this.aqiData();
             let today = new Date();
@@ -309,8 +326,24 @@ export default ko.components.register('AQIForecast', {
                 });
             }
             this.layers.counties.flag(false);
-            if (this.mobileMode) map.addControl(new AQIMobileMenu(this, params), 'top-left');
         };
+
+        const updateForMobile = this.day.subscribe(() => {
+            if (this.mobileMode) {
+                const map = this.map();
+                map.addControl(new AQIMobileMenu(this, params), 'top-left');
+                if (this.mobileFullscreen) {
+                    const doc = parser.parseFromString(aqiFooterTemplate, "text/html");
+                    const el = doc.body.removeChild(doc.body.firstChild);
+
+                    map.getContainer().appendChild(el);
+
+                    ko.applyBindingsToDescendants(this, el);
+                }
+            }
+
+            updateForMobile.dispose();
+        });
 
         this.showSTAModal = () => {
             const alertMode = this.alertMode();
