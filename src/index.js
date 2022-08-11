@@ -29,6 +29,7 @@ export function Map(opts) {
     this.mobileMode = opts.mobile;
     this.detailsExpanded = ko.observable(opts.sidePanelExpanded);
     this.detailsActive = ko.observable(opts.sidePanel);
+    this.alertActive = ko.observable(false);
     this.enableMapTypeSelector = opts.enableMapTypeSelector;
     this.fullscreenURL = opts.fullscreenURL || config.fullscreenURL;
     this.mobileFullscreen = opts.mobileFullscreen || false;

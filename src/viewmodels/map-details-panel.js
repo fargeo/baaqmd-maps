@@ -12,6 +12,7 @@ export default function MapDetailsPanel(params) {
     this.showInfoPanel = params.showInfoPanel;
     this.mobileMode = params.mobileMode;
     this.mobileFullscreen = params.mobileFullscreen;
+    this.alertActive = params.alertActive;
     this.mainExpanded = ko.observable(true);
     this.boundariesExpanded = ko.observable(true);
     this.showPopup = (feature, lngLat) => {

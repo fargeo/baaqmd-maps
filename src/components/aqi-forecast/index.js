@@ -228,6 +228,10 @@ export default ko.components.register('AQIForecast', {
         this.aqiData = aqiData;
         this.alertMode = alertMode;
         this.alertStatus = alertStatus;
+        params.alertActive(alertStatus());
+        alertStatus.subscribe((status) => {
+            params.alertActive(status);
+        });
         this.alertIcon = alertIcon;
         this.day = day;
         this.layers = {
@@ -316,7 +320,7 @@ export default ko.components.register('AQIForecast', {
             });
             return day;
         };
-        this.setupMap = (map) => {
+        this.setupMap = () => {
             if (this.aqiData()) {
                 this.day(getTodaysDay());
             } else {

@@ -263,6 +263,13 @@
             font-weight: 400;
         }
 
+        .sta-key-row {
+            width: 100%;
+            background-color: white;
+            height: 21px;
+            padding: 6px 0;
+        }
+
         a.slider-btn {
             color: white !important;
             float: right;
@@ -349,7 +356,7 @@
         .sta-key-row {
             width: 100%;
             background-color: white;
-            height: 32px;
+            height: 21px;
             padding: 6px 0;
         }
 
@@ -1078,5 +1085,13 @@
             letter-spacing: 1px;
             font-size: 1.35rem;
         }
+    }
+}
+.baaqmd-maps-main.baaqmd-maps-mobile.alert-active {
+    .aqi-slide-up.aqi-default-pos .sta-key-row {
+        display: block;
+    }
+    .mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
+        bottom: 104px;
     }
 }
