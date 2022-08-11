@@ -23748,7 +23748,7 @@ module.exports = "<div class=\"mapboxgl-ctrl mapboxgl-ctrl-group act-zoom-hover\
 /***/ 25215:
 /***/ ((module) => {
 
-module.exports = "<div class=\"baaqmd-maps-main\" data-bind=\"css: {'baaqmd-maps-mobile': mobileMode}\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            enableMapTypeSelector: enableMapTypeSelector,\n            mapTypes: mapTypes,\n            showInfoPanel: showInfoPanel,\n            showInfoPopup: showInfoPopup,\n            rootURL: rootURL,\n            detailsActive: detailsActive,\n            mobileMode: mobileMode,\n            mobileFullscreen: mobileFullscreen\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            showInfoPanel: showInfoPanel,\n            showInfoPopup: showInfoPopup,\n            rootURL: rootURL,\n            accessToken: accessToken,\n            mobileMode: mobileMode,\n            mobileFullscreen: mobileFullscreen,\n            fullscreenURL: fullscreenURL\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { closeInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"collapse-information-panel\" title=\"Collapse\" data-bind=\"click: function() { closeInfoPanel(false); }, visible: popup()\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <button class=\"close-information-panel\" title=\"Close\" data-bind=\"click: function() { closeInfoPanel(true); }\">x</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n                }\"></div>\n                <div data-bind=\"component: {\n                    name: 'scroll-hint',\n                    params: {\n                        getScrollContent: getScrollContent\n                    }\n                }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n    <!-- ko if: showInfoPopup -->\n    <div class=\"mapboxgl-ctrl-popup map-boundaries\">\n        <div class=\"modal-popup\" data-bind=\"component: {\n            name: showInfoPopup(),\n            params: $data\n        }\">\n        </div>\n    </div>\n    <!-- /ko -->\n</div>\n";
+module.exports = "<div class=\"baaqmd-maps-main\" data-bind=\"css: {'baaqmd-maps-mobile': mobileMode, 'alert-active': alertActive}\">\n    <!-- ko component: {\n        name: \"details-panel\",\n        params: {\n            expanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            enableMapTypeSelector: enableMapTypeSelector,\n            mapTypes: mapTypes,\n            showInfoPanel: showInfoPanel,\n            showInfoPopup: showInfoPopup,\n            rootURL: rootURL,\n            detailsActive: detailsActive,\n            mobileMode: mobileMode,\n            mobileFullscreen: mobileFullscreen,\n            alertActive: alertActive\n        }\n    } -->\n    <!-- /ko -->\n    <div class=\"baaqmd-maps-scroll-mask\" data-bind=\"visible: scrolling\" style=\"display: none;\">\n        <h3 class=\"baaqmd-maps-scroll-mask-message\">\n            Use two fingers to pan the map...\n        </h3>\n    </div>\n    <!-- ko component: {\n        name: \"map\",\n        params: {\n            container: el,\n            detailsExpanded: detailsExpanded,\n            mapType: mapType,\n            map: map,\n            popup: popup,\n            showInfoPanel: showInfoPanel,\n            showInfoPopup: showInfoPopup,\n            rootURL: rootURL,\n            accessToken: accessToken,\n            mobileMode: mobileMode,\n            mobileFullscreen: mobileFullscreen,\n            fullscreenURL: fullscreenURL\n        }\n    } -->\n    <!-- /ko -->\n    <!-- ko if: showInfoPanel -->\n        <div class=\"baaqmd-maps-info-panel-mask\" data-bind=\"click: function() { closeInfoPanel(false); }\"></div>\n        <div class=\"baaqmd-maps-info-panel\">\n            <button class=\"collapse-information-panel\" title=\"Collapse\" data-bind=\"click: function() { closeInfoPanel(false); }, visible: popup()\">\n                <i class=\"icon-Contract\"></i>\n            </button>\n            <button class=\"close-information-panel\" title=\"Close\" data-bind=\"click: function() { closeInfoPanel(true); }\">x</button>\n            <div class=\"baaqmd-maps-info-panel-content\">\n                <div class=\"baaqmd-maps-info-panel-component\" data-bind=\"component: {\n                   name: showInfoPanel(),\n                   params: $data\n                }\"></div>\n                <div data-bind=\"component: {\n                    name: 'scroll-hint',\n                    params: {\n                        getScrollContent: getScrollContent\n                    }\n                }\"></div>\n            </div>\n        </div>\n    <!-- /ko -->\n    <!-- ko if: showInfoPopup -->\n    <div class=\"mapboxgl-ctrl-popup map-boundaries\">\n        <div class=\"modal-popup\" data-bind=\"component: {\n            name: showInfoPopup(),\n            params: $data\n        }\">\n        </div>\n    </div>\n    <!-- /ko -->\n</div>\n";
 
 /***/ }),
 
@@ -29084,6 +29084,7 @@ function MapDetailsPanel(params) {
   this.showInfoPanel = params.showInfoPanel;
   this.mobileMode = params.mobileMode;
   this.mobileFullscreen = params.mobileFullscreen;
+  this.alertActive = params.alertActive;
   this.mainExpanded = knockout_latest.observable(true);
   this.boundariesExpanded = knockout_latest.observable(true);
 
@@ -29496,6 +29497,10 @@ var AQIMobileMenu = /*#__PURE__*/function () {
     this.aqiData = aqiData;
     this.alertMode = alertMode;
     this.alertStatus = alertStatus;
+    params.alertActive(alertStatus());
+    alertStatus.subscribe(function (status) {
+      params.alertActive(status);
+    });
     this.alertIcon = alertIcon;
     this.day = day;
     this.layers = {
@@ -29580,7 +29585,7 @@ var AQIMobileMenu = /*#__PURE__*/function () {
       return day;
     };
 
-    this.setupMap = function (map) {
+    this.setupMap = function () {
       if (_this.aqiData()) {
         _this.day(getTodaysDay());
       } else {
@@ -30810,6 +30815,7 @@ knockout_latest.bindingHandlers.choices = {
     this.rootURL = params.rootURL;
     this.detailsActive = params.detailsActive;
     this.mobileMode = params.mobileMode;
+    this.alertActive = params.alertActive;
     this.mobileFullscreen = params.mobileFullscreen;
     this.mapTypeSelector = knockout_latest.observable();
     this.mapTypeSelectorExpanded = knockout_latest.observable();
@@ -31032,6 +31038,7 @@ function Map(opts) {
   this.mobileMode = opts.mobile;
   this.detailsExpanded = knockout_latest.observable(opts.sidePanelExpanded);
   this.detailsActive = knockout_latest.observable(opts.sidePanel);
+  this.alertActive = knockout_latest.observable(false);
   this.enableMapTypeSelector = opts.enableMapTypeSelector;
   this.fullscreenURL = opts.fullscreenURL || config_namespaceObject.fullscreenURL;
   this.mobileFullscreen = opts.mobileFullscreen || false;
