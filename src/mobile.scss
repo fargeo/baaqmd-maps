@@ -495,6 +495,22 @@
             float: left;
             line-height: 2.5rem !important;
             font-family: Roboto, RobotoDraft, "Helvetica Neue", sans-serif;
+            font-weight: 400;
+        }
+
+        .centered-content {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center !important;
+            display: inline-block;
+        }
+
+        a.modal-default-btn .btn-txt {
+            font-size: 1.4rem;
+            line-height: 1.7rem;
+            display: inline-block;
+            vertical-align: bottom;
+            text-transform: none;
         }
 
         .modal-popup h4.modal-title a.close-btn.icomoon.icon-Close {
@@ -574,6 +590,66 @@
         .modal-title {
             margin: 0;
             line-height: 1.42857143;
+        }
+
+        ul.date-select {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 100%;
+            line-height: 1;
+            font-family: inherit;
+        }
+
+        ul.date-select li {
+            display: inline-block;
+            text-decoration: none;
+            margin: 0 2px;
+            background: #fff;
+            color: rgba(0, 0, 0, .67);
+            font-size: 1.1rem !important;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 19%);
+        }
+
+        ul.date-select li.active {
+            background: #008eb8;
+            color: #fff;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 19%);
+        }
+
+        .space-10pxno {
+            display: inline-block;
+            width: 100%;
+            height: 10px;
+        }
+
+        a.modal-default-btn .btn-icon.icomoon {
+            float: left;
+            margin-right: 6px;
+            font-size: 2rem;
+            line-height: 1.7rem;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        a.modal-default-btn {
+            text-align: center !important;
+            cursor: pointer;
+            text-decoration: none;
+            background: #008eb8;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 1.3rem;
+            line-height: 1.7rem;
+            padding: 6px 0 6px 0;
+            display: inline-block;
+            width: 100%;
         }
 
         .baaqmd-maps-boundaries.baaqmd-maps-lines li {

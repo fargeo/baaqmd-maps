@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <div class="hdr-icon icomoon icon-Weather"></div>
+        <div class="hdr-txt">Daily Forecast</div>
+        <a class="close-btn icomoon icon-Close" href="#" data-bind="click: function() {
+            showInfoPopup(null);
+        }"></a>
+    </h4>
+</div>
+<div class="modal-body gray-bkgrd">
+    <div class="centered-cntnt">
+        <div class="last-updated">
+            Last Updated:
+            <span data-bind="text: new Intl.DateTimeFormat('en-US', { weekday: 'long'}).format(aqiData().lastUpdated)"></span>,
+            <span data-bind="text: aqiData().lastUpdated.toLocaleDateString()"></span>
+            at
+            <span data-bind="text: aqiData().lastUpdated.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})"></span>
+        </div>
+
+        <ul class="date-select">
+            <!-- ko foreach: aqiData().dates -->
+            <li data-bind="css: {
+                    active: $index() === $parent.day()
+                }, click: function() {
+                    $parent.day($index());
+                }, text: date">
+            </li>
+            <!-- /ko -->
+        </ul>
+
+        <div class="space-10pxno"></div>
+
+        <a class="modal-default-btn"
+            data-bind="click: function() {
+                showInfoPopup(null);
+                showInfoPanel('AQIForecastPanel');
+            }">
+            <div class="centered-content">
+                <div class="btn-icon icomoon icon-WindSpeed"></div>
+                <div class="btn-txt">Five Day Forecast</div>
+            </div>
+        </a>
+    </div>
+</div>

@@ -7,12 +7,14 @@ import * as winterModalTemplate from './winter-modal.html';
 import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html';
 import * as forecastPanelTemplate from './forecast-panel.html';
 import * as boundariesPopupTemplate from './boundaries-popup.html';
+import * as dailyForecastPopupTemplate from './daily-forecast-popup.html';
 import * as mobileMenuTemplate from './mobile-menu.html';
 import config from '../../config.json';
 import * as MapDetailsPanel from '../../viewmodels/map-details-panel';
 import fetchHTML from '../../utils/fetch-html';
 
 const aqiData = ko.observable();
+const day = ko.observable();
 const parser = new DOMParser();
 const aqiInfo = ko.observable();
 const pollutantInfo = ko.observable();
@@ -146,6 +148,16 @@ ko.components.register('BoundariesPopup', {
     template: boundariesPopupTemplate
 });
 
+ko.components.register('DailyForecastPopup', {
+    viewModel: function(params) {
+        this.showInfoPopup = params.showInfoPopup;
+        this.showInfoPanel = params.showInfoPanel;
+        this.aqiData = aqiData;
+        this.day = day;
+    },
+    template: dailyForecastPopupTemplate
+});
+
 ko.components.register('AQIForecastPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
@@ -215,7 +227,7 @@ export default ko.components.register('AQIForecast', {
         this.alertMode = alertMode;
         this.alertStatus = alertStatus;
         this.alertIcon = alertIcon;
-        this.day = ko.observable();
+        this.day = day;
         this.layers = {
             aqi: {
                 flag: ko.observable(true),
