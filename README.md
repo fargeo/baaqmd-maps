@@ -49,6 +49,9 @@ new Map(options: Object)
 -   `options.enableMapTypeSelector`([`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), default `true`): If `true`, the title in the side panel will allow the user to select between map types
 -   `options.rootURL`([`string`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), default `'http://www.baaqmd.gov/'`): overrides the default URL for services and content
 -   `options.accessToken`([`string`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), default `'pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw'`): the Mapbox access token to use with this map. Defaults to the "Farallon Development" access token.
+-   `options.mobile`([`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), default `false`): If `true`, mobile stylesheet will be included with the map.  This will likely be removed in the future as complete mobile support is phased in for all maps.
+-   `options.mobileFullscreen`([`boolean`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), default `false`): Puts the map into mobile fullscreen mode.  Since most mobile browsers don't support fullscreen mode, mobile fullscreen mode is acheived by loading a separate page where the map should be put into mobile fullscreen mode.
+-   `options.fullscreenURL`([`string`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), default `'/mobile-fullscreen.html'`): the URL that the map should redirect to when entering "mobile fullscreen mode".
 
 ### Instance Members
 
