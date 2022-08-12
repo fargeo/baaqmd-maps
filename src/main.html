@@ -63,12 +63,10 @@
         </div>
     <!-- /ko -->
     <!-- ko if: showInfoPopup -->
-    <div class="mapboxgl-ctrl-popup map-boundaries">
-        <div class="modal-popup" data-bind="component: {
-            name: showInfoPopup(),
-            params: $data
-        }">
-        </div>
-    </div>
+        <!-- ko component: {
+                name: showInfoPopup(),
+                params: $data
+            } -->
+        <!-- /ko -->
     <!-- /ko -->
 </div>

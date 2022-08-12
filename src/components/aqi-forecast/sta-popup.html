@@ -1,0 +1,24 @@
+<div class="mapboxgl-ctrl-popup">
+    <div class="alert-popup">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <div class="alert-icon icomoon" data-bind="css: alertIcon"></div>
+                <div class="alert-txt">ALERT</div>
+                <a class="close-btn icomoon icon-Close" href="#" data-bind="click: function() {
+                    showInfoPopup(null);
+                }"></a>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="centered-cntnt">
+                <div class="alert-day" data-bind="text: dayString"></div>
+                <div class="alert-date" data-bind="text: dateString"></div>
+                <div class="alert-ttl-line" data-bind="text: alertLabel"></div>
+                <div class="alert-subttl-line" data-bind="text: alertTitle"></div>
+                <div class="alert-main-text" data-bind="text: alertDescription"></div>
+                <a class="alert-lrn-more">Learn More</a>
+            </div>
+
+        </div>
+    </div>
+</div>

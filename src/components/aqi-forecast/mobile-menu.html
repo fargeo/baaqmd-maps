@@ -65,5 +65,15 @@
                 </li>
             </ul>
         </li>
+        <!-- ko if: alertStatus -->
+        <div class="clear"></div>
+        <li class="alert-details">
+            <a href="#" data-bind="click: function() {
+                    showInfoPopup('STAPopup');
+                }">
+                <div class="map-menu-icon icomoon" data-bind="css: alertIcon"></div>
+            </a>
+        </li>
+        <!-- /ko -->
     </ul>
 </div>

@@ -7,6 +7,7 @@ import * as winterModalTemplate from './winter-modal.html';
 import * as pollutantInfoPanelTemplate from './pollutant-info-panel.html';
 import * as forecastPanelTemplate from './forecast-panel.html';
 import * as boundariesPopupTemplate from './boundaries-popup.html';
+import * as staPopupTemplate from './sta-popup.html';
 import * as dailyForecastPopupTemplate from './daily-forecast-popup.html';
 import * as mobileMenuTemplate from './mobile-menu.html';
 import * as aqiFooterTemplate from './aqi-footer.html';
@@ -25,6 +26,10 @@ const winterModal = ko.observable();
 const alertMode = ko.observable('none');
 const alertStatus = ko.observable();
 const alertIcon = ko.observable();
+const alertLabel = ko.observable();
+const alertTitle = ko.observable();
+const alertDescription = ko.observable();
+
 let fetchData = (rootURL) => {
     fetch(rootURL + config.spaRSSFeed, {cache: "no-store"})
         .then((response) => {
@@ -50,6 +55,9 @@ let fetchData = (rootURL) => {
             });
             alertStatus(xmlDoc.querySelector('item isAlert').textContent.toLowerCase() !== "false");
             alertIcon(xmlDoc.querySelector('item alertIconCssClass').textContent);
+            alertLabel(xmlDoc.querySelector('item alertLabel').textContent);
+            alertTitle(xmlDoc.querySelector('item alertTitle').textContent);
+            alertDescription(xmlDoc.querySelector('item alertDescription').textContent);
             return fetch(rootURL + config.aqiRSSFeed, {cache: "no-store"});
         })
         .then((response) => {
@@ -161,6 +169,23 @@ ko.components.register('DailyForecastPopup', {
     template: dailyForecastPopupTemplate
 });
 
+ko.components.register('STAPopup', {
+    viewModel: function(params) {
+        const today = new Date();
+        this.dateString = today.toLocaleDateString('en-US', { day: '2-digit', month: '2-digit' });
+        this.dayString = today.toLocaleDateString('en-US', { weekday: 'long' });
+        this.showInfoPopup = params.showInfoPopup;
+        this.showInfoPanel = params.showInfoPanel;
+        this.alertIcon = alertIcon;
+        this.alertStatus = alertStatus;
+        this.alertMode = alertMode;
+        this.alertLabel = alertLabel;
+        this.alertTitle = alertTitle;
+        this.alertDescription = alertDescription;
+    },
+    template: staPopupTemplate
+});
+
 ko.components.register('AQIForecastPanel', {
     viewModel: function(params) {
         this.showInfoPanel = params.showInfoPanel;
@@ -196,6 +221,9 @@ class AQIMobileMenu {
         this.mapLink = params.mapLink;
         this.showInfoPopup = parent.showInfoPopup;
         this.showSocialButtons = ko.observable(false);
+        this.alertIcon = alertIcon;
+        this.alertStatus = alertStatus;
+        this.alertMode = alertMode;
     }
     onAdd(map) {
         const doc = parser.parseFromString(mobileMenuTemplate, "text/html");
