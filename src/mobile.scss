@@ -241,14 +241,14 @@
             margin-right: 6px;
             font-size: 2rem;
             line-height: 2rem;
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
         .aqi-more-btn-text {
             float: left;
             font-size: 1.35rem;
             line-height: 2rem;
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
         .slider-btns {
@@ -541,7 +541,7 @@
 
         .modal-popup h4.modal-title a.close-btn.icomoon.icon-Close {
             color: rgb(0, 142, 184);
-            line-height: 3.4rem;
+            line-height: 3.1rem;
             font-size: 1.5rem;
             cursor: pointer;
             text-decoration: none;
@@ -549,7 +549,7 @@
 
         .modal-popup h4.modal-title a.close-btn.icomoon.icon-Close:hover,
         .modal-popup h4.modal-title a.close-btn.icomoon.icon-Close:focus {
-            color: #ee8301;
+            color: #ee8301;    font-size: 2rem;  line-height: 3.5rem;
         }
 
         .modal-popup ul.map-menu li {
