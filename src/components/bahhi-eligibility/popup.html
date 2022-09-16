@@ -1,0 +1,22 @@
+<div class="baaqmd-maps-popup">
+    <div class="baaqmd-maps-popup-content">
+        <h3>
+            <i class="fas fa-map-marker-alt"></i>
+            Pinned Location
+        </h3>
+        <hr>
+
+        <h4 data-bind="html: name"></h4>
+
+        <p data-bind="if: eligible">
+            This location <strong>falls within</strong> the <strong>BAHHI Program</strong> area.
+        </p>
+
+        <p data-bind="if: !eligible">
+            This location <strong>does not</strong> fall within the <strong>BAHHI Program</strong> area.
+        </p>
+
+        <a href="javascript:void(0)" data-bind="click: removePin">Remove this pin</a>
+
+    </div>
+</div>

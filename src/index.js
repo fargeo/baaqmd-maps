@@ -6,6 +6,7 @@ import './styles.scss';
 import config from './config.json';
 import * as content from './main.html';
 import './components/aqi-forecast/';
+import './components/bahhi-eligibility/';
 import './components/facilities/';
 import './components/impacted-communities/';
 import './components/overburdened-communities/';

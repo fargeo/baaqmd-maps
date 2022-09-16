@@ -20,6 +20,7 @@
     "aboutImpactedCommunitiesURL": "Utils/Interactive-Map-Content/CARE-Info",
     "aboutOverburdenedCommunitiesURL": "Utils/Interactive-Map-Content/Overburdened-Info",
     "pinLocationsHelpURL": "Utils/Interactive-Map-Content/Pin-Locations-Help",
+    "aboutBAHHIEligibilityURL": "Utils/Interactive-Map-Content/About-BAHHI-Eligibility",
     "aboutFacilitiesURL": "Utils/Interactive-Map-Content/About-Facility",
     "summerModalURL": "Utils/Interactive-Map-Content/Summer-Modal-Content",
     "winterModalURL": "Utils/Interactive-Map-Content/Winter-Modal-Content",
@@ -45,6 +46,10 @@
         "AQIForecast": {
             "style": "baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh",
             "label": "Air Quality Forecast Map"
+        },
+        "BAHHIEligibility": {
+            "style": "baaqmd-publicmaps/cl820ha00000014lg69pbr9r9",
+            "label": "BAHHI Eligibility Map"
         },
         "Monitoring": {
             "style": "baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47",

@@ -6,24 +6,24 @@
 <div class="accordion-panel"
     data-bind="css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}">
     <ul class="baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities">
-        <li class="overburdened-areas">
-            <input type="checkbox" data-bind="checked: layers.overburdened.flag">
+        <li class="bahhi-areas">
+            <input type="checkbox" data-bind="checked: layers.bahhiEligibility.flag">
             <span class="legend-display">
                 <i></i>
             </span>
-            Overburdened Census Tracts
+            BAHHI Program Areas
         </li>
-        <li class="overburdened-buffer">
-            <input type="checkbox" data-bind="checked: layers.buffer.flag">
+        <li class="bahhi-counties">
+            <input type="checkbox" data-bind="checked: layers.bahhiCounties.flag">
             <span class="legend-display">
                 <i></i>
             </span>
-            1,000 Foot Buffer Zone
+            BAHHI Program Counties
         </li>
     </ul>
     <div class="baaqmd-maps-details-links">
         <a href="javascript: void(0);" class="information-link"
-            data-bind="click: function() { showInfoPanel('OverburdenedCommunitiesInfoPanel'); }">
+            data-bind="click: function() { showInfoPanel('BAHHIEligibilityInfoPanel'); }">
             <i class="fas fa-info-circle"></i>
             More Information
         </a>
@@ -40,15 +40,15 @@
     data-bind="css: {'accordion-panel-expanded': pinsExpanded, 'accordion-panel-collapsed': !pinsExpanded()}">
         <ul class="baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities">
             <li>
-                <input type="checkbox" data-bind="checked: layers.overburdenedPins.flag" checked="checked">
+                <input type="checkbox" data-bind="checked: layers.eligiblePins.flag" checked="checked">
                 <i class="icomoon icon-LocationOverburdened"></i>
-                <div class="list-text">Overburdened Pins (<span data-bind="text: overburdenedPinsCount"></span>)</div>
+                <div class="list-text">BAHHI Eligible Pins (<span data-bind="text: eligiblePinsCount"></span>)</div>
             </li>
             <li>
-                <input type="checkbox" data-bind="checked: layers.notOverburdenedPins.flag" checked="checked">
+                <input type="checkbox" data-bind="checked: layers.notEligiblePins.flag" checked="checked">
                 <i class="icomoon icon-LocationNotOverburdened"></i>
                 <div class="list-text">
-                    Not Overburdened Pins (<span data-bind="text: notOverburdenedPinsCount"></span>)</div>
+                    Not BAHHI Eligible Pins (<span data-bind="text: notEligiblePinsCount"></span>)</div>
             </li>
         </ul>
     <div class="baaqmd-maps-details-links">
@@ -75,20 +75,6 @@
                 Pin
             </a>
         </div>
-        <div class="or-text">- - OR - -</div>
-        <div class="pin-section extra-btm-marg">
-            <div class="coordinate-entry-input">
-                <div class="lat-area">
-                    <input type="text" placeholder=" Latitude..." min="-90" max="90" data-bind="textInput: yCoord, event: {keypress: coordsEnterKey}">
-                </div>
-                <div class="long-area">
-                    <input type="text" placeholder=" Longitude..." min="-180" max="180" data-bind="textInput: xCoord, event: {keypress: coordsEnterKey}">
-                </div>
-            </div>
-            <a href="javascript: void(0);" class="information-link small-button" data-bind="click: addPinFromCoordinates">
-                Pin
-            </a>
-        </div>
         <div class="space-3pxblk"></div>
         <div class="buttons-area">
             <a href="javascript: void(0);" class="information-link" data-bind="click: function() {
@@ -97,7 +83,7 @@
                 <i class="icomoon icon-Clear"></i>
                 Clear Pins
             </a>
-            <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('PinLocationsHelpPanel'); }">
+            <a href="javascript: void(0);" class="information-link" data-bind="click: function() { showInfoPanel('BAHHIPinLocationsHelpPanel'); }">
                 <i class="icomoon icon-Help2"></i>
                 Help
             </a>
