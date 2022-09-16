@@ -23591,6 +23591,34 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\
 
 /***/ }),
 
+/***/ 2984:
+/***/ ((module) => {
+
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"icomoon icon-Help2\"></i>\n    Pin Locations Help\n</h3>\n<hr>\n<div data-bind=\"html: pinLocationsHelp\"></div>\n";
+
+/***/ }),
+
+/***/ 44625:
+/***/ ((module) => {
+
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    About BAHHI Eligibility\n</h3>\n<hr>\n<div data-bind=\"html: aboutBAHHIEligibility\"></div>\n";
+
+/***/ }),
+
+/***/ 85559:
+/***/ ((module) => {
+
+module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-maps-popup-content\">\n        <h3>\n            <i class=\"fas fa-map-marker-alt\"></i>\n            Pinned Location\n        </h3>\n        <hr>\n\n        <h4 data-bind=\"html: name\"></h4>\n\n        <p data-bind=\"if: eligible\">\n            This location <strong>falls within</strong> the <strong>BAHHI Program</strong> area.\n        </p>\n\n        <p data-bind=\"if: !eligible\">\n            This location <strong>does not</strong> fall within the <strong>BAHHI Program</strong> area.\n        </p>\n\n        <a href=\"javascript:void(0)\" data-bind=\"click: removePin\">Remove this pin</a>\n\n    </div>\n</div>\n";
+
+/***/ }),
+
+/***/ 28056:
+/***/ ((module) => {
+
+module.exports = "<h3>\n    <i class=\"icomoon icon-Overburdened\"></i>\n    Overburdened Areas\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n        <li class=\"bahhi-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.bahhiEligibility.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            BAHHI Program Areas\n        </li>\n        <li class=\"bahhi-counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.bahhiCounties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            BAHHI Program Counties\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\"\n            data-bind=\"click: function() { showInfoPanel('BAHHIEligibilityInfoPanel'); }\">\n            <i class=\"fas fa-info-circle\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"icomoon icon-MixedPin\"></i>\n    Pin Locations\n    <div class=\"accordion-icon icomoon icon-Subtract\"\n        data-bind=\"css: {'icon-Subtract': pinsExpanded, 'icon-Add2': !pinsExpanded()}, click: function() { pinsExpanded(!pinsExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel accordion-panel-expanded\"\n    data-bind=\"css: {'accordion-panel-expanded': pinsExpanded, 'accordion-panel-collapsed': !pinsExpanded()}\">\n        <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.eligiblePins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationOverburdened\"></i>\n                <div class=\"list-text\">BAHHI Eligible Pins (<span data-bind=\"text: eligiblePinsCount\"></span>)</div>\n            </li>\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.notEligiblePins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationNotOverburdened\"></i>\n                <div class=\"list-text\">\n                    Not BAHHI Eligible Pins (<span data-bind=\"text: notEligiblePinsCount\"></span>)</div>\n            </li>\n        </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <div class=\"pin-section\">\n            <a href=\"javascript: void(0);\" class=\"information-link full-button\" data-bind=\"click: function() {\n                    addPinOnClick(!addPinOnClick());\n                },\n                css: {\n                    active: addPinOnClick\n                }\">\n                <i class=\"icomoon icon-AddMixedPin\"></i>\n                Add pin\n            </a>\n        </div>\n        <div class=\"or-text\">- - OR - -</div>\n        <div class=\"pin-section address-pin-section\">\n            <div class=\"search-area\" data-bind=\"geocoder: {\n                map: map,\n                geocoder: geocoder\n            }\">\n            <div class=\"mixed-marker\"></div>\n            </div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\" data-bind=\"click: addPinFromAddress\">\n                Pin\n            </a>\n        </div>\n        <div class=\"space-3pxblk\"></div>\n        <div class=\"buttons-area\">\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() {\n                    pins([]);\n                }\">\n                <i class=\"icomoon icon-Clear\"></i>\n                Clear Pins\n            </a>\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('BAHHIPinLocationsHelpPanel'); }\">\n                <i class=\"icomoon icon-Help2\"></i>\n                Help\n            </a>\n        </div>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\"\n        data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n";
+
+/***/ }),
+
 /***/ 11338:
 /***/ ((module) => {
 
@@ -23720,7 +23748,7 @@ module.exports = "<h3 class=\"modal-title\">\n    <i class=\"icomoon icon-Help2\
 /***/ 63723:
 /***/ ((module) => {
 
-module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    Overburdened Communities Details\n</h3>\n<hr>\n<div data-bind=\"html: aboutOverburdenedCommunities\"></div>\n";
+module.exports = "<h3 class=\"modal-title\">\n    <i class=\"fas fa-info-circle\"></i>\n    About Overburdened Communities\n</h3>\n<hr>\n<div data-bind=\"html: aboutOverburdenedCommunities\"></div>\n";
 
 /***/ }),
 
@@ -23734,7 +23762,7 @@ module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-map
 /***/ 54426:
 /***/ ((module) => {
 
-module.exports = "<h3>\n    <i class=\"icomoon icon-Overburdened\"></i>\n    Overburdened Areas\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n        <li class=\"overburdened-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.overburdened.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Overburdened Census Tracts\n        </li>\n        <li class=\"overburdened-buffer\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.buffer.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            1,000 Foot Buffer Zone\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\"\n            data-bind=\"click: function() { showInfoPanel('OverburdenedCommunitiesInfoPanel'); }\">\n            <i class=\"fas fa-info-circle\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"icomoon icon-MixedPin\"></i>\n    Pin Locations\n    <div class=\"accordion-icon icomoon icon-Subtract\"\n        data-bind=\"css: {'icon-Subtract': pinsExpanded, 'icon-Add2': !pinsExpanded()}, click: function() { pinsExpanded(!pinsExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel accordion-panel-expanded\"\n    data-bind=\"css: {'accordion-panel-expanded': pinsExpanded, 'accordion-panel-collapsed': !pinsExpanded()}\">\n        <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.overburdenedPins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationOverburdened\"></i>\n                <div class=\"list-text\">Overburdened Pins (<span data-bind=\"text: overburdenedPinsCount\"></span>)</div>\n            </li>\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.notOverburdenedPins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationNotOverburdened\"></i>\n                <div class=\"list-text\">\n                    Not Overburdened Pins (<span data-bind=\"text: notOverburdenedPinsCount\"></span>)</div>\n            </li>\n        </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <div class=\"pin-section\">\n            <a href=\"javascript: void(0);\" class=\"information-link full-button\" data-bind=\"click: function() {\n                    addPinOnClick(!addPinOnClick());\n                },\n                css: {\n                    active: addPinOnClick\n                }\">\n                <i class=\"icomoon icon-AddMixedPin\"></i>\n                Add pin\n            </a>\n        </div>\n        <div class=\"or-text\">- - OR - -</div>\n        <div class=\"pin-section address-pin-section\">\n            <div class=\"search-area\" data-bind=\"geocoder: {\n                map: map,\n                geocoder: geocoder\n            }\">\n            <div class=\"mixed-marker\"></div>\n            </div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\" data-bind=\"click: addPinFromAddress\">\n                Pin\n            </a>\n        </div>\n        <div class=\"or-text\">- - OR - -</div>\n        <div class=\"pin-section extra-btm-marg\">\n            <div class=\"coordinate-entry-input\">\n                <div class=\"lat-area\">\n                    <input type=\"text\" placeholder=\" Latitude...\" min=\"-90\" max=\"90\" data-bind=\"textInput: yCoord, event: {keypress: coordsEnterKey}\">\n                </div>\n                <div class=\"long-area\">\n                    <input type=\"text\" placeholder=\" Longitude...\" min=\"-180\" max=\"180\" data-bind=\"textInput: xCoord, event: {keypress: coordsEnterKey}\">\n                </div>\n            </div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\" data-bind=\"click: addPinFromCoordinates\">\n                Pin\n            </a>\n        </div>\n        <div class=\"space-3pxblk\"></div>\n        <div class=\"buttons-area\">\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() {\n                    pins([]);\n                }\">\n                <i class=\"icomoon icon-Clear\"></i>\n                Clear Pins\n            </a>\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('PinLocationsHelpPanel'); }\">\n                <i class=\"icomoon icon-Help2\"></i>\n                Help\n            </a>\n        </div>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\"\n        data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n";
+module.exports = "<h3>\n    <i class=\"icomoon icon-Overburdened\"></i>\n    Overburdened Areas\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n        <li class=\"overburdened-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.overburdened.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Overburdened Census Tracts\n        </li>\n        <li class=\"overburdened-buffer\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.buffer.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            1,000 Foot Buffer Zone\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\"\n            data-bind=\"click: function() { showInfoPanel('OverburdenedCommunitiesInfoPanel'); }\">\n            <i class=\"fas fa-info-circle\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"icomoon icon-MixedPin\"></i>\n    Pin Locations\n    <div class=\"accordion-icon icomoon icon-Subtract\"\n        data-bind=\"css: {'icon-Subtract': pinsExpanded, 'icon-Add2': !pinsExpanded()}, click: function() { pinsExpanded(!pinsExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel accordion-panel-expanded\"\n    data-bind=\"css: {'accordion-panel-expanded': pinsExpanded, 'accordion-panel-collapsed': !pinsExpanded()}\">\n        <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.overburdenedPins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationOverburdened\"></i>\n                <div class=\"list-text\">Overburdened Pins (<span data-bind=\"text: overburdenedPinsCount\"></span>)</div>\n            </li>\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.notOverburdenedPins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationNotOverburdened\"></i>\n                <div class=\"list-text\">\n                    Not Overburdened Pins (<span data-bind=\"text: notOverburdenedPinsCount\"></span>)</div>\n            </li>\n        </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <div class=\"pin-section\">\n            <a href=\"javascript: void(0);\" class=\"information-link full-button\" data-bind=\"click: function() {\n                    addPinOnClick(!addPinOnClick());\n                },\n                css: {\n                    active: addPinOnClick\n                }\">\n                <i class=\"icomoon icon-AddMixedPin\"></i>\n                Add pin\n            </a>\n        </div>\n        <div class=\"or-text\">- - OR - -</div>\n        <div class=\"pin-section address-pin-section\">\n            <div class=\"search-area\" data-bind=\"geocoder: {\n                map: map,\n                geocoder: geocoder\n            }\">\n            <div class=\"mixed-marker\"></div>\n            </div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\" data-bind=\"click: addPinFromAddress\">\n                Pin\n            </a>\n        </div>\n        <div class=\"or-text\">- - OR - -</div>\n        <div class=\"pin-section extra-btm-marg\">\n            <div class=\"coordinate-entry-input\">\n                <div class=\"lat-area\">\n                    <input type=\"text\" placeholder=\" Latitude...\" min=\"-90\" max=\"90\" data-bind=\"textInput: yCoord, event: {keypress: coordsEnterKey}\">\n                </div>\n                <div class=\"long-area\">\n                    <input type=\"text\" placeholder=\" Longitude...\" min=\"-180\" max=\"180\" data-bind=\"textInput: xCoord, event: {keypress: coordsEnterKey}\">\n                </div>\n            </div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\" data-bind=\"click: addPinFromCoordinates\">\n                Pin\n            </a>\n        </div>\n        <div class=\"space-3pxblk\"></div>\n        <div class=\"buttons-area\">\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() {\n                    pins([]);\n                }\">\n                <i class=\"icomoon icon-Clear\"></i>\n                Clear Pins\n            </a>\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('PinLocationsHelpPanel'); }\">\n                <i class=\"icomoon icon-Help2\"></i>\n                Help\n            </a>\n        </div>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\"\n        data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n";
 
 /***/ }),
 
@@ -29046,7 +29074,7 @@ var core_js = __webpack_require__(81486);
 // EXTERNAL MODULE: ./node_modules/knockout/build/output/knockout-latest.js
 var knockout_latest = __webpack_require__(48527);
 ;// CONCATENATED MODULE: ./src/config.json
-const config_namespaceObject = JSON.parse('{"prodRoot":"https://www.baaqmd.gov/","accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","facilitiesJSONURL":"https://baaqmdpsuat.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2019-12-12&st=2021-02-18T20:16:09Z&se=2022-02-19T20:16:00Z&sr=b&sp=r&sig=KHAE1u%2BwFe7qa4ItImKXLIkpAID9CeMPP4Omt1D9k1c%3D","facilityTilesetId":"8hovmgli","clusteredFacilityTilesetId":"8q4j3kqu","facilitiesClusterDistance":30,"facilitiesJSONPath":"./data/facilities/facilities.json","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"Feeds/Air-Forecast-Map","spaRSSFeed":"Feeds/TwoDayMapAlertRSS","openBurnRSSFeed":"Feeds/Open-Burn-Map","helpContentURL":"Utils/Interactive-Map-Content/Help","aqiInfoURL":"Utils/Interactive-Map-Content/AQI","aboutForecastURL":"Utils/Interactive-Map-Content/About-Forecast","pollutantInfoURL":"Utils/Interactive-Map-Content/Pollutant","openBurnStatusInfoURL":"Utils/Interactive-Map-Content/OBS-Info","aboutImpactedCommunitiesURL":"Utils/Interactive-Map-Content/CARE-Info","aboutOverburdenedCommunitiesURL":"Utils/Interactive-Map-Content/Overburdened-Info","pinLocationsHelpURL":"Utils/Interactive-Map-Content/Pin-Locations-Help","aboutFacilitiesURL":"Utils/Interactive-Map-Content/About-Facility","summerModalURL":"Utils/Interactive-Map-Content/Summer-Modal-Content","winterModalURL":"Utils/Interactive-Map-Content/Winter-Modal-Content","airDistrictStationDataURL":"Utils/Interactive-Map-Content/Air-District-Stations","facilityGLMStationDataURL":"Utils/Interactive-Map-Content/Facility-GLM-Stations","meteorologicalSiteDataURL":"Utils/Interactive-Map-Content/Meteorological-Sites","historicalDocRootURL":"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/","zoom":7,"center":[-122.11157519531474,37.900063508510144],"districtBounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"fullscreenURL":"/mobile-fullscreen.html","mainMapPage":"https://baaqmd.fargeo-dev.com/dist/","mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh","label":"Air Quality Forecast Map"},"Monitoring":{"style":"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47","label":"Air Quality Monitoring Map"},"Facilities":{"style":"baaqmd-publicmaps/cklcnrb7g2hwq17notzudstpy","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"OpenBurning":{"style":"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb","label":"Open Burning Map"},"OverburdenedCommunities":{"style":"baaqmd-publicmaps/cl1uz2h47000415qsdkln1ze2","label":"Overburdened Areas Map"}}}');
+const config_namespaceObject = JSON.parse('{"prodRoot":"https://www.baaqmd.gov/","accessToken":"pk.eyJ1IjoiYmFhcW1kLXB1YmxpY21hcHMiLCJhIjoiY2szcDJsMTRlMjdnYTNicGhrNGZncXhuYyJ9.iV06_RIzAx1lImQdB-uiMw","userName":"baaqmd-publicmaps","tilesetId":"c3867v6s","facilitiesJSONURL":"https://baaqmdpsuat.blob.core.windows.net/external/FacilitiesWithPONSCO.json?sv=2019-12-12&st=2021-02-18T20:16:09Z&se=2022-02-19T20:16:00Z&sr=b&sp=r&sig=KHAE1u%2BwFe7qa4ItImKXLIkpAID9CeMPP4Omt1D9k1c%3D","facilityTilesetId":"8hovmgli","clusteredFacilityTilesetId":"8q4j3kqu","facilitiesClusterDistance":30,"facilitiesJSONPath":"./data/facilities/facilities.json","apiURI":"https://api.mapbox.com/styles/v1/","aqiRSSFeed":"Feeds/Air-Forecast-Map","spaRSSFeed":"Feeds/TwoDayMapAlertRSS","openBurnRSSFeed":"Feeds/Open-Burn-Map","helpContentURL":"Utils/Interactive-Map-Content/Help","aqiInfoURL":"Utils/Interactive-Map-Content/AQI","aboutForecastURL":"Utils/Interactive-Map-Content/About-Forecast","pollutantInfoURL":"Utils/Interactive-Map-Content/Pollutant","openBurnStatusInfoURL":"Utils/Interactive-Map-Content/OBS-Info","aboutImpactedCommunitiesURL":"Utils/Interactive-Map-Content/CARE-Info","aboutOverburdenedCommunitiesURL":"Utils/Interactive-Map-Content/Overburdened-Info","pinLocationsHelpURL":"Utils/Interactive-Map-Content/Pin-Locations-Help","aboutBAHHIEligibilityURL":"Utils/Interactive-Map-Content/About-BAHHI-Eligibility","aboutFacilitiesURL":"Utils/Interactive-Map-Content/About-Facility","summerModalURL":"Utils/Interactive-Map-Content/Summer-Modal-Content","winterModalURL":"Utils/Interactive-Map-Content/Winter-Modal-Content","airDistrictStationDataURL":"Utils/Interactive-Map-Content/Air-District-Stations","facilityGLMStationDataURL":"Utils/Interactive-Map-Content/Facility-GLM-Stations","meteorologicalSiteDataURL":"Utils/Interactive-Map-Content/Meteorological-Sites","historicalDocRootURL":"https://ec7d661f307cf9495d81-695a5b7d21ce2502f9f140b8c3a18f17.ssl.cf2.rackcdn.com/","zoom":7,"center":[-122.11157519531474,37.900063508510144],"districtBounds":[-123.02428294899994,36.89298098100005,-121.20819094099994,38.86425008600003],"boundsPadding":20,"fullscreenURL":"/mobile-fullscreen.html","mainMapPage":"https://baaqmd.fargeo-dev.com/dist/","mapTypes":{"AQIForecast":{"style":"baaqmd-publicmaps/ckhce2rib0q7l19mhus8ypihh","label":"Air Quality Forecast Map"},"BAHHIEligibility":{"style":"baaqmd-publicmaps/cl820ha00000014lg69pbr9r9","label":"BAHHI Eligibility Map"},"Monitoring":{"style":"baaqmd-publicmaps/cjvzl3ruh1e131cqv16ky1p47","label":"Air Quality Monitoring Map"},"Facilities":{"style":"baaqmd-publicmaps/cklcnrb7g2hwq17notzudstpy","label":"Facilities Map"},"ImpactedCommunities":{"style":"baaqmd-publicmaps/cjv77q5gn2af61fkdmy2afi3w","label":"Impacted Communities Map"},"OpenBurning":{"style":"baaqmd-publicmaps/ck48qpij20ko91co4tacws9eb","label":"Open Burning Map"},"OverburdenedCommunities":{"style":"baaqmd-publicmaps/cl1uz2h47000415qsdkln1ze2","label":"Overburdened Areas Map"}}}');
 // EXTERNAL MODULE: ./src/main.html
 var main = __webpack_require__(25215);
 // EXTERNAL MODULE: ./src/components/aqi-forecast/template.html
@@ -29668,6 +29696,289 @@ var AQIMobileMenu = /*#__PURE__*/function () {
   },
   template: template
 }));
+// EXTERNAL MODULE: ./src/components/bahhi-eligibility/template.html
+var bahhi_eligibility_template = __webpack_require__(28056);
+// EXTERNAL MODULE: ./src/components/bahhi-eligibility/popup.html
+var bahhi_eligibility_popup = __webpack_require__(85559);
+// EXTERNAL MODULE: ./src/components/bahhi-eligibility/info-panel.html
+var bahhi_eligibility_info_panel = __webpack_require__(44625);
+// EXTERNAL MODULE: ./src/components/bahhi-eligibility/help-panel.html
+var help_panel = __webpack_require__(2984);
+// EXTERNAL MODULE: ./node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.min.js
+var mapbox_gl_geocoder_min = __webpack_require__(35908);
+;// CONCATENATED MODULE: ./src/bindings/geocoder.js
+
+
+
+
+
+knockout_latest.bindingHandlers.geocoder = {
+  map: null,
+  init: function init(element, valueAccessor) {
+    var value = valueAccessor();
+    var map = knockout_latest.unwrap(value.map);
+    var geocoder;
+
+    function setup(element) {
+      geocoder = new mapbox_gl_geocoder_min({
+        bbox: config_namespaceObject.districtBounds,
+        accessToken: mapbox_gl.accessToken,
+        placeholder: "Enter address to pin...",
+        mapboxgl: mapbox_gl
+      });
+      value.geocoder(geocoder);
+      element.appendChild(geocoder.onAdd(map));
+    }
+
+    if (map) {
+      setup(element);
+    } else {
+      value.map.subscribe(function (newValue) {
+        map = newValue;
+        setup(element);
+      });
+    }
+  }
+};
+/* harmony default export */ const geocoder = (knockout_latest.bindingHandlers.geocoder);
+;// CONCATENATED MODULE: ./src/components/bahhi-eligibility/index.js
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+var pinLocationsHelp = knockout_latest.observable();
+var aboutBAHHIEligibility = knockout_latest.observable();
+
+var bahhi_eligibility_fetchData = function fetchData(rootURL) {
+  fetchHTML(rootURL + config_namespaceObject.aboutBAHHIEligibilityURL, aboutBAHHIEligibility);
+  fetchHTML(rootURL + config_namespaceObject.pinLocationsHelpURL, pinLocationsHelp);
+  bahhi_eligibility_fetchData = false;
+};
+
+knockout_latest.components.register('BAHHIEligibilityInfoPanel', {
+  viewModel: function viewModel(params) {
+    this.showInfoPanel = params.showInfoPanel;
+    this.aboutBAHHIEligibility = aboutBAHHIEligibility;
+  },
+  template: bahhi_eligibility_info_panel
+});
+knockout_latest.components.register('BAHHIPinLocationsHelpPanel', {
+  viewModel: function viewModel(params) {
+    this.showInfoPanel = params.showInfoPanel;
+    this.pinLocationsHelp = pinLocationsHelp;
+  },
+  template: help_panel
+});
+/* harmony default export */ const bahhi_eligibility = (knockout_latest.components.register('BAHHIEligibility', {
+  viewModel: function viewModel(params) {
+    var _this = this;
+
+    var rootUrl = params.rootURL || config_namespaceObject.prodRoot;
+    if (bahhi_eligibility_fetchData) bahhi_eligibility_fetchData(rootUrl);
+    this.geocoder = knockout_latest.observable();
+    this.pinsExpanded = knockout_latest.observable(true);
+    this.pins = knockout_latest.observableArray();
+    this.eligiblePinsCount = knockout_latest.computed(function () {
+      return _this.pins().filter(function (pin) {
+        return pin.properties.eligible;
+      }).length;
+    });
+    this.notEligiblePinsCount = knockout_latest.computed(function () {
+      return _this.pins().filter(function (pin) {
+        return !pin.properties.eligible;
+      }).length;
+    });
+    this.xCoord = knockout_latest.observable();
+    this.yCoord = knockout_latest.observable();
+    this.layers = {
+      bahhiEligibility: {
+        flag: knockout_latest.observable(true),
+        names: ['bahhi-eligibility']
+      },
+      bahhiCounties: {
+        flag: knockout_latest.observable(true),
+        names: ['bahhi-counties']
+      },
+      eligiblePins: {
+        flag: knockout_latest.observable(true),
+        names: ['eligible-pins']
+      },
+      notEligiblePins: {
+        flag: knockout_latest.observable(true),
+        names: ['not-eligible-pins']
+      },
+      district: {
+        flag: knockout_latest.observable(true),
+        names: ['district-boundary']
+      },
+      counties: {
+        flag: knockout_latest.observable(true),
+        names: ['counties', 'counties-labels']
+      }
+    };
+    this.popupLayers = ['eligible-pins', 'not-eligible-pins'];
+
+    this.getPopupData = function (feature) {
+      return _objectSpread({
+        removePin: function removePin() {
+          _this.popup.remove();
+
+          _this.pins.splice(feature.properties.index, 1);
+        }
+      }, feature.properties);
+    };
+
+    this.popupTemplate = bahhi_eligibility_popup;
+
+    this.addPin = function (coords, properties) {
+      var url = "".concat(mapbox_gl.baseApiUrl, "/v4/baaqmd-publicmaps.cl84tuv710bbi28myv7qn6741-7qn9u/tilequery/").concat(coords[0], ",").concat(coords[1], ".json?limit=1&access_token=").concat(mapbox_gl.accessToken);
+      fetch(url).then(function (response) {
+        if (!response.ok) {
+          throw new Error("HTTP error! Status: ".concat(response.status));
+        }
+
+        return response.json();
+      }).then(function (data) {
+        properties.eligible = data.features.length > 0;
+        properties.name = properties.place_name || "Latitude: ".concat(Math.round(coords[1] * 1000) / 1000, "\n                        <br/>\n                        Longitude: ").concat(Math.round(coords[0] * 1000) / 1000);
+
+        _this.pins.push({
+          coords: coords,
+          properties: properties
+        });
+      });
+    };
+
+    this.coordsEnterKey = function (data, event) {
+      if (event.keyCode === 13) _this.addPinFromCoordinates();
+      return true;
+    };
+
+    this.addPinFromCoordinates = function () {
+      if (_this.xCoord() && _this.yCoord()) {
+        var coords = [_this.xCoord(), _this.yCoord()];
+
+        _this.addPin(coords, {});
+
+        _this.map().flyTo({
+          center: coords,
+          zoom: 16
+        });
+      }
+    };
+
+    this.addPinOnClick = knockout_latest.observable(false);
+    this.addPinOnClick.subscribe(function (addPinOnClick) {
+      if (addPinOnClick) {
+        _this.map().getCanvas().style.cursor = 'crosshair';
+      } else {
+        _this.map().getCanvas().style.cursor = '';
+      }
+    });
+    var geocoderResult;
+    this.geocoder.subscribe(function (geocoder) {
+      geocoder.on('loading', function (e) {
+        geocoderResult = undefined;
+      });
+      geocoder.on('result', function (e) {
+        geocoderResult = e.result;
+
+        _this.addPin(geocoderResult.center, geocoderResult);
+      });
+    });
+
+    this.addPinFromAddress = function () {
+      if (geocoderResult) {
+        _this.addPin(geocoderResult.center, geocoderResult);
+      }
+    };
+
+    this.setupMap = function (map) {
+      map.addSource('eligible-pins', {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: []
+        }
+      });
+      map.addLayer({
+        id: 'eligible-pins',
+        type: 'symbol',
+        source: 'eligible-pins',
+        filter: ['==', ['get', 'eligible'], true],
+        layout: {
+          'icon-image': 'LocationOverburdened',
+          'icon-allow-overlap': true,
+          'icon-ignore-placement': true,
+          'icon-anchor': 'bottom',
+          'icon-size': 0.1
+        }
+      });
+      map.addLayer({
+        id: 'not-eligible-pins',
+        type: 'symbol',
+        source: 'eligible-pins',
+        filter: ['==', ['get', 'eligible'], false],
+        layout: {
+          'icon-image': 'LocationNotOverburdened',
+          'icon-allow-overlap': true,
+          'icon-ignore-placement': true,
+          'icon-anchor': 'bottom',
+          'icon-size': 0.1
+        }
+      });
+
+      _this.layers.counties.flag(false);
+
+      var onClick = function onClick(e) {
+        if (_this.addPinOnClick()) {
+          _this.addPin([e.lngLat.lng, e.lngLat.lat], {});
+
+          _this.addPinOnClick(false);
+        }
+      };
+
+      map.on('click', onClick);
+
+      var teardown = _this.mapType.subscribe(function () {
+        map.off('click', onClick);
+        teardown.dispose();
+      });
+
+      _this.pins.subscribe(function (pins) {
+        map.getSource('eligible-pins').setData({
+          type: 'FeatureCollection',
+          features: pins.map(function (pin, index) {
+            pin.properties.index = index;
+            return {
+              type: 'Feature',
+              geometry: {
+                type: 'Point',
+                coordinates: pin.coords
+              },
+              properties: pin.properties
+            };
+          })
+        });
+      });
+    };
+
+    MapDetailsPanel.apply(this, [params]);
+  },
+  template: bahhi_eligibility_template
+}));
 // EXTERNAL MODULE: ./src/components/facilities/template.html
 var facilities_template = __webpack_require__(73067);
 // EXTERNAL MODULE: ./src/components/facilities/popup.html
@@ -29846,52 +30157,13 @@ var overburdened_communities_popup = __webpack_require__(55019);
 // EXTERNAL MODULE: ./src/components/overburdened-communities/info-panel.html
 var overburdened_communities_info_panel = __webpack_require__(63723);
 // EXTERNAL MODULE: ./src/components/overburdened-communities/help-panel.html
-var help_panel = __webpack_require__(93494);
-// EXTERNAL MODULE: ./node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.min.js
-var mapbox_gl_geocoder_min = __webpack_require__(35908);
-;// CONCATENATED MODULE: ./src/bindings/geocoder.js
-
-
-
-
-
-knockout_latest.bindingHandlers.geocoder = {
-  map: null,
-  init: function init(element, valueAccessor) {
-    var value = valueAccessor();
-    var map = knockout_latest.unwrap(value.map);
-    var geocoder;
-
-    function setup(element) {
-      geocoder = new mapbox_gl_geocoder_min({
-        bbox: config_namespaceObject.districtBounds,
-        accessToken: mapbox_gl.accessToken,
-        placeholder: "Enter address to pin...",
-        mapboxgl: mapbox_gl
-      });
-      value.geocoder(geocoder);
-      element.appendChild(geocoder.onAdd(map));
-    }
-
-    if (map) {
-      setup(element);
-    } else {
-      value.map.subscribe(function (newValue) {
-        map = newValue;
-        setup(element);
-      });
-    }
-  }
-};
-/* harmony default export */ const geocoder = (knockout_latest.bindingHandlers.geocoder);
+var overburdened_communities_help_panel = __webpack_require__(93494);
 ;// CONCATENATED MODULE: ./src/components/overburdened-communities/index.js
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function overburdened_communities_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function overburdened_communities_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? overburdened_communities_ownKeys(Object(source), !0).forEach(function (key) { overburdened_communities_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : overburdened_communities_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
+function overburdened_communities_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -29901,12 +30173,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var pinLocationsHelp = knockout_latest.observable();
+
+
+var overburdened_communities_pinLocationsHelp = knockout_latest.observable();
 var aboutOverburdenedCommunities = knockout_latest.observable();
 
 var overburdened_communities_fetchData = function fetchData(rootURL) {
   fetchHTML(rootURL + config_namespaceObject.aboutOverburdenedCommunitiesURL, aboutOverburdenedCommunities);
-  fetchHTML(rootURL + config_namespaceObject.pinLocationsHelpURL, pinLocationsHelp);
+  fetchHTML(rootURL + config_namespaceObject.pinLocationsHelpURL, overburdened_communities_pinLocationsHelp);
   overburdened_communities_fetchData = false;
 };
 
@@ -29920,9 +30194,9 @@ knockout_latest.components.register('OverburdenedCommunitiesInfoPanel', {
 knockout_latest.components.register('PinLocationsHelpPanel', {
   viewModel: function viewModel(params) {
     this.showInfoPanel = params.showInfoPanel;
-    this.pinLocationsHelp = pinLocationsHelp;
+    this.pinLocationsHelp = overburdened_communities_pinLocationsHelp;
   },
-  template: help_panel
+  template: overburdened_communities_help_panel
 });
 /* harmony default export */ const overburdened_communities = (knockout_latest.components.register('OverburdenedCommunities', {
   viewModel: function viewModel(params) {
@@ -29974,7 +30248,7 @@ knockout_latest.components.register('PinLocationsHelpPanel', {
     this.popupLayers = ['overburdened-communities-pins', 'not-overburdened-communities-pins'];
 
     this.getPopupData = function (feature) {
-      return _objectSpread({
+      return overburdened_communities_objectSpread({
         removePin: function removePin() {
           _this.popup.remove();
 
@@ -31045,6 +31319,7 @@ function ViewModel(params) {
   template: scroll_hint_template
 }));
 ;// CONCATENATED MODULE: ./src/index.js
+
 
 
 
