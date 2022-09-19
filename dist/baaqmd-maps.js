@@ -23615,7 +23615,7 @@ module.exports = "<div class=\"baaqmd-maps-popup\">\n    <div class=\"baaqmd-map
 /***/ 28056:
 /***/ ((module) => {
 
-module.exports = "<h3>\n    <i class=\"icomoon icon-Overburdened\"></i>\n    Overburdened Areas\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n        <li class=\"bahhi-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.bahhiEligibility.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            BAHHI Program Areas\n        </li>\n        <li class=\"bahhi-counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.bahhiCounties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            BAHHI Program Counties\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\"\n            data-bind=\"click: function() { showInfoPanel('BAHHIEligibilityInfoPanel'); }\">\n            <i class=\"fas fa-info-circle\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"icomoon icon-MixedPin\"></i>\n    Pin Locations\n    <div class=\"accordion-icon icomoon icon-Subtract\"\n        data-bind=\"css: {'icon-Subtract': pinsExpanded, 'icon-Add2': !pinsExpanded()}, click: function() { pinsExpanded(!pinsExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel accordion-panel-expanded\"\n    data-bind=\"css: {'accordion-panel-expanded': pinsExpanded, 'accordion-panel-collapsed': !pinsExpanded()}\">\n        <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.eligiblePins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationOverburdened\"></i>\n                <div class=\"list-text\">BAHHI Eligible Pins (<span data-bind=\"text: eligiblePinsCount\"></span>)</div>\n            </li>\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.notEligiblePins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationNotOverburdened\"></i>\n                <div class=\"list-text\">\n                    Not BAHHI Eligible Pins (<span data-bind=\"text: notEligiblePinsCount\"></span>)</div>\n            </li>\n        </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <div class=\"pin-section\">\n            <a href=\"javascript: void(0);\" class=\"information-link full-button\" data-bind=\"click: function() {\n                    addPinOnClick(!addPinOnClick());\n                },\n                css: {\n                    active: addPinOnClick\n                }\">\n                <i class=\"icomoon icon-AddMixedPin\"></i>\n                Add pin\n            </a>\n        </div>\n        <div class=\"or-text\">- - OR - -</div>\n        <div class=\"pin-section address-pin-section\">\n            <div class=\"search-area\" data-bind=\"geocoder: {\n                map: map,\n                geocoder: geocoder\n            }\">\n            <div class=\"mixed-marker\"></div>\n            </div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\" data-bind=\"click: addPinFromAddress\">\n                Pin\n            </a>\n        </div>\n        <div class=\"space-3pxblk\"></div>\n        <div class=\"buttons-area\">\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() {\n                    pins([]);\n                }\">\n                <i class=\"icomoon icon-Clear\"></i>\n                Clear Pins\n            </a>\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('BAHHIPinLocationsHelpPanel'); }\">\n                <i class=\"icomoon icon-Help2\"></i>\n                Help\n            </a>\n        </div>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\"\n        data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n";
+module.exports = "<h3>\n    <i class=\"icomoon icon-Overburdened\"></i>\n    Bay Area Healthy Homes\n    <div class=\"accordion-icon icomoon\" data-bind=\"css: {'icon-Subtract': mainExpanded, 'icon-Add2': !mainExpanded()}, click: function() { mainExpanded(!mainExpanded()); }\"></div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': mainExpanded, 'accordion-panel-collapsed': !mainExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n        <li class=\"bahhi-areas\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.bahhiEligibility.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            BAHHI Program Areas\n        </li>\n        <li class=\"bahhi-counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.bahhiCounties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            BAHHI Program Counties\n        </li>\n    </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <a href=\"javascript: void(0);\" class=\"information-link\"\n            data-bind=\"click: function() { showInfoPanel('BAHHIEligibilityInfoPanel'); }\">\n            <i class=\"fas fa-info-circle\"></i>\n            More Information\n        </a>\n    </div>\n</div>\n<h3>\n    <i class=\"icomoon icon-MixedPin\"></i>\n    Pin Locations\n    <div class=\"accordion-icon icomoon icon-Subtract\"\n        data-bind=\"css: {'icon-Subtract': pinsExpanded, 'icon-Add2': !pinsExpanded()}, click: function() { pinsExpanded(!pinsExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel accordion-panel-expanded\"\n    data-bind=\"css: {'accordion-panel-expanded': pinsExpanded, 'accordion-panel-collapsed': !pinsExpanded()}\">\n        <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities\">\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.eligiblePins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationOverburdened\"></i>\n                <div class=\"list-text\">Eligible Location Pins (<span data-bind=\"text: eligiblePinsCount\"></span>)</div>\n            </li>\n            <li>\n                <input type=\"checkbox\" data-bind=\"checked: layers.notEligiblePins.flag\" checked=\"checked\">\n                <i class=\"icomoon icon-LocationNotOverburdened\"></i>\n                <div class=\"list-text\">\n                    Eligible Location Pins (<span data-bind=\"text: notEligiblePinsCount\"></span>)</div>\n            </li>\n        </ul>\n    <div class=\"baaqmd-maps-details-links\">\n        <div class=\"pin-section\">\n            <a href=\"javascript: void(0);\" class=\"information-link full-button\" data-bind=\"click: function() {\n                    addPinOnClick(!addPinOnClick());\n                },\n                css: {\n                    active: addPinOnClick\n                }\">\n                <i class=\"icomoon icon-AddMixedPin\"></i>\n                Add pin\n            </a>\n        </div>\n        <div class=\"or-text\">- - OR - -</div>\n        <div class=\"pin-section address-pin-section\">\n            <div class=\"search-area\" data-bind=\"geocoder: {\n                map: map,\n                geocoder: geocoder\n            }\">\n            <div class=\"mixed-marker\"></div>\n            </div>\n            <a href=\"javascript: void(0);\" class=\"information-link small-button\" data-bind=\"click: addPinFromAddress\">\n                Pin\n            </a>\n        </div>\n        <div class=\"space-3pxblk\"></div>\n        <div class=\"buttons-area\">\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() {\n                    pins([]);\n                }\">\n                <i class=\"icomoon icon-Clear\"></i>\n                Clear Pins\n            </a>\n            <a href=\"javascript: void(0);\" class=\"information-link\" data-bind=\"click: function() { showInfoPanel('BAHHIPinLocationsHelpPanel'); }\">\n                <i class=\"icomoon icon-Help2\"></i>\n                Help\n            </a>\n        </div>\n    </div>\n</div>\n<h3>\n    <i class=\"im im-boundaries\"></i>\n    Boundaries\n    <div class=\"accordion-icon icomoon\"\n        data-bind=\"css: {'icon-Subtract': boundariesExpanded, 'icon-Add2': !boundariesExpanded()}, click: function() { boundariesExpanded(!boundariesExpanded()); }\">\n    </div>\n</h3>\n<div class=\"accordion-panel\"\n    data-bind=\"css: {'accordion-panel-expanded': boundariesExpanded, 'accordion-panel-collapsed': !boundariesExpanded()}\">\n    <ul class=\"baaqmd-maps-legend baaqmd-maps-boundaries baaqmd-maps-lines\">\n        <li class=\"counties\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.counties.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            Counties\n        </li>\n        <li class=\"district-boundary\">\n            <input type=\"checkbox\" data-bind=\"checked: layers.district.flag\">\n            <span class=\"legend-display\">\n                <i></i>\n            </span>\n            District Boundary\n        </li>\n    </ul>\n</div>\n";
 
 /***/ }),
 
@@ -29842,6 +29842,36 @@ knockout_latest.components.register('BAHHIPinLocationsHelpPanel', {
 
     this.popupTemplate = bahhi_eligibility_popup;
 
+    this.assignPinName = function (properties, coords) {
+      var url = "https://api.mapbox.com/geocoding/v5/mapbox.places/".concat(coords[0], ",").concat(coords[1], ".json?access_token=").concat(mapbox_gl.accessToken);
+
+      if (properties["place_name"]) {
+        properties.name = properties.place_name;
+
+        _this.pins.push({
+          coords: coords,
+          properties: properties
+        });
+      } else fetch(url).then(function (response) {
+        if (!response.ok) {
+          throw new Error("HTTP error! Status: ".concat(response.status));
+        }
+
+        return response.json();
+      }).then(function (data) {
+        if (data.features.length > 0) {
+          properties.name = data.features[0]["place_name"];
+        } else {
+          properties.name = "User selected location";
+        }
+
+        _this.pins.push({
+          coords: coords,
+          properties: properties
+        });
+      });
+    };
+
     this.addPin = function (coords, properties) {
       var url = "".concat(mapbox_gl.baseApiUrl, "/v4/baaqmd-publicmaps.cl84tuv710bbi28myv7qn6741-7qn9u/tilequery/").concat(coords[0], ",").concat(coords[1], ".json?limit=1&access_token=").concat(mapbox_gl.accessToken);
       fetch(url).then(function (response) {
@@ -29852,31 +29882,9 @@ knockout_latest.components.register('BAHHIPinLocationsHelpPanel', {
         return response.json();
       }).then(function (data) {
         properties.eligible = data.features.length > 0;
-        properties.name = properties.place_name || "Latitude: ".concat(Math.round(coords[1] * 1000) / 1000, "\n                        <br/>\n                        Longitude: ").concat(Math.round(coords[0] * 1000) / 1000);
 
-        _this.pins.push({
-          coords: coords,
-          properties: properties
-        });
+        _this.assignPinName(properties, coords);
       });
-    };
-
-    this.coordsEnterKey = function (data, event) {
-      if (event.keyCode === 13) _this.addPinFromCoordinates();
-      return true;
-    };
-
-    this.addPinFromCoordinates = function () {
-      if (_this.xCoord() && _this.yCoord()) {
-        var coords = [_this.xCoord(), _this.yCoord()];
-
-        _this.addPin(coords, {});
-
-        _this.map().flyTo({
-          center: coords,
-          zoom: 16
-        });
-      }
     };
 
     this.addPinOnClick = knockout_latest.observable(false);
