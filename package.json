@@ -6,7 +6,8 @@
   "repository": "git@github.com:fargeo/baaqmd-maps.git",
   "author": "Rob Gaston <rgaston@fargeo.com>",
   "scripts": {
-    "dev": "webpack-cli serve --config webpack.dev.js",
+    "start": "webpack-cli serve --config webpack.dev.js",
+    "dev": "yarn start",
     "gen-points": "node scripts/gen-points.js",
     "facilities": "node scripts/facilities.js",
     "tiles": "node scripts/tiles.js",

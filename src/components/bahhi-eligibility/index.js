@@ -109,6 +109,35 @@ export default ko.components.register('BAHHIEligibility', {
 
         this.popupTemplate = popupTemplate;
 
+        this.assignPinName = (properties, coords) => {
+            const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coords[0]},${coords[1]}.json?access_token=${mapboxgl.accessToken}`;
+            if (properties["place_name"]) {
+                properties.name = properties.place_name;
+                this.pins.push({
+                    coords: coords,
+                    properties: properties
+                });
+            } else fetch(url)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+
+                    return response.json();
+                })
+                .then((data) => {
+                    if (data.features.length > 0) {
+                        properties.name = data.features[0]["place_name"];
+                    } else {
+                        properties.name = "User selected location";
+                    }
+                    this.pins.push({
+                        coords: coords,
+                        properties: properties
+                    });
+                });
+        };
+
         this.addPin = (coords, properties) => {
             const url = `${mapboxgl.baseApiUrl}/v4/baaqmd-publicmaps.cl84tuv710bbi28myv7qn6741-7qn9u/tilequery/${coords[0]},${coords[1]}.json?limit=1&access_token=${mapboxgl.accessToken}`;
             fetch(url)
@@ -121,27 +150,8 @@ export default ko.components.register('BAHHIEligibility', {
                 })
                 .then((data) => {
                     properties.eligible = data.features.length > 0;
-                    properties.name = properties.place_name || `Latitude: ${Math.round(coords[1] * 1000) / 1000}
-                        <br/>
-                        Longitude: ${Math.round(coords[0] * 1000) / 1000}`;
-                    this.pins.push({
-                        coords: coords,
-                        properties: properties
-                    });
+                    this.assignPinName(properties, coords);
                 });
-        };
-
-        this.coordsEnterKey = (data, event) => {
-            if (event.keyCode === 13) this.addPinFromCoordinates();
-            return true;
-        };
-
-        this.addPinFromCoordinates = () => {
-            if (this.xCoord() && this.yCoord()) {
-                const coords = [this.xCoord(), this.yCoord()];
-                this.addPin(coords, {});
-                this.map().flyTo({center: coords, zoom: 16});
-            }
         };
 
         this.addPinOnClick = ko.observable(false);
