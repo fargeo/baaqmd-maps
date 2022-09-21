@@ -13,7 +13,7 @@ const pinLocationsHelp = ko.observable();
 const aboutBAHHIEligibility = ko.observable();
 let fetchData = (rootURL) => {
     fetchHTML(rootURL + config.aboutBAHHIEligibilityURL, aboutBAHHIEligibility);
-    fetchHTML(rootURL + config.pinLocationsHelpURL, pinLocationsHelp);
+    fetchHTML(rootURL + config.bahhiPinLocationsHelpURL, pinLocationsHelp);
     fetchData = false;
 };
 
