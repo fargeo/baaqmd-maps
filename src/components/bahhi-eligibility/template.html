@@ -51,18 +51,6 @@
             </li>
         </ul>
     <div class="baaqmd-maps-details-links">
-        <div class="pin-section">
-            <a href="javascript: void(0);" class="information-link full-button" data-bind="click: function() {
-                    addPinOnClick(!addPinOnClick());
-                },
-                css: {
-                    active: addPinOnClick
-                }">
-                <i class="icomoon icon-AddMixedPin"></i>
-                Add pin
-            </a>
-        </div>
-        <div class="or-text">- - OR - -</div>
         <div class="pin-section address-pin-section">
             <div class="search-area" data-bind="geocoder: {
                 map: map,
@@ -72,6 +60,18 @@
             </div>
             <a href="javascript: void(0);" class="information-link small-button" data-bind="click: addPinFromAddress">
                 Pin
+            </a>
+        </div>
+        <div class="or-text">- - OR - -</div>
+        <div class="pin-section">
+            <a href="javascript: void(0);" class="information-link full-button" data-bind="click: function() {
+                    addPinOnClick(!addPinOnClick());
+                },
+                css: {
+                    active: addPinOnClick
+                }">
+                <i class="icomoon icon-AddMixedPin"></i>
+                Add pin
             </a>
         </div>
         <div class="space-3pxblk"></div>
