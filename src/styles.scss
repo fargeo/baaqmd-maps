@@ -4529,6 +4529,7 @@ i.icomoon.icon-Location:before {
     .mapboxgl-ctrl-geocoder {
         min-width: 100%;
         margin-top: 4px;
+        z-index: 0;
 
         .geocoder-icon.geocoder-icon-search::after {
             content: '';
@@ -4608,9 +4609,8 @@ i.icomoon.icon-Location:before {
     position: absolute;
     width: 17px;
     height: 22px;
-    left: 13px;
-    top: 8px;
-    z-index: 100;
+    left: 10px;
+    top: 4px;
 }
 
 ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li i.icomoon.icon-LocationOverburdened,

@@ -11,6 +11,7 @@ ko.bindingHandlers.geocoder = {
         let map = ko.unwrap(value.map);
         let geocoder;
         function setup(element) {
+            let div = document.createElement('div');
             geocoder = new MapboxGeocoder({
                 bbox: config.districtBounds,
                 accessToken: mapboxgl.accessToken,
@@ -20,6 +21,8 @@ ko.bindingHandlers.geocoder = {
             value.geocoder(geocoder);
 
             element.appendChild(geocoder.onAdd(map));
+            div.classList.add('mixed-marker');
+            geocoder.container.appendChild(div);
         }
         if (map) {
             setup(element);
