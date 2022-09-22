@@ -29824,7 +29824,7 @@ knockout_latest.components.register('BAHHIPinLocationsHelpPanel', {
       },
       district: {
         flag: knockout_latest.observable(true),
-        names: ['district-boundary']
+        names: ['districtboundary']
       },
       counties: {
         flag: knockout_latest.observable(true),

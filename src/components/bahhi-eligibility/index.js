@@ -80,7 +80,7 @@ export default ko.components.register('BAHHIEligibility', {
             district: {
                 flag: ko.observable(true),
                 names: [
-                    'district-boundary'
+                    'districtboundary'
                 ]
             },
             counties: {
