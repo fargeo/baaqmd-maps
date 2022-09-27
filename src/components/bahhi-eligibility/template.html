@@ -41,16 +41,16 @@
         <ul class="baaqmd-maps-legend baaqmd-maps-boundaries impacted-communities">
             <li>
                 <input type="checkbox" data-bind="checked: layers.eligiblePins.flag" checked="checked">
-                <i class="icomoon icon-LocationOverburdened"></i>
+                <i class="icomoon icon-EligiblePin"></i>
                 <div class="list-text">Eligible Location Pins (<span data-bind="text: eligiblePinsCount"></span>)</div>
             </li>
             <li>
                 <input type="checkbox" data-bind="checked: layers.notEligiblePins.flag" checked="checked">
-                <i class="icomoon icon-LocationNotOverburdened"></i>
+                <i class="icomoon icon-NotEligiblePin"></i>
                 <div class="list-text">Not Eligible Location Pins (<span data-bind="text: notEligiblePinsCount"></span>)</div>
             </li>
         </ul>
-    <div class="baaqmd-maps-details-links">
+    <div class="baaqmd-maps-details-links bahhi-map">
         <div class="pin-section address-pin-section">
             <div class="search-area" data-bind="geocoder: {
                 map: map,

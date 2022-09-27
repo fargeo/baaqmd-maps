@@ -17,12 +17,12 @@
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?7mhhhx');
-  src:  url('fonts/icomoon.eot?7mhhhx#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?7mhhhx') format('woff2'),
-    url('fonts/icomoon.ttf?7mhhhx') format('truetype'),
-    url('fonts/icomoon.woff?7mhhhx') format('woff'),
-    url('fonts/icomoon.svg?7mhhhx#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?80urd3');
+  src:  url('fonts/icomoon.eot?80urd3#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?80urd3') format('woff2'),
+    url('fonts/icomoon.ttf?80urd3') format('truetype'),
+    url('fonts/icomoon.woff?80urd3') format('woff'),
+    url('fonts/icomoon.svg?80urd3#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -1337,6 +1337,18 @@ $no-color: #b10318;
             background-color: #11c086;
         }
     }
+
+     .bahhi-program-areas {
+            i:before {
+                background-color: #c099c8;
+            }
+        }
+
+      .bahhi-program-counties {
+            i:before {
+                background-color: #3460e8;
+            }
+        }
 
     .overburdened-areas {
         i:before {
@@ -3048,12 +3060,12 @@ table.striped-rows.air-monitoring-table {
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?7mhhhx');
-  src:  url('fonts/icomoon.eot?7mhhhx#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?7mhhhx') format('woff2'),
-    url('fonts/icomoon.ttf?7mhhhx') format('truetype'),
-    url('fonts/icomoon.woff?7mhhhx') format('woff'),
-    url('fonts/icomoon.svg?7mhhhx#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?80urd3');
+  src:  url('fonts/icomoon.eot?80urd3#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?80urd3') format('woff2'),
+    url('fonts/icomoon.ttf?80urd3') format('truetype'),
+    url('fonts/icomoon.woff?80urd3') format('woff'),
+    url('fonts/icomoon.svg?80urd3#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -3097,6 +3109,12 @@ table.striped-rows.air-monitoring-table {
 }
 .icon-SpareAirHoriz:before {
   content: "\e951";
+}
+.icon-EligiblePin:before {
+  content: "\ea7b";
+}
+.icon-NotEligiblePin:before {
+  content: "\ea7c";
 }
 .icon-FacebookMap:before {
   content: "\ea79";
@@ -4428,6 +4446,22 @@ i.icomoon.icon-LocationNotOverburdened:before {
     float: left;
 }
 
+i.icomoon.icon-EligiblePin:before {
+    font-size: 2rem;
+    color: #3460e8;
+    line-height: 1.9rem;
+    margin-left: 3px;
+    float: left;
+}
+
+i.icomoon.icon-NotEligiblePin:before {
+    font-size: 2rem;
+    color: #696f73;
+    line-height: 1.9rem;
+    margin-left: 3px;
+    float: left;
+}
+
 .list-text {
     float: left;
     line-height: 2rem;
@@ -4612,9 +4646,21 @@ i.icomoon.icon-Location:before {
     left: 10px;
     top: 4px;
 }
+.bahhi-map .mixed-marker {
+    background-image: url("images/mixed-marker-bahhi.png");
+    display: inline-block;
+    background-size: 17px 22px;
+    position: absolute;
+    width: 17px;
+    height: 22px;
+    left: 10px;
+    top: 4px;
+}
 
 ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li i.icomoon.icon-LocationOverburdened,
-ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li i.icomoon.icon-LocationNotOverburdened {
+ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li i.icomoon.icon-LocationNotOverburdened,
+ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li i.icomoon.icon-Eligible,
+ul.baaqmd-maps-legend.baaqmd-maps-boundaries.impacted-communities li i.icomoon.icon-NotEligible {
     float: left;
     margin-left: 1px;
     margin-right: -1px;

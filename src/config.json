@@ -21,7 +21,7 @@
     "aboutOverburdenedCommunitiesURL": "Utils/Interactive-Map-Content/Overburdened-Info",
     "pinLocationsHelpURL": "Utils/Interactive-Map-Content/Pin-Locations-Help",
     "bahhiPinLocationsHelpURL": "Utils/Interactive-Map-Content/bahhi-help",
-    "aboutBAHHIEligibilityURL": "Utils/Interactive-Map-Content/bahhi-more-information",
+    "aboutBAHHIEligibilityURL": "utils/interactive-map-content/bahhi-more-information-formatted",
     "aboutFacilitiesURL": "Utils/Interactive-Map-Content/About-Facility",
     "summerModalURL": "Utils/Interactive-Map-Content/Summer-Modal-Content",
     "winterModalURL": "Utils/Interactive-Map-Content/Winter-Modal-Content",
