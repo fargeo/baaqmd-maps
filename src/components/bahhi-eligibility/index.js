@@ -195,7 +195,7 @@ export default ko.components.register('BAHHIEligibility', {
                 source: 'eligible-pins',
                 filter: ['==', ['get', 'eligible'], true],
                 layout: {
-                    'icon-image': 'LocationOverburdened',
+                    'icon-image': 'EligiblePin',
                     'icon-allow-overlap': true,
                     'icon-ignore-placement': true,
                     'icon-anchor': 'bottom',
@@ -209,7 +209,7 @@ export default ko.components.register('BAHHIEligibility', {
                 source: 'eligible-pins',
                 filter: ['==', ['get', 'eligible'], false],
                 layout: {
-                    'icon-image': 'LocationNotOverburdened',
+                    'icon-image': 'NotEligiblePin',
                     'icon-allow-overlap': true,
                     'icon-ignore-placement': true,
                     'icon-anchor': 'bottom',
